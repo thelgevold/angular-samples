@@ -16,13 +16,11 @@ var TreeView = (function () {
     TreeView = __decorate([
         angular2_1.Component({
             selector: 'tree-view',
-            properties: {
-                'directories': 'directories'
-            }
+            properties: ['directories: directories']
         }),
         angular2_1.View({
             templateUrl: './components/tree-view/tree-view.html',
-            directives: [angular2_1.For, TreeView, angular2_1.If]
+            directives: [angular2_1.NgFor, TreeView, angular2_1.NgIf]
         }), 
         __metadata('design:paramtypes', [])
     ], TreeView);

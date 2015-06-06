@@ -30,7 +30,7 @@ var ContactList = (function () {
         }),
         angular2_1.View({
             templateUrl: './components/contact-list/contact-list.html',
-            directives: [angular2_1.For]
+            directives: [angular2_1.NgFor]
         }), 
         __metadata('design:paramtypes', [])
     ], ContactList);

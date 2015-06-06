@@ -1,11 +1,11 @@
 <ul>
-    <li *for="#dir of directories">
+    <li *ng-for="#dir of directories">
 
         <span><input type="checkbox" [checked]="dir.checked" (click)="dir.check()" /></span> <span (click)="dir.toggle()">{{ dir.name }}</span>
 
-        <div *if="dir.expanded">
+        <div *ng-if="dir.expanded">
 
-            <ul *for="#file of dir.files">
+            <ul *ng-for="#file of dir.files">
                 {{file}}
             </ul>
 

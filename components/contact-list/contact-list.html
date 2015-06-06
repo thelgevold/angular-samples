@@ -7,7 +7,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *for="#contact of contacts" style="margin-bottom: 10px;">
+            <tr *ng-for="#contact of contacts" style="margin-bottom: 10px;">
                 <td>{{contact.descr}}</td> <td><button class="btn btn-primary btn-xs" (click)="removeContact(contact)">Delete</button></td>
             </tr>
         </tbody>

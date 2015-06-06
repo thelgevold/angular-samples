@@ -1,6 +1,6 @@
 /// <reference path="../../typings/angular2/angular2.d.ts" />
 
-import {Component, View, For} from 'angular2/angular2';
+import {Component, View, NgFor} from 'angular2/angular2';
 import {Contact} from './contact';
 
 @Component({
@@ -9,7 +9,7 @@ import {Contact} from './contact';
 
 @View({
     templateUrl: './components/contact-list/contact-list.html',
-    directives: [For]
+    directives: [NgFor]
 })
 
 export class ContactList {
