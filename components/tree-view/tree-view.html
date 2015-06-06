@@ -1,0 +1,17 @@
+<ul>
+    <li *for="#dir of directories">
+
+        <span><input type="checkbox" [checked]="dir.checked" (click)="dir.check()" /></span> <span (click)="dir.toggle()">{{ dir.name }}</span>
+
+        <div *if="dir.expanded">
+
+            <ul *for="#file of dir.files">
+                {{file}}
+            </ul>
+
+            <tree-view [directories]="dir.directories"></tree-view>
+
+        </div>
+
+    </li>
+</ul>

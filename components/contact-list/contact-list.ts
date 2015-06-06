@@ -1,0 +1,31 @@
+/// <reference path="../../typings/angular2/angular2.d.ts" />
+
+import {Component, View, For} from 'angular2/angular2';
+import {Contact} from './contact';
+
+@Component({
+    selector: 'contact-list'
+})
+
+@View({
+    templateUrl: './components/contact-list/contact-list.html',
+    directives: [For]
+})
+
+export class ContactList {
+    contacts: Array<Contact>;
+
+    constructor(){
+        this.contacts = [];
+    }
+
+    addContact(name,phone){
+        let contact = new Contact(name,phone);
+        this.contacts.push(contact);
+    }
+
+    removeContact(contact){
+        var index = this.contacts.indexOf(contact);
+        this.contacts.splice(index,1);
+    }
+}

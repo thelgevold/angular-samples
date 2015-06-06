@@ -1,0 +1,15 @@
+
+<h4>Contacts</h4>
+<div>
+
+    <table>
+        <tr *for="#contact of contacts" style="margin-bottom: 10px;">
+            <td>{{contact.descr}}</td> <td><button (click)="removeContact(contact)">Delete</button></td>
+        </tr>
+    </table>
+
+    <input #name placeholder="name" />
+    <input #phone placeholder="phone" />
+    <button (click)="addContact(name.value,phone.value)">Add Contact</button>
+
+</div>
