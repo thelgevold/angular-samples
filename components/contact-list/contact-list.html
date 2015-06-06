@@ -2,14 +2,22 @@
 <h4>Contacts</h4>
 <div>
 
-    <table>
-        <tr *for="#contact of contacts" style="margin-bottom: 10px;">
-            <td>{{contact.descr}}</td> <td><button class="btn btn-primary btn-xs" (click)="removeContact(contact)">Delete</button></td>
-        </tr>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Name and phone number</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *for="#contact of contacts" style="margin-bottom: 10px;">
+                <td>{{contact.descr}}</td> <td><button class="btn btn-primary btn-xs" (click)="removeContact(contact)">Delete</button></td>
+            </tr>
+        </tbody>
     </table>
 
-    <input #name placeholder="name" />
-    <input #phone placeholder="phone" />
-    <button class="btn btn-primary btn-xs" (click)="addContact(name.value,phone.value)">Add Contact</button>
-
+    <div class="addContactControls">
+        <input #name placeholder="name" />
+        <input #phone placeholder="phone" />
+        <button class="btn btn-primary btn-xs" (click)="addContact(name.value,phone.value)">Add Contact</button>
+    </div>
 </div>
