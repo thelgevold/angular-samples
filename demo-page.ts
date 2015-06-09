@@ -1,6 +1,7 @@
 import {Component, View} from 'angular2/angular2';
 import {TreeView} from './components/tree-view/tree-view';
 import {ContactList} from './components/contact-list/contact-list';
+import {BoundTextbox} from './components/bound-textbox/bound-textbox';
 import {Directory} from './components/tree-view/directory';
 
 @Component({
@@ -9,7 +10,7 @@ import {Directory} from './components/tree-view/directory';
 
 @View({
     templateUrl: './demo-page.html',
-    directives: [ContactList,TreeView]
+    directives: [ContactList, TreeView, BoundTextbox]
 })
 
 export class DemoPage {

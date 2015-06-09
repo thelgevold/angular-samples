@@ -12,6 +12,7 @@ if (typeof __metadata !== "function") __metadata = function (k, v) {
 var angular2_1 = require('angular2/angular2');
 var tree_view_1 = require('./components/tree-view/tree-view');
 var contact_list_1 = require('./components/contact-list/contact-list');
+var bound_textbox_1 = require('./components/bound-textbox/bound-textbox');
 var directory_1 = require('./components/tree-view/directory');
 var DemoPage = (function () {
     function DemoPage() {
@@ -31,7 +32,7 @@ var DemoPage = (function () {
         }),
         angular2_1.View({
             templateUrl: './demo-page.html',
-            directives: [contact_list_1.ContactList, tree_view_1.TreeView]
+            directives: [contact_list_1.ContactList, tree_view_1.TreeView, bound_textbox_1.BoundTextbox]
         }), 
         __metadata('design:paramtypes', [])
     ], DemoPage);
