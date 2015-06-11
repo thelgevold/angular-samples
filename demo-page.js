@@ -14,10 +14,29 @@ var tree_view_1 = require('./components/tree-view/tree-view');
 var contact_list_1 = require('./components/contact-list/contact-list');
 var bound_textbox_1 = require('./components/bound-textbox/bound-textbox');
 var directory_1 = require('./components/tree-view/directory');
+var grid_1 = require('./components/grid/grid');
+var column_1 = require('./components/grid/column');
 var DemoPage = (function () {
     function DemoPage() {
         this.loadDirectories();
+        this.people = this.getPeople();
+        this.columns = this.getColumns();
     }
+    DemoPage.prototype.getPeople = function () {
+        var people = [];
+        people.push({ firstName: 'Joe', lastName: 'Jackson', age: 20 });
+        people.push({ firstName: 'Peter', lastName: 'Smith', age: 30 });
+        people.push({ firstName: 'Jane', lastName: 'Doe', age: 50 });
+        people.push({ firstName: 'Tim', lastName: 'Smith', age: 80 });
+        return people;
+    };
+    DemoPage.prototype.getColumns = function () {
+        var columns = [];
+        columns.push(new column_1.Column('firstName', 'First Name'));
+        columns.push(new column_1.Column('lastName', 'Last Name'));
+        columns.push(new column_1.Column('age', 'Age'));
+        return columns;
+    };
     DemoPage.prototype.loadDirectories = function () {
         this.directories = [];
         var fall2014 = new directory_1.Directory('Fall 2014', [], ['image1.jpg', 'image2.jpg', 'image3.jpg']);
@@ -32,7 +51,7 @@ var DemoPage = (function () {
         }),
         angular2_1.View({
             templateUrl: './demo-page.html',
-            directives: [contact_list_1.ContactList, tree_view_1.TreeView, bound_textbox_1.BoundTextbox]
+            directives: [contact_list_1.ContactList, tree_view_1.TreeView, bound_textbox_1.BoundTextbox, grid_1.Grid]
         }), 
         __metadata('design:paramtypes', [])
     ], DemoPage);

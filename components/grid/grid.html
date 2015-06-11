@@ -1,0 +1,13 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td *ng-for="#col of columns"><a (click)="sort(col.name)">{{col.descr}}</a></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ng-for="#row of rows">
+            <td *ng-for="#col of columns">{{row[col.name]}}</td>
+        </tr>
+    </tbody>
+
+</table>
