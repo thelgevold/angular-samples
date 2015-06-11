@@ -20,8 +20,6 @@ export class Grid {
     sorter: Sorter;
 
     constructor(){
-        this.columns = new Array<Column>();
-        this.rows = new Array<any>();
         this.sorter = new Sorter();
     }
 

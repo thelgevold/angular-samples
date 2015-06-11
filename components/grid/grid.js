@@ -13,8 +13,6 @@ var angular2_1 = require('angular2/angular2');
 var sorter_1 = require('./sorter');
 var Grid = (function () {
     function Grid() {
-        this.columns = new Array();
-        this.rows = new Array();
         this.sorter = new sorter_1.Sorter();
     }
     Grid.prototype.sort = function (key) {
