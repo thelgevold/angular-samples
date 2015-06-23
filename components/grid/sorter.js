@@ -5,7 +5,7 @@ var Sorter = (function () {
     Sorter.prototype.sort = function (key, data) {
         var _this = this;
         if (this.key === key) {
-            this.direction = this.direction * -1;
+            this.direction = -this.direction;
         }
         else {
             this.direction = 1;
@@ -16,10 +16,10 @@ var Sorter = (function () {
                 return 0;
             }
             else if (a[key] > b[key]) {
-                return 1 * _this.direction;
+                return _this.direction;
             }
             else {
-                return -1 * _this.direction;
+                return -_this.direction;
             }
         });
     };

@@ -11,19 +11,15 @@ import {Contact} from './contact';
 })
 
 export class ContactList {
-    contacts: Array<Contact>;
+    contacts: Array<Contact> = [];
 
-    constructor(){
-        this.contacts = [];
-    }
-
-    addContact(name,phone){
-        let contact = new Contact(name,phone);
+    addContact(name:string,phone:string){
+        const contact = new Contact(name,phone);
         this.contacts.push(contact);
     }
 
     removeContact(contact){
-        var index = this.contacts.indexOf(contact);
+        const index = this.contacts.indexOf(contact);
         this.contacts.splice(index,1);
     }
 }

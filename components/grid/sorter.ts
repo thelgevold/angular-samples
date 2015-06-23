@@ -7,10 +7,10 @@ export class Sorter{
         this.direction = 1;
     }
 
-    sort(key,data){
+    sort(key:string,data:any[]){
 
         if(this.key === key){
-            this.direction = this.direction * -1;
+            this.direction = -this.direction;
         }
         else{
             this.direction = 1;
@@ -23,10 +23,10 @@ export class Sorter{
                 return 0;
             }
             else if(a[key] > b[key]){
-                return 1 * this.direction;
+                return this.direction;
             }
             else{
-                return -1 * this.direction;
+                return -this.direction;
             }
         });
     }
