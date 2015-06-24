@@ -1,3 +1,4 @@
+/// <reference path="./typings/tsd.d.ts" />
 import {Component, View} from 'angular2/angular2';
 import {TreeView} from './components/tree-view/tree-view';
 import {ContactList} from './components/contact-list/contact-list';
@@ -17,7 +18,7 @@ import {Column} from './components/grid/column';
 
 export class DemoPage {
     directories: Array<Directory>;
-    people: Array<any>;
+    people: Array<Person>;
     columns: Array<Column>;
 
     constructor(){
@@ -27,37 +28,38 @@ export class DemoPage {
         this.columns = this.getColumns();
     }
 
-    getPeople(){
-        let people = [];
-        people.push({firstName:'Joe',lastName:'Jackson',age:20});
-        people.push({firstName:'Peter',lastName:'Smith',age:30});
-        people.push({firstName:'Jane',lastName:'Doe',age:50});
-        people.push({firstName:'Tim',lastName:'Smith',age:80});
-
-        return people;
+    getPeople(): Array<Person> {
+        return [
+            {firstName:'Joe',lastName:'Jackson',age:20},
+            {firstName:'Peter',lastName:'Smith',age:30},
+            {firstName:'Jane',lastName:'Doe',age:50},
+            {firstName:'Tim',lastName:'Smith',age:80}
+        ];
     }
 
-    getColumns(){
-        let columns = [];
-
-        columns.push(new Column('firstName','First Name'));
-        columns.push(new Column('lastName','Last Name'));
-        columns.push(new Column('age','Age'));
-
-        return columns;
+    getColumns(): Array<Column> {
+        return [
+            new Column('firstName','First Name'),
+            new Column('lastName','Last Name'),
+            new Column('age','Age')
+        ];
     }
 
     loadDirectories(){
 
-        this.directories = [];
+        const fall2014 = new Directory('Fall 2014',[],['image1.jpg','image2.jpg','image3.jpg']);
+        const summer2014 = new Directory('Summer 2014',[],['image10.jpg','image20.jpg','image30.jpg']);
+        const pics = new Directory('Pictures',[summer2014,fall2014],[]);
 
-        let fall2014 = new Directory('Fall 2014',[],['image1.jpg','image2.jpg','image3.jpg']);
-        let summer2014 = new Directory('Summer 2014',[],['image10.jpg','image20.jpg','image30.jpg']);
-        let pics = new Directory('Pictures',[summer2014,fall2014],[]);
+        const music = new Directory('Music',[],['song1.mp3','song2.mp3']);
 
-        let music = new Directory('Music',[],['song1.mp3','song2.mp3']);
-
-        this.directories = [pics,music]
+        this.directories = [pics,music];
     }
 
+}
+
+interface Person {
+    firstName:string;
+    lastName:string;
+    age:number;
 }

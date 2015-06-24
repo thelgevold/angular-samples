@@ -11,11 +11,7 @@ import {Component, View} from 'angular2/angular2';
 
 export class BoundTextbox {
 
-    text:string;
-
-    constructor(){
-        this.text = 'hello';
-    }
+    text = 'hello';
 
     typing($event){
         this.text = $event.target.value;

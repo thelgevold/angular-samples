@@ -1,17 +1,11 @@
 export class Directory{
 
-    name: string;
-    directories: Array<Directory>;
-    files: Array<string>;
-    expanded:boolean;
-    checked:boolean;
+    expanded = true;
+    checked = false;
 
-    constructor(name,directories,files) {
-        this.name = name;
-        this.files = files;
-        this.directories = directories;
-        this.expanded = true;
-        this.checked = false;
+    constructor(public name:string,
+                public directories:Array<Directory>,
+                public files:Array<string>) {
     }
 
     toggle(){
@@ -19,16 +13,14 @@ export class Directory{
     }
 
     check(){
-        let newState = !this.checked;
-        this.checked = newState;
-
-        this.checkRecursive(newState);
+        this.checked = !this.checked;
+        this.checkRecursive(this.checked);
     }
 
-    checkRecursive(state){
+    checkRecursive(state:boolean){
         this.directories.forEach(d => {
             d.checked = state;
             d.checkRecursive(state);
-        })
+        });
     }
 }

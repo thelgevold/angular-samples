@@ -1,13 +1,7 @@
 export class Contact{
 
-    name: string;
-    phone: string;
-    descr: string;
+    descr = this.name + ' ' + this.phone;
 
-    constructor(name,phone){
-
-        this.name = name;
-        this.phone = phone;
-        this.descr = this.name + ' ' + this.phone;
+    constructor(public name:string, public phone:string){
     }
 }

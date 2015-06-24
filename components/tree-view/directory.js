@@ -1,8 +1,8 @@
 var Directory = (function () {
     function Directory(name, directories, files) {
         this.name = name;
-        this.files = files;
         this.directories = directories;
+        this.files = files;
         this.expanded = true;
         this.checked = false;
     }
@@ -10,9 +10,8 @@ var Directory = (function () {
         this.expanded = !this.expanded;
     };
     Directory.prototype.check = function () {
-        var newState = !this.checked;
-        this.checked = newState;
-        this.checkRecursive(newState);
+        this.checked = !this.checked;
+        this.checkRecursive(this.checked);
     };
     Directory.prototype.checkRecursive = function (state) {
         this.directories.forEach(function (d) {
