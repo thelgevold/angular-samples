@@ -17,6 +17,7 @@ var bound_textbox_1 = require('./components/bound-textbox/bound-textbox');
 var directory_1 = require('./components/tree-view/directory');
 var grid_1 = require('./components/grid/grid');
 var column_1 = require('./components/grid/column');
+var core_directives_1 = require('./components/core-directives/core-directives');
 var DemoPage = (function () {
     function DemoPage() {
         this.loadDirectories();
@@ -51,7 +52,7 @@ var DemoPage = (function () {
         }),
         angular2_1.View({
             templateUrl: './demo-page.html',
-            directives: [contact_list_1.ContactList, tree_view_1.TreeView, bound_textbox_1.BoundTextbox, grid_1.Grid]
+            directives: [contact_list_1.ContactList, tree_view_1.TreeView, bound_textbox_1.BoundTextbox, grid_1.Grid, core_directives_1.CoreDirectives]
         }), 
         __metadata('design:paramtypes', [])
     ], DemoPage);

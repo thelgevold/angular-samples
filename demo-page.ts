@@ -6,6 +6,7 @@ import {BoundTextbox} from './components/bound-textbox/bound-textbox';
 import {Directory} from './components/tree-view/directory';
 import {Grid} from './components/grid/grid';
 import {Column} from './components/grid/column';
+import {CoreDirectives} from './components/core-directives/core-directives';
 
 @Component({
     selector: 'demo-page'
@@ -13,7 +14,7 @@ import {Column} from './components/grid/column';
 
 @View({
     templateUrl: './demo-page.html',
-    directives: [ContactList, TreeView, BoundTextbox, Grid]
+    directives: [ContactList, TreeView, BoundTextbox, Grid, CoreDirectives]
 })
 
 export class DemoPage {
