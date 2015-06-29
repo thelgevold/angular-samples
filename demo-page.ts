@@ -7,6 +7,7 @@ import {Directory} from './components/tree-view/directory';
 import {Grid} from './components/grid/grid';
 import {Column} from './components/grid/column';
 import {CoreDirectives} from './components/core-directives/core-directives';
+import {IgnoreBindings} from './components/non-bindable/non-bindable';
 
 @Component({
     selector: 'demo-page'
@@ -14,7 +15,7 @@ import {CoreDirectives} from './components/core-directives/core-directives';
 
 @View({
     templateUrl: './demo-page.html',
-    directives: [ContactList, TreeView, BoundTextbox, Grid, CoreDirectives]
+    directives: [ContactList, TreeView, BoundTextbox, Grid, CoreDirectives, IgnoreBindings]
 })
 
 export class DemoPage {
