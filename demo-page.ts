@@ -1,5 +1,5 @@
 /// <reference path="./typings/tsd.d.ts" />
-import {Component, View} from 'angular2/angular2';
+import {Component, View, NgIf, CSSClass} from 'angular2/angular2';
 import {TreeView} from './components/tree-view/tree-view';
 import {ContactList} from './components/contact-list/contact-list';
 import {BoundTextbox} from './components/bound-textbox/bound-textbox';
@@ -15,19 +15,35 @@ import {IgnoreBindings} from './components/non-bindable/non-bindable';
 
 @View({
     templateUrl: './demo-page.html',
-    directives: [ContactList, TreeView, BoundTextbox, Grid, CoreDirectives, IgnoreBindings]
+    directives: [ContactList, TreeView, BoundTextbox, Grid, CoreDirectives, IgnoreBindings, NgIf, CSSClass]
 })
 
 export class DemoPage {
     directories: Array<Directory>;
     people: Array<Person>;
     columns: Array<Column>;
+    currentComponent: string;
 
     constructor(){
 
+        this.currentComponent = 'grid';
         this.loadDirectories();
         this.people = this.getPeople();
         this.columns = this.getColumns();
+    }
+
+    selectComponent(component){
+        this.currentComponent = component;
+    }
+
+    isActive(component){
+        return component === this.currentComponent;
+    }
+
+    getActiveClass(component){
+        if(this.isActive(component)){
+            return 'active';
+        }
     }
 
     getPeople(): Array<Person> {

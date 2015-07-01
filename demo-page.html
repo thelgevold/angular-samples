@@ -1,77 +1,97 @@
 <div class="container">
 
-    <h1>Angular 2.0 sample components</h1>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Data Grid</h3>
-        </div>
-        <div class="panel-body">
-            <div class="alert alert-info" role="alert">
-                Sortable data grid with dynamic columns
-            </div>
-            <grid [rows]="people" [columns]="columns"></grid>
-        </div>
+    <div class="jumbotron">
+        <h1>Angular 2.0 sample components</h1>
+        <p>
+            More documentation about each specific component can be found
+            <a href="http://www.syntaxsuccess.com/viewarticle/angular-2.0-examples">here</a>.
+        </p>
     </div>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Recursive tree view</h3>
+    <div>
+        <div class="list-group col-md-3">
+            <a (click)="selectComponent('grid')" [class]="getActiveClass('grid')" class="list-group-item">Data Grid</a>
+            <a (click)="selectComponent('treeview')" [class]="getActiveClass('treeview')" class="list-group-item">Recursive tree view</a>
+            <a (click)="selectComponent('contact-list')" [class]="getActiveClass('contact-list')" class="list-group-item">Interactive contact list</a>
+            <a (click)="selectComponent('bound-textbox')" [class]="getActiveClass('bound-textbox')" class="list-group-item">Bound Textbox</a>
+            <a (click)="selectComponent('core-directives')" [class]="getActiveClass('core-directives')" class="list-group-item">Core Directives</a>
+            <a (click)="selectComponent('non-bindable')" [class]="getActiveClass('non-bindable')" class="list-group-item">Non Bindable</a>
         </div>
-        <div class="panel-body">
-            <div class="alert alert-info" role="alert">
-                Treeview with recursive template and support for click events for expand/collapse and node selection
+
+        <div class="col-md-9">
+
+            <div class="panel panel-default" *ng-if="isActive('grid')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Data Grid</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Sortable data grid with dynamic columns
+                    </div>
+                    <grid [rows]="people" [columns]="columns"></grid>
+                </div>
             </div>
-            <tree-view [directories]=directories></tree-view>
+
+            <div class="panel panel-default" *ng-if="isActive('treeview')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Recursive tree view</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Treeview with recursive template and support for click events for expand/collapse and node selection
+                    </div>
+                    <tree-view [directories]=directories></tree-view>
+                </div>
+            </div>
+
+            <div class="panel panel-default" *ng-if="isActive('contact-list')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Interactive contact list</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Interactive Angular 2.0 code. Contacts can be entered, added and removed from the list
+                    </div>
+                    <contact-list></contact-list>
+                </div>
+            </div>
+
+            <div class="panel panel-default" *ng-if="isActive('bound-textbox')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Bound Textbox</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Textbox with bound value
+                    </div>
+                    <bound-textbox></bound-textbox>
+                </div>
+            </div>
+
+            <div class="panel panel-default" *ng-if="isActive('core-directives')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Core Directives</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Component where all core directives are imported using 'coreDirectives'. Uses a for loop and an if to print even numbers.
+                    </div>
+                    <core-directives></core-directives>
+                </div>
+            </div>
+
+            <div class="panel panel-default" *ng-if="isActive('non-bindable')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Non Bindable</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Shows how to use non-bindable to tell Angular to not compile or bind the contents of a DOM element.
+                    </div>
+                    <ignore-bindings></ignore-bindings>
+                </div>
+            </div>
+
         </div>
     </div>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Interactive contact list</h3>
-        </div>
-        <div class="panel-body">
-            <div class="alert alert-info" role="alert">
-                Interactive Angular 2.0 code. Contacts can be entered, added and removed from the list
-            </div>
-            <contact-list></contact-list>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Bound Textbox</h3>
-        </div>
-        <div class="panel-body">
-            <div class="alert alert-info" role="alert">
-                Textbox with bound value
-            </div>
-            <bound-textbox></bound-textbox>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Core Directives</h3>
-        </div>
-        <div class="panel-body">
-            <div class="alert alert-info" role="alert">
-                Component where all core directives are imported using 'coreDirectives'. Uses a for loop and an if to print even numbers.
-            </div>
-            <core-directives></core-directives>
-        </div>
-    </div>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Non Bindable</h3>
-        </div>
-        <div class="panel-body">
-            <div class="alert alert-info" role="alert">
-               Shows how to use non-bindable to tell Angular to not compile or bind the contents of a DOM element.
-            </div>
-            <ignore-bindings></ignore-bindings>
-        </div>
-    </div>
-
 </div>

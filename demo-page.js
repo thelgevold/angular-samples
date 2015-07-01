@@ -21,10 +21,22 @@ var core_directives_1 = require('./components/core-directives/core-directives');
 var non_bindable_1 = require('./components/non-bindable/non-bindable');
 var DemoPage = (function () {
     function DemoPage() {
+        this.currentComponent = 'grid';
         this.loadDirectories();
         this.people = this.getPeople();
         this.columns = this.getColumns();
     }
+    DemoPage.prototype.selectComponent = function (component) {
+        this.currentComponent = component;
+    };
+    DemoPage.prototype.isActive = function (component) {
+        return component === this.currentComponent;
+    };
+    DemoPage.prototype.getActiveClass = function (component) {
+        if (this.isActive(component)) {
+            return 'active';
+        }
+    };
     DemoPage.prototype.getPeople = function () {
         return [
             { firstName: 'Joe', lastName: 'Jackson', age: 20 },
@@ -53,7 +65,7 @@ var DemoPage = (function () {
         }),
         angular2_1.View({
             templateUrl: './demo-page.html',
-            directives: [contact_list_1.ContactList, tree_view_1.TreeView, bound_textbox_1.BoundTextbox, grid_1.Grid, core_directives_1.CoreDirectives, non_bindable_1.IgnoreBindings]
+            directives: [contact_list_1.ContactList, tree_view_1.TreeView, bound_textbox_1.BoundTextbox, grid_1.Grid, core_directives_1.CoreDirectives, non_bindable_1.IgnoreBindings, angular2_1.NgIf, angular2_1.CSSClass]
         }), 
         __metadata('design:paramtypes', [])
     ], DemoPage);
