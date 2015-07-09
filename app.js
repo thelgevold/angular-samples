@@ -12,19 +12,31 @@ if (typeof __metadata !== "function") __metadata = function (k, v) {
 };
 var angular2_1 = require('angular2/angular2');
 var demo_page_1 = require('./demo-page');
+var about_1 = require('./components/about/about');
+var router_1 = require('angular2/router');
+var router_2 = require('angular2/router');
 var MyDemoApp = (function () {
-    function MyDemoApp() {
+    function MyDemoApp(router, location) {
+        this.router = router;
+        this.location = location;
     }
+    MyDemoApp.prototype.getLinkStyle = function (p) {
+        return this.location.path() === p;
+    };
     MyDemoApp = __decorate([
         angular2_1.Component({
             selector: 'demo-app'
         }),
         angular2_1.View({
-            template: '<demo-page></demo-page>',
-            directives: [demo_page_1.DemoPage]
-        }), 
-        __metadata('design:paramtypes', [])
+            templateUrl: './demo-app.html',
+            directives: [demo_page_1.DemoPage, router_2.RouterLink, router_2.RouterOutlet, about_1.About]
+        }),
+        router_2.RouteConfig([
+            { path: '/', component: demo_page_1.DemoPage, as: 'home' },
+            { path: '/about/:id', component: about_1.About, as: 'about' }
+        ]), 
+        __metadata('design:paramtypes', [router_2.Router, router_2.Location])
     ], MyDemoApp);
     return MyDemoApp;
 })();
-angular2_1.bootstrap(MyDemoApp);
+angular2_1.bootstrap(MyDemoApp, [router_1.routerInjectables, angular2_1.bind(router_1.LocationStrategy).toClass(router_1.HashLocationStrategy)]);
