@@ -2,11 +2,8 @@
 
 import {Component, View, bootstrap, bind} from 'angular2/angular2';
 import{DemoPage} from './demo-page';
-
 import{About} from './components/about/about';
-
 import {routerInjectables, LocationStrategy, HashLocationStrategy} from 'angular2/router';
-
 import {RouterLink, RouteConfig, Router, RouterOutlet, Location, RouteParams} from 'angular2/router';
 
 @Component({
@@ -33,11 +30,9 @@ class MyDemoApp {
         this.location = location;
     }
 
-    getLinkStyle(p) {
-
-        return this.location.path() === p;
+    getLinkStyle(path) {
+        return this.location.path() === path;
     }
-
 }
 
 bootstrap(MyDemoApp,[routerInjectables, bind(LocationStrategy).toClass(HashLocationStrategy)]);

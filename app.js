@@ -20,8 +20,8 @@ var MyDemoApp = (function () {
         this.router = router;
         this.location = location;
     }
-    MyDemoApp.prototype.getLinkStyle = function (p) {
-        return this.location.path() === p;
+    MyDemoApp.prototype.getLinkStyle = function (path) {
+        return this.location.path() === path;
     };
     MyDemoApp = __decorate([
         angular2_1.Component({
