@@ -8,6 +8,7 @@ import {Grid} from './components/grid/grid';
 import {Column} from './components/grid/column';
 import {CoreDirectives} from './components/core-directives/core-directives';
 import {IgnoreBindings} from './components/non-bindable/non-bindable';
+import {Greeting} from './components/greeting/greeting';
 
 @Component({
     selector: 'demo-page'
@@ -15,7 +16,7 @@ import {IgnoreBindings} from './components/non-bindable/non-bindable';
 
 @View({
     templateUrl: './demo-page.html',
-    directives: [ContactList, TreeView, BoundTextbox, Grid, CoreDirectives, IgnoreBindings, NgIf, CSSClass]
+    directives: [Greeting, ContactList, TreeView, BoundTextbox, Grid, CoreDirectives, IgnoreBindings, NgIf, CSSClass]
 })
 
 export class DemoPage {

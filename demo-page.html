@@ -16,6 +16,7 @@
             <a (click)="selectComponent('bound-textbox')" [class]="getActiveClass('bound-textbox')" class="list-group-item">Bound Textbox</a>
             <a (click)="selectComponent('core-directives')" [class]="getActiveClass('core-directives')" class="list-group-item">Core Directives</a>
             <a (click)="selectComponent('non-bindable')" [class]="getActiveClass('non-bindable')" class="list-group-item">Non Bindable</a>
+            <a (click)="selectComponent('greeting')" [class]="getActiveClass('greeting')" class="list-group-item">Greeting</a>
         </div>
 
         <div class="col-md-9">
@@ -89,6 +90,18 @@
                         Shows how to use non-bindable to tell Angular to not compile or bind the contents of a DOM element.
                     </div>
                     <ignore-bindings></ignore-bindings>
+                </div>
+            </div>
+
+            <div class="panel panel-default" *ng-if="isActive('greeting')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Greeting</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Creates a simple greeting on Button Click
+                    </div>
+                    <greeting [name]="'Joe Smith'"></greeting>
                 </div>
             </div>
 
