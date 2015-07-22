@@ -6,6 +6,8 @@ import{About} from './components/about/about';
 import {routerInjectables, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {RouterLink, RouteConfig, Router, RouterOutlet, Location, RouteParams} from 'angular2/router';
 
+import {httpInjectables} from 'angular2/http';
+
 @Component({
    selector: 'demo-app'
 })
@@ -35,4 +37,4 @@ class MyDemoApp {
     }
 }
 
-bootstrap(MyDemoApp,[routerInjectables, bind(LocationStrategy).toClass(HashLocationStrategy)]);
+bootstrap(MyDemoApp,[httpInjectables,routerInjectables, bind(LocationStrategy).toClass(HashLocationStrategy)]);

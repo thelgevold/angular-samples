@@ -15,6 +15,7 @@ var demo_page_1 = require('./demo-page');
 var about_1 = require('./components/about/about');
 var router_1 = require('angular2/router');
 var router_2 = require('angular2/router');
+var http_1 = require('angular2/http');
 var MyDemoApp = (function () {
     function MyDemoApp(router, location) {
         this.router = router;
@@ -39,4 +40,4 @@ var MyDemoApp = (function () {
     ], MyDemoApp);
     return MyDemoApp;
 })();
-angular2_1.bootstrap(MyDemoApp, [router_1.routerInjectables, angular2_1.bind(router_1.LocationStrategy).toClass(router_1.HashLocationStrategy)]);
+angular2_1.bootstrap(MyDemoApp, [http_1.httpInjectables, router_1.routerInjectables, angular2_1.bind(router_1.LocationStrategy).toClass(router_1.HashLocationStrategy)]);

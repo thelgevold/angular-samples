@@ -11,6 +11,7 @@
     <div>
         <div class="list-group col-md-3">
             <a (click)="selectComponent('grid')" [class]="getActiveClass('grid')" class="list-group-item">Data Grid</a>
+            <a (click)="selectComponent('http')" [class]="getActiveClass('http')" class="list-group-item">Http</a>
             <a (click)="selectComponent('treeview')" [class]="getActiveClass('treeview')" class="list-group-item">Recursive tree view</a>
             <a (click)="selectComponent('contact-list')" [class]="getActiveClass('contact-list')" class="list-group-item">Interactive contact list</a>
             <a (click)="selectComponent('bound-textbox')" [class]="getActiveClass('bound-textbox')" class="list-group-item">Bound Textbox</a>
@@ -42,6 +43,18 @@
                         Treeview with recursive template and support for click events for expand/collapse and node selection
                     </div>
                     <tree-view [directories]=directories></tree-view>
+                </div>
+            </div>
+
+            <div class="panel panel-default" *ng-if="isActive('http')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Http sample</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Simple http request
+                    </div>
+                    <http></http>
                 </div>
             </div>
 
