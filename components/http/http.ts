@@ -14,10 +14,12 @@ import {Http} from 'angular2/http';
 export class HttpSample {
 
     result: Object;
+    error: Object;
 
     constructor(http: Http) {
         this.result = {friends:[]};
-        ObservableWrapper.subscribe(http.get('./friends.json'), res => this.result = res.json());
+ 
+        http.get('./friends.json').toRx().subscribe(res => this.result = res.json());
     }
 
 }

@@ -10,13 +10,12 @@ if (typeof __metadata !== "function") __metadata = function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var async_1 = require('angular2/src/facade/async');
 var http_1 = require('angular2/http');
 var HttpSample = (function () {
     function HttpSample(http) {
         var _this = this;
         this.result = { friends: [] };
-        async_1.ObservableWrapper.subscribe(http.get('./friends.json'), function (res) { return _this.result = res.json(); });
+        http.get('./friends.json').toRx().subscribe(function (res) { return _this.result = res.json(); });
     }
     HttpSample = __decorate([
         angular2_1.Component({
