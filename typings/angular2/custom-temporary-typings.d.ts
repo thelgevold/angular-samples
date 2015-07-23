@@ -7,17 +7,6 @@ declare module "angular2/http" {
     class Http {
         get(url: string): any;
     }
-    var httpInjectables: Array<any>;
+    var httpInjectables: Array<any>; 
 }
 
-declare module 'angular2/src/facade/async' {
-
-    export class Observable {
-        observer(generator: any): Object;
-    }
-
-    export class ObservableWrapper{
-        static subscribe<T>(emitter: Observable, onNext: (value: any) => void):any;
-    }
-
-}
