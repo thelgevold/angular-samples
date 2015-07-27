@@ -1,5 +1,5 @@
 /// <reference path="typings/angular2/angular2.d.ts" />
-if (typeof __decorate !== "function") __decorate = function (decorators, target, key, desc) {
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
         case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
@@ -7,7 +7,7 @@ if (typeof __decorate !== "function") __decorate = function (decorators, target,
         case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
     }
 };
-if (typeof __metadata !== "function") __metadata = function (k, v) {
+var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
@@ -15,7 +15,6 @@ var demo_page_1 = require('./demo-page');
 var about_1 = require('./components/about/about');
 var router_1 = require('angular2/router');
 var router_2 = require('angular2/router');
-var http_1 = require('angular2/http');
 var MyDemoApp = (function () {
     function MyDemoApp(router, location) {
         this.router = router;
@@ -40,4 +39,4 @@ var MyDemoApp = (function () {
     ], MyDemoApp);
     return MyDemoApp;
 })();
-angular2_1.bootstrap(MyDemoApp, [http_1.httpInjectables, router_1.routerInjectables, angular2_1.bind(router_1.LocationStrategy).toClass(router_1.HashLocationStrategy)]);
+angular2_1.bootstrap(MyDemoApp, [angular2_1.httpInjectables, router_1.routerInjectables, angular2_1.bind(router_1.LocationStrategy).toClass(router_1.HashLocationStrategy)]);
