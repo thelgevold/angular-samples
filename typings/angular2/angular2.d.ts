@@ -22,7 +22,7 @@ interface StringMap<K,V> extends Map<K,V> {}
 declare module ng {
   type SetterFn = typeof Function;
   type int = number;
-  interface Type extends Function {//TODO: Temporary manual fix based on https://github.com/angular/angular/pull/3300/files
+  interface Type extends Function {
     new (...args: any[]): any;
   }
 
