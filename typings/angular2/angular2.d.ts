@@ -1,4 +1,4 @@
-// Type definitions for Angular v2.0.0-alpha.32
+// Type definitions for Angular v2.0.0-alpha.33
 // Project: http://angular.io/
 // Definitions by: angular team <https://github.com/angular/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -170,402 +170,6 @@ declare module ng {
    * Returns a `Promise` of {@link ApplicationRef}.
    */
   function bootstrap(appComponentType: /*Type*/ any, componentInjectableBindings?: List<Type | Binding | List<any>>) : Promise<ApplicationRef> ;
-  
-  class DehydratedException extends BaseException {
-  }
-  
-  class ExpressionChangedAfterItHasBeenChecked extends BaseException {
-  }
-  
-  class ChangeDetectionError extends BaseException {
-    
-     location: string;
-  }
-  
-
-  /**
-   * ON_PUSH means that the change detector's mode will be set to CHECK_ONCE during hydration.
-   */
-  const ON_PUSH : string ;
-  
-
-  /**
-   * DEFAULT means that the change detector's mode will be set to CHECK_ALWAYS during hydration.
-   */
-  const DEFAULT : string ;
-  
-
-  /**
-   * Controls change detection.
-   * 
-   * {@link ChangeDetectorRef} allows requesting checks for detectors that rely on observables. It
-   * also allows detaching and
-   * attaching change detector subtrees.
-   */
-  class ChangeDetectorRef {
-    
-
-    /**
-     * Request to check all ON_PUSH ancestors.
-     */
-     requestCheck(): void;
-    
-
-    /**
-     * Detaches the change detector from the change detector tree.
-     * 
-     * The detached change detector will not be checked until it is reattached.
-     */
-     detach(): void;
-    
-
-    /**
-     * Reattach the change detector to the change detector tree.
-     * 
-     * This also requests a check of this change detector. This reattached change detector will be
-     * checked during the
-     * next change detection run.
-     */
-     reattach(): void;
-  }
-  
-  class Pipes {
-    
-
-    /**
-     * Map of {@link Pipe} names to {@link PipeFactory} lists used to configure the
-     * {@link Pipes} registry.
-     * 
-     * #Example
-     * 
-     * ```
-     * var pipesConfig = {
-     *   'json': [jsonPipeFactory]
-     * }
-     * @Component({
-     *   viewInjector: [
-     *     bind(Pipes).toValue(new Pipes(pipesConfig))
-     *   ]
-     * })
-     * ```
-     */
-     config: StringMap<string, PipeFactory[]>;
-    
-     get(type: string, obj: any, cdRef?: ChangeDetectorRef, existingPipe?: Pipe): Pipe;
-  }
-  
-
-  /**
-   * Indicates that the result of a {@link Pipe} transformation has changed even though the reference
-   * has not changed.
-   * 
-   * The wrapped value will be unwrapped by change detection, and the unwrapped value will be stored.
-   */
-  class WrappedValue {
-    
-     wrapped: any;
-  }
-  
-
-  /**
-   * An interface for extending the list of pipes known to Angular.
-   * 
-   * If you are writing a custom {@link Pipe}, you must extend this interface.
-   * 
-   * #Example
-   * 
-   * ```
-   * class DoublePipe implements Pipe {
-   *  supports(obj) {
-   *    return true;
-   *  }
-   * 
-   *  onDestroy() {}
-   * 
-   *  transform(value, args = []) {
-   *    return `${value}${value}`;
-   *  }
-   * }
-   * ```
-   */
-  interface Pipe {
-    
-     supports(obj: any): boolean;
-    
-     onDestroy(): void;
-    
-     transform(value: any, args: List<any>): any;
-  }
-  
-  interface PipeFactory {
-    
-     supports(obs: any): boolean;
-    
-     create(cdRef: ChangeDetectorRef): Pipe;
-  }
-  
-  class NullPipe extends BasePipe {
-    
-     called: boolean;
-    
-     supports(obj: any): boolean;
-    
-     transform(value: any, args?: List<any>): WrappedValue;
-  }
-  
-  class NullPipeFactory implements PipeFactory {
-    
-     supports(obj: any): boolean;
-    
-     create(cdRef: ChangeDetectorRef): Pipe;
-  }
-  
-  const defaultPipes : Pipes ;
-  
-
-  /**
-   * Provides default implementation of supports and onDestroy.
-   * 
-   * #Example
-   * 
-   * ```
-   * class DoublePipe extends BasePipe {*
-   *  transform(value) {
-   *    return `${value}${value}`;
-   *  }
-   * }
-   * ```
-   */
-  class BasePipe implements Pipe {
-    
-     supports(obj: any): boolean;
-    
-     onDestroy(): void;
-    
-     transform(value: any, args: List<any>): any;
-  }
-  
-  class Locals {
-    
-     parent: Locals;
-    
-     current: Map<any, any>;
-    
-     contains(name: string): boolean;
-    
-     get(name: string): any;
-    
-     set(name: string, value: any): void;
-    
-     clearValues(): void;
-  }
-  
-
-  /**
-   * A dispatcher for all events happening in a view.
-   */
-  interface RenderEventDispatcher {
-    
-
-    /**
-     * Called when an event was triggered for a on-* attribute on an element.
-     * @param {Map<string, any>} locals Locals to be used to evaluate the
-     *   event expressions
-     */
-     dispatchRenderEvent(elementIndex: number, eventName: string, locals: Map<string, any>): void;
-  }
-  
-  class Renderer {
-    
-
-    /**
-     * Creates a root host view that includes the given element.
-     * Note that the fragmentCount needs to be passed in so that we can create a result
-     * synchronously even when dealing with webworkers!
-     * 
-     * @param {RenderProtoViewRef} hostProtoViewRef a RenderProtoViewRef of type
-     * ProtoViewDto.HOST_VIEW_TYPE
-     * @param {any} hostElementSelector css selector for the host element (will be queried against the
-     * main document)
-     * @return {RenderViewWithFragments} the created view including fragments
-     */
-     createRootHostView(hostProtoViewRef: RenderProtoViewRef, fragmentCount: number, hostElementSelector: string): RenderViewWithFragments;
-    
-
-    /**
-     * Creates a regular view out of the given ProtoView.
-     * Note that the fragmentCount needs to be passed in so that we can create a result
-     * synchronously even when dealing with webworkers!
-     */
-     createView(protoViewRef: RenderProtoViewRef, fragmentCount: number): RenderViewWithFragments;
-    
-
-    /**
-     * Destroys the given view after it has been dehydrated and detached
-     */
-     destroyView(viewRef: RenderViewRef): void;
-    
-
-    /**
-     * Attaches a fragment after another fragment.
-     */
-     attachFragmentAfterFragment(previousFragmentRef: RenderFragmentRef, fragmentRef: RenderFragmentRef): void;
-    
-
-    /**
-     * Attaches a fragment after an element.
-     */
-     attachFragmentAfterElement(elementRef: RenderElementRef, fragmentRef: RenderFragmentRef): void;
-    
-
-    /**
-     * Detaches a fragment.
-     */
-     detachFragment(fragmentRef: RenderFragmentRef): void;
-    
-
-    /**
-     * Hydrates a view after it has been attached. Hydration/dehydration is used for reusing views
-     * inside of the view pool.
-     */
-     hydrateView(viewRef: RenderViewRef): void;
-    
-
-    /**
-     * Dehydrates a view after it has been attached. Hydration/dehydration is used for reusing views
-     * inside of the view pool.
-     */
-     dehydrateView(viewRef: RenderViewRef): void;
-    
-
-    /**
-     * Returns the native element at the given location.
-     * Attention: In a WebWorker scenario, this should always return null!
-     */
-     getNativeElementSync(location: RenderElementRef): any;
-    
-
-    /**
-     * Sets a property on an element.
-     */
-     setElementProperty(location: RenderElementRef, propertyName: string, propertyValue: any): void;
-    
-
-    /**
-     * Sets an attribute on an element.
-     */
-     setElementAttribute(location: RenderElementRef, attributeName: string, attributeValue: string): void;
-    
-
-    /**
-     * Sets a class on an element.
-     */
-     setElementClass(location: RenderElementRef, className: string, isAdd: boolean): void;
-    
-
-    /**
-     * Sets a style on an element.
-     */
-     setElementStyle(location: RenderElementRef, styleName: string, styleValue: string): void;
-    
-
-    /**
-     * Calls a method on an element.
-     */
-     invokeElementMethod(location: RenderElementRef, methodName: string, args: List<any>): void;
-    
-
-    /**
-     * Sets the value of a text node.
-     */
-     setText(viewRef: RenderViewRef, textNodeIndex: number, text: string): void;
-    
-
-    /**
-     * Sets the dispatcher for all events of the given view
-     */
-     setEventDispatcher(viewRef: RenderViewRef, dispatcher: RenderEventDispatcher): void;
-  }
-  
-
-  /**
-   * Abstract reference to the element which can be marshaled across web-worker boundry.
-   * 
-   * This interface is used by the Renderer API.
-   */
-  interface RenderElementRef {
-    
-
-    /**
-     * Reference to the `RenderViewRef` where the `RenderElementRef` is inside of.
-     */
-     renderView: RenderViewRef;
-    
-
-    /**
-     * Index of the element inside the `RenderViewRef`.
-     * 
-     * This is used internally by the Angular framework to locate elements.
-     */
-     renderBoundElementIndex: number;
-  }
-  
-  class RenderViewRef {
-  }
-  
-  class RenderProtoViewRef {
-  }
-  
-  class RenderFragmentRef {
-  }
-  
-  class RenderViewWithFragments {
-    
-     viewRef: RenderViewRef;
-    
-     fragmentRefs: RenderFragmentRef[];
-  }
-  
-  class DomRenderer extends Renderer {
-    
-     createRootHostView(hostProtoViewRef: RenderProtoViewRef, fragmentCount: number, hostElementSelector: string): RenderViewWithFragments;
-    
-     createView(protoViewRef: RenderProtoViewRef, fragmentCount: number): RenderViewWithFragments;
-    
-     destroyView(viewRef: RenderViewRef): void;
-    
-     getNativeElementSync(location: RenderElementRef): any;
-    
-     getRootNodes(fragment: RenderFragmentRef): List<Node>;
-    
-     attachFragmentAfterFragment(previousFragmentRef: RenderFragmentRef, fragmentRef: RenderFragmentRef): void;
-    
-     attachFragmentAfterElement(elementRef: RenderElementRef, fragmentRef: RenderFragmentRef): void;
-    
-     detachFragment(fragmentRef: RenderFragmentRef): void;
-    
-     hydrateView(viewRef: RenderViewRef): void;
-    
-     dehydrateView(viewRef: RenderViewRef): void;
-    
-     setElementProperty(location: RenderElementRef, propertyName: string, propertyValue: any): void;
-    
-     setElementAttribute(location: RenderElementRef, attributeName: string, attributeValue: string): void;
-    
-     setElementClass(location: RenderElementRef, className: string, isAdd: boolean): void;
-    
-     setElementStyle(location: RenderElementRef, styleName: string, styleValue: string): void;
-    
-     invokeElementMethod(location: RenderElementRef, methodName: string, args: List<any>): void;
-    
-     setText(viewRef: RenderViewRef, textNodeIndex: number, text: string): void;
-    
-     setEventDispatcher(viewRef: RenderViewRef, dispatcher: any): void;
-  }
-  
-  const DOCUMENT_TOKEN : OpaqueToken ;
-  
-  const DOM_REFLECT_PROPERTIES_AS_ATTRIBUTES : OpaqueToken ;
   
 
   /**
@@ -1527,11 +1131,21 @@ declare module ng {
     
 
     /**
-     * Specify a custom renderer for this View.
-     * If this is set, neither `template`, `templateUrl`, `styles`, `styleUrls` nor `directives` are
-     * used.
+     * Specify how the template and the styles should be encapsulated.
+     * The default is {@link ViewEncapsulation.EMULATED} if the view has styles,
+     * otherwise {@link ViewEncapsulation.NONE}.
      */
-     renderer: string;
+     encapsulation: ViewEncapsulation;
+  }
+  
+
+  /**
+   * How the template and styles of a view should be encapsulated.
+   */
+  enum ViewEncapsulation {
+    EMULATED,
+    NATIVE,
+    NONE
   }
   
 
@@ -2125,7 +1739,7 @@ declare module ng {
     templateUrl?: string,
     template?: string,
     directives?: List<Type | any | List<any>>,
-    renderer?: string,
+    encapsulation?: ViewEncapsulation,
     styles?: List<string>,
     styleUrls?: List<string>,
   }): ViewAnnotation;
@@ -2135,7 +1749,7 @@ declare module ng {
     templateUrl?: string,
     template?: string,
     directives?: List<Type | any | List<any>>,
-    renderer?: string,
+    encapsulation?: ViewEncapsulation,
     styles?: List<string>,
     styleUrls?: List<string>,
   }): ViewDecorator;
@@ -2209,6 +1823,224 @@ declare module ng {
    * {@link ViewQuery} factory function.
    */
   var ViewQuery : QueryFactory ;
+  
+
+  /**
+   * CHECK_ONCE means that after calling detectChanges the mode of the change detector
+   * will become CHECKED.
+   */
+  const CHECK_ONCE : string ;
+  
+
+  /**
+   * CHECK_ALWAYS means that after calling detectChanges the mode of the change detector
+   * will remain CHECK_ALWAYS.
+   */
+  const CHECK_ALWAYS : string ;
+  
+
+  /**
+   * DETACHED means that the change detector sub tree is not a part of the main tree and
+   * should be skipped.
+   */
+  const DETACHED : string ;
+  
+
+  /**
+   * CHECKED means that the change detector should be skipped until its mode changes to
+   * CHECK_ONCE or CHECK_ALWAYS.
+   */
+  const CHECKED : string ;
+  
+
+  /**
+   * ON_PUSH means that the change detector's mode will be set to CHECK_ONCE during hydration.
+   */
+  const ON_PUSH : string ;
+  
+
+  /**
+   * DEFAULT means that the change detector's mode will be set to CHECK_ALWAYS during hydration.
+   */
+  const DEFAULT : string ;
+  
+
+  /**
+   * An error thrown if application changes model breaking the top-down data flow.
+   * 
+   * Angular expects that the data flows from top (root) component to child (leaf) components.
+   * This is known as directed acyclic graph. This allows Angular to only execute change detection
+   * once and prevents loops in change detection data flow.
+   * 
+   * This exception is only thrown in dev mode.
+   */
+  class ExpressionChangedAfterItHasBeenCheckedException extends BaseException {
+  }
+  
+
+  /**
+   * Thrown when an expression evaluation raises an exception.
+   * 
+   * This error wraps the original exception, this is done to attach expression location information.
+   */
+  class ChangeDetectionError extends BaseException {
+    
+
+    /**
+     * Location of the expression.
+     */
+     location: string;
+  }
+  
+
+  /**
+   * Controls change detection.
+   * 
+   * {@link ChangeDetectorRef} allows requesting checks for detectors that rely on observables. It
+   * also allows detaching and attaching change detector subtrees.
+   */
+  interface ChangeDetectorRef {
+    
+
+    /**
+     * Request to check all ON_PUSH ancestors.
+     */
+     requestCheck(): void;
+    
+
+    /**
+     * Detaches the change detector from the change detector tree.
+     * 
+     * The detached change detector will not be checked until it is reattached.
+     */
+     detach(): void;
+    
+
+    /**
+     * Reattach the change detector to the change detector tree.
+     * 
+     * This also requests a check of this change detector. This reattached change detector will be
+     * checked during the
+     * next change detection run.
+     */
+     reattach(): void;
+  }
+  
+
+  /**
+   * Indicates that the result of a {@link Pipe} transformation has changed even though the reference
+   * has not changed.
+   * 
+   * The wrapped value will be unwrapped by change detection, and the unwrapped value will be stored.
+   */
+  class WrappedValue {
+    
+     wrapped: any;
+  }
+  
+
+  /**
+   * An interface which all pipes must implement.
+   * 
+   * #Example
+   * 
+   * ```
+   * class DoublePipe implements Pipe {
+   *  supports(obj) {
+   *    return true;
+   *  }
+   * 
+   *  onDestroy() {}
+   * 
+   *  transform(value, args = []) {
+   *    return `${value}${value}`;
+   *  }
+   * }
+   * ```
+   */
+  interface Pipe {
+    
+
+    /**
+     * Query if a pipe supports a particular object instance.
+     */
+     supports(obj: any): boolean;
+    
+     onDestroy(): void;
+    
+     transform(value: any, args: List<any>): any;
+  }
+  
+  class Pipes {
+    
+
+    /**
+     * Map of {@link Pipe} names to {@link PipeFactory} lists used to configure the
+     * {@link Pipes} registry.
+     * 
+     * #Example
+     * 
+     * ```
+     * var pipesConfig = {
+     *   'json': [jsonPipeFactory]
+     * }
+     * @Component({
+     *   viewInjector: [
+     *     bind(Pipes).toValue(new Pipes(pipesConfig))
+     *   ]
+     * })
+     * ```
+     */
+     config: StringMap<string, PipeFactory[]>;
+    
+     get(type: string, obj: any, cdRef?: ChangeDetectorRef, existingPipe?: Pipe): Pipe;
+  }
+  
+  interface PipeFactory {
+    
+     supports(obs: any): boolean;
+    
+     create(cdRef: ChangeDetectorRef): Pipe;
+  }
+  
+
+  /**
+   * Provides default implementation of `supports` and `onDestroy` method.
+   * 
+   * #Example
+   * 
+   * ```
+   * class DoublePipe extends BasePipe {
+   *  transform(value) {
+   *    return `${value}${value}`;
+   *  }
+   * }
+   * ```
+   */
+  class BasePipe implements Pipe {
+    
+     supports(obj: any): boolean;
+    
+     onDestroy(): void;
+    
+     transform(value: any, args: List<any>): any;
+  }
+  
+  class NullPipe extends BasePipe {
+    
+     called: boolean;
+    
+     supports(obj: any): boolean;
+    
+     transform(value: any, args?: List<any>): WrappedValue;
+  }
+  
+  class NullPipeFactory implements PipeFactory {
+    
+     supports(obj: any): boolean;
+    
+     create(cdRef: ChangeDetectorRef): Pipe;
+  }
   
 
   /**
@@ -2390,7 +2222,7 @@ declare module ng {
     /**
      * Return the first child element of the host element view.
      */
-     getHostElement(hostViewRef: ViewRef): ElementRef;
+     getHostElement(hostViewRef: HostViewRef): ElementRef;
     
 
     /**
@@ -2468,13 +2300,13 @@ declare module ng {
      * ng.bootstrap(MyApp);
      * ```
      */
-     createRootHostView(hostProtoViewRef: ProtoViewRef, overrideSelector: string, injector: Injector): ViewRef;
+     createRootHostView(hostProtoViewRef: ProtoViewRef, overrideSelector: string, injector: Injector): HostViewRef;
     
 
     /**
      * Remove the View created with {@link AppViewManager#createRootHostView}.
      */
-     destroyRootHostView(hostViewRef: ViewRef): void;
+     destroyRootHostView(hostViewRef: HostViewRef): void;
     
 
     /**
@@ -2486,7 +2318,7 @@ declare module ng {
     /**
      * See {@link AppViewManager#destroyViewInContainer}.
      */
-     createHostViewInContainer(viewContainerLocation: ElementRef, atIndex: number, protoViewRef: ProtoViewRef, imperativelyCreatedInjector: ResolvedBinding[]): ViewRef;
+     createHostViewInContainer(viewContainerLocation: ElementRef, atIndex: number, protoViewRef: ProtoViewRef, imperativelyCreatedInjector: ResolvedBinding[]): HostViewRef;
     
 
     /**
@@ -2615,6 +2447,166 @@ declare module ng {
   
 
   /**
+   * Service for dynamically loading a Component into an arbitrary position in the internal Angular
+   * application tree.
+   */
+  class DynamicComponentLoader {
+    
+
+    /**
+     * Loads a root component that is placed at the first element that matches the component's
+     * selector.
+     * 
+     * - `typeOrBinding` `Type` \ {@link Binding} - representing the component to load.
+     * - `overrideSelector` (optional) selector to load the component at (or use
+     *   `@Component.selector`) The selector can be anywhere (i.e. outside the current component.)
+     * - `injector` {@link Injector} - optional injector to use for the component.
+     * 
+     * The loaded component receives injection normally as a hosted view.
+     * 
+     * 
+     * ## Example
+     * 
+     * ```
+     * @ng.Component({
+     *   selector: 'child-component'
+     * })
+     * @ng.View({
+     *   template: 'Child'
+     * })
+     * class ChildComponent {
+     * }
+     * 
+     * 
+     * 
+     * @ng.Component({
+     *   selector: 'my-app'
+     * })
+     * @ng.View({
+     *   template: `
+     *     Parent (<child id="child"></child>)
+     *   `
+     * })
+     * class MyApp {
+     *   constructor(dynamicComponentLoader: ng.DynamicComponentLoader, injector: ng.Injector) {
+     *     dynamicComponentLoader.loadAsRoot(ChildComponent, '#child', injector);
+     *   }
+     * }
+     * 
+     * ng.bootstrap(MyApp);
+     * ```
+     * 
+     * Resulting DOM:
+     * 
+     * ```
+     * <my-app>
+     *   Parent (
+     *     <child id="child">
+     *        Child
+     *     </child>
+     *   )
+     * </my-app>
+     * ```
+     */
+     loadAsRoot(typeOrBinding: Type | Binding, overrideSelector: string, injector: Injector): Promise<ComponentRef>;
+    
+
+    /**
+     * Loads a component into the component view of the provided ElementRef next to the element
+     * with the given name.
+     * 
+     * The loaded component receives injection normally as a hosted view.
+     * 
+     * ## Example
+     * 
+     * ```
+     * @ng.Component({
+     *   selector: 'child-component'
+     * })
+     * @ng.View({
+     *   template: 'Child'
+     * })
+     * class ChildComponent {
+     * }
+     * 
+     * 
+     * @ng.Component({
+     *   selector: 'my-app'
+     * })
+     * @ng.View({
+     *   template: `
+     *     Parent (<div #child></div>)
+     *   `
+     * })
+     * class MyApp {
+     *   constructor(dynamicComponentLoader: ng.DynamicComponentLoader, elementRef: ng.ElementRef) {
+     *     dynamicComponentLoader.loadIntoLocation(ChildComponent, elementRef, 'child');
+     *   }
+     * }
+     * 
+     * ng.bootstrap(MyApp);
+     * ```
+     * 
+     * Resulting DOM:
+     * 
+     * ```
+     * <my-app>
+     *    Parent (
+     *      <div #child="" class="ng-binding"></div>
+     *      <child-component class="ng-binding">Child</child-component>
+     *    )
+     * </my-app>
+     * ```
+     */
+     loadIntoLocation(typeOrBinding: Type | Binding, hostLocation: ElementRef, anchorName: string, bindings?: ResolvedBinding[]): Promise<ComponentRef>;
+    
+
+    /**
+     * Loads a component next to the provided ElementRef.
+     * 
+     * The loaded component receives injection normally as a hosted view.
+     * 
+     * 
+     * ## Example
+     * 
+     * ```
+     * @ng.Component({
+     *   selector: 'child-component'
+     * })
+     * @ng.View({
+     *   template: 'Child'
+     * })
+     * class ChildComponent {
+     * }
+     * 
+     * 
+     * @ng.Component({
+     *   selector: 'my-app'
+     * })
+     * @ng.View({
+     *   template: `Parent`
+     * })
+     * class MyApp {
+     *   constructor(dynamicComponentLoader: ng.DynamicComponentLoader, elementRef: ng.ElementRef) {
+     *     dynamicComponentLoader.loadIntoLocation(ChildComponent, elementRef, 'child');
+     *   }
+     * }
+     * 
+     * ng.bootstrap(MyApp);
+     * ```
+     * 
+     * Resulting DOM:
+     * 
+     * ```
+     * <my-app>Parent</my-app>
+     * <child-component>Child</child-component>
+     * ```
+     */
+     loadNextToLocation(typeOrBinding: Type | Binding, location: ElementRef, bindings?: ResolvedBinding[]): Promise<ComponentRef>;
+  }
+  
+
+  /**
    * Reference to the element.
    * 
    * Represents an opaque reference to the underlying element. The element is a DOM ELement in
@@ -2689,6 +2681,29 @@ declare module ng {
   
 
   /**
+   * Abstract reference to the element which can be marshaled across web-worker boundary.
+   * 
+   * This interface is used by the Renderer API.
+   */
+  interface RenderElementRef {
+    
+
+    /**
+     * Reference to the `RenderViewRef` where the `RenderElementRef` is inside of.
+     */
+     renderView: RenderViewRef;
+    
+
+    /**
+     * Index of the element inside the `RenderViewRef`.
+     * 
+     * This is used internally by the Angular framework to locate elements.
+     */
+     renderBoundElementIndex: number;
+  }
+  
+
+  /**
    * A reference to an Angular View.
    * 
    * A View is a fundamental building block of Application UI. A View is the smallest set of
@@ -2729,17 +2744,17 @@ declare module ng {
    * The outter/inner {@link ProtoViewRef}s are then assembled into views like so:
    * 
    * ```
-   * <!-- ViewRef: outter-0 -->
+   * <!-- ViewRef: outer-0 -->
    * Count: 2
    * <ul>
    *   <template view-container-ref></template>
    *   <!-- ViewRef: inner-1 --><li>first</li><!-- /ViewRef: inner-1 -->
    *   <!-- ViewRef: inner-2 --><li>second</li><!-- /ViewRef: inner-2 -->
    * </ul>
-   * <!-- /ViewRef: outter-0 -->
+   * <!-- /ViewRef: outer-0 -->
    * ```
    */
-  class ViewRef {
+  interface ViewRef extends HostViewRef {
     
 
     /**
@@ -2755,9 +2770,15 @@ declare module ng {
     
 
     /**
-     * Set local variable for a view.
+     * Set local variable in a view.
+     * 
+     * - `contextName` - Name of the local variable in a view.
+     * - `value` - Value for the local variable in a view.
      */
      setLocal(contextName: string, value: any): void;
+  }
+  
+  interface HostViewRef {
   }
   
 
@@ -2800,26 +2821,80 @@ declare module ng {
   interface ProtoViewRef {
   }
   
-  class ViewContainerRef {
+
+  /**
+   * A location where {@link ViewRef}s can be attached.
+   * 
+   * A `ViewContainerRef` represents a location in a {@link ViewRef} where other child
+   * {@link ViewRef}s can be inserted. Adding and removing views is the only way of structurally
+   * changing the rendered DOM of the application.
+   */
+  interface ViewContainerRef {
     
      viewManager: AppViewManager;
     
      element: ElementRef;
     
+
+    /**
+     * Remove all {@link ViewRef}s at current location.
+     */
      clear(): void;
     
+
+    /**
+     * Return a {@link ViewRef} at specific index.
+     */
      get(index: number): ViewRef;
     
+
+    /**
+     * Returns number of {@link ViewRef}s currently attached at this location.
+     */
      length: number;
     
+
+    /**
+     * Create and insert a {@link ViewRef} into the view-container.
+     * 
+     * - `protoViewRef` (optional) {@link ProtoViewRef} - The `ProtoView` to use for creating
+     *   `View` to be inserted at this location. If `ViewContainer` is created at a location
+     *   of inline template, then `protoViewRef` is the `ProtoView` of the template.
+     * - `atIndex` (optional) `number` - location of insertion point. (Or at the end if unspecified.)
+     * - `context` (optional) {@link ElementRef} - Context (for expression evaluation) from the
+     *   {@link ElementRef} location. (Or current context if unspecified.)
+     * - `bindings` (optional) Array of {@link ResolvedBinding} - Used for configuring
+     *   `ElementInjector`.
+     * 
+     * Returns newly created {@link ViewRef}.
+     */
      createEmbeddedView(templateRef: TemplateRef, atIndex?: number): ViewRef;
     
-     createHostView(protoViewRef?: ProtoViewRef, atIndex?: number, dynamicallyCreatedBindings?: ResolvedBinding[]): ViewRef;
+     createHostView(protoViewRef?: ProtoViewRef, atIndex?: number, dynamicallyCreatedBindings?: ResolvedBinding[]): HostViewRef;
     
+
+    /**
+     * Insert a {@link ViewRef} at specefic index.
+     * 
+     * The index is location at which the {@link ViewRef} should be attached. If omitted it is
+     * inserted at the end.
+     * 
+     * Returns the inserted {@link ViewRef}.
+     */
      insert(viewRef: ViewRef, atIndex?: number): ViewRef;
     
+
+    /**
+     * Return the index of already inserted {@link ViewRef}.
+     */
      indexOf(viewRef: ViewRef): number;
     
+
+    /**
+     * Remove a {@link ViewRef} at specific index.
+     * 
+     * If the index is omitted last {@link ViewRef} is removed.
+     */
      remove(atIndex?: number): void;
     
 
@@ -2832,46 +2907,35 @@ declare module ng {
   
 
   /**
-   * Service for dynamically loading a Component into an arbitrary position in the internal Angular
-   * application tree.
+   * Angular's reference to a component instance.
+   * 
+   * `ComponentRef` represents a component instance lifecycle and meta information.
    */
-  class DynamicComponentLoader {
+  interface ComponentRef {
     
 
     /**
-     * Loads a root component that is placed at the first element that matches the component's
-     * selector.
-     * 
-     * The loaded component receives injection normally as a hosted view.
+     * Location of the component host element.
      */
-     loadAsRoot(typeOrBinding: Type | Binding, overrideSelector: string, injector: Injector): Promise<ComponentRef>;
-    
-
-    /**
-     * Loads a component into the component view of the provided ElementRef
-     * next to the element with the given name
-     * The loaded component receives
-     * injection normally as a hosted view.
-     */
-     loadIntoLocation(typeOrBinding: Type | Binding, hostLocation: ElementRef, anchorName: string, bindings?: ResolvedBinding[]): Promise<ComponentRef>;
-    
-
-    /**
-     * Loads a component next to the provided ElementRef. The loaded component receives
-     * injection normally as a hosted view.
-     */
-     loadNextToLocation(typeOrBinding: Type | Binding, location: ElementRef, bindings?: ResolvedBinding[]): Promise<ComponentRef>;
-  }
-  
-  class ComponentRef {
-    
      location: ElementRef;
     
+
+    /**
+     * Instance of component.
+     */
      instance: any;
     
-     dispose: Function;
+
+    /**
+     * Returns the host {@link ViewRef}.
+     */
+     hostView: HostViewRef;
     
-     hostView: ViewRef;
+
+    /**
+     * Dispose of the component instance.
+     */
+     dispose(): void;
   }
   
 
@@ -2909,7 +2973,7 @@ declare module ng {
      * 
      * This hook is useful for validating application state (e.g. in a test).
      */
-     overrideOnEventDone(onEventDoneFn: Function): void;
+     overrideOnEventDone(onEventDoneFn: Function, opt_waitForAsync: boolean): void;
     
 
     /**
@@ -2947,7 +3011,7 @@ declare module ng {
      * ```
      * var zone: NgZone = [ref to the application zone];
      * 
-     * zone.runOusideAngular(() => {
+     * zone.runOutsideAngular(() => {
      *   element.onClick(() => {
      *     // Clicking on the element would not trigger the change detection
      *   });
@@ -3969,860 +4033,6 @@ declare module ng {
   
 
   /**
-   * Omitting from external API doc as this is really an abstract internal concept.
-   */
-  class AbstractControl {
-    
-     validator: Function;
-    
-     value: any;
-    
-     status: string;
-    
-     valid: boolean;
-    
-     errors: StringMap<string, any>;
-    
-     pristine: boolean;
-    
-     dirty: boolean;
-    
-     touched: boolean;
-    
-     untouched: boolean;
-    
-     valueChanges: Observable;
-    
-     markAsTouched(): void;
-    
-     markAsDirty({onlySelf}?: {onlySelf?: boolean}): void;
-    
-     setParent(parent: ControlGroup | ControlArray): void;
-    
-     updateValidity({onlySelf}?: {onlySelf?: boolean}): void;
-    
-     updateValueAndValidity({onlySelf, emitEvent}?: {onlySelf?: boolean, emitEvent?: boolean}): void;
-    
-     find(path: List<string | number>| string): AbstractControl;
-    
-     getError(errorCode: string, path?: List<string>): any;
-    
-     hasError(errorCode: string, path?: List<string>): boolean;
-  }
-  
-
-  /**
-   * Defines a part of a form that cannot be divided into other controls.
-   * 
-   * `Control` is one of the three fundamental building blocks used to define forms in Angular, along
-   * with
-   * {@link ControlGroup} and {@link ControlArray}.
-   */
-  class Control extends AbstractControl {
-    
-     updateValue(value: any, {onlySelf, emitEvent, emitModelToViewChange}?:
-                  {onlySelf?: boolean, emitEvent?: boolean, emitModelToViewChange?: boolean}): void;
-    
-     registerOnChange(fn: Function): void;
-  }
-  
-
-  /**
-   * Defines a part of a form, of fixed length, that can contain other controls.
-   * 
-   * A ControlGroup aggregates the values and errors of each {@link Control} in the group. Thus, if
-   * one of the controls
-   * in a group is invalid, the entire group is invalid. Similarly, if a control changes its value,
-   * the entire group
-   * changes as well.
-   * 
-   * `ControlGroup` is one of the three fundamental building blocks used to define forms in Angular,
-   * along with
-   * {@link Control} and {@link ControlArray}. {@link ControlArray} can also contain other controls,
-   * but is of variable
-   * length.
-   */
-  class ControlGroup extends AbstractControl {
-    
-     controls: StringMap<string, AbstractControl>;
-    
-     addControl(name: string, c: AbstractControl): void;
-    
-     removeControl(name: string): void;
-    
-     include(controlName: string): void;
-    
-     exclude(controlName: string): void;
-    
-     contains(controlName: string): boolean;
-  }
-  
-
-  /**
-   * Defines a part of a form, of variable length, that can contain other controls.
-   * 
-   * A `ControlArray` aggregates the values and errors of each {@link Control} in the group. Thus, if
-   * one of the controls
-   * in a group is invalid, the entire group is invalid. Similarly, if a control changes its value,
-   * the entire group
-   * changes as well.
-   * 
-   * `ControlArray` is one of the three fundamental building blocks used to define forms in Angular,
-   * along with {@link Control} and {@link ControlGroup}. {@link ControlGroup} can also contain
-   * other controls, but is of fixed length.
-   */
-  class ControlArray extends AbstractControl {
-    
-     controls: List<AbstractControl>;
-    
-     at(index: number): AbstractControl;
-    
-     push(control: AbstractControl): void;
-    
-     insert(index: number, control: AbstractControl): void;
-    
-     removeAt(index: number): void;
-    
-     length: number;
-  }
-  
-  class AbstractControlDirective {
-    
-     control: AbstractControl;
-    
-     value: any;
-    
-     valid: boolean;
-    
-     errors: StringMap<string, any>;
-    
-     pristine: boolean;
-    
-     dirty: boolean;
-    
-     touched: boolean;
-    
-     untouched: boolean;
-  }
-  
-
-  /**
-   * An interface that {@link NgFormModel} and {@link NgForm} implement.
-   * 
-   * Only used by the forms module.
-   */
-  interface Form {
-    
-     addControl(dir: NgControl): void;
-    
-     removeControl(dir: NgControl): void;
-    
-     getControl(dir: NgControl): Control;
-    
-     addControlGroup(dir: NgControlGroup): void;
-    
-     removeControlGroup(dir: NgControlGroup): void;
-    
-     getControlGroup(dir: NgControlGroup): ControlGroup;
-    
-     updateModel(dir: NgControl, value: any): void;
-  }
-  
-
-  /**
-   * A directive that contains a group of [NgControl].
-   * 
-   * Only used by the forms module.
-   */
-  class ControlContainer extends AbstractControlDirective {
-    
-     name: string;
-    
-     formDirective: Form;
-    
-     path: List<string>;
-  }
-  
-
-  /**
-   * Creates and binds a control with a specified name to a DOM element.
-   * 
-   * This directive can only be used as a child of {@link NgForm} or {@link NgFormModel}.
-   * 
-   * # Example
-   * 
-   * In this example, we create the login and password controls.
-   * We can work with each control separately: check its validity, get its value, listen to its
-   *  changes.
-   * 
-   *  ```
-   * @Component({selector: "login-comp"})
-   * @View({
-   *      directives: [formDirectives],
-   *      template: `
-   *              <form #f="form" (submit)='onLogIn(f.value)'>
-   *                Login <input type='text' ng-control='login' #l="form">
-   *                <div *ng-if="!l.valid">Login is invalid</div>
-   * 
-   *                Password <input type='password' ng-control='password'>
-   * 
-   *                <button type='submit'>Log in!</button>
-   *              </form>
-   *      `})
-   * class LoginComp {
-   *  onLogIn(value) {
-   *    // value === {login: 'some login', password: 'some password'}
-   *  }
-   * }
-   *  ```
-   * 
-   * We can also use ng-model to bind a domain model to the form.
-   * 
-   *  ```
-   * @Component({selector: "login-comp"})
-   * @View({
-   *      directives: [formDirectives],
-   *      template: `
-   *              <form (submit)='onLogIn()'>
-   *                Login <input type='text' ng-control='login' [(ng-model)]="credentials.login">
-   *                Password <input type='password' ng-control='password'
-   *  [(ng-model)]="credentials.password">
-   *                <button type='submit'>Log in!</button>
-   *              </form>
-   *      `})
-   * class LoginComp {
-   *  credentials: {login:string, password:string};
-   * 
-   *  onLogIn() {
-   *    // this.credentials.login === "some login"
-   *    // this.credentials.password === "some password"
-   *  }
-   * }
-   *  ```
-   */
-  class NgControlName extends NgControl {
-    
-     update: void;
-    
-     model: any;
-    
-     viewModel: any;
-    
-     ngValidators: QueryList<NgValidator>;
-    
-     onChange(c: StringMap<string, any>): void;
-    
-     onDestroy(): void;
-    
-     viewToModelUpdate(newValue: any): void;
-    
-     path: List<string>;
-    
-     formDirective: any;
-    
-     control: Control;
-    
-     validator: Function;
-  }
-  
-
-  /**
-   * Binds an existing control to a DOM element.
-   * 
-   * # Example
-   * 
-   * In this example, we bind the control to an input element. When the value of the input element
-   * changes, the value of
-   * the control will reflect that change. Likewise, if the value of the control changes, the input
-   * element reflects that
-   * change.
-   * 
-   *  ```
-   * @Component({selector: "login-comp"})
-   * @View({
-   *      directives: [formDirectives],
-   *      template: "<input type='text' [ng-form-control]='loginControl'>"
-   *      })
-   * class LoginComp {
-   *  loginControl:Control;
-   * 
-   *  constructor() {
-   *    this.loginControl = new Control('');
-   *  }
-   * }
-   * 
-   *  ```
-   * 
-   * We can also use ng-model to bind a domain model to the form.
-   * 
-   *  ```
-   * @Component({selector: "login-comp"})
-   * @View({
-   *      directives: [formDirectives],
-   *      template: "<input type='text' [ng-form-control]='loginControl' [(ng-model)]='login'>"
-   *      })
-   * class LoginComp {
-   *  loginControl:Control;
-   *  login:string;
-   * 
-   *  constructor() {
-   *    this.loginControl = new Control('');
-   *  }
-   * }
-   *  ```
-   */
-  class NgFormControl extends NgControl {
-    
-     form: Control;
-    
-     update: void;
-    
-     model: any;
-    
-     viewModel: any;
-    
-     ngValidators: QueryList<NgValidator>;
-    
-     onChange(c: StringMap<string, any>): void;
-    
-     path: List<string>;
-    
-     control: Control;
-    
-     validator: Function;
-    
-     viewToModelUpdate(newValue: any): void;
-  }
-  
-
-  /**
-   * Binds a domain model to the form.
-   * 
-   * # Example
-   *  ```
-   * @Component({selector: "search-comp"})
-   * @View({
-   *      directives: [formDirectives],
-   *      template: `
-   *               <input type='text' [(ng-model)]="searchQuery">
-   *      `})
-   * class SearchComp {
-   *  searchQuery: string;
-   * }
-   *  ```
-   */
-  class NgModel extends NgControl {
-    
-     update: void;
-    
-     model: any;
-    
-     viewModel: any;
-    
-     ngValidators: QueryList<NgValidator>;
-    
-     onChange(c: StringMap<string, any>): void;
-    
-     control: Control;
-    
-     path: List<string>;
-    
-     validator: Function;
-    
-     viewToModelUpdate(newValue: any): void;
-  }
-  
-
-  /**
-   * An abstract class that all control directive extend.
-   * 
-   * It binds a {@link Control} object to a DOM element.
-   */
-  class NgControl extends AbstractControlDirective {
-    
-     name: string;
-    
-     valueAccessor: ControlValueAccessor;
-    
-     validator: Function;
-    
-     path: List<string>;
-    
-     viewToModelUpdate(newValue: any): void;
-  }
-  
-
-  /**
-   * Creates and binds a control group to a DOM element.
-   * 
-   * This directive can only be used as a child of {@link NgForm} or {@link NgFormModel}.
-   * 
-   * # Example
-   * 
-   * In this example, we create the credentials and personal control groups.
-   * We can work with each group separately: check its validity, get its value, listen to its changes.
-   * 
-   *  ```
-   * @Component({selector: "signup-comp"})
-   * @View({
-   *      directives: [formDirectives],
-   *      template: `
-   *              <form #f="form" (submit)='onSignUp(f.value)'>
-   *                <div ng-control-group='credentials' #credentials="form">
-   *                  Login <input type='text' ng-control='login'>
-   *                  Password <input type='password' ng-control='password'>
-   *                </div>
-   *                <div *ng-if="!credentials.valid">Credentials are invalid</div>
-   * 
-   *                <div ng-control-group='personal'>
-   *                  Name <input type='text' ng-control='name'>
-   *                </div>
-   *                <button type='submit'>Sign Up!</button>
-   *              </form>
-   *      `})
-   * class SignupComp {
-   *  onSignUp(value) {
-   *    // value === {personal: {name: 'some name'},
-   *    //  credentials: {login: 'some login', password: 'some password'}}
-   *  }
-   * }
-   * 
-   *  ```
-   */
-  class NgControlGroup extends ControlContainer {
-    
-     onInit(): void;
-    
-     onDestroy(): void;
-    
-     control: ControlGroup;
-    
-     path: List<string>;
-    
-     formDirective: Form;
-  }
-  
-
-  /**
-   * Binds an existing control group to a DOM element.
-   * 
-   * # Example
-   * 
-   * In this example, we bind the control group to the form element, and we bind the login and
-   * password controls to the
-   * login and password elements.
-   * 
-   *  ```
-   * @Component({selector: "login-comp"})
-   * @View({
-   *      directives: [formDirectives],
-   *      template: "<form [ng-form-model]='loginForm'>" +
-   *              "Login <input type='text' ng-control='login'>" +
-   *              "Password <input type='password' ng-control='password'>" +
-   *              "<button (click)="onLogin()">Login</button>" +
-   *              "</form>"
-   *      })
-   * class LoginComp {
-   *  loginForm:ControlGroup;
-   * 
-   *  constructor() {
-   *    this.loginForm = new ControlGroup({
-   *      login: new Control(""),
-   *      password: new Control("")
-   *    });
-   *  }
-   * 
-   *  onLogin() {
-   *    // this.loginForm.value
-   *  }
-   * }
-   * 
-   *  ```
-   * 
-   * We can also use ng-model to bind a domain model to the form.
-   * 
-   *  ```
-   * @Component({selector: "login-comp"})
-   * @View({
-   *      directives: [formDirectives],
-   *      template: "<form [ng-form-model]='loginForm'>" +
-   *              "Login <input type='text' ng-control='login' [(ng-model)]='login'>" +
-   *              "Password <input type='password' ng-control='password' [(ng-model)]='password'>" +
-   *              "<button (click)="onLogin()">Login</button>" +
-   *              "</form>"
-   *      })
-   * class LoginComp {
-   *  credentials:{login:string, password:string}
-   *  loginForm:ControlGroup;
-   * 
-   *  constructor() {
-   *    this.loginForm = new ControlGroup({
-   *      login: new Control(""),
-   *      password: new Control("")
-   *    });
-   *  }
-   * 
-   *  onLogin() {
-   *    // this.credentials.login === 'some login'
-   *    // this.credentials.password === 'some password'
-   *  }
-   * }
-   *  ```
-   */
-  class NgFormModel extends ControlContainer implements Form {
-    
-     form: ControlGroup;
-    
-     directives: List<NgControl>;
-    
-     ngSubmit: void;
-    
-     onChange(_: any): void;
-    
-     formDirective: Form;
-    
-     control: ControlGroup;
-    
-     path: List<string>;
-    
-     addControl(dir: NgControl): void;
-    
-     getControl(dir: NgControl): Control;
-    
-     removeControl(dir: NgControl): void;
-    
-     addControlGroup(dir: NgControlGroup): void;
-    
-     removeControlGroup(dir: NgControlGroup): void;
-    
-     getControlGroup(dir: NgControlGroup): ControlGroup;
-    
-     updateModel(dir: NgControl, value: any): void;
-    
-     onSubmit(): boolean;
-  }
-  
-
-  /**
-   * Creates and binds a form object to a DOM element.
-   * 
-   * # Example
-   * 
-   *  ```
-   * @Component({selector: "signup-comp"})
-   * @View({
-   *      directives: [formDirectives],
-   *      template: `
-   *              <form #f="form" (submit)='onSignUp(f.value)'>
-   *                <div ng-control-group='credentials' #credentials="form">
-   *                  Login <input type='text' ng-control='login'>
-   *                  Password <input type='password' ng-control='password'>
-   *                </div>
-   *                <div *ng-if="!credentials.valid">Credentials are invalid</div>
-   * 
-   *                <div ng-control-group='personal'>
-   *                  Name <input type='text' ng-control='name'>
-   *                </div>
-   *                <button type='submit'>Sign Up!</button>
-   *              </form>
-   *      `})
-   * class SignupComp {
-   *  onSignUp(value) {
-   *    // value === {personal: {name: 'some name'},
-   *    //  credentials: {login: 'some login', password: 'some password'}}
-   *  }
-   * }
-   * 
-   *  ```
-   */
-  class NgForm extends ControlContainer implements Form {
-    
-     form: ControlGroup;
-    
-     ngSubmit: void;
-    
-     formDirective: Form;
-    
-     control: ControlGroup;
-    
-     path: List<string>;
-    
-     controls: StringMap<string, AbstractControl>;
-    
-     addControl(dir: NgControl): void;
-    
-     getControl(dir: NgControl): Control;
-    
-     removeControl(dir: NgControl): void;
-    
-     addControlGroup(dir: NgControlGroup): void;
-    
-     removeControlGroup(dir: NgControlGroup): void;
-    
-     getControlGroup(dir: NgControlGroup): ControlGroup;
-    
-     updateModel(dir: NgControl, value: any): void;
-    
-     onSubmit(): boolean;
-  }
-  
-
-  /**
-   * A bridge between a control and a native element.
-   * 
-   * Please see {@link DefaultValueAccessor} for more information.
-   */
-  interface ControlValueAccessor {
-    
-     writeValue(obj: any): void;
-    
-     registerOnChange(fn: any): void;
-    
-     registerOnTouched(fn: any): void;
-  }
-  
-
-  /**
-   * The default accessor for writing a value and listening to changes that is used by the
-   * {@link NgModel}, {@link NgFormControl}, and {@link NgControlName} directives.
-   * 
-   *  # Example
-   *  ```
-   *  <input type="text" [(ng-model)]="searchQuery">
-   *  ```
-   */
-  class DefaultValueAccessor implements ControlValueAccessor {
-    
-     onChange: void;
-    
-     onTouched: void;
-    
-     cd: NgControl;
-    
-     renderer: Renderer;
-    
-     elementRef: ElementRef;
-    
-     writeValue(value: any): void;
-    
-     ngClassUntouched: boolean;
-    
-     ngClassTouched: boolean;
-    
-     ngClassPristine: boolean;
-    
-     ngClassDirty: boolean;
-    
-     ngClassValid: boolean;
-    
-     ngClassInvalid: boolean;
-    
-     registerOnChange(fn: (_: any) => void): void;
-    
-     registerOnTouched(fn: () => void): void;
-  }
-  
-
-  /**
-   * The accessor for writing a value and listening to changes on a checkbox input element.
-   * 
-   *  # Example
-   *  ```
-   *  <input type="checkbox" [ng-control]="rememberLogin">
-   *  ```
-   */
-  class CheckboxControlValueAccessor implements ControlValueAccessor {
-    
-     onChange: void;
-    
-     onTouched: void;
-    
-     cd: NgControl;
-    
-     renderer: Renderer;
-    
-     elementRef: ElementRef;
-    
-     writeValue(value: any): void;
-    
-     ngClassUntouched: boolean;
-    
-     ngClassTouched: boolean;
-    
-     ngClassPristine: boolean;
-    
-     ngClassDirty: boolean;
-    
-     ngClassValid: boolean;
-    
-     ngClassInvalid: boolean;
-    
-     registerOnChange(fn: (_: any) => {}): void;
-    
-     registerOnTouched(fn: () => {}): void;
-  }
-  
-
-  /**
-   * Marks <option> as dynamic, so Angular can be notified when options change.
-   * 
-   * #Example:
-   * 
-   * ```
-   * <select ng-control="city">
-   *   <option *ng-for="#c of cities" [value]="c"></option>
-   * </select>
-   * ```
-   */
-  class NgSelectOption {
-  }
-  
-
-  /**
-   * The accessor for writing a value and listening to changes on a select element.
-   */
-  class SelectControlValueAccessor implements ControlValueAccessor {
-    
-     value: string;
-    
-     onChange: void;
-    
-     onTouched: void;
-    
-     cd: NgControl;
-    
-     renderer: Renderer;
-    
-     elementRef: ElementRef;
-    
-     writeValue(value: any): void;
-    
-     ngClassUntouched: boolean;
-    
-     ngClassTouched: boolean;
-    
-     ngClassPristine: boolean;
-    
-     ngClassDirty: boolean;
-    
-     ngClassValid: boolean;
-    
-     ngClassInvalid: boolean;
-    
-     registerOnChange(fn: () => any): void;
-    
-     registerOnTouched(fn: () => any): void;
-  }
-  
-
-  /**
-   * A list of all the form directives used as part of a `@View` annotation.
-   * 
-   *  This is a shorthand for importing them each individually.
-   */
-  const formDirectives : List<Type> ;
-  
-
-  /**
-   * Provides a set of validators used by form controls.
-   * 
-   * # Example
-   * 
-   * ```
-   * var loginControl = new Control("", Validators.required)
-   * ```
-   */
-  class Validators {
-  }
-  
-  class NgValidator {
-    
-     validator: Function;
-  }
-  
-  class NgRequiredValidator extends NgValidator {
-    
-     validator: Function;
-  }
-  
-
-  /**
-   * Creates a form object from a user-specified configuration.
-   * 
-   * # Example
-   * 
-   * ```
-   * import {Component, View, bootstrap} from 'angular2/angular2';
-   * import {FormBuilder, Validators, formDirectives, ControlGroup} from 'angular2/forms';
-   * 
-   * @Component({
-   *   selector: 'login-comp',
-   *   viewInjector: [
-   *     FormBuilder
-   *   ]
-   * })
-   * @View({
-   *   template: `
-   *     <form [control-group]="loginForm">
-   *       Login <input control="login">
-   * 
-   *       <div control-group="passwordRetry">
-   *         Password <input type="password" control="password">
-   *         Confirm password <input type="password" control="passwordConfirmation">
-   *       </div>
-   *     </form>
-   *   `,
-   *   directives: [
-   *     formDirectives
-   *   ]
-   * })
-   * class LoginComp {
-   *   loginForm: ControlGroup;
-   * 
-   *   constructor(builder: FormBuilder) {
-   *     this.loginForm = builder.group({
-   *       login: ["", Validators.required],
-   * 
-   *       passwordRetry: builder.group({
-   *         password: ["", Validators.required],
-   *         passwordConfirmation: ["", Validators.required]
-   *       })
-   *     });
-   *   }
-   * }
-   * 
-   * bootstrap(LoginComp)
-   * ```
-   * 
-   * This example creates a {@link ControlGroup} that consists of a `login` {@link Control}, and a
-   * nested
-   * {@link ControlGroup} that defines a `password` and a `passwordConfirmation` {@link Control}:
-   * 
-   * ```
-   *  var loginForm = builder.group({
-   *    login: ["", Validators.required],
-   * 
-   *    passwordRetry: builder.group({
-   *      password: ["", Validators.required],
-   *      passwordConfirmation: ["", Validators.required]
-   *    })
-   *  });
-   * 
-   *  ```
-   */
-  class FormBuilder {
-    
-     group(controlsConfig: StringMap<string, any>, extra?: StringMap<string, any>): ControlGroup;
-    
-     control(value: Object, validator?: Function): Control;
-    
-     array(controlsConfig: List<any>, validator?: Function): ControlArray;
-  }
-  
-  const formInjectables : List<Type> ;
-  
-
-  /**
    * A collection of the Angular core directives that are likely to be used in each and every Angular
    * application.
    * 
@@ -5511,6 +4721,11 @@ declare module ng {
      createConnection(request: any): Connection;
   }
   
+  class BrowserXhr {
+    
+     build(): any;
+  }
+  
 
   /**
    * Injectable version of {@link RequestOptions}, with overridable default values.
@@ -6024,13 +5239,1065 @@ declare module ng {
   
   var jsonpInjectables : List<any> ;
   
+
+  /**
+   * Omitting from external API doc as this is really an abstract internal concept.
+   */
+  class AbstractControl {
+    
+     validator: Function;
+    
+     value: any;
+    
+     status: string;
+    
+     valid: boolean;
+    
+     errors: StringMap<string, any>;
+    
+     pristine: boolean;
+    
+     dirty: boolean;
+    
+     touched: boolean;
+    
+     untouched: boolean;
+    
+     valueChanges: Observable;
+    
+     markAsTouched(): void;
+    
+     markAsDirty({onlySelf}?: {onlySelf?: boolean}): void;
+    
+     setParent(parent: ControlGroup | ControlArray): void;
+    
+     updateValidity({onlySelf}?: {onlySelf?: boolean}): void;
+    
+     updateValueAndValidity({onlySelf, emitEvent}?: {onlySelf?: boolean, emitEvent?: boolean}): void;
+    
+     find(path: List<string | number>| string): AbstractControl;
+    
+     getError(errorCode: string, path?: List<string>): any;
+    
+     hasError(errorCode: string, path?: List<string>): boolean;
+  }
+  
+
+  /**
+   * Defines a part of a form that cannot be divided into other controls.
+   * 
+   * `Control` is one of the three fundamental building blocks used to define forms in Angular, along
+   * with
+   * {@link ControlGroup} and {@link ControlArray}.
+   */
+  class Control extends AbstractControl {
+    
+     updateValue(value: any, {onlySelf, emitEvent, emitModelToViewChange}?:
+                  {onlySelf?: boolean, emitEvent?: boolean, emitModelToViewChange?: boolean}): void;
+    
+     registerOnChange(fn: Function): void;
+  }
+  
+
+  /**
+   * Defines a part of a form, of fixed length, that can contain other controls.
+   * 
+   * A ControlGroup aggregates the values and errors of each {@link Control} in the group. Thus, if
+   * one of the controls
+   * in a group is invalid, the entire group is invalid. Similarly, if a control changes its value,
+   * the entire group
+   * changes as well.
+   * 
+   * `ControlGroup` is one of the three fundamental building blocks used to define forms in Angular,
+   * along with
+   * {@link Control} and {@link ControlArray}. {@link ControlArray} can also contain other controls,
+   * but is of variable
+   * length.
+   */
+  class ControlGroup extends AbstractControl {
+    
+     controls: StringMap<string, AbstractControl>;
+    
+     addControl(name: string, c: AbstractControl): void;
+    
+     removeControl(name: string): void;
+    
+     include(controlName: string): void;
+    
+     exclude(controlName: string): void;
+    
+     contains(controlName: string): boolean;
+  }
+  
+
+  /**
+   * Defines a part of a form, of variable length, that can contain other controls.
+   * 
+   * A `ControlArray` aggregates the values and errors of each {@link Control} in the group. Thus, if
+   * one of the controls
+   * in a group is invalid, the entire group is invalid. Similarly, if a control changes its value,
+   * the entire group
+   * changes as well.
+   * 
+   * `ControlArray` is one of the three fundamental building blocks used to define forms in Angular,
+   * along with {@link Control} and {@link ControlGroup}. {@link ControlGroup} can also contain
+   * other controls, but is of fixed length.
+   */
+  class ControlArray extends AbstractControl {
+    
+     controls: List<AbstractControl>;
+    
+     at(index: number): AbstractControl;
+    
+     push(control: AbstractControl): void;
+    
+     insert(index: number, control: AbstractControl): void;
+    
+     removeAt(index: number): void;
+    
+     length: number;
+  }
+  
+  class AbstractControlDirective {
+    
+     control: AbstractControl;
+    
+     value: any;
+    
+     valid: boolean;
+    
+     errors: StringMap<string, any>;
+    
+     pristine: boolean;
+    
+     dirty: boolean;
+    
+     touched: boolean;
+    
+     untouched: boolean;
+  }
+  
+
+  /**
+   * An interface that {@link NgFormModel} and {@link NgForm} implement.
+   * 
+   * Only used by the forms module.
+   */
+  interface Form {
+    
+     addControl(dir: NgControl): void;
+    
+     removeControl(dir: NgControl): void;
+    
+     getControl(dir: NgControl): Control;
+    
+     addControlGroup(dir: NgControlGroup): void;
+    
+     removeControlGroup(dir: NgControlGroup): void;
+    
+     getControlGroup(dir: NgControlGroup): ControlGroup;
+    
+     updateModel(dir: NgControl, value: any): void;
+  }
+  
+
+  /**
+   * A directive that contains a group of [NgControl].
+   * 
+   * Only used by the forms module.
+   */
+  class ControlContainer extends AbstractControlDirective {
+    
+     name: string;
+    
+     formDirective: Form;
+    
+     path: List<string>;
+  }
+  
+
+  /**
+   * Creates and binds a control with a specified name to a DOM element.
+   * 
+   * This directive can only be used as a child of {@link NgForm} or {@link NgFormModel}.
+   * 
+   * # Example
+   * 
+   * In this example, we create the login and password controls.
+   * We can work with each control separately: check its validity, get its value, listen to its
+   *  changes.
+   * 
+   *  ```
+   * @Component({selector: "login-comp"})
+   * @View({
+   *      directives: [formDirectives],
+   *      template: `
+   *              <form #f="form" (submit)='onLogIn(f.value)'>
+   *                Login <input type='text' ng-control='login' #l="form">
+   *                <div *ng-if="!l.valid">Login is invalid</div>
+   * 
+   *                Password <input type='password' ng-control='password'>
+   * 
+   *                <button type='submit'>Log in!</button>
+   *              </form>
+   *      `})
+   * class LoginComp {
+   *  onLogIn(value) {
+   *    // value === {login: 'some login', password: 'some password'}
+   *  }
+   * }
+   *  ```
+   * 
+   * We can also use ng-model to bind a domain model to the form.
+   * 
+   *  ```
+   * @Component({selector: "login-comp"})
+   * @View({
+   *      directives: [formDirectives],
+   *      template: `
+   *              <form (submit)='onLogIn()'>
+   *                Login <input type='text' ng-control='login' [(ng-model)]="credentials.login">
+   *                Password <input type='password' ng-control='password'
+   *  [(ng-model)]="credentials.password">
+   *                <button type='submit'>Log in!</button>
+   *              </form>
+   *      `})
+   * class LoginComp {
+   *  credentials: {login:string, password:string};
+   * 
+   *  onLogIn() {
+   *    // this.credentials.login === "some login"
+   *    // this.credentials.password === "some password"
+   *  }
+   * }
+   *  ```
+   */
+  class NgControlName extends NgControl {
+    
+     update: void;
+    
+     model: any;
+    
+     viewModel: any;
+    
+     ngValidators: QueryList<NgValidator>;
+    
+     onChange(c: StringMap<string, any>): void;
+    
+     onDestroy(): void;
+    
+     viewToModelUpdate(newValue: any): void;
+    
+     path: List<string>;
+    
+     formDirective: any;
+    
+     control: Control;
+    
+     validator: Function;
+  }
+  
+
+  /**
+   * Binds an existing control to a DOM element.
+   * 
+   * # Example
+   * 
+   * In this example, we bind the control to an input element. When the value of the input element
+   * changes, the value of
+   * the control will reflect that change. Likewise, if the value of the control changes, the input
+   * element reflects that
+   * change.
+   * 
+   *  ```
+   * @Component({selector: "login-comp"})
+   * @View({
+   *      directives: [formDirectives],
+   *      template: "<input type='text' [ng-form-control]='loginControl'>"
+   *      })
+   * class LoginComp {
+   *  loginControl:Control;
+   * 
+   *  constructor() {
+   *    this.loginControl = new Control('');
+   *  }
+   * }
+   * 
+   *  ```
+   * 
+   * We can also use ng-model to bind a domain model to the form.
+   * 
+   *  ```
+   * @Component({selector: "login-comp"})
+   * @View({
+   *      directives: [formDirectives],
+   *      template: "<input type='text' [ng-form-control]='loginControl' [(ng-model)]='login'>"
+   *      })
+   * class LoginComp {
+   *  loginControl:Control;
+   *  login:string;
+   * 
+   *  constructor() {
+   *    this.loginControl = new Control('');
+   *  }
+   * }
+   *  ```
+   */
+  class NgFormControl extends NgControl {
+    
+     form: Control;
+    
+     update: void;
+    
+     model: any;
+    
+     viewModel: any;
+    
+     ngValidators: QueryList<NgValidator>;
+    
+     onChange(c: StringMap<string, any>): void;
+    
+     path: List<string>;
+    
+     control: Control;
+    
+     validator: Function;
+    
+     viewToModelUpdate(newValue: any): void;
+  }
+  
+
+  /**
+   * Binds a domain model to the form.
+   * 
+   * # Example
+   *  ```
+   * @Component({selector: "search-comp"})
+   * @View({
+   *      directives: [formDirectives],
+   *      template: `
+   *               <input type='text' [(ng-model)]="searchQuery">
+   *      `})
+   * class SearchComp {
+   *  searchQuery: string;
+   * }
+   *  ```
+   */
+  class NgModel extends NgControl {
+    
+     update: void;
+    
+     model: any;
+    
+     viewModel: any;
+    
+     ngValidators: QueryList<NgValidator>;
+    
+     onChange(c: StringMap<string, any>): void;
+    
+     control: Control;
+    
+     path: List<string>;
+    
+     validator: Function;
+    
+     viewToModelUpdate(newValue: any): void;
+  }
+  
+
+  /**
+   * An abstract class that all control directive extend.
+   * 
+   * It binds a {@link Control} object to a DOM element.
+   */
+  class NgControl extends AbstractControlDirective {
+    
+     name: string;
+    
+     valueAccessor: ControlValueAccessor;
+    
+     validator: Function;
+    
+     path: List<string>;
+    
+     viewToModelUpdate(newValue: any): void;
+  }
+  
+
+  /**
+   * Creates and binds a control group to a DOM element.
+   * 
+   * This directive can only be used as a child of {@link NgForm} or {@link NgFormModel}.
+   * 
+   * # Example
+   * 
+   * In this example, we create the credentials and personal control groups.
+   * We can work with each group separately: check its validity, get its value, listen to its changes.
+   * 
+   *  ```
+   * @Component({selector: "signup-comp"})
+   * @View({
+   *      directives: [formDirectives],
+   *      template: `
+   *              <form #f="form" (submit)='onSignUp(f.value)'>
+   *                <div ng-control-group='credentials' #credentials="form">
+   *                  Login <input type='text' ng-control='login'>
+   *                  Password <input type='password' ng-control='password'>
+   *                </div>
+   *                <div *ng-if="!credentials.valid">Credentials are invalid</div>
+   * 
+   *                <div ng-control-group='personal'>
+   *                  Name <input type='text' ng-control='name'>
+   *                </div>
+   *                <button type='submit'>Sign Up!</button>
+   *              </form>
+   *      `})
+   * class SignupComp {
+   *  onSignUp(value) {
+   *    // value === {personal: {name: 'some name'},
+   *    //  credentials: {login: 'some login', password: 'some password'}}
+   *  }
+   * }
+   * 
+   *  ```
+   */
+  class NgControlGroup extends ControlContainer {
+    
+     onInit(): void;
+    
+     onDestroy(): void;
+    
+     control: ControlGroup;
+    
+     path: List<string>;
+    
+     formDirective: Form;
+  }
+  
+
+  /**
+   * Binds an existing control group to a DOM element.
+   * 
+   * # Example
+   * 
+   * In this example, we bind the control group to the form element, and we bind the login and
+   * password controls to the
+   * login and password elements.
+   * 
+   *  ```
+   * @Component({selector: "login-comp"})
+   * @View({
+   *      directives: [formDirectives],
+   *      template: "<form [ng-form-model]='loginForm'>" +
+   *              "Login <input type='text' ng-control='login'>" +
+   *              "Password <input type='password' ng-control='password'>" +
+   *              "<button (click)="onLogin()">Login</button>" +
+   *              "</form>"
+   *      })
+   * class LoginComp {
+   *  loginForm:ControlGroup;
+   * 
+   *  constructor() {
+   *    this.loginForm = new ControlGroup({
+   *      login: new Control(""),
+   *      password: new Control("")
+   *    });
+   *  }
+   * 
+   *  onLogin() {
+   *    // this.loginForm.value
+   *  }
+   * }
+   * 
+   *  ```
+   * 
+   * We can also use ng-model to bind a domain model to the form.
+   * 
+   *  ```
+   * @Component({selector: "login-comp"})
+   * @View({
+   *      directives: [formDirectives],
+   *      template: "<form [ng-form-model]='loginForm'>" +
+   *              "Login <input type='text' ng-control='login' [(ng-model)]='login'>" +
+   *              "Password <input type='password' ng-control='password' [(ng-model)]='password'>" +
+   *              "<button (click)="onLogin()">Login</button>" +
+   *              "</form>"
+   *      })
+   * class LoginComp {
+   *  credentials:{login:string, password:string}
+   *  loginForm:ControlGroup;
+   * 
+   *  constructor() {
+   *    this.loginForm = new ControlGroup({
+   *      login: new Control(""),
+   *      password: new Control("")
+   *    });
+   *  }
+   * 
+   *  onLogin() {
+   *    // this.credentials.login === 'some login'
+   *    // this.credentials.password === 'some password'
+   *  }
+   * }
+   *  ```
+   */
+  class NgFormModel extends ControlContainer implements Form {
+    
+     form: ControlGroup;
+    
+     directives: List<NgControl>;
+    
+     ngSubmit: void;
+    
+     onChange(_: any): void;
+    
+     formDirective: Form;
+    
+     control: ControlGroup;
+    
+     path: List<string>;
+    
+     addControl(dir: NgControl): void;
+    
+     getControl(dir: NgControl): Control;
+    
+     removeControl(dir: NgControl): void;
+    
+     addControlGroup(dir: NgControlGroup): void;
+    
+     removeControlGroup(dir: NgControlGroup): void;
+    
+     getControlGroup(dir: NgControlGroup): ControlGroup;
+    
+     updateModel(dir: NgControl, value: any): void;
+    
+     onSubmit(): boolean;
+  }
+  
+
+  /**
+   * Creates and binds a form object to a DOM element.
+   * 
+   * # Example
+   * 
+   *  ```
+   * @Component({selector: "signup-comp"})
+   * @View({
+   *      directives: [formDirectives],
+   *      template: `
+   *              <form #f="form" (submit)='onSignUp(f.value)'>
+   *                <div ng-control-group='credentials' #credentials="form">
+   *                  Login <input type='text' ng-control='login'>
+   *                  Password <input type='password' ng-control='password'>
+   *                </div>
+   *                <div *ng-if="!credentials.valid">Credentials are invalid</div>
+   * 
+   *                <div ng-control-group='personal'>
+   *                  Name <input type='text' ng-control='name'>
+   *                </div>
+   *                <button type='submit'>Sign Up!</button>
+   *              </form>
+   *      `})
+   * class SignupComp {
+   *  onSignUp(value) {
+   *    // value === {personal: {name: 'some name'},
+   *    //  credentials: {login: 'some login', password: 'some password'}}
+   *  }
+   * }
+   * 
+   *  ```
+   */
+  class NgForm extends ControlContainer implements Form {
+    
+     form: ControlGroup;
+    
+     ngSubmit: void;
+    
+     formDirective: Form;
+    
+     control: ControlGroup;
+    
+     path: List<string>;
+    
+     controls: StringMap<string, AbstractControl>;
+    
+     addControl(dir: NgControl): void;
+    
+     getControl(dir: NgControl): Control;
+    
+     removeControl(dir: NgControl): void;
+    
+     addControlGroup(dir: NgControlGroup): void;
+    
+     removeControlGroup(dir: NgControlGroup): void;
+    
+     getControlGroup(dir: NgControlGroup): ControlGroup;
+    
+     updateModel(dir: NgControl, value: any): void;
+    
+     onSubmit(): boolean;
+  }
+  
+
+  /**
+   * A bridge between a control and a native element.
+   * 
+   * Please see {@link DefaultValueAccessor} for more information.
+   */
+  interface ControlValueAccessor {
+    
+     writeValue(obj: any): void;
+    
+     registerOnChange(fn: any): void;
+    
+     registerOnTouched(fn: any): void;
+  }
+  
+
+  /**
+   * The default accessor for writing a value and listening to changes that is used by the
+   * {@link NgModel}, {@link NgFormControl}, and {@link NgControlName} directives.
+   * 
+   *  # Example
+   *  ```
+   *  <input type="text" [(ng-model)]="searchQuery">
+   *  ```
+   */
+  class DefaultValueAccessor implements ControlValueAccessor {
+    
+     cd: NgControl;
+    
+     onChange: void;
+    
+     onTouched: void;
+    
+     renderer: Renderer;
+    
+     elementRef: ElementRef;
+    
+     writeValue(value: any): void;
+    
+     ngClassUntouched: boolean;
+    
+     ngClassTouched: boolean;
+    
+     ngClassPristine: boolean;
+    
+     ngClassDirty: boolean;
+    
+     ngClassValid: boolean;
+    
+     ngClassInvalid: boolean;
+    
+     registerOnChange(fn: (_: any) => void): void;
+    
+     registerOnTouched(fn: () => void): void;
+  }
+  
+
+  /**
+   * The accessor for writing a value and listening to changes on a checkbox input element.
+   * 
+   *  # Example
+   *  ```
+   *  <input type="checkbox" [ng-control]="rememberLogin">
+   *  ```
+   */
+  class CheckboxControlValueAccessor implements ControlValueAccessor {
+    
+     cd: NgControl;
+    
+     onChange: void;
+    
+     onTouched: void;
+    
+     renderer: Renderer;
+    
+     elementRef: ElementRef;
+    
+     writeValue(value: any): void;
+    
+     ngClassUntouched: boolean;
+    
+     ngClassTouched: boolean;
+    
+     ngClassPristine: boolean;
+    
+     ngClassDirty: boolean;
+    
+     ngClassValid: boolean;
+    
+     ngClassInvalid: boolean;
+    
+     registerOnChange(fn: (_: any) => {}): void;
+    
+     registerOnTouched(fn: () => {}): void;
+  }
+  
+
+  /**
+   * Marks <option> as dynamic, so Angular can be notified when options change.
+   * 
+   * #Example:
+   * 
+   * ```
+   * <select ng-control="city">
+   *   <option *ng-for="#c of cities" [value]="c"></option>
+   * </select>
+   * ```
+   */
+  class NgSelectOption {
+  }
+  
+
+  /**
+   * The accessor for writing a value and listening to changes on a select element.
+   */
+  class SelectControlValueAccessor implements ControlValueAccessor {
+    
+     cd: NgControl;
+    
+     value: string;
+    
+     onChange: void;
+    
+     onTouched: void;
+    
+     renderer: Renderer;
+    
+     elementRef: ElementRef;
+    
+     writeValue(value: any): void;
+    
+     ngClassUntouched: boolean;
+    
+     ngClassTouched: boolean;
+    
+     ngClassPristine: boolean;
+    
+     ngClassDirty: boolean;
+    
+     ngClassValid: boolean;
+    
+     ngClassInvalid: boolean;
+    
+     registerOnChange(fn: () => any): void;
+    
+     registerOnTouched(fn: () => any): void;
+  }
+  
+
+  /**
+   * A list of all the form directives used as part of a `@View` annotation.
+   * 
+   *  This is a shorthand for importing them each individually.
+   */
+  const formDirectives : List<Type> ;
+  
+
+  /**
+   * Provides a set of validators used by form controls.
+   * 
+   * # Example
+   * 
+   * ```
+   * var loginControl = new Control("", Validators.required)
+   * ```
+   */
+  class Validators {
+  }
+  
+  class NgValidator {
+    
+     validator: Function;
+  }
+  
+  class NgRequiredValidator extends NgValidator {
+    
+     validator: Function;
+  }
+  
+
+  /**
+   * Creates a form object from a user-specified configuration.
+   * 
+   * # Example
+   * 
+   * ```
+   * import {Component, View, bootstrap} from 'angular2/angular2';
+   * import {FormBuilder, Validators, formDirectives, ControlGroup} from 'angular2/forms';
+   * 
+   * @Component({
+   *   selector: 'login-comp',
+   *   viewInjector: [
+   *     FormBuilder
+   *   ]
+   * })
+   * @View({
+   *   template: `
+   *     <form [control-group]="loginForm">
+   *       Login <input control="login">
+   * 
+   *       <div control-group="passwordRetry">
+   *         Password <input type="password" control="password">
+   *         Confirm password <input type="password" control="passwordConfirmation">
+   *       </div>
+   *     </form>
+   *   `,
+   *   directives: [
+   *     formDirectives
+   *   ]
+   * })
+   * class LoginComp {
+   *   loginForm: ControlGroup;
+   * 
+   *   constructor(builder: FormBuilder) {
+   *     this.loginForm = builder.group({
+   *       login: ["", Validators.required],
+   * 
+   *       passwordRetry: builder.group({
+   *         password: ["", Validators.required],
+   *         passwordConfirmation: ["", Validators.required]
+   *       })
+   *     });
+   *   }
+   * }
+   * 
+   * bootstrap(LoginComp)
+   * ```
+   * 
+   * This example creates a {@link ControlGroup} that consists of a `login` {@link Control}, and a
+   * nested
+   * {@link ControlGroup} that defines a `password` and a `passwordConfirmation` {@link Control}:
+   * 
+   * ```
+   *  var loginForm = builder.group({
+   *    login: ["", Validators.required],
+   * 
+   *    passwordRetry: builder.group({
+   *      password: ["", Validators.required],
+   *      passwordConfirmation: ["", Validators.required]
+   *    })
+   *  });
+   * 
+   *  ```
+   */
+  class FormBuilder {
+    
+     group(controlsConfig: StringMap<string, any>, extra?: StringMap<string, any>): ControlGroup;
+    
+     control(value: Object, validator?: Function): Control;
+    
+     array(controlsConfig: List<any>, validator?: Function): ControlArray;
+  }
+  
+  const formInjectables : List<Type> ;
+  
+
+  /**
+   * A dispatcher for all events happening in a view.
+   */
+  interface RenderEventDispatcher {
+    
+
+    /**
+     * Called when an event was triggered for a on-* attribute on an element.
+     * @param {Map<string, any>} locals Locals to be used to evaluate the
+     *   event expressions
+     */
+     dispatchRenderEvent(elementIndex: number, eventName: string, locals: Map<string, any>): void;
+  }
+  
+  class Renderer {
+    
+
+    /**
+     * Creates a root host view that includes the given element.
+     * Note that the fragmentCount needs to be passed in so that we can create a result
+     * synchronously even when dealing with webworkers!
+     * 
+     * @param {RenderProtoViewRef} hostProtoViewRef a RenderProtoViewRef of type
+     * ProtoViewDto.HOST_VIEW_TYPE
+     * @param {any} hostElementSelector css selector for the host element (will be queried against the
+     * main document)
+     * @return {RenderViewWithFragments} the created view including fragments
+     */
+     createRootHostView(hostProtoViewRef: RenderProtoViewRef, fragmentCount: number, hostElementSelector: string): RenderViewWithFragments;
+    
+
+    /**
+     * Creates a regular view out of the given ProtoView.
+     * Note that the fragmentCount needs to be passed in so that we can create a result
+     * synchronously even when dealing with webworkers!
+     */
+     createView(protoViewRef: RenderProtoViewRef, fragmentCount: number): RenderViewWithFragments;
+    
+
+    /**
+     * Destroys the given view after it has been dehydrated and detached
+     */
+     destroyView(viewRef: RenderViewRef): void;
+    
+
+    /**
+     * Attaches a fragment after another fragment.
+     */
+     attachFragmentAfterFragment(previousFragmentRef: RenderFragmentRef, fragmentRef: RenderFragmentRef): void;
+    
+
+    /**
+     * Attaches a fragment after an element.
+     */
+     attachFragmentAfterElement(elementRef: RenderElementRef, fragmentRef: RenderFragmentRef): void;
+    
+
+    /**
+     * Detaches a fragment.
+     */
+     detachFragment(fragmentRef: RenderFragmentRef): void;
+    
+
+    /**
+     * Hydrates a view after it has been attached. Hydration/dehydration is used for reusing views
+     * inside of the view pool.
+     */
+     hydrateView(viewRef: RenderViewRef): void;
+    
+
+    /**
+     * Dehydrates a view after it has been attached. Hydration/dehydration is used for reusing views
+     * inside of the view pool.
+     */
+     dehydrateView(viewRef: RenderViewRef): void;
+    
+
+    /**
+     * Returns the native element at the given location.
+     * Attention: In a WebWorker scenario, this should always return null!
+     */
+     getNativeElementSync(location: RenderElementRef): any;
+    
+
+    /**
+     * Sets a property on an element.
+     */
+     setElementProperty(location: RenderElementRef, propertyName: string, propertyValue: any): void;
+    
+
+    /**
+     * Sets an attribute on an element.
+     */
+     setElementAttribute(location: RenderElementRef, attributeName: string, attributeValue: string): void;
+    
+
+    /**
+     * Sets a class on an element.
+     */
+     setElementClass(location: RenderElementRef, className: string, isAdd: boolean): void;
+    
+
+    /**
+     * Sets a style on an element.
+     */
+     setElementStyle(location: RenderElementRef, styleName: string, styleValue: string): void;
+    
+
+    /**
+     * Calls a method on an element.
+     */
+     invokeElementMethod(location: RenderElementRef, methodName: string, args: List<any>): void;
+    
+
+    /**
+     * Sets the value of a text node.
+     */
+     setText(viewRef: RenderViewRef, textNodeIndex: number, text: string): void;
+    
+
+    /**
+     * Sets the dispatcher for all events of the given view
+     */
+     setEventDispatcher(viewRef: RenderViewRef, dispatcher: RenderEventDispatcher): void;
+  }
+  
+  class RenderViewRef {
+  }
+  
+  class RenderProtoViewRef {
+  }
+  
+  class RenderFragmentRef {
+  }
+  
+  class RenderViewWithFragments {
+    
+     viewRef: RenderViewRef;
+    
+     fragmentRefs: RenderFragmentRef[];
+  }
+  
+  class DomRenderer extends Renderer {
+    
+     createRootHostView(hostProtoViewRef: RenderProtoViewRef, fragmentCount: number, hostElementSelector: string): RenderViewWithFragments;
+    
+     createView(protoViewRef: RenderProtoViewRef, fragmentCount: number): RenderViewWithFragments;
+    
+     destroyView(viewRef: RenderViewRef): void;
+    
+     getNativeElementSync(location: RenderElementRef): any;
+    
+     getRootNodes(fragment: RenderFragmentRef): List<Node>;
+    
+     attachFragmentAfterFragment(previousFragmentRef: RenderFragmentRef, fragmentRef: RenderFragmentRef): void;
+    
+     attachFragmentAfterElement(elementRef: RenderElementRef, fragmentRef: RenderFragmentRef): void;
+    
+     detachFragment(fragmentRef: RenderFragmentRef): void;
+    
+     hydrateView(viewRef: RenderViewRef): void;
+    
+     dehydrateView(viewRef: RenderViewRef): void;
+    
+     setElementProperty(location: RenderElementRef, propertyName: string, propertyValue: any): void;
+    
+     setElementAttribute(location: RenderElementRef, attributeName: string, attributeValue: string): void;
+    
+     setElementClass(location: RenderElementRef, className: string, isAdd: boolean): void;
+    
+     setElementStyle(location: RenderElementRef, styleName: string, styleValue: string): void;
+    
+     invokeElementMethod(location: RenderElementRef, methodName: string, args: List<any>): void;
+    
+     setText(viewRef: RenderViewRef, textNodeIndex: number, text: string): void;
+    
+     setEventDispatcher(viewRef: RenderViewRef, dispatcher: any): void;
+  }
+  
+  const DOCUMENT_TOKEN : OpaqueToken ;
+  
+
+  /**
+   * A unique id (string) for an angular application.
+   */
+  const APP_ID_TOKEN : OpaqueToken ;
+  
+  const DOM_REFLECT_PROPERTIES_AS_ATTRIBUTES : OpaqueToken ;
+  
+  var ChangeDetectorRef: InjectableReference;
+  
   var ApplicationRef: InjectableReference;
   
   var Compiler: InjectableReference;
   
   var AppViewManager: InjectableReference;
   
+  var ViewRef: InjectableReference;
+  
   var ProtoViewRef: InjectableReference;
+  
+  var ViewContainerRef: InjectableReference;
+  
+  var ComponentRef: InjectableReference;
   
   var Key: InjectableReference;
   
