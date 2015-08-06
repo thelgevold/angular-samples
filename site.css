@@ -5,3 +5,9 @@ ul{
 .addContactControls{
     margin-top: 20px;
 }
+
+.iconButton{
+    font-size: 20px;
+    margin-right: 5px;
+    cursor:pointer;
+}

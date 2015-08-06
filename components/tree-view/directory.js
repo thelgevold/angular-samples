@@ -9,6 +9,12 @@ var Directory = (function () {
     Directory.prototype.toggle = function () {
         this.expanded = !this.expanded;
     };
+    Directory.prototype.getIcon = function () {
+        if (this.expanded) {
+            return '-';
+        }
+        return '+';
+    };
     Directory.prototype.check = function () {
         this.checked = !this.checked;
         this.checkRecursive(this.checked);

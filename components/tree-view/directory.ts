@@ -12,6 +12,15 @@ export class Directory{
         this.expanded = !this.expanded;
     }
 
+    getIcon(){
+
+        if(this.expanded){
+            return '-';
+        }
+
+        return '+';
+    }
+
     check(){
         this.checked = !this.checked;
         this.checkRecursive(this.checked);

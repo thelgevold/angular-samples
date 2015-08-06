@@ -1,7 +1,7 @@
 <ul>
     <li *ng-for="#dir of directories">
 
-        <span><input type="checkbox" [checked]="dir.checked" (click)="dir.check()" /></span> <span (click)="dir.toggle()">{{ dir.name }}</span>
+        <span><span class="iconButton" (click)="dir.toggle()">{{dir.getIcon()}}</span><input type="checkbox" [checked]="dir.checked" (click)="dir.check()" /></span> {{ dir.name }}
 
         <div *ng-if="dir.expanded">
 
