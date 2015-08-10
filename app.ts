@@ -19,7 +19,7 @@ import {RouterLink, RouteConfig, Router, RouterOutlet, Location, RouteParams} fr
     {path: '/', component: DemoPage, as: 'home'},
     {path: '/about/:id', component: About, as: 'about'}
 ])
-
+ 
 class MyDemoApp {
 
     router: Router;

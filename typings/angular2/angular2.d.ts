@@ -1,4 +1,4 @@
-// Type definitions for Angular v2.0.0-alpha.33
+// Type definitions for Angular v2.0.0-alpha.34
 // Project: http://angular.io/
 // Definitions by: angular team <https://github.com/angular/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -20,12 +20,6 @@ interface Map<K,V> {}
 interface StringMap<K,V> extends Map<K,V> {}
 
 declare module ng {
-  type SetterFn = typeof Function;
-  type int = number;
-  interface Type extends Function {
-    new (...args: any[]): any;
-  }
-
   // See https://github.com/Microsoft/TypeScript/issues/1168
   class BaseException /* extends Error */ {
     message: string;
@@ -183,7 +177,7 @@ declare module ng {
    * When a component is instantiated, Angular
    * - creates a shadow DOM for the component.
    * - loads the selected template into the shadow DOM.
-   * - creates all the injectable objects configured with `hostInjector` and `viewInjector`.
+   * - creates all the injectable objects configured with `bindings` and `viewBindings`.
    * 
    * All template expressions and statements are then evaluated against the component instance.
    * 
@@ -251,7 +245,7 @@ declare module ng {
      * 
      * @Component({
      *   selector: 'greet',
-     *   viewInjector: [
+     *   viewBindings: [
      *     Greeter
      *   ]
      * })
@@ -264,7 +258,7 @@ declare module ng {
      * 
      * ```
      */
-     viewInjector: List<any>;
+     viewBindings: List<any>;
   }
   
 
@@ -318,11 +312,9 @@ declare module ng {
    * 
    * To inject other directives, declare the constructor parameter as:
    * - `directive:DirectiveType`: a directive on the current element only
-   * - `@Ancestor() directive:DirectiveType`: any directive that matches the type between the current
+   * - `@Host() directive:DirectiveType`: any directive that matches the type between the current
    * element and the
-   *    Shadow DOM root. Current element is not included in the resolution, therefore even if it could
-   * resolve it, it will
-   *    be ignored.
+   *    Shadow DOM root.
    * - `@Query(DirectiveType) query:QueryList<DirectiveType>`: A live collection of direct child
    * directives.
    * - `@QueryDescendants(DirectiveType) query:QueryList<DirectiveType>`: A live collection of any
@@ -429,21 +421,19 @@ declare module ng {
    * ### Injecting a directive from any ancestor elements
    * 
    * Directives can inject other directives declared on any ancestor element (in the current Shadow
-   * DOM), i.e. on the
-   * parent element and its parents. By definition, a directive with an `@Ancestor` annotation does
-   * not attempt to
-   * resolve dependencies for the current element, even if this would satisfy the dependency.
-   * 
+   * DOM), i.e. on the current element, the
+   * parent element, or its parents.
    * ```
    * @Directive({ selector: '[my-directive]' })
    * class MyDirective {
-   *   constructor(@Ancestor() dependency: Dependency) {
+   *   constructor(@Host() dependency: Dependency) {
    *     expect(dependency.id).toEqual(2);
    *   }
    * }
    * ```
    * 
-   * `@Ancestor` checks the parent, as well as its parents recursively. If `dependency="2"` didn't
+   * `@Host` checks the current element, the parent, as well as its parents recursively. If
+   * `dependency="2"` didn't
    * exist on the direct parent, this injection would
    * have returned
    * `dependency="1"`.
@@ -982,7 +972,7 @@ declare module ng {
      * 
      * @Directive({
      *   selector: 'greet',
-     *   hostInjector: [
+     *   bindings: [
      *     Greeter
      *   ]
      * })
@@ -995,7 +985,7 @@ declare module ng {
      * }
      * ```
      */
-     hostInjector: List<any>;
+     bindings: List<any>;
     
 
     /**
@@ -1078,7 +1068,7 @@ declare module ng {
     
 
     /**
-     * Specifies an inline template for an angular component.
+     * Specifies a template URL for an angular component.
      * 
      * NOTE: either `templateUrl` or `template` should be used, but not both.
      */
@@ -1086,7 +1076,7 @@ declare module ng {
     
 
     /**
-     * Specifies a template URL for an angular component.
+     * Specifies an inline template for an angular component.
      * 
      * NOTE: either `templateUrl` or `template` should be used, but not both.
      */
@@ -1132,8 +1122,9 @@ declare module ng {
 
     /**
      * Specify how the template and the styles should be encapsulated.
-     * The default is {@link ViewEncapsulation.EMULATED} if the view has styles,
-     * otherwise {@link ViewEncapsulation.NONE}.
+     * The default is {@link ViewEncapsulation#EMULATED `ViewEncapsulation.EMULATED`} if the view
+     * has styles,
+     * otherwise {@link ViewEncapsulation#NONE `ViewEncapsulation.NONE`}.
      */
      encapsulation: ViewEncapsulation;
   }
@@ -1207,8 +1198,9 @@ declare module ng {
   
 
   /**
-   * Defines lifecycle method [onAllChangesDone ] called when the bindings of all its children have
-   * been changed.
+   * Defines lifecycle method
+   * {@link annotations/LifeCycleEvent#onAllChangesDone `LifeCycleEvent.onAllChangesDone`}
+   * called when the bindings of all its children have been changed.
    */
   interface OnAllChangesDone {
     
@@ -1217,8 +1209,8 @@ declare module ng {
   
 
   /**
-   * Defines lifecycle method [onChange] called after all of component's bound
-   * properties are updated.
+   * Defines lifecycle method {@link annotations/LifeCycleEvent#onChange `LifeCycleEvent.onChange`}
+   * called after all of component's bound properties are updated.
    */
   interface OnChange {
     
@@ -1227,7 +1219,8 @@ declare module ng {
   
 
   /**
-   * Defines lifecycle method [onDestroy] called when a directive is being destroyed.
+   * Defines lifecycle method {@link annotations/LifeCycleEvent#onDestroy `LifeCycleEvent.onDestroy`}
+   * called when a directive is being destroyed.
    */
   interface OnDestroy {
     
@@ -1236,7 +1229,8 @@ declare module ng {
   
 
   /**
-   * Defines lifecycle method [onInit] called when a directive is being checked the first time.
+   * Defines lifecycle method {@link annotations/LifeCycleEvent#onInit `LifeCycleEvent.onInit`}
+   * called when a directive is being checked the first time.
    */
   interface OnInit {
     
@@ -1245,7 +1239,8 @@ declare module ng {
   
 
   /**
-   * Defines lifecycle method [onCheck] called when a directive is being checked.
+   * Defines lifecycle method {@link annotations/LifeCycleEvent#onCheck `LifeCycleEvent.onCheck`}
+   * called when a directive is being checked.
    */
   interface OnCheck {
     
@@ -1359,21 +1354,6 @@ declare module ng {
      * See {@link Class} for example of usage.
      */
      constructor: (Function | Array<any>);
-  }
-  
-
-  /**
-   * An interface implemented by all Angular parameter decorators, which allows them to be used as ES7
-   * decorators.
-   */
-  interface ParameterDecorator {
-    
-
-    /**
-     * Invoke as ES7 decorator.
-     */
-     (cls: Type, unusedKey: any, index: number): void;
-  
   }
   
 
@@ -1565,10 +1545,10 @@ declare module ng {
     events?: List<string>,
     host?: StringMap<string, string>,
     lifecycle?: List<LifecycleEvent>,
-    hostInjector?: List<any>,
+    bindings?: List<any>,
     exportAs?: string,
     compileChildren?: boolean,
-    viewInjector?: List<any>,
+    viewBindings?: List<any>,
     changeDetection?: string,
   }): ComponentAnnotation;
   
@@ -1579,10 +1559,10 @@ declare module ng {
     events?: List<string>,
     host?: StringMap<string, string>,
     lifecycle?: List<LifecycleEvent>,
-    hostInjector?: List<any>,
+    bindings?: List<any>,
     exportAs?: string,
     compileChildren?: boolean,
-    viewInjector?: List<any>,
+    viewBindings?: List<any>,
     changeDetection?: string,
   }): ComponentDecorator;
   
@@ -1648,15 +1628,15 @@ declare module ng {
     
      new(obj: {
     selector?: string, properties?: List<string>, events?: List<string>,
-        host?: StringMap<string, string>, lifecycle?: List<LifecycleEvent>,
-        hostInjector?: List<any>, exportAs?: string, compileChildren?: boolean;
+        host?: StringMap<string, string>, lifecycle?: List<LifecycleEvent>, bindings?: List<any>,
+        exportAs?: string, compileChildren?: boolean;
   }): DirectiveAnnotation;
   
     
      (obj: {
     selector?: string, properties?: List<string>, events?: List<string>,
-        host?: StringMap<string, string>, lifecycle?: List<LifecycleEvent>,
-        hostInjector?: List<any>, exportAs?: string, compileChildren?: boolean;
+        host?: StringMap<string, string>, lifecycle?: List<LifecycleEvent>, bindings?: List<any>,
+        exportAs?: string, compileChildren?: boolean;
   }): DirectiveDecorator;
   
   }
@@ -1892,6 +1872,48 @@ declare module ng {
      location: string;
   }
   
+  interface ChangeDetector {
+    
+     parent: ChangeDetector;
+    
+     mode: string;
+    
+     addChild(cd: ChangeDetector): void;
+    
+     addShadowDomChild(cd: ChangeDetector): void;
+    
+     removeChild(cd: ChangeDetector): void;
+    
+     removeShadowDomChild(cd: ChangeDetector): void;
+    
+     remove(): void;
+    
+     hydrate(context: any, locals: Locals, directives: any, pipes: any): void;
+    
+     dehydrate(): void;
+    
+     markPathToRootAsCheckOnce(): void;
+    
+     detectChanges(): void;
+    
+     checkNoChanges(): void;
+  }
+  
+  class Locals {
+    
+     parent: Locals;
+    
+     current: Map<any, any>;
+    
+     contains(name: string): boolean;
+    
+     get(name: string): any;
+    
+     set(name: string, value: any): void;
+    
+     clearValues(): void;
+  }
+  
 
   /**
    * Controls change detection.
@@ -1937,6 +1959,8 @@ declare module ng {
     
      wrapped: any;
   }
+  
+  const defaultPipes : Pipes ;
   
 
   /**
@@ -1985,7 +2009,7 @@ declare module ng {
      *   'json': [jsonPipeFactory]
      * }
      * @Component({
-     *   viewInjector: [
+     *   viewBindings: [
      *     bind(Pipes).toValue(new Pipes(pipesConfig))
      *   ]
      * })
@@ -1994,6 +2018,64 @@ declare module ng {
      config: StringMap<string, PipeFactory[]>;
     
      get(type: string, obj: any, cdRef?: ChangeDetectorRef, existingPipe?: Pipe): Pipe;
+  }
+  
+
+  /**
+   * A repository of different iterable diffing strategies used by NgFor, NgClass, and others.
+   */
+  class IterableDiffers {
+    
+     factories: IterableDifferFactory[];
+    
+     find(iterable: Object): IterableDifferFactory;
+  }
+  
+  interface IterableDiffer {
+    
+     diff(object: Object): any;
+    
+     onDestroy(): void;
+  }
+  
+
+  /**
+   * Provides a factory for {@link IterableDiffer}.
+   */
+  interface IterableDifferFactory {
+    
+     supports(objects: Object): boolean;
+    
+     create(cdRef: ChangeDetectorRef): IterableDiffer;
+  }
+  
+
+  /**
+   * A repository of different Map diffing strategies used by NgClass, NgStyle, and others.
+   */
+  class KeyValueDiffers {
+    
+     factories: KeyValueDifferFactory[];
+    
+     find(kv: Object): KeyValueDifferFactory;
+  }
+  
+  interface KeyValueDiffer {
+    
+     diff(object: Object): void;
+    
+     onDestroy(): void;
+  }
+  
+
+  /**
+   * Provides a factory for {@link KeyValueDiffer}.
+   */
+  interface KeyValueDifferFactory {
+    
+     supports(objects: Object): boolean;
+    
+     create(cdRef: ChangeDetectorRef): KeyValueDiffer;
   }
   
   interface PipeFactory {
@@ -2094,6 +2176,18 @@ declare module ng {
      * Returns the root application {@link Injector}.
      */
      injector: Injector;
+  }
+  
+
+  /**
+   * Runtime representation of a type.
+   * 
+   * In JavaScript a Type is a constructor function.
+   */
+  interface Type extends Function {
+    
+     new(args: any): any;
+  
   }
   
 
@@ -2607,6 +2701,59 @@ declare module ng {
   
 
   /**
+   * Provides access to explicitly trigger change detection in an application.
+   * 
+   * By default, `Zone` triggers change detection in Angular on each virtual machine (VM) turn. When
+   * testing, or in some
+   * limited application use cases, a developer can also trigger change detection with the
+   * `lifecycle.tick()` method.
+   * 
+   * Each Angular application has a single `LifeCycle` instance.
+   * 
+   * # Example
+   * 
+   * This is a contrived example, since the bootstrap automatically runs inside of the `Zone`, which
+   * invokes
+   * `lifecycle.tick()` on your behalf.
+   * 
+   * ```javascript
+   * bootstrap(MyApp).then((ref:ComponentRef) => {
+   *   var lifeCycle = ref.injector.get(LifeCycle);
+   *   var myApp = ref.instance;
+   * 
+   *   ref.doSomething();
+   *   lifecycle.tick();
+   * });
+   * ```
+   */
+  class LifeCycle {
+    
+
+    /**
+     * @private
+     */
+     registerWith(zone: NgZone, changeDetector?: ChangeDetector): void;
+    
+
+    /**
+     * Invoke this method to explicitly process change detection and its side-effects.
+     * 
+     *  In development mode, `tick()` also performs a second change detection cycle to ensure that no
+     * further
+     *  changes are detected. If additional changes are picked up during this second cycle, bindings
+     * in
+     * the app have
+     *  side-effects that cannot be resolved in a single change detection pass. In this case, Angular
+     * throws an error,
+     *  since an Angular application can only have one change detection pass during which all change
+     * detection must
+     *  complete.
+     */
+     tick(): void;
+  }
+  
+
+  /**
    * Reference to the element.
    * 
    * Represents an opaque reference to the underlying element. The element is a DOM ELement in
@@ -3100,21 +3247,6 @@ declare module ng {
   
 
   /**
-   * Specifies how injector should resolve a dependency.
-   * 
-   * See {@link Self}, {@link Ancestor}, {@link Unbounded}.
-   */
-  class VisibilityMetadata {
-    
-     crossBoundaries: boolean;
-    
-     includeSelf: boolean;
-    
-     toString(): string;
-  }
-  
-
-  /**
    * Specifies that an injector should retrieve a dependency from itself.
    * 
    * ## Example
@@ -3132,14 +3264,15 @@ declare module ng {
    * expect(nd.dependency).toBeAnInstanceOf(Dependency);
    * ```
    */
-  class SelfMetadata extends VisibilityMetadata {
+  class SelfMetadata {
     
      toString(): string;
   }
   
 
   /**
-   * Specifies that an injector should retrieve a dependency from any ancestor from the same boundary.
+   * Specifies that an injector should retrieve a dependency from any injector until reaching the
+   * closest host.
    * 
    * ## Example
    * 
@@ -3148,65 +3281,52 @@ declare module ng {
    * }
    * 
    * class NeedsDependency {
-   *   constructor(public @Ancestor() dependency:Dependency) {}
+   *   constructor(public @Host() dependency:Dependency) {}
    * }
    * 
    * var parent = Injector.resolveAndCreate([
-   *   bind(Dependency).toClass(AncestorDependency)
+   *   bind(Dependency).toClass(HostDependency)
    * ]);
    * var child = parent.resolveAndCreateChild([]);
    * var grandChild = child.resolveAndCreateChild([NeedsDependency, Depedency]);
    * var nd = grandChild.get(NeedsDependency);
-   * expect(nd.dependency).toBeAnInstanceOf(AncestorDependency);
-   * ```
-   * 
-   * You can make an injector to retrive a dependency either from itself or its ancestor by setting
-   * self to true.
-   * 
-   * ```
-   * class NeedsDependency {
-   *   constructor(public @Ancestor({self:true}) dependency:Dependency) {}
-   * }
+   * expect(nd.dependency).toBeAnInstanceOf(HostDependency);
    * ```
    */
-  class AncestorMetadata extends VisibilityMetadata {
+  class HostMetadata {
     
      toString(): string;
   }
   
 
   /**
-   * Specifies that an injector should retrieve a dependency from any ancestor, crossing boundaries.
+   * Specifies that the dependency resolution should start from the parent injector.
    * 
    * ## Example
    * 
+   * 
    * ```
-   * class Dependency {
+   * class Service {}
+   * 
+   * class ParentService implements Service {
    * }
    * 
-   * class NeedsDependency {
-   *   constructor(public @Ancestor() dependency:Dependency) {}
+   * class ChildService implements Service {
+   *   constructor(public @SkipSelf() parentService:Service) {}
    * }
    * 
    * var parent = Injector.resolveAndCreate([
-   *   bind(Dependency).toClass(AncestorDependency)
+   *   bind(Service).toClass(ParentService)
    * ]);
-   * var child = parent.resolveAndCreateChild([]);
-   * var grandChild = child.resolveAndCreateChild([NeedsDependency, Depedency]);
-   * var nd = grandChild.get(NeedsDependency);
-   * expect(nd.dependency).toBeAnInstanceOf(AncestorDependency);
-   * ```
-   * 
-   * You can make an injector to retrive a dependency either from itself or its ancestor by setting
-   * self to true.
-   * 
-   * ```
-   * class NeedsDependency {
-   *   constructor(public @Ancestor({self:true}) dependency:Dependency) {}
-   * }
+   * var child = parent.resolveAndCreateChild([
+   *   bind(Service).toClass(ChildSerice)
+   * ]);
+   * var s = child.get(Service);
+   * expect(s).toBeAnInstanceOf(ChildService);
+   * expect(s.parentService).toBeAnInstanceOf(ParentService);
    * ```
    */
-  class UnboundedMetadata extends VisibilityMetadata {
+  class SkipSelfMetadata {
     
      toString(): string;
   }
@@ -3242,8 +3362,6 @@ declare module ng {
     
      token: void;
   }
-  
-  const DEFAULT_VISIBILITY : VisibilityMetadata ;
   
 
   /**
@@ -3749,7 +3867,9 @@ declare module ng {
     
      optional: boolean;
     
-     visibility: VisibilityMetadata;
+     lowerBoundVisibility: any;
+    
+     upperBoundVisibility: any;
     
      properties: List<any>;
   }
@@ -3971,27 +4091,27 @@ declare module ng {
   
 
   /**
-   * Factory for creating {@link AncestorMetadata}.
+   * Factory for creating {@link HostMetadata}.
    */
-  interface AncestorFactory {
+  interface HostFactory {
     
-     new(visibility?: {self: boolean}): AncestorMetadata;
+     new(): HostMetadata;
   
     
-     (visibility?: {self: boolean}): any;
+     (): any;
   
   }
   
 
   /**
-   * Factory for creating {@link UnboundedMetadata}.
+   * Factory for creating {@link SkipSelfMetadata}.
    */
-  interface UnboundedFactory {
+  interface SkipSelfFactory {
     
-     new(visibility?: {self: boolean}): UnboundedMetadata;
+     new(): SkipSelfMetadata;
   
     
-     (visibility?: {self: boolean}): any;
+     (): any;
   
   }
   
@@ -4021,15 +4141,15 @@ declare module ng {
   
 
   /**
-   * Factory for creating {@link AncestorMetadata}.
+   * Factory for creating {@link HostMetadata}.
    */
-  var Ancestor : AncestorFactory ;
+  var Host : HostFactory ;
   
 
   /**
-   * Factory for creating {@link UnboundedMetadata}.
+   * Factory for creating {@link SkipSelfMetadata}.
    */
-  var Unbounded : UnboundedFactory ;
+  var SkipSelf : SkipSelfFactory ;
   
 
   /**
@@ -4142,7 +4262,7 @@ declare module ng {
     
      templateRef: TemplateRef;
     
-     pipes: Pipes;
+     iterableDiffers: IterableDiffers;
     
      cdr: ChangeDetectorRef;
     
@@ -4855,7 +4975,7 @@ declare module ng {
    * ```
    * import {Http, MyNodeBackend, httpInjectables, BaseRequestOptions} from 'angular2/http';
    * @Component({
-   *   viewInjector: [
+   *   viewBindings: [
    *     httpInjectables,
    *     bind(Http).toFactory((backend, options) => {
    *       return new Http(backend, options);
@@ -4944,7 +5064,7 @@ declare module ng {
    * 
    * ```
    * import {Http, httpInjectables} from 'angular2/http';
-   * @Component({selector: 'http-app', viewInjector: [httpInjectables]})
+   * @Component({selector: 'http-app', viewBindings: [httpInjectables]})
    * @View({templateUrl: 'people.html'})
    * class PeopleComponent {
    *   constructor(http: Http) {
@@ -5226,7 +5346,7 @@ declare module ng {
    * 
    * ```
    * import {httpInjectables, Http} from 'angular2/http';
-   * @Component({selector: 'http-app', viewInjector: [httpInjectables]})
+   * @Component({selector: 'http-app', viewBindings: [httpInjectables]})
    * @View({template: '{{data}}'})
    * class MyApp {
    *   constructor(http:Http) {
@@ -6029,7 +6149,7 @@ declare module ng {
    * 
    * @Component({
    *   selector: 'login-comp',
-   *   viewInjector: [
+   *   viewBindings: [
    *     FormBuilder
    *   ]
    * })
@@ -6092,6 +6212,82 @@ declare module ng {
   }
   
   const formInjectables : List<Type> ;
+  
+  class DirectiveMetadata {
+    
+     id: any;
+    
+     selector: string;
+    
+     compileChildren: boolean;
+    
+     events: List<string>;
+    
+     properties: List<string>;
+    
+     readAttributes: List<string>;
+    
+     type: number;
+    
+     callOnDestroy: boolean;
+    
+     callOnChange: boolean;
+    
+     callOnCheck: boolean;
+    
+     callOnInit: boolean;
+    
+     callOnAllChangesDone: boolean;
+    
+     changeDetection: string;
+    
+     exportAs: string;
+    
+     hostListeners: Map<string, string>;
+    
+     hostProperties: Map<string, string>;
+    
+     hostAttributes: Map<string, string>;
+    
+     hostActions: Map<string, string>;
+  }
+  
+  class DomRenderer extends Renderer {
+    
+     createRootHostView(hostProtoViewRef: RenderProtoViewRef, fragmentCount: number, hostElementSelector: string): RenderViewWithFragments;
+    
+     createView(protoViewRef: RenderProtoViewRef, fragmentCount: number): RenderViewWithFragments;
+    
+     destroyView(viewRef: RenderViewRef): void;
+    
+     getNativeElementSync(location: RenderElementRef): any;
+    
+     getRootNodes(fragment: RenderFragmentRef): List<Node>;
+    
+     attachFragmentAfterFragment(previousFragmentRef: RenderFragmentRef, fragmentRef: RenderFragmentRef): void;
+    
+     attachFragmentAfterElement(elementRef: RenderElementRef, fragmentRef: RenderFragmentRef): void;
+    
+     detachFragment(fragmentRef: RenderFragmentRef): void;
+    
+     hydrateView(viewRef: RenderViewRef): void;
+    
+     dehydrateView(viewRef: RenderViewRef): void;
+    
+     setElementProperty(location: RenderElementRef, propertyName: string, propertyValue: any): void;
+    
+     setElementAttribute(location: RenderElementRef, attributeName: string, attributeValue: string): void;
+    
+     setElementClass(location: RenderElementRef, className: string, isAdd: boolean): void;
+    
+     setElementStyle(location: RenderElementRef, styleName: string, styleValue: string): void;
+    
+     invokeElementMethod(location: RenderElementRef, methodName: string, args: List<any>): void;
+    
+     setText(viewRef: RenderViewRef, textNodeIndex: number, text: string): void;
+    
+     setEventDispatcher(viewRef: RenderViewRef, dispatcher: any): void;
+  }
   
 
   /**
@@ -6236,41 +6432,21 @@ declare module ng {
      fragmentRefs: RenderFragmentRef[];
   }
   
-  class DomRenderer extends Renderer {
+  class ViewDefinition {
     
-     createRootHostView(hostProtoViewRef: RenderProtoViewRef, fragmentCount: number, hostElementSelector: string): RenderViewWithFragments;
+     componentId: string;
     
-     createView(protoViewRef: RenderProtoViewRef, fragmentCount: number): RenderViewWithFragments;
+     templateAbsUrl: string;
     
-     destroyView(viewRef: RenderViewRef): void;
+     template: string;
     
-     getNativeElementSync(location: RenderElementRef): any;
+     directives: List<DirectiveMetadata>;
     
-     getRootNodes(fragment: RenderFragmentRef): List<Node>;
+     styleAbsUrls: List<string>;
     
-     attachFragmentAfterFragment(previousFragmentRef: RenderFragmentRef, fragmentRef: RenderFragmentRef): void;
+     styles: List<string>;
     
-     attachFragmentAfterElement(elementRef: RenderElementRef, fragmentRef: RenderFragmentRef): void;
-    
-     detachFragment(fragmentRef: RenderFragmentRef): void;
-    
-     hydrateView(viewRef: RenderViewRef): void;
-    
-     dehydrateView(viewRef: RenderViewRef): void;
-    
-     setElementProperty(location: RenderElementRef, propertyName: string, propertyValue: any): void;
-    
-     setElementAttribute(location: RenderElementRef, attributeName: string, attributeValue: string): void;
-    
-     setElementClass(location: RenderElementRef, className: string, isAdd: boolean): void;
-    
-     setElementStyle(location: RenderElementRef, styleName: string, styleValue: string): void;
-    
-     invokeElementMethod(location: RenderElementRef, methodName: string, args: List<any>): void;
-    
-     setText(viewRef: RenderViewRef, textNodeIndex: number, text: string): void;
-    
-     setEventDispatcher(viewRef: RenderViewRef, dispatcher: any): void;
+     encapsulation: ViewEncapsulation;
   }
   
   const DOCUMENT_TOKEN : OpaqueToken ;
@@ -6282,6 +6458,84 @@ declare module ng {
   const APP_ID_TOKEN : OpaqueToken ;
   
   const DOM_REFLECT_PROPERTIES_AS_ATTRIBUTES : OpaqueToken ;
+  
+
+  /**
+   * Defines when a compiled template should be stored as a string
+   * rather than keeping its Nodes to preserve memory.
+   */
+  const MAX_IN_MEMORY_ELEMENTS_PER_TEMPLATE_TOKEN : OpaqueToken ;
+  
+
+  /**
+   * Create trace scope.
+   * 
+   * Scopes must be strictly nested and are analogous to stack frames, but
+   * do not have to follow the stack frames. Instead it is recommended that they follow logical
+   * nesting. You may want to use
+   * [Event
+   * Signatures](http://google.github.io/tracing-framework/instrumenting-code.html#custom-events)
+   * as they are defined in WTF.
+   * 
+   * Used to mark scope entry. The return value is used to leave the scope.
+   * 
+   *     final myScope = wtfCreateScope('MyClass#myMethod(ascii someVal)');
+   * 
+   *     someMethod() {
+   *        var s = myScope('Foo'); // 'Foo' gets stored in tracing UI
+   *        // DO SOME WORK HERE
+   *        return wtfLeave(s, 123); // Return value 123
+   *     }
+   * 
+   * Note, adding try-finally block around the work to ensure that `wtfLeave` gets called can
+   * negatively impact the performance of your application. For this reason we recommend that
+   * you don't add them to ensure that `wtfLeave` gets called. In production `wtfLeave` is a noop and
+   * so try-finally block has no value. When debugging perf issues, skipping `wtfLeave`, do to
+   * exception, will produce incorrect trace, but presence of exception signifies logic error which
+   * needs to be fixed before the app should be profiled. Add try-finally only when you expect that
+   * an exception is expected during normal execution while profiling.
+   */
+  var wtfCreateScope : WtfScopeFn ;
+  
+
+  /**
+   * Used to mark end of Scope.
+   * 
+   * - `scope` to end.
+   * - `returnValue` (optional) to be passed to the WTF.
+   * 
+   * Returns the `returnValue for easy chaining.
+   */
+  var wtfLeave : <T>(scope: any, returnValue?: T) => T ;
+  
+
+  /**
+   * Used to mark Async start. Async are similar to scope but they don't have to be strictly nested.
+   * The return value is used in the call to [endAsync]. Async ranges only work if WTF has been
+   * enabled.
+   * 
+   *     someMethod() {
+   *        var s = wtfStartTimeRange('HTTP:GET', 'some.url');
+   *        var future = new Future.delay(5).then((_) {
+   *          wtfEndTimeRange(s);
+   *        });
+   *     }
+   */
+  var wtfStartTimeRange : (rangeType: string, action: string) => any ;
+  
+
+  /**
+   * Ends a async time range operation.
+   * [range] is the return value from [wtfStartTimeRange] Async ranges only work if WTF has been
+   * enabled.
+   */
+  var wtfEndTimeRange : (range: any) => void ;
+  
+  interface WtfScopeFn {
+    
+     (arg0?: any, arg1?: any): any;
+  
+  }
   
   var ChangeDetectorRef: InjectableReference;
   
@@ -6303,8 +6557,8 @@ declare module ng {
   
 }
 
-
-
 declare module "angular2/angular2" {
   export = ng;
 }
+
+
