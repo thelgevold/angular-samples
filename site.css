@@ -11,3 +11,12 @@ ul{
     margin-right: 5px;
     cursor:pointer;
 }
+
+input.active-cell {
+    border: 2px solid black;
+
+}
+
+input.active-cell:focus, input.active-cell input:focus{
+    outline: 0;
+}

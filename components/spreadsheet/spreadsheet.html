@@ -1,0 +1,7 @@
+<table>
+    <tr *ng-for="#row of model.rows">
+        <td *ng-for="#col of row.columns">
+            <input [class]="model.getActive(col)" (click)="model.selectColumn(col)" (keypress)="typing($event,col)" (keyup)="navigating($event)" />
+        </td>
+    </tr>
+</table>

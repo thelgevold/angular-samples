@@ -10,6 +10,7 @@ import {CoreDirectives} from './components/core-directives/core-directives';
 import {IgnoreBindings} from './components/non-bindable/non-bindable';
 import {Greeting} from './components/greeting/greeting';
 import {HttpSample} from './components/http/http';
+import {Spreadsheet} from './components/spreadsheet/spreadsheet';
 
 @Component({
     selector: 'demo-page'
@@ -17,7 +18,7 @@ import {HttpSample} from './components/http/http';
 
 @View({
     templateUrl: './demo-page.html',
-    directives: [HttpSample, Greeting, ContactList, TreeView, BoundTextbox, Grid, CoreDirectives, IgnoreBindings, NgIf, CSSClass]
+    directives: [Spreadsheet, HttpSample, Greeting, ContactList, TreeView, BoundTextbox, Grid, CoreDirectives, IgnoreBindings, NgIf, CSSClass]
 })
 
 export class DemoPage {

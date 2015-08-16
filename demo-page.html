@@ -11,6 +11,7 @@
     <div>
         <div class="list-group col-md-3">
             <a (click)="selectComponent('grid')" [class]="getActiveClass('grid')" class="list-group-item">Data Grid</a>
+            <a (click)="selectComponent('spreadsheet')" [class]="getActiveClass('spreadsheet')" class="list-group-item">Virtualized Spreadsheet</a>
             <a (click)="selectComponent('http')" [class]="getActiveClass('http')" class="list-group-item">Http</a>
             <a (click)="selectComponent('treeview')" [class]="getActiveClass('treeview')" class="list-group-item">Recursive tree view</a>
             <a (click)="selectComponent('contact-list')" [class]="getActiveClass('contact-list')" class="list-group-item">Interactive contact list</a>
@@ -21,6 +22,19 @@
         </div>
 
         <div class="col-md-9">
+
+            <div class="panel panel-default" *ng-if="isActive('spreadsheet')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Spreadsheet sample</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Virtualized spreadsheet component
+                    </div>
+                    <spreadsheet></spreadsheet>
+                </div>
+            </div>
+
 
             <div class="panel panel-default" *ng-if="isActive('grid')">
                 <div class="panel-heading">
