@@ -85,7 +85,7 @@ export class SpreadsheetModel{
 
     adjustRowRangeDownward(){
 
-        if(this.current.rowIndex >= this.end){
+        if(this.current.rowIndex === this.end){
             this.start = this.start +1;
             this.end = this.end + 1;
         }
