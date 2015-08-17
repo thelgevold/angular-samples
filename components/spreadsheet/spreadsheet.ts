@@ -7,7 +7,6 @@ import {HeaderRowService} from './header-row-service';
 @Component({
     selector: 'spreadsheet',
     properties: ['rows','columns'],
-
 })
 
 @View({
@@ -38,16 +37,19 @@ export class Spreadsheet {
     }
 
     getVisibleRows(){
-
         let rows = [];
-        console.log(this.model.start);
-        console.log(this.model.end);
         for(let i = this.model.start; i < this.model.end; i++){
             rows.push(this.model.rows[i]);
         }
 
         console.log(rows);
         return rows;
+    }
+
+    getActive(col){
+        if(col === this.model.current){
+            return 'active-cell';
+        }
     }
 
 }

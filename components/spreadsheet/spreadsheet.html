@@ -5,7 +5,7 @@
     </tr>
     <tr *ng-for="#row of getVisibleRows()">
         <td class="row-number-column">{{row.rowIndex}}</td>
-        <td [class]="model.getActive(col)" *ng-for="#col of row.columns">
+        <td [class]="getActive(col)" *ng-for="#col of row.columns">
             <input  (click)="model.selectColumn(col)" (keypress)="typing($event,col)" (keyup)="navigate($event)" />
         </td>
     </tr>

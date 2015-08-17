@@ -55,26 +55,25 @@ var SpreadsheetModel = (function () {
             }
         }
     };
+    SpreadsheetModel.prototype.adjustColumnsRight = function () {
+    };
     SpreadsheetModel.prototype.adjustRowRangeUpward = function () {
         if (this.current.rowIndex < this.start) {
-            this.start = this.start - 1;
-            this.end = this.end - 1;
+            this.shiftRowsBy(1);
         }
     };
     SpreadsheetModel.prototype.adjustRowRangeDownward = function () {
         if (this.current.rowIndex === this.end) {
-            this.start = this.start + 1;
-            this.end = this.end + 1;
+            this.shiftRowsBy(-1);
         }
+    };
+    SpreadsheetModel.prototype.shiftRowsBy = function (offset) {
+        this.start = this.start + offset;
+        this.end = this.end + offset;
     };
     SpreadsheetModel.prototype.ensureRow = function () {
         if (this.current.rowIndex + 1 >= this.rows.length) {
             this.rows.push(this.addRow(this.columnCount, this.current.rowIndex + 1));
-        }
-    };
-    SpreadsheetModel.prototype.getActive = function (col) {
-        if (col === this.current) {
-            return 'active-cell';
         }
     };
     return SpreadsheetModel;

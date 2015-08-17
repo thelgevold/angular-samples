@@ -76,34 +76,33 @@ export class SpreadsheetModel{
         }
     }
 
+    adjustColumnsRight(){
+
+    }
+
     adjustRowRangeUpward(){
         if(this.current.rowIndex < this.start){
-            this.start = this.start - 1;
-            this.end = this.end - 1;
+            this.shiftRowsBy(1);
         }
     }
 
     adjustRowRangeDownward(){
-
         if(this.current.rowIndex === this.end){
-            this.start = this.start +1;
-            this.end = this.end + 1;
+            this.shiftRowsBy(-1);
         }
     }
 
-    ensureRow(){
+    shiftRowsBy(offset){
+        this.start = this.start + offset;
+        this.end = this.end + offset;
+    }
 
+    ensureRow(){
         if(this.current.rowIndex + 1 >= this.rows.length){
             this.rows.push(this.addRow(this.columnCount,this.current.rowIndex + 1));
         }
     }
 
-    getActive(col){
-        if(col === this.current){
-            return 'active-cell';
-        }
-
-    }
 }
 
 
