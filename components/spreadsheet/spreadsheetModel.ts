@@ -6,10 +6,15 @@ export class SpreadsheetModel{
 
     rows:Array<Row>;
     current:Column;
+    start:number;
+    end:number;
 
     constructor(public rowCount, public columnCount){
 
         this.rows = [];
+
+        this.start = 0;
+        this.end = rowCount;
 
         for(let i = 0; i < this.rowCount; i++){
 
@@ -40,6 +45,7 @@ export class SpreadsheetModel{
         if(navDirection.down){
             this.ensureRow();
             this.current = this.rows[this.current.rowIndex + 1].columns[this.current.columnIndex];
+            this.adjustRowRangeDownward();
         }
         if(navDirection.up){
             if(this.current.rowIndex === 0){
@@ -66,6 +72,14 @@ export class SpreadsheetModel{
             for(let i = 0; i < this.rows.length; i++){
                 this.rows[i].columns.push(new Column(this.rows[0].columns.length,i));
             }
+        }
+    }
+
+    adjustRowRangeDownward(){
+
+        if(this.current.rowIndex >= this.end){
+            this.start = this.start +1;
+            this.end = this.end + 1;
         }
     }
 

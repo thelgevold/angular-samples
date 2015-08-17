@@ -37,4 +37,17 @@ export class Spreadsheet {
         this.model.navigate($event.keyCode);
     }
 
+    getVisibleRows(){
+
+        let rows = [];
+        console.log(this.model.start);
+        console.log(this.model.end);
+        for(let i = this.model.start; i < this.model.end; i++){
+            rows.push(this.model.rows[i]);
+        }
+
+        console.log(rows);
+        return rows;
+    }
+
 }

@@ -6,6 +6,8 @@ var SpreadsheetModel = (function () {
         this.rowCount = rowCount;
         this.columnCount = columnCount;
         this.rows = [];
+        this.start = 0;
+        this.end = rowCount;
         for (var i = 0; i < this.rowCount; i++) {
             this.rows.push(this.addRow(this.columnCount, i));
         }
@@ -26,6 +28,7 @@ var SpreadsheetModel = (function () {
         if (navDirection.down) {
             this.ensureRow();
             this.current = this.rows[this.current.rowIndex + 1].columns[this.current.columnIndex];
+            this.adjustRowRangeDownward();
         }
         if (navDirection.up) {
             if (this.current.rowIndex === 0) {
@@ -49,6 +52,12 @@ var SpreadsheetModel = (function () {
             for (var i = 0; i < this.rows.length; i++) {
                 this.rows[i].columns.push(new column_1.Column(this.rows[0].columns.length, i));
             }
+        }
+    };
+    SpreadsheetModel.prototype.adjustRowRangeDownward = function () {
+        if (this.current.rowIndex >= this.end) {
+            this.start = this.start + 1;
+            this.end = this.end + 1;
         }
     };
     SpreadsheetModel.prototype.ensureRow = function () {

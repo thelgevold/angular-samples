@@ -25,6 +25,16 @@ var Spreadsheet = (function () {
     Spreadsheet.prototype.navigate = function ($event) {
         this.model.navigate($event.keyCode);
     };
+    Spreadsheet.prototype.getVisibleRows = function () {
+        var rows = [];
+        console.log(this.model.start);
+        console.log(this.model.end);
+        for (var i = this.model.start; i < this.model.end; i++) {
+            rows.push(this.model.rows[i]);
+        }
+        console.log(rows);
+        return rows;
+    };
     Spreadsheet = __decorate([
         angular2_1.Component({
             selector: 'spreadsheet',
