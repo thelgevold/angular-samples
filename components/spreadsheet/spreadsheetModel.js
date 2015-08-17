@@ -24,7 +24,7 @@ var SpreadsheetModel = (function () {
     SpreadsheetModel.prototype.navigate = function (keyCode) {
         var navDirection = key_map_1.KeyMap.getNavigationDorection(keyCode);
         if (navDirection.down) {
-            this.ensureRow(1);
+            this.ensureRow();
             this.current = this.rows[this.current.rowIndex + 1].columns[this.current.columnIndex];
         }
         if (navDirection.up) {
@@ -34,15 +34,26 @@ var SpreadsheetModel = (function () {
             this.current = this.rows[this.current.rowIndex - 1].columns[this.current.columnIndex];
         }
         if (navDirection.left) {
+            if (this.current.columnIndex === 0) {
+                return;
+            }
             this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex - 1];
         }
         if (navDirection.right) {
+            this.ensureColumn();
             this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex + 1];
         }
     };
-    SpreadsheetModel.prototype.ensureRow = function (delta) {
-        if (this.current.rowIndex + delta >= this.rows.length) {
-            this.rows.push(this.addRow(this.columnCount, this.current.rowIndex + delta));
+    SpreadsheetModel.prototype.ensureColumn = function () {
+        if (this.current.columnIndex + 1 >= this.rows[0].columns.length) {
+            for (var i = 0; i < this.rows.length; i++) {
+                this.rows[i].columns.push(new column_1.Column(this.rows[0].columns.length, i));
+            }
+        }
+    };
+    SpreadsheetModel.prototype.ensureRow = function () {
+        if (this.current.rowIndex + 1 >= this.rows.length) {
+            this.rows.push(this.addRow(this.columnCount, this.current.rowIndex + 1));
         }
     };
     SpreadsheetModel.prototype.getActive = function (col) {

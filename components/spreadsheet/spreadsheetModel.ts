@@ -1,4 +1,3 @@
-
 import {KeyMap} from './key-map';
 import {Row} from './row';
 import {Column} from './column';
@@ -37,7 +36,7 @@ export class SpreadsheetModel{
         const navDirection = KeyMap.getNavigationDorection(keyCode);
 
         if(navDirection.down){
-            this.ensureRow(1);
+            this.ensureRow();
             this.current = this.rows[this.current.rowIndex + 1].columns[this.current.columnIndex];
         }
         if(navDirection.up){
@@ -47,18 +46,31 @@ export class SpreadsheetModel{
             this.current = this.rows[this.current.rowIndex - 1].columns[this.current.columnIndex];
         }
         if(navDirection.left){
+            if(this.current.columnIndex === 0){
+                return;
+            }
             this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex - 1];
         }
         if(navDirection.right){
+            this.ensureColumn();
             this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex + 1];
         }
 
     }
 
-    ensureRow(delta){
+    ensureColumn(){
 
-        if(this.current.rowIndex + delta >= this.rows.length){
-            this.rows.push(this.addRow(this.columnCount,this.current.rowIndex + delta));
+        if(this.current.columnIndex + 1 >= this.rows[0].columns.length){
+            for(let i = 0; i < this.rows.length; i++){
+                this.rows[i].columns.push(new Column(this.rows[0].columns.length,i));
+            }
+        }
+    }
+
+    ensureRow(){
+
+        if(this.current.rowIndex + 1 >= this.rows.length){
+            this.rows.push(this.addRow(this.columnCount,this.current.rowIndex + 1));
         }
     }
 
