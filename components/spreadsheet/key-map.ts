@@ -1,6 +1,6 @@
 export class KeyMap{
 
-    static getNavigationDorection(keyCode) : KeyDirection{
+    static getNavigationDirection(keyCode) : KeyDirection{
 
         let direction = new KeyDirection();
         if(keyCode === 38){

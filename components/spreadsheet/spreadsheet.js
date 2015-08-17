@@ -11,10 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var angular2_1 = require('angular2/angular2');
 var spreadsheetModel_1 = require('./spreadsheetModel');
+var header_row_service_1 = require('./header-row-service');
 var Spreadsheet = (function () {
     function Spreadsheet() {
         this.model = new spreadsheetModel_1.SpreadsheetModel(10, 4);
     }
+    Spreadsheet.prototype.getHeader = function () {
+        return header_row_service_1.HeaderRowService.createHeader(this.model.rows[0].columns.length);
+    };
     Spreadsheet.prototype.typing = function ($event, col) {
         col.cellValue = String.fromCharCode($event.keyCode);
     };

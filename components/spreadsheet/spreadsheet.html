@@ -1,7 +1,12 @@
-<table>
+<table id="spreadsheet">
+    <tr>
+        <td class="row-number-column"></td>
+        <td class="columnHeader" *ng-for="#columnHeader of getHeader()">{{columnHeader}}</td>
+    </tr>
     <tr *ng-for="#row of model.rows">
-        <td *ng-for="#col of row.columns">
-            <input [class]="model.getActive(col)" (click)="model.selectColumn(col)" (keypress)="typing($event,col)" (keyup)="navigate($event)" />
+        <td class="row-number-column">{{row.rowIndex}}</td>
+        <td [class]="model.getActive(col)" *ng-for="#col of row.columns">
+            <input  (click)="model.selectColumn(col)" (keypress)="typing($event,col)" (keyup)="navigate($event)" />
         </td>
     </tr>
 </table>

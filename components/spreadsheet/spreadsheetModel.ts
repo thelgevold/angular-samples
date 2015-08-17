@@ -20,7 +20,8 @@ export class SpreadsheetModel{
     }
 
     addRow(columnCount,rowIndex){
-        let row = new Row();
+
+        let row = new Row(rowIndex);
         for(let j = 0; j < columnCount; j++){
             row.columns.push(new Column(j,rowIndex));
         }
@@ -33,7 +34,8 @@ export class SpreadsheetModel{
     }
 
     navigate(keyCode){
-        const navDirection = KeyMap.getNavigationDorection(keyCode);
+
+        const navDirection = KeyMap.getNavigationDirection(keyCode);
 
         if(navDirection.down){
             this.ensureRow();

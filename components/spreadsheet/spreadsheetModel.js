@@ -12,7 +12,7 @@ var SpreadsheetModel = (function () {
         this.current = this.rows[0].columns[0];
     }
     SpreadsheetModel.prototype.addRow = function (columnCount, rowIndex) {
-        var row = new row_1.Row();
+        var row = new row_1.Row(rowIndex);
         for (var j = 0; j < columnCount; j++) {
             row.columns.push(new column_1.Column(j, rowIndex));
         }
@@ -22,7 +22,7 @@ var SpreadsheetModel = (function () {
         this.current = col;
     };
     SpreadsheetModel.prototype.navigate = function (keyCode) {
-        var navDirection = key_map_1.KeyMap.getNavigationDorection(keyCode);
+        var navDirection = key_map_1.KeyMap.getNavigationDirection(keyCode);
         if (navDirection.down) {
             this.ensureRow();
             this.current = this.rows[this.current.rowIndex + 1].columns[this.current.columnIndex];

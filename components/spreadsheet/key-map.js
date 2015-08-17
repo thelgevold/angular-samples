@@ -1,7 +1,7 @@
 var KeyMap = (function () {
     function KeyMap() {
     }
-    KeyMap.getNavigationDorection = function (keyCode) {
+    KeyMap.getNavigationDirection = function (keyCode) {
         var direction = new KeyDirection();
         if (keyCode === 38) {
             direction.up = true;

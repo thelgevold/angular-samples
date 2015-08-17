@@ -1,5 +1,6 @@
 var Row = (function () {
-    function Row() {
+    function Row(rowIndex) {
+        this.rowIndex = rowIndex;
         this.columns = [];
     }
     return Row;

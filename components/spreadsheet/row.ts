@@ -4,7 +4,7 @@ export class Row{
 
     columns:Array<Column>
 
-    constructor(){
+    constructor(public rowIndex){
         this.columns = [];
     }
 }

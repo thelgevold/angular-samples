@@ -2,6 +2,7 @@ import {Component, View, NgFor, NgModel, CSSClass, ElementRef} from 'angular2/an
 
 import {SpreadsheetModel} from './spreadsheetModel';
 import {KeyMap} from './key-map';
+import {HeaderRowService} from './header-row-service';
 
 @Component({
     selector: 'spreadsheet',
@@ -24,13 +25,15 @@ export class Spreadsheet {
         this.model = new SpreadsheetModel(10,4);
     }
 
+    getHeader(){
+        return HeaderRowService.createHeader(this.model.rows[0].columns.length);
+    }
+
     typing($event,col){
         col.cellValue = String.fromCharCode($event.keyCode);
     }
 
     navigate($event){
-
-
         this.model.navigate($event.keyCode);
     }
 
