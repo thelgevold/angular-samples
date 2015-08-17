@@ -29,7 +29,7 @@ export class DemoPage {
 
     constructor(){
 
-        this.currentComponent = 'grid';
+        this.currentComponent = 'spreadsheet';
         this.loadDirectories();
         this.people = this.getPeople();
         this.columns = this.getColumns();

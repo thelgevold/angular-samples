@@ -24,7 +24,7 @@ var http_1 = require('./components/http/http');
 var spreadsheet_1 = require('./components/spreadsheet/spreadsheet');
 var DemoPage = (function () {
     function DemoPage() {
-        this.currentComponent = 'grid';
+        this.currentComponent = 'spreadsheet';
         this.loadDirectories();
         this.people = this.getPeople();
         this.columns = this.getColumns();
