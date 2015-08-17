@@ -18,6 +18,18 @@ var SpreadsheetModel = (function () {
     };
     SpreadsheetModel.prototype.navigate = function (keyCode) {
         var navDirection = key_map_1.KeyMap.getNavigationDorection(keyCode);
+        if (navDirection.down) {
+            this.current = this.rows[this.current.rowIndex + 1].columns[this.current.columnIndex];
+        }
+        if (navDirection.up) {
+            this.current = this.rows[this.current.rowIndex - 1].columns[this.current.columnIndex];
+        }
+        if (navDirection.left) {
+            this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex - 1];
+        }
+        if (navDirection.right) {
+            this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex + 1];
+        }
     };
     SpreadsheetModel.prototype.getActive = function (col) {
         if (col === this.current) {

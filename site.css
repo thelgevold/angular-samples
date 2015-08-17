@@ -17,6 +17,7 @@ input.active-cell {
 
 }
 
-input.active-cell:focus, input.active-cell input:focus{
+input.active-cell,input.active-cell:focus{
     outline: 0;
+    box-shadow:none;
 }

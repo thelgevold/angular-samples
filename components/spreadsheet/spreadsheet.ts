@@ -1,4 +1,4 @@
-import {Component, View, NgFor, NgModel, CSSClass} from 'angular2/angular2';
+import {Component, View, NgFor, NgModel, CSSClass, ElementRef} from 'angular2/angular2';
 
 import {SpreadsheetModel} from './spreadsheetModel';
 import {KeyMap} from './key-map';
@@ -29,7 +29,9 @@ export class Spreadsheet {
     }
 
     navigate($event){
-        this.model.navigate($event.keyCode)
+
+
+        this.model.navigate($event.keyCode);
     }
 
 }

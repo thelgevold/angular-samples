@@ -29,7 +29,21 @@ export class SpreadsheetModel{
     }
 
     navigate(keyCode){
-        let navDirection = KeyMap.getNavigationDorection(keyCode);
+        const navDirection = KeyMap.getNavigationDorection(keyCode);
+
+        if(navDirection.down){
+            this.current = this.rows[this.current.rowIndex + 1].columns[this.current.columnIndex];
+        }
+        if(navDirection.up){
+            this.current = this.rows[this.current.rowIndex - 1].columns[this.current.columnIndex];
+        }
+        if(navDirection.left){
+            this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex - 1];
+        }
+        if(navDirection.right){
+            this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex + 1];
+        }
+
     }
 
     getActive(col){
