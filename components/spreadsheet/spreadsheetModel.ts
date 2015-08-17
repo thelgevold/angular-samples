@@ -8,20 +8,25 @@ export class SpreadsheetModel{
     rows:Array<Row>;
     current:Column;
 
-    constructor(rowCount, columnCount){
+    constructor(public rowCount, public columnCount){
 
         this.rows = [];
 
-        for(let i = 0; i < rowCount; i++){
-            var row = new Row();
-            for(let j = 0; j < columnCount; j++){
-                row.columns.push(new Column(j,i));
-            }
+        for(let i = 0; i < this.rowCount; i++){
 
-            this.rows.push(row);
+            this.rows.push(this.addRow(this.columnCount,i));
         }
 
         this.current = this.rows[0].columns[0];
+    }
+
+    addRow(columnCount,rowIndex){
+        let row = new Row();
+        for(let j = 0; j < columnCount; j++){
+            row.columns.push(new Column(j,rowIndex));
+        }
+
+        return row;
     }
 
     selectColumn(col){
@@ -32,9 +37,13 @@ export class SpreadsheetModel{
         const navDirection = KeyMap.getNavigationDorection(keyCode);
 
         if(navDirection.down){
+            this.ensureRow(1);
             this.current = this.rows[this.current.rowIndex + 1].columns[this.current.columnIndex];
         }
         if(navDirection.up){
+            if(this.current.rowIndex === 0){
+                return;
+            }
             this.current = this.rows[this.current.rowIndex - 1].columns[this.current.columnIndex];
         }
         if(navDirection.left){
@@ -44,6 +53,13 @@ export class SpreadsheetModel{
             this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex + 1];
         }
 
+    }
+
+    ensureRow(delta){
+
+        if(this.current.rowIndex + delta >= this.rows.length){
+            this.rows.push(this.addRow(this.columnCount,this.current.rowIndex + delta));
+        }
     }
 
     getActive(col){
