@@ -1,6 +1,5 @@
 var key_map_1 = require('./key-map');
 var row_1 = require('./row');
-var column_1 = require('./column');
 var SpreadsheetModel = (function () {
     function SpreadsheetModel(rowCount, columnCount) {
         this.rowCount = rowCount;
@@ -37,15 +36,10 @@ var SpreadsheetModel = (function () {
             this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex - 1];
         }
         if (navDirection.right) {
-            this.ensureColumn();
-            this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex + 1];
-        }
-    };
-    SpreadsheetModel.prototype.ensureColumn = function () {
-        if (this.current.columnIndex + 1 >= this.rows[0].columns.length) {
-            for (var i = 0; i < this.rows.length; i++) {
-                this.rows[i].columns.push(new column_1.Column(this.rows[0].columns.length, i));
+            if (this.current.columnIndex === this.columnCount - 1) {
+                return;
             }
+            this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex + 1];
         }
     };
     SpreadsheetModel.prototype.adjustRowRangeUpward = function () {

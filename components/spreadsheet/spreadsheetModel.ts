@@ -51,19 +51,12 @@ export class SpreadsheetModel{
             this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex - 1];
         }
         if(navDirection.right){
-            this.ensureColumn();
+            if(this.current.columnIndex === this.columnCount - 1){
+                return;
+            }
             this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex + 1];
         }
 
-    }
-
-    ensureColumn(){
-
-        if(this.current.columnIndex + 1 >= this.rows[0].columns.length){
-            for(let i = 0; i < this.rows.length; i++){
-                this.rows[i].columns.push(new Column(this.rows[0].columns.length,i));
-            }
-        }
     }
 
     adjustRowRangeUpward(){
