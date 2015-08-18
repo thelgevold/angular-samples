@@ -68,13 +68,13 @@ export class SpreadsheetModel{
 
     adjustRowRangeUpward(){
         if(this.current.rowIndex < this.start){
-            this.shiftRowsBy(1);
+            this.shiftRowsBy(-1);
         }
     }
 
     adjustRowRangeDownward(){
         if(this.current.rowIndex === this.end){
-            this.shiftRowsBy(-1);
+            this.shiftRowsBy(1);
         }
     }
 

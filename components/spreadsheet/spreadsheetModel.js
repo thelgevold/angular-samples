@@ -50,12 +50,12 @@ var SpreadsheetModel = (function () {
     };
     SpreadsheetModel.prototype.adjustRowRangeUpward = function () {
         if (this.current.rowIndex < this.start) {
-            this.shiftRowsBy(1);
+            this.shiftRowsBy(-1);
         }
     };
     SpreadsheetModel.prototype.adjustRowRangeDownward = function () {
         if (this.current.rowIndex === this.end) {
-            this.shiftRowsBy(-1);
+            this.shiftRowsBy(1);
         }
     };
     SpreadsheetModel.prototype.shiftRowsBy = function (offset) {
