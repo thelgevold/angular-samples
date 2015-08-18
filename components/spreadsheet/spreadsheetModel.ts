@@ -18,20 +18,10 @@ export class SpreadsheetModel{
 
         for(let i = 0; i < this.rowCount; i++){
 
-            this.rows.push(this.addRow(this.columnCount,i));
+            this.rows.push(new Row(i,this.columnCount));
         }
 
         this.current = this.rows[0].columns[0];
-    }
-
-    addRow(columnCount,rowIndex){
-
-        let row = new Row(rowIndex);
-        for(let j = 0; j < columnCount; j++){
-            row.columns.push(new Column(j,rowIndex));
-        }
-
-        return row;
     }
 
     selectColumn(col){
@@ -76,10 +66,6 @@ export class SpreadsheetModel{
         }
     }
 
-    adjustColumnsRight(){
-
-    }
-
     adjustRowRangeUpward(){
         if(this.current.rowIndex < this.start){
             this.shiftRowsBy(1);
@@ -99,7 +85,7 @@ export class SpreadsheetModel{
 
     ensureRow(){
         if(this.current.rowIndex + 1 >= this.rows.length){
-            this.rows.push(this.addRow(this.columnCount,this.current.rowIndex + 1));
+            this.rows.push(new Row(this.current.rowIndex + 1,this.columnCount));
         }
     }
 

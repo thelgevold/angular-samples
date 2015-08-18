@@ -30,7 +30,6 @@ var Spreadsheet = (function () {
         for (var i = this.model.start; i < this.model.end; i++) {
             rows.push(this.model.rows[i]);
         }
-        console.log(rows);
         return rows;
     };
     Spreadsheet.prototype.getActive = function (col) {

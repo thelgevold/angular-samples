@@ -9,17 +9,10 @@ var SpreadsheetModel = (function () {
         this.start = 0;
         this.end = rowCount;
         for (var i = 0; i < this.rowCount; i++) {
-            this.rows.push(this.addRow(this.columnCount, i));
+            this.rows.push(new row_1.Row(i, this.columnCount));
         }
         this.current = this.rows[0].columns[0];
     }
-    SpreadsheetModel.prototype.addRow = function (columnCount, rowIndex) {
-        var row = new row_1.Row(rowIndex);
-        for (var j = 0; j < columnCount; j++) {
-            row.columns.push(new column_1.Column(j, rowIndex));
-        }
-        return row;
-    };
     SpreadsheetModel.prototype.selectColumn = function (col) {
         this.current = col;
     };
@@ -55,8 +48,6 @@ var SpreadsheetModel = (function () {
             }
         }
     };
-    SpreadsheetModel.prototype.adjustColumnsRight = function () {
-    };
     SpreadsheetModel.prototype.adjustRowRangeUpward = function () {
         if (this.current.rowIndex < this.start) {
             this.shiftRowsBy(1);
@@ -73,7 +64,7 @@ var SpreadsheetModel = (function () {
     };
     SpreadsheetModel.prototype.ensureRow = function () {
         if (this.current.rowIndex + 1 >= this.rows.length) {
-            this.rows.push(this.addRow(this.columnCount, this.current.rowIndex + 1));
+            this.rows.push(new row_1.Row(this.current.rowIndex + 1, this.columnCount));
         }
     };
     return SpreadsheetModel;

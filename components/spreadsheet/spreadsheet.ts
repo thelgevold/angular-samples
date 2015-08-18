@@ -41,8 +41,6 @@ export class Spreadsheet {
         for(let i = this.model.start; i < this.model.end; i++){
             rows.push(this.model.rows[i]);
         }
-
-        console.log(rows);
         return rows;
     }
 
