@@ -37,11 +37,7 @@ export class Spreadsheet {
     }
 
     getVisibleRows(){
-        let rows = [];
-        for(let i = this.model.start; i < this.model.end; i++){
-            rows.push(this.model.rows[i]);
-        }
-        return rows;
+        return this.model.rows.filter((row) => row.rowIndex >= this.model.start && row.rowIndex < this.model.end);
     }
 
     getActive(col){
@@ -49,5 +45,4 @@ export class Spreadsheet {
             return 'active-cell';
         }
     }
-
 }

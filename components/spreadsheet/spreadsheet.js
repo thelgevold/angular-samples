@@ -26,11 +26,8 @@ var Spreadsheet = (function () {
         this.model.navigate($event.keyCode);
     };
     Spreadsheet.prototype.getVisibleRows = function () {
-        var rows = [];
-        for (var i = this.model.start; i < this.model.end; i++) {
-            rows.push(this.model.rows[i]);
-        }
-        return rows;
+        var _this = this;
+        return this.model.rows.filter(function (row) { return row.rowIndex >= _this.model.start && row.rowIndex < _this.model.end; });
     };
     Spreadsheet.prototype.getActive = function (col) {
         if (col === this.model.current) {

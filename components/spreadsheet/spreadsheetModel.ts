@@ -12,7 +12,6 @@ export class SpreadsheetModel{
     constructor(public rowCount, public columnCount){
 
         this.rows = [];
-
         this.start = 0;
         this.end = rowCount;
 
@@ -56,7 +55,6 @@ export class SpreadsheetModel{
             }
             this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex + 1];
         }
-
     }
 
     adjustRowRangeUpward(){
@@ -81,7 +79,6 @@ export class SpreadsheetModel{
             this.rows.push(new Row(this.current.rowIndex + 1,this.columnCount));
         }
     }
-
 }
 
 

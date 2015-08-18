@@ -4,11 +4,11 @@ export class Row{
 
     columns:Array<Column>;
 
-    constructor(public rowIndex, columnCount){
+    constructor(public rowIndex, public columnCount){
         this.columns = [];
 
-        for(let j = 0; j < columnCount; j++){
-            this.columns.push(new Column(j,rowIndex));
+        for(let j = 0; j < this.columnCount; j++){
+            this.columns.push(new Column(j,this.rowIndex));
         }
     }
 }
