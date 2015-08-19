@@ -32,7 +32,6 @@ export class Spreadsheet {
 
     navigate($event){
         this.model.navigate($event.keyCode);
-
         this.giveElementFocus();
     }
 
