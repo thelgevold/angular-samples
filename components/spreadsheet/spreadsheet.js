@@ -13,14 +13,19 @@ var angular2_1 = require('angular2/angular2');
 var spreadsheetModel_1 = require('./spreadsheetModel');
 var header_row_service_1 = require('./header-row-service');
 var Spreadsheet = (function () {
-    function Spreadsheet() {
+    function Spreadsheet(el) {
         this.model = new spreadsheetModel_1.SpreadsheetModel(10, 4);
+        this.element = el;
     }
     Spreadsheet.prototype.getHeader = function () {
         return header_row_service_1.HeaderRowService.createHeader(this.model.rows[0].columns.length);
     };
     Spreadsheet.prototype.navigate = function ($event) {
         this.model.navigate($event.keyCode);
+        var cell = document.getElementById(this.model.current.rowIndex + '-' + this.model.current.columnIndex);
+        if (cell) {
+            cell.focus();
+        }
     };
     Spreadsheet.prototype.getVisibleRows = function () {
         var _this = this;
@@ -40,7 +45,7 @@ var Spreadsheet = (function () {
             templateUrl: './components/spreadsheet/spreadsheet.html',
             directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.CSSClass]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [angular2_1.ElementRef])
     ], Spreadsheet);
     return Spreadsheet;
 })();

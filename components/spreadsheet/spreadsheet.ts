@@ -19,9 +19,11 @@ export class Spreadsheet {
     model:SpreadsheetModel;
     rows:Number;
     columns:Number;
+    element:ElementRef;
 
-    constructor(){
+    constructor(el:ElementRef){
         this.model = new SpreadsheetModel(10,4);
+        this.element = el;
     }
 
     getHeader(){
@@ -30,6 +32,11 @@ export class Spreadsheet {
 
     navigate($event){
         this.model.navigate($event.keyCode);
+        let cell = document.getElementById(this.model.current.rowIndex + '-' + this.model.current.columnIndex);
+
+        if(cell){
+            cell.focus();
+        }
     }
 
     getVisibleRows(){
