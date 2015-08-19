@@ -12,14 +12,6 @@ ul{
     cursor:pointer;
 }
 
-#spreadsheet td.active-cell input {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-
-}
-
 .row-number-column{
     width: 40px;
     background-color: #eeeeee;

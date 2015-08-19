@@ -32,10 +32,30 @@ export class Spreadsheet {
 
     navigate($event){
         this.model.navigate($event.keyCode);
+
+        this.giveElementFocus();
+    }
+
+    giveElementFocus(){
+
+        //TODO: This is a polling hack for giving focus to the current cell when scrolling off the current view
+        //Will need to learn more about how to handle this properly with Angular 2.0
         let cell = document.getElementById(this.model.current.rowIndex + '-' + this.model.current.columnIndex);
 
         if(cell){
             cell.focus();
+        }
+
+        else{
+            var interval = setInterval(() => {
+                let cell = document.getElementById(this.model.current.rowIndex + '-' + this.model.current.columnIndex);
+
+                if(cell){
+                    cell.focus();
+                    clearInterval(interval);
+                }
+
+            }, 10);
         }
     }
 

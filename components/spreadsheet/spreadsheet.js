@@ -22,9 +22,24 @@ var Spreadsheet = (function () {
     };
     Spreadsheet.prototype.navigate = function ($event) {
         this.model.navigate($event.keyCode);
+        this.giveElementFocus();
+    };
+    Spreadsheet.prototype.giveElementFocus = function () {
+        var _this = this;
+        //TODO: This is a polling hack for giving focus to the current cell when scrolling off the current view
+        //Will need to learn more about how to handle this properly with Angular 2.0
         var cell = document.getElementById(this.model.current.rowIndex + '-' + this.model.current.columnIndex);
         if (cell) {
             cell.focus();
+        }
+        else {
+            var interval = setInterval(function () {
+                var cell = document.getElementById(_this.model.current.rowIndex + '-' + _this.model.current.columnIndex);
+                if (cell) {
+                    cell.focus();
+                    clearInterval(interval);
+                }
+            }, 10);
         }
     };
     Spreadsheet.prototype.getVisibleRows = function () {
