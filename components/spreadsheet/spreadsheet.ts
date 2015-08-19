@@ -28,10 +28,6 @@ export class Spreadsheet {
         return HeaderRowService.createHeader(this.model.rows[0].columns.length);
     }
 
-    typing($event,col){
-        col.cellValue = String.fromCharCode($event.keyCode);
-    }
-
     navigate($event){
         this.model.navigate($event.keyCode);
     }

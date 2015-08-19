@@ -19,9 +19,6 @@ var Spreadsheet = (function () {
     Spreadsheet.prototype.getHeader = function () {
         return header_row_service_1.HeaderRowService.createHeader(this.model.rows[0].columns.length);
     };
-    Spreadsheet.prototype.typing = function ($event, col) {
-        col.cellValue = String.fromCharCode($event.keyCode);
-    };
     Spreadsheet.prototype.navigate = function ($event) {
         this.model.navigate($event.keyCode);
     };
