@@ -6,7 +6,7 @@ import {HeaderRowService} from './header-row-service';
 
 @Component({
     selector: 'spreadsheet',
-    properties: ['rows','columns'],
+    properties: ['rows','columns']
 })
 
 @View({
