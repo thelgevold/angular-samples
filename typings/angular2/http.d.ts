@@ -34,7 +34,6 @@ declare module ngHttp {
 
     class EventEmitter {
         toRx:any;
-        Subject:any;
     }
 
     /**
