@@ -1,4 +1,4 @@
-import {Component, View, NgFor, NgModel, CSSClass, ElementRef} from 'angular2/angular2';
+import {Component, View, NgFor, NgModel, NgClass, ElementRef} from 'angular2/angular2';
 
 import {SpreadsheetModel} from './spreadsheetModel';
 import {KeyMap} from './key-map';
@@ -11,7 +11,7 @@ import {HeaderRowService} from './header-row-service';
 
 @View({
     templateUrl: './components/spreadsheet/spreadsheet.html',
-    directives: [NgFor, NgModel, CSSClass]
+    directives: [NgFor, NgModel, NgClass]
 })
 
 export class Spreadsheet {

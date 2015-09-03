@@ -10,6 +10,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var http_1 = require('http/http');
 var angular2_1 = require('angular2/angular2');
 var demo_page_1 = require('./demo-page');
 var about_1 = require('./components/about/about');
@@ -39,4 +40,4 @@ var MyDemoApp = (function () {
     ], MyDemoApp);
     return MyDemoApp;
 })();
-angular2_1.bootstrap(MyDemoApp, [angular2_1.httpInjectables, router_1.routerInjectables, angular2_1.bind(router_1.LocationStrategy).toClass(router_1.HashLocationStrategy)]);
+angular2_1.bootstrap(MyDemoApp, [http_1.HTTP_BINDINGS, router_1.ROUTER_BINDINGS, angular2_1.bind(router_1.LocationStrategy).toClass(router_1.HashLocationStrategy)]);

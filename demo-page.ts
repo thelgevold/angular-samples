@@ -1,5 +1,5 @@
 /// <reference path="./typings/tsd.d.ts" />
-import {Component, View, NgIf, CSSClass} from 'angular2/angular2';
+import {Component, View, NgIf, NgClass} from 'angular2/angular2';
 import {TreeView} from './components/tree-view/tree-view';
 import {ContactList} from './components/contact-list/contact-list';
 import {BoundTextbox} from './components/bound-textbox/bound-textbox';
@@ -18,7 +18,7 @@ import {Spreadsheet} from './components/spreadsheet/spreadsheet';
 
 @View({
     templateUrl: './demo-page.html',
-    directives: [Spreadsheet, HttpSample, Greeting, ContactList, TreeView, BoundTextbox, Grid, CoreDirectives, IgnoreBindings, NgIf, CSSClass]
+    directives: [Spreadsheet, HttpSample, Greeting, ContactList, TreeView, BoundTextbox, Grid, CoreDirectives, IgnoreBindings, NgIf, NgClass]
 })
 
 export class DemoPage {

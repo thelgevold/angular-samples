@@ -1,9 +1,10 @@
 /// <reference path="typings/angular2/angular2.d.ts" />
 
-import {Component, View, bootstrap, bind,httpInjectables} from 'angular2/angular2';
-import{DemoPage} from './demo-page';
-import{About} from './components/about/about';
-import {routerInjectables, LocationStrategy, HashLocationStrategy} from 'angular2/router';
+import {HTTP_BINDINGS} from 'http/http';
+import {Component, View, bootstrap, bind} from 'angular2/angular2';
+import {DemoPage} from './demo-page';
+import {About} from './components/about/about';
+import {ROUTER_BINDINGS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
 import {RouterLink, RouteConfig, Router, RouterOutlet, Location, RouteParams} from 'angular2/router';
 
 @Component({
@@ -35,4 +36,4 @@ class MyDemoApp {
     }
 }
 
-bootstrap(MyDemoApp,[httpInjectables,routerInjectables, bind(LocationStrategy).toClass(HashLocationStrategy)]);
+bootstrap(MyDemoApp,[HTTP_BINDINGS,ROUTER_BINDINGS, bind(LocationStrategy).toClass(HashLocationStrategy)]);

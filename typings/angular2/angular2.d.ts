@@ -1,4 +1,4 @@
-// Type definitions for Angular v2.0.0-alpha.34
+// Type definitions for Angular v2.0.0-alpha.36
 // Project: http://angular.io/
 // Definitions by: angular team <https://github.com/angular/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -9,11 +9,13 @@
 // modifying this file.
 // ***********************************************************
 
-// Angular depends transitively on these libraries.
-// If you don't have them installed you can run
-// $ tsd query es6-promise rx rx-lite --action install --save
+// angular2/angular2 depends transitively on these libraries.
+// If you don't have them installed you can install them using TSD
+// https://github.com/DefinitelyTyped/tsd
+
 ///<reference path="../es6-promise/es6-promise.d.ts"/>
 ///<reference path="../rx/rx.d.ts"/>
+
 
 interface List<T> extends Array<T> {}
 interface Map<K,V> {}
@@ -38,135 +40,6 @@ declare module ng {
 declare module ng {
 
   /**
-   * Bootstrapping for Angular applications.
-   * 
-   * You instantiate an Angular application by explicitly specifying a component to use as the root
-   * component for your
-   * application via the `bootstrap()` method.
-   * 
-   * ## Simple Example
-   * 
-   * Assuming this `index.html`:
-   * 
-   * ```html
-   * <html>
-   *   <!-- load Angular script tags here. -->
-   *   <body>
-   *     <my-app>loading...</my-app>
-   *   </body>
-   * </html>
-   * ```
-   * 
-   * An application is bootstrapped inside an existing browser DOM, typically `index.html`. Unlike
-   * Angular 1, Angular 2
-   * does not compile/process bindings in `index.html`. This is mainly for security reasons, as well
-   * as architectural
-   * changes in Angular 2. This means that `index.html` can safely be processed using server-side
-   * technologies such as
-   * bindings. Bindings can thus use double-curly `{{ syntax }}` without collision from Angular 2
-   * component double-curly
-   * `{{ syntax }}`.
-   * 
-   * We can use this script code:
-   * 
-   * ```
-   * @Component({
-   *    selector: 'my-app'
-   * })
-   * @View({
-   *    template: 'Hello {{ name }}!'
-   * })
-   * class MyApp {
-   *   name:string;
-   * 
-   *   constructor() {
-   *     this.name = 'World';
-   *   }
-   * }
-   * 
-   * main() {
-   *   return bootstrap(MyApp);
-   * }
-   * ```
-   * 
-   * When the app developer invokes `bootstrap()` with the root component `MyApp` as its argument,
-   * Angular performs the
-   * following tasks:
-   * 
-   *  1. It uses the component's `selector` property to locate the DOM element which needs to be
-   * upgraded into
-   *     the angular component.
-   *  2. It creates a new child injector (from the platform injector). Optionally, you can also
-   * override the injector configuration for an app by
-   * invoking `bootstrap` with the `componentInjectableBindings` argument.
-   *  3. It creates a new `Zone` and connects it to the angular application's change detection domain
-   * instance.
-   *  4. It creates a shadow DOM on the selected component's host element and loads the template into
-   * it.
-   *  5. It instantiates the specified component.
-   *  6. Finally, Angular performs change detection to apply the initial data bindings for the
-   * application.
-   * 
-   * 
-   * ## Instantiating Multiple Applications on a Single Page
-   * 
-   * There are two ways to do this.
-   * 
-   * 
-   * ### Isolated Applications
-   * 
-   * Angular creates a new application each time that the `bootstrap()` method is invoked. When
-   * multiple applications
-   * are created for a page, Angular treats each application as independent within an isolated change
-   * detection and
-   * `Zone` domain. If you need to share data between applications, use the strategy described in the
-   * next
-   * section, "Applications That Share Change Detection."
-   * 
-   * 
-   * ### Applications That Share Change Detection
-   * 
-   * If you need to bootstrap multiple applications that share common data, the applications must
-   * share a common
-   * change detection and zone. To do that, create a meta-component that lists the application
-   * components in its template.
-   * By only invoking the `bootstrap()` method once, with the meta-component as its argument, you
-   * ensure that only a
-   * single change detection zone is created and therefore data can be shared across the applications.
-   * 
-   * 
-   * ## Platform Injector
-   * 
-   * When working within a browser window, there are many singleton resources: cookies, title,
-   * location, and others.
-   * Angular services that represent these resources must likewise be shared across all Angular
-   * applications that
-   * occupy the same browser window.  For this reason, Angular creates exactly one global platform
-   * injector which stores
-   * all shared services, and each angular application injector has the platform injector as its
-   * parent.
-   * 
-   * Each application has its own private injector as well. When there are multiple applications on a
-   * page, Angular treats
-   * each application injector's services as private to that application.
-   * 
-   * 
-   * # API
-   * - `appComponentType`: The root component which should act as the application. This is a reference
-   * to a `Type`
-   *   which is annotated with `@Component(...)`.
-   * - `componentInjectableBindings`: An additional set of bindings that can be added to the app
-   * injector
-   * to override default injection behavior.
-   * - `errorReporter`: `function(exception:any, stackTrace:string)` a default error reporter for
-   * unhandled exceptions.
-   * 
-   * Returns a `Promise` of {@link ApplicationRef}.
-   */
-  function bootstrap(appComponentType: /*Type*/ any, componentInjectableBindings?: List<Type | Binding | List<any>>) : Promise<ApplicationRef> ;
-  
-
-  /**
    * Declare reusable UI building blocks for an application.
    * 
    * Each Angular component requires a single `@Component` and at least one `@View` annotation. The
@@ -181,7 +54,7 @@ declare module ng {
    * 
    * All template expressions and statements are then evaluated against the component instance.
    * 
-   * For details on the `@View` annotation, see {@link View}.
+   * For details on the `@View` annotation, see {@link ViewMetadata}.
    * 
    * ## Example
    * 
@@ -201,7 +74,7 @@ declare module ng {
    * }
    * ```
    */
-  class ComponentAnnotation extends DirectiveAnnotation {
+  class ComponentMetadata extends DirectiveMetadata {
     
 
     /**
@@ -265,7 +138,7 @@ declare module ng {
   /**
    * Directives allow you to attach behavior to elements in the DOM.
    * 
-   * {@link Directive}s with an embedded view are called {@link Component}s.
+   * {@link DirectiveMetadata}s with an embedded view are called {@link ComponentMetadata}s.
    * 
    * A directive consists of a single directive annotation and a controller class. When the
    * directive's `selector` matches
@@ -298,7 +171,7 @@ declare module ng {
    * current `ElementInjector` resolves the constructor dependencies for each directive.
    * 
    * Angular then resolves dependencies as follows, according to the order in which they appear in the
-   * {@link View}:
+   * {@link ViewMetadata}:
    * 
    * 1. Dependencies on the current element
    * 2. Dependencies on element injectors and their parents until it encounters a Shadow DOM boundary
@@ -323,7 +196,7 @@ declare module ng {
    * To inject element-specific special objects, declare the constructor parameter as:
    * - `element: ElementRef` to obtain a reference to logical element in the view.
    * - `viewContainer: ViewContainerRef` to control child template instantiation, for
-   * {@link Directive} directives only
+   * {@link DirectiveMetadata} directives only
    * - `bindingPropagation: BindingPropagation` to control change detection in a more granular way.
    * 
    * ## Example
@@ -505,9 +378,9 @@ declare module ng {
    *   properties: [
    *     'text: tooltip'
    *   ],
-   *   hostListeners: {
-   *     'onmouseenter': 'onMouseEnter()',
-   *     'onmouseleave': 'onMouseLeave()'
+   *   host: {
+   *     '(mouseenter)': 'onMouseEnter()',
+   *     '(mouseleave)': 'onMouseLeave()'
    *   }
    * })
    * class Tooltip{
@@ -547,7 +420,7 @@ declare module ng {
    * location in the current view
    * where these actions are performed.
    * 
-   * Views are always created as children of the current {@link View}, and as siblings of the
+   * Views are always created as children of the current {@link ViewMetadata}, and as siblings of the
    * `<template>` element. Thus a
    * directive in a child view cannot inject the directive that created it.
    * 
@@ -636,7 +509,7 @@ declare module ng {
    * the instantiated
    * view occurs on the second `<li></li>` which is a sibling to the `<template>` element.
    */
-  class DirectiveAnnotation extends InjectableMetadata {
+  class DirectiveMetadata extends InjectableMetadata {
     
 
     /**
@@ -682,7 +555,7 @@ declare module ng {
      * - `directiveProperty` specifies the component property where the value is written.
      * - `bindingProperty` specifies the DOM property where the value is read from.
      * 
-     * You can include a {@link Pipe} when specifying a `bindingProperty` to allow for data
+     * You can include a {@link PipeMetadata} when specifying a `bindingProperty` to allow for data
      * transformation and structural change detection of the value. These pipes will be evaluated in
      * the context of this component.
      * 
@@ -733,37 +606,13 @@ declare module ng {
      * Whenever the `someExpression` expression changes, the `properties` declaration instructs
      * Angular to update the `Tooltip`'s `text` property.
      * 
-     * ## Bindings With Pipes
+     * ### Bindings With Pipes
      * 
-     * You can also use pipes when writing binding definitions for a directive.
-     * 
-     * For example, we could write a binding that updates the directive on structural changes, rather
-     * than on reference changes, as normally occurs in change detection.
-     * 
-     * See {@link Pipe} and {@link KeyValueChanges} documentation for more details.
-     * 
-     * ```
-     * @Directive({
-     *   selector: '[class-set]',
-     *   properties: [
-     *     'classChanges: classSet | keyValDiff'
-     *   ]
-     * })
-     * class ClassSet {
-     *   set classChanges(changes: KeyValueChanges) {
-     *     // This will get called every time the `class-set` expressions changes its structure.
-     *   }
-     * }
-     * ```
-     * 
-     * The template that this directive is used in may also contain its own pipes. For example:
+     * You can use pipes in bindings, as follows:
      * 
      * ```html
      * <div [class-set]="someExpression | somePipe">
      * ```
-     * 
-     * In this case, the two pipes compose as if they were inlined: `someExpression | somePipe |
-     * keyValDiff`.
      */
      properties: List<string>;
     
@@ -1018,6 +867,26 @@ declare module ng {
   
 
   /**
+   * Declare reusable pipe function.
+   * 
+   * ## Example
+   * 
+   * ```
+   * @Pipe({
+   *   name: 'lowercase'
+   * })
+   * class Lowercase {
+   *   transform(v, args) { return v.toLowerCase(); }
+   * }
+   * ```
+   */
+  class PipeMetadata extends InjectableMetadata {
+    
+     name: string;
+  }
+  
+
+  /**
    * Lifecycle events are guaranteed to be called in the following order:
    * - `onChange` (optional if any bindings have changed),
    * - `onInit` (optional after the first check only),
@@ -1025,11 +894,133 @@ declare module ng {
    * - `onAllChangesDone`
    */
   enum LifecycleEvent {
-    onDestroy,
-    onChange,
-    onCheck,
-    onInit,
-    onAllChangesDone
+    
+
+    /**
+     * Notify a directive whenever a {@link ViewMetadata} that contains it is destroyed.
+     * 
+     * ## Example
+     * 
+     * ```
+     * @Directive({
+     *   ...,
+     *   lifecycle: [LifecycleEvent.onDestroy]
+     * })
+     * class ClassSet {
+     *   onDestroy() {
+     *     // invoked to notify directive of the containing view destruction.
+     *   }
+     * }
+     * ```
+     */
+     onDestroy,
+    
+
+    /**
+     * Notify a directive when any of its bindings have changed.
+     * 
+     * This method is called right after the directive's bindings have been checked,
+     * and before any of its children's bindings have been checked.
+     * 
+     * It is invoked only if at least one of the directive's bindings has changed.
+     * 
+     * ## Example:
+     * 
+     * ```
+     * @Directive({
+     *   selector: '[class-set]',
+     *   properties: [
+     *     'propA',
+     *     'propB'
+     *   ],
+     *   lifecycle: [LifecycleEvent.onChange]
+     * })
+     * class ClassSet {
+     *   propA;
+     *   propB;
+     *   onChange(changes:{[idx: string, PropertyUpdate]}) {
+     *     // This will get called after any of the properties have been updated.
+     *     if (changes['propA']) {
+     *       // if propA was updated
+     *     }
+     *     if (changes['propA']) {
+     *       // if propB was updated
+     *     }
+     *   }
+     * }
+     *  ```
+     */
+     onChange,
+    
+
+    /**
+     * Notify a directive when it has been checked.
+     * 
+     * This method is called right after the directive's bindings have been checked,
+     * and before any of its children's bindings have been checked.
+     * 
+     * It is invoked every time even when none of the directive's bindings has changed.
+     * 
+     * ## Example
+     * 
+     * ```
+     * @Directive({
+     *   selector: '[class-set]',
+     *   lifecycle: [LifecycleEvent.onCheck]
+     * })
+     * class ClassSet {
+     *   onCheck() {
+     *   }
+     * }
+     *  ```
+     */
+     onCheck,
+    
+
+    /**
+     * Notify a directive when it has been checked the first itme.
+     * 
+     * This method is called right after the directive's bindings have been checked,
+     * and before any of its children's bindings have been checked.
+     * 
+     * It is invoked only once.
+     * 
+     * ## Example
+     * 
+     * ```
+     * @Directive({
+     *   selector: '[class-set]',
+     *   lifecycle: [LifecycleEvent.onInit]
+     * })
+     * class ClassSet {
+     *   onInit() {
+     *   }
+     * }
+     *  ```
+     */
+     onInit,
+    
+
+    /**
+     * Notify a directive when the bindings of all its children have been checked (whether they have
+     * changed or not).
+     * 
+     * ## Example
+     * 
+     * ```
+     * @Directive({
+     *   selector: '[class-set]',
+     *   lifecycle: [LifecycleEvent.onAllChangesDone]
+     * })
+     * class ClassSet {
+     * 
+     *   onAllChangesDone() {
+     *   }
+     * 
+     * }
+     *  ```
+     */
+     onAllChangesDone
   }
   
 
@@ -1043,7 +1034,7 @@ declare module ng {
    * When a component is instantiated, the template is loaded into the component's shadow root, and
    * the expressions and statements in the template are evaluated against the component.
    * 
-   * For details on the `@Component` annotation, see {@link Component}.
+   * For details on the `@Component` annotation, see {@link ComponentMetadata}.
    * 
    * ## Example
    * 
@@ -1064,7 +1055,7 @@ declare module ng {
    * }
    * ```
    */
-  class ViewAnnotation {
+  class ViewMetadata {
     
 
     /**
@@ -1119,6 +1110,8 @@ declare module ng {
      */
      directives: List<Type | any | List<any>>;
     
+     pipes: List<Type | any | List<any>>;
+    
 
     /**
      * Specify how the template and the styles should be encapsulated.
@@ -1134,9 +1127,25 @@ declare module ng {
    * How the template and styles of a view should be encapsulated.
    */
   enum ViewEncapsulation {
-    EMULATED,
-    NATIVE,
-    NONE
+    
+
+    /**
+     * Emulate scoping of styles by preprocessing the style rules
+     * and adding additional attributes to elements. This is the default.
+     */
+     EMULATED,
+    
+
+    /**
+     * Uses the native mechanism of the renderer. For the DOM this means creating a ShadowRoot.
+     */
+     NATIVE,
+    
+
+    /**
+     * Don't scope the template nor the styles.
+     */
+     NONE
   }
   
 
@@ -1145,13 +1154,13 @@ declare module ng {
    * 
    * See {@link QueryList} for usage and example.
    */
-  class QueryAnnotation extends DependencyMetadata {
+  class QueryMetadata extends DependencyMetadata {
     
      descendants: boolean;
     
-     isViewQuery: void;
+     isViewQuery: any;
     
-     selector: void;
+     selector: any;
     
      isVarBindingQuery: boolean;
     
@@ -1187,13 +1196,452 @@ declare module ng {
    * }
    * ```
    */
-  class AttributeAnnotation extends DependencyMetadata {
+  class AttributeMetadata extends DependencyMetadata {
     
      attributeName: string;
     
-     token: void;
+     token: any;
     
      toString(): string;
+  }
+  
+
+  /**
+   * {@link AttributeMetadata} factory function.
+   */
+  var Attribute : AttributeFactory ;
+  
+
+  /**
+   * {@link AttributeMetadata} factory for creating annotations, decorators or DSL.
+   * 
+   * ## Example as TypeScript Decorator
+   * 
+   * ```
+   * import {Attribute, Component, View} from "angular2/angular2";
+   * 
+   * @Component({...})
+   * @View({...})
+   * class MyComponent {
+   *   constructor(@Attribute('title') title: string) {
+   *     ...
+   *   }
+   * }
+   * ```
+   * 
+   * ## Example as ES5 DSL
+   * 
+   * ```
+   * var MyComponent = ng
+   *   .Component({...})
+   *   .View({...})
+   *   .Class({
+   *     constructor: [new ng.Attribute('title'), function(title) {
+   *       ...
+   *     }]
+   *   })
+   * ```
+   * 
+   * ## Example as ES5 annotation
+   * 
+   * ```
+   * var MyComponent = function(title) {
+   *   ...
+   * };
+   * 
+   * MyComponent.annotations = [
+   *   new ng.Component({...}),
+   *   new ng.View({...})
+   * ]
+   * MyComponent.parameters = [
+   *   [new ng.Attribute('title')]
+   * ]
+   * ```
+   */
+  interface AttributeFactory {
+    
+     new(name: string): AttributeMetadata;
+  
+    
+     (name: string): TypeDecorator;
+  
+  }
+  
+
+  /**
+   * {@link ComponentMetadata} factory function.
+   */
+  var Component : ComponentFactory ;
+  
+
+  /**
+   * Interface for the {@link ComponentMetadata} decorator function.
+   * 
+   * See {@link ComponentFactory}.
+   */
+  interface ComponentDecorator extends TypeDecorator {
+    
+
+    /**
+     * Chain {@link ViewMetadata} annotation.
+     */
+     View(obj: {
+    templateUrl?: string,
+    template?: string,
+    directives?: List<Type | any | List<any>>,
+    pipes?: List<Type | any | List<any>>,
+    renderer?: string,
+    styles?: List<string>,
+    styleUrls?: List<string>,
+  }): ViewDecorator;
+  }
+  
+
+  /**
+   * {@link ComponentAnnotation} factory for creating annotations, decorators or DSL.
+   * 
+   * ## Example as TypeScript Decorator
+   * 
+   * ```
+   * import {Component, View} from "angular2/angular2";
+   * 
+   * @Component({...})
+   * @View({...})
+   * class MyComponent {
+   *   constructor() {
+   *     ...
+   *   }
+   * }
+   * ```
+   * 
+   * ## Example as ES5 DSL
+   * 
+   * ```
+   * var MyComponent = ng
+   *   .Component({...})
+   *   .View({...})
+   *   .Class({
+   *     constructor: function() {
+   *       ...
+   *     }
+   *   })
+   * ```
+   * 
+   * ## Example as ES5 annotation
+   * 
+   * ```
+   * var MyComponent = function() {
+   *   ...
+   * };
+   * 
+   * MyComponent.annotations = [
+   *   new ng.Component({...}),
+   *   new ng.View({...})
+   * ]
+   * ```
+   */
+  interface ComponentFactory {
+    
+     new(obj: {
+    selector?: string,
+    properties?: List<string>,
+    events?: List<string>,
+    host?: StringMap<string, string>,
+    lifecycle?: List<LifecycleEvent>,
+    bindings?: List<any>,
+    exportAs?: string,
+    compileChildren?: boolean,
+    viewBindings?: List<any>,
+    changeDetection?: string,
+  }): ComponentMetadata;
+  
+    
+     (obj: {
+    selector?: string,
+    properties?: List<string>,
+    events?: List<string>,
+    host?: StringMap<string, string>,
+    lifecycle?: List<LifecycleEvent>,
+    bindings?: List<any>,
+    exportAs?: string,
+    compileChildren?: boolean,
+    viewBindings?: List<any>,
+    changeDetection?: string,
+  }): ComponentDecorator;
+  
+  }
+  
+
+  /**
+   * {@link DirectiveMetadata} factory function.
+   */
+  var Directive : DirectiveFactory ;
+  
+
+  /**
+   * Interface for the {@link DirectiveMetadata} decorator function.
+   * 
+   * See {@link DirectiveFactory}.
+   */
+  interface DirectiveDecorator extends TypeDecorator {
+  }
+  
+
+  /**
+   * {@link DirectiveMetadata} factory for creating annotations, decorators or DSL.
+   * 
+   * ## Example as TypeScript Decorator
+   * 
+   * ```
+   * import {Directive} from "angular2/angular2";
+   * 
+   * @Directive({...})
+   * class MyDirective {
+   *   constructor() {
+   *     ...
+   *   }
+   * }
+   * ```
+   * 
+   * ## Example as ES5 DSL
+   * 
+   * ```
+   * var MyDirective = ng
+   *   .Directive({...})
+   *   .Class({
+   *     constructor: function() {
+   *       ...
+   *     }
+   *   })
+   * ```
+   * 
+   * ## Example as ES5 annotation
+   * 
+   * ```
+   * var MyDirective = function() {
+   *   ...
+   * };
+   * 
+   * MyDirective.annotations = [
+   *   new ng.Directive({...})
+   * ]
+   * ```
+   */
+  interface DirectiveFactory {
+    
+     new(obj: {
+    selector?: string, properties?: List<string>, events?: List<string>,
+        host?: StringMap<string, string>, lifecycle?: List<LifecycleEvent>, bindings?: List<any>,
+        exportAs?: string, compileChildren?: boolean;
+  }): DirectiveMetadata;
+  
+    
+     (obj: {
+    selector?: string, properties?: List<string>, events?: List<string>,
+        host?: StringMap<string, string>, lifecycle?: List<LifecycleEvent>, bindings?: List<any>,
+        exportAs?: string, compileChildren?: boolean;
+  }): DirectiveDecorator;
+  
+  }
+  
+
+  /**
+   * {@link ViewMetadata} factory function.
+   */
+  var View : ViewFactory ;
+  
+
+  /**
+   * Interface for the {@link ViewMetadata} decorator function.
+   * 
+   * See {@link ViewFactory}.
+   */
+  interface ViewDecorator extends TypeDecorator {
+    
+
+    /**
+     * Chain {@link ViewMetadata} annotation.
+     */
+     View(obj: {
+    templateUrl?: string,
+    template?: string,
+    directives?: List<Type | any | List<any>>,
+    pipes?: List<Type | any | List<any>>,
+    renderer?: string,
+    styles?: List<string>,
+    styleUrls?: List<string>,
+  }): ViewDecorator;
+  }
+  
+
+  /**
+   * {@link ViewAnnotation} factory for creating annotations, decorators or DSL.
+   * 
+   * ## Example as TypeScript Decorator
+   * 
+   * ```
+   * import {Component, View} from "angular2/angular2";
+   * 
+   * @Component({...})
+   * @View({...})
+   * class MyComponent {
+   *   constructor() {
+   *     ...
+   *   }
+   * }
+   * ```
+   * 
+   * ## Example as ES5 DSL
+   * 
+   * ```
+   * var MyComponent = ng
+   *   .Component({...})
+   *   .View({...})
+   *   .Class({
+   *     constructor: function() {
+   *       ...
+   *     }
+   *   })
+   * ```
+   * 
+   * ## Example as ES5 annotation
+   * 
+   * ```
+   * var MyComponent = function() {
+   *   ...
+   * };
+   * 
+   * MyComponent.annotations = [
+   *   new ng.Component({...}),
+   *   new ng.View({...})
+   * ]
+   * ```
+   */
+  interface ViewFactory {
+    
+     new(obj: {
+    templateUrl?: string,
+    template?: string,
+    directives?: List<Type | any | List<any>>,
+    encapsulation?: ViewEncapsulation,
+    styles?: List<string>,
+    styleUrls?: List<string>,
+  }): ViewMetadata;
+  
+    
+     (obj: {
+    templateUrl?: string,
+    template?: string,
+    directives?: List<Type | any | List<any>>,
+    encapsulation?: ViewEncapsulation,
+    styles?: List<string>,
+    styleUrls?: List<string>,
+  }): ViewDecorator;
+  
+  }
+  
+
+  /**
+   * {@link QueryMetadata} factory function.
+   */
+  var Query : QueryFactory ;
+  
+
+  /**
+   * {@link QueryMetadata} factory for creating annotations, decorators or DSL.
+   * 
+   * ## Example as TypeScript Decorator
+   * 
+   * ```
+   * import {Query, QueryList, Component, View} from "angular2/angular2";
+   * 
+   * @Component({...})
+   * @View({...})
+   * class MyComponent {
+   *   constructor(@Query(SomeType) queryList: QueryList) {
+   *     ...
+   *   }
+   * }
+   * ```
+   * 
+   * ## Example as ES5 DSL
+   * 
+   * ```
+   * var MyComponent = ng
+   *   .Component({...})
+   *   .View({...})
+   *   .Class({
+   *     constructor: [new ng.Query(SomeType), function(queryList) {
+   *       ...
+   *     }]
+   *   })
+   * ```
+   * 
+   * ## Example as ES5 annotation
+   * 
+   * ```
+   * var MyComponent = function(queryList) {
+   *   ...
+   * };
+   * 
+   * MyComponent.annotations = [
+   *   new ng.Component({...}),
+   *   new ng.View({...})
+   * ]
+   * MyComponent.parameters = [
+   *   [new ng.Query(SomeType)]
+   * ]
+   * ```
+   */
+  interface QueryFactory {
+    
+     new(selector: Type | string, {descendants}?: {descendants?: boolean}): QueryMetadata;
+  
+    
+     (selector: Type | string, {descendants}?: {descendants?: boolean}): ParameterDecorator;
+  
+  }
+  
+
+  /**
+   * {@link di/ViewQueryMetadata} factory function.
+   */
+  var ViewQuery : QueryFactory ;
+  
+
+  /**
+   * {@link PipeMetadata} factory function.
+   */
+  var Pipe : PipeFactory ;
+  
+
+  /**
+   * {@link PipeMetadata} factory for creating decorators.
+   * 
+   * ## Example as TypeScript Decorator
+   * 
+   * ```
+   * import {Pipe} from "angular2/angular2";
+   * 
+   * @Pipe({...})
+   * class MyPipe {
+   *   constructor() {
+   *     ...
+   *   }
+   * 
+   *   transform(v, args) {}
+   * }
+   * ```
+   */
+  interface PipeFactory {
+    
+     new(obj: {
+    name: string,
+  }): any;
+  
+    
+     (obj: {name: string}): any;
+  
   }
   
 
@@ -1405,407 +1853,6 @@ declare module ng {
   
 
   /**
-   * {@link Attribute} factory function.
-   */
-  var Attribute : AttributeFactory ;
-  
-
-  /**
-   * {@link Attribute} factory for creating annotations, decorators or DSL.
-   * 
-   * ## Example as TypeScript Decorator
-   * 
-   * ```
-   * import {Attribute, Component, View} from "angular2/angular2";
-   * 
-   * @Component({...})
-   * @View({...})
-   * class MyComponent {
-   *   constructor(@Attribute('title') title: string) {
-   *     ...
-   *   }
-   * }
-   * ```
-   * 
-   * ## Example as ES5 DSL
-   * 
-   * ```
-   * var MyComponent = ng
-   *   .Component({...})
-   *   .View({...})
-   *   .Class({
-   *     constructor: [new ng.Attribute('title'), function(title) {
-   *       ...
-   *     }]
-   *   })
-   * ```
-   * 
-   * ## Example as ES5 annotation
-   * 
-   * ```
-   * var MyComponent = function(title) {
-   *   ...
-   * };
-   * 
-   * MyComponent.annotations = [
-   *   new ng.Component({...})
-   *   new ng.View({...})
-   * ]
-   * MyComponent.parameters = [
-   *   [new ng.Attribute('title')]
-   * ]
-   * ```
-   */
-  interface AttributeFactory {
-    
-     new(name: string): AttributeAnnotation;
-  
-    
-     (name: string): TypeDecorator;
-  
-  }
-  
-
-  /**
-   * {@link Component} factory function.
-   */
-  var Component : ComponentFactory ;
-  
-
-  /**
-   * Interface for the {@link Component} decorator function.
-   * 
-   * See {@link ComponentFactory}.
-   */
-  interface ComponentDecorator extends TypeDecorator {
-    
-
-    /**
-     * Chain {@link View} annotation.
-     */
-     View(obj: {
-    templateUrl?: string,
-    template?: string,
-    directives?: List<Type | any | List<any>>,
-    renderer?: string,
-    styles?: List<string>,
-    styleUrls?: List<string>,
-  }): ViewDecorator;
-  }
-  
-
-  /**
-   * {@link ComponentAnnotation} factory for creating annotations, decorators or DSL.
-   * 
-   * ## Example as TypeScript Decorator
-   * 
-   * ```
-   * import {Component, View} from "angular2/angular2";
-   * 
-   * @Component({...})
-   * @View({...})
-   * class MyComponent {
-   *   constructor() {
-   *     ...
-   *   }
-   * }
-   * ```
-   * 
-   * ## Example as ES5 DSL
-   * 
-   * ```
-   * var MyComponent = ng
-   *   .Component({...})
-   *   .View({...})
-   *   .Class({
-   *     constructor: function() {
-   *       ...
-   *     }
-   *   })
-   * ```
-   * 
-   * ## Example as ES5 annotation
-   * 
-   * ```
-   * var MyComponent = function() {
-   *   ...
-   * };
-   * 
-   * MyComponent.annotations = [
-   *   new ng.Component({...})
-   *   new ng.View({...})
-   * ]
-   * ```
-   */
-  interface ComponentFactory {
-    
-     new(obj: {
-    selector?: string,
-    properties?: List<string>,
-    events?: List<string>,
-    host?: StringMap<string, string>,
-    lifecycle?: List<LifecycleEvent>,
-    bindings?: List<any>,
-    exportAs?: string,
-    compileChildren?: boolean,
-    viewBindings?: List<any>,
-    changeDetection?: string,
-  }): ComponentAnnotation;
-  
-    
-     (obj: {
-    selector?: string,
-    properties?: List<string>,
-    events?: List<string>,
-    host?: StringMap<string, string>,
-    lifecycle?: List<LifecycleEvent>,
-    bindings?: List<any>,
-    exportAs?: string,
-    compileChildren?: boolean,
-    viewBindings?: List<any>,
-    changeDetection?: string,
-  }): ComponentDecorator;
-  
-  }
-  
-
-  /**
-   * {@link Directive} factory function.
-   */
-  var Directive : DirectiveFactory ;
-  
-
-  /**
-   * Interface for the {@link Directive} decorator function.
-   * 
-   * See {@link DirectiveFactory}.
-   */
-  interface DirectiveDecorator extends TypeDecorator {
-  }
-  
-
-  /**
-   * {@link Directive} factory for creating annotations, decorators or DSL.
-   * 
-   * ## Example as TypeScript Decorator
-   * 
-   * ```
-   * import {Directive} from "angular2/angular2";
-   * 
-   * @Directive({...})
-   * class MyDirective {
-   *   constructor() {
-   *     ...
-   *   }
-   * }
-   * ```
-   * 
-   * ## Example as ES5 DSL
-   * 
-   * ```
-   * var MyDirective = ng
-   *   .Directive({...})
-   *   .Class({
-   *     constructor: function() {
-   *       ...
-   *     }
-   *   })
-   * ```
-   * 
-   * ## Example as ES5 annotation
-   * 
-   * ```
-   * var MyDirective = function() {
-   *   ...
-   * };
-   * 
-   * MyDirective.annotations = [
-   *   new ng.Directive({...})
-   * ]
-   * ```
-   */
-  interface DirectiveFactory {
-    
-     new(obj: {
-    selector?: string, properties?: List<string>, events?: List<string>,
-        host?: StringMap<string, string>, lifecycle?: List<LifecycleEvent>, bindings?: List<any>,
-        exportAs?: string, compileChildren?: boolean;
-  }): DirectiveAnnotation;
-  
-    
-     (obj: {
-    selector?: string, properties?: List<string>, events?: List<string>,
-        host?: StringMap<string, string>, lifecycle?: List<LifecycleEvent>, bindings?: List<any>,
-        exportAs?: string, compileChildren?: boolean;
-  }): DirectiveDecorator;
-  
-  }
-  
-
-  /**
-   * {@link View} factory function.
-   */
-  var View : ViewFactory ;
-  
-
-  /**
-   * Interface for the {@link View} decorator function.
-   * 
-   * See {@link ViewFactory}.
-   */
-  interface ViewDecorator extends TypeDecorator {
-    
-
-    /**
-     * Chain {@link View} annotation.
-     */
-     View(obj: {
-    templateUrl?: string,
-    template?: string,
-    directives?: List<Type | any | List<any>>,
-    renderer?: string,
-    styles?: List<string>,
-    styleUrls?: List<string>,
-  }): ViewDecorator;
-  }
-  
-
-  /**
-   * {@link ViewAnnotation} factory for creating annotations, decorators or DSL.
-   * 
-   * ## Example as TypeScript Decorator
-   * 
-   * ```
-   * import {Component, View} from "angular2/angular2";
-   * 
-   * @Component({...})
-   * @View({...})
-   * class MyComponent {
-   *   constructor() {
-   *     ...
-   *   }
-   * }
-   * ```
-   * 
-   * ## Example as ES5 DSL
-   * 
-   * ```
-   * var MyComponent = ng
-   *   .Component({...})
-   *   .View({...})
-   *   .Class({
-   *     constructor: function() {
-   *       ...
-   *     }
-   *   })
-   * ```
-   * 
-   * ## Example as ES5 annotation
-   * 
-   * ```
-   * var MyComponent = function() {
-   *   ...
-   * };
-   * 
-   * MyComponent.annotations = [
-   *   new ng.Component({...})
-   *   new ng.View({...})
-   * ]
-   * ```
-   */
-  interface ViewFactory {
-    
-     new(obj: {
-    templateUrl?: string,
-    template?: string,
-    directives?: List<Type | any | List<any>>,
-    encapsulation?: ViewEncapsulation,
-    styles?: List<string>,
-    styleUrls?: List<string>,
-  }): ViewAnnotation;
-  
-    
-     (obj: {
-    templateUrl?: string,
-    template?: string,
-    directives?: List<Type | any | List<any>>,
-    encapsulation?: ViewEncapsulation,
-    styles?: List<string>,
-    styleUrls?: List<string>,
-  }): ViewDecorator;
-  
-  }
-  
-
-  /**
-   * {@link Query} factory function.
-   */
-  var Query : QueryFactory ;
-  
-
-  /**
-   * {@link Query} factory for creating annotations, decorators or DSL.
-   * 
-   * ## Example as TypeScript Decorator
-   * 
-   * ```
-   * import {Query, QueryList, Component, View} from "angular2/angular2";
-   * 
-   * @Component({...})
-   * @View({...})
-   * class MyComponent {
-   *   constructor(@Query(SomeType) queryList: QueryList) {
-   *     ...
-   *   }
-   * }
-   * ```
-   * 
-   * ## Example as ES5 DSL
-   * 
-   * ```
-   * var MyComponent = ng
-   *   .Component({...})
-   *   .View({...})
-   *   .Class({
-   *     constructor: [new ng.Query(SomeType), function(queryList) {
-   *       ...
-   *     }]
-   *   })
-   * ```
-   * 
-   * ## Example as ES5 annotation
-   * 
-   * ```
-   * var MyComponent = function(queryList) {
-   *   ...
-   * };
-   * 
-   * MyComponent.annotations = [
-   *   new ng.Component({...})
-   *   new ng.View({...})
-   * ]
-   * MyComponent.parameters = [
-   *   [new ng.Query(SomeType)]
-   * ]
-   * ```
-   */
-  interface QueryFactory {
-    
-     new(selector: Type | string, {descendants}?: {descendants?: boolean}): QueryAnnotation;
-  
-    
-     (selector: Type | string, {descendants}?: {descendants?: boolean}): ParameterDecorator;
-  
-  }
-  
-
-  /**
-   * {@link ViewQuery} factory function.
-   */
-  var ViewQuery : QueryFactory ;
-  
-
-  /**
    * CHECK_ONCE means that after calling detectChanges the mode of the change detector
    * will become CHECKED.
    */
@@ -1878,6 +1925,8 @@ declare module ng {
     
      mode: string;
     
+     ref: ChangeDetectorRef;
+    
      addChild(cd: ChangeDetector): void;
     
      addShadowDomChild(cd: ChangeDetector): void;
@@ -1893,6 +1942,8 @@ declare module ng {
      dehydrate(): void;
     
      markPathToRootAsCheckOnce(): void;
+    
+     handleEvent(eventName: string, elIndex: number, locals: Locals): void;
     
      detectChanges(): void;
     
@@ -1950,17 +2001,29 @@ declare module ng {
   
 
   /**
-   * Indicates that the result of a {@link Pipe} transformation has changed even though the reference
+   * Indicates that the result of a {@link PipeMetadata} transformation has changed even though the
+   * reference
    * has not changed.
    * 
    * The wrapped value will be unwrapped by change detection, and the unwrapped value will be stored.
+   * 
+   * Example:
+   * 
+   * ```
+   * if (this._latestValue === this._latestReturnedValue) {
+   *    return this._latestReturnedValue;
+   *  } else {
+   *    this._latestReturnedValue = this._latestValue;
+   *    return WrappedValue.wrap(this._latestValue); // this will force update
+   *  }
+   * ```
    */
   class WrappedValue {
     
+     static wrap(value: any): WrappedValue;
+    
      wrapped: any;
   }
-  
-  const defaultPipes : Pipes ;
   
 
   /**
@@ -1969,55 +2032,43 @@ declare module ng {
    * #Example
    * 
    * ```
-   * class DoublePipe implements Pipe {
-   *  supports(obj) {
-   *    return true;
-   *  }
-   * 
-   *  onDestroy() {}
-   * 
+   * class DoublePipe implements PipeTransform {
    *  transform(value, args = []) {
    *    return `${value}${value}`;
    *  }
    * }
    * ```
    */
-  interface Pipe {
-    
-
-    /**
-     * Query if a pipe supports a particular object instance.
-     */
-     supports(obj: any): boolean;
-    
-     onDestroy(): void;
+  interface PipeTransform {
     
      transform(value: any, args: List<any>): any;
   }
   
-  class Pipes {
-    
 
-    /**
-     * Map of {@link Pipe} names to {@link PipeFactory} lists used to configure the
-     * {@link Pipes} registry.
-     * 
-     * #Example
-     * 
-     * ```
-     * var pipesConfig = {
-     *   'json': [jsonPipeFactory]
-     * }
-     * @Component({
-     *   viewBindings: [
-     *     bind(Pipes).toValue(new Pipes(pipesConfig))
-     *   ]
-     * })
-     * ```
-     */
-     config: StringMap<string, PipeFactory[]>;
+  /**
+   * An interface that stateful pipes should implement.
+   * 
+   * #Example
+   * 
+   * ```
+   * class StatefulPipe implements PipeTransform, PipeOnDestroy {
+   *  connection;
+   * 
+   *  onDestroy() {
+   *    this.connection.release();
+   *  }
+   * 
+   *  transform(value, args = []) {
+   *    this.connection = createConnection();
+   *    // ...
+   *    return someValue;
+   *  }
+   * }
+   * ```
+   */
+  interface PipeOnDestroy {
     
-     get(type: string, obj: any, cdRef?: ChangeDetectorRef, existingPipe?: Pipe): Pipe;
+     onDestroy(): void;
   }
   
 
@@ -2025,6 +2076,30 @@ declare module ng {
    * A repository of different iterable diffing strategies used by NgFor, NgClass, and others.
    */
   class IterableDiffers {
+    
+     static create(factories: IterableDifferFactory[], parent?: IterableDiffers): IterableDiffers;
+    
+
+    /**
+     * Takes an array of {@link IterableDifferFactory} and returns a binding used to extend the
+     * inherited {@link IterableDiffers} instance with the provided factories and return a new
+     * {@link IterableDiffers} instance.
+     * 
+     * The following example shows how to extend an existing list of factories,
+     * which will only be applied to the injector for this component and its children.
+     * This step is all that's required to make a new {@link IterableDiffer} available.
+     * 
+     * # Example
+     * 
+     * ```
+     * @Component({
+     *   viewBindings: [
+     *     IterableDiffers.extend([new ImmutableListDiffer()])
+     *   ]
+     * })
+     * ```
+     */
+     static extend(factories: IterableDifferFactory[]): Binding;
     
      factories: IterableDifferFactory[];
     
@@ -2055,6 +2130,30 @@ declare module ng {
    */
   class KeyValueDiffers {
     
+     static create(factories: KeyValueDifferFactory[], parent?: KeyValueDiffers): KeyValueDiffers;
+    
+
+    /**
+     * Takes an array of {@link KeyValueDifferFactory} and returns a binding used to extend the
+     * inherited {@link KeyValueDiffers} instance with the provided factories and return a new
+     * {@link KeyValueDiffers} instance.
+     * 
+     * The following example shows how to extend an existing list of factories,
+     * which will only be applied to the injector for this component and its children.
+     * This step is all that's required to make a new {@link KeyValueDiffer} available.
+     * 
+     * # Example
+     * 
+     * ```
+     * @Component({
+     *   viewBindings: [
+     *     KeyValueDiffers.extend([new ImmutableMapDiffer()])
+     *   ]
+     * })
+     * ```
+     */
+     static extend(factories: KeyValueDifferFactory[]): Binding;
+    
      factories: KeyValueDifferFactory[];
     
      find(kv: Object): KeyValueDifferFactory;
@@ -2078,52 +2177,6 @@ declare module ng {
      create(cdRef: ChangeDetectorRef): KeyValueDiffer;
   }
   
-  interface PipeFactory {
-    
-     supports(obs: any): boolean;
-    
-     create(cdRef: ChangeDetectorRef): Pipe;
-  }
-  
-
-  /**
-   * Provides default implementation of `supports` and `onDestroy` method.
-   * 
-   * #Example
-   * 
-   * ```
-   * class DoublePipe extends BasePipe {
-   *  transform(value) {
-   *    return `${value}${value}`;
-   *  }
-   * }
-   * ```
-   */
-  class BasePipe implements Pipe {
-    
-     supports(obj: any): boolean;
-    
-     onDestroy(): void;
-    
-     transform(value: any, args: List<any>): any;
-  }
-  
-  class NullPipe extends BasePipe {
-    
-     called: boolean;
-    
-     supports(obj: any): boolean;
-    
-     transform(value: any, args?: List<any>): WrappedValue;
-  }
-  
-  class NullPipeFactory implements PipeFactory {
-    
-     supports(obj: any): boolean;
-    
-     create(cdRef: ChangeDetectorRef): Pipe;
-  }
-  
 
   /**
    * An opaque token representing the application root type in the {@link Injector}.
@@ -2141,7 +2194,148 @@ declare module ng {
    * 
    * ```
    */
-  const appComponentTypeToken : OpaqueToken ;
+  const APP_COMPONENT : OpaqueToken ;
+  
+
+  /**
+   * Bootstrapping for Angular applications.
+   * 
+   * You instantiate an Angular application by explicitly specifying a component to use as the root
+   * component for your
+   * application via the `bootstrap()` method.
+   * 
+   * ## Simple Example
+   * 
+   * Assuming this `index.html`:
+   * 
+   * ```html
+   * <html>
+   *   <!-- load Angular script tags here. -->
+   *   <body>
+   *     <my-app>loading...</my-app>
+   *   </body>
+   * </html>
+   * ```
+   * 
+   * An application is bootstrapped inside an existing browser DOM, typically `index.html`. Unlike
+   * Angular 1, Angular 2
+   * does not compile/process bindings in `index.html`. This is mainly for security reasons, as well
+   * as architectural
+   * changes in Angular 2. This means that `index.html` can safely be processed using server-side
+   * technologies such as
+   * bindings. Bindings can thus use double-curly `{{ syntax }}` without collision from Angular 2
+   * component double-curly
+   * `{{ syntax }}`.
+   * 
+   * We can use this script code:
+   * 
+   * ```
+   * @Component({
+   *    selector: 'my-app'
+   * })
+   * @View({
+   *    template: 'Hello {{ name }}!'
+   * })
+   * class MyApp {
+   *   name:string;
+   * 
+   *   constructor() {
+   *     this.name = 'World';
+   *   }
+   * }
+   * 
+   * main() {
+   *   return bootstrap(MyApp);
+   * }
+   * ```
+   * 
+   * When the app developer invokes `bootstrap()` with the root component `MyApp` as its argument,
+   * Angular performs the
+   * following tasks:
+   * 
+   *  1. It uses the component's `selector` property to locate the DOM element which needs to be
+   * upgraded into
+   *     the angular component.
+   *  2. It creates a new child injector (from the platform injector). Optionally, you can also
+   * override the injector configuration for an app by
+   * invoking `bootstrap` with the `componentInjectableBindings` argument.
+   *  3. It creates a new `Zone` and connects it to the angular application's change detection domain
+   * instance.
+   *  4. It creates a shadow DOM on the selected component's host element and loads the template into
+   * it.
+   *  5. It instantiates the specified component.
+   *  6. Finally, Angular performs change detection to apply the initial data bindings for the
+   * application.
+   * 
+   * 
+   * ## Instantiating Multiple Applications on a Single Page
+   * 
+   * There are two ways to do this.
+   * 
+   * 
+   * ### Isolated Applications
+   * 
+   * Angular creates a new application each time that the `bootstrap()` method is invoked. When
+   * multiple applications
+   * are created for a page, Angular treats each application as independent within an isolated change
+   * detection and
+   * `Zone` domain. If you need to share data between applications, use the strategy described in the
+   * next
+   * section, "Applications That Share Change Detection."
+   * 
+   * 
+   * ### Applications That Share Change Detection
+   * 
+   * If you need to bootstrap multiple applications that share common data, the applications must
+   * share a common
+   * change detection and zone. To do that, create a meta-component that lists the application
+   * components in its template.
+   * By only invoking the `bootstrap()` method once, with the meta-component as its argument, you
+   * ensure that only a
+   * single change detection zone is created and therefore data can be shared across the applications.
+   * 
+   * 
+   * ## Platform Injector
+   * 
+   * When working within a browser window, there are many singleton resources: cookies, title,
+   * location, and others.
+   * Angular services that represent these resources must likewise be shared across all Angular
+   * applications that
+   * occupy the same browser window.  For this reason, Angular creates exactly one global platform
+   * injector which stores
+   * all shared services, and each angular application injector has the platform injector as its
+   * parent.
+   * 
+   * Each application has its own private injector as well. When there are multiple applications on a
+   * page, Angular treats
+   * each application injector's services as private to that application.
+   * 
+   * 
+   * # API
+   * - `appComponentType`: The root component which should act as the application. This is a reference
+   * to a `Type`
+   *   which is annotated with `@Component(...)`.
+   * - `componentInjectableBindings`: An additional set of bindings that can be added to the app
+   * injector
+   * to override default injection behavior.
+   * - `errorReporter`: `function(exception:any, stackTrace:string)` a default error reporter for
+   * unhandled exceptions.
+   * 
+   * Returns a `Promise` of {@link ApplicationRef}.
+   */
+  function bootstrap(appComponentType: /*Type*/ any, componentInjectableBindings?: List<Type | Binding | List<any>>) : Promise<ApplicationRef> ;
+  
+
+  /**
+   * Runtime representation of a type.
+   * 
+   * In JavaScript a Type is a constructor function.
+   */
+  interface Type extends Function {
+    
+     new(args: any): any;
+  
+  }
   
 
   /**
@@ -2155,13 +2349,13 @@ declare module ng {
     
 
     /**
-     * Returns the current {@link Component} type.
+     * Returns the current {@link ComponentMetadata} type.
      */
      hostComponentType: Type;
     
 
     /**
-     * Returns the current {@link Component} instance.
+     * Returns the current {@link ComponentMetadata} instance.
      */
      hostComponent: any;
     
@@ -2180,18 +2374,6 @@ declare module ng {
   
 
   /**
-   * Runtime representation of a type.
-   * 
-   * In JavaScript a Type is a constructor function.
-   */
-  interface Type extends Function {
-    
-     new(args: any): any;
-  
-  }
-  
-
-  /**
    * Specifies app root url for the application.
    * 
    * Used by the {@link Compiler} when resolving HTML and CSS template URLs.
@@ -2206,7 +2388,7 @@ declare module ng {
     /**
      * Returns the base URL of the currently running application.
      */
-     value: void;
+     value: any;
   }
   
 
@@ -2237,7 +2419,7 @@ declare module ng {
   
 
   /**
-   * Resolve a `Type` from a {@link Component} into a URL.
+   * Resolve a `Type` from a {@link ComponentMetadata} into a URL.
    * 
    * This interface can be overridden by the application developer to create custom behavior.
    * 
@@ -2257,7 +2439,7 @@ declare module ng {
   
 
   /**
-   * Resolve a `Type` for {@link Directive}.
+   * Resolve a `Type` for {@link DirectiveMetadata}.
    * 
    * This interface can be overridden by the application developer to create custom behavior.
    * 
@@ -2267,9 +2449,9 @@ declare module ng {
     
 
     /**
-     * Return {@link Directive} for a given `Type`.
+     * Return {@link DirectiveMetadata} for a given `Type`.
      */
-     resolve(type: Type): DirectiveAnnotation;
+     resolve(type: Type): DirectiveMetadata;
   }
   
 
@@ -2435,24 +2617,26 @@ declare module ng {
   
 
   /**
-   * An iterable live list of components in the Light DOM.
+   * An iterable and observable live list of components in the DOM.
    * 
-   * Injectable Objects that contains a live list of child directives in the light DOM of a directive.
+   * A QueryList contains a live list of child directives in the DOM of a directive.
    * The directives are kept in depth-first pre-order traversal of the DOM.
    * 
    * The `QueryList` is iterable, therefore it can be used in both javascript code with `for..of` loop
-   * as well as in
-   * template with `*ng-for="of"` directive.
+   * as well as in template with `*ng-for="of"` directive.
+   * 
+   * QueryList is updated as part of the change-detection cycle of a directive. Since change detection
+   * happens after construction of a directive, QueryList will always be empty when observed in the
+   * constructor.
+   * 
    * 
    * NOTE: In the future this class will implement an `Observable` interface. For now it uses a plain
-   * list of observable
-   * callbacks.
+   * list of observable callbacks.
    * 
    * # Example:
    * 
    * Assume that `<tabs>` component would like to get a list its children which are `<pane>`
-   * components as shown in this
-   * example:
+   * components as shown in this example:
    * 
    * ```html
    * <tabs>
@@ -2462,17 +2646,13 @@ declare module ng {
    * ```
    * 
    * In the above example the list of `<tabs>` elements needs to get a list of `<pane>` elements so
-   * that it could render
-   * tabs with the correct titles and in the correct order.
+   * that it could render tabs with the correct titles and in the correct order.
    * 
    * A possible solution would be for a `<pane>` to inject `<tabs>` component and then register itself
-   * with `<tabs>`
-   * component's on `hydrate` and deregister on `dehydrate` event. While a reasonable approach, this
-   * would only work
-   * partialy since `*ng-for` could rearrange the list of `<pane>` components which would not be
-   * reported to `<tabs>`
-   * component and thus the list of `<pane>` components would be out of sync with respect to the list
-   * of `<pane>` elements.
+   * with `<tabs>` component's on `hydrate` and deregister on `dehydrate` event. While a reasonable
+   * approach, this would only work partialy since `*ng-for` could rearrange the list of `<pane>`
+   * components which would not be reported to `<tabs>` component and thus the list of `<pane>`
+   * components would be out of sync with respect to the list of `<pane>` elements.
    * 
    * A preferred solution is to inject a `QueryList` which is a live list of directives in the
    * component`s light DOM.
@@ -2507,18 +2687,7 @@ declare module ng {
    * }
    * ```
    */
-  interface IQueryList<T> {
-  }
-  
-
-  /**
-   * Injectable Objects that contains a live list of child directives in the light Dom of a directive.
-   * The directives are kept in depth-first pre-order traversal of the DOM.
-   * 
-   * In the future this class will implement an Observable interface.
-   * For now it uses a plain list of observable callbacks.
-   */
-  class QueryList<T> implements IQueryList<T> {
+  class QueryList<T> {
     
      reset(newList: List<T>): void;
     
@@ -2529,6 +2698,8 @@ declare module ng {
      onChange(callback: () => void): void;
     
      removeCallback(callback: () => void): void;
+    
+     toString(): string;
     
      length: number;
     
@@ -2828,29 +2999,6 @@ declare module ng {
   
 
   /**
-   * Abstract reference to the element which can be marshaled across web-worker boundary.
-   * 
-   * This interface is used by the Renderer API.
-   */
-  interface RenderElementRef {
-    
-
-    /**
-     * Reference to the `RenderViewRef` where the `RenderElementRef` is inside of.
-     */
-     renderView: RenderViewRef;
-    
-
-    /**
-     * Index of the element inside the `RenderViewRef`.
-     * 
-     * This is used internally by the Angular framework to locate elements.
-     */
-     renderBoundElementIndex: number;
-  }
-  
-
-  /**
    * A reference to an Angular View.
    * 
    * A View is a fundamental building block of Application UI. A View is the smallest set of
@@ -2933,9 +3081,10 @@ declare module ng {
    * A reference to an Angular ProtoView.
    * 
    * A ProtoView is a reference to a template for easy creation of views.
-   * (See {@link AppViewManager#createViewInContainer} and {@link AppViewManager#createRootHostView}).
+   * (See {@link AppViewManager#createViewInContainer `AppViewManager#createViewInContainer`} and
+   * {@link AppViewManager#createRootHostView `AppViewManager#createRootHostView`}).
    * 
-   * A `ProtoView` is a foctary for creating `View`s.
+   * A `ProtoView` is a factory for creating `View`s.
    * 
    * ## Example
    * 
@@ -3205,7 +3354,7 @@ declare module ng {
    */
   class InjectMetadata {
     
-     token: void;
+     token: any;
     
      toString(): string;
   }
@@ -3360,7 +3509,7 @@ declare module ng {
    */
   class DependencyMetadata {
     
-     token: void;
+     token: any;
   }
   
 
@@ -3447,6 +3596,52 @@ declare module ng {
     
 
     /**
+     * Turns a list of binding definitions into an internal resolved list of resolved bindings.
+     * 
+     * A resolution is a process of flattening multiple nested lists and converting individual
+     * bindings into a list of {@link ResolvedBinding}s. The resolution can be cached by `resolve`
+     * for the {@link Injector} for performance-sensitive code.
+     * 
+     * @param `bindings` can be a list of `Type`, {@link Binding}, {@link ResolvedBinding}, or a
+     * recursive list of more bindings.
+     * 
+     * The returned list is sparse, indexed by `id` for the {@link Key}. It is generally not useful to
+     * application code
+     * other than for passing it to {@link Injector} functions that require resolved binding lists,
+     * such as
+     * `fromResolvedBindings` and `createChildFromResolved`.
+     */
+     static resolve(bindings: List<Type | Binding | List<any>>): List<ResolvedBinding>;
+    
+
+    /**
+     * Resolves bindings and creates an injector based on those bindings. This function is slower than
+     * the corresponding `fromResolvedBindings` because it needs to resolve bindings first. See
+     * `resolve`
+     * for the {@link Injector}.
+     * 
+     * Prefer `fromResolvedBindings` in performance-critical code that creates lots of injectors.
+     * 
+     * @param `bindings` can be a list of `Type`, {@link Binding}, {@link ResolvedBinding}, or a
+     * recursive list of more
+     * bindings.
+     * @param `depProvider`
+     */
+     static resolveAndCreate(bindings: List<Type | Binding | List<any>>, depProvider?: DependencyProvider): Injector;
+    
+
+    /**
+     * Creates an injector from previously resolved bindings. This bypasses resolution and flattening.
+     * This API is the recommended way to construct injectors in performance-sensitive parts.
+     * 
+     * @param `bindings` A sparse list of {@link ResolvedBinding}s. See `resolve` for the
+     * {@link Injector}.
+     * @param `depProvider`
+     */
+     static fromResolvedBindings(bindings: List<ResolvedBinding>, depProvider?: DependencyProvider): Injector;
+    
+
+    /**
      * Returns debug information about the injector.
      * 
      * This information is included into exceptions thrown by the injector.
@@ -3520,6 +3715,24 @@ declare module ng {
      */
      createChildFromResolved(bindings: List<ResolvedBinding>, depProvider?: DependencyProvider): Injector;
     
+
+    /**
+     * Resolves a binding and instantiates an object in the context of the injector.
+     * 
+     * @param `binding`: either a type or a binding.
+     * @returns an object created using binding.
+     */
+     resolveAndInstantiate(binding: Type | Binding): any;
+    
+
+    /**
+     * Instantiates an object using a resolved bindin in the context of the injector.
+     * 
+     * @param `binding`: a resolved binding
+     * @returns an object created using binding.
+     */
+     instantiateResolved(binding: ResolvedBinding): any;
+    
      displayName: string;
     
      toString(): string;
@@ -3536,7 +3749,7 @@ declare module ng {
     
      binding: ResolvedBinding;
     
-     visibility: number;
+     visibility: Visibility;
     
      getKeyId(): number;
   }
@@ -3550,17 +3763,20 @@ declare module ng {
      getDependency(injector: Injector, binding: ResolvedBinding, dependency: Dependency): any;
   }
   
-  const PUBLIC_AND_PRIVATE : number ;
+  enum Visibility {
+    
+     Public,
+    
+     Private,
+    
+     PublicAndPrivate
+  }
   
-  const PUBLIC : number ;
-  
-  const PRIVATE : number ;
-  
-  const undefinedValue : Object ;
+  const UNDEFINED : Object ;
   
 
   /**
-   * Describes how the {@link Injector} should instantiate a given token.
+   * Describes how_ the {@link Injector} should instantiate a given token.
    * 
    * See {@link bind}.
    * 
@@ -3580,7 +3796,7 @@ declare module ng {
     /**
      * Token used when retrieving this binding. Usually the `Type`.
      */
-     token: void;
+     token: any;
     
 
     /**
@@ -3629,7 +3845,7 @@ declare module ng {
      * expect(injector.get(String)).toEqual('Hello');
      * ```
      */
-     toValue: void;
+     toValue: any;
     
 
     /**
@@ -3665,7 +3881,7 @@ declare module ng {
      * expect(injectorClass.get(Vehicle) instanceof Car).toBe(true);
      * ```
      */
-     toAlias: void;
+     toAlias: any;
     
 
     /**
@@ -3722,7 +3938,7 @@ declare module ng {
    */
   class BindingBuilder {
     
-     token: void;
+     token: any;
     
 
     /**
@@ -3863,6 +4079,8 @@ declare module ng {
    */
   class Dependency {
     
+     static fromKey(key: Key): Dependency;
+    
      key: Key;
     
      optional: boolean;
@@ -3900,7 +4118,19 @@ declare module ng {
    * Keys are used internally by the {@link Injector} because their system-wide unique `id`s allow the
    * injector to index in arrays rather than looking up items in maps.
    */
-  interface Key {
+  class Key {
+    
+
+    /**
+     * Retrieves a `Key` for a token.
+     */
+     static get(token: Object): Key;
+    
+
+    /**
+     * @returns the number of keys registered in the system.
+     */
+     static numberOfKeys: number;
     
      token: Object;
     
@@ -3956,7 +4186,7 @@ declare module ng {
     
      addKey(injector: Injector, key: Key): void;
     
-     context: void;
+     context: any;
     
      toString(): string;
   }
@@ -4161,7 +4391,7 @@ declare module ng {
    * instead of writing:
    * 
    * ```
-   * import {If, NgFor, NgSwitch, NgSwitchWhen, NgSwitchDefault} from 'angular2/angular2';
+   * import {NgClass, NgIf, NgFor, NgSwitch, NgSwitchWhen, NgSwitchDefault} from 'angular2/angular2';
    * import {OtherDirective} from 'myDirectives';
    * 
    * @Component({
@@ -4169,16 +4399,16 @@ declare module ng {
    * })
    * @View({
    *   templateUrl: 'myComponent.html',
-   *   directives: [If, NgFor, NgSwitch, NgSwitchWhen, NgSwitchDefault, OtherDirective]
+   *   directives: [NgClass, NgIf, NgFor, NgSwitch, NgSwitchWhen, NgSwitchDefault, OtherDirective]
    * })
    * export class MyComponent {
    *   ...
    * }
    * ```
-   * one could enumerate all the core directives at once:
+   * one could import all the core directives at once:
    * 
    * ```
-   * import {coreDirectives} from 'angular2/angular2';
+   * import {CORE_DIRECTIVES} from 'angular2/angular2';
    * import {OtherDirective} from 'myDirectives';
    * 
    * @Component({
@@ -4186,14 +4416,14 @@ declare module ng {
    * })
    * @View({
    *   templateUrl: 'myComponent.html',
-   *   directives: [coreDirectives, OtherDirective]
+   *   directives: [CORE_DIRECTIVES, OtherDirective]
    * })
    * export class MyComponent {
    *   ...
    * }
    * ```
    */
-  const coreDirectives : List<Type> ;
+  const CORE_DIRECTIVES : List<Type> ;
   
 
   /**
@@ -4211,14 +4441,16 @@ declare module ng {
    * # Example:
    * 
    * ```
-   * <div class="message" [class]="{error: errorCount > 0}">
+   * <div class="message" [ng-class]="{error: errorCount > 0}">
    *     Please check errors.
    * </div>
    * ```
    */
-  class CSSClass {
+  class NgClass {
     
-     rawClass: void;
+     initialClasses: any;
+    
+     rawClass: any;
     
      onCheck(): void;
     
@@ -4258,6 +4490,10 @@ declare module ng {
    */
   class NgFor {
     
+     static bulkRemove(tuples: List<RecordViewTuple>, viewContainer: ViewContainerRef): List<RecordViewTuple>;
+    
+     static bulkInsert(tuples: List<RecordViewTuple>, viewContainer: ViewContainerRef, templateRef: TemplateRef): List<RecordViewTuple>;
+    
      viewContainer: ViewContainerRef;
     
      templateRef: TemplateRef;
@@ -4266,7 +4502,7 @@ declare module ng {
     
      cdr: ChangeDetectorRef;
     
-     ngForOf: void;
+     ngForOf: any;
     
      onCheck(): void;
   }
@@ -4303,13 +4539,7 @@ declare module ng {
    */
   class NgIf {
     
-     viewContainer: ViewContainerRef;
-    
-     templateRef: TemplateRef;
-    
-     prevCondition: boolean;
-    
-     ngIf: void;
+     ngIf: any;
   }
   
 
@@ -4323,7 +4553,7 @@ declare module ng {
    * 
    * ```
    * <div>Normal: {{1 + 2}}</div> // output "Normal: 3"
-   * <div non-bindable>Ignored: {{1 + 2}}</div> // output "Ignored: {{1 + 2}}"
+   * <div ng-non-bindable>Ignored: {{1 + 2}}</div> // output "Ignored: {{1 + 2}}"
    * ```
    */
   class NgNonBindable {
@@ -4340,20 +4570,20 @@ declare module ng {
    * # Example:
    * 
    * ```
-   * <div ng-style="{'text-align': alignEpr}"></div>
+   * <div [ng-style]="{'text-align': alignExp}"></div>
    * ```
    * 
-   * In the above example the `text-align` style will be updated based on the `alignEpr` value
+   * In the above example the `text-align` style will be updated based on the `alignExp` value
    * changes.
    * 
    * # Syntax
    * 
-   * - `<div ng-style="{'text-align': alignEpr}"></div>`
-   * - `<div ng-style="styleExp"></div>`
+   * - `<div [ng-style]="{'text-align': alignExp}"></div>`
+   * - `<div [ng-style]="styleExp"></div>`
    */
   class NgStyle {
     
-     rawStyle: void;
+     rawStyle: any;
     
      onCheck(): void;
   }
@@ -4393,7 +4623,7 @@ declare module ng {
    */
   class NgSwitch {
     
-     ngSwitch: void;
+     ngSwitch: any;
   }
   
 
@@ -4414,9 +4644,7 @@ declare module ng {
    */
   class NgSwitchWhen {
     
-     onDestroy(): void;
-    
-     ngSwitchWhen: void;
+     ngSwitchWhen: any;
   }
   
 
@@ -4433,931 +4661,6 @@ declare module ng {
    */
   class NgSwitchDefault {
   }
-  
-
-  /**
-   * Mock Connection to represent a {@link Connection} for tests.
-   */
-  class MockConnection {
-    
-
-    /**
-     * Describes the state of the connection, based on `XMLHttpRequest.readyState`, but with
-     * additional states. For example, state 5 indicates an aborted connection.
-     */
-     readyState: ReadyStates;
-    
-
-    /**
-     * {@link Request} instance used to create the connection.
-     */
-     request: Request;
-    
-
-    /**
-     * {@link EventEmitter} of {@link Response}. Can be subscribed to in order to be notified when a
-     * response is available.
-     */
-     response: EventEmitter;
-    
-
-    /**
-     * Changes the `readyState` of the connection to a custom state of 5 (cancelled).
-     */
-     dispose(): void;
-    
-
-    /**
-     * Sends a mock response to the connection. This response is the value that is emitted to the
-     * {@link EventEmitter} returned by {@link Http}.
-     * 
-     * #Example
-     * 
-     * ```
-     * var connection;
-     * backend.connections.subscribe(c => connection = c);
-     * http.request('data.json').subscribe(res => console.log(res.text()));
-     * connection.mockRespond(new Response('fake response')); //logs 'fake response'
-     * ```
-     */
-     mockRespond(res: Response): void;
-    
-
-    /**
-     * Not yet implemented!
-     * 
-     * Sends the provided {@link Response} to the `downloadObserver` of the `Request`
-     * associated with this connection.
-     */
-     mockDownload(res: Response): void;
-    
-
-    /**
-     * Emits the provided error object as an error to the {@link Response} {@link EventEmitter}
-     * returned
-     * from {@link Http}.
-     */
-     mockError(err?: Error): void;
-  }
-  
-
-  /**
-   * A mock backend for testing the {@link Http} service.
-   * 
-   * This class can be injected in tests, and should be used to override bindings
-   * to other backends, such as {@link XHRBackend}.
-   * 
-   * #Example
-   * 
-   * ```
-   * import {MockBackend, DefaultOptions, Http} from 'angular2/http';
-   * it('should get some data', inject([AsyncTestCompleter], (async) => {
-   *   var connection;
-   *   var injector = Injector.resolveAndCreate([
-   *     MockBackend,
-   *     bind(Http).toFactory((backend, defaultOptions) => {
-   *       return new Http(backend, defaultOptions)
-   *     }, [MockBackend, DefaultOptions])]);
-   *   var http = injector.get(Http);
-   *   var backend = injector.get(MockBackend);
-   *   //Assign any newly-created connection to local variable
-   *   backend.connections.subscribe(c => connection = c);
-   *   http.request('data.json').subscribe((res) => {
-   *     expect(res.text()).toBe('awesome');
-   *     async.done();
-   *   });
-   *   connection.mockRespond(new Response('awesome'));
-   * }));
-   * ```
-   * 
-   * This method only exists in the mock implementation, not in real Backends.
-   */
-  class MockBackend {
-    
-
-    /**
-     * {@link EventEmitter}
-     * of {@link MockConnection} instances that have been created by this backend. Can be subscribed
-     * to in order to respond to connections.
-     * 
-     * #Example
-     * 
-     * ```
-     * import {MockBackend, Http, BaseRequestOptions} from 'angular2/http';
-     * import {Injector} from 'angular2/di';
-     * 
-     * it('should get a response', () => {
-     *   var connection; //this will be set when a new connection is emitted from the backend.
-     *   var text; //this will be set from mock response
-     *   var injector = Injector.resolveAndCreate([
-     *     MockBackend,
-     *     bind(Http).toFactory(backend, options) {
-     *       return new Http(backend, options);
-     *     }, [MockBackend, BaseRequestOptions]]);
-     *   var backend = injector.get(MockBackend);
-     *   var http = injector.get(Http);
-     *   backend.connections.subscribe(c => connection = c);
-     *   http.request('something.json').subscribe(res => {
-     *     text = res.text();
-     *   });
-     *   connection.mockRespond(new Response({body: 'Something'}));
-     *   expect(text).toBe('Something');
-     * });
-     * ```
-     * 
-     * This property only exists in the mock implementation, not in real Backends.
-     */
-     connections: EventEmitter;
-    
-
-    /**
-     * An array representation of `connections`. This array will be updated with each connection that
-     * is created by this backend.
-     * 
-     * This property only exists in the mock implementation, not in real Backends.
-     */
-     connectionsArray: Array<MockConnection>;
-    
-
-    /**
-     * {@link EventEmitter} of {@link MockConnection} instances that haven't yet been resolved (i.e.
-     * with a `readyState`
-     * less than 4). Used internally to verify that no connections are pending via the
-     * `verifyNoPendingRequests` method.
-     * 
-     * This property only exists in the mock implementation, not in real Backends.
-     */
-     pendingConnections: EventEmitter;
-    
-
-    /**
-     * Checks all connections, and raises an exception if any connection has not received a response.
-     * 
-     * This method only exists in the mock implementation, not in real Backends.
-     */
-     verifyNoPendingRequests(): void;
-    
-
-    /**
-     * Can be used in conjunction with `verifyNoPendingRequests` to resolve any not-yet-resolve
-     * connections, if it's expected that there are connections that have not yet received a response.
-     * 
-     * This method only exists in the mock implementation, not in real Backends.
-     */
-     resolveAllConnections(): void;
-    
-
-    /**
-     * Creates a new {@link MockConnection}. This is equivalent to calling `new
-     * MockConnection()`, except that it also will emit the new `Connection` to the `connections`
-     * emitter of this `MockBackend` instance. This method will usually only be used by tests
-     * against the framework itself, not by end-users.
-     */
-     createConnection(req: Request): Connection;
-  }
-  
-
-  /**
-   * Creates `Request` instances from provided values.
-   * 
-   * The Request's interface is inspired by the Request constructor defined in the [Fetch
-   * Spec](https://fetch.spec.whatwg.org/#request-class),
-   * but is considered a static value whose body can be accessed many times. There are other
-   * differences in the implementation, but this is the most significant.
-   */
-  class Request {
-    
-
-    /**
-     * Http method with which to perform the request.
-     * 
-     * Defaults to GET.
-     */
-     method: RequestMethods;
-    
-     mode: RequestModesOpts;
-    
-     credentials: RequestCredentialsOpts;
-    
-
-    /**
-     * Headers object based on the `Headers` class in the [Fetch
-     * Spec](https://fetch.spec.whatwg.org/#headers-class). {@link Headers} class reference.
-     */
-     headers: Headers;
-    
-
-    /**
-     * Url of the remote resource
-     */
-     url: string;
-    
-     cache: RequestCacheOpts;
-    
-
-    /**
-     * Returns the request's body as string, assuming that body exists. If body is undefined, return
-     * empty
-     * string.
-     */
-     text(): String;
-  }
-  
-
-  /**
-   * Creates `Response` instances from provided values.
-   * 
-   * Though this object isn't
-   * usually instantiated by end-users, it is the primary object interacted with when it comes time to
-   * add data to a view.
-   * 
-   * #Example
-   * 
-   * ```
-   * http.request('my-friends.txt').subscribe(response => this.friends = response.text());
-   * ```
-   * 
-   * The Response's interface is inspired by the Response constructor defined in the [Fetch
-   * Spec](https://fetch.spec.whatwg.org/#response-class), but is considered a static value whose body
-   * can be accessed many times. There are other differences in the implementation, but this is the
-   * most significant.
-   */
-  class Response {
-    
-
-    /**
-     * One of "basic", "cors", "default", "error, or "opaque".
-     * 
-     * Defaults to "default".
-     */
-     type: ResponseTypes;
-    
-
-    /**
-     * True if the response's status is within 200-299
-     */
-     ok: boolean;
-    
-
-    /**
-     * URL of response.
-     * 
-     * Defaults to empty string.
-     */
-     url: string;
-    
-
-    /**
-     * Status code returned by server.
-     * 
-     * Defaults to 200.
-     */
-     status: number;
-    
-
-    /**
-     * Text representing the corresponding reason phrase to the `status`, as defined in [ietf rfc 2616
-     * section 6.1.1](https://tools.ietf.org/html/rfc2616#section-6.1.1)
-     * 
-     * Defaults to "OK"
-     */
-     statusText: string;
-    
-
-    /**
-     * Non-standard property
-     * 
-     * Denotes how many of the response body's bytes have been loaded, for example if the response is
-     * the result of a progress event.
-     */
-     bytesLoaded: number;
-    
-
-    /**
-     * Non-standard property
-     * 
-     * Denotes how many bytes are expected in the final response body.
-     */
-     totalBytes: number;
-    
-
-    /**
-     * Headers object based on the `Headers` class in the [Fetch
-     * Spec](https://fetch.spec.whatwg.org/#headers-class).
-     */
-     headers: Headers;
-    
-
-    /**
-     * Not yet implemented
-     */
-     blob(): any;
-    
-
-    /**
-     * Attempts to return body as parsed `JSON` object, or raises an exception.
-     */
-     json(): Object;
-    
-
-    /**
-     * Returns the body as a string, presuming `toString()` can be called on the response body.
-     */
-     text(): string;
-    
-
-    /**
-     * Not yet implemented
-     */
-     arrayBuffer(): any;
-  }
-  
-
-  /**
-   * Interface for options to construct a Request, based on
-   * [RequestInit](https://fetch.spec.whatwg.org/#requestinit) from the Fetch spec.
-   */
-  interface IRequestOptions {
-    
-     url?: string;
-    
-     method?: RequestMethods;
-    
-     headers?: Headers;
-    
-     body?: string;
-    
-     mode?: RequestModesOpts;
-    
-     credentials?: RequestCredentialsOpts;
-    
-     cache?: RequestCacheOpts;
-  }
-  
-
-  /**
-   * Interface for options to construct a Response, based on
-   * [ResponseInit](https://fetch.spec.whatwg.org/#responseinit) from the Fetch spec.
-   */
-  interface IResponseOptions {
-    
-     body?: string | Object | FormData;
-    
-     status?: number;
-    
-     statusText?: string;
-    
-     headers?: Headers;
-    
-     type?: ResponseTypes;
-    
-     url?: string;
-  }
-  
-
-  /**
-   * Abstract class from which real connections are derived.
-   */
-  class Connection {
-    
-     readyState: ReadyStates;
-    
-     request: Request;
-    
-     response: EventEmitter;
-    
-     dispose(): void;
-  }
-  
-
-  /**
-   * Abstract class from which real backends are derived.
-   * 
-   * The primary purpose of a `ConnectionBackend` is to create new connections to fulfill a given
-   * {@link Request}.
-   */
-  class ConnectionBackend {
-    
-     createConnection(request: any): Connection;
-  }
-  
-  class BrowserXhr {
-    
-     build(): any;
-  }
-  
-
-  /**
-   * Injectable version of {@link RequestOptions}, with overridable default values.
-   * 
-   * #Example
-   * 
-   * ```
-   * import {Http, BaseRequestOptions, Request} from 'angular2/http';
-   * ...
-   * class MyComponent {
-   *   constructor(baseRequestOptions:BaseRequestOptions, http:Http) {
-   *     var options = baseRequestOptions.merge({body: 'foobar', url: 'https://foo'});
-   *     var request = new Request(options);
-   *     http.request(request).subscribe(res => this.bars = res.json());
-   *   }
-   * }
-   * 
-   * ```
-   */
-  class BaseRequestOptions extends RequestOptions {
-  }
-  
-
-  /**
-   * Creates a request options object similar to the `RequestInit` description
-   * in the [Fetch
-   * Spec](https://fetch.spec.whatwg.org/#requestinit) to be optionally provided when instantiating a
-   * {@link Request}.
-   * 
-   * All values are null by default.
-   */
-  class RequestOptions implements IRequestOptions {
-    
-
-    /**
-     * Http method with which to execute the request.
-     * 
-     * Defaults to "GET".
-     */
-     method: RequestMethods;
-    
-
-    /**
-     * Headers object based on the `Headers` class in the [Fetch
-     * Spec](https://fetch.spec.whatwg.org/#headers-class).
-     */
-     headers: Headers;
-    
-
-    /**
-     * Body to be used when creating the request.
-     */
-     body: string;
-    
-     mode: RequestModesOpts;
-    
-     credentials: RequestCredentialsOpts;
-    
-     cache: RequestCacheOpts;
-    
-     url: string;
-    
-
-    /**
-     * Creates a copy of the `RequestOptions` instance, using the optional input as values to override
-     * existing values.
-     */
-     merge(options?: IRequestOptions): RequestOptions;
-  }
-  
-
-  /**
-   * Injectable version of {@link ResponseOptions}, with overridable default values.
-   */
-  class BaseResponseOptions extends ResponseOptions {
-    
-     body: string | Object | ArrayBuffer | JSON | FormData | Blob;
-    
-     status: number;
-    
-     headers: Headers;
-    
-     statusText: string;
-    
-     type: ResponseTypes;
-    
-     url: string;
-  }
-  
-
-  /**
-   * Creates a response options object similar to the
-   * [ResponseInit](https://fetch.spec.whatwg.org/#responseinit) description
-   * in the Fetch
-   * Spec to be optionally provided when instantiating a
-   * {@link Response}.
-   * 
-   * All values are null by default.
-   */
-  class ResponseOptions implements IResponseOptions {
-    
-     body: string | Object;
-    
-     status: number;
-    
-     headers: Headers;
-    
-     statusText: string;
-    
-     type: ResponseTypes;
-    
-     url: string;
-    
-     merge(options?: IResponseOptions): ResponseOptions;
-  }
-  
-
-  /**
-   * Creates {@link XHRConnection} instances.
-   * 
-   * This class would typically not be used by end users, but could be
-   * overridden if a different backend implementation should be used,
-   * such as in a node backend.
-   * 
-   * #Example
-   * 
-   * ```
-   * import {Http, MyNodeBackend, httpInjectables, BaseRequestOptions} from 'angular2/http';
-   * @Component({
-   *   viewBindings: [
-   *     httpInjectables,
-   *     bind(Http).toFactory((backend, options) => {
-   *       return new Http(backend, options);
-   *     }, [MyNodeBackend, BaseRequestOptions])]
-   * })
-   * class MyComponent {
-   *   constructor(http:Http) {
-   *     http('people.json').subscribe(res => this.people = res.json());
-   *   }
-   * }
-   * ```
-   */
-  class XHRBackend implements ConnectionBackend {
-    
-     createConnection(request: Request): XHRConnection;
-  }
-  
-
-  /**
-   * Creates connections using `XMLHttpRequest`. Given a fully-qualified
-   * request, an `XHRConnection` will immediately create an `XMLHttpRequest` object and send the
-   * request.
-   * 
-   * This class would typically not be created or interacted with directly inside applications, though
-   * the {@link MockConnection} may be interacted with in tests.
-   */
-  class XHRConnection implements Connection {
-    
-     request: Request;
-    
-
-    /**
-     * Response {@link EventEmitter} which emits a single {@link Response} value on load event of
-     * `XMLHttpRequest`.
-     */
-     response: EventEmitter;
-    
-     readyState: ReadyStates;
-    
-
-    /**
-     * Calls abort on the underlying XMLHttpRequest.
-     */
-     dispose(): void;
-  }
-  
-  class JSONPBackend implements ConnectionBackend {
-    
-     createConnection(request: Request): JSONPConnection;
-  }
-  
-  class JSONPConnection implements Connection {
-    
-     readyState: ReadyStates;
-    
-     request: Request;
-    
-     response: EventEmitter;
-    
-     baseResponseOptions: ResponseOptions;
-    
-     finished(data?: any): void;
-    
-     dispose(): void;
-  }
-  
-
-  /**
-   * Performs http requests using `XMLHttpRequest` as the default backend.
-   * 
-   * `Http` is available as an injectable class, with methods to perform http requests. Calling
-   * `request` returns an {@link EventEmitter} which will emit a single {@link Response} when a
-   * response is received.
-   * 
-   * 
-   * ## Breaking Change
-   * 
-   * Previously, methods of `Http` would return an RxJS Observable directly. For now,
-   * the `toRx()` method of {@link EventEmitter} needs to be called in order to get the RxJS
-   * Subject. `EventEmitter` does not provide combinators like `map`, and has different semantics for
-   * subscribing/observing. This is temporary; the result of all `Http` method calls will be either an
-   * Observable
-   * or Dart Stream when [issue #2794](https://github.com/angular/angular/issues/2794) is resolved.
-   * 
-   * #Example
-   * 
-   * ```
-   * import {Http, httpInjectables} from 'angular2/http';
-   * @Component({selector: 'http-app', viewBindings: [httpInjectables]})
-   * @View({templateUrl: 'people.html'})
-   * class PeopleComponent {
-   *   constructor(http: Http) {
-   *     http.get('people.json')
-   *       //Get the RxJS Subject
-   *       .toRx()
-   *       // Call map on the response observable to get the parsed people object
-   *       .map(res => res.json())
-   *       // Subscribe to the observable to get the parsed people object and attach it to the
-   *       // component
-   *       .subscribe(people => this.people = people);
-   *   }
-   * }
-   * ```
-   * 
-   * To use the {@link EventEmitter} returned by `Http`, simply pass a generator (See "interface
-   * Generator" in the Async Generator spec: https://github.com/jhusain/asyncgenerator) to the
-   * `observer` method of the returned emitter, with optional methods of `next`, `throw`, and `return`.
-   * 
-   * #Example
-   * 
-   * ```
-   * http.get('people.json').observer({next: (value) => this.people = people});
-   * ```
-   * 
-   * The default construct used to perform requests, `XMLHttpRequest`, is abstracted as a "Backend" (
-   * {@link XHRBackend} in this case), which could be mocked with dependency injection by replacing
-   * the {@link XHRBackend} binding, as in the following example:
-   * 
-   * #Example
-   * 
-   * ```
-   * import {MockBackend, BaseRequestOptions, Http} from 'angular2/http';
-   * var injector = Injector.resolveAndCreate([
-   *   BaseRequestOptions,
-   *   MockBackend,
-   *   bind(Http).toFactory(
-   *       function(backend, defaultOptions) {
-   *         return new Http(backend, defaultOptions);
-   *       },
-   *       [MockBackend, BaseRequestOptions])
-   * ]);
-   * var http = injector.get(Http);
-   * http.get('request-from-mock-backend.json').toRx().subscribe((res:Response) => doSomething(res));
-   * ```
-   */
-  class Http {
-    
-
-    /**
-     * Performs any type of http request. First argument is required, and can either be a url or
-     * a {@link Request} instance. If the first argument is a url, an optional {@link RequestOptions}
-     * object can be provided as the 2nd argument. The options object will be merged with the values
-     * of {@link BaseRequestOptions} before performing the request.
-     */
-     request(url: string | Request, options?: IRequestOptions): EventEmitter;
-    
-
-    /**
-     * Performs a request with `get` http method.
-     */
-     get(url: string, options?: IRequestOptions): EventEmitter;
-    
-
-    /**
-     * Performs a request with `post` http method.
-     */
-     post(url: string, body: string, options?: IRequestOptions): EventEmitter;
-    
-
-    /**
-     * Performs a request with `put` http method.
-     */
-     put(url: string, body: string, options?: IRequestOptions): EventEmitter;
-    
-
-    /**
-     * Performs a request with `delete` http method.
-     */
-     delete(url: string, options?: IRequestOptions): EventEmitter;
-    
-
-    /**
-     * Performs a request with `patch` http method.
-     */
-     patch(url: string, body: string, options?: IRequestOptions): EventEmitter;
-    
-
-    /**
-     * Performs a request with `head` http method.
-     */
-     head(url: string, options?: IRequestOptions): EventEmitter;
-  }
-  
-  class Jsonp extends Http {
-    
-
-    /**
-     * Performs any type of http request. First argument is required, and can either be a url or
-     * a {@link Request} instance. If the first argument is a url, an optional {@link RequestOptions}
-     * object can be provided as the 2nd argument. The options object will be merged with the values
-     * of {@link BaseRequestOptions} before performing the request.
-     */
-     request(url: string | Request, options?: IRequestOptions): EventEmitter;
-  }
-  
-
-  /**
-   * Polyfill for [Headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers/Headers), as
-   * specified in the [Fetch Spec](https://fetch.spec.whatwg.org/#headers-class). The only known
-   * difference from the spec is the lack of an `entries` method.
-   */
-  class Headers {
-    
-
-    /**
-     * Appends a header to existing list of header values for a given header name.
-     */
-     append(name: string, value: string): void;
-    
-
-    /**
-     * Deletes all header values for the given name.
-     */
-     delete(name: string): void;
-    
-     forEach(fn: Function): void;
-    
-
-    /**
-     * Returns first header that matches given name.
-     */
-     get(header: string): string;
-    
-
-    /**
-     * Check for existence of header by given name.
-     */
-     has(header: string): boolean;
-    
-
-    /**
-     * Provides names of set headers
-     */
-     keys(): List<string>;
-    
-
-    /**
-     * Sets or overrides header value for given name.
-     */
-     set(header: string, value: string | List<string>): void;
-    
-
-    /**
-     * Returns values of all headers.
-     */
-     values(): List<List<string>>;
-    
-
-    /**
-     * Returns list of header values for a given name.
-     */
-     getAll(header: string): Array<string>;
-    
-
-    /**
-     * This method is not implemented.
-     */
-     entries(): void;
-  }
-  
-
-  /**
-   * Acceptable response types to be associated with a {@link Response}, based on
-   * [ResponseType](https://fetch.spec.whatwg.org/#responsetype) from the Fetch spec.
-   */
-  enum ResponseTypes {
-    Basic,
-    Cors,
-    Default,
-    Error,
-    Opaque
-  }
-  
-
-  /**
-   * All possible states in which a connection can be, based on
-   * [States](http://www.w3.org/TR/XMLHttpRequest/#states) from the `XMLHttpRequest` spec, but with an
-   * additional "CANCELLED" state.
-   */
-  enum ReadyStates {
-    UNSENT,
-    OPEN,
-    HEADERS_RECEIVED,
-    LOADING,
-    DONE,
-    CANCELLED
-  }
-  
-
-  /**
-   * Supported http methods.
-   */
-  enum RequestMethods {
-    GET,
-    POST,
-    PUT,
-    DELETE,
-    OPTIONS,
-    HEAD,
-    PATCH
-  }
-  
-
-  /**
-   * Acceptable credentials option to be associated with a {@link Request}, based on
-   * [RequestCredentials](https://fetch.spec.whatwg.org/#requestcredentials) from the Fetch spec.
-   */
-  enum RequestCredentialsOpts {
-    Omit,
-    SameOrigin,
-    Include
-  }
-  
-
-  /**
-   * Acceptable cache option to be associated with a {@link Request}, based on
-   * [RequestCache](https://fetch.spec.whatwg.org/#requestcache) from the Fetch spec.
-   */
-  enum RequestCacheOpts {
-    Default,
-    NoStore,
-    Reload,
-    NoCache,
-    ForceCache,
-    OnlyIfCached
-  }
-  
-
-  /**
-   * Acceptable origin modes to be associated with a {@link Request}, based on
-   * [RequestMode](https://fetch.spec.whatwg.org/#requestmode) from the Fetch spec.
-   */
-  enum RequestModesOpts {
-    Cors,
-    NoCors,
-    SameOrigin
-  }
-  
-
-  /**
-   * Map-like representation of url search parameters, based on
-   * [URLSearchParams](https://url.spec.whatwg.org/#urlsearchparams) in the url living standard.
-   */
-  class URLSearchParams {
-    
-     paramsMap: Map<string, List<string>>;
-    
-     rawParams: string;
-    
-     has(param: string): boolean;
-    
-     get(param: string): string;
-    
-     getAll(param: string): List<string>;
-    
-     append(param: string, val: string): void;
-    
-     toString(): string;
-    
-     delete(param: string): void;
-  }
-  
-
-  /**
-   * Provides a basic set of injectables to use the {@link Http} service in any application.
-   * 
-   * #Example
-   * 
-   * ```
-   * import {httpInjectables, Http} from 'angular2/http';
-   * @Component({selector: 'http-app', viewBindings: [httpInjectables]})
-   * @View({template: '{{data}}'})
-   * class MyApp {
-   *   constructor(http:Http) {
-   *     http.request('data.txt').subscribe(res => this.data = res.text());
-   *   }
-   * }
-   * ```
-   */
-  var httpInjectables : List<any> ;
-  
-  var jsonpInjectables : List<any> ;
   
 
   /**
@@ -5550,7 +4853,7 @@ declare module ng {
    *  ```
    * @Component({selector: "login-comp"})
    * @View({
-   *      directives: [formDirectives],
+   *      directives: [FORM_DIRECTIVES],
    *      template: `
    *              <form #f="form" (submit)='onLogIn(f.value)'>
    *                Login <input type='text' ng-control='login' #l="form">
@@ -5573,7 +4876,7 @@ declare module ng {
    *  ```
    * @Component({selector: "login-comp"})
    * @View({
-   *      directives: [formDirectives],
+   *      directives: [FORM_DIRECTIVES],
    *      template: `
    *              <form (submit)='onLogIn()'>
    *                Login <input type='text' ng-control='login' [(ng-model)]="credentials.login">
@@ -5594,7 +4897,7 @@ declare module ng {
    */
   class NgControlName extends NgControl {
     
-     update: void;
+     update: any;
     
      model: any;
     
@@ -5632,7 +4935,7 @@ declare module ng {
    *  ```
    * @Component({selector: "login-comp"})
    * @View({
-   *      directives: [formDirectives],
+   *      directives: [FORM_DIRECTIVES],
    *      template: "<input type='text' [ng-form-control]='loginControl'>"
    *      })
    * class LoginComp {
@@ -5650,7 +4953,7 @@ declare module ng {
    *  ```
    * @Component({selector: "login-comp"})
    * @View({
-   *      directives: [formDirectives],
+   *      directives: [FORM_DIRECTIVES],
    *      template: "<input type='text' [ng-form-control]='loginControl' [(ng-model)]='login'>"
    *      })
    * class LoginComp {
@@ -5667,7 +4970,7 @@ declare module ng {
     
      form: Control;
     
-     update: void;
+     update: any;
     
      model: any;
     
@@ -5694,7 +4997,7 @@ declare module ng {
    *  ```
    * @Component({selector: "search-comp"})
    * @View({
-   *      directives: [formDirectives],
+   *      directives: [FORM_DIRECTIVES],
    *      template: `
    *               <input type='text' [(ng-model)]="searchQuery">
    *      `})
@@ -5705,7 +5008,7 @@ declare module ng {
    */
   class NgModel extends NgControl {
     
-     update: void;
+     update: any;
     
      model: any;
     
@@ -5757,7 +5060,7 @@ declare module ng {
    *  ```
    * @Component({selector: "signup-comp"})
    * @View({
-   *      directives: [formDirectives],
+   *      directives: [FORM_DIRECTIVES],
    *      template: `
    *              <form #f="form" (submit)='onSignUp(f.value)'>
    *                <div ng-control-group='credentials' #credentials="form">
@@ -5807,7 +5110,7 @@ declare module ng {
    *  ```
    * @Component({selector: "login-comp"})
    * @View({
-   *      directives: [formDirectives],
+   *      directives: [FORM_DIRECTIVES],
    *      template: "<form [ng-form-model]='loginForm'>" +
    *              "Login <input type='text' ng-control='login'>" +
    *              "Password <input type='password' ng-control='password'>" +
@@ -5836,7 +5139,7 @@ declare module ng {
    *  ```
    * @Component({selector: "login-comp"})
    * @View({
-   *      directives: [formDirectives],
+   *      directives: [FORM_DIRECTIVES],
    *      template: "<form [ng-form-model]='loginForm'>" +
    *              "Login <input type='text' ng-control='login' [(ng-model)]='login'>" +
    *              "Password <input type='password' ng-control='password' [(ng-model)]='password'>" +
@@ -5867,7 +5170,7 @@ declare module ng {
     
      directives: List<NgControl>;
     
-     ngSubmit: void;
+     ngSubmit: any;
     
      onChange(_: any): void;
     
@@ -5903,7 +5206,7 @@ declare module ng {
    *  ```
    * @Component({selector: "signup-comp"})
    * @View({
-   *      directives: [formDirectives],
+   *      directives: [FORM_DIRECTIVES],
    *      template: `
    *              <form #f="form" (submit)='onSignUp(f.value)'>
    *                <div ng-control-group='credentials' #credentials="form">
@@ -5931,7 +5234,7 @@ declare module ng {
     
      form: ControlGroup;
     
-     ngSubmit: void;
+     ngSubmit: any;
     
      formDirective: Form;
     
@@ -5987,9 +5290,9 @@ declare module ng {
     
      cd: NgControl;
     
-     onChange: void;
+     onChange: any;
     
-     onTouched: void;
+     onTouched: any;
     
      renderer: Renderer;
     
@@ -6027,9 +5330,9 @@ declare module ng {
     
      cd: NgControl;
     
-     onChange: void;
+     onChange: any;
     
-     onTouched: void;
+     onTouched: any;
     
      renderer: Renderer;
     
@@ -6079,9 +5382,9 @@ declare module ng {
     
      value: string;
     
-     onChange: void;
+     onChange: any;
     
-     onTouched: void;
+     onTouched: any;
     
      renderer: Renderer;
     
@@ -6112,7 +5415,7 @@ declare module ng {
    * 
    *  This is a shorthand for importing them each individually.
    */
-  const formDirectives : List<Type> ;
+  const FORM_DIRECTIVES : List<Type> ;
   
 
   /**
@@ -6125,6 +5428,16 @@ declare module ng {
    * ```
    */
   class Validators {
+    
+     static required(c:Control): StringMap<string, boolean>;
+    
+     static nullValidator(c: any): StringMap<string, boolean>;
+    
+     static compose(validators: List<Function>): Function;
+    
+     static group(c:ControlGroup): StringMap<string, boolean>;
+    
+     static array(c:ControlArray): StringMap<string, boolean>;
   }
   
   class NgValidator {
@@ -6145,7 +5458,7 @@ declare module ng {
    * 
    * ```
    * import {Component, View, bootstrap} from 'angular2/angular2';
-   * import {FormBuilder, Validators, formDirectives, ControlGroup} from 'angular2/forms';
+   * import {FormBuilder, Validators, FORM_DIRECTIVES, ControlGroup} from 'angular2/forms';
    * 
    * @Component({
    *   selector: 'login-comp',
@@ -6165,7 +5478,7 @@ declare module ng {
    *     </form>
    *   `,
    *   directives: [
-   *     formDirectives
+   *     FORM_DIRECTIVES
    *   ]
    * })
    * class LoginComp {
@@ -6211,9 +5524,33 @@ declare module ng {
      array(controlsConfig: List<any>, validator?: Function): ControlArray;
   }
   
-  const formInjectables : List<Type> ;
+  const FORM_BINDINGS : List<Type> ;
   
-  class DirectiveMetadata {
+  class RenderDirectiveMetadata {
+    
+     static DIRECTIVE_TYPE: any;
+    
+     static COMPONENT_TYPE: any;
+    
+     static create({id, selector, compileChildren, events, host, properties, readAttributes, type,
+                 callOnDestroy, callOnChange, callOnCheck, callOnInit, callOnAllChangesDone,
+                 changeDetection, exportAs}: {
+    id?: string,
+    selector?: string,
+    compileChildren?: boolean,
+    events?: List<string>,
+    host?: Map<string, string>,
+    properties?: List<string>,
+    readAttributes?: List<string>,
+    type?: number,
+    callOnDestroy?: boolean,
+    callOnChange?: boolean,
+    callOnCheck?: boolean,
+    callOnInit?: boolean,
+    callOnAllChangesDone?: boolean,
+    changeDetection?: string,
+    exportAs?: string
+  }): RenderDirectiveMetadata;
     
      id: any;
     
@@ -6416,6 +5753,29 @@ declare module ng {
      setEventDispatcher(viewRef: RenderViewRef, dispatcher: RenderEventDispatcher): void;
   }
   
+
+  /**
+   * Abstract reference to the element which can be marshaled across web-worker boundary.
+   * 
+   * This interface is used by the Renderer API.
+   */
+  interface RenderElementRef {
+    
+
+    /**
+     * Reference to the `RenderViewRef` where the `RenderElementRef` is inside of.
+     */
+     renderView: RenderViewRef;
+    
+
+    /**
+     * Index of the element inside the `RenderViewRef`.
+     * 
+     * This is used internally by the Angular framework to locate elements.
+     */
+     renderBoundElementIndex: number;
+  }
+  
   class RenderViewRef {
   }
   
@@ -6440,7 +5800,7 @@ declare module ng {
     
      template: string;
     
-     directives: List<DirectiveMetadata>;
+     directives: List<RenderDirectiveMetadata>;
     
      styleAbsUrls: List<string>;
     
@@ -6449,22 +5809,20 @@ declare module ng {
      encapsulation: ViewEncapsulation;
   }
   
-  const DOCUMENT_TOKEN : OpaqueToken ;
+  const DOCUMENT : OpaqueToken ;
   
 
   /**
    * A unique id (string) for an angular application.
    */
-  const APP_ID_TOKEN : OpaqueToken ;
-  
-  const DOM_REFLECT_PROPERTIES_AS_ATTRIBUTES : OpaqueToken ;
+  const APP_ID : OpaqueToken ;
   
 
   /**
    * Defines when a compiled template should be stored as a string
    * rather than keeping its Nodes to preserve memory.
    */
-  const MAX_IN_MEMORY_ELEMENTS_PER_TEMPLATE_TOKEN : OpaqueToken ;
+  const MAX_IN_MEMORY_ELEMENTS_PER_TEMPLATE : OpaqueToken ;
   
 
   /**
@@ -6552,8 +5910,6 @@ declare module ng {
   var ViewContainerRef: InjectableReference;
   
   var ComponentRef: InjectableReference;
-  
-  var Key: InjectableReference;
   
 }
 

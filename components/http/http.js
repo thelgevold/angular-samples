@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
+var http_1 = require('http/http');
 var HttpSample = (function () {
     function HttpSample(http) {
         var _this = this;
@@ -24,7 +25,7 @@ var HttpSample = (function () {
             templateUrl: './components/http/http.html',
             directives: [angular2_1.NgFor]
         }), 
-        __metadata('design:paramtypes', [angular2_1.Http])
+        __metadata('design:paramtypes', [http_1.Http])
     ], HttpSample);
     return HttpSample;
 })();

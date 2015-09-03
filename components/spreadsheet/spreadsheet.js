@@ -58,7 +58,7 @@ var Spreadsheet = (function () {
         }),
         angular2_1.View({
             templateUrl: './components/spreadsheet/spreadsheet.html',
-            directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.CSSClass]
+            directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.NgClass]
         }), 
         __metadata('design:paramtypes', [angular2_1.ElementRef])
     ], Spreadsheet);

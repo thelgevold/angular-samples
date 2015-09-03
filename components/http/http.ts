@@ -1,4 +1,5 @@
-import {Component, View, NgFor, Http} from 'angular2/angular2';
+import {Component, View, NgFor} from 'angular2/angular2';
+import {Http} from 'http/http'
 
 @Component({
     selector: 'http'

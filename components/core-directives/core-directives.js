@@ -21,7 +21,7 @@ var CoreDirectives = (function () {
         }),
         angular2_1.View({
             templateUrl: './components/core-directives/core-directives.html',
-            directives: [angular2_1.coreDirectives]
+            directives: [angular2_1.CORE_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
     ], CoreDirectives);
