@@ -14,7 +14,6 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.4",
-    "jquery": "~2.1.4",
-    "traceur-runtime": "~0.0.91"
+    "jquery": "~2.1.4"
   }
 }
