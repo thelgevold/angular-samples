@@ -4,7 +4,7 @@
             <div>
                 <ul class="nav navbar-nav">
                     <li [class.active]="getLinkStyle('')"><a [router-link]="['/home']" class="link">Demos</a></li>
-                    <li [class.active]="getLinkStyle('#/about/Welcome')"><a [router-link]="['/about',{'id':'Welcome'}]" class="link">About</a></li>
+                    <li [class.active]="getLinkStyle('/about/Welcome')"><a [router-link]="['/about',{'id':'Welcome'}]" class="link">About</a></li>
                 </ul>
             </div>
         </div>
