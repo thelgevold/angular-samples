@@ -1,4 +1,4 @@
-// Type definitions for Angular v2.0.0-local_sha.77ccc1c
+// Type definitions for Angular v2.0.0-local_sha.7374153
 // Project: http://angular.io/
 // Definitions by: angular team <https://github.com/angular/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -9,7 +9,11 @@
 // modifying this file.
 // ***********************************************************
 
+// angular2/http depends transitively on these libraries.
+// If you don't have them installed you can install them using TSD
+// https://github.com/DefinitelyTyped/tsd
 
+///<reference path="./angular2.d.ts"/>
 
 
 
@@ -22,24 +26,10 @@
  */
 declare module ngHttp {
 
-
-
-    class ResponseOptionsArgs{
-
-    }
-
-    class RequestOptionsArgs {
-
-    }
-
-    class EventEmitter {
-        toRx:any;
-    }
-
     /**
      * Mock Connection to represent a {@link Connection} for tests.
      */
-    class MockConnection {
+    class MockConnection implements Connection {
 
 
         /**
@@ -59,7 +49,7 @@ declare module ngHttp {
          * {@link EventEmitter} of {@link Response}. Can be subscribed to in order to be notified when a
          * response is available.
          */
-        response: EventEmitter;
+        response: ng.EventEmitter;
 
 
         /**
@@ -111,7 +101,7 @@ declare module ngHttp {
      * #Example
      *
      * ```
-     * import {MockBackend, DefaultOptions, Http} from 'http/http';
+     * import {MockBackend, DefaultOptions, Http} from 'angular2/http';
      * it('should get some data', inject([AsyncTestCompleter], (async) => {
    *   var connection;
    *   var injector = Injector.resolveAndCreate([
@@ -133,7 +123,7 @@ declare module ngHttp {
      *
      * This method only exists in the mock implementation, not in real Backends.
      */
-    class MockBackend {
+    class MockBackend implements ConnectionBackend {
 
 
         /**
@@ -144,7 +134,7 @@ declare module ngHttp {
          * #Example
          *
          * ```
-         * import {MockBackend, Http, BaseRequestOptions} from 'http/http';
+         * import {MockBackend, Http, BaseRequestOptions} from 'angular2/http';
          * import {Injector} from 'angular2/di';
          *
          * it('should get a response', () => {
@@ -168,7 +158,7 @@ declare module ngHttp {
          *
          * This property only exists in the mock implementation, not in real Backends.
          */
-        connections: EventEmitter;
+        connections: ng.EventEmitter;
 
 
         /**
@@ -177,7 +167,7 @@ declare module ngHttp {
          *
          * This property only exists in the mock implementation, not in real Backends.
          */
-        connectionsArray: Array<MockConnection>;
+        connectionsArray: MockConnection[];
 
 
         /**
@@ -188,7 +178,7 @@ declare module ngHttp {
          *
          * This property only exists in the mock implementation, not in real Backends.
          */
-        pendingConnections: EventEmitter;
+        pendingConnections: ng.EventEmitter;
 
 
         /**
@@ -378,14 +368,44 @@ declare module ngHttp {
      * Interface for options to construct a Request, based on
      * [RequestInit](https://fetch.spec.whatwg.org/#requestinit) from the Fetch spec.
      */
-    //type-alias RequestOptionsArgs;
+    interface RequestOptionsArgs {
+
+        url?: string;
+
+        method?: RequestMethods;
+
+        search?: string | URLSearchParams;
+
+        headers?: Headers;
+
+        body?: string;
+
+        mode?: RequestModesOpts;
+
+        credentials?: RequestCredentialsOpts;
+
+        cache?: RequestCacheOpts;
+    }
 
 
     /**
      * Interface for options to construct a Response, based on
      * [ResponseInit](https://fetch.spec.whatwg.org/#responseinit) from the Fetch spec.
      */
-    //type-alias ResponseOptionsArgs;
+    interface ResponseOptionsArgs {
+
+        body?: string | Object | FormData;
+
+        status?: number;
+
+        statusText?: string;
+
+        headers?: Headers;
+
+        type?: ResponseTypes;
+
+        url?: string;
+    }
 
 
     /**
@@ -397,7 +417,7 @@ declare module ngHttp {
 
         request: Request;
 
-        response: EventEmitter;
+        response: ng.EventEmitter;
 
         dispose(): void;
     }
@@ -548,7 +568,7 @@ declare module ngHttp {
      * #Example
      *
      * ```
-     * import {Http, MyNodeBackend, HTTP_BINDINGS, BaseRequestOptions} from 'http/http';
+     * import {Http, MyNodeBackend, HTTP_BINDINGS, BaseRequestOptions} from 'angular2/http';
      * @Component({
    *   viewBindings: [
    *     HTTP_BINDINGS,
@@ -586,7 +606,7 @@ declare module ngHttp {
          * Response {@link EventEmitter} which emits a single {@link Response} value on load event of
          * `XMLHttpRequest`.
          */
-        response: EventEmitter;
+        response: ng.EventEmitter;
 
         readyState: ReadyStates;
 
@@ -608,7 +628,7 @@ declare module ngHttp {
 
         request: Request;
 
-        response: EventEmitter;
+        response: ng.EventEmitter;
 
         baseResponseOptions: ResponseOptions;
 
@@ -695,43 +715,43 @@ declare module ngHttp {
          * object can be provided as the 2nd argument. The options object will be merged with the values
          * of {@link BaseRequestOptions} before performing the request.
          */
-        request(url: string | Request, options?: RequestOptionsArgs): EventEmitter;
+        request(url: string | Request, options?: RequestOptionsArgs): ng.EventEmitter;
 
 
         /**
          * Performs a request with `get` http method.
          */
-        get(url: string, options?: RequestOptionsArgs): EventEmitter;
+        get(url: string, options?: RequestOptionsArgs): ng.EventEmitter;
 
 
         /**
          * Performs a request with `post` http method.
          */
-        post(url: string, body: string, options?: RequestOptionsArgs): EventEmitter;
+        post(url: string, body: string, options?: RequestOptionsArgs): ng.EventEmitter;
 
 
         /**
          * Performs a request with `put` http method.
          */
-        put(url: string, body: string, options?: RequestOptionsArgs): EventEmitter;
+        put(url: string, body: string, options?: RequestOptionsArgs): ng.EventEmitter;
 
 
         /**
          * Performs a request with `delete` http method.
          */
-        delete(url: string, options?: RequestOptionsArgs): EventEmitter;
+        delete(url: string, options?: RequestOptionsArgs): ng.EventEmitter;
 
 
         /**
          * Performs a request with `patch` http method.
          */
-        patch(url: string, body: string, options?: RequestOptionsArgs): EventEmitter;
+        patch(url: string, body: string, options?: RequestOptionsArgs): ng.EventEmitter;
 
 
         /**
          * Performs a request with `head` http method.
          */
-        head(url: string, options?: RequestOptionsArgs): EventEmitter;
+        head(url: string, options?: RequestOptionsArgs): ng.EventEmitter;
     }
 
     class Jsonp extends Http {
@@ -743,7 +763,7 @@ declare module ngHttp {
          * object can be provided as the 2nd argument. The options object will be merged with the values
          * of {@link BaseRequestOptions} before performing the request.
          */
-        request(url: string | Request, options?: RequestOptionsArgs): EventEmitter;
+        request(url: string | Request, options?: RequestOptionsArgs): ng.EventEmitter;
     }
 
 
@@ -784,25 +804,25 @@ declare module ngHttp {
         /**
          * Provides names of set headers
          */
-        keys(): List<string>;
+        keys(): string[];
 
 
         /**
          * Sets or overrides header value for given name.
          */
-        set(header: string, value: string | List<string>): void;
+        set(header: string, value: string | string[]): void;
 
 
         /**
          * Returns values of all headers.
          */
-        values(): List<List<string>>;
+        values(): string[][];
 
 
         /**
          * Returns list of header values for a given name.
          */
-        getAll(header: string): Array<string>;
+        getAll(header: string): string[];
 
 
         /**
@@ -837,17 +857,17 @@ declare module ngHttp {
      */
     enum ReadyStates {
 
-        UNSENT,
+        Unsent,
 
-        OPEN,
+        Open,
 
-        HEADERS_RECEIVED,
+        HeadersReceived,
 
-        LOADING,
+        Loading,
 
-        DONE,
+        Done,
 
-        CANCELLED
+        Cancelled
     }
 
 
@@ -856,19 +876,19 @@ declare module ngHttp {
      */
     enum RequestMethods {
 
-        GET,
+        Get,
 
-        POST,
+        Post,
 
-        PUT,
+        Put,
 
-        DELETE,
+        Delete,
 
-        OPTIONS,
+        Options,
 
-        HEAD,
+        Head,
 
-        PATCH
+        Patch
     }
 
 
@@ -930,7 +950,7 @@ declare module ngHttp {
      */
     class URLSearchParams {
 
-        paramsMap: Map<string, List<string>>;
+        paramsMap: Map<string, string[]>;
 
         rawParams: string;
 
@@ -940,7 +960,7 @@ declare module ngHttp {
 
         get(param: string): string;
 
-        getAll(param: string): List<string>;
+        getAll(param: string): string[];
 
         set(param: string, val: string): void;
 
@@ -974,13 +994,13 @@ declare module ngHttp {
    * }
      * ```
      */
-    const HTTP_BINDINGS : List<any> ;
+    const HTTP_BINDINGS : any[] ;
 
-    const JSONP_BINDINGS : List<any> ;
+    const JSONP_BINDINGS : any[] ;
 
 }
 
-declare module "http/http" {
+declare module "angular2/http" {
     export = ngHttp;
 }
 

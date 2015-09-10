@@ -1,6 +1,6 @@
 /// <reference path="typings/angular2/angular2.d.ts" />
 
-import {HTTP_BINDINGS} from 'http/http';
+import {HTTP_BINDINGS} from 'angular2/http';
 import {Component, View, bootstrap, bind} from 'angular2/angular2';
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';

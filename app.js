@@ -10,7 +10,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var http_1 = require('http/http');
+var http_1 = require('angular2/http');
 var angular2_1 = require('angular2/angular2');
 var demo_page_1 = require('./demo-page');
 var about_1 = require('./components/about/about');
