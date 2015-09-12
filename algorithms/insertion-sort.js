@@ -1,11 +1,10 @@
-var async_1 = require('angular2/src/core/facade/async');
 var Insertion = (function () {
     function Insertion() {
     }
     Insertion.sort = function (input) {
         for (var j = 1; j < input.items.length; j++) {
             (function (j) {
-                async_1.TimerWrapper.setTimeout(function () {
+                setTimeout(function () {
                     var key = input.items[j].val;
                     var i = j - 1;
                     while (i >= 0 && input.items[i].val > key) {
