@@ -10,6 +10,7 @@
 
     <div>
         <div class="list-group col-md-3">
+            <a (click)="selectComponent('algorithms')" [ng-class]="getActiveClass('algorithms')" class="list-group-item">Algorithms</a>
             <a (click)="selectComponent('spreadsheet')" [ng-class]="getActiveClass('spreadsheet')" class="list-group-item">Virtualized Spreadsheet</a>
             <a (click)="selectComponent('grid')" [ng-class]="getActiveClass('grid')" class="list-group-item">Data Grid</a>
             <a (click)="selectComponent('http')" [ng-class]="getActiveClass('http')" class="list-group-item">Http</a>
@@ -22,6 +23,19 @@
         </div>
 
         <div class="col-md-9">
+
+            <div class="panel panel-default" *ng-if="isActive('algorithms')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Algorithms</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Algorithms components
+                    </div>
+                    <algorithms></algorithms>
+                </div>
+            </div>
+
 
             <div class="panel panel-default" *ng-if="isActive('spreadsheet')">
                 <div class="panel-heading">

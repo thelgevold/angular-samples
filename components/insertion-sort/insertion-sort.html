@@ -1,0 +1,10 @@
+<table class="sort">
+    <tr>
+        <td *ng-for="#item of list.items" [ng-class]="item.getClass()">
+            <span>{{item.val}}</span>
+        </td>
+    </tr>
+</table>
+<div style="margin-top: 10px;">
+    <button (click)="sortList()">Sort list</button>
+</div>

@@ -11,6 +11,7 @@ import {IgnoreBindings} from './components/non-bindable/non-bindable';
 import {Greeting} from './components/greeting/greeting';
 import {HttpSample} from './components/http/http';
 import {Spreadsheet} from './components/spreadsheet/spreadsheet';
+import {Algorithms} from './components/algorithms/algorithms';
 
 @Component({
     selector: 'demo-page'
@@ -18,7 +19,7 @@ import {Spreadsheet} from './components/spreadsheet/spreadsheet';
 
 @View({
     templateUrl: './demo-page.html',
-    directives: [Spreadsheet, HttpSample, Greeting, ContactList, TreeView, BoundTextbox, Grid, CoreDirectives, IgnoreBindings, NgIf, NgClass]
+    directives: [Algorithms,Spreadsheet, HttpSample, Greeting, ContactList, TreeView, BoundTextbox, Grid, CoreDirectives, IgnoreBindings, NgIf, NgClass]
 })
 
 export class DemoPage {
@@ -29,7 +30,7 @@ export class DemoPage {
 
     constructor(){
 
-        this.currentComponent = 'spreadsheet';
+        this.currentComponent = 'algorithms';
         this.loadDirectories();
         this.people = this.getPeople();
         this.columns = this.getColumns();

@@ -39,3 +39,12 @@ ul{
     text-transform: uppercase;
     text-align: center;
 }
+
+.current-item{
+    background-color: lightgray;
+}
+
+.sort td{
+    border: 1px solid black;
+    padding: 15px;
+}
