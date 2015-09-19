@@ -132,7 +132,7 @@ var TreeView = React.createClass({
 export class ReactTreeView{
 
     static initialize(){
-        React.render(<TreeView />, document.getElementById('test'));
+        React.render(<TreeView />, document.getElementById('react-tree-view'));
     }
 
 }

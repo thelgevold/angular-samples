@@ -48,3 +48,7 @@ ul{
     border: 1px solid black;
     padding: 15px;
 }
+
+#react-tree-view{
+    font-size: 20px;
+}

@@ -75,7 +75,7 @@ var ReactTreeView = (function () {
     function ReactTreeView() {
     }
     ReactTreeView.initialize = function () {
-        React.render(React.createElement(TreeView, null), document.getElementById('test'));
+        React.render(React.createElement(TreeView, null), document.getElementById('react-tree-view'));
     };
     return ReactTreeView;
 })();
