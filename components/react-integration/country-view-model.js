@@ -28,18 +28,17 @@ var CountryViewModelFactory = (function () {
 exports.CountryViewModelFactory = CountryViewModelFactory;
 var CountryModel = (function () {
     function CountryModel(text) {
+        this.visible = true;
         this.children = [];
         this.text = text;
         this.icon = this.getIcon();
-        this.visible = false;
-        this.selected = false;
     }
     CountryModel.prototype.getIcon = function () {
         if (this.children.length > 0) {
             if (this.children[0].visible === false) {
-                return '+';
+                return '+ ';
             }
-            return '-';
+            return '- ';
         }
         return null;
     };

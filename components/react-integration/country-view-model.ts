@@ -35,23 +35,20 @@ class CountryModel {
     children:Array<CountryModel>;
     text:String;
     icon:String;
-    visible:Boolean;
-    selected:Boolean;
+    visible:Boolean = true;
 
     constructor(text){
         this.children = [];
         this.text = text;
         this.icon = this.getIcon();
-        this.visible = false;
-        this.selected = false;
     }
 
     getIcon(){
         if (this.children.length > 0) {
             if (this.children[0].visible === false) {
-                return '+';
+                return '+ ';
             }
-            return '-';
+            return '- ';
         }
         return null;
     }

@@ -32,7 +32,7 @@ export class DemoPage {
 
     constructor(){
 
-        this.currentComponent = 'react';
+        this.currentComponent = 'algorithms';
         this.loadDirectories();
         this.people = this.getPeople();
         this.columns = this.getColumns();

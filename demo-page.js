@@ -26,7 +26,7 @@ var algorithms_1 = require('./components/algorithms/algorithms');
 var angular_2_host_1 = require('./components/react-integration/angular-2-host');
 var DemoPage = (function () {
     function DemoPage() {
-        this.currentComponent = 'react';
+        this.currentComponent = 'algorithms';
         this.loadDirectories();
         this.people = this.getPeople();
         this.columns = this.getColumns();

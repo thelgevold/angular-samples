@@ -13,8 +13,10 @@ var angular2_1 = require('angular2/angular2');
 var react_tree_view_1 = require('./react-tree-view');
 var Angular2Host = (function () {
     function Angular2Host() {
-        react_tree_view_1.ReactTreeView.initialize();
     }
+    Angular2Host.prototype.onInit = function () {
+        react_tree_view_1.ReactTreeView.initialize();
+    };
     Angular2Host = __decorate([
         angular2_1.Component({
             selector: 'angular-2-host'

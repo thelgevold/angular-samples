@@ -11,7 +11,7 @@ import {ReactTreeView} from './react-tree-view';
 
 export class Angular2Host {
 
-    constructor(){
+    onInit(){
         ReactTreeView.initialize();
     }
 
