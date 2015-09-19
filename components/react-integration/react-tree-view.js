@@ -1,42 +1,5 @@
 /// <reference path="../../typings/tsd.d.ts" />
-function CountryModel(text) {
-    this.children = [];
-    this.text = text;
-    this.icon = this.getIcon();
-    this.visible = false;
-    this.selected = false;
-}
-CountryModel.prototype.getIcon = function () {
-    if (this.children.length > 0) {
-        if (this.children[0].visible === false) {
-            return '+';
-        }
-        return '-';
-    } 
-    return null;
-};
-function createMockModel() {
-    var countries = [];
-    var america = new CountryModel('North America');
-    america.visible = true;
-    var usa = new CountryModel('USA');
-    usa.children.push(new CountryModel('New York'));
-    usa.children.push(new CountryModel('Texas'));
-    usa.children.push(new CountryModel('Oregon'));
-    usa.children.push(new CountryModel('South Dakota'));
-    america.children.push(usa);
-    america.children.push(new CountryModel('Canada'));
-    america.children.push(new CountryModel('Mexico'));
-    var europe = new CountryModel('Europe');
-    europe.children.push(new CountryModel('Norway'));
-    europe.children.push(new CountryModel('Sweden'));
-    europe.children.push(new CountryModel('France'));
-    europe.children.push(new CountryModel('Germany'));
-    europe.visible = true;
-    countries.push(america);
-    countries.push(europe);
-    return countries;
-}
+var country_view_model_1 = require('./country-view-model');
 var React = __React;
 var AppDispatcher = new Dispatcher();
 AppDispatcher.handleViewAction = function (action) {
@@ -54,7 +17,7 @@ AppDispatcher.register(function (payload) {
     return true;
 });
 var NodeStore = _.extend({}, EventEmitter.prototype, {
-    _nodes: createMockModel(),
+    _nodes: new country_view_model_1.CountryViewModelFactory().createModel(),
     getNodes: function () {
         return this._nodes;
     },
