@@ -2,9 +2,11 @@ The project uses TypeScript, so to get started you may have to run the following
 
 1-Install TypeScript: npm install -g tsd
 
-2-Add the Angular 2 TypeScript definitions: tsd query angular2 es6-promise rx rx-lite router http --action install
+2-Add the Angular 2 TypeScript definitions: tsd query angular2 es6-promise rx rx-lite router http react --action install
 
 3-Install the TypeScript compiler: npm install -g typescript@^1.6.0
+
+4-Run npm install and bower install
 
 Steps 1-3 takes care of installing required tooling.
 
@@ -15,10 +17,8 @@ Use the following command to start watching your files:
 
 tsc --watch -m commonjs -t es5 --emitDecoratorMetadata --experimentalDecorators --jsx react app.ts
 
-The above steps will build all dependencies, so all you have to do now is launch index.html. You can use any
-type of webserver you want since it's just a static html page. I generally do it from Webstorm by right clicking
+The above steps will build all dependencies, so all you have to do now is launch index.html. You can use any type of webserver you want since it's just a static html page. I generally do it from Webstorm by right clicking
 index.html and selecting 'Run index.html'.
 
-Note: If you're just browsing the project without making code changes - launching index.html is all you need since the
-transpiled JavaScript is already under source control. In other words, the TypeScript setup is only needed for people
+Note: If you're just browsing the project without making code changes - launching index.html is all you need since the transpiled JavaScript is already under source control. In other words, the TypeScript setup is only needed for people
 who want to change the code and regenerate the JavaScript.
