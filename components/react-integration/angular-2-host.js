@@ -10,23 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var Greeting = (function () {
-    function Greeting() {
-        this.greeting = '';
+var react_tree_view_1 = require('./react-tree-view');
+var Angular2Host = (function () {
+    function Angular2Host() {
+        react_tree_view_1.ReactTreeView.initialize();
     }
-    Greeting.prototype.createGreeting = function () {
-        this.greeting = 'Greetings, ' + this.name;
-    };
-    Greeting = __decorate([
+    Angular2Host = __decorate([
         angular2_1.Component({
-            selector: 'greeting',
-            properties: ['name']
+            selector: 'angular-2-host'
         }),
         angular2_1.View({
-            templateUrl: './components/greeting/greeting.html'
+            templateUrl: './components/react-integration/angular-2-host.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], Greeting);
-    return Greeting;
+    ], Angular2Host);
+    return Angular2Host;
 })();
-exports.Greeting = Greeting;
+exports.Angular2Host = Angular2Host;

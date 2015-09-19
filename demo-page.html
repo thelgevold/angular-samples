@@ -10,6 +10,7 @@
 
     <div>
         <div class="list-group col-md-3">
+            <a (click)="selectComponent('react')" [ng-class]="getActiveClass('react')" class="list-group-item">React Integration</a>
             <a (click)="selectComponent('algorithms')" [ng-class]="getActiveClass('algorithms')" class="list-group-item">Algorithms</a>
             <a (click)="selectComponent('spreadsheet')" [ng-class]="getActiveClass('spreadsheet')" class="list-group-item">Virtualized Spreadsheet</a>
             <a (click)="selectComponent('grid')" [ng-class]="getActiveClass('grid')" class="list-group-item">Data Grid</a>
@@ -23,6 +24,20 @@
         </div>
 
         <div class="col-md-9">
+
+            <div class="panel panel-default" *ng-if="isActive('react')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">React Integration</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Integrating React in Angular 2.0
+                    </div>
+                    <angular-2-host></angular-2-host>
+                </div>
+            </div>
+
+
 
             <div class="panel panel-default" *ng-if="isActive('algorithms')">
                 <div class="panel-heading">

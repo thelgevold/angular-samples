@@ -12,6 +12,7 @@ import {Greeting} from './components/greeting/greeting';
 import {HttpSample} from './components/http/http';
 import {Spreadsheet} from './components/spreadsheet/spreadsheet';
 import {Algorithms} from './components/algorithms/algorithms';
+import {Angular2Host} from './components/react-integration/angular-2-host';
 
 @Component({
     selector: 'demo-page'
@@ -19,7 +20,8 @@ import {Algorithms} from './components/algorithms/algorithms';
 
 @View({
     templateUrl: './demo-page.html',
-    directives: [Algorithms,Spreadsheet, HttpSample, Greeting, ContactList, TreeView, BoundTextbox, Grid, CoreDirectives, IgnoreBindings, NgIf, NgClass]
+    directives: [Algorithms,Spreadsheet, HttpSample, Greeting, ContactList, TreeView, BoundTextbox, Grid,
+                 CoreDirectives, IgnoreBindings, NgIf, NgClass, Angular2Host]
 })
 
 export class DemoPage {
@@ -30,7 +32,7 @@ export class DemoPage {
 
     constructor(){
 
-        this.currentComponent = 'algorithms';
+        this.currentComponent = 'react';
         this.loadDirectories();
         this.people = this.getPeople();
         this.columns = this.getColumns();

@@ -1,4 +1,3 @@
-//Typical bootstrapping of the component
 import {Component, View} from 'angular2/angular2';
 
 @Component({
@@ -10,7 +9,6 @@ import {Component, View} from 'angular2/angular2';
     templateUrl: './components/greeting/greeting.html'
 })
 
-//Your custom component logic goes here
 export class Greeting {
 
     greeting = '';

@@ -23,9 +23,10 @@ var greeting_1 = require('./components/greeting/greeting');
 var http_1 = require('./components/http/http');
 var spreadsheet_1 = require('./components/spreadsheet/spreadsheet');
 var algorithms_1 = require('./components/algorithms/algorithms');
+var angular_2_host_1 = require('./components/react-integration/angular-2-host');
 var DemoPage = (function () {
     function DemoPage() {
-        this.currentComponent = 'algorithms';
+        this.currentComponent = 'react';
         this.loadDirectories();
         this.people = this.getPeople();
         this.columns = this.getColumns();
@@ -69,7 +70,8 @@ var DemoPage = (function () {
         }),
         angular2_1.View({
             templateUrl: './demo-page.html',
-            directives: [algorithms_1.Algorithms, spreadsheet_1.Spreadsheet, http_1.HttpSample, greeting_1.Greeting, contact_list_1.ContactList, tree_view_1.TreeView, bound_textbox_1.BoundTextbox, grid_1.Grid, core_directives_1.CoreDirectives, non_bindable_1.IgnoreBindings, angular2_1.NgIf, angular2_1.NgClass]
+            directives: [algorithms_1.Algorithms, spreadsheet_1.Spreadsheet, http_1.HttpSample, greeting_1.Greeting, contact_list_1.ContactList, tree_view_1.TreeView, bound_textbox_1.BoundTextbox, grid_1.Grid,
+                core_directives_1.CoreDirectives, non_bindable_1.IgnoreBindings, angular2_1.NgIf, angular2_1.NgClass, angular_2_host_1.Angular2Host]
         }), 
         __metadata('design:paramtypes', [])
     ], DemoPage);
