@@ -5,8 +5,8 @@
 
         <div *ng-if="dir.expanded">
 
-            <ul *ng-for="#file of dir.files">
-                {{file}}
+            <ul>
+                <li *ng-for="#file of dir.files">{{file}}</li>
             </ul>
 
             <tree-view [directories]="dir.directories"></tree-view>
