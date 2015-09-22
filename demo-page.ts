@@ -13,6 +13,7 @@ import {HttpSample} from './components/http/http';
 import {Spreadsheet} from './components/spreadsheet/spreadsheet';
 import {Algorithms} from './components/algorithms/algorithms';
 import {Angular2Host} from './components/react-integration/angular-2-host';
+import {JqueryIntegration} from './components/jquery-integration/jquery-integration';
 
 @Component({
     selector: 'demo-page'
@@ -21,7 +22,7 @@ import {Angular2Host} from './components/react-integration/angular-2-host';
 @View({
     templateUrl: './demo-page.html',
     directives: [Algorithms,Spreadsheet, HttpSample, Greeting, ContactList, TreeView, BoundTextbox, Grid,
-                 CoreDirectives, IgnoreBindings, NgIf, NgClass, Angular2Host]
+                 CoreDirectives, IgnoreBindings, NgIf, NgClass, Angular2Host, JqueryIntegration]
 })
 
 export class DemoPage {

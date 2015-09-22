@@ -14,6 +14,7 @@
             <a (click)="selectComponent('react')" [ng-class]="getActiveClass('react')" class="list-group-item">React Integration</a>
             <a (click)="selectComponent('spreadsheet')" [ng-class]="getActiveClass('spreadsheet')" class="list-group-item">Virtualized Spreadsheet</a>
             <a (click)="selectComponent('grid')" [ng-class]="getActiveClass('grid')" class="list-group-item">Data Grid</a>
+            <a (click)="selectComponent('jquery')" [ng-class]="getActiveClass('jquery')" class="list-group-item">JQuery Integration</a>
             <a (click)="selectComponent('http')" [ng-class]="getActiveClass('http')" class="list-group-item">Http</a>
             <a (click)="selectComponent('treeview')" [ng-class]="getActiveClass('treeview')" class="list-group-item">Recursive tree view</a>
             <a (click)="selectComponent('contact-list')" [ng-class]="getActiveClass('contact-list')" class="list-group-item">Interactive contact list</a>
@@ -37,6 +38,17 @@
                 </div>
             </div>
 
+            <div class="panel panel-default" *ng-if="isActive('jquery')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">JQuery Integration</h3>
+                </div>
+                <div id="draggable-parent" class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Integrating JQuery in Angular 2.0
+                    </div>
+                    <jquery-integration></jquery-integration>
+                </div>
+            </div>
 
 
             <div class="panel panel-default" *ng-if="isActive('algorithms')">
