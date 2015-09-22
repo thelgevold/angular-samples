@@ -68,14 +68,14 @@ var TreeView = React.createClass({
         var nodes = countries.map(function (n) {
             return React.createElement(TreeNode, {"node": n, "children": n.children});
         });
-        return (React.createElement("ul", null, nodes));
+        return (React.createElement("div", null, React.createElement("h2", null, this.props.title), React.createElement("ul", null, nodes)));
     }
 });
 var ReactTreeView = (function () {
     function ReactTreeView() {
     }
-    ReactTreeView.initialize = function () {
-        React.render(React.createElement(TreeView, null), document.getElementById('react-tree-view'));
+    ReactTreeView.initialize = function (title) {
+        React.render(React.createElement(TreeView, {"title": title}), document.getElementById('react-tree-view'));
     };
     return ReactTreeView;
 })();

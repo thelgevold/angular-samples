@@ -12,7 +12,7 @@ import {ReactTreeView} from './react-tree-view';
 export class Angular2Host {
 
     onInit(){
-        ReactTreeView.initialize();
+        ReactTreeView.initialize('Locations');
     }
 
 }

@@ -93,7 +93,11 @@ var TreeNode = React.createClass<TreeNodeProps,any>({
 
 });
 
-var TreeView = React.createClass({
+interface TreeViewProps{
+   title:String
+}
+
+var TreeView = React.createClass<TreeViewProps,any>({
 
     getInitialState: function(){
       return {countries:NodeStore.getNodes()};
@@ -120,9 +124,12 @@ var TreeView = React.createClass({
         });
 
         return(
-            <ul>
-                {nodes}
-            </ul>
+           <div>
+           <h2>{this.props.title}</h2>
+           <ul>
+            {nodes}
+           </ul>
+           </div>
         );
 
     }
@@ -131,8 +138,8 @@ var TreeView = React.createClass({
 
 export class ReactTreeView{
 
-    static initialize(){
-        React.render(<TreeView />, document.getElementById('react-tree-view'));
+    static initialize(title){
+        React.render(<TreeView title={title} />, document.getElementById('react-tree-view'));
     }
 
 }

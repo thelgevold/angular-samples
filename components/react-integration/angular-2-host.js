@@ -15,7 +15,7 @@ var Angular2Host = (function () {
     function Angular2Host() {
     }
     Angular2Host.prototype.onInit = function () {
-        react_tree_view_1.ReactTreeView.initialize();
+        react_tree_view_1.ReactTreeView.initialize('Locations');
     };
     Angular2Host = __decorate([
         angular2_1.Component({
