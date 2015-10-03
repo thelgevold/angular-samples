@@ -19,7 +19,7 @@ var IgnoreBindings = (function () {
         }),
         angular2_1.View({
             templateUrl: './components/non-bindable/non-bindable.html',
-            directives: [angular2_1.NgNonBindable]
+            directives: [angular2_1.CORE_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
     ], IgnoreBindings);

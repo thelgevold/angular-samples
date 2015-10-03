@@ -18,7 +18,7 @@ export class HttpSample {
     constructor(http: Http) {
         this.result = {friends:[]};
  
-        http.get('./friends.json').toRx().subscribe(res => this.result = res.json());
+        http.get('./friends.json').map(res => res.json()).subscribe(res => this.result = res);
     }
 
 }

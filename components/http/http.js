@@ -15,7 +15,7 @@ var HttpSample = (function () {
     function HttpSample(http) {
         var _this = this;
         this.result = { friends: [] };
-        http.get('./friends.json').toRx().subscribe(function (res) { return _this.result = res.json(); });
+        http.get('./friends.json').map(function (res) { return res.json(); }).subscribe(function (res) { return _this.result = res; });
     }
     HttpSample = __decorate([
         angular2_1.Component({

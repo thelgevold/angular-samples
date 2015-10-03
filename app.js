@@ -33,11 +33,11 @@ var MyDemoApp = (function () {
             directives: [demo_page_1.DemoPage, router_2.RouterLink, router_2.RouterOutlet, about_1.About]
         }),
         router_2.RouteConfig([
-            { path: '/', component: demo_page_1.DemoPage, as: 'home' },
-            { path: '/about/:id', component: about_1.About, as: 'about' }
+            new router_1.Route({ path: '/', component: demo_page_1.DemoPage, as: 'Home' }),
+            new router_1.Route({ path: '/about/:id', component: about_1.About, as: 'About' })
         ]), 
         __metadata('design:paramtypes', [router_2.Router, router_2.Location])
     ], MyDemoApp);
     return MyDemoApp;
 })();
-angular2_1.bootstrap(MyDemoApp, [http_1.HTTP_BINDINGS, router_1.ROUTER_BINDINGS, angular2_1.bind(router_1.LocationStrategy).toClass(router_1.HashLocationStrategy)]);
+angular2_1.bootstrap(MyDemoApp, [router_1.routerBindings(MyDemoApp), http_1.HTTP_BINDINGS, angular2_1.bind(router_1.LocationStrategy).toClass(router_1.HashLocationStrategy)]);

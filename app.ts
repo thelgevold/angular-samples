@@ -4,7 +4,7 @@ import {HTTP_BINDINGS} from 'angular2/http';
 import {Component, View, bootstrap, bind} from 'angular2/angular2';
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
-import {ROUTER_BINDINGS, LocationStrategy, HashLocationStrategy} from 'angular2/router';
+import {routerBindings, LocationStrategy, HashLocationStrategy, Route} from 'angular2/router';
 import {RouterLink, RouteConfig, Router, RouterOutlet, Location, RouteParams} from 'angular2/router';
 
 @Component({
@@ -17,8 +17,8 @@ import {RouterLink, RouteConfig, Router, RouterOutlet, Location, RouteParams} fr
 })
 
 @RouteConfig([
-    {path: '/', component: DemoPage, as: 'home'},
-    {path: '/about/:id', component: About, as: 'about'}
+    new Route({path: '/', component: DemoPage, as: 'Home'}),
+    new Route({path: '/about/:id', component: About, as: 'About'})
 ])
  
 class MyDemoApp {
@@ -36,4 +36,4 @@ class MyDemoApp {
     }
 }
 
-bootstrap(MyDemoApp,[HTTP_BINDINGS,ROUTER_BINDINGS, bind(LocationStrategy).toClass(HashLocationStrategy)]);
+bootstrap(MyDemoApp,[routerBindings(MyDemoApp), HTTP_BINDINGS, bind(LocationStrategy).toClass(HashLocationStrategy)]);
