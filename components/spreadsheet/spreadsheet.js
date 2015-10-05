@@ -13,9 +13,8 @@ var angular2_1 = require('angular2/angular2');
 var spreadsheetModel_1 = require('./spreadsheetModel');
 var header_row_service_1 = require('./header-row-service');
 var Spreadsheet = (function () {
-    function Spreadsheet(el) {
+    function Spreadsheet() {
         this.model = new spreadsheetModel_1.SpreadsheetModel(10, 4);
-        this.element = el;
     }
     Spreadsheet.prototype.getHeader = function () {
         return header_row_service_1.HeaderRowService.createHeader(this.model.rows[0].columns.length);
@@ -60,7 +59,7 @@ var Spreadsheet = (function () {
             templateUrl: './components/spreadsheet/spreadsheet.html',
             directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.NgClass]
         }), 
-        __metadata('design:paramtypes', [Object])
+        __metadata('design:paramtypes', [])
     ], Spreadsheet);
     return Spreadsheet;
 })();

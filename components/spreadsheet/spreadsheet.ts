@@ -1,4 +1,4 @@
-import {Component, View, NgFor, NgModel, NgClass, ElementRef} from 'angular2/angular2';
+import {Component, View, NgFor, NgModel, NgClass} from 'angular2/angular2';
 
 import {SpreadsheetModel} from './spreadsheetModel';
 import {KeyMap} from './key-map';
@@ -19,11 +19,9 @@ export class Spreadsheet {
     model:SpreadsheetModel;
     rows:Number;
     columns:Number;
-    element:ng.ElementRef;
 
-    constructor(el:ElementRef){
+    constructor(){
         this.model = new SpreadsheetModel(10,4);
-        this.element = el;
     }
 
     getHeader(){
