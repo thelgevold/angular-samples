@@ -60,7 +60,7 @@ var Spreadsheet = (function () {
             templateUrl: './components/spreadsheet/spreadsheet.html',
             directives: [angular2_1.NgFor, angular2_1.NgModel, angular2_1.NgClass]
         }), 
-        __metadata('design:paramtypes', [angular2_1.ElementRef])
+        __metadata('design:paramtypes', [Object])
     ], Spreadsheet);
     return Spreadsheet;
 })();

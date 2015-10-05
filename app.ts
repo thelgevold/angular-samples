@@ -7,9 +7,8 @@ import {About} from './components/about/about';
 import {routerBindings, LocationStrategy, HashLocationStrategy, Route} from 'angular2/router';
 import {RouterLink, RouteConfig, Router, RouterOutlet, Location, RouteParams} from 'angular2/router';
 
-@Component({
-   selector: 'demo-app'
-})
+
+@Component({selector: 'demo-app'})
 
 @View({
     templateUrl: './demo-app.html',

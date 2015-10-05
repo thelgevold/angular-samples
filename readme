@@ -5,7 +5,7 @@ The project uses TypeScript, so to get started you may have to run the following
 
 1-Install TypeScript: npm install -g tsd
 
-2-Add the Angular 2 TypeScript definitions: tsd query angular2 es6-promise rx rx-lite router http react --action install
+2-Add the Angular 2 TypeScript definitions: tsd query angular2 es6-shim rx rx-lite router http react --action install
 
 3-Install the TypeScript compiler: npm install -g typescript@^1.6.0
 

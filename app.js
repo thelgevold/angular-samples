@@ -25,9 +25,7 @@ var MyDemoApp = (function () {
         return this.location.path() === path;
     };
     MyDemoApp = __decorate([
-        angular2_1.Component({
-            selector: 'demo-app'
-        }),
+        angular2_1.Component({ selector: 'demo-app' }),
         angular2_1.View({
             templateUrl: './demo-app.html',
             directives: [demo_page_1.DemoPage, router_2.RouterLink, router_2.RouterOutlet, about_1.About]

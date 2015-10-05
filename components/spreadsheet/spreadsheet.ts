@@ -19,7 +19,7 @@ export class Spreadsheet {
     model:SpreadsheetModel;
     rows:Number;
     columns:Number;
-    element:ElementRef;
+    element:ng.ElementRef;
 
     constructor(el:ElementRef){
         this.model = new SpreadsheetModel(10,4);
