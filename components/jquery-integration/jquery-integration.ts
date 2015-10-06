@@ -13,7 +13,7 @@ declare var jQuery:any;
 export class JqueryIntegration {
     elementRef: ElementRef;
 
-    constructor(elementRef: ng.ElementRef) {
+    constructor(elementRef: ElementRef) {
         this.elementRef = elementRef;
     }
 
