@@ -1,4 +1,4 @@
-import {Component, View, ElementRef} from 'angular2/angular2';
+import {Component, View, ElementRef,Inject} from 'angular2/angular2';
 
 declare var jQuery:any;
 
@@ -13,7 +13,7 @@ declare var jQuery:any;
 export class JqueryIntegration {
     elementRef: ElementRef;
 
-    constructor(elementRef: ElementRef) {
+    constructor(@Inject(ElementRef) elementRef: ElementRef) {
         this.elementRef = elementRef;
     }
 
