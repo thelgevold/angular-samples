@@ -3,7 +3,7 @@ import {Insertion} from '../../algorithms/insertion-sort';
 
 @Component({
     selector: 'insertion-sort',
-    properties: ['list: list']
+    inputs: ['list: list']
 })
 
 @View({

@@ -22,7 +22,7 @@ var Grid = (function () {
     Grid = __decorate([
         angular2_1.Component({
             selector: 'grid',
-            properties: ['rows: rows', 'columns: columns']
+            inputs: ['rows: rows', 'columns: columns']
         }),
         angular2_1.View({
             templateUrl: './components/grid/grid.html',

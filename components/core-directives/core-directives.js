@@ -17,7 +17,7 @@ var CoreDirectives = (function () {
     CoreDirectives = __decorate([
         angular2_1.Component({
             selector: 'core-directives',
-            properties: ['numbers: numbers']
+            inputs: ['numbers: numbers']
         }),
         angular2_1.View({
             templateUrl: './components/core-directives/core-directives.html',

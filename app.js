@@ -1,4 +1,3 @@
-/// <reference path="typings/angular2/angular2.d.ts" />
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -15,7 +14,6 @@ var angular2_1 = require('angular2/angular2');
 var demo_page_1 = require('./demo-page');
 var about_1 = require('./components/about/about');
 var router_1 = require('angular2/router');
-var router_2 = require('angular2/router');
 var MyDemoApp = (function () {
     function MyDemoApp(router, location) {
         this.router = router;
@@ -28,13 +26,13 @@ var MyDemoApp = (function () {
         angular2_1.Component({ selector: 'demo-app' }),
         angular2_1.View({
             templateUrl: './demo-app.html',
-            directives: [demo_page_1.DemoPage, router_2.RouterLink, router_2.RouterOutlet, about_1.About]
+            directives: [demo_page_1.DemoPage, about_1.About, router_1.ROUTER_DIRECTIVES]
         }),
-        router_2.RouteConfig([
+        router_1.RouteConfig([
             new router_1.Route({ path: '/', component: demo_page_1.DemoPage, as: 'Home' }),
             new router_1.Route({ path: '/about/:id', component: about_1.About, as: 'About' })
         ]), 
-        __metadata('design:paramtypes', [router_2.Router, router_2.Location])
+        __metadata('design:paramtypes', [router_1.Router, router_1.Location])
     ], MyDemoApp);
     return MyDemoApp;
 })();

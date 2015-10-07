@@ -3,7 +3,7 @@ import {Directory} from './directory';
 
 @Component({
     selector: 'tree-view',
-    properties: ['directories: directories']
+    inputs: ['directories: directories']
 })
 
 @View({

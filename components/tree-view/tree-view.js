@@ -16,7 +16,7 @@ var TreeView = (function () {
     TreeView = __decorate([
         angular2_1.Component({
             selector: 'tree-view',
-            properties: ['directories: directories']
+            inputs: ['directories: directories']
         }),
         angular2_1.View({
             templateUrl: './components/tree-view/tree-view.html',

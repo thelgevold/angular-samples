@@ -20,7 +20,7 @@ var Greeting = (function () {
     Greeting = __decorate([
         angular2_1.Component({
             selector: 'greeting',
-            properties: ['name']
+            inputs: ['name']
         }),
         angular2_1.View({
             templateUrl: './components/greeting/greeting.html'

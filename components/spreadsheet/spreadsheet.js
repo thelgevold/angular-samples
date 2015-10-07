@@ -53,7 +53,7 @@ var Spreadsheet = (function () {
     Spreadsheet = __decorate([
         angular2_1.Component({
             selector: 'spreadsheet',
-            properties: ['rows', 'columns']
+            inputs: ['rows', 'columns']
         }),
         angular2_1.View({
             templateUrl: './components/spreadsheet/spreadsheet.html',

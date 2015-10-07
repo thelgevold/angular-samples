@@ -5,7 +5,7 @@ import {Sorter} from './sorter';
 
 @Component({
     selector: 'grid',
-    properties: ['rows: rows','columns: columns']
+    inputs: ['rows: rows','columns: columns']
 })
 
 @View({

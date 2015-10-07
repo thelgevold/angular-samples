@@ -36,7 +36,7 @@ var InsertionSort = (function () {
     InsertionSort = __decorate([
         angular2_1.Component({
             selector: 'insertion-sort',
-            properties: ['list: list']
+            inputs: ['list: list']
         }),
         angular2_1.View({
             templateUrl: './components/insertion-sort/insertion-sort.html',

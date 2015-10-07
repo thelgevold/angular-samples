@@ -2,7 +2,7 @@ import {CORE_DIRECTIVES,Component,View} from 'angular2/angular2';
 
 @Component({
     selector: 'core-directives',
-    properties: ['numbers: numbers']
+    inputs: ['numbers: numbers']
 })
 
 @View({

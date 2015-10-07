@@ -1,18 +1,14 @@
-/// <reference path="typings/angular2/angular2.d.ts" />
-
 import {HTTP_BINDINGS} from 'angular2/http';
 import {Component, View, bootstrap, bind} from 'angular2/angular2';
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
-import {routerBindings, LocationStrategy, HashLocationStrategy, Route} from 'angular2/router';
-import {RouterLink, RouteConfig, Router, RouterOutlet, Location, RouteParams} from 'angular2/router';
-
+import {ROUTER_DIRECTIVES, RouteConfig, Location, RouteParams,routerBindings, LocationStrategy, HashLocationStrategy, Route, Router} from 'angular2/router';
 
 @Component({selector: 'demo-app'})
 
 @View({
     templateUrl: './demo-app.html',
-    directives:[DemoPage, RouterLink, RouterOutlet, About]
+    directives:[DemoPage, About, ROUTER_DIRECTIVES]
 })
 
 @RouteConfig([
