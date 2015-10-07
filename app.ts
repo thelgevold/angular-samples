@@ -2,7 +2,7 @@ import {HTTP_BINDINGS} from 'angular2/http';
 import {Component, View, bootstrap, bind} from 'angular2/angular2';
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
-import {ROUTER_DIRECTIVES, RouteConfig, Location, RouteParams,routerBindings, LocationStrategy, HashLocationStrategy, Route, Router} from 'angular2/router';
+import {ROUTER_DIRECTIVES, RouteConfig, Location,routerBindings, LocationStrategy, HashLocationStrategy, Route, Router} from 'angular2/router';
 
 @Component({selector: 'demo-app'})
 
