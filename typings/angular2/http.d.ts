@@ -1,4 +1,4 @@
-// Type definitions for Angular v2.0.0-local_sha.7d5c3eb
+// Type definitions for Angular v2.0.0-local_sha.35a61b4
 // Project: http://angular.io/
 // Definitions by: angular team <https://github.com/angular/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -57,8 +57,8 @@ declare module ngHttp {
      * 
      * ```
      * var connection;
-     * backend.connections.toRx().subscribe(c => connection = c);
-     * http.request('data.json').toRx().subscribe(res => console.log(res.text()));
+     * backend.connections.subscribe(c => connection = c);
+     * http.request('data.json').subscribe(res => console.log(res.text()));
      * connection.mockRespond(new Response('fake response')); //logs 'fake response'
      * ```
      */
@@ -102,8 +102,8 @@ declare module ngHttp {
    *   var http = injector.get(Http);
    *   var backend = injector.get(MockBackend);
    *   //Assign any newly-created connection to local variable
-   *   backend.connections.toRx().subscribe(c => connection = c);
-   *   http.request('data.json').toRx().subscribe((res) => {
+   *   backend.connections.subscribe(c => connection = c);
+   *   http.request('data.json').subscribe((res) => {
    *     expect(res.text()).toBe('awesome');
    *     async.done();
    *   });
@@ -138,8 +138,8 @@ declare module ngHttp {
      *     }, [MockBackend, BaseRequestOptions]]);
      *   var backend = injector.get(MockBackend);
      *   var http = injector.get(Http);
-     *   backend.connections.toRx().subscribe(c => connection = c);
-     *   http.request('something.json').toRx().subscribe(res => {
+     *   backend.connections.subscribe(c => connection = c);
+     *   http.request('something.json').subscribe(res => {
      *     text = res.text();
      *   });
      *   connection.mockRespond(new Response({body: 'Something'}));
@@ -226,7 +226,7 @@ declare module ngHttp {
    * 
    * var injector = Injector.resolveAndCreate([HTTP_BINDINGS, AutoAuthenticator]);
    * var authenticator = injector.get(AutoAuthenticator);
-   * authenticator.request('people.json').toRx().subscribe(res => {
+   * authenticator.request('people.json').subscribe(res => {
    *   //URL should have included '?password=123'
    *   console.log('people', res.json());
    * });
@@ -271,7 +271,7 @@ declare module ngHttp {
    * #Example
    * 
    * ```
-   * http.request('my-friends.txt').toRx().subscribe(response => this.friends = response.text());
+   * http.request('my-friends.txt').subscribe(response => this.friends = response.text());
    * ```
    * 
    * The Response's interface is inspired by the Response constructor defined in the [Fetch
@@ -393,7 +393,7 @@ declare module ngHttp {
   /**
    * Abstract class from which real connections are derived.
    */
-  class Connection {
+  abstract class Connection {
     
     readyState: ReadyStates;
     
@@ -410,9 +410,7 @@ declare module ngHttp {
    * The primary purpose of a `ConnectionBackend` is to create new connections to fulfill a given
    * {@link Request}.
    */
-  class ConnectionBackend {
-    
-    constructor();
+  abstract class ConnectionBackend {
     
     createConnection(request: any): Connection;
     
@@ -709,7 +707,7 @@ declare module ngHttp {
    * })
    * class MyComponent {
    *   constructor(http:Http) {
-   *     http('people.json').toRx().subscribe(res => this.people = res.json());
+   *     http('people.json').subscribe(res => this.people = res.json());
    *   }
    * }
    * ```
@@ -748,22 +746,18 @@ declare module ngHttp {
   }
 
     
-  interface JSONPBackend extends ConnectionBackend {
-    
-    createConnection(request: Request): JSONPConnection;
+  abstract class JSONPBackend extends ConnectionBackend {
     
   }
 
     
-  interface JSONPConnection extends Connection {
+  abstract class JSONPConnection implements Connection {
     
     readyState: ReadyStates;
     
     request: Request;
     
     response: any;
-    
-    baseResponseOptions: ResponseOptions;
     
     finished(data?: any): void;
     
@@ -923,7 +917,7 @@ declare module ngHttp {
      */
     delete(name: string): void;
     
-    forEach(fn: (value: string, name: string, headers: Headers) => any): void;
+    forEach(fn: (values: string[], name: string, headers: Map<string, string[]>) => void): void;
     
     /**
      * Returns first header that matches given name.
@@ -1099,7 +1093,7 @@ declare module ngHttp {
    * export class App {
    *   people: Object[];
    *   constructor(http:Http) {
-   *     http.get('people.json').toRx().subscribe(res => {
+   *     http.get('people.json').subscribe(res => {
    *       this.people = res.json();
    *     });
    *   }
@@ -1216,7 +1210,7 @@ declare module ngHttp {
    * export class App {
    *   people: Array<Object>;
    *   constructor(jsonp:Jsonp) {
-   *     jsonp.request('people.json').toRx().subscribe(res => {
+   *     jsonp.request('people.json').subscribe(res => {
    *       this.people = res.json();
    *     })
    *   }
@@ -1290,14 +1284,6 @@ declare module ngHttp {
    * ```
    */
   let JSONP_BINDINGS: any[];
-  
-
-    
-  var JSONPBackend: ng.InjectableReference;
-  
-
-    
-  var JSONPConnection: ng.InjectableReference;
   
 
   

@@ -28,7 +28,7 @@ var JqueryIntegration = (function () {
             templateUrl: './components/jquery-integration/jquery-integration.html'
         }),
         __param(0, angular2_1.Inject(angular2_1.ElementRef)), 
-        __metadata('design:paramtypes', [Object])
+        __metadata('design:paramtypes', [angular2_1.ElementRef])
     ], JqueryIntegration);
     return JqueryIntegration;
 })();

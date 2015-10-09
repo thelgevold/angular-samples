@@ -1,4 +1,4 @@
-// Type definitions for Angular v2.0.0-39
+// Type definitions for Angular v2.0.0-local_sha.35a61b4
 // Project: http://angular.io/
 // Definitions by: angular team <https://github.com/angular/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -174,7 +174,9 @@ declare module ngRouter {
    * <router-outlet></router-outlet>
    * ```
    */
-  interface RouterOutlet {
+  class RouterOutlet {
+    
+    constructor(_elementRef: ng.ElementRef, _loader: ng.DynamicComponentLoader, _parentRouter:Router, nameAttr: string);
     
     name: string;
     
@@ -356,7 +358,7 @@ declare module ngRouter {
    * 
    * See these two classes for more.
    */
-  class LocationStrategy {
+  abstract class LocationStrategy {
     
     path(): string;
     
@@ -914,7 +916,7 @@ declare module ngRouter {
    * 
    * You should not modify this object. It should be treated as immutable.
    */
-  interface ComponentInstruction {
+  abstract class ComponentInstruction {
     
     reuse: boolean;
     
@@ -1311,14 +1313,6 @@ declare module ngRouter {
     component?: ng.Type;
     
   }
-
-    
-  var RouterOutlet: ng.InjectableReference;
-  
-
-    
-  var ComponentInstruction: ng.InjectableReference;
-  
 
   
 }

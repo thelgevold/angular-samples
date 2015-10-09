@@ -1,4 +1,4 @@
-// Type definitions for Angular v2.0.0-39
+// Type definitions for Angular v2.0.0-local_sha.35a61b4
 // Project: http://angular.io/
 // Definitions by: angular team <https://github.com/angular/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -456,7 +456,8 @@ declare module ng {
   class ComponentMetadata extends DirectiveMetadata {
     
     constructor({selector, inputs, outputs, properties, events, host, exportAs, moduleId, bindings,
-                   viewBindings, changeDetection, queries}?: {
+                   viewBindings, changeDetection, queries,
+                   templateUrl, template, styleUrls, styles, directives, pipes, encapsulation}?: {
         selector?: string,
         inputs?: string[],
         outputs?: string[],
@@ -469,6 +470,13 @@ declare module ng {
         viewBindings?: any[],
         queries?: {[key: string]: any},
         changeDetection?: ChangeDetectionStrategy,
+        templateUrl?: string,
+        template?: string,
+        styleUrls?: string[],
+        styles?: string[],
+        directives?: Array<Type | any[]>,
+        pipes?: Array<Type | any[]>,
+        encapsulation?: ViewEncapsulation
       });
     
     /**
@@ -523,6 +531,20 @@ declare module ng {
      * ```
      */
     viewBindings: any[];
+    
+    templateUrl: string;
+    
+    template: string;
+    
+    styleUrls: string[];
+    
+    styles: string[];
+    
+    directives: Array<Type | any[]>;
+    
+    pipes: Array<Type | any[]>;
+    
+    encapsulation: ViewEncapsulation;
     
   }
 
@@ -1831,6 +1853,13 @@ declare module ng {
         queries?: {[key: string]: any},
         viewBindings?: any[],
         changeDetection?: ChangeDetectionStrategy,
+        templateUrl?: string,
+        template?: string,
+        styleUrls?: string[],
+        styles?: string[],
+        directives?: Array<Type | any[]>,
+        pipes?: Array<Type | any[]>,
+        encapsulation?: ViewEncapsulation
       }): ComponentMetadata;
     
     (obj: {
@@ -1846,6 +1875,13 @@ declare module ng {
         queries?: {[key: string]: any},
         viewBindings?: any[],
         changeDetection?: ChangeDetectionStrategy,
+        templateUrl?: string,
+        template?: string,
+        styleUrls?: string[],
+        styles?: string[],
+        directives?: Array<Type | any[]>,
+        pipes?: Array<Type | any[]>,
+        encapsulation?: ViewEncapsulation
       }): ComponentDecorator;
     
   }
@@ -2334,7 +2370,7 @@ declare module ng {
    * });
    * ```
    */
-  function Class(clsDef: ClassDefinition): Type;
+  function Class(clsDef: ClassDefinition): ConcreteType;
   
 
     
@@ -2401,7 +2437,7 @@ declare module ng {
     /**
      * Generate a class from the definition and annotate it with {@link TypeDecorator#annotations}.
      */
-    Class(obj: ClassDefinition): Type;
+    Class(obj: ClassDefinition): ConcreteType;
     
   }
 
@@ -3357,11 +3393,21 @@ declare module ng {
      */
     key: Key;
     
+    /**
+     * Factory function which can return an instance of an object represented by a key.
+     */
+    resolvedFactories: ResolvedFactory[];
+    
+    /**
+     * Indicates if the binding is a multi-binding or a regular binding.
+     */
+    multiBinding: boolean;
+    
   }
 
     
   /**
-   * @private
+   * @internal
    * An internal resolved representation of a factory function created by resolving {@link Binding}.
    */
   class ResolvedFactory {
@@ -3382,7 +3428,7 @@ declare module ng {
 
     
   /**
-   * @private
+   * @internal
    */
   class Dependency {
     
@@ -3459,7 +3505,7 @@ declare module ng {
 
     
   /**
-   * @private
+   * @internal
    * Type literals is a Dart-only feature. This is here only so we can x-compile
    * to multiple languages.
    */
@@ -3554,7 +3600,9 @@ declare module ng {
    * }
    * ```
    */
-  interface InstantiationError extends WrappedException {
+  class InstantiationError extends WrappedException {
+    
+    constructor(injector: Injector, originalException: any, originalStack: any, key: Key);
     
     addKey(injector: Injector, key: Key): void;
     
@@ -4126,6 +4174,13 @@ declare module ng {
   }
 
     
+  interface ConcreteType extends Type {
+    
+    new(...args: any[]): any;
+    
+  }
+
+    
   /**
    * 
    * Runtime representation a type that a Component or other object is instances of.
@@ -4134,8 +4189,6 @@ declare module ng {
    * the `MyCustomComponent` constructor function.
    */
   interface Type extends Function {
-    
-    new(...args: any[]): any;
     
   }
 
@@ -4307,7 +4360,7 @@ declare module ng {
    * A page's platform is initialized implicitly when {@link bootstrap}() is called, or
    * explicitly by calling {@link platform}().
    */
-  interface PlatformRef {
+  abstract class PlatformRef {
     
     /**
      * Retrieve the platform {@link Injector}, which is the parent injector for
@@ -4357,8 +4410,7 @@ declare module ng {
      * new application. Once this promise resolves, the application will be
      * constructed in the same manner as a normal `application()`.
      */
-    asyncApplication(bindingFn: (zone: NgZone) =>
-                           Promise<Array<Type | Binding | any[]>>): Promise<ApplicationRef>;
+    asyncApplication(bindingFn: (zone: NgZone) => Promise<Array<Type | Binding | any[]>>): Promise<ApplicationRef>;
     
     /**
      * Destroy the Angular platform and all Angular applications on the page.
@@ -4373,7 +4425,7 @@ declare module ng {
    * 
    * For more about Angular applications, see the documentation for {@link bootstrap}.
    */
-  interface ApplicationRef {
+  abstract class ApplicationRef {
     
     /**
      * Register a listener to be called each time `bootstrap()` is called to bootstrap
@@ -4439,7 +4491,7 @@ declare module ng {
 
     
   /**
-   * @private
+   * @internal
    */
   function platformCommon(bindings?: Array<Type | Binding | any[]>, initializer?: () => void): PlatformRef;
   
@@ -4472,10 +4524,7 @@ declare module ng {
     
     constructor(value: string);
     
-    /**
-     * Returns the base URL of the currently running application.
-     */
-    value: any;
+    value: string;
     
   }
 
@@ -4980,7 +5029,7 @@ declare module ng {
    * Most applications should instead use higher-level {@link DynamicComponentLoader} service, which
    * both compiles and instantiates a Component.
    */
-  interface Compiler {
+  abstract class Compiler {
     
     compileInHost(componentType: Type): Promise<ProtoViewRef>;
     
@@ -4995,7 +5044,7 @@ declare module ng {
    * Most applications should use higher-level abstractions like {@link DynamicComponentLoader} and
    * {@link ViewContainerRef} instead.
    */
-  interface AppViewManager {
+  abstract class AppViewManager {
     
     /**
      * Returns a {@link ViewContainerRef} of the View Container at the specified location.
@@ -5180,7 +5229,7 @@ declare module ng {
   /**
    * Service for instantiating a Component and attaching it to a View at a specified location.
    */
-  interface DynamicComponentLoader {
+  abstract class DynamicComponentLoader {
     
     /**
      * Creates an instance of a Component `type` and attaches it to the first element in the
@@ -5361,7 +5410,7 @@ declare module ng {
    * An `ElementRef` is backed by a render-specific element. In the browser, this is usually a DOM
    * element.
    */
-  interface ElementRef extends RenderElementRef {
+  abstract class ElementRef implements RenderElementRef {
     
     /**
      * The underlying native element or `null` if direct access to native elements is not supported
@@ -5384,6 +5433,8 @@ declare module ng {
      */
     nativeElement: any;
     
+    renderView: RenderViewRef;
+    
   }
 
     
@@ -5399,7 +5450,7 @@ declare module ng {
    * {@link ViewContainerRef#createEmbeddedView}, which will create the View and attach it to the
    * View Container.
    */
-  interface TemplateRef {
+  abstract class TemplateRef {
     
     /**
      * The location in the View where the Embedded View logically belongs to.
@@ -5474,12 +5525,14 @@ declare module ng {
    * <!-- /ViewRef: outer-0 -->
    * ```
    */
-  interface ViewRef extends HostViewRef {
+  abstract class ViewRef implements HostViewRef {
     
     /**
      * Sets `value` of local variable called `variableName` in this View.
      */
     setLocal(variableName: string, value: any): void;
+    
+    changeDetectorRef: ChangeDetectorRef;
     
   }
 
@@ -5537,7 +5590,7 @@ declare module ng {
    * 
    * Notice that the original template is broken down into two separate ProtoViews.
    */
-  interface ProtoViewRef {
+  abstract class ProtoViewRef {
     
   }
 
@@ -5562,7 +5615,7 @@ declare module ng {
    * 
    * <!-- TODO(i): we are also considering ElementRef#viewContainer api -->
    */
-  interface ViewContainerRef {
+  abstract class ViewContainerRef {
     
     /**
      * Anchor element that specifies the location of this container in the containing View.
@@ -5650,7 +5703,15 @@ declare module ng {
    * Component Instance and allows you to destroy the Component Instance via the {@link #dispose}
    * method.
    */
-  interface ComponentRef {
+  abstract class ComponentRef {
+    
+    /**
+     * The injector provided {@link DynamicComponentLoader#loadAsRoot}.
+     * 
+     * TODO(i): this api is useless and should be replaced by an injector retrieved from
+     *     the HostElementRef, which is currently not possible.
+     */
+    injector: Injector;
     
     /**
      * Location of the Host Element of this Component Instance.
@@ -5710,7 +5771,7 @@ declare module ng {
    * });
    * ```
    */
-  interface LifeCycle {
+  abstract class LifeCycle {
     
     /**
      * Invoke this method to explicitly process change detection and its side-effects.
@@ -5803,7 +5864,55 @@ declare module ng {
    * }
    * ```
    */
-  interface NgZone {
+  class NgZone {
+    
+    /**
+     * @param {bool} enableLongStackTrace whether to enable long stack trace. They should only be
+     *               enabled in development mode as they significantly impact perf.
+     */
+    constructor({enableLongStackTrace}: any);
+    
+    /**
+     * Sets the zone hook that is called just before a browser task that is handled by Angular
+     * executes.
+     * 
+     * The hook is called once per browser task that is handled by Angular.
+     * 
+     * Setting the hook overrides any previously set hook.
+     */
+    overrideOnTurnStart(onTurnStartHook: Function): void;
+    
+    /**
+     * Sets the zone hook that is called immediately after Angular zone is done processing the current
+     * task and any microtasks scheduled from that task.
+     * 
+     * This is where we typically do change-detection.
+     * 
+     * The hook is called once per browser task that is handled by Angular.
+     * 
+     * Setting the hook overrides any previously set hook.
+     */
+    overrideOnTurnDone(onTurnDoneHook: Function): void;
+    
+    /**
+     * Sets the zone hook that is called immediately after the `onTurnDone` callback is called and any
+     * microstasks scheduled from within that callback are drained.
+     * 
+     * `onEventDoneFn` is executed outside Angular zone, which means that we will no longer attempt to
+     * sync the UI with any model changes that occur within this callback.
+     * 
+     * This hook is useful for validating application state (e.g. in a test).
+     * 
+     * Setting the hook overrides any previously set hook.
+     */
+    overrideOnEventDone(onEventDoneFn: Function, opt_waitForAsync?: boolean): void;
+    
+    /**
+     * Sets the zone hook that is called when an error is thrown in the Angular zone.
+     * 
+     * Setting the hook overrides any previously set hook.
+     */
+    overrideOnErrorHandler(errorHandler: (error: Error, stack: string) => void): void;
     
     /**
      * Executes the `fn` function synchronously within the Angular zone and returns value returned by
@@ -5870,7 +5979,7 @@ declare module ng {
    * 
    * The default Renderer implementation is {@link DomRenderer}. Also see {@link WebWorkerRenderer}.
    */
-  interface Renderer {
+  abstract class Renderer {
     
     /**
      * Registers a component template represented as arrays of {@link RenderTemplateCmd}s and styles
@@ -6041,13 +6150,6 @@ declare module ng {
      */
     renderView: RenderViewRef;
     
-    /**
-     * Index of the Element (in the depth-first order) inside the Render View.
-     * 
-     * This index is used internally by Angular to locate elements.
-     */
-    boundElementIndex: number;
-    
   }
 
     
@@ -6081,7 +6183,7 @@ declare module ng {
    * 
    * <!-- TODO: this is created by Renderer#createProtoView in the new compiler -->
    */
-  interface RenderProtoViewRef {
+  class RenderProtoViewRef {
     
   }
 
@@ -6167,6 +6269,8 @@ declare module ng {
 
     
   interface RenderNgContentCmd {
+    
+    index: number;
     
     ngContentIndex: number;
     
@@ -6320,25 +6424,56 @@ declare module ng {
 
     
   /**
-   * Adds or removes styles based on an {expression}.
+   * The `NgStyle` directive changes styles based on a result of expression evaluation.
    * 
-   * When the expression assigned to `ng-style` evaluates to an object, the corresponding element
-   * styles are updated. Style names to update are taken from the object keys and values - from the
-   * corresponding object values.
-   * 
-   * # Example:
-   * 
-   * ```
-   * <div [ng-style]="{'text-align': alignExp}"></div>
-   * ```
-   * 
-   * In the above example the `text-align` style will be updated based on the `alignExp` value
-   * changes.
+   * An expression assigned to the `ng-style` property must evaluate to an object and the
+   * corresponding element styles are updated based on changes to this object. Style names to update
+   * are taken from the object's keys, and values - from the corresponding object's values.
    * 
    * # Syntax
    * 
-   * - `<div [ng-style]="{'text-align': alignExp}"></div>`
-   * - `<div [ng-style]="styleExp"></div>`
+   * - `<div [ng-style]="{'font-style': style}"></div>`
+   * - `<div [ng-style]="styleExp"></div>` - here the `styleExp` must evaluate to an object
+   * 
+   * ### Example ([live demo](http://plnkr.co/edit/YamGS6GkUh9GqWNQhCyM?p=preview)):
+   * 
+   * ```
+   * import {Component, View, NgStyle} from 'angular2/angular2';
+   * 
+   * @Component({
+   *  selector: 'ng-style-example'
+   * })
+   * @View({
+   *  template: `
+   *    <h1 [ng-style]="{'font-style': style, 'font-size': size, 'font-weight': weight}">
+   *      Change style of this text!
+   *    </h1>
+   * 
+   *    <hr>
+   * 
+   *    <label>Italic: <input type="checkbox" (change)="changeStyle($event)"></label>
+   *    <label>Bold: <input type="checkbox" (change)="changeWeight($event)"></label>
+   *    <label>Size: <input type="text" [value]="size" (change)="size = $event.target.value"></label>
+   *  `,
+   *  directives: [NgStyle]
+   * })
+   * export class NgStyleExample {
+   *    style = 'normal';
+   *    weight = 'normal';
+   *    size = '20px';
+   * 
+   *    changeStyle($event: any) {
+   *      this.style = $event.target.checked ? 'italic' : 'normal';
+   *    }
+   * 
+   *    changeWeight($event: any) {
+   *      this.weight = $event.target.checked ? 'bold' : 'normal';
+   *    }
+   * }
+   * ```
+   * 
+   * In this example the `font-style`, `font-size` and `font-weight` styles will be updated
+   * based on the `style` property's value changes.
    */
   class NgStyle implements DoCheck {
     
@@ -7458,20 +7593,12 @@ declare module ng {
   
 
     
-  function inspectNativeElement(element: any): DebugElement;
-  
-
-    
-  let ELEMENT_PROBE_BINDINGS: any[];
-  
-
-    
   /**
    * A DebugElement contains information from the Angular compiler about an
    * element and provides access to the corresponding ElementInjector and
    * underlying DOM Element, as well as a way to query for children.
    */
-  interface DebugElement {
+  abstract class DebugElement {
     
     componentInstance: any;
     
@@ -7529,18 +7656,19 @@ declare module ng {
   }
 
     
-  /**
-   * Returns a DebugElement for a ElementRef.
-   * 
-   * @param {ElementRef}: elementRef
-   * @return {DebugElement}
-   */
-  function inspectElement(elementRef: ElementRef): DebugElement;
+  function asNativeElements(arr: DebugElement[]): any[];
   
 
     
-  function asNativeElements(arr: DebugElement[]): any[];
-  
+  class By {
+    
+    static all(): Function;
+    
+    static css(selector: string): Predicate<DebugElement>;
+    
+    static directive(type: Type): Predicate<DebugElement>;
+    
+  }
 
     
   class Scope {
@@ -7554,15 +7682,22 @@ declare module ng {
   }
 
     
-  class By {
+  /**
+   * Returns a DebugElement for a ElementRef.
+   * 
+   * @param {ElementRef}: elementRef
+   * @return {DebugElement}
+   */
+  function inspectElement(elementRef: ElementRef): DebugElement;
+  
+
     
-    static all(): Function;
+  function inspectNativeElement(element: any): DebugElement;
+  
+
     
-    static css(selector: string): Predicate<DebugElement>;
-    
-    static directive(type: Type): Predicate<DebugElement>;
-    
-  }
+  let ELEMENT_PROBE_BINDINGS: any[];
+  
 
     
   enum ChangeDetectionStrategy {
@@ -7694,10 +7829,7 @@ declare module ng {
   }
 
     
-  /**
-   * Reference to a component's change detection object.
-   */
-  interface ChangeDetectorRef {
+  abstract class ChangeDetectorRef {
     
     /**
      * Marks all {@link OnPush} ancestors as to be checked.
@@ -8210,82 +8342,6 @@ declare module ng {
     
   }
 
-    
-  var ResolvedBinding: InjectableReference;
-  
-
-    
-  var InstantiationError: InjectableReference;
-  
-
-    
-  var PlatformRef: InjectableReference;
-  
-
-    
-  var ApplicationRef: InjectableReference;
-  
-
-    
-  var Compiler: InjectableReference;
-  
-
-    
-  var AppViewManager: InjectableReference;
-  
-
-    
-  var DynamicComponentLoader: InjectableReference;
-  
-
-    
-  var ElementRef: InjectableReference;
-  
-
-    
-  var TemplateRef: InjectableReference;
-  
-
-    
-  var ViewRef: InjectableReference;
-  
-
-    
-  var ProtoViewRef: InjectableReference;
-  
-
-    
-  var ViewContainerRef: InjectableReference;
-  
-
-    
-  var ComponentRef: InjectableReference;
-  
-
-    
-  var LifeCycle: InjectableReference;
-  
-
-    
-  var NgZone: InjectableReference;
-  
-
-    
-  var Renderer: InjectableReference;
-  
-
-    
-  var RenderProtoViewRef: InjectableReference;
-  
-
-    
-  var DebugElement: InjectableReference;
-  
-
-    
-  var ChangeDetectorRef: InjectableReference;
-  
-
   
 }
 
@@ -8332,7 +8388,7 @@ declare module ngWorker {
    * 
    * The default Renderer implementation is {@link DomRenderer}. Also see {@link WebWorkerRenderer}.
    */
-  interface Renderer {
+  abstract class Renderer {
     
     /**
      * Registers a component template represented as arrays of {@link RenderTemplateCmd}s and styles
@@ -8503,13 +8559,6 @@ declare module ngWorker {
      */
     renderView: RenderViewRef;
     
-    /**
-     * Index of the Element (in the depth-first order) inside the Render View.
-     * 
-     * This index is used internally by Angular to locate elements.
-     */
-    boundElementIndex: number;
-    
   }
 
     
@@ -8543,7 +8592,7 @@ declare module ngWorker {
    * 
    * <!-- TODO: this is created by Renderer#createProtoView in the new compiler -->
    */
-  interface RenderProtoViewRef {
+  class RenderProtoViewRef {
     
   }
 
@@ -8620,6 +8669,8 @@ declare module ngWorker {
     
   interface RenderNgContentCmd {
     
+    index: number;
+    
     ngContentIndex: number;
     
   }
@@ -8659,6 +8710,77 @@ declare module ngWorker {
     ngContentIndex: number;
     
     isBound: boolean;
+    
+  }
+
+    
+  abstract class ClientMessageBroker {
+    
+    runOnService(args: UiArguments, returnType: Type): Promise<any>;
+    
+  }
+
+    
+  abstract class ClientMessageBrokerFactory {
+    
+    /**
+     * Initializes the given channel and attaches a new {@link ClientMessageBroker} to it.
+     */
+    createMessageBroker(channel: string, runInZone?: boolean): ClientMessageBroker;
+    
+  }
+
+    
+  class FnArg {
+    
+    constructor(value: any, type: Type);
+    
+    value: any;
+    
+    type: Type;
+    
+  }
+
+    
+  class UiArguments {
+    
+    constructor(method: string, args?: FnArg[]);
+    
+    method: string;
+    
+    args: FnArg[];
+    
+  }
+
+    
+  class ReceivedMessage {
+    
+    constructor(data: {[key: string]: any});
+    
+    method: string;
+    
+    args: any[];
+    
+    id: string;
+    
+    type: string;
+    
+  }
+
+    
+  abstract class ServiceMessageBroker {
+    
+    registerMethod(methodName: string, signature: Type[], method: Function, returnType?: Type): void;
+    
+  }
+
+    
+  abstract class ServiceMessageBrokerFactory {
+    
+    /**
+     * Initializes the given channel and attaches a new {@link ServiceMessageBroker} to it.
+     */
+    createMessageBroker(channel: string, runInZone?: boolean): ServiceMessageBroker;
     
   }
 
@@ -9492,7 +9614,8 @@ declare module ngWorker {
   class ComponentMetadata extends DirectiveMetadata {
     
     constructor({selector, inputs, outputs, properties, events, host, exportAs, moduleId, bindings,
-                   viewBindings, changeDetection, queries}?: {
+                   viewBindings, changeDetection, queries,
+                   templateUrl, template, styleUrls, styles, directives, pipes, encapsulation}?: {
         selector?: string,
         inputs?: string[],
         outputs?: string[],
@@ -9505,6 +9628,13 @@ declare module ngWorker {
         viewBindings?: any[],
         queries?: {[key: string]: any},
         changeDetection?: ChangeDetectionStrategy,
+        templateUrl?: string,
+        template?: string,
+        styleUrls?: string[],
+        styles?: string[],
+        directives?: Array<Type | any[]>,
+        pipes?: Array<Type | any[]>,
+        encapsulation?: ViewEncapsulation
       });
     
     /**
@@ -9559,6 +9689,20 @@ declare module ngWorker {
      * ```
      */
     viewBindings: any[];
+    
+    templateUrl: string;
+    
+    template: string;
+    
+    styleUrls: string[];
+    
+    styles: string[];
+    
+    directives: Array<Type | any[]>;
+    
+    pipes: Array<Type | any[]>;
+    
+    encapsulation: ViewEncapsulation;
     
   }
 
@@ -10867,6 +11011,13 @@ declare module ngWorker {
         queries?: {[key: string]: any},
         viewBindings?: any[],
         changeDetection?: ChangeDetectionStrategy,
+        templateUrl?: string,
+        template?: string,
+        styleUrls?: string[],
+        styles?: string[],
+        directives?: Array<Type | any[]>,
+        pipes?: Array<Type | any[]>,
+        encapsulation?: ViewEncapsulation
       }): ComponentMetadata;
     
     (obj: {
@@ -10882,6 +11033,13 @@ declare module ngWorker {
         queries?: {[key: string]: any},
         viewBindings?: any[],
         changeDetection?: ChangeDetectionStrategy,
+        templateUrl?: string,
+        template?: string,
+        styleUrls?: string[],
+        styles?: string[],
+        directives?: Array<Type | any[]>,
+        pipes?: Array<Type | any[]>,
+        encapsulation?: ViewEncapsulation
       }): ComponentDecorator;
     
   }
@@ -11370,7 +11528,7 @@ declare module ngWorker {
    * });
    * ```
    */
-  function Class(clsDef: ClassDefinition): Type;
+  function Class(clsDef: ClassDefinition): ConcreteType;
   
 
     
@@ -11437,7 +11595,7 @@ declare module ngWorker {
     /**
      * Generate a class from the definition and annotate it with {@link TypeDecorator#annotations}.
      */
-    Class(obj: ClassDefinition): Type;
+    Class(obj: ClassDefinition): ConcreteType;
     
   }
 
@@ -12393,11 +12551,21 @@ declare module ngWorker {
      */
     key: Key;
     
+    /**
+     * Factory function which can return an instance of an object represented by a key.
+     */
+    resolvedFactories: ResolvedFactory[];
+    
+    /**
+     * Indicates if the binding is a multi-binding or a regular binding.
+     */
+    multiBinding: boolean;
+    
   }
 
     
   /**
-   * @private
+   * @internal
    * An internal resolved representation of a factory function created by resolving {@link Binding}.
    */
   class ResolvedFactory {
@@ -12418,7 +12586,7 @@ declare module ngWorker {
 
     
   /**
-   * @private
+   * @internal
    */
   class Dependency {
     
@@ -12495,7 +12663,7 @@ declare module ngWorker {
 
     
   /**
-   * @private
+   * @internal
    * Type literals is a Dart-only feature. This is here only so we can x-compile
    * to multiple languages.
    */
@@ -12590,7 +12758,9 @@ declare module ngWorker {
    * }
    * ```
    */
-  interface InstantiationError extends WrappedException {
+  class InstantiationError extends WrappedException {
+    
+    constructor(injector: Injector, originalException: any, originalStack: any, key: Key);
     
     addKey(injector: Injector, key: Key): void;
     
@@ -13162,6 +13332,13 @@ declare module ngWorker {
   }
 
     
+  interface ConcreteType extends Type {
+    
+    new(...args: any[]): any;
+    
+  }
+
+    
   /**
    * 
    * Runtime representation a type that a Component or other object is instances of.
@@ -13170,8 +13347,6 @@ declare module ngWorker {
    * the `MyCustomComponent` constructor function.
    */
   interface Type extends Function {
-    
-    new(...args: any[]): any;
     
   }
 
@@ -13290,7 +13465,7 @@ declare module ngWorker {
 
     
   /**
-   * @private
+   * @internal
    */
   function platformCommon(bindings?: Array<Type | Binding | any[]>, initializer?: () => void): PlatformRef;
   
@@ -13304,7 +13479,7 @@ declare module ngWorker {
    * A page's platform is initialized implicitly when {@link bootstrap}() is called, or
    * explicitly by calling {@link platform}().
    */
-  interface PlatformRef {
+  abstract class PlatformRef {
     
     /**
      * Retrieve the platform {@link Injector}, which is the parent injector for
@@ -13354,12 +13529,27 @@ declare module ngWorker {
      * new application. Once this promise resolves, the application will be
      * constructed in the same manner as a normal `application()`.
      */
-    asyncApplication(bindingFn: (zone: NgZone) =>
-                           Promise<Array<Type | Binding | any[]>>): Promise<ApplicationRef>;
+    asyncApplication(bindingFn: (zone: NgZone) => Promise<Array<Type | Binding | any[]>>): Promise<ApplicationRef>;
     
     /**
      * Destroy the Angular platform and all Angular applications on the page.
      */
+    dispose(): void;
+    
+  }
+
+    
+  class PlatformRef_ extends PlatformRef {
+    
+    constructor(_injector: Injector, _dispose: () => void);
+    
+    injector: Injector;
+    
+    application(bindings: Array<Type | Binding | any[]>): ApplicationRef;
+    
+    asyncApplication(bindingFn: (zone: NgZone) =>
+                           Promise<Array<Type | Binding | any[]>>): Promise<ApplicationRef>;
+    
     dispose(): void;
     
   }
@@ -13370,7 +13560,7 @@ declare module ngWorker {
    * 
    * For more about Angular applications, see the documentation for {@link bootstrap}.
    */
-  interface ApplicationRef {
+  abstract class ApplicationRef {
     
     /**
      * Register a listener to be called each time `bootstrap()` is called to bootstrap
@@ -13420,6 +13610,23 @@ declare module ngWorker {
   }
 
     
+  class ApplicationRef_ extends ApplicationRef {
+    
+    constructor(_platform: PlatformRef_, _zone: NgZone, _injector: Injector);
+    
+    registerBootstrapListener(listener: (ref: ComponentRef) => void): void;
+    
+    bootstrap(componentType: Type, bindings?: Array<Type | Binding | any[]>): Promise<ComponentRef>;
+    
+    injector: Injector;
+    
+    zone: NgZone;
+    
+    dispose(): void;
+    
+  }
+
+    
   /**
    * Specifies app root url for the application.
    * 
@@ -13433,10 +13640,7 @@ declare module ngWorker {
     
     constructor(value: string);
     
-    /**
-     * Returns the base URL of the currently running application.
-     */
-    value: any;
+    value: string;
     
   }
 
@@ -13509,7 +13713,7 @@ declare module ngWorker {
    * Most applications should instead use higher-level {@link DynamicComponentLoader} service, which
    * both compiles and instantiates a Component.
    */
-  interface Compiler {
+  abstract class Compiler {
     
     compileInHost(componentType: Type): Promise<ProtoViewRef>;
     
@@ -13524,7 +13728,7 @@ declare module ngWorker {
    * Most applications should use higher-level abstractions like {@link DynamicComponentLoader} and
    * {@link ViewContainerRef} instead.
    */
-  interface AppViewManager {
+  abstract class AppViewManager {
     
     /**
      * Returns a {@link ViewContainerRef} of the View Container at the specified location.
@@ -13709,7 +13913,7 @@ declare module ngWorker {
   /**
    * Service for instantiating a Component and attaching it to a View at a specified location.
    */
-  interface DynamicComponentLoader {
+  abstract class DynamicComponentLoader {
     
     /**
      * Creates an instance of a Component `type` and attaches it to the first element in the
@@ -13890,7 +14094,7 @@ declare module ngWorker {
    * An `ElementRef` is backed by a render-specific element. In the browser, this is usually a DOM
    * element.
    */
-  interface ElementRef extends RenderElementRef {
+  abstract class ElementRef implements RenderElementRef {
     
     /**
      * The underlying native element or `null` if direct access to native elements is not supported
@@ -13913,6 +14117,8 @@ declare module ngWorker {
      */
     nativeElement: any;
     
+    renderView: RenderViewRef;
+    
   }
 
     
@@ -13928,7 +14134,7 @@ declare module ngWorker {
    * {@link ViewContainerRef#createEmbeddedView}, which will create the View and attach it to the
    * View Container.
    */
-  interface TemplateRef {
+  abstract class TemplateRef {
     
     /**
      * The location in the View where the Embedded View logically belongs to.
@@ -14003,12 +14209,14 @@ declare module ngWorker {
    * <!-- /ViewRef: outer-0 -->
    * ```
    */
-  interface ViewRef extends HostViewRef {
+  abstract class ViewRef implements HostViewRef {
     
     /**
      * Sets `value` of local variable called `variableName` in this View.
      */
     setLocal(variableName: string, value: any): void;
+    
+    changeDetectorRef: ChangeDetectorRef;
     
   }
 
@@ -14066,7 +14274,7 @@ declare module ngWorker {
    * 
    * Notice that the original template is broken down into two separate ProtoViews.
    */
-  interface ProtoViewRef {
+  abstract class ProtoViewRef {
     
   }
 
@@ -14091,7 +14299,7 @@ declare module ngWorker {
    * 
    * <!-- TODO(i): we are also considering ElementRef#viewContainer api -->
    */
-  interface ViewContainerRef {
+  abstract class ViewContainerRef {
     
     /**
      * Anchor element that specifies the location of this container in the containing View.
@@ -14179,7 +14387,15 @@ declare module ngWorker {
    * Component Instance and allows you to destroy the Component Instance via the {@link #dispose}
    * method.
    */
-  interface ComponentRef {
+  abstract class ComponentRef {
+    
+    /**
+     * The injector provided {@link DynamicComponentLoader#loadAsRoot}.
+     * 
+     * TODO(i): this api is useless and should be replaced by an injector retrieved from
+     *     the HostElementRef, which is currently not possible.
+     */
+    injector: Injector;
     
     /**
      * Location of the Host Element of this Component Instance.
@@ -14239,7 +14455,7 @@ declare module ngWorker {
    * });
    * ```
    */
-  interface LifeCycle {
+  abstract class LifeCycle {
     
     /**
      * Invoke this method to explicitly process change detection and its side-effects.
@@ -14332,7 +14548,55 @@ declare module ngWorker {
    * }
    * ```
    */
-  interface NgZone {
+  class NgZone {
+    
+    /**
+     * @param {bool} enableLongStackTrace whether to enable long stack trace. They should only be
+     *               enabled in development mode as they significantly impact perf.
+     */
+    constructor({enableLongStackTrace}: any);
+    
+    /**
+     * Sets the zone hook that is called just before a browser task that is handled by Angular
+     * executes.
+     * 
+     * The hook is called once per browser task that is handled by Angular.
+     * 
+     * Setting the hook overrides any previously set hook.
+     */
+    overrideOnTurnStart(onTurnStartHook: Function): void;
+    
+    /**
+     * Sets the zone hook that is called immediately after Angular zone is done processing the current
+     * task and any microtasks scheduled from that task.
+     * 
+     * This is where we typically do change-detection.
+     * 
+     * The hook is called once per browser task that is handled by Angular.
+     * 
+     * Setting the hook overrides any previously set hook.
+     */
+    overrideOnTurnDone(onTurnDoneHook: Function): void;
+    
+    /**
+     * Sets the zone hook that is called immediately after the `onTurnDone` callback is called and any
+     * microstasks scheduled from within that callback are drained.
+     * 
+     * `onEventDoneFn` is executed outside Angular zone, which means that we will no longer attempt to
+     * sync the UI with any model changes that occur within this callback.
+     * 
+     * This hook is useful for validating application state (e.g. in a test).
+     * 
+     * Setting the hook overrides any previously set hook.
+     */
+    overrideOnEventDone(onEventDoneFn: Function, opt_waitForAsync?: boolean): void;
+    
+    /**
+     * Sets the zone hook that is called when an error is thrown in the Angular zone.
+     * 
+     * Setting the hook overrides any previously set hook.
+     */
+    overrideOnErrorHandler(errorHandler: (error: Error, stack: string) => void): void;
     
     /**
      * Executes the `fn` function synchronously within the Angular zone and returns value returned by
@@ -14472,25 +14736,56 @@ declare module ngWorker {
 
     
   /**
-   * Adds or removes styles based on an {expression}.
+   * The `NgStyle` directive changes styles based on a result of expression evaluation.
    * 
-   * When the expression assigned to `ng-style` evaluates to an object, the corresponding element
-   * styles are updated. Style names to update are taken from the object keys and values - from the
-   * corresponding object values.
-   * 
-   * # Example:
-   * 
-   * ```
-   * <div [ng-style]="{'text-align': alignExp}"></div>
-   * ```
-   * 
-   * In the above example the `text-align` style will be updated based on the `alignExp` value
-   * changes.
+   * An expression assigned to the `ng-style` property must evaluate to an object and the
+   * corresponding element styles are updated based on changes to this object. Style names to update
+   * are taken from the object's keys, and values - from the corresponding object's values.
    * 
    * # Syntax
    * 
-   * - `<div [ng-style]="{'text-align': alignExp}"></div>`
-   * - `<div [ng-style]="styleExp"></div>`
+   * - `<div [ng-style]="{'font-style': style}"></div>`
+   * - `<div [ng-style]="styleExp"></div>` - here the `styleExp` must evaluate to an object
+   * 
+   * ### Example ([live demo](http://plnkr.co/edit/YamGS6GkUh9GqWNQhCyM?p=preview)):
+   * 
+   * ```
+   * import {Component, View, NgStyle} from 'angular2/angular2';
+   * 
+   * @Component({
+   *  selector: 'ng-style-example'
+   * })
+   * @View({
+   *  template: `
+   *    <h1 [ng-style]="{'font-style': style, 'font-size': size, 'font-weight': weight}">
+   *      Change style of this text!
+   *    </h1>
+   * 
+   *    <hr>
+   * 
+   *    <label>Italic: <input type="checkbox" (change)="changeStyle($event)"></label>
+   *    <label>Bold: <input type="checkbox" (change)="changeWeight($event)"></label>
+   *    <label>Size: <input type="text" [value]="size" (change)="size = $event.target.value"></label>
+   *  `,
+   *  directives: [NgStyle]
+   * })
+   * export class NgStyleExample {
+   *    style = 'normal';
+   *    weight = 'normal';
+   *    size = '20px';
+   * 
+   *    changeStyle($event: any) {
+   *      this.style = $event.target.checked ? 'italic' : 'normal';
+   *    }
+   * 
+   *    changeWeight($event: any) {
+   *      this.weight = $event.target.checked ? 'bold' : 'normal';
+   *    }
+   * }
+   * ```
+   * 
+   * In this example the `font-style`, `font-size` and `font-weight` styles will be updated
+   * based on the `style` property's value changes.
    */
   class NgStyle implements DoCheck {
     
@@ -15610,20 +15905,12 @@ declare module ngWorker {
   
 
     
-  function inspectNativeElement(element: any): DebugElement;
-  
-
-    
-  let ELEMENT_PROBE_BINDINGS: any[];
-  
-
-    
   /**
    * A DebugElement contains information from the Angular compiler about an
    * element and provides access to the corresponding ElementInjector and
    * underlying DOM Element, as well as a way to query for children.
    */
-  interface DebugElement {
+  abstract class DebugElement {
     
     componentInstance: any;
     
@@ -15681,18 +15968,19 @@ declare module ngWorker {
   }
 
     
-  /**
-   * Returns a DebugElement for a ElementRef.
-   * 
-   * @param {ElementRef}: elementRef
-   * @return {DebugElement}
-   */
-  function inspectElement(elementRef: ElementRef): DebugElement;
+  function asNativeElements(arr: DebugElement[]): any[];
   
 
     
-  function asNativeElements(arr: DebugElement[]): any[];
-  
+  class By {
+    
+    static all(): Function;
+    
+    static css(selector: string): Predicate<DebugElement>;
+    
+    static directive(type: Type): Predicate<DebugElement>;
+    
+  }
 
     
   class Scope {
@@ -15706,15 +15994,22 @@ declare module ngWorker {
   }
 
     
-  class By {
+  /**
+   * Returns a DebugElement for a ElementRef.
+   * 
+   * @param {ElementRef}: elementRef
+   * @return {DebugElement}
+   */
+  function inspectElement(elementRef: ElementRef): DebugElement;
+  
+
     
-    static all(): Function;
+  function inspectNativeElement(element: any): DebugElement;
+  
+
     
-    static css(selector: string): Predicate<DebugElement>;
-    
-    static directive(type: Type): Predicate<DebugElement>;
-    
-  }
+  let ELEMENT_PROBE_BINDINGS: any[];
+  
 
     
   enum ChangeDetectionStrategy {
@@ -15846,10 +16141,7 @@ declare module ngWorker {
   }
 
     
-  /**
-   * Reference to a component's change detection object.
-   */
-  interface ChangeDetectorRef {
+  abstract class ChangeDetectorRef {
     
     /**
      * Marks all {@link OnPush} ancestors as to be checked.
@@ -16382,7 +16674,7 @@ declare module ngWorker {
    * given channel to one MessageBusSink are received on the same channel
    * by the corresponding MessageBusSource.
    */
-  class MessageBus implements MessageBusSource,  MessageBusSink {
+  abstract class MessageBus implements MessageBusSource,  MessageBusSink {
     
     /**
      * Sets up a new channel on the MessageBus.
@@ -16467,22 +16759,29 @@ declare module ngWorker {
     
   }
 
+  
+}
+
+declare module "angular2/web_worker/worker" {
+  export = ngWorker;
+}
+
+
+
+declare module ngUi {  
+  abstract class ClientMessageBroker {
     
-  interface ClientMessageBrokerFactory {
+    runOnService(args: UiArguments, returnType: Type): Promise<any>;
+    
+  }
+
+    
+  abstract class ClientMessageBrokerFactory {
     
     /**
      * Initializes the given channel and attaches a new {@link ClientMessageBroker} to it.
      */
     createMessageBroker(channel: string, runInZone?: boolean): ClientMessageBroker;
-    
-  }
-
-    
-  interface ClientMessageBroker {
-    
-    channel: any;
-    
-    runOnService(args: UiArguments, returnType: Type): Promise<any>;
     
   }
 
@@ -16509,31 +16808,6 @@ declare module ngWorker {
   }
 
     
-  interface ServiceMessageBrokerFactory {
-    
-    /**
-     * Initializes the given channel and attaches a new {@link ServiceMessageBroker} to it.
-     */
-    createMessageBroker(channel: string, runInZone?: boolean): ServiceMessageBroker;
-    
-  }
-
-    
-  /**
-   * Helper class for UIComponents that allows components to register methods.
-   * If a registered method message is received from the broker on the worker,
-   * the UIMessageBroker deserializes its arguments and calls the registered method.
-   * If that method returns a promise, the UIMessageBroker returns the result to the worker.
-   */
-  interface ServiceMessageBroker {
-    
-    channel: any;
-    
-    registerMethod(methodName: string, signature: Type[], method: Function, returnType?: Type): void;
-    
-  }
-
-    
   class ReceivedMessage {
     
     constructor(data: {[key: string]: any});
@@ -16549,109 +16823,32 @@ declare module ngWorker {
   }
 
     
-  var Renderer: InjectableReference;
-  
+  abstract class ServiceMessageBroker {
+    
+    registerMethod(methodName: string, signature: Type[], method: Function, returnType?: Type): void;
+    
+  }
 
     
-  var RenderProtoViewRef: InjectableReference;
-  
+  abstract class ServiceMessageBrokerFactory {
+    
+    /**
+     * Initializes the given channel and attaches a new {@link ServiceMessageBroker} to it.
+     */
+    createMessageBroker(channel: string, runInZone?: boolean): ServiceMessageBroker;
+    
+  }
 
     
-  var ResolvedBinding: InjectableReference;
-  
-
-    
-  var InstantiationError: InjectableReference;
-  
-
-    
-  var PlatformRef: InjectableReference;
-  
-
-    
-  var ApplicationRef: InjectableReference;
-  
-
-    
-  var Compiler: InjectableReference;
-  
-
-    
-  var AppViewManager: InjectableReference;
-  
-
-    
-  var DynamicComponentLoader: InjectableReference;
-  
-
-    
-  var ElementRef: InjectableReference;
-  
-
-    
-  var TemplateRef: InjectableReference;
-  
-
-    
-  var ViewRef: InjectableReference;
-  
-
-    
-  var ProtoViewRef: InjectableReference;
-  
-
-    
-  var ViewContainerRef: InjectableReference;
-  
-
-    
-  var ComponentRef: InjectableReference;
-  
-
-    
-  var LifeCycle: InjectableReference;
-  
-
-    
-  var NgZone: InjectableReference;
-  
-
-    
-  var DebugElement: InjectableReference;
-  
-
-    
-  var ChangeDetectorRef: InjectableReference;
-  
-
-    
-  var ClientMessageBrokerFactory: InjectableReference;
-  
-
-    
-  var ClientMessageBroker: InjectableReference;
-  
-
-    
-  var ServiceMessageBrokerFactory: InjectableReference;
-  
-
-    
-  var ServiceMessageBroker: InjectableReference;
-  
-
-  
-}
-
-declare module "angular2/web_worker/worker" {
-  export = ngWorker;
-}
-
-
-
-declare module ngUi {  
   let PRIMITIVE: Type;
   
+
+    
+  interface ConcreteType extends Type {
+    
+    new(...args: any[]): any;
+    
+  }
 
     
   /**
@@ -16662,8 +16859,6 @@ declare module ngUi {
    * the `MyCustomComponent` constructor function.
    */
   interface Type extends Function {
-    
-    new(...args: any[]): any;
     
   }
 
@@ -16828,7 +17023,55 @@ declare module ngUi {
    * }
    * ```
    */
-  interface NgZone {
+  class NgZone {
+    
+    /**
+     * @param {bool} enableLongStackTrace whether to enable long stack trace. They should only be
+     *               enabled in development mode as they significantly impact perf.
+     */
+    constructor({enableLongStackTrace}: any);
+    
+    /**
+     * Sets the zone hook that is called just before a browser task that is handled by Angular
+     * executes.
+     * 
+     * The hook is called once per browser task that is handled by Angular.
+     * 
+     * Setting the hook overrides any previously set hook.
+     */
+    overrideOnTurnStart(onTurnStartHook: Function): void;
+    
+    /**
+     * Sets the zone hook that is called immediately after Angular zone is done processing the current
+     * task and any microtasks scheduled from that task.
+     * 
+     * This is where we typically do change-detection.
+     * 
+     * The hook is called once per browser task that is handled by Angular.
+     * 
+     * Setting the hook overrides any previously set hook.
+     */
+    overrideOnTurnDone(onTurnDoneHook: Function): void;
+    
+    /**
+     * Sets the zone hook that is called immediately after the `onTurnDone` callback is called and any
+     * microstasks scheduled from within that callback are drained.
+     * 
+     * `onEventDoneFn` is executed outside Angular zone, which means that we will no longer attempt to
+     * sync the UI with any model changes that occur within this callback.
+     * 
+     * This hook is useful for validating application state (e.g. in a test).
+     * 
+     * Setting the hook overrides any previously set hook.
+     */
+    overrideOnEventDone(onEventDoneFn: Function, opt_waitForAsync?: boolean): void;
+    
+    /**
+     * Sets the zone hook that is called when an error is thrown in the Angular zone.
+     * 
+     * Setting the hook overrides any previously set hook.
+     */
+    overrideOnErrorHandler(errorHandler: (error: Error, stack: string) => void): void;
     
     /**
      * Executes the `fn` function synchronously within the Angular zone and returns value returned by
@@ -16909,7 +17152,7 @@ declare module ngUi {
    * given channel to one MessageBusSink are received on the same channel
    * by the corresponding MessageBusSource.
    */
-  class MessageBus implements MessageBusSource,  MessageBusSink {
+  abstract class MessageBus implements MessageBusSource,  MessageBusSink {
     
     /**
      * Sets up a new channel on the MessageBus.
@@ -16993,107 +17236,6 @@ declare module ngUi {
     to(channel: string): EventEmitter;
     
   }
-
-    
-  interface ClientMessageBrokerFactory {
-    
-    /**
-     * Initializes the given channel and attaches a new {@link ClientMessageBroker} to it.
-     */
-    createMessageBroker(channel: string, runInZone?: boolean): ClientMessageBroker;
-    
-  }
-
-    
-  interface ClientMessageBroker {
-    
-    channel: any;
-    
-    runOnService(args: UiArguments, returnType: Type): Promise<any>;
-    
-  }
-
-    
-  class FnArg {
-    
-    constructor(value: any, type: Type);
-    
-    value: any;
-    
-    type: Type;
-    
-  }
-
-    
-  class UiArguments {
-    
-    constructor(method: string, args?: FnArg[]);
-    
-    method: string;
-    
-    args: FnArg[];
-    
-  }
-
-    
-  interface ServiceMessageBrokerFactory {
-    
-    /**
-     * Initializes the given channel and attaches a new {@link ServiceMessageBroker} to it.
-     */
-    createMessageBroker(channel: string, runInZone?: boolean): ServiceMessageBroker;
-    
-  }
-
-    
-  /**
-   * Helper class for UIComponents that allows components to register methods.
-   * If a registered method message is received from the broker on the worker,
-   * the UIMessageBroker deserializes its arguments and calls the registered method.
-   * If that method returns a promise, the UIMessageBroker returns the result to the worker.
-   */
-  interface ServiceMessageBroker {
-    
-    channel: any;
-    
-    registerMethod(methodName: string, signature: Type[], method: Function, returnType?: Type): void;
-    
-  }
-
-    
-  class ReceivedMessage {
-    
-    constructor(data: {[key: string]: any});
-    
-    method: string;
-    
-    args: any[];
-    
-    id: string;
-    
-    type: string;
-    
-  }
-
-    
-  var NgZone: InjectableReference;
-  
-
-    
-  var ClientMessageBrokerFactory: InjectableReference;
-  
-
-    
-  var ClientMessageBroker: InjectableReference;
-  
-
-    
-  var ServiceMessageBrokerFactory: InjectableReference;
-  
-
-    
-  var ServiceMessageBroker: InjectableReference;
-  
 
   
 }

@@ -4,12 +4,13 @@ import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
 import {ROUTER_DIRECTIVES, RouteConfig, Location,routerBindings, LocationStrategy, HashLocationStrategy, Route, Router} from 'angular2/router';
 
-@Component({selector: 'demo-app'})
-
-@View({
-    templateUrl: './demo-app.html',
-    directives:[DemoPage, About, ROUTER_DIRECTIVES]
-})
+@Component(
+    {
+        selector: 'demo-app',
+        templateUrl: './demo-app.html',
+        directives:[DemoPage, About, ROUTER_DIRECTIVES]
+    }
+)
 
 @RouteConfig([
     new Route({path: '/', component: DemoPage, as: 'Home'}),
