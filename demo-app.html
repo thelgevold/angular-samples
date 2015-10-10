@@ -3,8 +3,9 @@
         <div class="container-fluid">
             <div>
                 <ul class="nav navbar-nav">
-                    <li [class.active]="getLinkStyle('')"><a [router-link]="['/Home']" class="link">Demos</a></li>
                     <li [class.active]="getLinkStyle('/about/Welcome')"><a [router-link]="['/About',{'id':'Welcome'}]" class="link">About</a></li>
+                    <li [class.active]="getLinkStyle('')"><a [router-link]="['/Home']" class="link">Demos</a></li>
+                    <li [class.active]="getLinkStyle('/lazy')"><a [router-link]="['/Lazy']" class="link">Lazy Loaded</a></li>
                 </ul>
             </div>
         </div>

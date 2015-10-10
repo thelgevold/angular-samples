@@ -30,10 +30,23 @@ var MyDemoApp = (function () {
         }),
         router_1.RouteConfig([
             new router_1.Route({ path: '/', component: demo_page_1.DemoPage, as: 'Home' }),
-            new router_1.Route({ path: '/about/:id', component: about_1.About, as: 'About' })
+            new router_1.Route({ path: '/about/:id', component: about_1.About, as: 'About' }),
+            new router_1.AsyncRoute({
+                path: '/lazy',
+                loader: function () { return ComponentHelper.LoadComponentAsync('LazyLoaded', './components/lazy-loaded/lazy-loaded'); },
+                as: 'Lazy'
+            })
         ]), 
         __metadata('design:paramtypes', [router_1.Router, router_1.Location])
     ], MyDemoApp);
     return MyDemoApp;
+})();
+var ComponentHelper = (function () {
+    function ComponentHelper() {
+    }
+    ComponentHelper.LoadComponentAsync = function (name, path) {
+        return System.import(path).then(function (c) { return c[name]; });
+    };
+    return ComponentHelper;
 })();
 angular2_1.bootstrap(MyDemoApp, [router_1.routerBindings(MyDemoApp), http_1.HTTP_BINDINGS, angular2_1.bind(router_1.LocationStrategy).toClass(router_1.HashLocationStrategy)]);
