@@ -64,3 +64,7 @@ ul{
     background-color: black;
     cursor: move;
 }
+
+.input-controls{
+    margin-bottom: 30px;
+}

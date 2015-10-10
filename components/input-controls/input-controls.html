@@ -1,0 +1,57 @@
+<div class="input-controls">
+    <h4>"Two way bindings"</h4>
+
+    <input [(ng-model)]="name" />
+
+    <div>Current Value: {{name}}</div>
+</div>
+
+<div class="input-controls">
+    <h4>Select a gender</h4>
+    <div>
+        <label>
+            <input #male name="gender" type="radio" value="Male" (click)="gender = male.value" />
+            Male
+        </label>
+    </div>
+    <div>
+        <label>
+            <input #female name="gender" type="radio"  value="Female" (click)="gender = female.value" />
+            Female
+        </label>
+    </div>
+    <div>
+        Selected gender is <strong>{{gender}}</strong>
+    </div>
+</div>
+
+<div class="input-controls">
+    <h4>Select your programming skills</h4>
+    <div>
+        <label>
+            <input #angularcb type="checkbox" (change)="angular = angularcb.checked" />
+            Angular
+        </label>
+    </div>
+    <div>
+        <label>
+            <input #javascriptcb type="checkbox" (change)="javascript = javascriptcb.checked" />
+            JavaScript
+        </label>
+    </div>
+    <div>
+        <label>
+            <input #csharpcb type="checkbox" (change)="csharp = csharpcb.checked" />
+            C#
+        </label>
+    </div>
+</div>
+
+<div>
+    Selected Skills:
+    <ul>
+        <li *ng-if="angular">Angular</li>
+        <li *ng-if="javascript">JavaScript</li>
+        <li *ng-if="csharp">C#</li>
+    </ul>
+</div>
