@@ -2,7 +2,7 @@
   "name": "angular2-poc",
   "dependencies": {
     "events": "^1.0.2",
+    "fbjs": "^0.3.1",
     "flux": "^2.1.1"
   }
-
 }
