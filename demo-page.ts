@@ -15,6 +15,7 @@ import {Algorithms} from './components/algorithms/algorithms';
 import {Angular2Host} from './components/react-integration/angular-2-host';
 import {JqueryIntegration} from './components/jquery-integration/jquery-integration';
 import {InputControls} from './components/input-controls/input-controls';
+import {AddressBook} from './components/dependency-injection/address-book';
 
 @Component({
     selector: 'demo-page'
@@ -23,7 +24,7 @@ import {InputControls} from './components/input-controls/input-controls';
 @View({
     templateUrl: './demo-page.html',
     directives: [Algorithms,Spreadsheet, HttpSample, Greeting, ContactList, TreeView, BoundTextbox, Grid,
-                 CoreDirectives, IgnoreBindings, NgIf, NgClass, Angular2Host, JqueryIntegration, InputControls]
+                 CoreDirectives, IgnoreBindings, NgIf, NgClass, Angular2Host, JqueryIntegration, InputControls, AddressBook]
 })
 
 export class DemoPage {
@@ -34,7 +35,7 @@ export class DemoPage {
 
     constructor(){
 
-        this.currentComponent = 'algorithms';
+        this.currentComponent = 'address';
         this.loadDirectories();
         this.people = this.getPeople();
         this.columns = this.getColumns();

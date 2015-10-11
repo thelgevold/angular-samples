@@ -3,6 +3,7 @@ import {Component, View, bootstrap, bind} from 'angular2/angular2';
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
 import {ROUTER_DIRECTIVES, RouteConfig, Location,routerBindings, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router} from 'angular2/router';
+import {AddressBookTitleService} from './components/dependency-injection/address-book-title-service';
 
 declare var System:any;
 
@@ -46,4 +47,4 @@ class ComponentHelper{
     }
 }
 
-bootstrap(MyDemoApp,[routerBindings(MyDemoApp), HTTP_BINDINGS, bind(LocationStrategy).toClass(HashLocationStrategy)]);
+bootstrap(MyDemoApp,[AddressBookTitleService,routerBindings(MyDemoApp), HTTP_BINDINGS, bind(LocationStrategy).toClass(HashLocationStrategy)]);

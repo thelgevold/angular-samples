@@ -13,6 +13,7 @@
             <a (click)="selectComponent('algorithms')" [ng-class]="getActiveClass('algorithms')" class="list-group-item">Algorithms</a>
             <a (click)="selectComponent('react')" [ng-class]="getActiveClass('react')" class="list-group-item">React Integration</a>
             <a (click)="selectComponent('spreadsheet')" [ng-class]="getActiveClass('spreadsheet')" class="list-group-item">Virtualized Spreadsheet</a>
+            <a (click)="selectComponent('address')" [ng-class]="getActiveClass('address')" class="list-group-item">Address Book</a>
             <a (click)="selectComponent('grid')" [ng-class]="getActiveClass('grid')" class="list-group-item">Data Grid</a>
             <a (click)="selectComponent('jquery')" [ng-class]="getActiveClass('jquery')" class="list-group-item">JQuery Integration</a>
             <a (click)="selectComponent('http')" [ng-class]="getActiveClass('http')" class="list-group-item">Http</a>
@@ -36,6 +37,18 @@
                         Integrating React in Angular 2.0
                     </div>
                     <angular-2-host></angular-2-host>
+                </div>
+            </div>
+
+            <div class="panel panel-default" *ng-if="isActive('address')">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Address Book</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-info" role="alert">
+                        Demoing Angular 2.0 dependency injection
+                    </div>
+                    <address-book></address-book>
                 </div>
             </div>
 

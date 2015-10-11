@@ -1,0 +1,10 @@
+<div>
+    <h2>{{title}}</h2>
+
+    <table class="table">
+        <tr *ng-for="#person of result.people">
+            <td>{{person.name}}</td>
+            <td>{{person.address}}</td>
+        </tr>
+    </table>
+</div>
