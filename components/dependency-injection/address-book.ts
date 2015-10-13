@@ -7,7 +7,7 @@ import {AddressBookTitleService} from './address-book-title-service';
     selector: 'address-book',
     directives:[CORE_DIRECTIVES],
     templateUrl: './components/dependency-injection/address-book.html',
-    bindings:[AddressBookService]
+    providers:[AddressBookService]
 })
 
 export class AddressBook {

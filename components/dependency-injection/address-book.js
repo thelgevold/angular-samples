@@ -26,7 +26,7 @@ var AddressBook = (function () {
             selector: 'address-book',
             directives: [angular2_1.CORE_DIRECTIVES],
             templateUrl: './components/dependency-injection/address-book.html',
-            bindings: [address_book_service_1.AddressBookService]
+            providers: [address_book_service_1.AddressBookService]
         }), 
         __metadata('design:paramtypes', [address_book_service_1.AddressBookService, address_book_title_service_1.AddressBookTitleService])
     ], AddressBook);
