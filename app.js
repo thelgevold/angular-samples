@@ -50,4 +50,4 @@ var ComponentHelper = (function () {
     };
     return ComponentHelper;
 })();
-angular2_1.bootstrap(MyDemoApp, [address_book_title_service_1.AddressBookTitleService, router_1.routerBindings(MyDemoApp), http_1.HTTP_BINDINGS, angular2_1.bind(router_1.LocationStrategy).toClass(router_1.HashLocationStrategy)]);
+angular2_1.bootstrap(MyDemoApp, [address_book_title_service_1.AddressBookTitleService, router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, angular2_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy })]);

@@ -1,4 +1,4 @@
-// Type definitions for Angular v2.0.0-local_sha.35a61b4
+// Type definitions for Angular v2.0.0-local_sha.d02b794
 // Project: http://angular.io/
 // Definitions by: angular team <https://github.com/angular/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -85,7 +85,7 @@ declare module ngHttp {
   /**
    * A mock backend for testing the {@link Http} service.
    * 
-   * This class can be injected in tests, and should be used to override bindings
+   * This class can be injected in tests, and should be used to override providers
    * to other backends, such as {@link XHRBackend}.
    * 
    * #Example
@@ -96,9 +96,9 @@ declare module ngHttp {
    *   var connection;
    *   var injector = Injector.resolveAndCreate([
    *     MockBackend,
-   *     bind(Http).toFactory((backend, defaultOptions) => {
+   *     provide(Http, {useFactory: (backend, defaultOptions) => {
    *       return new Http(backend, defaultOptions)
-   *     }, [MockBackend, DefaultOptions])]);
+   *     }, deps: [MockBackend, DefaultOptions]})]);
    *   var http = injector.get(Http);
    *   var backend = injector.get(MockBackend);
    *   //Assign any newly-created connection to local variable
@@ -133,9 +133,9 @@ declare module ngHttp {
      *   var text; //this will be set from mock response
      *   var injector = Injector.resolveAndCreate([
      *     MockBackend,
-     *     bind(Http).toFactory(backend, options) {
+     *     provide(Http, {useFactory: (backend, options) {
      *       return new Http(backend, options);
-     *     }, [MockBackend, BaseRequestOptions]]);
+     *     }, deps: [MockBackend, BaseRequestOptions]}]);
      *   var backend = injector.get(MockBackend);
      *   var http = injector.get(Http);
      *   backend.connections.subscribe(c => connection = c);
@@ -210,7 +210,7 @@ declare module ngHttp {
    * 
    * ```typescript
    * import {Injectable, Injector} from 'angular2/angular2';
-   * import {HTTP_BINDINGS, Http, Request, RequestMethods} from 'angular2/http';
+   * import {HTTP_PROVIDERS, Http, Request, RequestMethods} from 'angular2/http';
    * 
    * @Injectable()
    * class AutoAuthenticator {
@@ -224,7 +224,7 @@ declare module ngHttp {
    *   }
    * }
    * 
-   * var injector = Injector.resolveAndCreate([HTTP_BINDINGS, AutoAuthenticator]);
+   * var injector = Injector.resolveAndCreate([HTTP_PROVIDERS, AutoAuthenticator]);
    * var authenticator = injector.get(AutoAuthenticator);
    * authenticator.request('people.json').subscribe(res => {
    *   //URL should have included '?password=123'
@@ -440,15 +440,15 @@ declare module ngHttp {
    * ### Example ([live demo](http://plnkr.co/edit/LEKVSx?p=preview))
    * 
    * ```typescript
-   * import {bind, bootstrap} from 'angular2/angular2';
-   * import {HTTP_BINDINGS, Http, BaseRequestOptions, RequestOptions} from 'angular2/http';
+   * import {provide, bootstrap} from 'angular2/angular2';
+   * import {HTTP_PROVIDERS, Http, BaseRequestOptions, RequestOptions} from 'angular2/http';
    * import {App} from './myapp';
    * 
    * class MyOptions extends BaseRequestOptions {
    *   search: string = 'coreTeam=true';
    * }
    * 
-   * bootstrap(App, [HTTP_BINDINGS, bind(RequestOptions).toClass(MyOptions)]);
+   * bootstrap(App, [HTTP_PROVIDERS, provide(RequestOptions, {useClass: MyOptions})]);
    * ```
    * 
    * The options could also be extended when manually creating a {@link Request}
@@ -574,15 +574,16 @@ declare module ngHttp {
    * ### Example ([live demo](http://plnkr.co/edit/qv8DLT?p=preview))
    * 
    * ```typescript
-   * import {bind, bootstrap} from 'angular2/angular2';
-   * import {HTTP_BINDINGS, Headers, Http, BaseResponseOptions, ResponseOptions} from 'angular2/http';
+   * import {provide, bootstrap} from 'angular2/angular2';
+   * import {HTTP_PROVIDERS, Headers, Http, BaseResponseOptions, ResponseOptions} from
+   * 'angular2/http';
    * import {App} from './myapp';
    * 
    * class MyOptions extends BaseResponseOptions {
    *   headers:Headers = new Headers({network: 'github'});
    * }
    * 
-   * bootstrap(App, [HTTP_BINDINGS, bind(ResponseOptions).toClass(MyOptions)]);
+   * bootstrap(App, [HTTP_PROVIDERS, provide(ResponseOptions, {useClass: MyOptions})]);
    * ```
    * 
    * The options could also be extended when manually creating a {@link Response}
@@ -697,13 +698,13 @@ declare module ngHttp {
    * #Example
    * 
    * ```
-   * import {Http, MyNodeBackend, HTTP_BINDINGS, BaseRequestOptions} from 'angular2/http';
+   * import {Http, MyNodeBackend, HTTP_PROVIDERS, BaseRequestOptions} from 'angular2/http';
    * @Component({
-   *   viewBindings: [
-   *     HTTP_BINDINGS,
-   *     bind(Http).toFactory((backend, options) => {
+   *   viewProviders: [
+   *     HTTP_PROVIDERS,
+   *     provide(Http, {useFactory: (backend, options) => {
    *       return new Http(backend, options);
-   *     }, [MyNodeBackend, BaseRequestOptions])]
+   *     }, deps: [MyNodeBackend, BaseRequestOptions]})]
    * })
    * class MyComponent {
    *   constructor(http:Http) {
@@ -774,9 +775,12 @@ declare module ngHttp {
    * #Example
    * 
    * ```typescript
-   * import {Http, HTTP_BINDINGS} from 'angular2/http';
-   * @Component({selector: 'http-app', viewBindings: [HTTP_BINDINGS]})
-   * @View({templateUrl: 'people.html'})
+   * import {Http, HTTP_PROVIDERS} from 'angular2/http';
+   * @Component({
+   *   selector: 'http-app',
+   *   viewProviders: [HTTP_PROVIDERS],
+   *   templateUrl: 'people.html'
+   * })
    * class PeopleComponent {
    *   constructor(http: Http) {
    *     http.get('people.json')
@@ -798,7 +802,7 @@ declare module ngHttp {
    * 
    * The default construct used to perform requests, `XMLHttpRequest`, is abstracted as a "Backend" (
    * {@link XHRBackend} in this case), which could be mocked with dependency injection by replacing
-   * the {@link XHRBackend} binding, as in the following example:
+   * the {@link XHRBackend} provider, as in the following example:
    * 
    * #Example
    * 
@@ -807,11 +811,11 @@ declare module ngHttp {
    * var injector = Injector.resolveAndCreate([
    *   BaseRequestOptions,
    *   MockBackend,
-   *   bind(Http).toFactory(
+   *   provide(Http, {useFactory:
    *       function(backend, defaultOptions) {
    *         return new Http(backend, defaultOptions);
    *       },
-   *       [MockBackend, BaseRequestOptions])
+   *       deps: [MockBackend, BaseRequestOptions]})
    * ]);
    * var http = injector.get(Http);
    * http.get('request-from-mock-backend.json').subscribe((res:Response) => doSomething(res));
@@ -1064,20 +1068,18 @@ declare module ngHttp {
   /**
    * Provides a basic set of injectables to use the {@link Http} service in any application.
    * 
-   * The `HTTP_BINDINGS` should be included either in a component's injector,
+   * The `HTTP_PROVIDERS` should be included either in a component's injector,
    * or in the root injector when bootstrapping an application.
    * 
    * ### Example ([live demo](http://plnkr.co/edit/snj7Nv?p=preview))
    * 
    * ```
    * import {bootstrap, Component, NgFor, View} from 'angular2/angular2';
-   * import {HTTP_BINDINGS, Http} from 'angular2/http';
+   * import {HTTP_PROVIDERS, Http} from 'angular2/http';
    * 
    * @Component({
    *   selector: 'app',
-   *   bindings: [HTTP_BINDINGS]
-   * })
-   * @View({
+   *   providers: [HTTP_PROVIDERS],
    *   template: `
    *     <div>
    *       <h1>People</h1>
@@ -1107,11 +1109,11 @@ declare module ngHttp {
    *   .catch(err => console.error(err));
    * ```
    * 
-   * The primary public API included in `HTTP_BINDINGS` is the {@link Http} class.
-   * However, other bindings required by `Http` are included,
+   * The primary public API included in `HTTP_PROVIDERS` is the {@link Http} class.
+   * However, other providers required by `Http` are included,
    * which may be beneficial to override in certain cases.
    * 
-   * The bindings included in `HTTP_BINDINGS` include:
+   * The providers included in `HTTP_PROVIDERS` include:
    *  * {@link Http}
    *  * {@link XHRBackend}
    *  * `BrowserXHR` - Private factory to create `XMLHttpRequest` instances
@@ -1120,38 +1122,38 @@ declare module ngHttp {
    * 
    * There may be cases where it makes sense to extend the base request options,
    * such as to add a search string to be appended to all URLs.
-   * To accomplish this, a new binding for {@link RequestOptions} should
-   * be added in the same injector as `HTTP_BINDINGS`.
+   * To accomplish this, a new provider for {@link RequestOptions} should
+   * be added in the same injector as `HTTP_PROVIDERS`.
    * 
    * ### Example ([live demo](http://plnkr.co/edit/aCMEXi?p=preview))
    * 
    * ```
-   * import {bind, bootstrap} from 'angular2/angular2';
-   * import {HTTP_BINDINGS, BaseRequestOptions, RequestOptions} from 'angular2/http';
+   * import {provide, bootstrap} from 'angular2/angular2';
+   * import {HTTP_PROVIDERS, BaseRequestOptions, RequestOptions} from 'angular2/http';
    * 
    * class MyOptions extends BaseRequestOptions {
    *   search: string = 'coreTeam=true';
    * }
    * 
-   * bootstrap(App, [HTTP_BINDINGS, bind(RequestOptions).toClass(MyOptions)])
+   * bootstrap(App, [HTTP_PROVIDERS, provide(RequestOptions, {useClass: MyOptions})])
    *   .catch(err => console.error(err));
    * ```
    * 
    * Likewise, to use a mock backend for unit tests, the {@link XHRBackend}
-   * binding should be bound to {@link MockBackend}.
+   * provider should be bound to {@link MockBackend}.
    * 
    * ### Example ([live demo](http://plnkr.co/edit/7LWALD?p=preview))
    * 
    * ```
-   * import {bind, Injector} from 'angular2/angular2';
-   * import {HTTP_BINDINGS, Http, Response, XHRBackend, MockBackend} from 'angular2/http';
+   * import {provide, Injector} from 'angular2/angular2';
+   * import {HTTP_PROVIDERS, Http, Response, XHRBackend, MockBackend} from 'angular2/http';
    * 
    * var people = [{name: 'Jeff'}, {name: 'Tobias'}];
    * 
    * var injector = Injector.resolveAndCreate([
-   *   HTTP_BINDINGS,
+   *   HTTP_PROVIDERS,
    *   MockBackend,
-   *   bind(XHRBackend).toAlias(MockBackend)
+   *   provide(XHRBackend, {useExisting: MockBackend})
    * ]);
    * var http = injector.get(Http);
    * var backend = injector.get(MockBackend);
@@ -1174,27 +1176,32 @@ declare module ngHttp {
    * });
    * ```
    */
-  let HTTP_BINDINGS: any[];
+  let HTTP_PROVIDERS: any[];
   
 
     
   /**
-   * Provides a basic set of bindings to use the {@link Jsonp} service in any application.
+   * @deprecated
+   */
+  let HTTP_BINDINGS: any;
+  
+
+    
+  /**
+   * Provides a basic set of providers to use the {@link Jsonp} service in any application.
    * 
-   * The `JSONP_BINDINGS` should be included either in a component's injector,
+   * The `JSONP_PROVIDERS` should be included either in a component's injector,
    * or in the root injector when bootstrapping an application.
    * 
    * ### Example ([live demo](http://plnkr.co/edit/vmeN4F?p=preview))
    * 
    * ```
    * import {Component, NgFor, View} from 'angular2/angular2';
-   * import {JSONP_BINDINGS, Jsonp} from 'angular2/http';
+   * import {JSONP_PROVIDERS, Jsonp} from 'angular2/http';
    * 
    * @Component({
    *   selector: 'app',
-   *   bindings: [JSONP_BINDINGS]
-   * })
-   * @View({
+   *   providers: [JSONP_PROVIDERS],
    *   template: `
    *     <div>
    *       <h1>People</h1>
@@ -1217,11 +1224,11 @@ declare module ngHttp {
    * }
    * ```
    * 
-   * The primary public API included in `JSONP_BINDINGS` is the {@link Jsonp} class.
-   * However, other bindings required by `Jsonp` are included,
+   * The primary public API included in `JSONP_PROVIDERS` is the {@link Jsonp} class.
+   * However, other providers required by `Jsonp` are included,
    * which may be beneficial to override in certain cases.
    * 
-   * The bindings included in `JSONP_BINDINGS` include:
+   * The providers included in `JSONP_PROVIDERS` include:
    *  * {@link Jsonp}
    *  * {@link JSONPBackend}
    *  * `BrowserJsonp` - Private factory
@@ -1230,37 +1237,37 @@ declare module ngHttp {
    * 
    * There may be cases where it makes sense to extend the base request options,
    * such as to add a search string to be appended to all URLs.
-   * To accomplish this, a new binding for {@link RequestOptions} should
-   * be added in the same injector as `JSONP_BINDINGS`.
+   * To accomplish this, a new provider for {@link RequestOptions} should
+   * be added in the same injector as `JSONP_PROVIDERS`.
    * 
    * ### Example ([live demo](http://plnkr.co/edit/TFug7x?p=preview))
    * 
    * ```
-   * import {bind, bootstrap} from 'angular2/angular2';
-   * import {JSONP_BINDINGS, BaseRequestOptions, RequestOptions} from 'angular2/http';
+   * import {provide, bootstrap} from 'angular2/angular2';
+   * import {JSONP_PROVIDERS, BaseRequestOptions, RequestOptions} from 'angular2/http';
    * 
    * class MyOptions extends BaseRequestOptions {
    *   search: string = 'coreTeam=true';
    * }
    * 
-   * bootstrap(App, [JSONP_BINDINGS, bind(RequestOptions).toClass(MyOptions)])
+   * bootstrap(App, [JSONP_PROVIDERS, provide(RequestOptions, {useClass: MyOptions})])
    *   .catch(err => console.error(err));
    * ```
    * 
    * Likewise, to use a mock backend for unit tests, the {@link JSONPBackend}
-   * binding should be bound to {@link MockBackend}.
+   * provider should be bound to {@link MockBackend}.
    * 
    * ### Example ([live demo](http://plnkr.co/edit/HDqZWL?p=preview))
    * 
    * ```
-   * import {bind, Injector} from 'angular2/angular2';
-   * import {JSONP_BINDINGS, Jsonp, Response, JSONPBackend, MockBackend} from 'angular2/http';
+   * import {provide, Injector} from 'angular2/angular2';
+   * import {JSONP_PROVIDERS, Jsonp, Response, JSONPBackend, MockBackend} from 'angular2/http';
    * 
    * var people = [{name: 'Jeff'}, {name: 'Tobias'}];
    * var injector = Injector.resolveAndCreate([
-   *   JSONP_BINDINGS,
+   *   JSONP_PROVIDERS,
    *   MockBackend,
-   *   bind(JSONPBackend).toAlias(MockBackend)
+   *   provide(JSONPBackend, {useExisting: MockBackend})
    * ]);
    * var jsonp = injector.get(Jsonp);
    * var backend = injector.get(MockBackend);
@@ -1283,7 +1290,14 @@ declare module ngHttp {
    * });
    * ```
    */
-  let JSONP_BINDINGS: any[];
+  let JSONP_PROVIDERS: any[];
+  
+
+    
+  /**
+   * @deprecated
+   */
+  let JSON_BINDINGS: any;
   
 
   
