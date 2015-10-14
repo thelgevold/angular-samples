@@ -1,4 +1,4 @@
-// Type definitions for Angular v2.0.0-local_sha.d02b794
+// Type definitions for Angular v2.0.0-local_sha.9fc24b9
 // Project: http://angular.io/
 // Definitions by: angular team <https://github.com/angular/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -5247,7 +5247,7 @@ declare module ng {
      * # Usage
      * 
      * `bindingFn` is a function that will be called in the new application's zone.
-     * It should return a {@link Promise} to a list of providers to be used for the
+     * It should return a `Promise` to a list of providers to be used for the
      * new application. Once this promise resolves, the application will be
      * constructed in the same manner as a normal `application()`.
      */
@@ -8129,9 +8129,9 @@ declare module ng {
    * 
    * # Structure
    * 
-   * An Angular form is a collection of {@link Control}s in some hierarchy.
-   * `Control`s can be at the top level or can be organized in {@link ControlGroup}s
-   * or {@link ControlArray}s. This hierarchy is reflected in the form's `value`, a
+   * An Angular form is a collection of `Control`s in some hierarchy.
+   * `Control`s can be at the top level or can be organized in `ControlGroup`s
+   * or `ControlArray`s. This hierarchy is reflected in the form's `value`, a
    * JSON object that mirrors the form structure.
    * 
    * # Submission
@@ -8370,6 +8370,10 @@ declare module ng {
     
     static required(control:Control): {[key: string]: boolean};
     
+    static minLength(minLength: number): Function;
+    
+    static maxLength(maxLength: number): Function;
+    
     static nullValidator(c: any): {[key: string]: boolean};
     
     static compose(validators: Function[]): Function;
@@ -8381,7 +8385,25 @@ declare module ng {
   }
 
     
-  class DefaultValidators {
+  class RequiredValidator {
+    
+  }
+
+    
+  class MinLengthValidator {
+    
+    constructor(minLength: string);
+    
+    minLength: number;
+    
+  }
+
+    
+  class MaxLengthValidator {
+    
+    constructor(maxLength: string);
+    
+    maxLength: number;
     
   }
 
@@ -15267,7 +15289,7 @@ declare module ngWorker {
      * # Usage
      * 
      * `bindingFn` is a function that will be called in the new application's zone.
-     * It should return a {@link Promise} to a list of providers to be used for the
+     * It should return a `Promise` to a list of providers to be used for the
      * new application. Once this promise resolves, the application will be
      * constructed in the same manner as a normal `application()`.
      */
@@ -17341,9 +17363,9 @@ declare module ngWorker {
    * 
    * # Structure
    * 
-   * An Angular form is a collection of {@link Control}s in some hierarchy.
-   * `Control`s can be at the top level or can be organized in {@link ControlGroup}s
-   * or {@link ControlArray}s. This hierarchy is reflected in the form's `value`, a
+   * An Angular form is a collection of `Control`s in some hierarchy.
+   * `Control`s can be at the top level or can be organized in `ControlGroup`s
+   * or `ControlArray`s. This hierarchy is reflected in the form's `value`, a
    * JSON object that mirrors the form structure.
    * 
    * # Submission
@@ -17582,6 +17604,10 @@ declare module ngWorker {
     
     static required(control:Control): {[key: string]: boolean};
     
+    static minLength(minLength: number): Function;
+    
+    static maxLength(maxLength: number): Function;
+    
     static nullValidator(c: any): {[key: string]: boolean};
     
     static compose(validators: Function[]): Function;
@@ -17593,7 +17619,25 @@ declare module ngWorker {
   }
 
     
-  class DefaultValidators {
+  class RequiredValidator {
+    
+  }
+
+    
+  class MinLengthValidator {
+    
+    constructor(minLength: string);
+    
+    minLength: number;
+    
+  }
+
+    
+  class MaxLengthValidator {
+    
+    constructor(maxLength: string);
+    
+    maxLength: number;
     
   }
 
