@@ -1,4 +1,4 @@
-// Type definitions for Angular v2.0.0-local_sha.9fc24b9
+// Type definitions for Angular v2.0.0-local_sha.5256457
 // Project: http://angular.io/
 // Definitions by: angular team <https://github.com/angular/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -6066,9 +6066,24 @@ declare module ng {
     last: T;
     
     /**
-     * returns a new list with the passsed in function applied to each element.
+     * returns a new array with the passed in function applied to each element.
      */
     map<U>(fn: (item: T) => U): U[];
+    
+    /**
+     * returns a filtered array.
+     */
+    filter(fn: (item: T) => boolean): T[];
+    
+    /**
+     * returns a reduced value.
+     */
+    reduce<U>(fn: (acc: U, item: T) => U, init: U): U;
+    
+    /**
+     * converts QueryList into an array
+     */
+    toArray(): T[];
     
     toString(): string;
     
@@ -15672,9 +15687,24 @@ declare module ngWorker {
     last: T;
     
     /**
-     * returns a new list with the passsed in function applied to each element.
+     * returns a new array with the passed in function applied to each element.
      */
     map<U>(fn: (item: T) => U): U[];
+    
+    /**
+     * returns a filtered array.
+     */
+    filter(fn: (item: T) => boolean): T[];
+    
+    /**
+     * returns a reduced value.
+     */
+    reduce<U>(fn: (acc: U, item: T) => U, init: U): U;
+    
+    /**
+     * converts QueryList into an array
+     */
+    toArray(): T[];
     
     toString(): string;
     
