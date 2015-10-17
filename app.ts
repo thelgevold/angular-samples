@@ -2,7 +2,7 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {Component, View, bootstrap, provide} from 'angular2/angular2';
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
-import {ROUTER_PRIMARY_COMPONENT,ROUTER_DIRECTIVES, RouteConfig, Location,ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router} from 'angular2/router';
+import {ROUTER_DIRECTIVES, RouteConfig, Location,ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router} from 'angular2/router';
 import {AddressBookTitleService} from './components/dependency-injection/address-book-title-service';
 
 declare var System:any;
@@ -54,5 +54,4 @@ class ComponentHelper{
 }
 
 bootstrap(MyDemoApp,[AddressBookTitleService,ROUTER_PROVIDERS, HTTP_PROVIDERS,
-          provide(LocationStrategy, {useClass: HashLocationStrategy}),
-          provide(ROUTER_PRIMARY_COMPONENT,{useValue:MyDemoApp})]);
+          provide(LocationStrategy, {useClass: HashLocationStrategy})]);
