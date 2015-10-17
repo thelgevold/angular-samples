@@ -11,15 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 /// <reference path="./typings/tsd.d.ts" />
 var angular2_1 = require('angular2/angular2');
-var tree_view_1 = require('./components/tree-view/tree-view');
+var tree_view_demo_1 = require('./components/tree-view/tree-view-demo');
 var contact_list_1 = require('./components/contact-list/contact-list');
 var bound_textbox_1 = require('./components/bound-textbox/bound-textbox');
-var directory_1 = require('./components/tree-view/directory');
-var grid_1 = require('./components/grid/grid');
-var column_1 = require('./components/grid/column');
+var grid_demo_1 = require('./components/grid/grid-demo');
 var core_directives_1 = require('./components/core-directives/core-directives');
 var non_bindable_1 = require('./components/non-bindable/non-bindable');
-var greeting_1 = require('./components/greeting/greeting');
+var greeting_component_1 = require('./components/greeting/greeting-component');
 var http_1 = require('./components/http/http');
 var spreadsheet_1 = require('./components/spreadsheet/spreadsheet');
 var algorithms_1 = require('./components/algorithms/algorithms');
@@ -27,56 +25,39 @@ var angular_2_host_1 = require('./components/react-integration/angular-2-host');
 var jquery_integration_1 = require('./components/jquery-integration/jquery-integration');
 var input_controls_1 = require('./components/input-controls/input-controls');
 var address_book_1 = require('./components/dependency-injection/address-book');
+var router_1 = require('angular2/router');
+var router_2 = require('angular2/router');
 var DemoPage = (function () {
-    function DemoPage() {
-        this.currentComponent = 'address';
-        this.loadDirectories();
-        this.people = this.getPeople();
-        this.columns = this.getColumns();
+    function DemoPage(location) {
+        this.location = location;
     }
-    DemoPage.prototype.selectComponent = function (component) {
-        this.currentComponent = component;
-    };
-    DemoPage.prototype.isActive = function (component) {
-        return component === this.currentComponent;
-    };
-    DemoPage.prototype.getActiveClass = function (component) {
-        if (this.isActive(component)) {
-            return 'active';
-        }
-    };
-    DemoPage.prototype.getPeople = function () {
-        return [
-            { firstName: 'Joe', lastName: 'Jackson', age: 20 },
-            { firstName: 'Peter', lastName: 'Smith', age: 30 },
-            { firstName: 'Jane', lastName: 'Doe', age: 50 },
-            { firstName: 'Tim', lastName: 'Smith', age: 80 }
-        ];
-    };
-    DemoPage.prototype.getColumns = function () {
-        return [
-            new column_1.Column('firstName', 'First Name'),
-            new column_1.Column('lastName', 'Last Name'),
-            new column_1.Column('age', 'Age')
-        ];
-    };
-    DemoPage.prototype.loadDirectories = function () {
-        var fall2014 = new directory_1.Directory('Fall 2014', [], ['image1.jpg', 'image2.jpg', 'image3.jpg']);
-        var summer2014 = new directory_1.Directory('Summer 2014', [], ['image10.jpg', 'image20.jpg', 'image30.jpg']);
-        var pics = new directory_1.Directory('Pictures', [summer2014, fall2014], []);
-        var music = new directory_1.Directory('Music', [], ['song1.mp3', 'song2.mp3']);
-        this.directories = [pics, music];
+    DemoPage.prototype.getLinkStyle = function (path) {
+        return this.location.path().indexOf(path) > -1;
     };
     DemoPage = __decorate([
         angular2_1.Component({
-            selector: 'demo-page'
-        }),
-        angular2_1.View({
+            selector: 'demo-page',
             templateUrl: './demo-page.html',
-            directives: [algorithms_1.Algorithms, spreadsheet_1.Spreadsheet, http_1.HttpSample, greeting_1.Greeting, contact_list_1.ContactList, tree_view_1.TreeView, bound_textbox_1.BoundTextbox, grid_1.Grid,
-                core_directives_1.CoreDirectives, non_bindable_1.IgnoreBindings, angular2_1.NgIf, angular2_1.NgClass, angular_2_host_1.Angular2Host, jquery_integration_1.JqueryIntegration, input_controls_1.InputControls, address_book_1.AddressBook]
-        }), 
-        __metadata('design:paramtypes', [])
+            directives: [router_1.ROUTER_DIRECTIVES, spreadsheet_1.Spreadsheet, angular2_1.CORE_DIRECTIVES, http_1.HttpSample, grid_demo_1.GridDemo, contact_list_1.ContactList,
+                jquery_integration_1.JqueryIntegration, angular_2_host_1.Angular2Host, algorithms_1.Algorithms, address_book_1.AddressBook, input_controls_1.InputControls, tree_view_demo_1.TreeViewDemo]
+        }),
+        router_1.RouteConfig([
+            new router_1.Route({ path: '/spreadsheet', component: spreadsheet_1.Spreadsheet, as: 'Spreadsheet' }),
+            new router_1.Route({ path: '/jquery', component: jquery_integration_1.JqueryIntegration, as: 'JqueryIntegration' }),
+            new router_1.Route({ path: '/react', component: angular_2_host_1.Angular2Host, as: 'React' }),
+            new router_1.Route({ path: '/algorithms', component: algorithms_1.Algorithms, as: 'Algorithms' }),
+            new router_1.Route({ path: '/address', component: address_book_1.AddressBook, as: 'AddressBook' }),
+            new router_1.Route({ path: '/http', component: http_1.HttpSample, as: 'Http' }),
+            new router_1.Route({ path: 'treeview', component: tree_view_demo_1.TreeViewDemo, as: 'TreeView' }),
+            new router_1.Route({ path: 'grid', component: grid_demo_1.GridDemo, as: 'Grid' }),
+            new router_1.Route({ path: 'input', component: input_controls_1.InputControls, as: 'Input' }),
+            new router_1.Route({ path: 'contact', component: contact_list_1.ContactList, as: 'Contact' }),
+            new router_1.Route({ path: 'textbox', component: bound_textbox_1.BoundTextbox, as: 'Textbox' }),
+            new router_1.Route({ path: 'core', component: core_directives_1.CoreDirectives, as: 'Core' }),
+            new router_1.Route({ path: 'non-bindable', component: non_bindable_1.IgnoreBindings, as: 'IgnoreBindings' }),
+            new router_1.Route({ path: 'greeting', component: greeting_component_1.GreetingComponent, as: 'Greeting' })
+        ]), 
+        __metadata('design:paramtypes', [router_2.Location])
     ], DemoPage);
     return DemoPage;
 })();

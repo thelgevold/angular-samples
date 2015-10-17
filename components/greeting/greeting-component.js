@@ -10,20 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var router_1 = require('angular2/router');
-var router_2 = require('angular2/router');
-var About = (function () {
-    function About(params) {
-        this.id = params.get('id');
+var greeting_1 = require('./greeting');
+var GreetingComponent = (function () {
+    function GreetingComponent() {
     }
-    About = __decorate([
+    GreetingComponent = __decorate([
         angular2_1.Component({
-            selector: 'about',
-            directives: [router_2.ROUTER_DIRECTIVES],
-            templateUrl: './components/about/about.html'
+            template: "<greeting [name]=\"'Joe Smith'\"></greeting>",
+            directives: [greeting_1.Greeting]
         }), 
-        __metadata('design:paramtypes', [router_1.RouteParams])
-    ], About);
-    return About;
+        __metadata('design:paramtypes', [])
+    ], GreetingComponent);
+    return GreetingComponent;
 })();
-exports.About = About;
+exports.GreetingComponent = GreetingComponent;

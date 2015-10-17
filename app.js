@@ -21,7 +21,12 @@ var MyDemoApp = (function () {
         this.location = location;
     }
     MyDemoApp.prototype.getLinkStyle = function (path) {
-        return this.location.path() === path;
+        if (path === this.location.path()) {
+            return true;
+        }
+        else if (path.length > 0) {
+            return this.location.path().indexOf(path) > -1;
+        }
     };
     MyDemoApp = __decorate([
         angular2_1.Component({
@@ -30,8 +35,8 @@ var MyDemoApp = (function () {
             directives: [demo_page_1.DemoPage, about_1.About, router_1.ROUTER_DIRECTIVES]
         }),
         router_1.RouteConfig([
-            new router_1.Route({ path: '/', component: demo_page_1.DemoPage, as: 'Home' }),
-            new router_1.Route({ path: '/about/:id', component: about_1.About, as: 'About' }),
+            new router_1.Route({ path: '/', component: about_1.About, as: 'About' }),
+            new router_1.Route({ path: '/demo/...', component: demo_page_1.DemoPage, as: 'Demo' }),
             new router_1.AsyncRoute({
                 path: '/lazy',
                 loader: function () { return ComponentHelper.LoadComponentAsync('LazyLoaded', './components/lazy-loaded/lazy-loaded'); },
@@ -50,4 +55,6 @@ var ComponentHelper = (function () {
     };
     return ComponentHelper;
 })();
-angular2_1.bootstrap(MyDemoApp, [address_book_title_service_1.AddressBookTitleService, router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS, angular2_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy })]);
+angular2_1.bootstrap(MyDemoApp, [address_book_title_service_1.AddressBookTitleService, router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS,
+    angular2_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy }),
+    angular2_1.provide(router_1.ROUTER_PRIMARY_COMPONENT, { useValue: MyDemoApp })]);

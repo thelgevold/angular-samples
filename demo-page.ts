@@ -1,14 +1,14 @@
 /// <reference path="./typings/tsd.d.ts" />
-import {Component, View, NgIf, NgClass} from 'angular2/angular2';
-import {TreeView} from './components/tree-view/tree-view';
+import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
+import {TreeViewDemo} from './components/tree-view/tree-view-demo';
 import {ContactList} from './components/contact-list/contact-list';
 import {BoundTextbox} from './components/bound-textbox/bound-textbox';
 import {Directory} from './components/tree-view/directory';
-import {Grid} from './components/grid/grid';
+import {GridDemo} from './components/grid/grid-demo';
 import {Column} from './components/grid/column';
 import {CoreDirectives} from './components/core-directives/core-directives';
 import {IgnoreBindings} from './components/non-bindable/non-bindable';
-import {Greeting} from './components/greeting/greeting';
+import {GreetingComponent} from './components/greeting/greeting-component';
 import {HttpSample} from './components/http/http';
 import {Spreadsheet} from './components/spreadsheet/spreadsheet';
 import {Algorithms} from './components/algorithms/algorithms';
@@ -16,77 +16,44 @@ import {Angular2Host} from './components/react-integration/angular-2-host';
 import {JqueryIntegration} from './components/jquery-integration/jquery-integration';
 import {InputControls} from './components/input-controls/input-controls';
 import {AddressBook} from './components/dependency-injection/address-book';
+import {ROUTER_DIRECTIVES, RouteConfig, Route} from 'angular2/router';
+import {Location} from 'angular2/router';
 
 @Component({
-    selector: 'demo-page'
+    selector: 'demo-page',
+    templateUrl: './demo-page.html',
+    directives: [ROUTER_DIRECTIVES, Spreadsheet, CORE_DIRECTIVES, HttpSample, GridDemo, ContactList,
+                 JqueryIntegration, Angular2Host, Algorithms, AddressBook, InputControls, TreeViewDemo]
 })
 
-@View({
-    templateUrl: './demo-page.html',
-    directives: [Algorithms,Spreadsheet, HttpSample, Greeting, ContactList, TreeView, BoundTextbox, Grid,
-                 CoreDirectives, IgnoreBindings, NgIf, NgClass, Angular2Host, JqueryIntegration, InputControls, AddressBook]
-})
+@RouteConfig([
+    new Route({ path: '/spreadsheet', component: Spreadsheet, as: 'Spreadsheet' }),
+    new Route({ path: '/jquery', component: JqueryIntegration, as: 'JqueryIntegration' }),
+    new Route({ path: '/react', component:Angular2Host, as: 'React'}),
+    new Route({ path: '/algorithms', component:Algorithms, as: 'Algorithms'}),
+    new Route({ path: '/address', component:AddressBook, as: 'AddressBook'}),
+    new Route({ path: '/http', component:HttpSample, as: 'Http'}),
+    new Route({ path: 'treeview', component:TreeViewDemo, as: 'TreeView'}),
+    new Route({ path: 'grid', component:GridDemo, as: 'Grid'}),
+    new Route({ path: 'input', component:InputControls, as: 'Input'}),
+    new Route({ path: 'contact', component:ContactList, as: 'Contact'}),
+    new Route({ path: 'textbox', component:BoundTextbox, as: 'Textbox'}),
+    new Route({ path: 'core', component:CoreDirectives, as: 'Core'}),
+    new Route({ path: 'non-bindable', component:IgnoreBindings, as: 'IgnoreBindings'}),
+    new Route({ path: 'greeting', component:GreetingComponent, as: 'Greeting'})
+])
 
 export class DemoPage {
-    directories: Array<Directory>;
-    people: Array<Person>;
-    columns: Array<Column>;
-    currentComponent: string;
 
-    constructor(){
+    location: Location;
 
-        this.currentComponent = 'address';
-        this.loadDirectories();
-        this.people = this.getPeople();
-        this.columns = this.getColumns();
+    constructor(location: Location){
+        this.location = location;
     }
 
-    selectComponent(component){
-        this.currentComponent = component;
+    getLinkStyle(path) {
+        return this.location.path().indexOf(path) > -1;
     }
-
-    isActive(component){
-        return component === this.currentComponent;
-    }
-
-    getActiveClass(component){
-        if(this.isActive(component)){
-            return 'active';
-        }
-    }
-
-    getPeople(): Array<Person> {
-        return [
-            {firstName:'Joe',lastName:'Jackson',age:20},
-            {firstName:'Peter',lastName:'Smith',age:30},
-            {firstName:'Jane',lastName:'Doe',age:50},
-            {firstName:'Tim',lastName:'Smith',age:80}
-        ];
-    }
-
-    getColumns(): Array<Column> {
-        return [
-            new Column('firstName','First Name'),
-            new Column('lastName','Last Name'),
-            new Column('age','Age')
-        ];
-    }
-
-    loadDirectories(){
-
-        const fall2014 = new Directory('Fall 2014',[],['image1.jpg','image2.jpg','image3.jpg']);
-        const summer2014 = new Directory('Summer 2014',[],['image10.jpg','image20.jpg','image30.jpg']);
-        const pics = new Directory('Pictures',[summer2014,fall2014],[]);
-
-        const music = new Directory('Music',[],['song1.mp3','song2.mp3']);
-
-        this.directories = [pics,music];
-    }
-
 }
 
-interface Person {
-    firstName:string;
-    lastName:string;
-    age:number;
-}
+

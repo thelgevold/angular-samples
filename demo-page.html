@@ -11,195 +11,25 @@
 
     <div>
         <div class="list-group col-md-3">
-            <a (click)="selectComponent('algorithms')" [ng-class]="getActiveClass('algorithms')" class="list-group-item">Algorithms</a>
-            <a (click)="selectComponent('react')" [ng-class]="getActiveClass('react')" class="list-group-item">React Integration</a>
-            <a (click)="selectComponent('spreadsheet')" [ng-class]="getActiveClass('spreadsheet')" class="list-group-item">Virtualized Spreadsheet</a>
-            <a (click)="selectComponent('address')" [ng-class]="getActiveClass('address')" class="list-group-item">Address Book</a>
-            <a (click)="selectComponent('grid')" [ng-class]="getActiveClass('grid')" class="list-group-item">Data Grid</a>
-            <a (click)="selectComponent('jquery')" [ng-class]="getActiveClass('jquery')" class="list-group-item">JQuery Integration</a>
-            <a (click)="selectComponent('http')" [ng-class]="getActiveClass('http')" class="list-group-item">Http</a>
-            <a (click)="selectComponent('treeview')" [ng-class]="getActiveClass('treeview')" class="list-group-item">Recursive tree view</a>
-            <a (click)="selectComponent('input')" [ng-class]="getActiveClass('input')" class="list-group-item">Input Controls</a>
-            <a (click)="selectComponent('contact-list')" [ng-class]="getActiveClass('contact-list')" class="list-group-item">Interactive contact list</a>
-            <a (click)="selectComponent('bound-textbox')" [ng-class]="getActiveClass('bound-textbox')" class="list-group-item">Bound Textbox</a>
-            <a (click)="selectComponent('core-directives')" [ng-class]="getActiveClass('core-directives')" class="list-group-item">Core Directives</a>
-            <a (click)="selectComponent('non-bindable')" [ng-class]="getActiveClass('non-bindable')" class="list-group-item">Non Bindable</a>
-            <a (click)="selectComponent('greeting')" [ng-class]="getActiveClass('greeting')" class="list-group-item">Greeting</a>
+            <a [class.active]="getLinkStyle('/demo/spreadsheet')" [router-link]="['/Demo/Spreadsheet']" class="list-group-item">Virtualized Spreadsheet</a>
+            <a [class.active]="getLinkStyle('/demo/react')" [router-link]="['/Demo/React']" class="list-group-item">React Integration</a>
+            <a [class.active]="getLinkStyle('/demo/algorithms')" [router-link]="['/Demo/Algorithms']" class="list-group-item">Algorithms</a>
+            <a [class.active]="getLinkStyle('/demo/http')" [router-link]="['/Demo/Http']" class="list-group-item">Http</a>
+            <a [class.active]="getLinkStyle('/demo/input')" [router-link]="['/Demo/Input']" class="list-group-item">Input Controls</a>
+            <a [class.active]="getLinkStyle('/demo/treeview')" [router-link]="['/Demo/TreeView']" class="list-group-item">Recursive tree view</a>
+            <a [class.active]="getLinkStyle('/demo/grid')" [router-link]="['/Demo/Grid']" class="list-group-item">Data Grid</a>
+            <a [class.active]="getLinkStyle('/demo/address')" [router-link]="['/Demo/AddressBook']" class="list-group-item">Address Book</a>
+            <a [class.active]="getLinkStyle('/demo/jquery')" [router-link]="['/Demo/JqueryIntegration']" class="list-group-item">JQuery Integration</a>
+            <a [class.active]="getLinkStyle('/demo/contact')" [router-link]="['/Demo/Contact']" class="list-group-item">Interactive contact list</a>
+            <a [class.active]="getLinkStyle('/demo/textbox')" [router-link]="['/Demo/Textbox']" class="list-group-item">Bound Textbox</a>
+            <a [class.active]="getLinkStyle('/demo/core')" [router-link]="['/Demo/Core']" class="list-group-item">Core Directives</a>
+            <a [class.active]="getLinkStyle('/demo/non-bindable')" [router-link]="['/Demo/IgnoreBindings']" class="list-group-item">Non Bindable</a>
+            <a [class.active]="getLinkStyle('/demo/greeting')" [router-link]="['/Demo/Greeting']" class="list-group-item">Greeting</a>
        </div>
 
         <div class="col-md-9">
-
-            <div class="panel panel-default" *ng-if="isActive('react')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">React Integration</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Integrating React in Angular 2.0
-                    </div>
-                    <angular-2-host></angular-2-host>
-                </div>
-            </div>
-
-            <div class="panel panel-default" *ng-if="isActive('address')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Address Book</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Demoing Angular 2.0 dependency injection
-                    </div>
-                    <address-book></address-book>
-                </div>
-            </div>
-
-            <div class="panel panel-default" *ng-if="isActive('input')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Input Controls</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Capturing input from controls
-                    </div>
-                    <input-controls></input-controls>
-                </div>
-            </div>
-
-            <div class="panel panel-default" *ng-if="isActive('jquery')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">JQuery Integration</h3>
-                </div>
-                <div id="draggable-parent" class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Integrating JQuery in Angular 2.0
-                    </div>
-                    <jquery-integration></jquery-integration>
-                </div>
-            </div>
-
-
-            <div class="panel panel-default" *ng-if="isActive('algorithms')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Algorithms</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Algorithms components
-                    </div>
-                    <algorithms></algorithms>
-                </div>
-            </div>
-
-
-            <div class="panel panel-default" *ng-if="isActive('spreadsheet')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Spreadsheet sample</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Virtualized spreadsheet component
-                    </div>
-                    <spreadsheet></spreadsheet>
-                </div>
-            </div>
-
-
-            <div class="panel panel-default" *ng-if="isActive('grid')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Data Grid</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Sortable data grid with dynamic columns
-                    </div>
-                    <grid [rows]="people" [columns]="columns"></grid>
-                </div>
-            </div>
-
-            <div class="panel panel-default" *ng-if="isActive('treeview')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Recursive tree view</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Treeview with recursive template and support for click events for expand/collapse and node selection
-                    </div>
-                    <tree-view [directories]=directories></tree-view>
-                </div>
-            </div>
-
-            <div class="panel panel-default" *ng-if="isActive('http')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Http sample</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Simple http request
-                    </div>
-                    <http></http>
-                </div>
-            </div>
-
-            <div class="panel panel-default" *ng-if="isActive('contact-list')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Interactive contact list</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Interactive Angular 2.0 code. Contacts can be entered, added and removed from the list
-                    </div>
-                    <contact-list></contact-list>
-                </div>
-            </div>
-
-            <div class="panel panel-default" *ng-if="isActive('bound-textbox')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Bound Textbox</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Textbox with bound value
-                    </div>
-                    <bound-textbox></bound-textbox>
-                </div>
-            </div>
-
-            <div class="panel panel-default" *ng-if="isActive('core-directives')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Core Directives</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Component where all core directives are imported using 'CORE_DIRECTIVES'. Uses a for loop and an if to print even numbers.
-                    </div>
-                    <core-directives></core-directives>
-                </div>
-            </div>
-
-            <div class="panel panel-default" *ng-if="isActive('non-bindable')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Non Bindable</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Shows how to use non-bindable to tell Angular to not compile or bind the contents of a DOM element.
-                    </div>
-                    <ignore-bindings></ignore-bindings>
-                </div>
-            </div>
-
-            <div class="panel panel-default" *ng-if="isActive('greeting')">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Greeting</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="alert alert-info" role="alert">
-                        Creates a simple greeting on Button Click
-                    </div>
-                    <greeting [name]="'Joe Smith'"></greeting>
-                </div>
-            </div>
-
+            <router-outlet></router-outlet>
         </div>
     </div>
+
 </div>

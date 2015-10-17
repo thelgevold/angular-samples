@@ -2,7 +2,7 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {Component, View, bootstrap, provide} from 'angular2/angular2';
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
-import {ROUTER_DIRECTIVES, RouteConfig, Location,ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router} from 'angular2/router';
+import {ROUTER_PRIMARY_COMPONENT,ROUTER_DIRECTIVES, RouteConfig, Location,ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router} from 'angular2/router';
 import {AddressBookTitleService} from './components/dependency-injection/address-book-title-service';
 
 declare var System:any;
@@ -16,8 +16,8 @@ declare var System:any;
 )
 
 @RouteConfig([
-    new Route({path: '/', component: DemoPage, as: 'Home'}),
-    new Route({path: '/about/:id', component: About, as: 'About'}),
+    new Route({path: '/', component: About, as: 'About'}),
+    new Route({path: '/demo/...', component: DemoPage, as: 'Demo'}),
     new AsyncRoute({
         path: '/lazy',
         loader: () => ComponentHelper.LoadComponentAsync('LazyLoaded','./components/lazy-loaded/lazy-loaded'),
@@ -36,7 +36,13 @@ class MyDemoApp {
     }
 
     getLinkStyle(path) {
-        return this.location.path() === path;
+
+        if(path === this.location.path()){
+            return true;
+        }
+        else if(path.length > 0){
+            return this.location.path().indexOf(path) > -1;
+        }
     }
 }
 
@@ -47,4 +53,6 @@ class ComponentHelper{
     }
 }
 
-bootstrap(MyDemoApp,[AddressBookTitleService,ROUTER_PROVIDERS, HTTP_PROVIDERS, provide(LocationStrategy, {useClass: HashLocationStrategy})]);
+bootstrap(MyDemoApp,[AddressBookTitleService,ROUTER_PROVIDERS, HTTP_PROVIDERS,
+          provide(LocationStrategy, {useClass: HashLocationStrategy}),
+          provide(ROUTER_PRIMARY_COMPONENT,{useValue:MyDemoApp})]);
