@@ -13,17 +13,27 @@ var angular2_1 = require('angular2/angular2');
 var http_1 = require('angular2/http');
 var HttpSample = (function () {
     function HttpSample(http) {
+        this.http = http;
+        this.loadFriendsSuccessFully();
+        this.loadFriendsWithError();
+    }
+    HttpSample.prototype.loadFriendsSuccessFully = function () {
         var _this = this;
         this.result = { friends: [] };
-        http.get('./friends.json').map(function (res) { return res.json(); }).subscribe(function (res) { return _this.result = res; });
-    }
+        this.http.get('./friends.json').map(function (res) { return res.json(); }).subscribe(function (res) { return _this.result = res; });
+    };
+    HttpSample.prototype.loadFriendsWithError = function () {
+        var _this = this;
+        this.result = { friends: [] };
+        this.http.get('./friends2.json').map(function (res) { return res.json(); }).subscribe(function (res) { return _this.result = res; }, function (error) { return _this.error = error; });
+    };
     HttpSample = __decorate([
         angular2_1.Component({
             selector: 'http'
         }),
         angular2_1.View({
             templateUrl: './components/http/http.html',
-            directives: [angular2_1.NgFor]
+            directives: [angular2_1.CORE_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [http_1.Http])
     ], HttpSample);

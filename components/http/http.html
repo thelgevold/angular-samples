@@ -1,4 +1,14 @@
-<h3>List of friends</h3>
+
+<div class="alert alert-success" role="alert">
+    List of friends loaded successfully
+</div>
 <div *ng-for="#friend of result.friends">
     {{friend}}
+</div>
+
+<br>
+<div *ng-if="error">
+    <div class="alert alert-danger" role="alert">
+        There was an error loading the list of friends (Intentional error testing)
+    </div>
 </div>
