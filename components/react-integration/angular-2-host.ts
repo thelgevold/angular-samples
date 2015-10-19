@@ -1,4 +1,4 @@
-import {Component, View} from 'angular2/angular2';
+import {Component, View, OnInit} from 'angular2/angular2';
 import {ReactTreeView} from './react-tree-view';
 
 @Component({
@@ -9,7 +9,7 @@ import {ReactTreeView} from './react-tree-view';
    templateUrl:'./components/react-integration/angular-2-host.html'
 })
 
-export class Angular2Host {
+export class Angular2Host implements OnInit {
 
     onInit(){
         ReactTreeView.initialize('Locations');

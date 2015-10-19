@@ -1,4 +1,4 @@
-import {Component, View, ElementRef,Inject} from 'angular2/angular2';
+import {Component, View, ElementRef, Inject, OnInit} from 'angular2/angular2';
 
 declare var jQuery:any;
 
@@ -10,7 +10,7 @@ declare var jQuery:any;
     templateUrl: './components/jquery-integration/jquery-integration.html'
 })
 
-export class JqueryIntegration {
+export class JqueryIntegration implements OnInit {
     elementRef: ElementRef;
 
     constructor(@Inject(ElementRef) elementRef: ElementRef) {

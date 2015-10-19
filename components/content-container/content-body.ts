@@ -1,4 +1,4 @@
-import {Component,ElementRef} from 'angular2/angular2';
+import {Component,ElementRef,OnInit} from 'angular2/angular2';
 
 declare var jQuery:any;
 
@@ -8,7 +8,7 @@ declare var jQuery:any;
     inputs:['article:article']
 })
 
-export class ContentBody {
+export class ContentBody implements OnInit {
 
     article:IArticle;
     element:ElementRef;
