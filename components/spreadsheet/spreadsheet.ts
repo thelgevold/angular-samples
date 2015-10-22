@@ -1,4 +1,4 @@
-import {Component, View, NgFor, NgModel, NgClass} from 'angular2/angular2';
+import {Component, View, NgFor, NgModel, NgClass, AfterViewChecked} from 'angular2/angular2';
 
 import {SpreadsheetModel} from './spreadsheetModel';
 import {KeyMap} from './key-map';
@@ -14,7 +14,7 @@ import {HeaderRowService} from './header-row-service';
     directives: [NgFor, NgModel, NgClass]
 })
 
-export class Spreadsheet {
+export class Spreadsheet implements AfterViewChecked {
 
     model:SpreadsheetModel;
     rows:Number;
@@ -30,30 +30,11 @@ export class Spreadsheet {
 
     navigate($event){
         this.model.navigate($event.keyCode);
-        this.giveElementFocus();
     }
 
-    giveElementFocus(){
-
-        //TODO: This is a polling hack for giving focus to the current cell when scrolling off the current view
-        //Will need to learn more about how to handle this properly with Angular 2.0
+    afterViewChecked(){
         let cell = document.getElementById(this.model.current.rowIndex + '-' + this.model.current.columnIndex);
-
-        if(cell){
-            cell.focus();
-        }
-
-        else{
-            var interval = setInterval(() => {
-                let cell = document.getElementById(this.model.current.rowIndex + '-' + this.model.current.columnIndex);
-
-                if(cell){
-                    cell.focus();
-                    clearInterval(interval);
-                }
-
-            }, 10);
-        }
+        cell.focus();
     }
 
     getVisibleRows(){
