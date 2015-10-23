@@ -6,7 +6,16 @@
     {{friend}}
 </div>
 
-<br>
+<br/>
+<div class="alert alert-success" role="alert">
+    Loaded contract after first loading a customer
+</div>
+<div>
+    <div>Customer: {{customer.name}}</div>
+    <div>Product: {{contract.product}}</div>
+</div>
+
+<br/>
 <div *ng-if="error">
     <div class="alert alert-danger" role="alert">
         There was an error loading the list of friends (Intentional error testing)
