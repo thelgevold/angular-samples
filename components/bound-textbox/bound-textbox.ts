@@ -6,7 +6,7 @@ import {Component, View} from 'angular2/angular2';
 })
 
 @View({
-    template: '<input [value]="text" (keyup)="typing($event)" />{{text}}'
+    template: '<h1>Bound Textbox</h1><input [value]="text" (keyup)="typing($event)" />{{text}}'
 })
 
 export class BoundTextbox {

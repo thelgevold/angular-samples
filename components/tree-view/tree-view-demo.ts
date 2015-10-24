@@ -3,7 +3,7 @@ import {TreeView} from './tree-view';
 import {Directory} from './directory';
 
 @Component({
-    template: '<tree-view [directories]="directories"></tree-view>',
+    template: '<h1>Recursive TreeView</h1><tree-view [directories]="directories"></tree-view>',
     directives: [NgFor,TreeView,NgIf]
 })
 

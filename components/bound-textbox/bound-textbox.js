@@ -22,7 +22,7 @@ var BoundTextbox = (function () {
             selector: 'bound-textbox'
         }),
         angular2_1.View({
-            template: '<input [value]="text" (keyup)="typing($event)" />{{text}}'
+            template: '<h1>Bound Textbox</h1><input [value]="text" (keyup)="typing($event)" />{{text}}'
         }), 
         __metadata('design:paramtypes', [])
     ], BoundTextbox);

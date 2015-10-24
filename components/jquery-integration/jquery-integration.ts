@@ -18,6 +18,6 @@ export class JqueryIntegration implements OnInit {
     }
 
     onInit() {
-        jQuery(this.elementRef.nativeElement).draggable({containment:'#draggable-parent'});
+        jQuery(this.elementRef.nativeElement).find('.moving-box').draggable({containment:'#draggable-parent'});
     }
 }

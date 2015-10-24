@@ -18,7 +18,7 @@ var JqueryIntegration = (function () {
         this.elementRef = elementRef;
     }
     JqueryIntegration.prototype.onInit = function () {
-        jQuery(this.elementRef.nativeElement).draggable({ containment: '#draggable-parent' });
+        jQuery(this.elementRef.nativeElement).find('.moving-box').draggable({ containment: '#draggable-parent' });
     };
     JqueryIntegration = __decorate([
         angular2_1.Component({

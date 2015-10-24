@@ -25,7 +25,7 @@ var TreeViewDemo = (function () {
     };
     TreeViewDemo = __decorate([
         angular2_1.Component({
-            template: '<tree-view [directories]="directories"></tree-view>',
+            template: '<h1>Recursive TreeView</h1><tree-view [directories]="directories"></tree-view>',
             directives: [angular2_1.NgFor, tree_view_1.TreeView, angular2_1.NgIf]
         }), 
         __metadata('design:paramtypes', [])
