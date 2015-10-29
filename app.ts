@@ -8,12 +8,11 @@ import {AddressBookTitleService} from './components/dependency-injection/address
 declare var System:any;
 
 @Component(
-    {
-        selector: 'demo-app',
-        templateUrl: './demo-app.html',
-        directives:[DemoPage, About, ROUTER_DIRECTIVES]
-    }
-)
+{
+    selector: 'demo-app',
+    templateUrl: './demo-app.html',
+    directives:[DemoPage, About, ROUTER_DIRECTIVES]
+})
 
 @RouteConfig([
     new Route({path: '/', component: About, as: 'About'}),

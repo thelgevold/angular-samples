@@ -1,4 +1,4 @@
-// Type definitions for Angular v2.0.0-local_sha.5256457
+// Type definitions for Angular v2.0.0-local_sha.aaf41fc
 // Project: http://angular.io/
 // Definitions by: angular team <https://github.com/angular/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -53,7 +53,7 @@ declare module ngHttp {
      * Sends a mock response to the connection. This response is the value that is emitted to the
      * {@link ng.EventEmitter} returned by {@link Http}.
      * 
-     * #Example
+     * ### Example
      * 
      * ```
      * var connection;
@@ -88,7 +88,7 @@ declare module ngHttp {
    * This class can be injected in tests, and should be used to override providers
    * to other backends, such as {@link XHRBackend}.
    * 
-   * #Example
+   * ### Example
    * 
    * ```
    * import {MockBackend, DefaultOptions, Http} from 'angular2/http';
@@ -122,7 +122,7 @@ declare module ngHttp {
      * of {@link MockConnection} instances that have been created by this backend. Can be subscribed
      * to in order to respond to connections.
      * 
-     * #Example
+     * ### Example
      * 
      * ```
      * import {MockBackend, Http, BaseRequestOptions} from 'angular2/http';
@@ -268,7 +268,7 @@ declare module ngHttp {
    * usually instantiated by end-users, it is the primary object interacted with when it comes time to
    * add data to a view.
    * 
-   * #Example
+   * ### Example
    * 
    * ```
    * http.request('my-friends.txt').subscribe(response => this.friends = response.text());
@@ -539,7 +539,7 @@ declare module ngHttp {
      * the `options` object. If these values should be merged, it should be done prior to calling
      * `merge` on the `RequestOptions` instance.
      * 
-     * Example ([live demo](http://plnkr.co/edit/6w8XA8YTkDRcPYpdB9dk?p=preview))
+     * ### Example ([live demo](http://plnkr.co/edit/6w8XA8YTkDRcPYpdB9dk?p=preview))
      * 
      * ```typescript
      * import {RequestOptions, Request, RequestMethods} from 'angular2/http';
@@ -667,7 +667,7 @@ declare module ngHttp {
      * This may be useful when sharing a base `ResponseOptions` object inside tests,
      * where certain properties may change from test to test.
      * 
-     * Example ([live demo](http://plnkr.co/edit/1lXquqFfgduTFBWjNoRE?p=preview))
+     * ### Example ([live demo](http://plnkr.co/edit/1lXquqFfgduTFBWjNoRE?p=preview))
      * 
      * ```typescript
      * import {ResponseOptions, Response} from 'angular2/http';
@@ -695,7 +695,7 @@ declare module ngHttp {
    * overridden if a different backend implementation should be used,
    * such as in a node backend.
    * 
-   * #Example
+   * ### Example
    * 
    * ```
    * import {Http, MyNodeBackend, HTTP_PROVIDERS, BaseRequestOptions} from 'angular2/http';
@@ -708,7 +708,7 @@ declare module ngHttp {
    * })
    * class MyComponent {
    *   constructor(http:Http) {
-   *     http('people.json').subscribe(res => this.people = res.json());
+   *     http.request('people.json').subscribe(res => this.people = res.json());
    *   }
    * }
    * ```
@@ -772,7 +772,7 @@ declare module ngHttp {
    * `request` returns an {@link ng.Observable} which will emit a single {@link Response} when a
    * response is received.
    * 
-   * #Example
+   * ### Example
    * 
    * ```typescript
    * import {Http, HTTP_PROVIDERS} from 'angular2/http';
@@ -794,17 +794,17 @@ declare module ngHttp {
    * ```
    * 
    * 
-   * #Example
+   * ### Example
    * 
    * ```
-   * http.get('people.json').observer({next: (value) => this.people = people});
+   * http.get('people.json').observer({next: (value) => this.people = value});
    * ```
    * 
    * The default construct used to perform requests, `XMLHttpRequest`, is abstracted as a "Backend" (
    * {@link XHRBackend} in this case), which could be mocked with dependency injection by replacing
    * the {@link XHRBackend} provider, as in the following example:
    * 
-   * #Example
+   * ### Example
    * 
    * ```typescript
    * import {MockBackend, BaseRequestOptions, Http} from 'angular2/http';

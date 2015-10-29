@@ -1,4 +1,4 @@
-// Type definitions for Angular v2.0.0-local_sha.5256457
+// Type definitions for Angular v2.0.0-local_sha.aaf41fc
 // Project: http://angular.io/
 // Definitions by: angular team <https://github.com/angular/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
@@ -103,8 +103,8 @@ declare module ng {
    *   <div #findme>...</div>
    * </seeker>
    * 
-   * @Component({ selector: 'foo' })
-   * class seeker {
+   * @Component({ selector: 'seeker' })
+   * class Seeker {
    *   constructor(@Query('findme') elList: QueryList<ElementRef>) {...}
    * }
    * ```
@@ -121,7 +121,7 @@ declare module ng {
    * </seeker>
    * 
    *  @Component({
-   *   selector: 'foo'
+   *   selector: 'seeker'
    * })
    * class Seeker {
    *   constructor(@Query('findMe, findMeToo') elList: QueryList<ElementRef>) {...}
@@ -362,7 +362,7 @@ declare module ng {
    * 
    * The directive can inject constant string literals of host element attributes.
    * 
-   * ## Example
+   * ### Example
    * 
    * Suppose we have an `<input>` element and want to know its `type`.
    * 
@@ -418,7 +418,7 @@ declare module ng {
    * When the component class implements some {@link angular2/lifecycle_hooks} the callbacks are
    * called by the change detection at defined points in time during the life of the component.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Component({
@@ -597,7 +597,7 @@ declare module ng {
    * {@link DirectiveMetadata} directives only
    * - `bindingPropagation: BindingPropagation` to control change detection in a more granular way.
    * 
-   * ## Example
+   * ### Example
    * 
    * The following example demonstrates how dependency injection resolves constructor arguments in
    * practice.
@@ -766,7 +766,7 @@ declare module ng {
    * If none can be
    * found, the injector supplies `null` instead of throwing an error.
    * 
-   * ## Example
+   * ### Example
    * 
    * Here we use a decorator directive to simply define basic tool-tip behavior.
    * 
@@ -854,7 +854,7 @@ declare module ng {
    * When the directive class implements some {@link angular2/lifecycle_hooks} the callbacks are
    * called by the change detection at defined points in time during the life of the directive.
    * 
-   * ## Example
+   * ### Example
    * 
    * Let's suppose we want to implement the `unless` behavior, to conditionally include a template.
    * 
@@ -944,7 +944,7 @@ declare module ng {
      * - `selector1, selector2`: select if either `selector1` or `selector2` matches.
      * 
      * 
-     * ## Example
+     * ### Example
      * 
      * Suppose we have a directive with an `input[type=text]` selector.
      * 
@@ -1289,7 +1289,7 @@ declare module ng {
   /**
    * Declare reusable pipe function.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Pipe({
@@ -1515,7 +1515,7 @@ declare module ng {
    * 
    * For details on the `@Component` annotation, see {@link ComponentMetadata}.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Component({
@@ -1577,7 +1577,7 @@ declare module ng {
      * 
      * Directives must be listed explicitly to provide proper component encapsulation.
      * 
-     * ## Example
+     * ### Example
      * 
      * ```javascript
      * @Component({
@@ -1699,7 +1699,7 @@ declare module ng {
   /**
    * {@link DirectiveMetadata} factory for creating annotations, decorators or DSL.
    * 
-   * ## Example as TypeScript Decorator
+   * ### Example as TypeScript Decorator
    * 
    * ```
    * import {Directive} from "angular2/angular2";
@@ -1712,7 +1712,7 @@ declare module ng {
    * }
    * ```
    * 
-   * ## Example as ES5 DSL
+   * ### Example as ES5 DSL
    * 
    * ```
    * var MyDirective = ng
@@ -1724,7 +1724,7 @@ declare module ng {
    *   })
    * ```
    * 
-   * ## Example as ES5 annotation
+   * ### Example as ES5 annotation
    * 
    * ```
    * var MyDirective = function() {
@@ -1772,7 +1772,7 @@ declare module ng {
   /**
    * {@link ComponentMetadata} factory for creating annotations, decorators or DSL.
    * 
-   * ## Example as TypeScript Decorator
+   * ### Example as TypeScript Decorator
    * 
    * ```
    * import {Component} from "angular2/angular2";
@@ -1785,7 +1785,7 @@ declare module ng {
    * }
    * ```
    * 
-   * ## Example as ES5 DSL
+   * ### Example as ES5 DSL
    * 
    * ```
    * var MyComponent = ng
@@ -1797,7 +1797,7 @@ declare module ng {
    *   })
    * ```
    * 
-   * ## Example as ES5 annotation
+   * ### Example as ES5 annotation
    * 
    * ```
    * var MyComponent = function() {
@@ -1868,7 +1868,7 @@ declare module ng {
   /**
    * {@link ViewMetadata} factory for creating annotations, decorators or DSL.
    * 
-   * ## Example as TypeScript Decorator
+   * ### Example as TypeScript Decorator
    * 
    * ```
    * import {Component, View} from "angular2/angular2";
@@ -1882,7 +1882,7 @@ declare module ng {
    * }
    * ```
    * 
-   * ## Example as ES5 DSL
+   * ### Example as ES5 DSL
    * 
    * ```
    * var MyComponent = ng
@@ -1895,7 +1895,7 @@ declare module ng {
    *   })
    * ```
    * 
-   * ## Example as ES5 annotation
+   * ### Example as ES5 annotation
    * 
    * ```
    * var MyComponent = function() {
@@ -1936,7 +1936,7 @@ declare module ng {
   /**
    * {@link AttributeMetadata} factory for creating annotations, decorators or DSL.
    * 
-   * ## Example as TypeScript Decorator
+   * ### Example as TypeScript Decorator
    * 
    * ```
    * import {Attribute, Component} from "angular2/angular2";
@@ -1949,7 +1949,7 @@ declare module ng {
    * }
    * ```
    * 
-   * ## Example as ES5 DSL
+   * ### Example as ES5 DSL
    * 
    * ```
    * var MyComponent = ng
@@ -1961,7 +1961,7 @@ declare module ng {
    *   })
    * ```
    * 
-   * ## Example as ES5 annotation
+   * ### Example as ES5 annotation
    * 
    * ```
    * var MyComponent = function(title) {
@@ -2076,7 +2076,7 @@ declare module ng {
   /**
    * {@link PipeMetadata} factory for creating decorators.
    * 
-   * ## Example as TypeScript Decorator
+   * ### Example as TypeScript Decorator
    * 
    * ```
    * import {Pipe} from "angular2/angular2";
@@ -2174,7 +2174,7 @@ declare module ng {
    * When the component class implements some {@link angular2/lifecycle_hooks} the callbacks are
    * called by the change detection at defined points in time during the life of the component.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Component({
@@ -2258,7 +2258,7 @@ declare module ng {
    * {@link DirectiveMetadata} directives only
    * - `bindingPropagation: BindingPropagation` to control change detection in a more granular way.
    * 
-   * ## Example
+   * ### Example
    * 
    * The following example demonstrates how dependency injection resolves constructor arguments in
    * practice.
@@ -2427,7 +2427,7 @@ declare module ng {
    * If none can be
    * found, the injector supplies `null` instead of throwing an error.
    * 
-   * ## Example
+   * ### Example
    * 
    * Here we use a decorator directive to simply define basic tool-tip behavior.
    * 
@@ -2515,7 +2515,7 @@ declare module ng {
    * When the directive class implements some {@link angular2/lifecycle_hooks} the callbacks are
    * called by the change detection at defined points in time during the life of the directive.
    * 
-   * ## Example
+   * ### Example
    * 
    * Let's suppose we want to implement the `unless` behavior, to conditionally include a template.
    * 
@@ -2588,7 +2588,7 @@ declare module ng {
    * 
    * For details on the `@Component` annotation, see {@link ComponentMetadata}.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Component({
@@ -2621,7 +2621,7 @@ declare module ng {
    * 
    * For details on the `@Component` annotation, see {@link ComponentMetadata}.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Component({
@@ -2895,7 +2895,7 @@ declare module ng {
   /**
    * Declare reusable pipe function.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Pipe({
@@ -3120,7 +3120,7 @@ declare module ng {
    * }
    * ```
    * 
-   * ## Example with parameter annotations
+   * ### Example with parameter annotations
    * 
    * ```
    * var MyService = ng.Class({
@@ -3140,7 +3140,7 @@ declare module ng {
    * }
    * ```
    * 
-   * ## Example with inheritance
+   * ### Example with inheritance
    * 
    * ```
    * var Shape = ng.Class({
@@ -3358,8 +3358,6 @@ declare module ng {
    * 
    * @Injectable()
    * class NeedsDependency {
-   *   dependency;
-   * 
    *   dependency;
    *   constructor(@Self() dependency:Dependency) {
    *     this.dependency = dependency;
@@ -3911,8 +3909,8 @@ declare module ng {
      * 
      * ### Example ([live demo](http://plnkr.co/edit/ZpBCSYqv6e2ud5KXLdxQ?p=preview))
      * 
-     * Because `toAlias` and `toClass` are often confused, the example contains both use cases for
-     * easy comparison.
+     * Because `toAlias` and `toClass` are often confused, the example contains
+     * both use cases for easy comparison.
      * 
      * ```typescript
      * class Vehicle {}
@@ -3960,9 +3958,8 @@ declare module ng {
      * 
      * ### Example ([live demo](http://plnkr.co/edit/uBaoF2pN5cfc5AfZapNw?p=preview))
      * 
-     * Because `toAlias` and `toClass` are often confused, the example contains both use cases for
-     * easy
-     * comparison.
+     * Because `toAlias` and `toClass` are often confused, the example contains
+     * both use cases for easy comparison.
      * 
      * ```typescript
      * class Vehicle {}
@@ -4105,10 +4102,8 @@ declare module ng {
      * 
      * ### Example ([live demo](http://plnkr.co/edit/RSTG86qgmoxCyj9SWPwY?p=preview))
      * 
-     * Because `useExisting` and `useClass` are often confused, the example contains both use cases
-     * for
-     * easy
-     * comparison.
+     * Because `useExisting` and `useClass` are often confused, the example contains
+     * both use cases for easy comparison.
      * 
      * ```typescript
      * class Vehicle {}
@@ -4156,9 +4151,8 @@ declare module ng {
      * 
      * ### Example ([live demo](http://plnkr.co/edit/QsatsOJJ6P8T2fMe9gr8?p=preview))
      * 
-     * Because `useExisting` and `useClass` are often confused the example contains both use cases for
-     * easy
-     * comparison.
+     * Because `useExisting` and `useClass` are often confused the example contains
+     * both use cases for easy comparison.
      * 
      * ```typescript
      * class Vehicle {}
@@ -4685,7 +4679,7 @@ declare module ng {
    * emitted.
    * When a new value is emitted, the `async` pipe marks the component to be checked for changes.
    * 
-   * # Example
+   * ### Example
    * The example below binds the `time` Observable to the view. Every 500ms, the `time` Observable
    * updates the view with the current time.
    * 
@@ -4720,7 +4714,7 @@ declare module ng {
    * 
    * Formats a date value to a string based on the requested format.
    * 
-   * # Usage
+   * ##Usage
    * 
    *     expression | date[:format]
    * 
@@ -4761,7 +4755,7 @@ declare module ng {
    * 
    * Timezone of the formatted text will be the local system timezone of the end-users machine.
    * 
-   * # Examples
+   * ### Examples
    * 
    * Assuming `dateObj` is (year: 2015, month: 6, day: 15, hour: 21, minute: 43, second: 11)
    * in the _local_ time and locale is 'en-US':
@@ -4791,7 +4785,7 @@ declare module ng {
   /**
    * Implements json transforms to any object.
    * 
-   * # Example
+   * ### Example
    * 
    * In this example we transform the user object to json.
    * 
@@ -4824,7 +4818,7 @@ declare module ng {
    * 
    * The ending index of the subset to return is specified by the optional `end` parameter.
    * 
-   * # Usage
+   * ##Usage
    * 
    *     expression | slice:start[:end]
    * 
@@ -4852,13 +4846,13 @@ declare module ng {
    * When operating on a [List], the returned list is always a copy even when all
    * the elements are being returned.
    * 
-   * # Examples
+   * ### Examples
    * 
    * ## List Example
    * 
    * Assuming `var collection = ['a', 'b', 'c', 'd']`, this `ng-for` directive:
    * 
-   *     <li *ng-for="var i in collection | slice:1:3">{{i}}</li>
+   *     <li *ng-for="var i of collection | slice:1:3">{{i}}</li>
    * 
    * produces the following:
    * 
@@ -4886,7 +4880,7 @@ declare module ng {
   /**
    * Implements lowercase transforms to text.
    * 
-   * # Example
+   * ### Example
    * 
    * In this example we transform the user text lowercase.
    * 
@@ -4920,7 +4914,7 @@ declare module ng {
    * Formats a number as local text. i.e. group sizing and separator and other locale-specific
    * configurations are based on the active locale.
    * 
-   * # Usage
+   * ##Usage
    * 
    *     expression | number[:digitInfo]
    * 
@@ -4935,7 +4929,7 @@ declare module ng {
    * For more information on the acceptable range for each of these numbers and other
    * details see your native internationalization library.
    * 
-   * # Examples
+   * ### Examples
    * 
    *     {{ 123 | number }}              // output is 123
    *     {{ 123.1 | number: '.2-3' }}    // output is 123.10
@@ -4954,7 +4948,7 @@ declare module ng {
    * 
    * Formats a number as local percent.
    * 
-   * # Usage
+   * ##Usage
    * 
    *     expression | percent[:digitInfo]
    * 
@@ -4973,7 +4967,7 @@ declare module ng {
    * 
    * Formats a number as local currency.
    * 
-   * # Usage
+   * ##Usage
    * 
    *     expression | currency[:currencyCode[:symbolDisplay[:digitInfo]]]
    * 
@@ -4993,7 +4987,7 @@ declare module ng {
   /**
    * Implements uppercase transforms to text.
    * 
-   * # Example
+   * ### Example
    * 
    * In this example we transform the user text uppercase.
    * 
@@ -5044,7 +5038,7 @@ declare module ng {
   /**
    * Use by directives and components to emit custom Events.
    * 
-   * ## Examples
+   * ### Examples
    * 
    * In the following example, `Zippy` alternatively emits `open` and `close` events when its
    * title gets clicked:
@@ -5081,6 +5075,12 @@ declare module ng {
    * Once a reference implementation of the spec is available, switch to it.
    */
   class EventEmitter extends Observable {
+    
+    /**
+     * Creates an instance of [EventEmitter], which depending on [isAsync],
+     * delivers events synchronously or asynchronously.
+     */
+    constructor(isAsync?: boolean);
     
     observer(generator: any): any;
     
@@ -5161,18 +5161,18 @@ declare module ng {
    * 
    * See {@link PlatformRef} for details on the Angular platform.
    * 
-   * # Without specified providers
+   * ##Without specified providers
    * 
    * If no providers are specified, `platform`'s behavior depends on whether an existing
    * platform exists:
    * 
-   * If no platform exists, a new one will be created with the default {@link platformBindings}.
+   * If no platform exists, a new one will be created with the default {@link platformProviders}.
    * 
    * If a platform already exists, it will be returned (regardless of what providers it
    * was created with). This is a convenience feature, allowing for multiple applications
    * to be loaded into the same platform without awareness of each other.
    * 
-   * # With specified providers
+   * ##With specified providers
    * 
    * It is also possible to specify providers to be made in the new platform. These providers
    * will be shared between all applications on the page. For example, an abstraction for
@@ -5183,13 +5183,13 @@ declare module ng {
    * them if a platform did not exist already. If it did exist, however, an error will be
    * thrown.
    * 
-   * # DOM Applications
+   * ##DOM Applications
    * 
    * This version of `platform` initializes Angular to run in the UI thread, with direct
    * DOM access. Web-worker applications should call `platform` from
    * `src/web_workers/worker/application_common` instead.
    */
-  function platform(bindings?: Array<Type | Provider | any[]>): PlatformRef;
+  function platform(providers?: Array<Type | Provider | any[]>): PlatformRef;
   
 
     
@@ -5204,6 +5204,11 @@ declare module ng {
   abstract class PlatformRef {
     
     /**
+     * Register a listener to be called when the platform is disposed.
+     */
+    registerDisposeListener(dispose: () => void): void;
+    
+    /**
      * Retrieve the platform {@link Injector}, which is the parent injector for
      * every Angular application on the page and provides singleton providers.
      */
@@ -5212,46 +5217,47 @@ declare module ng {
     /**
      * Instantiate a new Angular application on the page.
      * 
-     * # What is an application?
+     * ##What is an application?
      * 
      * Each Angular application has its own zone, change detection, compiler,
      * renderer, and other framework components. An application hosts one or more
      * root components, which can be initialized via `ApplicationRef.bootstrap()`.
      * 
-     * # Application Bindings
+     * ##Application Providers
      * 
      * Angular applications require numerous providers to be properly instantiated.
      * When using `application()` to create a new app on the page, these providers
      * must be provided. Fortunately, there are helper functions to configure
      * typical providers, as shown in the example below.
      * 
-     * # Example
+     * ### Example
      * ```
-     * var myAppBindings = [MyAppService];
+     * var myAppProviders = [MyAppService];
      * 
      * platform()
-     *   .application([applicationCommonBindings(), applicationDomBindings(), myAppBindings])
+     *   .application([applicationCommonProviders(), applicationDomProviders(), myAppProviders])
      *   .bootstrap(MyTopLevelComponent);
      * ```
-     * # See Also
+     * ##See Also
      * 
      * See the {@link bootstrap} documentation for more details.
      */
-    application(bindings: Array<Type | Provider | any[]>): ApplicationRef;
+    application(providers: Array<Type | Provider | any[]>): ApplicationRef;
     
     /**
      * Instantiate a new Angular application on the page, using providers which
      * are only available asynchronously. One such use case is to initialize an
      * application running in a web worker.
      * 
-     * # Usage
+     * ##Usage
      * 
      * `bindingFn` is a function that will be called in the new application's zone.
      * It should return a `Promise` to a list of providers to be used for the
      * new application. Once this promise resolves, the application will be
      * constructed in the same manner as a normal `application()`.
      */
-    asyncApplication(bindingFn: (zone: NgZone) => Promise<Array<Type | Provider | any[]>>): Promise<ApplicationRef>;
+    asyncApplication(bindingFn: (zone: NgZone) =>
+                                    Promise<Array<Type | Provider | any[]>>): Promise<ApplicationRef>;
     
     /**
      * Destroy the Angular platform and all Angular applications on the page.
@@ -5275,28 +5281,33 @@ declare module ng {
     registerBootstrapListener(listener: (ref: ComponentRef) => void): void;
     
     /**
+     * Register a listener to be called when the application is disposed.
+     */
+    registerDisposeListener(dispose: () => void): void;
+    
+    /**
      * Bootstrap a new component at the root level of the application.
      * 
-     * # Bootstrap process
+     * ##Bootstrap process
      * 
      * When bootstrapping a new root component into an application, Angular mounts the
      * specified application component onto DOM elements identified by the [componentType]'s
      * selector and kicks off automatic change detection to finish initializing the component.
      * 
-     * # Optional Bindings
+     * ##Optional Providers
      * 
-     * Bindings for the given component can optionally be overridden via the `providers`
+     * Providers for the given component can optionally be overridden via the `providers`
      * parameter. These providers will only apply for the root component being added and any
      * child components under it.
      * 
-     * # Example
+     * ### Example
      * ```
-     * var app = platform.application([applicationCommonBindings(), applicationDomBindings()];
+     * var app = platform.application([applicationCommonProviders(), applicationDomProviders()];
      * app.bootstrap(FirstRootComponent);
      * app.bootstrap(SecondRootComponent, [provide(OverrideBinding, {useClass: OverriddenBinding})]);
      * ```
      */
-    bootstrap(componentType: Type, bindings?: Array<Type | Provider | any[]>): Promise<ComponentRef>;
+    bootstrap(componentType: Type, providers?: Array<Type | Provider | any[]>): Promise<ComponentRef>;
     
     /**
      * Retrieve the application {@link Injector}.
@@ -5325,7 +5336,7 @@ declare module ng {
    * Construct a default set of providers which should be included in any Angular
    * application, regardless of whether it runs on the UI thread or in a web worker.
    */
-  function applicationCommonBindings(): Array<Type | Provider | any[]>;
+  function applicationCommonProviders(): Array<Type | Provider | any[]>;
   
 
     
@@ -5336,7 +5347,7 @@ declare module ng {
   
 
     
-  function platformCommon(bindings?: Array<Type | Provider | any[]>, initializer?: () => void): PlatformRef;
+  function platformCommon(providers?: Array<Type | Provider | any[]>, initializer?: () => void): PlatformRef;
   
 
     
@@ -5346,11 +5357,11 @@ declare module ng {
    * These are providers that should be singletons shared among all Angular applications
    * running on the page.
    */
-  function platformBindings(): Array<Type | Provider | any[]>;
+  function platformProviders(): Array<Type | Provider | any[]>;
   
 
     
-  function bootstrap(appComponentType: /*Type*/ any, appBindings?: Array<Type | Provider | any[]>): Promise<ComponentRef>;
+  function bootstrap(appComponentType: /*Type*/ any, appProviders?: Array<Type | Provider | any[]>): Promise<ComponentRef>;
   
 
     
@@ -5932,7 +5943,7 @@ declare module ng {
      * Use {@link AppViewManager#destroyRootHostView} to destroy the created Component and it's Host
      * View.
      * 
-     * ## Example
+     * ### Example
      * 
      * ```
      * @ng.Component({
@@ -6111,36 +6122,27 @@ declare module ng {
      * 
      * Returns a promise for the {@link ComponentRef} representing the newly created Component.
      * 
-     * 
-     * ## Example
+     * ### Example
      * 
      * ```
-     * @ng.Component({
-     *   selector: 'child-component'
-     * })
-     * @ng.View({
+     * @Component({
+     *   selector: 'child-component',
      *   template: 'Child'
      * })
      * class ChildComponent {
      * }
      * 
-     * 
-     * 
-     * @ng.Component({
-     *   selector: 'my-app'
-     * })
-     * @ng.View({
-     *   template: `
-     *     Parent (<child id="child"></child>)
-     *   `
+     * @Component({
+     *   selector: 'my-app',
+     *   template: 'Parent (<child id="child"></child>)'
      * })
      * class MyApp {
-     *   constructor(dynamicComponentLoader: ng.DynamicComponentLoader, injector: ng.Injector) {
-     *     dynamicComponentLoader.loadAsRoot(ChildComponent, '#child', injector);
+     *   constructor(dcl: DynamicComponentLoader, injector: Injector) {
+     *     dcl.loadAsRoot(ChildComponent, '#child', injector);
      *   }
      * }
      * 
-     * ng.bootstrap(MyApp);
+     * bootstrap(MyApp);
      * ```
      * 
      * Resulting DOM:
@@ -6148,9 +6150,7 @@ declare module ng {
      * ```
      * <my-app>
      *   Parent (
-     *     <child id="child">
-     *        Child
-     *     </child>
+     *     <child id="child">Child</child>
      *   )
      * </my-app>
      * ```
@@ -6170,35 +6170,27 @@ declare module ng {
      * 
      * Returns a promise for the {@link ComponentRef} representing the newly created Component.
      * 
-     * 
-     * ## Example
+     * ### Example
      * 
      * ```
-     * @ng.Component({
-     *   selector: 'child-component'
-     * })
-     * @ng.View({
+     * @Component({
+     *   selector: 'child-component',
      *   template: 'Child'
      * })
      * class ChildComponent {
      * }
      * 
-     * 
-     * @ng.Component({
-     *   selector: 'my-app'
-     * })
-     * @ng.View({
-     *   template: `
-     *     Parent (<div #child></div>)
-     *   `
+     * @Component({
+     *   selector: 'my-app',
+     *   template: 'Parent (<div #child></div>)'
      * })
      * class MyApp {
-     *   constructor(dynamicComponentLoader: ng.DynamicComponentLoader, elementRef: ng.ElementRef) {
-     *     dynamicComponentLoader.loadIntoLocation(ChildComponent, elementRef, 'child');
+     *   constructor(dcl: DynamicComponentLoader, elementRef: ElementRef) {
+     *     dcl.loadIntoLocation(ChildComponent, elementRef, 'child');
      *   }
      * }
      * 
-     * ng.bootstrap(MyApp);
+     * bootstrap(MyApp);
      * ```
      * 
      * Resulting DOM:
@@ -6224,32 +6216,27 @@ declare module ng {
      * Returns a promise for the {@link ComponentRef} representing the newly created Component.
      * 
      * 
-     * ## Example
+     * ### Example
      * 
      * ```
-     * @ng.Component({
-     *   selector: 'child-component'
-     * })
-     * @ng.View({
+     * @Component({
+     *   selector: 'child-component',
      *   template: 'Child'
      * })
      * class ChildComponent {
      * }
      * 
-     * 
-     * @ng.Component({
-     *   selector: 'my-app'
-     * })
-     * @ng.View({
-     *   template: `Parent`
+     * @Component({
+     *   selector: 'my-app',
+     *   template: 'Parent'
      * })
      * class MyApp {
-     *   constructor(dynamicComponentLoader: ng.DynamicComponentLoader, elementRef: ng.ElementRef) {
-     *     dynamicComponentLoader.loadNextToLocation(ChildComponent, elementRef);
+     *   constructor(dcl: DynamicComponentLoader, elementRef: ElementRef) {
+     *     dcl.loadNextToLocation(ChildComponent, elementRef);
      *   }
      * }
      * 
-     * ng.bootstrap(MyApp);
+     * bootstrap(MyApp);
      * ```
      * 
      * Resulting DOM:
@@ -6348,7 +6335,7 @@ declare module ng {
    * removing nested Views via a {@link ViewContainer}. Each View can contain many View Containers.
    * <!-- /TODO -->
    * 
-   * ## Example
+   * ### Example
    * 
    * Given this template...
    * 
@@ -6426,7 +6413,7 @@ declare module ng {
    * {@link Compiler#compileInHost} API.
    * 
    * 
-   * ## Example
+   * ### Example
    * 
    * Given this template:
    * 
@@ -6619,7 +6606,7 @@ declare module ng {
    * 
    * Each Angular application has a single `LifeCycle` instance.
    * 
-   * # Example
+   * ### Example
    * 
    * This is a contrived example, since the bootstrap automatically runs inside of the `Zone`, which
    * invokes
@@ -6741,8 +6728,17 @@ declare module ng {
      * The hook is called once per browser task that is handled by Angular.
      * 
      * Setting the hook overrides any previously set hook.
+     * 
+     * @deprecated this API will be removed in the future. Use `onTurnStart` instead.
      */
-    overrideOnTurnStart(onTurnStartHook: () => void): void;
+    overrideOnTurnStart(onTurnStartHook: ZeroArgFunction): void;
+    
+    /**
+     * Notifies subscribers just before Angular event turn starts.
+     * 
+     * Emits an event once per browser task that is handled by Angular.
+     */
+    onTurnStart: /* Subject */ any;
     
     /**
      * Sets the zone hook that is called immediately after Angular zone is done processing the current
@@ -6753,8 +6749,18 @@ declare module ng {
      * The hook is called once per browser task that is handled by Angular.
      * 
      * Setting the hook overrides any previously set hook.
+     * 
+     * @deprecated this API will be removed in the future. Use `onTurnDone` instead.
      */
-    overrideOnTurnDone(onTurnDoneHook: () => void): void;
+    overrideOnTurnDone(onTurnDoneHook: ZeroArgFunction): void;
+    
+    /**
+     * Notifies subscribers immediately after Angular zone is done processing
+     * the current turn and any microtasks scheduled from that turn.
+     * 
+     * Used by Angular as a signal to kick off change-detection.
+     */
+    onTurnDone: any;
     
     /**
      * Sets the zone hook that is called immediately after the `onTurnDone` callback is called and any
@@ -6766,15 +6772,49 @@ declare module ng {
      * This hook is useful for validating application state (e.g. in a test).
      * 
      * Setting the hook overrides any previously set hook.
+     * 
+     * @deprecated this API will be removed in the future. Use `onEventDone` instead.
      */
-    overrideOnEventDone(onEventDoneFn: () => void, opt_waitForAsync?: boolean): void;
+    overrideOnEventDone(onEventDoneFn: ZeroArgFunction, opt_waitForAsync?: boolean): void;
+    
+    /**
+     * Notifies subscribers immediately after the final `onTurnDone` callback
+     * before ending VM event.
+     * 
+     * This event is useful for validating application state (e.g. in a test).
+     */
+    onEventDone: any;
+    
+    /**
+     * Whether there are any outstanding microtasks.
+     */
+    hasPendingMicrotasks: boolean;
+    
+    /**
+     * Whether there are any outstanding timers.
+     */
+    hasPendingTimers: boolean;
+    
+    /**
+     * Whether there are any outstanding asychnronous tasks of any kind that are
+     * scheduled to run within Angular zone.
+     * 
+     * Useful as a signal of UI stability. For example, when a test reaches a
+     * point when [hasPendingAsyncTasks] is `false` it might be a good time to run
+     * test expectations.
+     */
+    hasPendingAsyncTasks: boolean;
     
     /**
      * Sets the zone hook that is called when an error is thrown in the Angular zone.
      * 
      * Setting the hook overrides any previously set hook.
+     * 
+     * @deprecated this API will be removed in the future. Use `onError` instead.
      */
-    overrideOnErrorHandler(errorHandler: (error: Error, stack: string) => void): void;
+    overrideOnErrorHandler(errorHandler: ErrorHandlingFn): void;
+    
+    onError: any;
     
     /**
      * Executes the `fn` function synchronously within the Angular zone and returns value returned by
@@ -6801,6 +6841,34 @@ declare module ng {
      * Use {@link #run} to reenter the Angular zone and do work that updates the application model.
      */
     runOutsideAngular(fn: () => any): any;
+    
+  }
+
+    
+  interface ZeroArgFunction {
+    
+    (): void;
+    
+  }
+
+    
+  interface ErrorHandlingFn {
+    
+    (error: any, stackTrace: any): void;
+    
+  }
+
+    
+  /**
+   * Stores error information; delivered via [NgZone.onError] stream.
+   */
+  class NgZoneError {
+    
+    constructor(error: any, stackTrace: any);
+    
+    error: any;
+    
+    stackTrace: any;
     
   }
 
@@ -7265,7 +7333,7 @@ declare module ng {
    * * When an item is removed, its template instance is removed from the DOM.
    * * When items are reordered, their respective templates are reordered in the DOM.
    * 
-   * # Example
+   * ### Example
    * 
    * ```
    * <ul>
@@ -7275,7 +7343,7 @@ declare module ng {
    * </ul>
    * ```
    * 
-   * # Syntax
+   * ##Syntax
    * 
    * - `<li *ng-for="#item of items; #i = index">...</li>`
    * - `<li template="ng-for #item of items; #i = index">...</li>`
@@ -7310,7 +7378,7 @@ declare module ng {
    * </div>
    * ```
    * 
-   * # Syntax
+   * ##Syntax
    * 
    * - `<div *ng-if="condition">...</div>`
    * - `<div template="ng-if condition">...</div>`
@@ -7332,7 +7400,7 @@ declare module ng {
    * corresponding element styles are updated based on changes to this object. Style names to update
    * are taken from the object's keys, and values - from the corresponding object's values.
    * 
-   * # Syntax
+   * ##Syntax
    * 
    * - `<div [ng-style]="{'font-style': style}"></div>`
    * - `<div [ng-style]="styleExp"></div>` - here the `styleExp` must evaluate to an object
@@ -7401,7 +7469,7 @@ declare module ng {
    * evaluated. If a matching expression is not found via a when attribute then an element with the
    * default attribute is displayed.
    * 
-   * # Example:
+   * ### Example
    * 
    * ```
    * <ANY [ng-switch]="expression">
@@ -7508,10 +7576,7 @@ declare module ng {
   
 
     
-  /**
-   * Omitting from external API doc as this is really an abstract internal concept.
-   */
-  class AbstractControl {
+  abstract class AbstractControl {
     
     constructor(validator: Function);
     
@@ -7523,7 +7588,15 @@ declare module ng {
     
     valid: boolean;
     
+    /**
+     * Returns the errors of this control.
+     */
     errors: {[key: string]: any};
+    
+    /**
+     * Returns the errors of the child controls.
+     */
+    controlsErrors: any;
     
     pristine: boolean;
     
@@ -7535,15 +7608,42 @@ declare module ng {
     
     valueChanges: Observable;
     
+    pending: boolean;
+    
     markAsTouched(): void;
     
     markAsDirty({onlySelf}?: {onlySelf?: boolean}): void;
     
+    markAsPending({onlySelf}?: {onlySelf?: boolean}): void;
+    
     setParent(parent: ControlGroup | ControlArray): void;
     
-    updateValidity({onlySelf}?: {onlySelf?: boolean}): void;
-    
     updateValueAndValidity({onlySelf, emitEvent}?: {onlySelf?: boolean, emitEvent?: boolean}): void;
+    
+    /**
+     * Sets errors on a control.
+     * 
+     * This is used when validations are run not automatically, but manually by the user.
+     * 
+     * Calling `setErrors` will also update the validity of the parent control.
+     * 
+     * ## Usage
+     * 
+     * ```
+     * var login = new Control("someLogin");
+     * login.setErrors({
+     *   "notUnique": true
+     * });
+     * 
+     * expect(login.valid).toEqual(false);
+     * expect(login.errors).toEqual({"notUnique": true});
+     * 
+     * login.updateValue("someOtherLogin");
+     * 
+     * expect(login.valid).toEqual(true);
+     * ```
+     */
+    setErrors(errors: {[key: string]: any}): void;
     
     find(path: Array<string | number>| string): AbstractControl;
     
@@ -7561,7 +7661,7 @@ declare module ng {
    * `Control` is one of the three fundamental building blocks used to define forms in Angular, along
    * with {@link ControlGroup} and {@link ControlArray}.
    * 
-   * # Usage
+   * ##Usage
    * 
    * By default, a `Control` is created for every `<input>` or other form component.
    * With {@link NgFormControl} or {@link NgFormModel} an existing {@link Control} can be
@@ -7586,8 +7686,11 @@ declare module ng {
      * via an `onChange` event. This is the default behavior if `emitModelToViewChange` is not
      * specified.
      */
-    updateValue(value: any, {onlySelf, emitEvent, emitModelToViewChange}?:
-                      {onlySelf?: boolean, emitEvent?: boolean, emitModelToViewChange?: boolean}): void;
+    updateValue(value: any, {onlySelf, emitEvent, emitModelToViewChange}?: {
+        onlySelf?: boolean,
+        emitEvent?: boolean,
+        emitModelToViewChange?: boolean
+      }): void;
     
     /**
      * Register a listener for change events.
@@ -7640,7 +7743,7 @@ declare module ng {
    * along with {@link Control} and {@link ControlGroup}. {@link ControlGroup} can also contain
    * other controls, but is of fixed length.
    * 
-   * # Adding or removing controls
+   * ##Adding or removing controls
    * 
    * To change the controls in the array, use the `push`, `insert`, or `removeAt` methods
    * in `ControlArray` itself. These methods ensure the controls are properly tracked in the
@@ -7684,7 +7787,7 @@ declare module ng {
   }
 
     
-  class AbstractControlDirective {
+  abstract class AbstractControlDirective {
     
     control: AbstractControl;
     
@@ -7694,6 +7797,8 @@ declare module ng {
     
     errors: {[key: string]: any};
     
+    controlsErrors: any;
+    
     pristine: boolean;
     
     dirty: boolean;
@@ -7701,6 +7806,8 @@ declare module ng {
     touched: boolean;
     
     untouched: boolean;
+    
+    path: string[];
     
   }
 
@@ -7750,7 +7857,7 @@ declare module ng {
    * 
    * This directive can only be used as a child of {@link NgForm} or {@link NgFormModel}.
    * 
-   * # Example
+   * ### Example
    * 
    * In this example, we create the login and password controls.
    * We can work with each control separately: check its validity, get its value, listen to its
@@ -7803,15 +7910,14 @@ declare module ng {
   class NgControlName extends NgControl implements OnChanges, 
       OnDestroy {
     
-    constructor(parent: ControlContainer, validators: Function[], valueAccessors: ControlValueAccessor[]);
+    constructor(parent: ControlContainer, validators:
+                      /* Array<Validator|Function> */ any[], valueAccessors: ControlValueAccessor[]);
     
     update: any;
     
     model: any;
     
     viewModel: any;
-    
-    validators: Function[];
     
     onChanges(changes: {[key: string]: SimpleChange}): void;
     
@@ -7823,9 +7929,9 @@ declare module ng {
     
     formDirective: any;
     
-    control: Control;
-    
     validator: Function;
+    
+    control: Control;
     
   }
 
@@ -7859,7 +7965,7 @@ declare module ng {
    * }
    *  ```
    * 
-   * # ng-model
+   * ##ng-model
    * 
    * We can also use `ng-model` to bind a domain model to the form.
    * 
@@ -7879,7 +7985,8 @@ declare module ng {
    */
   class NgFormControl extends NgControl implements OnChanges {
     
-    constructor(validators: Function[], valueAccessors: ControlValueAccessor[]);
+    constructor(validators:
+                      /* Array<Validator|Function> */ any[], valueAccessors: ControlValueAccessor[]);
     
     form: Control;
     
@@ -7889,15 +7996,13 @@ declare module ng {
     
     viewModel: any;
     
-    validators: Function[];
-    
     onChanges(changes: {[key: string]: SimpleChange}): void;
     
     path: string[];
     
-    control: Control;
-    
     validator: Function;
+    
+    control: Control;
     
     viewToModelUpdate(newValue: any): void;
     
@@ -7907,7 +8012,7 @@ declare module ng {
   /**
    * Binds a domain model to a form control.
    * 
-   * # Usage
+   * ##Usage
    * 
    * `ng-model` binds an existing domain model to a form control. For a
    * two-way binding, use `[(ng-model)]` to ensure the model updates in
@@ -7927,15 +8032,14 @@ declare module ng {
    */
   class NgModel extends NgControl implements OnChanges {
     
-    constructor(validators: Function[], valueAccessors: ControlValueAccessor[]);
+    constructor(validators:
+                      /* Array<Validator|Function> */ any[], valueAccessors: ControlValueAccessor[]);
     
     update: any;
     
     model: any;
     
     viewModel: any;
-    
-    validators: Function[];
     
     onChanges(changes: {[key: string]: SimpleChange}): void;
     
@@ -7954,15 +8058,13 @@ declare module ng {
    * A base class that all control directive extend.
    * It binds a {@link Control} object to a DOM element.
    */
-  class NgControl extends AbstractControlDirective {
+  abstract class NgControl extends AbstractControlDirective {
     
     name: string;
     
     valueAccessor: ControlValueAccessor;
     
     validator: Function;
-    
-    path: string[];
     
     viewToModelUpdate(newValue: any): void;
     
@@ -7974,7 +8076,7 @@ declare module ng {
    * 
    * This directive can only be used as a child of {@link NgForm} or {@link NgFormModel}.
    * 
-   * # Example
+   * ### Example
    * 
    * In this example, we create the credentials and personal control groups.
    * We can work with each group separately: check its validity, get its value, listen to its changes.
@@ -8010,7 +8112,7 @@ declare module ng {
   class NgControlGroup extends ControlContainer implements OnInit, 
       OnDestroy {
     
-    constructor(_parent: ControlContainer);
+    constructor(parent: ControlContainer, validators: Function[]);
     
     onInit(): void;
     
@@ -8021,6 +8123,8 @@ declare module ng {
     path: string[];
     
     formDirective: Form;
+    
+    validator: Function;
     
   }
 
@@ -8100,13 +8204,15 @@ declare module ng {
   class NgFormModel extends ControlContainer implements Form, 
       OnChanges {
     
+    constructor(validators: Function[]);
+    
     form: ControlGroup;
     
     directives: NgControl[];
     
     ngSubmit: any;
     
-    onChanges(_: any): void;
+    onChanges(changes: {[key: string]: SimpleChange}): void;
     
     formDirective: Form;
     
@@ -8137,19 +8243,19 @@ declare module ng {
    * If `NgForm` is bound in a component, `<form>` elements in that component will be
    * upgraded to use the Angular form system.
    * 
-   * # Typical Use
+   * ##Typical Use
    * 
    * Include `FORM_DIRECTIVES` in the `directives` section of a {@link View} annotation
    * to use `NgForm` and its associated controls.
    * 
-   * # Structure
+   * ##Structure
    * 
    * An Angular form is a collection of `Control`s in some hierarchy.
    * `Control`s can be at the top level or can be organized in `ControlGroup`s
    * or `ControlArray`s. This hierarchy is reflected in the form's `value`, a
    * JSON object that mirrors the form structure.
    * 
-   * # Submission
+   * ##Submission
    * 
    * The `ng-submit` event signals when the user triggers a form submission.
    * 
@@ -8193,6 +8299,8 @@ declare module ng {
    *  ```
    */
   class NgForm extends ControlContainer implements Form {
+    
+    constructor(validators: Function[]);
     
     form: ControlGroup;
     
@@ -8245,7 +8353,7 @@ declare module ng {
    * The default accessor for writing a value and listening to changes that is used by the
    * {@link NgModel}, {@link NgFormControl}, and {@link NgControlName} directives.
    * 
-   *  # Example
+   *  ### Example
    *  ```
    *  <input type="text" [(ng-model)]="searchQuery">
    *  ```
@@ -8289,7 +8397,7 @@ declare module ng {
   /**
    * The accessor for writing a value and listening to changes on a checkbox input element.
    * 
-   *  # Example
+   *  ### Example
    *  ```
    *  <input type="checkbox" [ng-control]="rememberLogin">
    *  ```
@@ -8314,7 +8422,7 @@ declare module ng {
   /**
    * Marks `<option>` as dynamic, so Angular can be notified when options change.
    * 
-   * #Example:
+   * ### Example
    * 
    * ```
    * <select ng-control="city">
@@ -8354,7 +8462,7 @@ declare module ng {
    * 
    *  This is a shorthand for importing them each individually.
    * 
-   * ### Example:
+   * ### Example
    * 
    * ```typescript
    * @Component({
@@ -8375,7 +8483,7 @@ declare module ng {
   /**
    * Provides a set of validators used by form controls.
    * 
-   * # Example
+   * ### Example
    * 
    * ```
    * var loginControl = new Control("", Validators.required)
@@ -8393,10 +8501,6 @@ declare module ng {
     
     static compose(validators: Function[]): Function;
     
-    static group(group:ControlGroup): {[key: string]: any[]};
-    
-    static array(array:ControlArray): {[key: string]: any[]};
-    
   }
 
     
@@ -8405,20 +8509,44 @@ declare module ng {
   }
 
     
-  class MinLengthValidator {
+  class MinLengthValidator implements Validator {
     
     constructor(minLength: string);
     
-    minLength: number;
+    validate(c: Control): {[key: string]: any};
     
   }
 
     
-  class MaxLengthValidator {
+  class MaxLengthValidator implements Validator {
     
-    constructor(maxLength: string);
+    constructor(minLength: string);
     
-    maxLength: number;
+    validate(c: Control): {[key: string]: any};
+    
+  }
+
+    
+  /**
+   * An interface that can be implemented by classes that can act as validators.
+   * 
+   * ## Usage
+   * 
+   * ```typescript
+   * @Directive({
+   *   selector: '[custom-validator]',
+   *   providers: [provide(NG_VALIDATORS, {useExisting: CustomValidatorDirective, multi: true})]
+   * })
+   * class CustomValidatorDirective implements Validator {
+   *   validate(c: Control): {[key: string]: any} {
+   *     return {"custom": true};
+   *   }
+   * }
+   * ```
+   */
+  interface Validator {
+    
+    validate(c:Control): {[key: string]: any};
     
   }
 
@@ -8426,7 +8554,7 @@ declare module ng {
   /**
    * Creates a form object from a user-specified configuration.
    * 
-   * # Example
+   * ### Example
    * 
    * ```
    * import {Component, bootstrap} from 'angular2/angular2';
@@ -8495,7 +8623,7 @@ declare module ng {
   /**
    * Shorthand set of providers used for building Angular forms.
    * 
-   * ### Example:
+   * ### Example
    * 
    * ```typescript
    * bootstrap(MyApp, [FORM_PROVIDERS]);
@@ -9019,14 +9147,15 @@ declare module ng {
 
     
   /**
-   * To create a stateful Pipe, you should implement this interface.
+   * To create a stateful Pipe, you should implement this interface and set the `pure`
+   * parameter to `false` in the {@link PipeMetadata}.
    * 
    * A stateful pipe may produce different output, given the same input. It is
    * likely that a stateful pipe may contain state that should be cleaned up when
    * a binding is destroyed. For example, a subscription to a stream of data may need to
    * be disposed, or an interval may need to be cleared.
    * 
-   * ### Example ([live demo](http://plnkr.co/edit/hlaejwQAmWayxwc5YXQE?p=preview))
+   * ### Example ([live demo](http://plnkr.co/edit/i8pm5brO4sPaLxBx56MR?p=preview))
    * 
    * In this example, a pipe is created to countdown its input value, updating it every
    * 50ms. Because it maintains an internal interval, it automatically clears
@@ -9034,7 +9163,7 @@ declare module ng {
    * 
    * ```
    * import {Pipe, PipeTransform} from 'angular2/angular2'
-   * @Pipe({name: 'countdown'})
+   * @Pipe({name: 'countdown', pure: false})
    * class CountDown implements PipeTransform, PipeOnDestroy {
    *   remainingTime:Number;
    *   interval:SetInterval;
@@ -9091,7 +9220,7 @@ declare module ng {
      * which will only be applied to the injector for this component and its children.
      * This step is all that's required to make a new {@link IterableDiffer} available.
      * 
-     * # Example
+     * ### Example
      * 
      * ```
      * @Component({
@@ -9149,7 +9278,7 @@ declare module ng {
      * which will only be applied to the injector for this component and its children.
      * This step is all that's required to make a new {@link KeyValueDiffer} available.
      * 
-     * # Example
+     * ### Example
      * 
      * ```
      * @Component({
@@ -10201,8 +10330,8 @@ declare module ngWorker {
    *   <div #findme>...</div>
    * </seeker>
    * 
-   * @Component({ selector: 'foo' })
-   * class seeker {
+   * @Component({ selector: 'seeker' })
+   * class Seeker {
    *   constructor(@Query('findme') elList: QueryList<ElementRef>) {...}
    * }
    * ```
@@ -10219,7 +10348,7 @@ declare module ngWorker {
    * </seeker>
    * 
    *  @Component({
-   *   selector: 'foo'
+   *   selector: 'seeker'
    * })
    * class Seeker {
    *   constructor(@Query('findMe, findMeToo') elList: QueryList<ElementRef>) {...}
@@ -10460,7 +10589,7 @@ declare module ngWorker {
    * 
    * The directive can inject constant string literals of host element attributes.
    * 
-   * ## Example
+   * ### Example
    * 
    * Suppose we have an `<input>` element and want to know its `type`.
    * 
@@ -10516,7 +10645,7 @@ declare module ngWorker {
    * When the component class implements some {@link angular2/lifecycle_hooks} the callbacks are
    * called by the change detection at defined points in time during the life of the component.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Component({
@@ -10695,7 +10824,7 @@ declare module ngWorker {
    * {@link DirectiveMetadata} directives only
    * - `bindingPropagation: BindingPropagation` to control change detection in a more granular way.
    * 
-   * ## Example
+   * ### Example
    * 
    * The following example demonstrates how dependency injection resolves constructor arguments in
    * practice.
@@ -10864,7 +10993,7 @@ declare module ngWorker {
    * If none can be
    * found, the injector supplies `null` instead of throwing an error.
    * 
-   * ## Example
+   * ### Example
    * 
    * Here we use a decorator directive to simply define basic tool-tip behavior.
    * 
@@ -10952,7 +11081,7 @@ declare module ngWorker {
    * When the directive class implements some {@link angular2/lifecycle_hooks} the callbacks are
    * called by the change detection at defined points in time during the life of the directive.
    * 
-   * ## Example
+   * ### Example
    * 
    * Let's suppose we want to implement the `unless` behavior, to conditionally include a template.
    * 
@@ -11042,7 +11171,7 @@ declare module ngWorker {
      * - `selector1, selector2`: select if either `selector1` or `selector2` matches.
      * 
      * 
-     * ## Example
+     * ### Example
      * 
      * Suppose we have a directive with an `input[type=text]` selector.
      * 
@@ -11387,7 +11516,7 @@ declare module ngWorker {
   /**
    * Declare reusable pipe function.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Pipe({
@@ -11613,7 +11742,7 @@ declare module ngWorker {
    * 
    * For details on the `@Component` annotation, see {@link ComponentMetadata}.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Component({
@@ -11675,7 +11804,7 @@ declare module ngWorker {
      * 
      * Directives must be listed explicitly to provide proper component encapsulation.
      * 
-     * ## Example
+     * ### Example
      * 
      * ```javascript
      * @Component({
@@ -11797,7 +11926,7 @@ declare module ngWorker {
   /**
    * {@link DirectiveMetadata} factory for creating annotations, decorators or DSL.
    * 
-   * ## Example as TypeScript Decorator
+   * ### Example as TypeScript Decorator
    * 
    * ```
    * import {Directive} from "angular2/angular2";
@@ -11810,7 +11939,7 @@ declare module ngWorker {
    * }
    * ```
    * 
-   * ## Example as ES5 DSL
+   * ### Example as ES5 DSL
    * 
    * ```
    * var MyDirective = ng
@@ -11822,7 +11951,7 @@ declare module ngWorker {
    *   })
    * ```
    * 
-   * ## Example as ES5 annotation
+   * ### Example as ES5 annotation
    * 
    * ```
    * var MyDirective = function() {
@@ -11870,7 +11999,7 @@ declare module ngWorker {
   /**
    * {@link ComponentMetadata} factory for creating annotations, decorators or DSL.
    * 
-   * ## Example as TypeScript Decorator
+   * ### Example as TypeScript Decorator
    * 
    * ```
    * import {Component} from "angular2/angular2";
@@ -11883,7 +12012,7 @@ declare module ngWorker {
    * }
    * ```
    * 
-   * ## Example as ES5 DSL
+   * ### Example as ES5 DSL
    * 
    * ```
    * var MyComponent = ng
@@ -11895,7 +12024,7 @@ declare module ngWorker {
    *   })
    * ```
    * 
-   * ## Example as ES5 annotation
+   * ### Example as ES5 annotation
    * 
    * ```
    * var MyComponent = function() {
@@ -11966,7 +12095,7 @@ declare module ngWorker {
   /**
    * {@link ViewMetadata} factory for creating annotations, decorators or DSL.
    * 
-   * ## Example as TypeScript Decorator
+   * ### Example as TypeScript Decorator
    * 
    * ```
    * import {Component, View} from "angular2/angular2";
@@ -11980,7 +12109,7 @@ declare module ngWorker {
    * }
    * ```
    * 
-   * ## Example as ES5 DSL
+   * ### Example as ES5 DSL
    * 
    * ```
    * var MyComponent = ng
@@ -11993,7 +12122,7 @@ declare module ngWorker {
    *   })
    * ```
    * 
-   * ## Example as ES5 annotation
+   * ### Example as ES5 annotation
    * 
    * ```
    * var MyComponent = function() {
@@ -12034,7 +12163,7 @@ declare module ngWorker {
   /**
    * {@link AttributeMetadata} factory for creating annotations, decorators or DSL.
    * 
-   * ## Example as TypeScript Decorator
+   * ### Example as TypeScript Decorator
    * 
    * ```
    * import {Attribute, Component} from "angular2/angular2";
@@ -12047,7 +12176,7 @@ declare module ngWorker {
    * }
    * ```
    * 
-   * ## Example as ES5 DSL
+   * ### Example as ES5 DSL
    * 
    * ```
    * var MyComponent = ng
@@ -12059,7 +12188,7 @@ declare module ngWorker {
    *   })
    * ```
    * 
-   * ## Example as ES5 annotation
+   * ### Example as ES5 annotation
    * 
    * ```
    * var MyComponent = function(title) {
@@ -12174,7 +12303,7 @@ declare module ngWorker {
   /**
    * {@link PipeMetadata} factory for creating decorators.
    * 
-   * ## Example as TypeScript Decorator
+   * ### Example as TypeScript Decorator
    * 
    * ```
    * import {Pipe} from "angular2/angular2";
@@ -12272,7 +12401,7 @@ declare module ngWorker {
    * When the component class implements some {@link angular2/lifecycle_hooks} the callbacks are
    * called by the change detection at defined points in time during the life of the component.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Component({
@@ -12356,7 +12485,7 @@ declare module ngWorker {
    * {@link DirectiveMetadata} directives only
    * - `bindingPropagation: BindingPropagation` to control change detection in a more granular way.
    * 
-   * ## Example
+   * ### Example
    * 
    * The following example demonstrates how dependency injection resolves constructor arguments in
    * practice.
@@ -12525,7 +12654,7 @@ declare module ngWorker {
    * If none can be
    * found, the injector supplies `null` instead of throwing an error.
    * 
-   * ## Example
+   * ### Example
    * 
    * Here we use a decorator directive to simply define basic tool-tip behavior.
    * 
@@ -12613,7 +12742,7 @@ declare module ngWorker {
    * When the directive class implements some {@link angular2/lifecycle_hooks} the callbacks are
    * called by the change detection at defined points in time during the life of the directive.
    * 
-   * ## Example
+   * ### Example
    * 
    * Let's suppose we want to implement the `unless` behavior, to conditionally include a template.
    * 
@@ -12686,7 +12815,7 @@ declare module ngWorker {
    * 
    * For details on the `@Component` annotation, see {@link ComponentMetadata}.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Component({
@@ -12719,7 +12848,7 @@ declare module ngWorker {
    * 
    * For details on the `@Component` annotation, see {@link ComponentMetadata}.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Component({
@@ -12993,7 +13122,7 @@ declare module ngWorker {
   /**
    * Declare reusable pipe function.
    * 
-   * ## Example
+   * ### Example
    * 
    * ```
    * @Pipe({
@@ -13218,7 +13347,7 @@ declare module ngWorker {
    * }
    * ```
    * 
-   * ## Example with parameter annotations
+   * ### Example with parameter annotations
    * 
    * ```
    * var MyService = ng.Class({
@@ -13238,7 +13367,7 @@ declare module ngWorker {
    * }
    * ```
    * 
-   * ## Example with inheritance
+   * ### Example with inheritance
    * 
    * ```
    * var Shape = ng.Class({
@@ -13456,8 +13585,6 @@ declare module ngWorker {
    * 
    * @Injectable()
    * class NeedsDependency {
-   *   dependency;
-   * 
    *   dependency;
    *   constructor(@Self() dependency:Dependency) {
    *     this.dependency = dependency;
@@ -14009,8 +14136,8 @@ declare module ngWorker {
      * 
      * ### Example ([live demo](http://plnkr.co/edit/ZpBCSYqv6e2ud5KXLdxQ?p=preview))
      * 
-     * Because `toAlias` and `toClass` are often confused, the example contains both use cases for
-     * easy comparison.
+     * Because `toAlias` and `toClass` are often confused, the example contains
+     * both use cases for easy comparison.
      * 
      * ```typescript
      * class Vehicle {}
@@ -14058,9 +14185,8 @@ declare module ngWorker {
      * 
      * ### Example ([live demo](http://plnkr.co/edit/uBaoF2pN5cfc5AfZapNw?p=preview))
      * 
-     * Because `toAlias` and `toClass` are often confused, the example contains both use cases for
-     * easy
-     * comparison.
+     * Because `toAlias` and `toClass` are often confused, the example contains
+     * both use cases for easy comparison.
      * 
      * ```typescript
      * class Vehicle {}
@@ -14203,10 +14329,8 @@ declare module ngWorker {
      * 
      * ### Example ([live demo](http://plnkr.co/edit/RSTG86qgmoxCyj9SWPwY?p=preview))
      * 
-     * Because `useExisting` and `useClass` are often confused, the example contains both use cases
-     * for
-     * easy
-     * comparison.
+     * Because `useExisting` and `useClass` are often confused, the example contains
+     * both use cases for easy comparison.
      * 
      * ```typescript
      * class Vehicle {}
@@ -14254,9 +14378,8 @@ declare module ngWorker {
      * 
      * ### Example ([live demo](http://plnkr.co/edit/QsatsOJJ6P8T2fMe9gr8?p=preview))
      * 
-     * Because `useExisting` and `useClass` are often confused the example contains both use cases for
-     * easy
-     * comparison.
+     * Because `useExisting` and `useClass` are often confused the example contains
+     * both use cases for easy comparison.
      * 
      * ```typescript
      * class Vehicle {}
@@ -14783,7 +14906,7 @@ declare module ngWorker {
    * emitted.
    * When a new value is emitted, the `async` pipe marks the component to be checked for changes.
    * 
-   * # Example
+   * ### Example
    * The example below binds the `time` Observable to the view. Every 500ms, the `time` Observable
    * updates the view with the current time.
    * 
@@ -14818,7 +14941,7 @@ declare module ngWorker {
    * 
    * Formats a date value to a string based on the requested format.
    * 
-   * # Usage
+   * ##Usage
    * 
    *     expression | date[:format]
    * 
@@ -14859,7 +14982,7 @@ declare module ngWorker {
    * 
    * Timezone of the formatted text will be the local system timezone of the end-users machine.
    * 
-   * # Examples
+   * ### Examples
    * 
    * Assuming `dateObj` is (year: 2015, month: 6, day: 15, hour: 21, minute: 43, second: 11)
    * in the _local_ time and locale is 'en-US':
@@ -14889,7 +15012,7 @@ declare module ngWorker {
   /**
    * Implements json transforms to any object.
    * 
-   * # Example
+   * ### Example
    * 
    * In this example we transform the user object to json.
    * 
@@ -14922,7 +15045,7 @@ declare module ngWorker {
    * 
    * The ending index of the subset to return is specified by the optional `end` parameter.
    * 
-   * # Usage
+   * ##Usage
    * 
    *     expression | slice:start[:end]
    * 
@@ -14950,13 +15073,13 @@ declare module ngWorker {
    * When operating on a [List], the returned list is always a copy even when all
    * the elements are being returned.
    * 
-   * # Examples
+   * ### Examples
    * 
    * ## List Example
    * 
    * Assuming `var collection = ['a', 'b', 'c', 'd']`, this `ng-for` directive:
    * 
-   *     <li *ng-for="var i in collection | slice:1:3">{{i}}</li>
+   *     <li *ng-for="var i of collection | slice:1:3">{{i}}</li>
    * 
    * produces the following:
    * 
@@ -14984,7 +15107,7 @@ declare module ngWorker {
   /**
    * Implements lowercase transforms to text.
    * 
-   * # Example
+   * ### Example
    * 
    * In this example we transform the user text lowercase.
    * 
@@ -15018,7 +15141,7 @@ declare module ngWorker {
    * Formats a number as local text. i.e. group sizing and separator and other locale-specific
    * configurations are based on the active locale.
    * 
-   * # Usage
+   * ##Usage
    * 
    *     expression | number[:digitInfo]
    * 
@@ -15033,7 +15156,7 @@ declare module ngWorker {
    * For more information on the acceptable range for each of these numbers and other
    * details see your native internationalization library.
    * 
-   * # Examples
+   * ### Examples
    * 
    *     {{ 123 | number }}              // output is 123
    *     {{ 123.1 | number: '.2-3' }}    // output is 123.10
@@ -15052,7 +15175,7 @@ declare module ngWorker {
    * 
    * Formats a number as local percent.
    * 
-   * # Usage
+   * ##Usage
    * 
    *     expression | percent[:digitInfo]
    * 
@@ -15071,7 +15194,7 @@ declare module ngWorker {
    * 
    * Formats a number as local currency.
    * 
-   * # Usage
+   * ##Usage
    * 
    *     expression | currency[:currencyCode[:symbolDisplay[:digitInfo]]]
    * 
@@ -15091,7 +15214,7 @@ declare module ngWorker {
   /**
    * Implements uppercase transforms to text.
    * 
-   * # Example
+   * ### Example
    * 
    * In this example we transform the user text uppercase.
    * 
@@ -15142,7 +15265,7 @@ declare module ngWorker {
   /**
    * Use by directives and components to emit custom Events.
    * 
-   * ## Examples
+   * ### Examples
    * 
    * In the following example, `Zippy` alternatively emits `open` and `close` events when its
    * title gets clicked:
@@ -15179,6 +15302,12 @@ declare module ngWorker {
    * Once a reference implementation of the spec is available, switch to it.
    */
   class EventEmitter extends Observable {
+    
+    /**
+     * Creates an instance of [EventEmitter], which depending on [isAsync],
+     * delivers events synchronously or asynchronously.
+     */
+    constructor(isAsync?: boolean);
     
     observer(generator: any): any;
     
@@ -15227,7 +15356,7 @@ declare module ngWorker {
    * These are providers that should be singletons shared among all Angular applications
    * running on the page.
    */
-  function platformBindings(): Array<Type | Provider | any[]>;
+  function platformProviders(): Array<Type | Provider | any[]>;
   
 
     
@@ -15235,7 +15364,7 @@ declare module ngWorker {
    * Construct a default set of providers which should be included in any Angular
    * application, regardless of whether it runs on the UI thread or in a web worker.
    */
-  function applicationCommonBindings(): Array<Type | Provider | any[]>;
+  function applicationCommonProviders(): Array<Type | Provider | any[]>;
   
 
     
@@ -15246,7 +15375,7 @@ declare module ngWorker {
   
 
     
-  function platformCommon(bindings?: Array<Type | Provider | any[]>, initializer?: () => void): PlatformRef;
+  function platformCommon(providers?: Array<Type | Provider | any[]>, initializer?: () => void): PlatformRef;
   
 
     
@@ -15261,6 +15390,11 @@ declare module ngWorker {
   abstract class PlatformRef {
     
     /**
+     * Register a listener to be called when the platform is disposed.
+     */
+    registerDisposeListener(dispose: () => void): void;
+    
+    /**
      * Retrieve the platform {@link Injector}, which is the parent injector for
      * every Angular application on the page and provides singleton providers.
      */
@@ -15269,46 +15403,47 @@ declare module ngWorker {
     /**
      * Instantiate a new Angular application on the page.
      * 
-     * # What is an application?
+     * ##What is an application?
      * 
      * Each Angular application has its own zone, change detection, compiler,
      * renderer, and other framework components. An application hosts one or more
      * root components, which can be initialized via `ApplicationRef.bootstrap()`.
      * 
-     * # Application Bindings
+     * ##Application Providers
      * 
      * Angular applications require numerous providers to be properly instantiated.
      * When using `application()` to create a new app on the page, these providers
      * must be provided. Fortunately, there are helper functions to configure
      * typical providers, as shown in the example below.
      * 
-     * # Example
+     * ### Example
      * ```
-     * var myAppBindings = [MyAppService];
+     * var myAppProviders = [MyAppService];
      * 
      * platform()
-     *   .application([applicationCommonBindings(), applicationDomBindings(), myAppBindings])
+     *   .application([applicationCommonProviders(), applicationDomProviders(), myAppProviders])
      *   .bootstrap(MyTopLevelComponent);
      * ```
-     * # See Also
+     * ##See Also
      * 
      * See the {@link bootstrap} documentation for more details.
      */
-    application(bindings: Array<Type | Provider | any[]>): ApplicationRef;
+    application(providers: Array<Type | Provider | any[]>): ApplicationRef;
     
     /**
      * Instantiate a new Angular application on the page, using providers which
      * are only available asynchronously. One such use case is to initialize an
      * application running in a web worker.
      * 
-     * # Usage
+     * ##Usage
      * 
      * `bindingFn` is a function that will be called in the new application's zone.
      * It should return a `Promise` to a list of providers to be used for the
      * new application. Once this promise resolves, the application will be
      * constructed in the same manner as a normal `application()`.
      */
-    asyncApplication(bindingFn: (zone: NgZone) => Promise<Array<Type | Provider | any[]>>): Promise<ApplicationRef>;
+    asyncApplication(bindingFn: (zone: NgZone) =>
+                                    Promise<Array<Type | Provider | any[]>>): Promise<ApplicationRef>;
     
     /**
      * Destroy the Angular platform and all Angular applications on the page.
@@ -15322,12 +15457,13 @@ declare module ngWorker {
     
     constructor(_injector: Injector, _dispose: () => void);
     
+    registerDisposeListener(dispose: () => void): void;
+    
     injector: Injector;
     
-    application(bindings: Array<Type | Provider | any[]>): ApplicationRef;
+    application(providers: Array<Type | Provider | any[]>): ApplicationRef;
     
-    asyncApplication(bindingFn: (zone: NgZone) =>
-                           Promise<Array<Type | Provider | any[]>>): Promise<ApplicationRef>;
+    asyncApplication(bindingFn: (zone: NgZone) => Promise<Array<Type | Provider | any[]>>): Promise<ApplicationRef>;
     
     dispose(): void;
     
@@ -15348,28 +15484,33 @@ declare module ngWorker {
     registerBootstrapListener(listener: (ref: ComponentRef) => void): void;
     
     /**
+     * Register a listener to be called when the application is disposed.
+     */
+    registerDisposeListener(dispose: () => void): void;
+    
+    /**
      * Bootstrap a new component at the root level of the application.
      * 
-     * # Bootstrap process
+     * ##Bootstrap process
      * 
      * When bootstrapping a new root component into an application, Angular mounts the
      * specified application component onto DOM elements identified by the [componentType]'s
      * selector and kicks off automatic change detection to finish initializing the component.
      * 
-     * # Optional Bindings
+     * ##Optional Providers
      * 
-     * Bindings for the given component can optionally be overridden via the `providers`
+     * Providers for the given component can optionally be overridden via the `providers`
      * parameter. These providers will only apply for the root component being added and any
      * child components under it.
      * 
-     * # Example
+     * ### Example
      * ```
-     * var app = platform.application([applicationCommonBindings(), applicationDomBindings()];
+     * var app = platform.application([applicationCommonProviders(), applicationDomProviders()];
      * app.bootstrap(FirstRootComponent);
      * app.bootstrap(SecondRootComponent, [provide(OverrideBinding, {useClass: OverriddenBinding})]);
      * ```
      */
-    bootstrap(componentType: Type, bindings?: Array<Type | Provider | any[]>): Promise<ComponentRef>;
+    bootstrap(componentType: Type, providers?: Array<Type | Provider | any[]>): Promise<ComponentRef>;
     
     /**
      * Retrieve the application {@link Injector}.
@@ -15399,6 +15540,8 @@ declare module ngWorker {
     constructor(_platform: PlatformRef_, _zone: NgZone, _injector: Injector);
     
     registerBootstrapListener(listener: (ref: ComponentRef) => void): void;
+    
+    registerDisposeListener(dispose: () => void): void;
     
     bootstrap(componentType: Type, providers?: Array<Type | Provider | any[]>): Promise<ComponentRef>;
     
@@ -15553,7 +15696,7 @@ declare module ngWorker {
      * Use {@link AppViewManager#destroyRootHostView} to destroy the created Component and it's Host
      * View.
      * 
-     * ## Example
+     * ### Example
      * 
      * ```
      * @ng.Component({
@@ -15732,36 +15875,27 @@ declare module ngWorker {
      * 
      * Returns a promise for the {@link ComponentRef} representing the newly created Component.
      * 
-     * 
-     * ## Example
+     * ### Example
      * 
      * ```
-     * @ng.Component({
-     *   selector: 'child-component'
-     * })
-     * @ng.View({
+     * @Component({
+     *   selector: 'child-component',
      *   template: 'Child'
      * })
      * class ChildComponent {
      * }
      * 
-     * 
-     * 
-     * @ng.Component({
-     *   selector: 'my-app'
-     * })
-     * @ng.View({
-     *   template: `
-     *     Parent (<child id="child"></child>)
-     *   `
+     * @Component({
+     *   selector: 'my-app',
+     *   template: 'Parent (<child id="child"></child>)'
      * })
      * class MyApp {
-     *   constructor(dynamicComponentLoader: ng.DynamicComponentLoader, injector: ng.Injector) {
-     *     dynamicComponentLoader.loadAsRoot(ChildComponent, '#child', injector);
+     *   constructor(dcl: DynamicComponentLoader, injector: Injector) {
+     *     dcl.loadAsRoot(ChildComponent, '#child', injector);
      *   }
      * }
      * 
-     * ng.bootstrap(MyApp);
+     * bootstrap(MyApp);
      * ```
      * 
      * Resulting DOM:
@@ -15769,9 +15903,7 @@ declare module ngWorker {
      * ```
      * <my-app>
      *   Parent (
-     *     <child id="child">
-     *        Child
-     *     </child>
+     *     <child id="child">Child</child>
      *   )
      * </my-app>
      * ```
@@ -15791,35 +15923,27 @@ declare module ngWorker {
      * 
      * Returns a promise for the {@link ComponentRef} representing the newly created Component.
      * 
-     * 
-     * ## Example
+     * ### Example
      * 
      * ```
-     * @ng.Component({
-     *   selector: 'child-component'
-     * })
-     * @ng.View({
+     * @Component({
+     *   selector: 'child-component',
      *   template: 'Child'
      * })
      * class ChildComponent {
      * }
      * 
-     * 
-     * @ng.Component({
-     *   selector: 'my-app'
-     * })
-     * @ng.View({
-     *   template: `
-     *     Parent (<div #child></div>)
-     *   `
+     * @Component({
+     *   selector: 'my-app',
+     *   template: 'Parent (<div #child></div>)'
      * })
      * class MyApp {
-     *   constructor(dynamicComponentLoader: ng.DynamicComponentLoader, elementRef: ng.ElementRef) {
-     *     dynamicComponentLoader.loadIntoLocation(ChildComponent, elementRef, 'child');
+     *   constructor(dcl: DynamicComponentLoader, elementRef: ElementRef) {
+     *     dcl.loadIntoLocation(ChildComponent, elementRef, 'child');
      *   }
      * }
      * 
-     * ng.bootstrap(MyApp);
+     * bootstrap(MyApp);
      * ```
      * 
      * Resulting DOM:
@@ -15845,32 +15969,27 @@ declare module ngWorker {
      * Returns a promise for the {@link ComponentRef} representing the newly created Component.
      * 
      * 
-     * ## Example
+     * ### Example
      * 
      * ```
-     * @ng.Component({
-     *   selector: 'child-component'
-     * })
-     * @ng.View({
+     * @Component({
+     *   selector: 'child-component',
      *   template: 'Child'
      * })
      * class ChildComponent {
      * }
      * 
-     * 
-     * @ng.Component({
-     *   selector: 'my-app'
-     * })
-     * @ng.View({
-     *   template: `Parent`
+     * @Component({
+     *   selector: 'my-app',
+     *   template: 'Parent'
      * })
      * class MyApp {
-     *   constructor(dynamicComponentLoader: ng.DynamicComponentLoader, elementRef: ng.ElementRef) {
-     *     dynamicComponentLoader.loadNextToLocation(ChildComponent, elementRef);
+     *   constructor(dcl: DynamicComponentLoader, elementRef: ElementRef) {
+     *     dcl.loadNextToLocation(ChildComponent, elementRef);
      *   }
      * }
      * 
-     * ng.bootstrap(MyApp);
+     * bootstrap(MyApp);
      * ```
      * 
      * Resulting DOM:
@@ -15969,7 +16088,7 @@ declare module ngWorker {
    * removing nested Views via a {@link ViewContainer}. Each View can contain many View Containers.
    * <!-- /TODO -->
    * 
-   * ## Example
+   * ### Example
    * 
    * Given this template...
    * 
@@ -16047,7 +16166,7 @@ declare module ngWorker {
    * {@link Compiler#compileInHost} API.
    * 
    * 
-   * ## Example
+   * ### Example
    * 
    * Given this template:
    * 
@@ -16240,7 +16359,7 @@ declare module ngWorker {
    * 
    * Each Angular application has a single `LifeCycle` instance.
    * 
-   * # Example
+   * ### Example
    * 
    * This is a contrived example, since the bootstrap automatically runs inside of the `Zone`, which
    * invokes
@@ -16362,8 +16481,17 @@ declare module ngWorker {
      * The hook is called once per browser task that is handled by Angular.
      * 
      * Setting the hook overrides any previously set hook.
+     * 
+     * @deprecated this API will be removed in the future. Use `onTurnStart` instead.
      */
-    overrideOnTurnStart(onTurnStartHook: () => void): void;
+    overrideOnTurnStart(onTurnStartHook: ZeroArgFunction): void;
+    
+    /**
+     * Notifies subscribers just before Angular event turn starts.
+     * 
+     * Emits an event once per browser task that is handled by Angular.
+     */
+    onTurnStart: /* Subject */ any;
     
     /**
      * Sets the zone hook that is called immediately after Angular zone is done processing the current
@@ -16374,8 +16502,18 @@ declare module ngWorker {
      * The hook is called once per browser task that is handled by Angular.
      * 
      * Setting the hook overrides any previously set hook.
+     * 
+     * @deprecated this API will be removed in the future. Use `onTurnDone` instead.
      */
-    overrideOnTurnDone(onTurnDoneHook: () => void): void;
+    overrideOnTurnDone(onTurnDoneHook: ZeroArgFunction): void;
+    
+    /**
+     * Notifies subscribers immediately after Angular zone is done processing
+     * the current turn and any microtasks scheduled from that turn.
+     * 
+     * Used by Angular as a signal to kick off change-detection.
+     */
+    onTurnDone: any;
     
     /**
      * Sets the zone hook that is called immediately after the `onTurnDone` callback is called and any
@@ -16387,15 +16525,49 @@ declare module ngWorker {
      * This hook is useful for validating application state (e.g. in a test).
      * 
      * Setting the hook overrides any previously set hook.
+     * 
+     * @deprecated this API will be removed in the future. Use `onEventDone` instead.
      */
-    overrideOnEventDone(onEventDoneFn: () => void, opt_waitForAsync?: boolean): void;
+    overrideOnEventDone(onEventDoneFn: ZeroArgFunction, opt_waitForAsync?: boolean): void;
+    
+    /**
+     * Notifies subscribers immediately after the final `onTurnDone` callback
+     * before ending VM event.
+     * 
+     * This event is useful for validating application state (e.g. in a test).
+     */
+    onEventDone: any;
+    
+    /**
+     * Whether there are any outstanding microtasks.
+     */
+    hasPendingMicrotasks: boolean;
+    
+    /**
+     * Whether there are any outstanding timers.
+     */
+    hasPendingTimers: boolean;
+    
+    /**
+     * Whether there are any outstanding asychnronous tasks of any kind that are
+     * scheduled to run within Angular zone.
+     * 
+     * Useful as a signal of UI stability. For example, when a test reaches a
+     * point when [hasPendingAsyncTasks] is `false` it might be a good time to run
+     * test expectations.
+     */
+    hasPendingAsyncTasks: boolean;
     
     /**
      * Sets the zone hook that is called when an error is thrown in the Angular zone.
      * 
      * Setting the hook overrides any previously set hook.
+     * 
+     * @deprecated this API will be removed in the future. Use `onError` instead.
      */
-    overrideOnErrorHandler(errorHandler: (error: Error, stack: string) => void): void;
+    overrideOnErrorHandler(errorHandler: ErrorHandlingFn): void;
+    
+    onError: any;
     
     /**
      * Executes the `fn` function synchronously within the Angular zone and returns value returned by
@@ -16422,6 +16594,34 @@ declare module ngWorker {
      * Use {@link #run} to reenter the Angular zone and do work that updates the application model.
      */
     runOutsideAngular(fn: () => any): any;
+    
+  }
+
+    
+  interface ZeroArgFunction {
+    
+    (): void;
+    
+  }
+
+    
+  interface ErrorHandlingFn {
+    
+    (error: any, stackTrace: any): void;
+    
+  }
+
+    
+  /**
+   * Stores error information; delivered via [NgZone.onError] stream.
+   */
+  class NgZoneError {
+    
+    constructor(error: any, stackTrace: any);
+    
+    error: any;
+    
+    stackTrace: any;
     
   }
 
@@ -16514,7 +16714,7 @@ declare module ngWorker {
    * * When an item is removed, its template instance is removed from the DOM.
    * * When items are reordered, their respective templates are reordered in the DOM.
    * 
-   * # Example
+   * ### Example
    * 
    * ```
    * <ul>
@@ -16524,7 +16724,7 @@ declare module ngWorker {
    * </ul>
    * ```
    * 
-   * # Syntax
+   * ##Syntax
    * 
    * - `<li *ng-for="#item of items; #i = index">...</li>`
    * - `<li template="ng-for #item of items; #i = index">...</li>`
@@ -16559,7 +16759,7 @@ declare module ngWorker {
    * </div>
    * ```
    * 
-   * # Syntax
+   * ##Syntax
    * 
    * - `<div *ng-if="condition">...</div>`
    * - `<div template="ng-if condition">...</div>`
@@ -16581,7 +16781,7 @@ declare module ngWorker {
    * corresponding element styles are updated based on changes to this object. Style names to update
    * are taken from the object's keys, and values - from the corresponding object's values.
    * 
-   * # Syntax
+   * ##Syntax
    * 
    * - `<div [ng-style]="{'font-style': style}"></div>`
    * - `<div [ng-style]="styleExp"></div>` - here the `styleExp` must evaluate to an object
@@ -16650,7 +16850,7 @@ declare module ngWorker {
    * evaluated. If a matching expression is not found via a when attribute then an element with the
    * default attribute is displayed.
    * 
-   * # Example:
+   * ### Example
    * 
    * ```
    * <ANY [ng-switch]="expression">
@@ -16757,10 +16957,7 @@ declare module ngWorker {
   
 
     
-  /**
-   * Omitting from external API doc as this is really an abstract internal concept.
-   */
-  class AbstractControl {
+  abstract class AbstractControl {
     
     constructor(validator: Function);
     
@@ -16772,7 +16969,15 @@ declare module ngWorker {
     
     valid: boolean;
     
+    /**
+     * Returns the errors of this control.
+     */
     errors: {[key: string]: any};
+    
+    /**
+     * Returns the errors of the child controls.
+     */
+    controlsErrors: any;
     
     pristine: boolean;
     
@@ -16784,15 +16989,42 @@ declare module ngWorker {
     
     valueChanges: Observable;
     
+    pending: boolean;
+    
     markAsTouched(): void;
     
     markAsDirty({onlySelf}?: {onlySelf?: boolean}): void;
     
+    markAsPending({onlySelf}?: {onlySelf?: boolean}): void;
+    
     setParent(parent: ControlGroup | ControlArray): void;
     
-    updateValidity({onlySelf}?: {onlySelf?: boolean}): void;
-    
     updateValueAndValidity({onlySelf, emitEvent}?: {onlySelf?: boolean, emitEvent?: boolean}): void;
+    
+    /**
+     * Sets errors on a control.
+     * 
+     * This is used when validations are run not automatically, but manually by the user.
+     * 
+     * Calling `setErrors` will also update the validity of the parent control.
+     * 
+     * ## Usage
+     * 
+     * ```
+     * var login = new Control("someLogin");
+     * login.setErrors({
+     *   "notUnique": true
+     * });
+     * 
+     * expect(login.valid).toEqual(false);
+     * expect(login.errors).toEqual({"notUnique": true});
+     * 
+     * login.updateValue("someOtherLogin");
+     * 
+     * expect(login.valid).toEqual(true);
+     * ```
+     */
+    setErrors(errors: {[key: string]: any}): void;
     
     find(path: Array<string | number>| string): AbstractControl;
     
@@ -16810,7 +17042,7 @@ declare module ngWorker {
    * `Control` is one of the three fundamental building blocks used to define forms in Angular, along
    * with {@link ControlGroup} and {@link ControlArray}.
    * 
-   * # Usage
+   * ##Usage
    * 
    * By default, a `Control` is created for every `<input>` or other form component.
    * With {@link NgFormControl} or {@link NgFormModel} an existing {@link Control} can be
@@ -16835,8 +17067,11 @@ declare module ngWorker {
      * via an `onChange` event. This is the default behavior if `emitModelToViewChange` is not
      * specified.
      */
-    updateValue(value: any, {onlySelf, emitEvent, emitModelToViewChange}?:
-                      {onlySelf?: boolean, emitEvent?: boolean, emitModelToViewChange?: boolean}): void;
+    updateValue(value: any, {onlySelf, emitEvent, emitModelToViewChange}?: {
+        onlySelf?: boolean,
+        emitEvent?: boolean,
+        emitModelToViewChange?: boolean
+      }): void;
     
     /**
      * Register a listener for change events.
@@ -16889,7 +17124,7 @@ declare module ngWorker {
    * along with {@link Control} and {@link ControlGroup}. {@link ControlGroup} can also contain
    * other controls, but is of fixed length.
    * 
-   * # Adding or removing controls
+   * ##Adding or removing controls
    * 
    * To change the controls in the array, use the `push`, `insert`, or `removeAt` methods
    * in `ControlArray` itself. These methods ensure the controls are properly tracked in the
@@ -16933,7 +17168,7 @@ declare module ngWorker {
   }
 
     
-  class AbstractControlDirective {
+  abstract class AbstractControlDirective {
     
     control: AbstractControl;
     
@@ -16943,6 +17178,8 @@ declare module ngWorker {
     
     errors: {[key: string]: any};
     
+    controlsErrors: any;
+    
     pristine: boolean;
     
     dirty: boolean;
@@ -16950,6 +17187,8 @@ declare module ngWorker {
     touched: boolean;
     
     untouched: boolean;
+    
+    path: string[];
     
   }
 
@@ -16999,7 +17238,7 @@ declare module ngWorker {
    * 
    * This directive can only be used as a child of {@link NgForm} or {@link NgFormModel}.
    * 
-   * # Example
+   * ### Example
    * 
    * In this example, we create the login and password controls.
    * We can work with each control separately: check its validity, get its value, listen to its
@@ -17052,15 +17291,14 @@ declare module ngWorker {
   class NgControlName extends NgControl implements OnChanges, 
       OnDestroy {
     
-    constructor(parent: ControlContainer, validators: Function[], valueAccessors: ControlValueAccessor[]);
+    constructor(parent: ControlContainer, validators:
+                      /* Array<Validator|Function> */ any[], valueAccessors: ControlValueAccessor[]);
     
     update: any;
     
     model: any;
     
     viewModel: any;
-    
-    validators: Function[];
     
     onChanges(changes: {[key: string]: SimpleChange}): void;
     
@@ -17072,9 +17310,9 @@ declare module ngWorker {
     
     formDirective: any;
     
-    control: Control;
-    
     validator: Function;
+    
+    control: Control;
     
   }
 
@@ -17108,7 +17346,7 @@ declare module ngWorker {
    * }
    *  ```
    * 
-   * # ng-model
+   * ##ng-model
    * 
    * We can also use `ng-model` to bind a domain model to the form.
    * 
@@ -17128,7 +17366,8 @@ declare module ngWorker {
    */
   class NgFormControl extends NgControl implements OnChanges {
     
-    constructor(validators: Function[], valueAccessors: ControlValueAccessor[]);
+    constructor(validators:
+                      /* Array<Validator|Function> */ any[], valueAccessors: ControlValueAccessor[]);
     
     form: Control;
     
@@ -17138,15 +17377,13 @@ declare module ngWorker {
     
     viewModel: any;
     
-    validators: Function[];
-    
     onChanges(changes: {[key: string]: SimpleChange}): void;
     
     path: string[];
     
-    control: Control;
-    
     validator: Function;
+    
+    control: Control;
     
     viewToModelUpdate(newValue: any): void;
     
@@ -17156,7 +17393,7 @@ declare module ngWorker {
   /**
    * Binds a domain model to a form control.
    * 
-   * # Usage
+   * ##Usage
    * 
    * `ng-model` binds an existing domain model to a form control. For a
    * two-way binding, use `[(ng-model)]` to ensure the model updates in
@@ -17176,15 +17413,14 @@ declare module ngWorker {
    */
   class NgModel extends NgControl implements OnChanges {
     
-    constructor(validators: Function[], valueAccessors: ControlValueAccessor[]);
+    constructor(validators:
+                      /* Array<Validator|Function> */ any[], valueAccessors: ControlValueAccessor[]);
     
     update: any;
     
     model: any;
     
     viewModel: any;
-    
-    validators: Function[];
     
     onChanges(changes: {[key: string]: SimpleChange}): void;
     
@@ -17203,15 +17439,13 @@ declare module ngWorker {
    * A base class that all control directive extend.
    * It binds a {@link Control} object to a DOM element.
    */
-  class NgControl extends AbstractControlDirective {
+  abstract class NgControl extends AbstractControlDirective {
     
     name: string;
     
     valueAccessor: ControlValueAccessor;
     
     validator: Function;
-    
-    path: string[];
     
     viewToModelUpdate(newValue: any): void;
     
@@ -17223,7 +17457,7 @@ declare module ngWorker {
    * 
    * This directive can only be used as a child of {@link NgForm} or {@link NgFormModel}.
    * 
-   * # Example
+   * ### Example
    * 
    * In this example, we create the credentials and personal control groups.
    * We can work with each group separately: check its validity, get its value, listen to its changes.
@@ -17259,7 +17493,7 @@ declare module ngWorker {
   class NgControlGroup extends ControlContainer implements OnInit, 
       OnDestroy {
     
-    constructor(_parent: ControlContainer);
+    constructor(parent: ControlContainer, validators: Function[]);
     
     onInit(): void;
     
@@ -17270,6 +17504,8 @@ declare module ngWorker {
     path: string[];
     
     formDirective: Form;
+    
+    validator: Function;
     
   }
 
@@ -17349,13 +17585,15 @@ declare module ngWorker {
   class NgFormModel extends ControlContainer implements Form, 
       OnChanges {
     
+    constructor(validators: Function[]);
+    
     form: ControlGroup;
     
     directives: NgControl[];
     
     ngSubmit: any;
     
-    onChanges(_: any): void;
+    onChanges(changes: {[key: string]: SimpleChange}): void;
     
     formDirective: Form;
     
@@ -17386,19 +17624,19 @@ declare module ngWorker {
    * If `NgForm` is bound in a component, `<form>` elements in that component will be
    * upgraded to use the Angular form system.
    * 
-   * # Typical Use
+   * ##Typical Use
    * 
    * Include `FORM_DIRECTIVES` in the `directives` section of a {@link View} annotation
    * to use `NgForm` and its associated controls.
    * 
-   * # Structure
+   * ##Structure
    * 
    * An Angular form is a collection of `Control`s in some hierarchy.
    * `Control`s can be at the top level or can be organized in `ControlGroup`s
    * or `ControlArray`s. This hierarchy is reflected in the form's `value`, a
    * JSON object that mirrors the form structure.
    * 
-   * # Submission
+   * ##Submission
    * 
    * The `ng-submit` event signals when the user triggers a form submission.
    * 
@@ -17442,6 +17680,8 @@ declare module ngWorker {
    *  ```
    */
   class NgForm extends ControlContainer implements Form {
+    
+    constructor(validators: Function[]);
     
     form: ControlGroup;
     
@@ -17494,7 +17734,7 @@ declare module ngWorker {
    * The default accessor for writing a value and listening to changes that is used by the
    * {@link NgModel}, {@link NgFormControl}, and {@link NgControlName} directives.
    * 
-   *  # Example
+   *  ### Example
    *  ```
    *  <input type="text" [(ng-model)]="searchQuery">
    *  ```
@@ -17538,7 +17778,7 @@ declare module ngWorker {
   /**
    * The accessor for writing a value and listening to changes on a checkbox input element.
    * 
-   *  # Example
+   *  ### Example
    *  ```
    *  <input type="checkbox" [ng-control]="rememberLogin">
    *  ```
@@ -17563,7 +17803,7 @@ declare module ngWorker {
   /**
    * Marks `<option>` as dynamic, so Angular can be notified when options change.
    * 
-   * #Example:
+   * ### Example
    * 
    * ```
    * <select ng-control="city">
@@ -17603,7 +17843,7 @@ declare module ngWorker {
    * 
    *  This is a shorthand for importing them each individually.
    * 
-   * ### Example:
+   * ### Example
    * 
    * ```typescript
    * @Component({
@@ -17624,7 +17864,7 @@ declare module ngWorker {
   /**
    * Provides a set of validators used by form controls.
    * 
-   * # Example
+   * ### Example
    * 
    * ```
    * var loginControl = new Control("", Validators.required)
@@ -17642,10 +17882,6 @@ declare module ngWorker {
     
     static compose(validators: Function[]): Function;
     
-    static group(group:ControlGroup): {[key: string]: any[]};
-    
-    static array(array:ControlArray): {[key: string]: any[]};
-    
   }
 
     
@@ -17654,20 +17890,44 @@ declare module ngWorker {
   }
 
     
-  class MinLengthValidator {
+  class MinLengthValidator implements Validator {
     
     constructor(minLength: string);
     
-    minLength: number;
+    validate(c: Control): {[key: string]: any};
     
   }
 
     
-  class MaxLengthValidator {
+  class MaxLengthValidator implements Validator {
     
-    constructor(maxLength: string);
+    constructor(minLength: string);
     
-    maxLength: number;
+    validate(c: Control): {[key: string]: any};
+    
+  }
+
+    
+  /**
+   * An interface that can be implemented by classes that can act as validators.
+   * 
+   * ## Usage
+   * 
+   * ```typescript
+   * @Directive({
+   *   selector: '[custom-validator]',
+   *   providers: [provide(NG_VALIDATORS, {useExisting: CustomValidatorDirective, multi: true})]
+   * })
+   * class CustomValidatorDirective implements Validator {
+   *   validate(c: Control): {[key: string]: any} {
+   *     return {"custom": true};
+   *   }
+   * }
+   * ```
+   */
+  interface Validator {
+    
+    validate(c:Control): {[key: string]: any};
     
   }
 
@@ -17675,7 +17935,7 @@ declare module ngWorker {
   /**
    * Creates a form object from a user-specified configuration.
    * 
-   * # Example
+   * ### Example
    * 
    * ```
    * import {Component, bootstrap} from 'angular2/angular2';
@@ -17744,7 +18004,7 @@ declare module ngWorker {
   /**
    * Shorthand set of providers used for building Angular forms.
    * 
-   * ### Example:
+   * ### Example
    * 
    * ```typescript
    * bootstrap(MyApp, [FORM_PROVIDERS]);
@@ -18268,14 +18528,15 @@ declare module ngWorker {
 
     
   /**
-   * To create a stateful Pipe, you should implement this interface.
+   * To create a stateful Pipe, you should implement this interface and set the `pure`
+   * parameter to `false` in the {@link PipeMetadata}.
    * 
    * A stateful pipe may produce different output, given the same input. It is
    * likely that a stateful pipe may contain state that should be cleaned up when
    * a binding is destroyed. For example, a subscription to a stream of data may need to
    * be disposed, or an interval may need to be cleared.
    * 
-   * ### Example ([live demo](http://plnkr.co/edit/hlaejwQAmWayxwc5YXQE?p=preview))
+   * ### Example ([live demo](http://plnkr.co/edit/i8pm5brO4sPaLxBx56MR?p=preview))
    * 
    * In this example, a pipe is created to countdown its input value, updating it every
    * 50ms. Because it maintains an internal interval, it automatically clears
@@ -18283,7 +18544,7 @@ declare module ngWorker {
    * 
    * ```
    * import {Pipe, PipeTransform} from 'angular2/angular2'
-   * @Pipe({name: 'countdown'})
+   * @Pipe({name: 'countdown', pure: false})
    * class CountDown implements PipeTransform, PipeOnDestroy {
    *   remainingTime:Number;
    *   interval:SetInterval;
@@ -18340,7 +18601,7 @@ declare module ngWorker {
      * which will only be applied to the injector for this component and its children.
      * This step is all that's required to make a new {@link IterableDiffer} available.
      * 
-     * # Example
+     * ### Example
      * 
      * ```
      * @Component({
@@ -18398,7 +18659,7 @@ declare module ngWorker {
      * which will only be applied to the injector for this component and its children.
      * This step is all that's required to make a new {@link KeyValueDiffer} available.
      * 
-     * # Example
+     * ### Example
      * 
      * ```
      * @Component({
@@ -18732,7 +18993,7 @@ declare module ngUi {
   /**
    * Use by directives and components to emit custom Events.
    * 
-   * ## Examples
+   * ### Examples
    * 
    * In the following example, `Zippy` alternatively emits `open` and `close` events when its
    * title gets clicked:
@@ -18769,6 +19030,12 @@ declare module ngUi {
    * Once a reference implementation of the spec is available, switch to it.
    */
   class EventEmitter extends Observable {
+    
+    /**
+     * Creates an instance of [EventEmitter], which depending on [isAsync],
+     * delivers events synchronously or asynchronously.
+     */
+    constructor(isAsync?: boolean);
     
     observer(generator: any): any;
     
@@ -18896,8 +19163,17 @@ declare module ngUi {
      * The hook is called once per browser task that is handled by Angular.
      * 
      * Setting the hook overrides any previously set hook.
+     * 
+     * @deprecated this API will be removed in the future. Use `onTurnStart` instead.
      */
-    overrideOnTurnStart(onTurnStartHook: () => void): void;
+    overrideOnTurnStart(onTurnStartHook: ZeroArgFunction): void;
+    
+    /**
+     * Notifies subscribers just before Angular event turn starts.
+     * 
+     * Emits an event once per browser task that is handled by Angular.
+     */
+    onTurnStart: /* Subject */ any;
     
     /**
      * Sets the zone hook that is called immediately after Angular zone is done processing the current
@@ -18908,8 +19184,18 @@ declare module ngUi {
      * The hook is called once per browser task that is handled by Angular.
      * 
      * Setting the hook overrides any previously set hook.
+     * 
+     * @deprecated this API will be removed in the future. Use `onTurnDone` instead.
      */
-    overrideOnTurnDone(onTurnDoneHook: () => void): void;
+    overrideOnTurnDone(onTurnDoneHook: ZeroArgFunction): void;
+    
+    /**
+     * Notifies subscribers immediately after Angular zone is done processing
+     * the current turn and any microtasks scheduled from that turn.
+     * 
+     * Used by Angular as a signal to kick off change-detection.
+     */
+    onTurnDone: any;
     
     /**
      * Sets the zone hook that is called immediately after the `onTurnDone` callback is called and any
@@ -18921,15 +19207,49 @@ declare module ngUi {
      * This hook is useful for validating application state (e.g. in a test).
      * 
      * Setting the hook overrides any previously set hook.
+     * 
+     * @deprecated this API will be removed in the future. Use `onEventDone` instead.
      */
-    overrideOnEventDone(onEventDoneFn: () => void, opt_waitForAsync?: boolean): void;
+    overrideOnEventDone(onEventDoneFn: ZeroArgFunction, opt_waitForAsync?: boolean): void;
+    
+    /**
+     * Notifies subscribers immediately after the final `onTurnDone` callback
+     * before ending VM event.
+     * 
+     * This event is useful for validating application state (e.g. in a test).
+     */
+    onEventDone: any;
+    
+    /**
+     * Whether there are any outstanding microtasks.
+     */
+    hasPendingMicrotasks: boolean;
+    
+    /**
+     * Whether there are any outstanding timers.
+     */
+    hasPendingTimers: boolean;
+    
+    /**
+     * Whether there are any outstanding asychnronous tasks of any kind that are
+     * scheduled to run within Angular zone.
+     * 
+     * Useful as a signal of UI stability. For example, when a test reaches a
+     * point when [hasPendingAsyncTasks] is `false` it might be a good time to run
+     * test expectations.
+     */
+    hasPendingAsyncTasks: boolean;
     
     /**
      * Sets the zone hook that is called when an error is thrown in the Angular zone.
      * 
      * Setting the hook overrides any previously set hook.
+     * 
+     * @deprecated this API will be removed in the future. Use `onError` instead.
      */
-    overrideOnErrorHandler(errorHandler: (error: Error, stack: string) => void): void;
+    overrideOnErrorHandler(errorHandler: ErrorHandlingFn): void;
+    
+    onError: any;
     
     /**
      * Executes the `fn` function synchronously within the Angular zone and returns value returned by
@@ -18956,6 +19276,34 @@ declare module ngUi {
      * Use {@link #run} to reenter the Angular zone and do work that updates the application model.
      */
     runOutsideAngular(fn: () => any): any;
+    
+  }
+
+    
+  interface ZeroArgFunction {
+    
+    (): void;
+    
+  }
+
+    
+  interface ErrorHandlingFn {
+    
+    (error: any, stackTrace: any): void;
+    
+  }
+
+    
+  /**
+   * Stores error information; delivered via [NgZone.onError] stream.
+   */
+  class NgZoneError {
+    
+    constructor(error: any, stackTrace: any);
+    
+    error: any;
+    
+    stackTrace: any;
     
   }
 
