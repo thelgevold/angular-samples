@@ -15,12 +15,12 @@ declare var System:any;
 })
 
 @RouteConfig([
-    new Route({path: '/', component: About, as: 'About'}),
-    new Route({path: '/demo/...', component: DemoPage, as: 'Demo'}),
+    new Route({path: '/', component: About, name: 'About'}),
+    new Route({path: '/demo/...', component: DemoPage, name: 'Demo'}),
     new AsyncRoute({
         path: '/lazy',
         loader: () => ComponentHelper.LoadComponentAsync('LazyLoaded','./components/lazy-loaded/lazy-loaded'),
-        as: 'Lazy'
+        name: 'Lazy'
     })
 ])
  

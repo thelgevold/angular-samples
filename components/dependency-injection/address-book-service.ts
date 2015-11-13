@@ -1,4 +1,4 @@
-import {Http} from 'angular2/http'
+import {Http, Response} from 'angular2/http'
 import {Injectable} from 'angular2/angular2'
 
 @Injectable()
@@ -11,7 +11,7 @@ export class AddressBookService {
     }
 
     getEntries(){
-        return this.http.get('./people.json').map(res => res.json());
+        return this.http.get('./people.json').map((res: Response) => res.json());
     }
 
 }

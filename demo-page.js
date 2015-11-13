@@ -42,20 +42,20 @@ var DemoPage = (function () {
                 jquery_integration_1.JqueryIntegration, angular_2_host_1.Angular2Host, algorithms_1.Algorithms, address_book_1.AddressBook, input_controls_1.InputControls, tree_view_demo_1.TreeViewDemo]
         }),
         router_1.RouteConfig([
-            new router_1.Route({ path: '/spreadsheet', component: spreadsheet_1.Spreadsheet, as: 'Spreadsheet' }),
-            new router_1.Route({ path: '/jquery', component: jquery_integration_1.JqueryIntegration, as: 'JqueryIntegration' }),
-            new router_1.Route({ path: '/react', component: angular_2_host_1.Angular2Host, as: 'React' }),
-            new router_1.Route({ path: '/algorithms', component: algorithms_1.Algorithms, as: 'Algorithms' }),
-            new router_1.Route({ path: '/address', component: address_book_1.AddressBook, as: 'AddressBook' }),
-            new router_1.Route({ path: '/http', component: http_1.HttpSample, as: 'Http' }),
-            new router_1.Route({ path: 'treeview', component: tree_view_demo_1.TreeViewDemo, as: 'TreeView' }),
-            new router_1.Route({ path: 'grid', component: grid_demo_1.GridDemo, as: 'Grid' }),
-            new router_1.Route({ path: 'input', component: input_controls_1.InputControls, as: 'Input' }),
-            new router_1.Route({ path: 'contact', component: contact_list_1.ContactList, as: 'Contact' }),
-            new router_1.Route({ path: 'textbox', component: bound_textbox_1.BoundTextbox, as: 'Textbox' }),
-            new router_1.Route({ path: 'core', component: core_directives_1.CoreDirectives, as: 'Core' }),
-            new router_1.Route({ path: 'non-bindable', component: non_bindable_1.IgnoreBindings, as: 'IgnoreBindings' }),
-            new router_1.Route({ path: 'greeting', component: greeting_component_1.GreetingComponent, as: 'Greeting' })
+            new router_1.Route({ path: '/spreadsheet', component: spreadsheet_1.Spreadsheet, name: 'Spreadsheet' }),
+            new router_1.Route({ path: '/jquery', component: jquery_integration_1.JqueryIntegration, name: 'JqueryIntegration' }),
+            new router_1.Route({ path: '/react', component: angular_2_host_1.Angular2Host, name: 'React' }),
+            new router_1.Route({ path: '/algorithms', component: algorithms_1.Algorithms, name: 'Algorithms' }),
+            new router_1.Route({ path: '/address', component: address_book_1.AddressBook, name: 'AddressBook' }),
+            new router_1.Route({ path: '/http', component: http_1.HttpSample, name: 'Http' }),
+            new router_1.Route({ path: 'treeview', component: tree_view_demo_1.TreeViewDemo, name: 'TreeView' }),
+            new router_1.Route({ path: 'grid', component: grid_demo_1.GridDemo, name: 'Grid' }),
+            new router_1.Route({ path: 'input', component: input_controls_1.InputControls, name: 'Input' }),
+            new router_1.Route({ path: 'contact', component: contact_list_1.ContactList, name: 'Contact' }),
+            new router_1.Route({ path: 'textbox', component: bound_textbox_1.BoundTextbox, name: 'Textbox' }),
+            new router_1.Route({ path: 'core', component: core_directives_1.CoreDirectives, name: 'Core' }),
+            new router_1.Route({ path: 'non-bindable', component: non_bindable_1.IgnoreBindings, name: 'IgnoreBindings' }),
+            new router_1.Route({ path: 'greeting', component: greeting_component_1.GreetingComponent, name: 'Greeting' })
         ]), 
         __metadata('design:paramtypes', [router_2.Location])
     ], DemoPage);

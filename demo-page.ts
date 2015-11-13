@@ -27,20 +27,20 @@ import {Location} from 'angular2/router';
 })
 
 @RouteConfig([
-    new Route({ path: '/spreadsheet', component: Spreadsheet, as: 'Spreadsheet' }),
-    new Route({ path: '/jquery', component: JqueryIntegration, as: 'JqueryIntegration' }),
-    new Route({ path: '/react', component:Angular2Host, as: 'React'}),
-    new Route({ path: '/algorithms', component:Algorithms, as: 'Algorithms'}),
-    new Route({ path: '/address', component:AddressBook, as: 'AddressBook'}),
-    new Route({ path: '/http', component:HttpSample, as: 'Http'}),
-    new Route({ path: 'treeview', component:TreeViewDemo, as: 'TreeView'}),
-    new Route({ path: 'grid', component:GridDemo, as: 'Grid'}),
-    new Route({ path: 'input', component:InputControls, as: 'Input'}),
-    new Route({ path: 'contact', component:ContactList, as: 'Contact'}),
-    new Route({ path: 'textbox', component:BoundTextbox, as: 'Textbox'}),
-    new Route({ path: 'core', component:CoreDirectives, as: 'Core'}),
-    new Route({ path: 'non-bindable', component:IgnoreBindings, as: 'IgnoreBindings'}),
-    new Route({ path: 'greeting', component:GreetingComponent, as: 'Greeting'})
+    new Route({ path: '/spreadsheet', component: Spreadsheet, name: 'Spreadsheet' }),
+    new Route({ path: '/jquery', component: JqueryIntegration, name: 'JqueryIntegration' }),
+    new Route({ path: '/react', component:Angular2Host, name: 'React'}),
+    new Route({ path: '/algorithms', component:Algorithms, name: 'Algorithms'}),
+    new Route({ path: '/address', component:AddressBook, name: 'AddressBook'}),
+    new Route({ path: '/http', component:HttpSample, name: 'Http'}),
+    new Route({ path: 'treeview', component:TreeViewDemo, name: 'TreeView'}),
+    new Route({ path: 'grid', component:GridDemo, name: 'Grid'}),
+    new Route({ path: 'input', component:InputControls, name: 'Input'}),
+    new Route({ path: 'contact', component:ContactList, name: 'Contact'}),
+    new Route({ path: 'textbox', component:BoundTextbox, name: 'Textbox'}),
+    new Route({ path: 'core', component:CoreDirectives, name: 'Core'}),
+    new Route({ path: 'non-bindable', component:IgnoreBindings, name: 'IgnoreBindings'}),
+    new Route({ path: 'greeting', component:GreetingComponent, name: 'Greeting'})
 ])
 
 export class DemoPage {

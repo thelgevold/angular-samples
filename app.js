@@ -35,12 +35,12 @@ var MyDemoApp = (function () {
             directives: [demo_page_1.DemoPage, about_1.About, router_1.ROUTER_DIRECTIVES]
         }),
         router_1.RouteConfig([
-            new router_1.Route({ path: '/', component: about_1.About, as: 'About' }),
-            new router_1.Route({ path: '/demo/...', component: demo_page_1.DemoPage, as: 'Demo' }),
+            new router_1.Route({ path: '/', component: about_1.About, name: 'About' }),
+            new router_1.Route({ path: '/demo/...', component: demo_page_1.DemoPage, name: 'Demo' }),
             new router_1.AsyncRoute({
                 path: '/lazy',
                 loader: function () { return ComponentHelper.LoadComponentAsync('LazyLoaded', './components/lazy-loaded/lazy-loaded'); },
-                as: 'Lazy'
+                name: 'Lazy'
             })
         ]), 
         __metadata('design:paramtypes', [router_1.Router, router_1.Location])
