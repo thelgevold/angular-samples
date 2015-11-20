@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.src.js"></script>
+    <link href="site.css?v=1" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script>
+        System.config({
+            defaultJSExtensions: true
+        });
+    </script>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.46/angular2.js"></script>
+
+    <script>
+        angular.module('angular-legacy',[]);
+
+        angular.module('angular-legacy').controller('testController', function(){
+            this.message = 'Angular 1.x hosting Angular 2.0 components';
+        });
+    </script>
+</head>
+
+<body>
+    <script>System.import('upgrade');</script>
+
+    <div class="container">
+        <div ng-controller="testController as testController">
+            <h1>{{testController.message}}</h1>
+        </div>
+
+        <br/>
+
+        <algorithms></algorithms>
+
+        <spreadsheet></spreadsheet>
+    </div>
+</body>
+</html>
