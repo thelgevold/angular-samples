@@ -1,6 +1,5 @@
 import {Component,bootstrap,UpgradeAdapter} from 'angular2/angular2';
 import {Algorithms} from './components/algorithms/algorithms';
-import {Angular2Host} from './components/react-integration/angular-2-host';
 import {Spreadsheet} from './components/spreadsheet/spreadsheet';
 
 declare var angular:any;
