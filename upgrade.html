@@ -19,6 +19,13 @@
 
         angular.module('angular-legacy').controller('testController', function(){
             this.message = 'Angular 1.x hosting Angular 2.0 components';
+
+            this.operands = {op1:10,op2:20};
+
+            this.increment = function(){
+              this.operands.op1 += 1;
+              this.operands.op2 += 1;
+            };
         });
     </script>
 </head>
@@ -44,13 +51,16 @@
 
         <div ng-controller="testController as testController">
             <h1>{{testController.message}}</h1>
+
+            <algorithms></algorithms>
+
+            <spreadsheet></spreadsheet>
+
+            <span>{{testController.operands.op1}} + {{testController.operands.op2}} = </span>
+            <add [operands]=testController.operands></add>
+            <button ng-click="testController.increment()">Increment</button>
+
         </div>
-
-        <br/>
-
-        <algorithms></algorithms>
-
-        <spreadsheet></spreadsheet>
     </div>
 </body>
 </html>
