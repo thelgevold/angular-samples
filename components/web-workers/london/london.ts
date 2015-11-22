@@ -4,16 +4,16 @@ import {Component, bootstrapWebWorker} from 'angular2/web_worker/worker';
 
 @Component({
     selector: 'london',
-    template: `
-    <div>
-      <h2>London</h2>
-      <div>{{time}}</div>
-    </div>
-  `
+    templateUrl: './clock.html'
 
 })
 
 export class NewYork extends Clock{
+    city = 'London';
+
+    constructor(){
+        super(0);
+    }
 }
 
 bootstrapWebWorker(NewYork);

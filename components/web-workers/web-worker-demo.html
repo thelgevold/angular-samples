@@ -3,25 +3,65 @@
 
 <head>
     <title>angular2 playground</title>
+
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <script src="https://code.angularjs.org/tools/system.js"></script>
     <script src="https://code.angularjs.org/tools/typescript.js"></script>
     <script src="config.js"></script>
     <script src="https://code.angularjs.org/2.0.0-alpha.46/web_worker/ui.dev.js"></script>
+
     <script>
         System.import('new-york-main.ts');
         System.import('london-main.ts');
+        System.import('la-main.ts');
     </script>
 </head>
 
 <body>
 
-    <new-york>
-        loading...
-    </new-york>
+    <div class="container">
 
-    <london>
-        loading...
-    </london>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="http://www.syntaxsuccess.com" class="link">Home</a></li>
+                        <li><a href="/angular-2-samples" class="link">About</a></li>
+                        <li><a href="/angular-2-samples/#/demo/spreadsheet" class="link">Demos</a></li>
+                        <li><a href="/angular-2-samples/#/lazy" class="link">Lazy Loaded</a></li>
+                        <li class="active"><a href="web-worker-demo.html" class="link">Web Workers</a></li>
+                        <li><a href="../../upgrade.html" class="link">Angular 2.0 inside Angular 1.x</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <new-york>
+                    loading...
+                </new-york>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <london>
+                    loading...
+                </london>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <la>
+                    loading...
+                </la>
+            </div>
+        </div>
+    </div>
 
 </body>
 

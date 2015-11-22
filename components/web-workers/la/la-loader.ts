@@ -6,4 +6,4 @@ importScripts("https://code.angularjs.org/tools/system.js",
     "../config.js");
 
 
-System.import('./new-york.ts');
+System.import('./la.ts');
