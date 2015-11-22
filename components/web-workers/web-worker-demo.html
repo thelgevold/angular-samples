@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>angular2 playground</title>
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    <script src="config.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.46/web_worker/ui.dev.js"></script>
+    <script>
+        System.import('main.ts');
+    </script>
+</head>
+
+<body>
+
+<script>
+    var i = 0;
+    function update(){
+        i++;
+        document.getElementById('counter').innerText = i;
+    }
+</script>
+
+
+<button onclick="update()">External Application</button>
+<div id="counter"></div>
+
+<worker1>
+    loading...
+</worker1>
+
+</body>
+
+</html>
