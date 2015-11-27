@@ -34,6 +34,7 @@ var DemoPage = (function () {
     DemoPage.prototype.getLinkStyle = function (path) {
         return this.location.path().indexOf(path) > -1;
     };
+    DemoPage.prototype.canReuse = function (next, prev) { return false; };
     DemoPage = __decorate([
         angular2_1.Component({
             selector: 'demo-page',
@@ -48,14 +49,14 @@ var DemoPage = (function () {
             new router_1.Route({ path: '/algorithms', component: algorithms_1.Algorithms, name: 'Algorithms' }),
             new router_1.Route({ path: '/address', component: address_book_1.AddressBook, name: 'AddressBook' }),
             new router_1.Route({ path: '/http', component: http_1.HttpSample, name: 'Http' }),
-            new router_1.Route({ path: 'treeview', component: tree_view_demo_1.TreeViewDemo, name: 'TreeView' }),
-            new router_1.Route({ path: 'grid', component: grid_demo_1.GridDemo, name: 'Grid' }),
-            new router_1.Route({ path: 'input', component: input_controls_1.InputControls, name: 'Input' }),
-            new router_1.Route({ path: 'contact', component: contact_list_1.ContactList, name: 'Contact' }),
-            new router_1.Route({ path: 'textbox', component: bound_textbox_1.BoundTextbox, name: 'Textbox' }),
-            new router_1.Route({ path: 'core', component: core_directives_1.CoreDirectives, name: 'Core' }),
-            new router_1.Route({ path: 'non-bindable', component: non_bindable_1.IgnoreBindings, name: 'IgnoreBindings' }),
-            new router_1.Route({ path: 'greeting', component: greeting_component_1.GreetingComponent, name: 'Greeting' })
+            new router_1.Route({ path: '/treeview', component: tree_view_demo_1.TreeViewDemo, name: 'TreeView' }),
+            new router_1.Route({ path: '/grid', component: grid_demo_1.GridDemo, name: 'Grid' }),
+            new router_1.Route({ path: '/input', component: input_controls_1.InputControls, name: 'Input' }),
+            new router_1.Route({ path: '/contact', component: contact_list_1.ContactList, name: 'Contact' }),
+            new router_1.Route({ path: '/textbox', component: bound_textbox_1.BoundTextbox, name: 'Textbox' }),
+            new router_1.Route({ path: '/core', component: core_directives_1.CoreDirectives, name: 'Core' }),
+            new router_1.Route({ path: '/non-bindable', component: non_bindable_1.IgnoreBindings, name: 'IgnoreBindings' }),
+            new router_1.Route({ path: '/greeting', component: greeting_component_1.GreetingComponent, name: 'Greeting' })
         ]), 
         __metadata('design:paramtypes', [router_2.Location])
     ], DemoPage);

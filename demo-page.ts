@@ -17,7 +17,12 @@ import {JqueryIntegration} from './components/jquery-integration/jquery-integrat
 import {InputControls} from './components/input-controls/input-controls';
 import {AddressBook} from './components/dependency-injection/address-book';
 import {ROUTER_DIRECTIVES, RouteConfig, Route} from 'angular2/router';
-import {Location} from 'angular2/router';
+
+import {
+    ComponentInstruction,
+    CanReuse,
+    Location
+} from 'angular2/router';
 
 @Component({
     selector: 'demo-page',
@@ -33,17 +38,17 @@ import {Location} from 'angular2/router';
     new Route({ path: '/algorithms', component:Algorithms, name: 'Algorithms'}),
     new Route({ path: '/address', component:AddressBook, name: 'AddressBook'}),
     new Route({ path: '/http', component:HttpSample, name: 'Http'}),
-    new Route({ path: 'treeview', component:TreeViewDemo, name: 'TreeView'}),
-    new Route({ path: 'grid', component:GridDemo, name: 'Grid'}),
-    new Route({ path: 'input', component:InputControls, name: 'Input'}),
-    new Route({ path: 'contact', component:ContactList, name: 'Contact'}),
-    new Route({ path: 'textbox', component:BoundTextbox, name: 'Textbox'}),
-    new Route({ path: 'core', component:CoreDirectives, name: 'Core'}),
-    new Route({ path: 'non-bindable', component:IgnoreBindings, name: 'IgnoreBindings'}),
-    new Route({ path: 'greeting', component:GreetingComponent, name: 'Greeting'})
+    new Route({ path: '/treeview', component:TreeViewDemo, name: 'TreeView'}),
+    new Route({ path: '/grid', component:GridDemo, name: 'Grid'}),
+    new Route({ path: '/input', component:InputControls, name: 'Input'}),
+    new Route({ path: '/contact', component:ContactList, name: 'Contact'}),
+    new Route({ path: '/textbox', component:BoundTextbox, name: 'Textbox'}),
+    new Route({ path: '/core', component:CoreDirectives, name: 'Core'}),
+    new Route({ path: '/non-bindable', component:IgnoreBindings, name: 'IgnoreBindings'}),
+    new Route({ path: '/greeting', component:GreetingComponent, name: 'Greeting'})
 ])
 
-export class DemoPage {
+export class DemoPage implements CanReuse {
 
     location: Location;
 
@@ -54,6 +59,8 @@ export class DemoPage {
     getLinkStyle(path) {
         return this.location.path().indexOf(path) > -1;
     }
+
+    canReuse(next: ComponentInstruction, prev: ComponentInstruction) { return false; }
 }
 
 
