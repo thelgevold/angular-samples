@@ -44,7 +44,7 @@ var HttpSample = (function () {
         var _this = this;
         var headers = new http_1.Headers();
         headers.append('Content-Type', 'application/json');
-        this.http.post('http://syntaxsuccess.com/poc-post', JSON.stringify({ firstName: 'Joe', lastName: 'Smith' }), { headers: headers })
+        this.http.post('http://www.syntaxsuccess.com/poc-post/', JSON.stringify({ firstName: 'Joe', lastName: 'Smith' }), { headers: headers })
             .map(function (res) { return res.json(); })
             .subscribe(function (res) { return _this.postResponse = res; });
     };

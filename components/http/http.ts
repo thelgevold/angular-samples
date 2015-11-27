@@ -56,7 +56,7 @@ export class HttpSample {
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
 
-        this.http.post('http://syntaxsuccess.com/poc-post', JSON.stringify({firstName:'Joe',lastName:'Smith'}),{headers:headers})
+        this.http.post('http://www.syntaxsuccess.com/poc-post/', JSON.stringify({firstName:'Joe',lastName:'Smith'}),{headers:headers})
             .map((res: Response) => res.json())
             .subscribe((res:Person) => this.postResponse = res);
     }
