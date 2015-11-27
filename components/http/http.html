@@ -9,7 +9,7 @@
 
 <br/>
 <div class="alert alert-success" role="alert">
-    Loaded contract after first loading a customer
+    Loaded a contract after first loading a customer
 </div>
 <div>
     <div>Customer: {{customer.name}}</div>
@@ -21,6 +21,17 @@
     <div class="alert alert-danger" role="alert">
         There was an error loading the list of friends (Intentional error testing)
     </div>
+</div>
+
+<div class="alert alert-success" role="alert">
+    Making a post request
+</div>
+<div>
+    <button (click)="postData()">Post Data</button>
+
+    <p>Posted the following values:</p>
+    <div>{{postResponse.firstName}}</div>
+    <div>{{postResponse.lastName}}</div>
 </div>
 
 <h4><a href="http://www.syntaxsuccess.com/viewarticle/angular-2.0-and-http">Read more here</a></h4>

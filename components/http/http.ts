@@ -1,5 +1,5 @@
 import {Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
-import {Http, Response} from 'angular2/http'
+import {Http, Response, Headers} from 'angular2/http'
 
 @Component({
     selector: 'http'
@@ -17,6 +17,7 @@ export class HttpSample {
     http: Http;
     contract: any;
     customer: any;
+    postResponse = new Person();
 
     constructor(http: Http) {
 
@@ -49,4 +50,19 @@ export class HttpSample {
                 error => this.error = error);
 
     }
+
+    postData(){
+
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        this.http.post('http://syntaxsuccess.com/poc-post', JSON.stringify({firstName:'Joe',lastName:'Smith'}),{headers:headers})
+            .map((res: Response) => res.json())
+            .subscribe((res:Person) => this.postResponse = res);
+    }
+}
+
+class Person{
+    firstName:string;
+    lastName:string;
 }

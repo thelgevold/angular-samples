@@ -13,6 +13,7 @@ var angular2_1 = require('angular2/angular2');
 var http_1 = require('angular2/http');
 var HttpSample = (function () {
     function HttpSample(http) {
+        this.postResponse = new Person();
         this.http = http;
         this.loadFriendsSuccessFully();
         this.loadFriendsWithError();
@@ -39,6 +40,14 @@ var HttpSample = (function () {
         this.result = { friends: [] };
         this.http.get('./friends2.json').map(function (res) { return res.json(); }).subscribe(function (res) { return _this.result = res; }, function (error) { return _this.error = error; });
     };
+    HttpSample.prototype.postData = function () {
+        var _this = this;
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/json');
+        this.http.post('http://syntaxsuccess.com/poc-post', JSON.stringify({ firstName: 'Joe', lastName: 'Smith' }), { headers: headers })
+            .map(function (res) { return res.json(); })
+            .subscribe(function (res) { return _this.postResponse = res; });
+    };
     HttpSample = __decorate([
         angular2_1.Component({
             selector: 'http'
@@ -52,3 +61,8 @@ var HttpSample = (function () {
     return HttpSample;
 })();
 exports.HttpSample = HttpSample;
+var Person = (function () {
+    function Person() {
+    }
+    return Person;
+})();
