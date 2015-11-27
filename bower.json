@@ -15,7 +15,6 @@
   "dependencies": {
     "angular": "~1.4.7",
     "bootstrap": "~3.3.4",
-    "es6-shim": "~0.33.13",
     "jquery": "~2.1.4",
     "jquery-ui": "~1.11.4",
     "moment": "~2.10.6",
