@@ -68,3 +68,8 @@ ul{
 .input-controls{
     margin-bottom: 30px;
 }
+
+.errorMessage{
+    color:red;
+    font-weight: bold;
+}

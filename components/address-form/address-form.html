@@ -1,0 +1,15 @@
+<form (ng-submit)="onSubmit()" [ng-form-model]="form" #f="form">
+    <p>
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" ng-control="firstName">
+        <div class="errorMessage" *ng-if="f.form.controls.firstName.touched && !f.form.controls.firstName.valid">First Name is required</div>
+    </p>
+
+    <p>
+        <label for="zip">Zip Code</label>
+        <input type="text" id="zip" ng-control="zip">
+    <div class="errorMessage" *ng-if="f.form.controls.zip.touched && !f.form.controls.zip.valid">Zip code has to be 5 digits long</div>
+    </p>
+
+    <button type="submit" [disabled]="!f.form.valid">Save</button>
+</form>

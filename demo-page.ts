@@ -16,6 +16,7 @@ import {Angular2Host} from './components/react-integration/angular-2-host';
 import {JqueryIntegration} from './components/jquery-integration/jquery-integration';
 import {InputControls} from './components/input-controls/input-controls';
 import {AddressBook} from './components/dependency-injection/address-book';
+import {AddressForm} from './components/address-form/address-form';
 import {ROUTER_DIRECTIVES, RouteConfig, Route} from 'angular2/router';
 
 import {
@@ -45,7 +46,8 @@ import {
     new Route({ path: '/textbox', component:BoundTextbox, name: 'Textbox'}),
     new Route({ path: '/core', component:CoreDirectives, name: 'Core'}),
     new Route({ path: '/non-bindable', component:IgnoreBindings, name: 'IgnoreBindings'}),
-    new Route({ path: '/greeting', component:GreetingComponent, name: 'Greeting'})
+    new Route({ path: '/greeting', component:GreetingComponent, name: 'Greeting'}),
+    new Route({ path: '/form', component:AddressForm, name: 'AddressForm'}),
 ])
 
 export class DemoPage implements CanReuse {

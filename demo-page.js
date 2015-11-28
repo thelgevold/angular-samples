@@ -25,6 +25,7 @@ var angular_2_host_1 = require('./components/react-integration/angular-2-host');
 var jquery_integration_1 = require('./components/jquery-integration/jquery-integration');
 var input_controls_1 = require('./components/input-controls/input-controls');
 var address_book_1 = require('./components/dependency-injection/address-book');
+var address_form_1 = require('./components/address-form/address-form');
 var router_1 = require('angular2/router');
 var router_2 = require('angular2/router');
 var DemoPage = (function () {
@@ -56,7 +57,8 @@ var DemoPage = (function () {
             new router_1.Route({ path: '/textbox', component: bound_textbox_1.BoundTextbox, name: 'Textbox' }),
             new router_1.Route({ path: '/core', component: core_directives_1.CoreDirectives, name: 'Core' }),
             new router_1.Route({ path: '/non-bindable', component: non_bindable_1.IgnoreBindings, name: 'IgnoreBindings' }),
-            new router_1.Route({ path: '/greeting', component: greeting_component_1.GreetingComponent, name: 'Greeting' })
+            new router_1.Route({ path: '/greeting', component: greeting_component_1.GreetingComponent, name: 'Greeting' }),
+            new router_1.Route({ path: '/form', component: address_form_1.AddressForm, name: 'AddressForm' }),
         ]), 
         __metadata('design:paramtypes', [router_2.Location])
     ], DemoPage);
