@@ -22,11 +22,16 @@ var AddressForm = (function () {
         this.formDir = formDir;
         this.form = fb.group({
             "firstName": ['', angular2_1.Validators.required],
+            "streetAddress": ['', angular2_1.Validators.required],
             "zip": ['', angular2_1.Validators.compose([zipValidator])],
+            "type": ['home']
         });
     }
-    AddressForm.prototype.test = function () {
-        var a = this.form;
+    AddressForm.prototype.selectType = function (val) {
+        this.form.controls.tgh.value = val;
+    };
+    AddressForm.prototype.onSubmit = function () {
+        console.dir(this.form.value);
     };
     AddressForm = __decorate([
         angular2_1.Component({

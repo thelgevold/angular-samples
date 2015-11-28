@@ -1,15 +1,28 @@
 <form (ng-submit)="onSubmit()" [ng-form-model]="form" #f="form">
     <p>
-        <label for="firstName">First Name</label>
+        <div class="formHeading">First Name</div>
         <input type="text" id="firstName" ng-control="firstName">
         <div class="errorMessage" *ng-if="f.form.controls.firstName.touched && !f.form.controls.firstName.valid">First Name is required</div>
     </p>
 
     <p>
-        <label for="zip">Zip Code</label>
-        <input type="text" id="zip" ng-control="zip">
-    <div class="errorMessage" *ng-if="f.form.controls.zip.touched && !f.form.controls.zip.valid">Zip code has to be 5 digits long</div>
+        <div class="formHeading">Street Address</div>
+        <input type="text" id="firstName" ng-control="streetAddress">
+        <div class="errorMessage" *ng-if="f.form.controls.streetAddress.touched && !f.form.controls.streetAddress.valid">Street Address is required</div>
     </p>
 
+    <p>
+        <div class="formHeading">Zip Code</div>
+        <input type="text" id="zip" ng-control="zip">
+        <div class="errorMessage" *ng-if="f.form.controls.zip.touched && !f.form.controls.zip.valid">Zip code has to be 5 digits long</div>
+    </p>
+
+    <p>
+        <div class="formHeading">Address Type</div>
+        <select id="type" ng-control="type">
+            <option [value]="'home'">Home Address</option>
+            <option [value]="'billing'">Billing Address</option>
+        </select>
+    </p>
     <button type="submit" [disabled]="!f.form.valid">Save</button>
 </form>
