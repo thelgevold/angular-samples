@@ -26,10 +26,13 @@
     </p>
     <button type="submit" [disabled]="!f.form.valid">Save</button>
 
-    <p>
-        <div>The form contains the following values</div>
-        <div>
-            {{payLoad}}
-        </div>
-    </p>
 </form>
+
+<p>
+    <div *ng-if="payLoad"><strong>The form contains the following values</strong></div>
+    <div>
+        {{payLoad}}
+    </div>
+</p>
+
+<h4><a href="http://www.syntaxsuccess.com/viewarticle/forms-and-validation-in-angular-2.0">Read more here</a></h4>

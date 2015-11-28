@@ -10,12 +10,11 @@ function zipValidator(zip) {
 }
 
 import {Component, FORM_DIRECTIVES, FormBuilder, CORE_DIRECTIVES,
-        Validators, ControlGroup, Host}
-from 'angular2/angular2';
+        Validators, ControlGroup, Host} from 'angular2/angular2';
 
 @Component({
     selector: 'address-form',
-    directives:[FORM_DIRECTIVES],
+    directives:[FORM_DIRECTIVES,CORE_DIRECTIVES],
     templateUrl: './components/address-form/address-form.html',
     providers: [FormBuilder,CORE_DIRECTIVES]
 })
@@ -23,7 +22,7 @@ from 'angular2/angular2';
 export class AddressForm {
 
     form;
-    payLoad:string;
+    payLoad = null;
 
     constructor(fb: FormBuilder) {
 

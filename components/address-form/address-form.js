@@ -19,6 +19,7 @@ function zipValidator(zip) {
 var angular2_1 = require('angular2/angular2');
 var AddressForm = (function () {
     function AddressForm(fb) {
+        this.payLoad = null;
         this.form = fb.group({
             "firstName": ['', angular2_1.Validators.required],
             "streetAddress": ['', angular2_1.Validators.required],
@@ -32,7 +33,7 @@ var AddressForm = (function () {
     AddressForm = __decorate([
         angular2_1.Component({
             selector: 'address-form',
-            directives: [angular2_1.FORM_DIRECTIVES],
+            directives: [angular2_1.FORM_DIRECTIVES, angular2_1.CORE_DIRECTIVES],
             templateUrl: './components/address-form/address-form.html',
             providers: [angular2_1.FormBuilder, angular2_1.CORE_DIRECTIVES]
         }), 
