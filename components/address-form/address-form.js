@@ -18,8 +18,7 @@ function zipValidator(zip) {
 }
 var angular2_1 = require('angular2/angular2');
 var AddressForm = (function () {
-    function AddressForm(formDir, fb) {
-        this.formDir = formDir;
+    function AddressForm(fb) {
         this.form = fb.group({
             "firstName": ['', angular2_1.Validators.required],
             "streetAddress": ['', angular2_1.Validators.required],
@@ -27,20 +26,17 @@ var AddressForm = (function () {
             "type": ['home']
         });
     }
-    AddressForm.prototype.selectType = function (val) {
-        this.form.controls.tgh.value = val;
-    };
     AddressForm.prototype.onSubmit = function () {
         console.dir(this.form.value);
     };
     AddressForm = __decorate([
         angular2_1.Component({
             selector: 'address-form',
-            directives: [angular2_1.FORM_DIRECTIVES, angular2_1.NgFormModel],
+            directives: [angular2_1.FORM_DIRECTIVES],
             templateUrl: './components/address-form/address-form.html',
-            providers: [angular2_1.FormBuilder, angular2_1.NgFormModel, angular2_1.CORE_DIRECTIVES]
+            providers: [angular2_1.FormBuilder, angular2_1.CORE_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [angular2_1.NgFormModel, angular2_1.FormBuilder])
+        __metadata('design:paramtypes', [angular2_1.FormBuilder])
     ], AddressForm);
     return AddressForm;
 })();

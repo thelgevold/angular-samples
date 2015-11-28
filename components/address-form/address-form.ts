@@ -10,24 +10,21 @@ function zipValidator(zip) {
 }
 
 import {Component, FORM_DIRECTIVES, FormBuilder, CORE_DIRECTIVES,
-        Validators, NgFormModel, ControlGroup, Host}
+        Validators, ControlGroup, Host}
 from 'angular2/angular2';
 
 @Component({
     selector: 'address-form',
-    directives:[FORM_DIRECTIVES,NgFormModel],
+    directives:[FORM_DIRECTIVES],
     templateUrl: './components/address-form/address-form.html',
-    providers: [FormBuilder,NgFormModel,CORE_DIRECTIVES]
+    providers: [FormBuilder,CORE_DIRECTIVES]
 })
 
 export class AddressForm {
 
     form;
-    formDir:NgFormModel;
 
-    constructor(formDir: NgFormModel, fb: FormBuilder) {
-
-        this.formDir = formDir;
+    constructor(fb: FormBuilder) {
 
         this.form = fb.group({
             "firstName": ['', Validators.required],
@@ -35,10 +32,6 @@ export class AddressForm {
             "zip": ['', Validators.compose([zipValidator])],
             "type": ['home']
         });
-    }
-
-    selectType(val){
-        this.form.controls.tgh.value = val;
     }
 
     onSubmit() {
