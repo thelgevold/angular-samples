@@ -25,4 +25,11 @@
         </select>
     </p>
     <button type="submit" [disabled]="!f.form.valid">Save</button>
+
+    <p>
+        <div>The form contains the following values</div>
+        <div>
+            {{payLoad}}
+        </div>
+    </p>
 </form>

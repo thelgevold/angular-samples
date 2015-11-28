@@ -27,7 +27,7 @@ var AddressForm = (function () {
         });
     }
     AddressForm.prototype.onSubmit = function () {
-        console.dir(this.form.value);
+        this.payLoad = JSON.stringify(this.form.value);
     };
     AddressForm = __decorate([
         angular2_1.Component({

@@ -23,6 +23,7 @@ from 'angular2/angular2';
 export class AddressForm {
 
     form;
+    payLoad:string;
 
     constructor(fb: FormBuilder) {
 
@@ -35,6 +36,6 @@ export class AddressForm {
     }
 
     onSubmit() {
-        console.dir(this.form.value);
+        this.payLoad = JSON.stringify(this.form.value);
     }
 }
