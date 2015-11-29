@@ -1,0 +1,33 @@
+import {Component, OnInit, CORE_DIRECTIVES} from 'angular2/angular2';
+
+@Component({
+    selector: 'edge',
+    directives:[CORE_DIRECTIVES],
+    inputs:['x1:x1','y1:y1','x2:x2','y2:y2'],
+    template: '<div class="edge" [ng-style]="style"></div>'
+})
+
+export class Edge {
+
+    style = {};
+    x1:number;
+    y1:number;
+    x2:number;
+    y2:number;
+
+    onInit(){
+        this.drawLine(this.x1,this.y1,this.x2,this.y2);
+    }
+
+    drawLine(x1, y1, x2, y2){
+        var length = Math.sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));
+        var angle  = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+        var transform = 'rotate('+angle+'deg)';
+
+        this.style = {
+            'position': 'absolute',
+            'transform': transform,
+            'width':length
+        };
+   }
+}

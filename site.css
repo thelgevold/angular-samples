@@ -77,3 +77,21 @@ ul{
 .formHeading{
     font-weight: bold;
 }
+
+div.edge{
+    /*transform-origin: 0 50%;*/
+    height: 1px;
+    background: #000088;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: green;
+}
+
+.graph-table{
+    border-spacing: 70px;
+    border-collapse: separate;
+}

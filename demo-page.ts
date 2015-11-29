@@ -17,6 +17,7 @@ import {JqueryIntegration} from './components/jquery-integration/jquery-integrat
 import {InputControls} from './components/input-controls/input-controls';
 import {AddressBook} from './components/dependency-injection/address-book';
 import {AddressForm} from './components/address-form/address-form';
+import {Graph} from './components/algorithms/graph/graph';
 import {ROUTER_DIRECTIVES, RouteConfig, Route} from 'angular2/router';
 
 import {
@@ -37,6 +38,7 @@ import {
     new Route({ path: '/jquery', component: JqueryIntegration, name: 'JqueryIntegration' }),
     new Route({ path: '/react', component:Angular2Host, name: 'React'}),
     new Route({ path: '/algorithms', component:Algorithms, name: 'Algorithms'}),
+    new Route({ path: '/graph', component:Graph, name: 'Graph'}),
     new Route({ path: '/address', component:AddressBook, name: 'AddressBook'}),
     new Route({ path: '/http', component:HttpSample, name: 'Http'}),
     new Route({ path: '/treeview', component:TreeViewDemo, name: 'TreeView'}),

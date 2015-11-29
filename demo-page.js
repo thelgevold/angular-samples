@@ -26,6 +26,7 @@ var jquery_integration_1 = require('./components/jquery-integration/jquery-integ
 var input_controls_1 = require('./components/input-controls/input-controls');
 var address_book_1 = require('./components/dependency-injection/address-book');
 var address_form_1 = require('./components/address-form/address-form');
+var graph_1 = require('./components/algorithms/graph/graph');
 var router_1 = require('angular2/router');
 var router_2 = require('angular2/router');
 var DemoPage = (function () {
@@ -48,6 +49,7 @@ var DemoPage = (function () {
             new router_1.Route({ path: '/jquery', component: jquery_integration_1.JqueryIntegration, name: 'JqueryIntegration' }),
             new router_1.Route({ path: '/react', component: angular_2_host_1.Angular2Host, name: 'React' }),
             new router_1.Route({ path: '/algorithms', component: algorithms_1.Algorithms, name: 'Algorithms' }),
+            new router_1.Route({ path: '/graph', component: graph_1.Graph, name: 'Graph' }),
             new router_1.Route({ path: '/address', component: address_book_1.AddressBook, name: 'AddressBook' }),
             new router_1.Route({ path: '/http', component: http_1.HttpSample, name: 'Http' }),
             new router_1.Route({ path: '/treeview', component: tree_view_demo_1.TreeViewDemo, name: 'TreeView' }),
