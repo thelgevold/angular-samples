@@ -10,19 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var edge_1 = require('./edge');
-var vertex_1 = require('./vertex');
-var Graph = (function () {
-    function Graph() {
+var Vertex = (function () {
+    function Vertex() {
     }
-    Graph = __decorate([
+    Vertex = __decorate([
         angular2_1.Component({
-            selector: 'graph',
-            directives: [edge_1.Edge, vertex_1.Vertex],
-            templateUrl: './components/algorithms/graph/graph.html'
+            selector: 'vertex',
+            template: '<div class="circle"></div>'
         }), 
         __metadata('design:paramtypes', [])
-    ], Graph);
-    return Graph;
+    ], Vertex);
+    return Vertex;
 })();
-exports.Graph = Graph;
+exports.Vertex = Vertex;
