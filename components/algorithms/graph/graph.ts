@@ -19,7 +19,7 @@ export class Graph {
     }
 
     elementClicked(e){
-        this.dynamicComponentLoader.loadIntoLocation(Edge, this.elementRef,'tgh')
+        this.dynamicComponentLoader.loadIntoLocation(Edge, this.elementRef, e.dynamicLocation)
         .then((res) => {
             res.instance.setCoordinates(e.coordinates.x,e.coordinates.y,300,440)
          });

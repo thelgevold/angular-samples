@@ -18,7 +18,7 @@ var Graph = (function () {
         this.elementRef = elementRef;
     }
     Graph.prototype.elementClicked = function (e) {
-        this.dynamicComponentLoader.loadIntoLocation(edge_1.Edge, this.elementRef, 'tgh')
+        this.dynamicComponentLoader.loadIntoLocation(edge_1.Edge, this.elementRef, e.dynamicLocation)
             .then(function (res) {
             res.instance.setCoordinates(e.coordinates.x, e.coordinates.y, 300, 440);
         });

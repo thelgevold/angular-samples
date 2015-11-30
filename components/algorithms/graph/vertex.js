@@ -20,6 +20,7 @@ var Vertex = (function () {
         this.coordinates.x = coordinates.left;
         this.coordinates.y = coordinates.top;
         event.coordinates = this.coordinates;
+        event.dynamicLocation = this.value.toLowerCase();
     };
     Vertex = __decorate([
         angular2_1.Component({

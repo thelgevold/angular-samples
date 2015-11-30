@@ -1,18 +1,17 @@
 <div (click)="elementClicked($event)">
     <h1>Create a graph</h1>
 
-    <vertex [value]="'A'"></vertex>
+    <vertex #a [value]="'A'"></vertex>
 
     <table class="graph-table">
         <tr>
-            <td><vertex [value]="'B'" /><td><vertex [value]="'C'" /></td><td><vertex [value]="'D'" /></td>
+            <td><vertex #b [value]="'B'" /><td><vertex #c [value]="'C'" /></td><td><vertex #d [value]="'D'" /></td>
         </tr>
         <tr>
-            <td><vertex [value]="'E'" /></td><td><vertex [value]="'F'" /></td>
+            <td><vertex #e [value]="'E'" /></td><td><vertex #f [value]="'F'" /></td>
         </tr>
         <tr>
-            <td><vertex [value]="'G'" /></td><td><vertex [value]="'H'" /></td><td><vertex [value]="'I'" /></td>
+            <td><vertex #g [value]="'G'" /></td><td><vertex #h [value]="'H'" /></td><td><vertex #i [value]="'I'" /></td>
         </tr>
     </table>
-
 </div>
