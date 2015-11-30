@@ -11,14 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var angular2_1 = require('angular2/angular2');
 var Vertex = (function () {
-    function Vertex() {
+    function Vertex(elementRef) {
+        this.coordinates = { x: null, y: null };
+        this.elementRef = elementRef;
     }
+    Vertex.prototype.setCoordinates = function (event) {
+        var coordinates = jQuery(this.elementRef.nativeElement).offset();
+        this.coordinates.x = coordinates.left;
+        this.coordinates.y = coordinates.top;
+        event.coordinates = this.coordinates;
+    };
     Vertex = __decorate([
         angular2_1.Component({
             selector: 'vertex',
-            template: '<div class="circle"></div>'
+            inputs: ['value'],
+            template: '<div class="circle" (click)="setCoordinates($event)"><span class="vertex-text">{{value}}</span></div>'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [angular2_1.ElementRef])
     ], Vertex);
     return Vertex;
 })();

@@ -13,15 +13,23 @@ var angular2_1 = require('angular2/angular2');
 var edge_1 = require('./edge');
 var vertex_1 = require('./vertex');
 var Graph = (function () {
-    function Graph() {
+    function Graph(dynamicComponentLoader, elementRef) {
+        this.dynamicComponentLoader = dynamicComponentLoader;
+        this.elementRef = elementRef;
     }
+    Graph.prototype.elementClicked = function (e) {
+        this.dynamicComponentLoader.loadIntoLocation(edge_1.Edge, this.elementRef, 'tgh')
+            .then(function (res) {
+            res.instance.setCoordinates(e.coordinates.x, e.coordinates.y, 300, 440);
+        });
+    };
     Graph = __decorate([
         angular2_1.Component({
             selector: 'graph',
             directives: [edge_1.Edge, vertex_1.Vertex],
             templateUrl: './components/algorithms/graph/graph.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [angular2_1.DynamicComponentLoader, angular2_1.ElementRef])
     ], Graph);
     return Graph;
 })();
