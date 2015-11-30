@@ -1,6 +1,10 @@
 <div (click)="elementClicked($event)">
     <h1>Create a graph</h1>
 
+    <div class="alert alert-info" role="alert">
+        Click any two nodes to connect them with an edge
+    </div>
+
     <vertex #a [value]="'A'"></vertex>
 
     <table class="graph-table">

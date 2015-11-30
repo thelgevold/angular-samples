@@ -14,25 +14,30 @@ export class Graph {
     elementRef:ElementRef;
     first:any;
     second:any;
-    counter = 0;
 
     constructor(dynamicComponentLoader:DynamicComponentLoader, elementRef:ElementRef){
         this.dynamicComponentLoader = dynamicComponentLoader;
         this.elementRef = elementRef;
+        this.first = null;
+        this.second = null;
     }
 
     elementClicked(e){
-        this.counter++;
 
-        if(this.counter === 1){
+        if(!e.vertex){
+            return;
+        }
+
+        if(this.first === null){
             this.first = e.coordinates;
         }
-        if(this.counter === 2){
+        else if(this.second === null){
             this.second = e.coordinates;
-            this.counter = 0;
             this.dynamicComponentLoader.loadIntoLocation(Edge, this.elementRef, this.first.dynamicLocation)
                 .then((res) => {
-                    res.instance.setCoordinates(this.first.x,this.first.y,this.second.x,this.second.y);
+                    res.instance.setCoordinates(this.first.x, this.first.y, this.second.x, this.second.y);
+                    this.first = null;
+                    this.second = null;
             });
         }
     }

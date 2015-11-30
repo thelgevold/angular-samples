@@ -16,17 +16,19 @@ var Vertex = (function () {
         this.elementRef = elementRef;
     }
     Vertex.prototype.setCoordinates = function (event) {
-        var coordinates = jQuery(this.elementRef.nativeElement).offset();
-        this.coordinates.x = coordinates.left;
-        this.coordinates.y = coordinates.top;
+        var element = jQuery(this.elementRef.nativeElement).find('.vertex');
+        var offset = element.offset();
+        this.coordinates.x = offset.left;
+        this.coordinates.y = offset.top;
         event.coordinates = this.coordinates;
         event.coordinates.dynamicLocation = this.value.toLowerCase();
+        event.vertex = true;
     };
     Vertex = __decorate([
         angular2_1.Component({
             selector: 'vertex',
             inputs: ['value'],
-            template: '<div class="circle" (click)="setCoordinates($event)"><span class="vertex-text">{{value}}</span></div>'
+            template: '<div class="vertex" (click)="setCoordinates($event)"><span class="vertex-text">{{value}}</span></div>'
         }), 
         __metadata('design:paramtypes', [angular2_1.ElementRef])
     ], Vertex);

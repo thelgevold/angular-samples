@@ -14,22 +14,26 @@ var edge_1 = require('./edge');
 var vertex_1 = require('./vertex');
 var Graph = (function () {
     function Graph(dynamicComponentLoader, elementRef) {
-        this.counter = 0;
         this.dynamicComponentLoader = dynamicComponentLoader;
         this.elementRef = elementRef;
+        this.first = null;
+        this.second = null;
     }
     Graph.prototype.elementClicked = function (e) {
         var _this = this;
-        this.counter++;
-        if (this.counter === 1) {
+        if (!e.vertex) {
+            return;
+        }
+        if (this.first === null) {
             this.first = e.coordinates;
         }
-        if (this.counter === 2) {
+        else if (this.second === null) {
             this.second = e.coordinates;
-            this.counter = 0;
             this.dynamicComponentLoader.loadIntoLocation(edge_1.Edge, this.elementRef, this.first.dynamicLocation)
                 .then(function (res) {
                 res.instance.setCoordinates(_this.first.x, _this.first.y, _this.second.x, _this.second.y);
+                _this.first = null;
+                _this.second = null;
             });
         }
     };
