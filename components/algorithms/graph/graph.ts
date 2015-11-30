@@ -12,6 +12,9 @@ export class Graph {
 
     dynamicComponentLoader:DynamicComponentLoader;
     elementRef:ElementRef;
+    first:any;
+    second:any;
+    counter = 0;
 
     constructor(dynamicComponentLoader:DynamicComponentLoader, elementRef:ElementRef){
         this.dynamicComponentLoader = dynamicComponentLoader;
@@ -19,10 +22,19 @@ export class Graph {
     }
 
     elementClicked(e){
-        this.dynamicComponentLoader.loadIntoLocation(Edge, this.elementRef, e.dynamicLocation)
-        .then((res) => {
-            res.instance.setCoordinates(e.coordinates.x,e.coordinates.y,300,440)
-         });
+        this.counter++;
+
+        if(this.counter === 1){
+            this.first = e.coordinates;
+        }
+        if(this.counter === 2){
+            this.second = e.coordinates;
+            this.counter = 0;
+            this.dynamicComponentLoader.loadIntoLocation(Edge, this.elementRef, this.first.dynamicLocation)
+                .then((res) => {
+                    res.instance.setCoordinates(this.first.x,this.first.y,this.second.x,this.second.y);
+            });
+        }
     }
 
 }

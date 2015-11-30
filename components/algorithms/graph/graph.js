@@ -14,14 +14,24 @@ var edge_1 = require('./edge');
 var vertex_1 = require('./vertex');
 var Graph = (function () {
     function Graph(dynamicComponentLoader, elementRef) {
+        this.counter = 0;
         this.dynamicComponentLoader = dynamicComponentLoader;
         this.elementRef = elementRef;
     }
     Graph.prototype.elementClicked = function (e) {
-        this.dynamicComponentLoader.loadIntoLocation(edge_1.Edge, this.elementRef, e.dynamicLocation)
-            .then(function (res) {
-            res.instance.setCoordinates(e.coordinates.x, e.coordinates.y, 300, 440);
-        });
+        var _this = this;
+        this.counter++;
+        if (this.counter === 1) {
+            this.first = e.coordinates;
+        }
+        if (this.counter === 2) {
+            this.second = e.coordinates;
+            this.counter = 0;
+            this.dynamicComponentLoader.loadIntoLocation(edge_1.Edge, this.elementRef, this.first.dynamicLocation)
+                .then(function (res) {
+                res.instance.setCoordinates(_this.first.x, _this.first.y, _this.second.x, _this.second.y);
+            });
+        }
     };
     Graph = __decorate([
         angular2_1.Component({

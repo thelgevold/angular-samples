@@ -23,6 +23,6 @@ export class Vertex {
         this.coordinates.x = coordinates.left;
         this.coordinates.y = coordinates.top;
         event.coordinates = this.coordinates;
-        event.dynamicLocation = this.value.toLowerCase();
+        event.coordinates.dynamicLocation = this.value.toLowerCase();
     }
 }
