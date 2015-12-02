@@ -14,7 +14,7 @@ var react_tree_view_1 = require('./react-tree-view');
 var Angular2Host = (function () {
     function Angular2Host() {
     }
-    Angular2Host.prototype.onInit = function () {
+    Angular2Host.prototype.ngOnInit = function () {
         react_tree_view_1.ReactTreeView.initialize('Locations');
     };
     Angular2Host = __decorate([

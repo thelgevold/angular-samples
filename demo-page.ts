@@ -64,7 +64,7 @@ export class DemoPage implements CanReuse {
         return this.location.path().indexOf(path) > -1;
     }
 
-    canReuse(next: ComponentInstruction, prev: ComponentInstruction) { return false; }
+    routerCanReuse(next: ComponentInstruction, prev: ComponentInstruction) { return false; }
 }
 
 

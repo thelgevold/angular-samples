@@ -32,7 +32,7 @@ export class Spreadsheet implements AfterViewChecked {
         this.model.navigate($event.keyCode);
     }
 
-    afterViewChecked(){
+    ngAfterViewChecked(){
         let cell = document.getElementById(this.model.current.rowIndex + '-' + this.model.current.columnIndex);
         cell.focus();
     }

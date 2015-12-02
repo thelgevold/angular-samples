@@ -22,7 +22,7 @@ var Spreadsheet = (function () {
     Spreadsheet.prototype.navigate = function ($event) {
         this.model.navigate($event.keyCode);
     };
-    Spreadsheet.prototype.afterViewChecked = function () {
+    Spreadsheet.prototype.ngAfterViewChecked = function () {
         var cell = document.getElementById(this.model.current.rowIndex + '-' + this.model.current.columnIndex);
         cell.focus();
     };

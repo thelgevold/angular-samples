@@ -15,11 +15,8 @@ var IgnoreBindings = (function () {
     }
     IgnoreBindings = __decorate([
         angular2_1.Component({
-            selector: 'ignore-bindings'
-        }),
-        angular2_1.View({
-            templateUrl: './components/non-bindable/non-bindable.html',
-            directives: [angular2_1.CORE_DIRECTIVES]
+            selector: 'ignore-bindings',
+            templateUrl: './components/non-bindable/non-bindable.html'
         }), 
         __metadata('design:paramtypes', [])
     ], IgnoreBindings);

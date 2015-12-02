@@ -8,7 +8,7 @@ export class Clock {
         this.offset = offset;
     }
 
-    onInit(){
+    ngOnInit(){
         this.time = moment.utc().add(this.offset,'h');
         setInterval(() => {
             this.time = moment.utc().add(this.offset,'h');

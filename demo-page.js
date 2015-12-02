@@ -36,7 +36,7 @@ var DemoPage = (function () {
     DemoPage.prototype.getLinkStyle = function (path) {
         return this.location.path().indexOf(path) > -1;
     };
-    DemoPage.prototype.canReuse = function (next, prev) { return false; };
+    DemoPage.prototype.routerCanReuse = function (next, prev) { return false; };
     DemoPage = __decorate([
         angular2_1.Component({
             selector: 'demo-page',

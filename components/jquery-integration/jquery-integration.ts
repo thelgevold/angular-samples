@@ -17,7 +17,7 @@ export class JqueryIntegration implements OnInit {
         this.elementRef = elementRef;
     }
 
-    onInit() {
+    ngOnInit() {
         jQuery(this.elementRef.nativeElement).find('.moving-box').draggable({containment:'#draggable-parent'});
     }
 }

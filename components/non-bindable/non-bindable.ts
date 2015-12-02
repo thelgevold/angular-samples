@@ -1,12 +1,8 @@
-import {Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component} from 'angular2/angular2';
 
 @Component({
-    selector: 'ignore-bindings'
-})
-
-@View({
-    templateUrl: './components/non-bindable/non-bindable.html',
-    directives: [CORE_DIRECTIVES]
+    selector: 'ignore-bindings',
+    templateUrl: './components/non-bindable/non-bindable.html'
 })
 
 export class IgnoreBindings {
