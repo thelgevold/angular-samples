@@ -22,7 +22,6 @@ import {ROUTER_DIRECTIVES, RouteConfig, Route} from 'angular2/router';
 
 import {
     ComponentInstruction,
-    CanReuse,
     Location
 } from 'angular2/router';
 
@@ -52,19 +51,17 @@ import {
     new Route({ path: '/form', component:AddressForm, name: 'AddressForm'}),
 ])
 
-export class DemoPage implements CanReuse {
+export class DemoPage {
 
-    location: Location;
+    location:Location;
 
-    constructor(location: Location){
+    constructor(location:Location) {
         this.location = location;
     }
 
     getLinkStyle(path) {
         return this.location.path().indexOf(path) > -1;
     }
-
-    routerCanReuse(next: ComponentInstruction, prev: ComponentInstruction) { return false; }
 }
 
 

@@ -17,6 +17,7 @@ var InputControls = (function () {
         this.csharp = false;
         this.name = 'Two way bound';
     }
+    InputControls.prototype.routerCanReuse = function (next, prev) { return false; };
     InputControls = __decorate([
         angular2_1.Component({
             selector: 'input-controls',
