@@ -20,14 +20,24 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.src.js"></script>
 
     <script>
+
         System.config({
-            defaultJSExtensions: true
+            defaultJSExtensions: true,
+            baseURL: './',
+            paths: {
+                // alpha 11
+                'rxjs/operators/*' : './node_modules/rxjs/operators/*.js',
+                // alpha 12
+                'rxjs/add/operator/*' : './node_modules/rxjs/add/operator/*.js'
+            }
+
+
         });
     </script>
 
-    <script src="https://code.angularjs.org/2.0.0-alpha.47/angular2.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-alpha.47/http.dev.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-alpha.47/router.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.48/angular2.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.48/http.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.48/router.dev.js"></script>
 
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -38,7 +48,7 @@
 
 <demo-app></demo-app>
 
-<script>System.import('app');</script>
+<script>System.import('./app');</script>
 
 
 </body>

@@ -1,11 +1,8 @@
-import {Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
-import {Http, Response, Headers} from 'angular2/http'
+import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Http, Response, Headers} from 'angular2/http';
+import 'rxjs/operators/map';
 
 @Component({
-    selector: 'http'
-})
-
-@View({
     templateUrl: './components/http/http.html',
     directives: [CORE_DIRECTIVES]
 })
@@ -23,8 +20,8 @@ export class HttpSample {
 
         this.http = http;
         this.loadFriendsSuccessFully();
-        this.loadFriendsWithError();
-        this.loadContractByCustomer();
+      //  this.loadFriendsWithError();
+      //  this.loadContractByCustomer();
     }
 
     loadFriendsSuccessFully(){
