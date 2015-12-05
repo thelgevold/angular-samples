@@ -9,7 +9,7 @@ var KeyMap = (function () {
         if (keyCode === 40) {
             direction.down = true;
         }
-        if (keyCode === 39) {
+        if (keyCode === 39 || keyCode === 9) {
             direction.right = true;
         }
         if (keyCode === 37) {
