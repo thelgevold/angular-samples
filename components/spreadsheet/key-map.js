@@ -9,8 +9,11 @@ var KeyMap = (function () {
         if (keyCode === 40) {
             direction.down = true;
         }
-        if (keyCode === 39 || keyCode === 9) {
+        if (keyCode === 39) {
             direction.right = true;
+        }
+        if (keyCode === 9) {
+            direction.tab = true;
         }
         if (keyCode === 37) {
             direction.left = true;

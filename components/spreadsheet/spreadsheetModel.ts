@@ -55,6 +55,17 @@ export class SpreadsheetModel{
             }
             this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex + 1];
         }
+        if(navDirection.tab){
+            this.ensureRow();
+
+            if(this.current.columnIndex === this.columnCount - 1){
+                this.current = this.rows[this.current.rowIndex + 1].columns[0];
+            }
+            else {
+                this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex + 1];
+            }
+        }
+
     }
 
     adjustRowRangeUpward(){
