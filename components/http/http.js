@@ -50,9 +50,6 @@ var HttpSample = (function () {
     };
     HttpSample = __decorate([
         angular2_1.Component({
-            selector: 'http'
-        }),
-        angular2_1.View({
             templateUrl: './components/http/http.html',
             directives: [angular2_1.CORE_DIRECTIVES]
         }), 

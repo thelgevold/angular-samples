@@ -9,6 +9,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+require('rxjs/operator/map');
+require('rxjs/operator/mergeMap');
+require('rxjs/observable/interval');
 var http_1 = require('angular2/http');
 var angular2_1 = require('angular2/angular2');
 var demo_page_1 = require('./demo-page');

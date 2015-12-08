@@ -1,6 +1,8 @@
 import {Clock} from '../clock.ts';
 
-import {Component, bootstrapWebWorker} from 'angular2/web_worker/worker';
+import {Component} from 'angular2/web_worker/worker';
+import {platform} from "angular2/core";
+import {WORKER_APP_PLATFORM, setupWebWorker} from "angular2/platform/worker_app";
 
 @Component({
     selector: 'la',
@@ -15,4 +17,6 @@ export class La extends Clock{
     }
 }
 
-bootstrapWebWorker(La);
+platform([WORKER_APP_PLATFORM])
+    .asyncApplication(setupWebWorker)
+    .then((ref) => ref.bootstrap(La));
