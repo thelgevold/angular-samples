@@ -11,14 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var angular2_1 = require('angular2/angular2');
 var http_1 = require('angular2/http');
-require('rxjs/operators/map');
 var HttpSample = (function () {
     function HttpSample(http) {
         this.postResponse = new Person();
         this.http = http;
         this.loadFriendsSuccessFully();
-        //  this.loadFriendsWithError();
-        //  this.loadContractByCustomer();
+        this.loadFriendsWithError();
+        this.loadContractByCustomer();
     }
     HttpSample.prototype.loadFriendsSuccessFully = function () {
         var _this = this;

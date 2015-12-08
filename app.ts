@@ -1,3 +1,8 @@
+import {Observable} from 'angular2/angular2/'
+import 'rxjs/operator/map';
+import 'rxjs/operator/mergeMap';
+import 'rxjs/observable/interval'
+
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {Component, View, bootstrap, provide} from 'angular2/angular2';
 import {DemoPage} from './demo-page';

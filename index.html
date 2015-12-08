@@ -23,15 +23,11 @@
 
         System.config({
             defaultJSExtensions: true,
-            baseURL: './',
             paths: {
-                // alpha 11
-                'rxjs/operators/*' : './node_modules/rxjs/operators/*.js',
-                // alpha 12
-                'rxjs/add/operator/*' : './node_modules/rxjs/add/operator/*.js'
+                'rxjs/observable/*' : './node_modules/rxjs/add/observable/*.js',
+                'rxjs/operator/*' : './node_modules/rxjs/add/operator/*.js',
+                'rxjs/*' : './node_modules/rxjs/*.js'
             }
-
-
         });
     </script>
 
