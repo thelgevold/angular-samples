@@ -4,7 +4,7 @@
     Error messages per field and disabled save button until entire form is valid.
 </div>
 
-<form (ng-submit)="onSubmit()" [ng-form-model]="form" #f="form">
+<form (ng-submit)="onSubmit()" [ng-form-model]="form" #f="ngForm">
     <div class="form-row">
         <div class="formHeading">First Name</div>
         <input type="text" id="firstName" ng-control="firstName">
