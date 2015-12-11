@@ -3,7 +3,7 @@ Documentation: http://www.syntaxsuccess.com/viewarticle/angular-2.0-examples
 
 The project uses TypeScript, so to get started you may have to run the following:
 
-1-Install the TypeScript compiler: npm install -g typescript@^1.6.0
+1-Install the TypeScript compiler: npm install -g typescript@^1.7.0
 
 2-Run npm install and bower install
 
