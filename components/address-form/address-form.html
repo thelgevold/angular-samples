@@ -4,28 +4,28 @@
     Error messages per field and disabled save button until entire form is valid.
 </div>
 
-<form (ng-submit)="onSubmit()" [ng-form-model]="form" #f="ngForm">
+<form (ng-submit)="onSubmit()" [ngFormModel]="form" #f="ngForm">
     <div class="form-row">
         <div class="formHeading">First Name</div>
-        <input type="text" id="firstName" ng-control="firstName">
-        <div class="errorMessage" *ng-if="f.form.controls.firstName.touched && !f.form.controls.firstName.valid">First Name is required</div>
+        <input type="text" id="firstName" ngControl="firstName">
+        <div class="errorMessage" *ngIf="f.form.controls.firstName.touched && !f.form.controls.firstName.valid">First Name is required</div>
     </div>
 
     <div class="form-row">
         <div class="formHeading">Street Address</div>
-        <input type="text" id="firstName" ng-control="streetAddress">
-        <div class="errorMessage" *ng-if="f.form.controls.streetAddress.touched && !f.form.controls.streetAddress.valid">Street Address is required</div>
+        <input type="text" id="firstName" ngControl="streetAddress">
+        <div class="errorMessage" *ngIf="f.form.controls.streetAddress.touched && !f.form.controls.streetAddress.valid">Street Address is required</div>
     </div>
 
     <div class="form-row">
         <div class="formHeading">Zip Code</div>
-        <input type="text" id="zip" ng-control="zip">
-        <div class="errorMessage" *ng-if="f.form.controls.zip.touched && !f.form.controls.zip.valid">Zip code has to be 5 digits long</div>
+        <input type="text" id="zip" ngControl="zip">
+        <div class="errorMessage" *ngIf="f.form.controls.zip.touched && !f.form.controls.zip.valid">Zip code has to be 5 digits long</div>
     </div>
 
     <div class="form-row">
         <div class="formHeading">Address Type</div>
-        <select id="type" ng-control="type">
+        <select id="type" ngControl="type">
             <option [value]="'home'">Home Address</option>
             <option [value]="'billing'">Billing Address</option>
         </select>
@@ -37,7 +37,7 @@
 </form>
 
 <div class="form-row">
-    <div *ng-if="payLoad"><strong>The form contains the following values</strong></div>
+    <div *ngIf="payLoad"><strong>The form contains the following values</strong></div>
     <div>
         {{payLoad}}
     </div>

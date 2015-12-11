@@ -1,9 +1,9 @@
 <h1>Sortable Grid</h1>
 <table class="table table-striped">
     <tr>
-        <td *ng-for="#col of columns"><a (click)="sort(col.name)">{{col.descr}}</a></td>
+        <td *ngFor="#col of columns"><a (click)="sort(col.name)">{{col.descr}}</a></td>
     </tr>
-    <tr *ng-for="#row of rows">
-        <td *ng-for="#col of columns">{{row[col.name]}}</td>
+    <tr *ngFor="#row of rows">
+        <td *ngFor="#col of columns">{{row[col.name]}}</td>
     </tr>
 </table>

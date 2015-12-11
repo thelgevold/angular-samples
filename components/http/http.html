@@ -3,7 +3,7 @@
 <div class="alert alert-success" role="alert">
     List of friends loaded successfully
 </div>
-<div *ng-for="#friend of result.friends">
+<div *ngFor="#friend of result.friends">
     {{friend}}
 </div>
 
@@ -17,7 +17,7 @@
 </div>
 
 <br/>
-<div *ng-if="error">
+<div *ngIf="error">
     <div class="alert alert-danger" role="alert">
         There was an error loading the list of friends (Intentional error testing)
     </div>

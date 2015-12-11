@@ -9,14 +9,14 @@ function zipValidator(zip) {
     return {"invalidZip":true};
 }
 
-import {Component, FORM_DIRECTIVES, FormBuilder, CORE_DIRECTIVES,
+import {Component, FORM_DIRECTIVES, FormBuilder,
         Validators, ControlGroup, Host} from 'angular2/angular2';
 
 @Component({
     selector: 'address-form',
-    directives:[FORM_DIRECTIVES,CORE_DIRECTIVES],
+    directives:[FORM_DIRECTIVES],
     templateUrl: './components/address-form/address-form.html',
-    providers: [FormBuilder,CORE_DIRECTIVES]
+    providers: [FormBuilder]
 })
 
 export class AddressForm {

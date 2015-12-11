@@ -1,4 +1,4 @@
-import {Component, View, CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/angular2';
+import {Component, View, FORM_DIRECTIVES} from 'angular2/angular2';
 import {
     ComponentInstruction,
     CanReuse
@@ -7,7 +7,7 @@ import {
 @Component({
     selector: 'input-controls',
     templateUrl: './components/input-controls/input-controls.html',
-    directives:[CORE_DIRECTIVES, FORM_DIRECTIVES]
+    directives:[FORM_DIRECTIVES]
 })
 
 export class InputControls implements CanReuse {

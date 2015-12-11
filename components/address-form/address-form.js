@@ -33,9 +33,9 @@ var AddressForm = (function () {
     AddressForm = __decorate([
         angular2_1.Component({
             selector: 'address-form',
-            directives: [angular2_1.FORM_DIRECTIVES, angular2_1.CORE_DIRECTIVES],
+            directives: [angular2_1.FORM_DIRECTIVES],
             templateUrl: './components/address-form/address-form.html',
-            providers: [angular2_1.FormBuilder, angular2_1.CORE_DIRECTIVES]
+            providers: [angular2_1.FormBuilder]
         }), 
         __metadata('design:paramtypes', [angular2_1.FormBuilder])
     ], AddressForm);

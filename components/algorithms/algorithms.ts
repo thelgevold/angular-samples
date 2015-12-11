@@ -10,8 +10,6 @@ import {InsertionSort} from '../insertion-sort/insertion-sort';
     directives: [CORE_DIRECTIVES,InsertionSort]
 })
 
-
-
 export class Algorithms {
 
 

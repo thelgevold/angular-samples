@@ -36,7 +36,7 @@ var Edge = (function () {
             selector: 'edge',
             directives: [angular2_1.CORE_DIRECTIVES],
             inputs: ['x1:x1', 'y1:y1', 'x2:x2', 'y2:y2'],
-            template: '<div class="edge" [ng-style]="style"></div>'
+            template: '<div class="edge" [ngStyle]="style"></div>'
         }), 
         __metadata('design:paramtypes', [])
     ], Edge);

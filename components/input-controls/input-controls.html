@@ -2,7 +2,7 @@
 <div class="input-controls">
     <h4>"Two way bindings"</h4>
 
-    <input [(ng-model)]="name" />
+    <input [(ngModel)]="name" />
 
     <div>Current Value: {{name}}</div>
 </div>
@@ -51,9 +51,9 @@
 <div>
     Selected Skills:
     <ul>
-        <li *ng-if="angular">Angular</li>
-        <li *ng-if="javascript">JavaScript</li>
-        <li *ng-if="csharp">C#</li>
+        <li *ngIf="angular">Angular</li>
+        <li *ngIf="javascript">JavaScript</li>
+        <li *ngIf="csharp">C#</li>
     </ul>
 </div>
 

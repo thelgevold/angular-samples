@@ -4,7 +4,7 @@ import {Component, OnInit, CORE_DIRECTIVES} from 'angular2/angular2';
     selector: 'edge',
     directives:[CORE_DIRECTIVES],
     inputs:['x1:x1','y1:y1','x2:x2','y2:y2'],
-    template: '<div class="edge" [ng-style]="style"></div>'
+    template: '<div class="edge" [ngStyle]="style"></div>'
 })
 
 export class Edge {

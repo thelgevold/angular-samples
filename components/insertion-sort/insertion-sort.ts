@@ -1,4 +1,4 @@
-import {Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component, View} from 'angular2/angular2';
 import {Insertion} from '../../algorithms/insertion-sort';
 
 @Component({
@@ -7,8 +7,7 @@ import {Insertion} from '../../algorithms/insertion-sort';
 })
 
 @View({
-    templateUrl: './components/insertion-sort/insertion-sort.html',
-    directives: [CORE_DIRECTIVES]
+    templateUrl: './components/insertion-sort/insertion-sort.html'
 })
 
 export class InsertionSort {

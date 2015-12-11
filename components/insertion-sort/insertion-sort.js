@@ -39,8 +39,7 @@ var InsertionSort = (function () {
             inputs: ['list: list']
         }),
         angular2_1.View({
-            templateUrl: './components/insertion-sort/insertion-sort.html',
-            directives: [angular2_1.CORE_DIRECTIVES]
+            templateUrl: './components/insertion-sort/insertion-sort.html'
         }), 
         __metadata('design:paramtypes', [])
     ], InsertionSort);

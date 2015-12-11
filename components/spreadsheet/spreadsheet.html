@@ -2,11 +2,11 @@
 <table id="spreadsheet">
     <tr>
         <td class="row-number-column"></td>
-        <td class="columnHeader" *ng-for="#columnHeader of getHeader()">{{columnHeader}}</td>
+        <td class="columnHeader" *ngFor="#columnHeader of getHeader()">{{columnHeader}}</td>
     </tr>
-    <tr *ng-for="#row of getVisibleRows()">
+    <tr *ngFor="#row of getVisibleRows()">
         <td class="row-number-column">{{row.rowIndex}}</td>
-        <td *ng-for="#col of row.columns">
+        <td *ngFor="#col of row.columns">
             <input  data-id="{{col.rowIndex}}-{{col.columnIndex}}" [value]="col.cellValue" (input)="col.cellValue = $event.target.value" (click)="model.selectColumn(col)" (keyup)="navigate($event)" />
         </td>
     </tr>

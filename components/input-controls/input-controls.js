@@ -22,7 +22,7 @@ var InputControls = (function () {
         angular2_1.Component({
             selector: 'input-controls',
             templateUrl: './components/input-controls/input-controls.html',
-            directives: [angular2_1.CORE_DIRECTIVES, angular2_1.FORM_DIRECTIVES]
+            directives: [angular2_1.FORM_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
     ], InputControls);
