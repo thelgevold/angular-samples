@@ -1,4 +1,4 @@
-import {CORE_DIRECTIVES,Component,View} from 'angular2/angular2';
+import {Component,View} from 'angular2/core';
 
 @Component({
     selector: 'core-directives',
@@ -6,8 +6,7 @@ import {CORE_DIRECTIVES,Component,View} from 'angular2/angular2';
 })
 
 @View({
-    templateUrl: './components/core-directives/core-directives.html',
-    directives: [CORE_DIRECTIVES]
+    templateUrl: './components/core-directives/core-directives.html'
 })
 
 export class CoreDirectives {

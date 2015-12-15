@@ -1,11 +1,9 @@
-
-import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component} from 'angular2/core';
 import {Http, Response, Headers} from 'angular2/http';
 
 
 @Component({
-    templateUrl: './components/http/http.html',
-    directives: [CORE_DIRECTIVES]
+    templateUrl: './components/http/http.html'
 })
 
 export class HttpSample {

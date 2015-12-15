@@ -1,4 +1,4 @@
-import {Component, View, OnInit} from 'angular2/angular2';
+import {Component, View, OnInit} from 'angular2/core';
 import {ReactTreeView} from './react-tree-view';
 
 @Component({

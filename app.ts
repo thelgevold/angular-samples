@@ -1,10 +1,11 @@
-import {Observable} from 'angular2/angular2/'
 import 'rxjs/operator/map';
 import 'rxjs/operator/mergeMap';
 import 'rxjs/observable/interval'
 
 import {HTTP_PROVIDERS} from 'angular2/http';
-import {Component, View, bootstrap, provide} from 'angular2/angular2';
+import {Component, View, provide} from 'angular2/core';
+import {bootstrap} from 'angular2/platform/browser';
+
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
 import {ROUTER_DIRECTIVES, RouteConfig, Location,ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router} from 'angular2/router';

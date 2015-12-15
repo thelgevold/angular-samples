@@ -1,4 +1,4 @@
-import {Component} from 'angular2/angular2';
+import {Component} from 'angular2/core';
 
 import {RouteParams} from 'angular2/router';
 import {ROUTER_DIRECTIVES} from 'angular2/router';

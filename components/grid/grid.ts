@@ -1,4 +1,4 @@
-import {Component, View, NgFor} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
 import {Column} from './column';
 import {Sorter} from './sorter';
 
@@ -8,8 +8,7 @@ import {Sorter} from './sorter';
 })
 
 @View({
-    templateUrl: './components/grid/grid.html',
-    directives: [NgFor]
+    templateUrl: './components/grid/grid.html'
 })
 
 export class Grid {

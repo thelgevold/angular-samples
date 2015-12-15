@@ -1,4 +1,4 @@
-import {Component, View, NgFor,NgIf} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
 import {Directory} from './directory';
 
 @Component({
@@ -8,7 +8,7 @@ import {Directory} from './directory';
 
 @View({
     templateUrl: './components/tree-view/tree-view.html',
-    directives: [NgFor,TreeView,NgIf]
+    directives: [TreeView]
 })
 
 export class TreeView {

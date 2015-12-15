@@ -1,4 +1,6 @@
-import {Component,bootstrap,UpgradeAdapter} from 'angular2/angular2';
+import {Component} from 'angular2/core';
+import {UpgradeAdapter} from 'angular2/upgrade';
+import {bootstrap} from 'angular2/platform/browser';
 import {Algorithms} from './components/algorithms/algorithms';
 import {Adder} from './components/adder/adder';
 import {Counter} from './components/counter/counter';

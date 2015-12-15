@@ -1,4 +1,5 @@
-import {Component, View, FORM_DIRECTIVES} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
+import {FORM_DIRECTIVES} from 'angular2/common';
 import {
     ComponentInstruction,
     CanReuse

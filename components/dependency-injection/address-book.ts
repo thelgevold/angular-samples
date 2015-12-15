@@ -1,11 +1,10 @@
-import {Component,CORE_DIRECTIVES} from 'angular2/angular2';
-import {Injectable} from 'angular2/angular2'
+import {Component} from 'angular2/core';
+import {Injectable} from 'angular2/core'
 import {AddressBookService} from './address-book-service';
 import {AddressBookTitleService} from './address-book-title-service';
 
 @Component({
     selector: 'address-book',
-    directives:[CORE_DIRECTIVES],
     templateUrl: './components/dependency-injection/address-book.html',
     providers:[AddressBookService]
 })

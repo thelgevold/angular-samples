@@ -1,5 +1,5 @@
 /// <reference path="./typings/tsd.d.ts" />
-import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component} from 'angular2/core';
 import {TreeViewDemo} from './components/tree-view/tree-view-demo';
 import {ContactList} from './components/contact-list/contact-list';
 import {BoundTextbox} from './components/bound-textbox/bound-textbox';
@@ -28,7 +28,7 @@ import {
 @Component({
     selector: 'demo-page',
     templateUrl: './demo-page.html',
-    directives: [ROUTER_DIRECTIVES, Spreadsheet, CORE_DIRECTIVES, HttpSample, GridDemo, ContactList,
+    directives: [ROUTER_DIRECTIVES, Spreadsheet, HttpSample, GridDemo, ContactList,
                  JqueryIntegration, Angular2Host, Algorithms, AddressBook, InputControls, TreeViewDemo]
 })
 

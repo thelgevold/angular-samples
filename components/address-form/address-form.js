@@ -1,10 +1,8 @@
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-    switch (arguments.length) {
-        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
-        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
-        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
-    }
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
@@ -16,14 +14,15 @@ function zipValidator(zip) {
     }
     return { "invalidZip": true };
 }
-var angular2_1 = require('angular2/angular2');
+var core_1 = require('angular2/core');
+var common_1 = require('angular2/common');
 var AddressForm = (function () {
     function AddressForm(fb) {
         this.payLoad = null;
         this.form = fb.group({
-            "firstName": ['', angular2_1.Validators.required],
-            "streetAddress": ['', angular2_1.Validators.required],
-            "zip": ['', angular2_1.Validators.compose([zipValidator])],
+            "firstName": ['', common_1.Validators.required],
+            "streetAddress": ['', common_1.Validators.required],
+            "zip": ['', common_1.Validators.compose([zipValidator])],
             "type": ['home']
         });
     }
@@ -31,13 +30,13 @@ var AddressForm = (function () {
         this.payLoad = JSON.stringify(this.form.value);
     };
     AddressForm = __decorate([
-        angular2_1.Component({
+        core_1.Component({
             selector: 'address-form',
-            directives: [angular2_1.FORM_DIRECTIVES],
+            directives: [common_1.FORM_DIRECTIVES],
             templateUrl: './components/address-form/address-form.html',
-            providers: [angular2_1.FormBuilder]
+            providers: [common_1.FormBuilder]
         }), 
-        __metadata('design:paramtypes', [angular2_1.FormBuilder])
+        __metadata('design:paramtypes', [common_1.FormBuilder])
     ], AddressForm);
     return AddressForm;
 })();

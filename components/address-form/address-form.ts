@@ -9,8 +9,9 @@ function zipValidator(zip) {
     return {"invalidZip":true};
 }
 
-import {Component, FORM_DIRECTIVES, FormBuilder,
-        Validators, ControlGroup, Host} from 'angular2/angular2';
+import {Component} from 'angular2/core';
+
+import {FormBuilder, Validators, ControlGroup, FORM_DIRECTIVES} from 'angular2/common';
 
 @Component({
     selector: 'address-form',

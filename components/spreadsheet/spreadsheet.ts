@@ -1,5 +1,5 @@
-import {Component, View, NgFor, NgModel, NgClass, AfterViewChecked} from 'angular2/angular2';
-
+import {Component, View, AfterViewChecked} from 'angular2/core';
+import {NgModel} from 'angular2/common';
 import {SpreadsheetModel} from './spreadsheetModel';
 import {KeyMap} from './key-map';
 import {HeaderRowService} from './header-row-service';
@@ -11,7 +11,7 @@ import {HeaderRowService} from './header-row-service';
 
 @View({
     templateUrl: './components/spreadsheet/spreadsheet.html',
-    directives: [NgFor, NgModel, NgClass]
+    directives: [NgModel]
 })
 
 export class Spreadsheet implements AfterViewChecked {

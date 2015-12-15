@@ -1,16 +1,14 @@
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
-    switch (arguments.length) {
-        case 2: return decorators.reduceRight(function(o, d) { return (d && d(o)) || o; }, target);
-        case 3: return decorators.reduceRight(function(o, d) { return (d && d(target, key)), void 0; }, void 0);
-        case 4: return decorators.reduceRight(function(o, d) { return (d && d(target, key, o)) || o; }, desc);
-    }
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /// <reference path="./typings/tsd.d.ts" />
-var angular2_1 = require('angular2/angular2');
+var core_1 = require('angular2/core');
 var tree_view_demo_1 = require('./components/tree-view/tree-view-demo');
 var contact_list_1 = require('./components/contact-list/contact-list');
 var bound_textbox_1 = require('./components/bound-textbox/bound-textbox');
@@ -37,10 +35,10 @@ var DemoPage = (function () {
         return this.location.path().indexOf(path) > -1;
     };
     DemoPage = __decorate([
-        angular2_1.Component({
+        core_1.Component({
             selector: 'demo-page',
             templateUrl: './demo-page.html',
-            directives: [router_1.ROUTER_DIRECTIVES, spreadsheet_1.Spreadsheet, angular2_1.CORE_DIRECTIVES, http_1.HttpSample, grid_demo_1.GridDemo, contact_list_1.ContactList,
+            directives: [router_1.ROUTER_DIRECTIVES, spreadsheet_1.Spreadsheet, http_1.HttpSample, grid_demo_1.GridDemo, contact_list_1.ContactList,
                 jquery_integration_1.JqueryIntegration, angular_2_host_1.Angular2Host, algorithms_1.Algorithms, address_book_1.AddressBook, input_controls_1.InputControls, tree_view_demo_1.TreeViewDemo]
         }),
         router_1.RouteConfig([

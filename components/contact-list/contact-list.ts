@@ -1,4 +1,4 @@
-import {Component, View, NgFor} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
 import {Contact} from './contact';
 
 @Component({
@@ -6,8 +6,7 @@ import {Contact} from './contact';
 })
 
 @View({
-    templateUrl: './components/contact-list/contact-list.html',
-    directives: [NgFor]
+    templateUrl: './components/contact-list/contact-list.html'
 })
 
 export class ContactList {

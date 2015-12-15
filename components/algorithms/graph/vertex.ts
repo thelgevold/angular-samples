@@ -1,4 +1,4 @@
-import {Component, ElementRef} from 'angular2/angular2';
+import {Component, ElementRef} from 'angular2/core';
 
 declare var jQuery:any;
 

@@ -1,4 +1,4 @@
-import {Component,DynamicComponentLoader, ElementRef} from 'angular2/angular2';
+import {Component,DynamicComponentLoader, ElementRef} from 'angular2/core';
 import {Edge} from './edge';
 import {Vertex} from './vertex';
 
