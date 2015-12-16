@@ -13,13 +13,18 @@ var spreadsheetModel_1 = require('./spreadsheetModel');
 var header_row_service_1 = require('./header-row-service');
 var Spreadsheet = (function () {
     function Spreadsheet() {
+        this.header = [];
+        this.visibleRows = [];
         this.model = new spreadsheetModel_1.SpreadsheetModel(10, 4);
+        this.header = header_row_service_1.HeaderRowService.createHeader(this.model.rows[0].columns.length);
+        this.visibleRows = this.getVisibleRows();
     }
     Spreadsheet.prototype.getHeader = function () {
         return header_row_service_1.HeaderRowService.createHeader(this.model.rows[0].columns.length);
     };
     Spreadsheet.prototype.navigate = function ($event) {
         this.model.navigate($event.keyCode);
+        this.visibleRows = this.getVisibleRows();
     };
     Spreadsheet.prototype.ngAfterViewChecked = function () {
         var cell = document.getElementById(this.model.current.rowIndex + '-' + this.model.current.columnIndex);

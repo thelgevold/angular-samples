@@ -2,9 +2,9 @@
 <table id="spreadsheet">
     <tr>
         <td class="row-number-column"></td>
-        <td class="columnHeader" *ngFor="#columnHeader of getHeader()">{{columnHeader}}</td>
+        <td class="columnHeader" *ngFor="#columnHeader of header">{{columnHeader}}</td>
     </tr>
-    <tr *ngFor="#row of getVisibleRows()">
+    <tr *ngFor="#row of visibleRows">
         <td class="row-number-column">{{row.rowIndex}}</td>
         <td *ngFor="#col of row.columns">
             <input  data-id="{{col.rowIndex}}-{{col.columnIndex}}" [value]="col.cellValue" (input)="col.cellValue = $event.target.value" (click)="model.selectColumn(col)" (keyup)="navigate($event)" />

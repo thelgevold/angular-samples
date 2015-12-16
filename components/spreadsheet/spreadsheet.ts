@@ -14,14 +14,18 @@ import {HeaderRowService} from './header-row-service';
     directives: [NgModel]
 })
 
-export class Spreadsheet implements AfterViewChecked {
+export class Spreadsheet implements AfterViewChecked{
 
     model:SpreadsheetModel;
     rows:Number;
     columns:Number;
+    header = [];
+    visibleRows = [];
 
     constructor(){
         this.model = new SpreadsheetModel(10,4);
+        this.header = HeaderRowService.createHeader(this.model.rows[0].columns.length);
+        this.visibleRows = this.getVisibleRows();
     }
 
     getHeader(){
@@ -30,6 +34,7 @@ export class Spreadsheet implements AfterViewChecked {
 
     navigate($event){
         this.model.navigate($event.keyCode);
+        this.visibleRows = this.getVisibleRows();
     }
 
     ngAfterViewChecked(){

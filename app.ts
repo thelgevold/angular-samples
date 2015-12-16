@@ -9,6 +9,7 @@ import {bootstrap} from 'angular2/platform/browser';
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
 import {ROUTER_DIRECTIVES, RouteConfig, Location,ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router} from 'angular2/router';
+
 import {AddressBookTitleService} from './components/dependency-injection/address-book-title-service';
 
 declare var System:any;
