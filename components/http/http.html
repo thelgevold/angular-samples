@@ -1,11 +1,23 @@
 <h1>Making Http Requests</h1>
 
 <div class="alert alert-success" role="alert">
-    List of friends loaded successfully
+    List of just friends loaded successfully
 </div>
 <div *ngFor="#friend of result.friends">
     {{friend}}
 </div>
+<br/>
+
+<div class="alert alert-success" role="alert">
+    List of friends and customer loaded successfully in parallel
+</div>
+<div>Friends:</div>
+<div *ngFor="#friend of combined.friends">
+    {{friend}}
+</div>
+<br/>
+<div>Customer:</div>
+<div>{{combined.customer.name}}</div>
 
 <br/>
 <div class="alert alert-success" role="alert">

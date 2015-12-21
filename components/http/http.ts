@@ -1,6 +1,6 @@
 import {Component} from 'angular2/core';
 import {Http, Response, Headers} from 'angular2/http';
-
+import {Observable} from 'rxjs/Observable';
 
 @Component({
     templateUrl: './components/http/http.html'
@@ -9,6 +9,7 @@ import {Http, Response, Headers} from 'angular2/http';
 export class HttpSample {
 
     result: Object;
+    combined: any;
     error: Object;
     http: Http;
     contract: any;
@@ -20,7 +21,16 @@ export class HttpSample {
         this.http = http;
         this.loadFriendsSuccessFully();
         this.loadFriendsWithError();
-        this.loadContractByCustomer(); 
+        this.loadContractByCustomer();
+        this.loadFriendsAndCustomers();
+    }
+
+    loadFriendsAndCustomers(){
+        this.combined = {friends:[],customer:{}};
+        Observable.forkJoin(
+            this.http.get('./friends.json').map((res: Response) => res.json()),
+            this.http.get('./customer.json').map((res: Response) => res.json())
+        ).subscribe(res => this.combined = {friends:res[0].friends, customer:res[1]});
     }
 
     loadFriendsSuccessFully(){

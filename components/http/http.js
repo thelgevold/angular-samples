@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('angular2/core');
 var http_1 = require('angular2/http');
+var Observable_1 = require('rxjs/Observable');
 var HttpSample = (function () {
     function HttpSample(http) {
         this.postResponse = new Person();
@@ -16,7 +17,13 @@ var HttpSample = (function () {
         this.loadFriendsSuccessFully();
         this.loadFriendsWithError();
         this.loadContractByCustomer();
+        this.loadFriendsAndCustomers();
     }
+    HttpSample.prototype.loadFriendsAndCustomers = function () {
+        var _this = this;
+        this.combined = { friends: [], customer: {} };
+        Observable_1.Observable.forkJoin(this.http.get('./friends.json').map(function (res) { return res.json(); }), this.http.get('./customer.json').map(function (res) { return res.json(); })).subscribe(function (res) { return _this.combined = { friends: res[0].friends, customer: res[1] }; });
+    };
     HttpSample.prototype.loadFriendsSuccessFully = function () {
         var _this = this;
         this.result = { friends: [] };

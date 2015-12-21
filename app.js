@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 require('rxjs/operator/map');
 require('rxjs/operator/mergeMap');
 require('rxjs/observable/interval');
+require('rxjs/observable/forkJoin');
 var http_1 = require('angular2/http');
 var core_1 = require('angular2/core');
 var browser_1 = require('angular2/platform/browser');

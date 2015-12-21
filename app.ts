@@ -1,6 +1,7 @@
 import 'rxjs/operator/map';
 import 'rxjs/operator/mergeMap';
-import 'rxjs/observable/interval'
+import 'rxjs/observable/interval';
+import 'rxjs/observable/forkJoin';
 
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {Component, View, provide} from 'angular2/core';
