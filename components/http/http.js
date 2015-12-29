@@ -18,7 +18,16 @@ var HttpSample = (function () {
         this.loadFriendsWithError();
         this.loadContractByCustomer();
         this.loadFriendsAndCustomers();
+        this.loadFriendsAsPromise();
     }
+    HttpSample.prototype.loadFriendsAsPromise = function () {
+        var _this = this;
+        this.friendsAsPromise = {};
+        this.http.get('./friends.json').toPromise()
+            .then(function (res) {
+            _this.friendsAsPromise.friends = res.json().friends;
+        });
+    };
     HttpSample.prototype.loadFriendsAndCustomers = function () {
         var _this = this;
         this.combined = { friends: [], customer: {} };

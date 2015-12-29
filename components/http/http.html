@@ -1,9 +1,17 @@
 <h1>Making Http Requests</h1>
 
 <div class="alert alert-success" role="alert">
-    List of just friends loaded successfully
+    List of friends using Observables
 </div>
 <div *ngFor="#friend of result.friends">
+    {{friend}}
+</div>
+<br/>
+
+<div class="alert alert-success" role="alert">
+    List of friends loaded using Promises
+</div>
+<div *ngFor="#friend of friendsAsPromise.friends">
     {{friend}}
 </div>
 <br/>

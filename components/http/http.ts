@@ -15,6 +15,7 @@ export class HttpSample {
     contract: any;
     customer: any;
     postResponse = new Person();
+    friendsAsPromise: any;
 
     constructor(http: Http) {
 
@@ -23,6 +24,15 @@ export class HttpSample {
         this.loadFriendsWithError();
         this.loadContractByCustomer();
         this.loadFriendsAndCustomers();
+        this.loadFriendsAsPromise();
+    }
+
+    loadFriendsAsPromise(){
+        this.friendsAsPromise = {};
+        this.http.get('./friends.json').toPromise()
+        .then((res: Response) => {
+            this.friendsAsPromise.friends = res.json().friends;
+        });
     }
 
     loadFriendsAndCustomers(){
