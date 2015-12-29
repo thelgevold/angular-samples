@@ -11,8 +11,9 @@ var core_1 = require('angular2/core');
 var router_1 = require('angular2/router');
 var router_2 = require('angular2/router');
 var About = (function () {
-    function About(params) {
+    function About(params, data) {
         this.id = params.get('id');
+        console.log(data.get('project'));
     }
     About = __decorate([
         core_1.Component({
@@ -20,7 +21,7 @@ var About = (function () {
             directives: [router_2.ROUTER_DIRECTIVES],
             templateUrl: './components/about/about.html'
         }), 
-        __metadata('design:paramtypes', [router_1.RouteParams])
+        __metadata('design:paramtypes', [router_1.RouteParams, router_1.RouteData])
     ], About);
     return About;
 })();

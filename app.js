@@ -38,7 +38,7 @@ var MyDemoApp = (function () {
             directives: [demo_page_1.DemoPage, about_1.About, router_1.ROUTER_DIRECTIVES]
         }),
         router_1.RouteConfig([
-            new router_1.Route({ path: '/', component: about_1.About, name: 'About' }),
+            new router_1.Route({ path: '/', component: about_1.About, name: 'About', data: { project: 'angular-2-samples' } }),
             new router_1.Route({ path: '/demo/...', component: demo_page_1.DemoPage, name: 'Demo' }),
             new router_1.AsyncRoute({
                 path: '/lazy',

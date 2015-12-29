@@ -23,7 +23,7 @@ declare var System:any;
 })
 
 @RouteConfig([
-    new Route({path: '/', component: About, name: 'About'}),
+    new Route({path: '/', component: About, name: 'About', data: {project: 'angular-2-samples'}}),
     new Route({path: '/demo/...', component: DemoPage, name: 'Demo'}),
     new AsyncRoute({
         path: '/lazy',
