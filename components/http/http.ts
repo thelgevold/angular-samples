@@ -17,7 +17,8 @@ export class HttpSample {
     postResponse = new Person();
     friendsAsPromise: any;
     pendingRequest: any;
-    pendingRequestResult: any;
+    capitol: any;
+    activeCountry: string;
 
     constructor(http: Http) {
 
@@ -30,17 +31,22 @@ export class HttpSample {
 
     }
 
-    triggerSlowRequest(){
-        this.pendingRequestResult = 'Slow Request Started';
-        this.pendingRequest = this.http.get('./customer.json')
+    getCapitol(country){
+
+        if(this.pendingRequest){
+            this.pendingRequest.unsubscribe();
+            console.log('cancelled observable');
+        }
+
+        this.activeCountry = country;
+
+        this.pendingRequest = this.http.get('./country-info/' + country + '.json')
                               .map((res: Response) => res.json())
-                              .delay(5000)
-                              .subscribe(res => this.pendingRequestResult = 'Slow Request Completed');
+                              .subscribe(res => this.capitol = res.capitol);
     }
 
-    cancelRequest(){
-        this.pendingRequest.unsubscribe();
-        this.pendingRequestResult = 'Request Canceled';
+    isActive(country){
+        return this.activeCountry === country;
     }
 
     loadFriendsAsPromise(){

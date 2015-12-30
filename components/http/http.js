@@ -20,17 +20,19 @@ var HttpSample = (function () {
         this.loadFriendsAndCustomers();
         this.loadFriendsAsPromise();
     }
-    HttpSample.prototype.triggerSlowRequest = function () {
+    HttpSample.prototype.getCapitol = function (country) {
         var _this = this;
-        this.pendingRequestResult = 'Slow Request Started';
-        this.pendingRequest = this.http.get('./customer.json')
+        if (this.pendingRequest) {
+            this.pendingRequest.unsubscribe();
+            console.log('cancelled observable');
+        }
+        this.activeCountry = country;
+        this.pendingRequest = this.http.get('./country-info/' + country + '.json')
             .map(function (res) { return res.json(); })
-            .delay(5000)
-            .subscribe(function (res) { return _this.pendingRequestResult = 'Slow Request Completed'; });
+            .subscribe(function (res) { return _this.capitol = res.capitol; });
     };
-    HttpSample.prototype.cancelRequest = function () {
-        this.pendingRequest.unsubscribe();
-        this.pendingRequestResult = 'Request Canceled';
+    HttpSample.prototype.isActive = function (country) {
+        return this.activeCountry === country;
     };
     HttpSample.prototype.loadFriendsAsPromise = function () {
         var _this = this;

@@ -1,12 +1,18 @@
 <h1>Making Http Requests</h1>
 
 <div class="alert alert-success" role="alert">
-    <button (click)="triggerSlowRequest()">Make Slow Request</button>
-    <button *ngIf="pendingRequest" (click)="cancelRequest()">Cancel Request</button>
+    Click a country to display that country's capitol. Observables in flight will be cancelled prior to loading new data.
 </div>
-<div>
-    {{pendingRequestResult}}
-</div>
+
+<table class="table">
+    <tr [ngClass]="{active: isActive('usa')}" (click)="getCapitol('usa')"><td>USA</td></tr>
+    <tr [ngClass]="{active: isActive('denmark')}" (click)="getCapitol('denmark')"><td>Denmark</td></tr>
+    <tr [ngClass]="{active: isActive('germany')}" (click)="getCapitol('germany')"><td>Germany</td></tr>
+    <tr [ngClass]="{active: isActive('argentina')}" (click)="getCapitol('argentina')"><td>Argentina</td></tr>
+</table>
+
+<div style="margin-left: 10px;">The capitol is <strong>{{capitol}}</strong></div>
+
 <br/>
 
 <div class="alert alert-success" role="alert">
