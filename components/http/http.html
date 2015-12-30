@@ -1,6 +1,15 @@
 <h1>Making Http Requests</h1>
 
 <div class="alert alert-success" role="alert">
+    <button (click)="triggerSlowRequest()">Make Slow Request</button>
+    <button *ngIf="pendingRequest" (click)="cancelRequest()">Cancel Request</button>
+</div>
+<div>
+    {{pendingRequestResult}}
+</div>
+<br/>
+
+<div class="alert alert-success" role="alert">
     List of friends using Observables
 </div>
 <div *ngFor="#friend of result.friends">

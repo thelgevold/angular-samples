@@ -8,6 +8,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 require('rxjs/operator/map');
+require('rxjs/operator/delay');
 require('rxjs/operator/mergeMap');
 require('rxjs/observable/interval');
 require('rxjs/observable/forkJoin');

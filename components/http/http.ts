@@ -16,6 +16,8 @@ export class HttpSample {
     customer: any;
     postResponse = new Person();
     friendsAsPromise: any;
+    pendingRequest: any;
+    pendingRequestResult: any;
 
     constructor(http: Http) {
 
@@ -25,6 +27,20 @@ export class HttpSample {
         this.loadContractByCustomer();
         this.loadFriendsAndCustomers();
         this.loadFriendsAsPromise();
+
+    }
+
+    triggerSlowRequest(){
+        this.pendingRequestResult = 'Slow Request Started';
+        this.pendingRequest = this.http.get('./customer.json')
+                              .map((res: Response) => res.json())
+                              .delay(5000)
+                              .subscribe(res => this.pendingRequestResult = 'Slow Request Completed');
+    }
+
+    cancelRequest(){
+        this.pendingRequest.unsubscribe();
+        this.pendingRequestResult = 'Request Canceled';
     }
 
     loadFriendsAsPromise(){

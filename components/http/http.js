@@ -20,6 +20,18 @@ var HttpSample = (function () {
         this.loadFriendsAndCustomers();
         this.loadFriendsAsPromise();
     }
+    HttpSample.prototype.triggerSlowRequest = function () {
+        var _this = this;
+        this.pendingRequestResult = 'Slow Request Started';
+        this.pendingRequest = this.http.get('./customer.json')
+            .map(function (res) { return res.json(); })
+            .delay(5000)
+            .subscribe(function (res) { return _this.pendingRequestResult = 'Slow Request Completed'; });
+    };
+    HttpSample.prototype.cancelRequest = function () {
+        this.pendingRequest.unsubscribe();
+        this.pendingRequestResult = 'Request Canceled';
+    };
     HttpSample.prototype.loadFriendsAsPromise = function () {
         var _this = this;
         this.friendsAsPromise = {};

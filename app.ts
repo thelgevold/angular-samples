@@ -1,4 +1,5 @@
 import 'rxjs/operator/map';
+import 'rxjs/operator/delay';
 import 'rxjs/operator/mergeMap';
 import 'rxjs/observable/interval';
 import 'rxjs/observable/forkJoin';
