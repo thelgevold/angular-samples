@@ -54,8 +54,6 @@ var HttpSample = (function () {
     };
     HttpSample.prototype.loadContractByCustomer = function () {
         var _this = this;
-        this.contract = {};
-        this.customer = {};
         this.http.get('./customer.json').map(function (res) {
             _this.customer = res.json();
             return _this.customer;

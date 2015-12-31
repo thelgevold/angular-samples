@@ -71,8 +71,6 @@ export class HttpSample {
     }
 
     loadContractByCustomer(){
-        this.contract = {};
-        this.customer = {};
         this.http.get('./customer.json').map((res: Response) => {
                this.customer = res.json();
                return this.customer;
