@@ -18,6 +18,7 @@ import {InputControls} from './components/input-controls/input-controls';
 import {AddressBook} from './components/dependency-injection/address-book';
 import {AddressForm} from './components/address-form/address-form';
 import {Graph} from './components/algorithms/graph/graph';
+import {PubSub} from './components/pub-sub/pub-sub';
 import {ROUTER_DIRECTIVES, RouteConfig, Route} from 'angular2/router';
 
 import {
@@ -29,7 +30,7 @@ import {
     selector: 'demo-page',
     templateUrl: './demo-page.html',
     directives: [ROUTER_DIRECTIVES, Spreadsheet, HttpSample, GridDemo, ContactList,
-                 JqueryIntegration, Angular2Host, Algorithms, AddressBook, InputControls, TreeViewDemo]
+                 JqueryIntegration, Angular2Host, Algorithms, AddressBook, InputControls, TreeViewDemo, PubSub]
 })
 
 @RouteConfig([
@@ -38,6 +39,7 @@ import {
     new Route({ path: '/react', component:Angular2Host, name: 'React'}),
     new Route({ path: '/algorithms', component:Algorithms, name: 'Algorithms'}),
     new Route({ path: '/graph', component:Graph, name: 'Graph'}),
+    new Route({ path: '/pub-sub', component:PubSub, name: 'PubSub'}),
     new Route({ path: '/address', component:AddressBook, name: 'AddressBook'}),
     new Route({ path: '/http', component:HttpSample, name: 'Http'}),
     new Route({ path: '/treeview', component:TreeViewDemo, name: 'TreeView'}),
