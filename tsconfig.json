@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "jsx":"react",
+    "emitDecoratorMetadata":true,
+    "experimentalDecorators":true,
+    "watch":true
+  },
+  "files":["app.ts"],
+  "exclude": [
+    "node_modules"
+  ]
+}
