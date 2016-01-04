@@ -14,7 +14,7 @@ var Document = (function () {
         if (character.lineBreak) {
             this.deselectPreviousCharacter();
             var placeHolder = new character_1.Character(-1);
-            this.characters.push(placeHolder);
+            this.characters.splice(index + 1, 0, placeHolder);
             this.selectCharacter(placeHolder);
         }
         else {

@@ -33,9 +33,9 @@ export class TextEditor implements OnInit {
     ngOnInit(){
         let editor = document.getElementById('page');
 
-        //Prevents page scrolling on space
+        //Prevents page jumping
         this.keyDown = Observable.fromEvent(document,'keydown')
-            .filter((k:any) => k.which === KeyMap.spaceBar)
+            .filter((k:any) => k.which === KeyMap.spaceBar || k.which === KeyMap.backSpace)
             .map((k:any) => {
                 return {element:k};
             });

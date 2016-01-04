@@ -12,13 +12,12 @@ export class Document{
     }
 
     addCharacter(character,index){
-
         this.characters.splice(index, 0, character);
 
         if(character.lineBreak){
             this.deselectPreviousCharacter();
             var placeHolder = new Character(-1);
-            this.characters.push(placeHolder);
+            this.characters.splice(index + 1, 0, placeHolder);
             this.selectCharacter(placeHolder);
         }
         else {
