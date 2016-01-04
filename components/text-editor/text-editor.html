@@ -1,5 +1,5 @@
 
-<h4>Text Editor where all events are cpatured as Observables</h4>
+<h4>Text Editor where all events are captured as Observables</h4>
 <div class="editor">
 <div class="page noselect" id="page"><span *ngFor="#char of currentDocument.characters" [ngClass]="{currentChar:char.isCurrent,selectedChar:char.isSelected}">{{char.value}}</span></div>
 </div>
