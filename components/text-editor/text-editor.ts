@@ -40,14 +40,19 @@ export class TextEditor implements OnInit {
                         return {operation:'modify',character:new Character(k.which),element:k};
                      });
 
-        this.mouseDown = Observable.fromEvent(editor,'mousedown').map((e:any) => {
+        this.mouseDown = Observable.fromEvent(editor,'mousedown')
 
-            let index = [].slice.call(editor.children).indexOf(e.target);
-            if(index >= 0) {
-                return {operation: 'range', character: this.currentDocument.characters[index],element:e};
-            }
+            .flatMap((m) => Observable.fromEvent(editor,'mousemove'))
+            .takeUntil(Observable.fromEvent(editor,'mouseup'))
+            .map((e:any) => {
 
-        });
+                let index = [].slice.call(editor.children).indexOf(e.target);
+                if(index >= 0) {
+                    return {operation: 'range', character: this.currentDocument.characters[index],element:e};
+                }
+                return null;
+            })
+            .filter(e => e !== null);
 
         this.click = Observable.fromEvent(editor,'click').map((e:any) => {
             let index = [].slice.call(editor.children).indexOf(e.target);

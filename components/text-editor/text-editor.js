@@ -33,12 +33,17 @@ var TextEditor = (function () {
             .map(function (k) {
             return { operation: 'modify', character: new character_1.Character(k.which), element: k };
         });
-        this.mouseDown = Rx_1.Observable.fromEvent(editor, 'mousedown').map(function (e) {
+        this.mouseDown = Rx_1.Observable.fromEvent(editor, 'mousedown')
+            .flatMap(function (m) { return Rx_1.Observable.fromEvent(editor, 'mousemove'); })
+            .takeUntil(Rx_1.Observable.fromEvent(editor, 'mouseup'))
+            .map(function (e) {
             var index = [].slice.call(editor.children).indexOf(e.target);
             if (index >= 0) {
                 return { operation: 'range', character: _this.currentDocument.characters[index], element: e };
             }
-        });
+            return null;
+        })
+            .filter(function (e) { return e !== null; });
         this.click = Rx_1.Observable.fromEvent(editor, 'click').map(function (e) {
             var index = [].slice.call(editor.children).indexOf(e.target);
             if (index >= 0) {
