@@ -37,20 +37,25 @@ export class Document{
             this.deselectPreviousCharacter();
             var placeHolder = new Character(-1);
             this.characters.splice(index + 1, 0, placeHolder);
-            this.selectCharacter(placeHolder);
+            this.placeCursor(placeHolder);
         }
         else {
-            this.selectCharacter(character);
+            this.placeCursor(character);
         }
     }
 
-    selectCharacter(character){
+    placeCursor(character){
         this.deselectPreviousCharacter();
 
         var index = this.characters.indexOf(character);
         this.characters[index].isCurrent = true;
 
         this.currentChar = character;
+    }
+
+    selectCharacter(character){
+        var index = this.characters.indexOf(character);
+        this.characters[index].isSelected = true;
     }
 
     processInput(character, operation){
@@ -63,6 +68,9 @@ export class Document{
             this.edit(character,index + 1);
         }
         if(operation === 'select'){
+            this.placeCursor(character);
+        }
+        if(operation === 'range'){
             this.selectCharacter(character);
         }
     }

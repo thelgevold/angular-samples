@@ -7,6 +7,7 @@ export class Character{
     placeHolder = false;
     value:string;
     deleteChar = false;
+    isSelected = false;
 
     constructor(keyCode){
 

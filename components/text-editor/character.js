@@ -5,6 +5,7 @@ var Character = (function () {
         this.lineBreak = false;
         this.placeHolder = false;
         this.deleteChar = false;
+        this.isSelected = false;
         if (keyCode === key_map_1.KeyMap.enter) {
             this.value = '\n';
             this.lineBreak = true;

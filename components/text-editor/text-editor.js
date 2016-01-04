@@ -28,13 +28,17 @@ var TextEditor = (function () {
     TextEditor.prototype.ngOnInit = function () {
         var _this = this;
         var editor = document.getElementById('page');
-        //Capture supported printable characters
         this.keyUp = Rx_1.Observable.fromEvent(document, 'keyup')
             .filter(function (k) { return _this.isSuportedCharacter(k.which); })
             .map(function (k) {
             return { operation: 'modify', character: new character_1.Character(k.which), element: k };
         });
-        //Support document selection
+        this.mouseDown = Rx_1.Observable.fromEvent(editor, 'mousedown').map(function (e) {
+            var index = [].slice.call(editor.children).indexOf(e.target);
+            if (index >= 0) {
+                return { operation: 'range', character: _this.currentDocument.characters[index], element: e };
+            }
+        });
         this.click = Rx_1.Observable.fromEvent(editor, 'click').map(function (e) {
             var index = [].slice.call(editor.children).indexOf(e.target);
             if (index >= 0) {
@@ -48,7 +52,10 @@ var TextEditor = (function () {
             .map(function (k) {
             return { element: k };
         });
-        this.keyUp.merge(this.click).merge(this.keyDown).subscribe(function (e) {
+        this.keyUp
+            .merge(this.click)
+            .merge(this.mouseDown)
+            .merge(this.keyDown).subscribe(function (e) {
             _this.currentDocument.processInput(e.character, e.operation);
             e.element.preventDefault();
         });

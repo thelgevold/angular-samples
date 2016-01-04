@@ -29,17 +29,21 @@ var Document = (function () {
             this.deselectPreviousCharacter();
             var placeHolder = new character_1.Character(-1);
             this.characters.splice(index + 1, 0, placeHolder);
-            this.selectCharacter(placeHolder);
+            this.placeCursor(placeHolder);
         }
         else {
-            this.selectCharacter(character);
+            this.placeCursor(character);
         }
     };
-    Document.prototype.selectCharacter = function (character) {
+    Document.prototype.placeCursor = function (character) {
         this.deselectPreviousCharacter();
         var index = this.characters.indexOf(character);
         this.characters[index].isCurrent = true;
         this.currentChar = character;
+    };
+    Document.prototype.selectCharacter = function (character) {
+        var index = this.characters.indexOf(character);
+        this.characters[index].isSelected = true;
     };
     Document.prototype.processInput = function (character, operation) {
         if (operation === 'modify') {
@@ -50,6 +54,9 @@ var Document = (function () {
             this.edit(character, index + 1);
         }
         if (operation === 'select') {
+            this.placeCursor(character);
+        }
+        if (operation === 'range') {
             this.selectCharacter(character);
         }
     };

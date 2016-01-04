@@ -127,3 +127,7 @@ div.edge{
 .currentChar{
     border-right: 1px black solid;
 }
+
+.selectedChar{
+    background-color: lightskyblue;
+}

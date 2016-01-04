@@ -15,6 +15,7 @@ export class TextEditor implements OnInit {
     keyUp:any;
     click:any;
     keyDown:any;
+    mouseDown:any;
 
     currentDocument = new Document();
 
@@ -33,14 +34,21 @@ export class TextEditor implements OnInit {
     ngOnInit(){
         let editor = document.getElementById('page');
 
-        //Capture supported printable characters
         this.keyUp = Observable.fromEvent(document,'keyup')
                      .filter((k:any) => this.isSuportedCharacter(k.which))
                      .map((k:any) => {
                         return {operation:'modify',character:new Character(k.which),element:k};
                      });
 
-        //Support document selection
+        this.mouseDown = Observable.fromEvent(editor,'mousedown').map((e:any) => {
+
+            let index = [].slice.call(editor.children).indexOf(e.target);
+            if(index >= 0) {
+                return {operation: 'range', character: this.currentDocument.characters[index],element:e};
+            }
+
+        });
+
         this.click = Observable.fromEvent(editor,'click').map((e:any) => {
             let index = [].slice.call(editor.children).indexOf(e.target);
             if(index >= 0) {
@@ -56,7 +64,10 @@ export class TextEditor implements OnInit {
                 return {element:k};
             });
 
-        this.keyUp.merge(this.click).merge(this.keyDown).subscribe(e =>
+        this.keyUp
+        .merge(this.click)
+        .merge(this.mouseDown)
+        .merge(this.keyDown).subscribe(e =>
         {
             this.currentDocument.processInput(e.character,e.operation);
             e.element.preventDefault();
