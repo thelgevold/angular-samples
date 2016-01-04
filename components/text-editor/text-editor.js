@@ -34,6 +34,7 @@ var TextEditor = (function () {
             return { operation: 'modify', character: new character_1.Character(k.which), element: k };
         });
         this.mouseDown = Rx_1.Observable.fromEvent(editor, 'mousedown')
+            .do(function (e) { return _this.currentDocument.clearSelection(); })
             .flatMap(function (m) { return Rx_1.Observable.fromEvent(editor, 'mousemove'); })
             .map(function (e) {
             var index = [].slice.call(editor.children).indexOf(e.target);

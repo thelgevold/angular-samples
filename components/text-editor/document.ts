@@ -11,6 +11,10 @@ export class Document{
         }
     }
 
+    clearSelection(){
+        this.characters.forEach(c => c.isSelected = false);
+    }
+
     edit(character,index){
 
         if(character.deleteChar){

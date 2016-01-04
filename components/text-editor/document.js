@@ -9,6 +9,9 @@ var Document = (function () {
             this.characters[index].isCurrent = false;
         }
     };
+    Document.prototype.clearSelection = function () {
+        this.characters.forEach(function (c) { return c.isSelected = false; });
+    };
     Document.prototype.edit = function (character, index) {
         if (character.deleteChar) {
             var deleteIndex = this.characters.indexOf(this.currentChar);

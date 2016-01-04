@@ -42,6 +42,7 @@ export class TextEditor implements OnInit {
 
 
         this.mouseDown = Observable.fromEvent(editor,'mousedown')
+            .do(e => this.currentDocument.clearSelection())
             .flatMap((m) => Observable.fromEvent(editor,'mousemove'))
             .map((e:any) => {
 
