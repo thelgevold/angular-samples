@@ -111,3 +111,20 @@ div.edge{
 .form-row{
     margin-top: 10px;
 }
+
+.editor{
+    border: 1px black solid;
+    width: 400px;
+    height: 200px;
+    overflow: scroll;
+}
+
+.page{
+    margin-left: 10px;
+    margin-right: 10px;
+    white-space: pre-line;
+}
+
+.currentChar{
+    border-right: 1px black solid;
+}
