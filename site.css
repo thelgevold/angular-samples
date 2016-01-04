@@ -113,7 +113,7 @@ div.edge{
 }
 
 .editor{
-    border: 1px black solid;
+    border: 1px #ddd solid;
     width: 400px;
     height: 200px;
     overflow: scroll;

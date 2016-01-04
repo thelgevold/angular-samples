@@ -1,9 +1,10 @@
+var key_map_1 = require('./key-map');
 var Character = (function () {
     function Character(keyCode) {
         this.isCurrent = false;
         this.lineBreak = false;
         this.placeHolder = false;
-        if (keyCode === 13) {
+        if (keyCode === key_map_1.KeyMap.enter) {
             this.value = '\n';
             this.lineBreak = true;
         }

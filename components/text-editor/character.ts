@@ -1,3 +1,5 @@
+import {KeyMap} from './key-map';
+
 export class Character{
 
     isCurrent = false;
@@ -7,7 +9,7 @@ export class Character{
 
     constructor(keyCode){
 
-        if (keyCode === 13) {
+        if (keyCode === KeyMap.enter) {
             this.value = '\n';
             this.lineBreak = true;
         }

@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Rx';
 
 import {Character} from './character';
 import {Document} from './document';
+import {KeyMap} from './key-map';
 
 @Component({
     selector: 'editor',
@@ -18,11 +19,11 @@ export class TextEditor implements OnInit {
     currentDocument = new Document();
 
     isSuportedCharacter(keyCode){
-        if(keyCode >= 65 && keyCode < 90){
+        if(keyCode >= KeyMap.upperCaseA && keyCode < KeyMap.upperCaseZ){
             return true;
         }
 
-        if(keyCode === 13 || keyCode === 32){
+        if(keyCode === KeyMap.enter || keyCode === KeyMap.spaceBar){
             return true;
         }
 
@@ -32,18 +33,21 @@ export class TextEditor implements OnInit {
     ngOnInit(){
         let editor = document.getElementById('page');
 
+        //Prevents page scrolling on space
         this.keyDown = Observable.fromEvent(document,'keydown')
-            .filter((k:any) => k.which === 32)
+            .filter((k:any) => k.which === KeyMap.spaceBar)
             .map((k:any) => {
                 return {element:k};
             });
 
+        //Capture supported printable characters
         this.keyUp = Observable.fromEvent(document,'keyup')
                      .filter((k:any) => this.isSuportedCharacter(k.which))
                      .map((k:any) => {
                         return {operation:'add',character:new Character(k.which),element:k};
                      });
 
+        //Support document selection
         this.click = Observable.fromEvent(editor,'click').map((e:any) => {
             let index = [].slice.call(editor.children).indexOf(e.target);
             if(index >= 0) {
@@ -54,15 +58,8 @@ export class TextEditor implements OnInit {
 
         this.keyUp.merge(this.click).merge(this.keyDown).subscribe(e =>
         {
-            if(e.operation === 'add'){
-                this.currentDocument.addCharacter(e.character);
-            }
-            if(e.operation === 'select'){
-                this.currentDocument.selectCharacter(e.character);
-            }
-
+            this.currentDocument.processInput(e.character,e.operation);
             e.element.preventDefault();
-
         });
 
     }

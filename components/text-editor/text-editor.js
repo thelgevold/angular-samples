@@ -11,15 +11,16 @@ var core_1 = require('angular2/core');
 var Rx_1 = require('rxjs/Rx');
 var character_1 = require('./character');
 var document_1 = require('./document');
+var key_map_1 = require('./key-map');
 var TextEditor = (function () {
     function TextEditor() {
         this.currentDocument = new document_1.Document();
     }
     TextEditor.prototype.isSuportedCharacter = function (keyCode) {
-        if (keyCode >= 65 && keyCode < 90) {
+        if (keyCode >= key_map_1.KeyMap.upperCaseA && keyCode < key_map_1.KeyMap.upperCaseZ) {
             return true;
         }
-        if (keyCode === 13 || keyCode === 32) {
+        if (keyCode === key_map_1.KeyMap.enter || keyCode === key_map_1.KeyMap.spaceBar) {
             return true;
         }
         return false;
@@ -27,16 +28,19 @@ var TextEditor = (function () {
     TextEditor.prototype.ngOnInit = function () {
         var _this = this;
         var editor = document.getElementById('page');
+        //Prevents page scrolling on space
         this.keyDown = Rx_1.Observable.fromEvent(document, 'keydown')
-            .filter(function (k) { return k.which === 32; })
+            .filter(function (k) { return k.which === key_map_1.KeyMap.spaceBar; })
             .map(function (k) {
             return { element: k };
         });
+        //Capture supported printable characters
         this.keyUp = Rx_1.Observable.fromEvent(document, 'keyup')
             .filter(function (k) { return _this.isSuportedCharacter(k.which); })
             .map(function (k) {
             return { operation: 'add', character: new character_1.Character(k.which), element: k };
         });
+        //Support document selection
         this.click = Rx_1.Observable.fromEvent(editor, 'click').map(function (e) {
             var index = [].slice.call(editor.children).indexOf(e.target);
             if (index >= 0) {
@@ -45,12 +49,7 @@ var TextEditor = (function () {
             return null;
         }).filter(function (e) { return e !== null; });
         this.keyUp.merge(this.click).merge(this.keyDown).subscribe(function (e) {
-            if (e.operation === 'add') {
-                _this.currentDocument.addCharacter(e.character);
-            }
-            if (e.operation === 'select') {
-                _this.currentDocument.selectCharacter(e.character);
-            }
+            _this.currentDocument.processInput(e.character, e.operation);
             e.element.preventDefault();
         });
     };
