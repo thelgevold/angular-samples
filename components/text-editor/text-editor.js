@@ -25,33 +25,30 @@ var TextEditor = (function () {
         }
         return false;
     };
+    TextEditor.prototype.getCharacterFromElement = function (e, operation) {
+        var index = [].slice.call(this.editor.children).indexOf(e.target);
+        if (index >= 0) {
+            return { operation: operation, character: this.currentDocument.characters[index], element: e };
+        }
+        return null;
+    };
     TextEditor.prototype.ngOnInit = function () {
         var _this = this;
-        var editor = document.getElementById('page');
+        this.editor = document.getElementById('page');
         this.keyUp = Rx_1.Observable.fromEvent(document, 'keyup')
             .filter(function (k) { return _this.isSuportedCharacter(k.which); })
             .map(function (k) {
             return { operation: 'modify', character: new character_1.Character(k.which), element: k };
         });
-        this.mouseDown = Rx_1.Observable.fromEvent(editor, 'mousedown')
+        this.mouseDown = Rx_1.Observable.fromEvent(this.editor, 'mousedown')
             .do(function (e) { return _this.currentDocument.clearSelection(); })
-            .flatMap(function (m) { return Rx_1.Observable.fromEvent(editor, 'mousemove'); })
-            .map(function (e) {
-            var index = [].slice.call(editor.children).indexOf(e.target);
-            if (index >= 0) {
-                return { operation: 'range', character: _this.currentDocument.characters[index], element: e };
-            }
-            return null;
-        })
+            .flatMap(function (m) { return Rx_1.Observable.fromEvent(_this.editor, 'mousemove'); })
+            .map(function (e) { return _this.getCharacterFromElement(e, 'range'); })
             .filter(function (e) { return e !== null; })
-            .takeUntil(Rx_1.Observable.fromEvent(editor, 'mouseup')).repeat();
-        this.click = Rx_1.Observable.fromEvent(editor, 'click').map(function (e) {
-            var index = [].slice.call(editor.children).indexOf(e.target);
-            if (index >= 0) {
-                return { operation: 'select', character: _this.currentDocument.characters[index], element: e };
-            }
-            return null;
-        }).filter(function (e) { return e !== null; });
+            .takeUntil(Rx_1.Observable.fromEvent(this.editor, 'mouseup')).repeat();
+        this.click = Rx_1.Observable.fromEvent(this.editor, 'click')
+            .map(function (e) { return _this.getCharacterFromElement(e, 'select'); })
+            .filter(function (e) { return e !== null; });
         //Prevents page jumping
         this.keyDown = Rx_1.Observable.fromEvent(document, 'keydown')
             .filter(function (k) { return k.which === key_map_1.KeyMap.spaceBar || k.which === key_map_1.KeyMap.backSpace; })
