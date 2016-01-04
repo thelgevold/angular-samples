@@ -35,7 +35,6 @@ var TextEditor = (function () {
         });
         this.mouseDown = Rx_1.Observable.fromEvent(editor, 'mousedown')
             .flatMap(function (m) { return Rx_1.Observable.fromEvent(editor, 'mousemove'); })
-            .takeUntil(Rx_1.Observable.fromEvent(editor, 'mouseup'))
             .map(function (e) {
             var index = [].slice.call(editor.children).indexOf(e.target);
             if (index >= 0) {
@@ -43,7 +42,8 @@ var TextEditor = (function () {
             }
             return null;
         })
-            .filter(function (e) { return e !== null; });
+            .filter(function (e) { return e !== null; })
+            .takeUntil(Rx_1.Observable.fromEvent(editor, 'mouseup')).repeat();
         this.click = Rx_1.Observable.fromEvent(editor, 'click').map(function (e) {
             var index = [].slice.call(editor.children).indexOf(e.target);
             if (index >= 0) {

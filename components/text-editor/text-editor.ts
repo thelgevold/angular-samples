@@ -40,10 +40,9 @@ export class TextEditor implements OnInit {
                         return {operation:'modify',character:new Character(k.which),element:k};
                      });
 
-        this.mouseDown = Observable.fromEvent(editor,'mousedown')
 
+        this.mouseDown = Observable.fromEvent(editor,'mousedown')
             .flatMap((m) => Observable.fromEvent(editor,'mousemove'))
-            .takeUntil(Observable.fromEvent(editor,'mouseup'))
             .map((e:any) => {
 
                 let index = [].slice.call(editor.children).indexOf(e.target);
@@ -52,7 +51,8 @@ export class TextEditor implements OnInit {
                 }
                 return null;
             })
-            .filter(e => e !== null);
+            .filter(e => e !== null)
+            .takeUntil(Observable.fromEvent(editor,'mouseup')).repeat();
 
         this.click = Observable.fromEvent(editor,'click').map((e:any) => {
             let index = [].slice.call(editor.children).indexOf(e.target);
