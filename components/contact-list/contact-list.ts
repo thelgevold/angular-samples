@@ -1,22 +1,22 @@
-import {Component, Input} from 'angular2/core';
+import {Component, View} from 'angular2/core';
 import {Contact} from './contact';
 
 @Component({
-    selector: 'contact-list',
+    selector: 'contact-list'
+})
+
+@View({
     templateUrl: './components/contact-list/contact-list.html'
 })
 
 export class ContactList {
     contacts: Array<Contact> = [];
 
-    @Input() name = '';
-    @Input() phone = '';
-
-    addContact(){
-        const contact = new Contact(this.name,this.phone);
+    addContact(name,phone){
+        const contact = new Contact(name.value,phone.value);
         this.contacts.push(contact);
-        this.name = '';
-        this.phone = '';
+        name.value = '';
+        phone.value = '';
     }
 
     removeContact(contact){
