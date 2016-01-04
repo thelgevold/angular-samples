@@ -17,10 +17,10 @@ var TextEditor = (function () {
         this.currentDocument = new document_1.Document();
     }
     TextEditor.prototype.isSuportedCharacter = function (keyCode) {
-        if (keyCode >= key_map_1.KeyMap.upperCaseA && keyCode < key_map_1.KeyMap.upperCaseZ) {
+        if (keyCode >= key_map_1.KeyMap.a && keyCode < key_map_1.KeyMap.z) {
             return true;
         }
-        if (keyCode === key_map_1.KeyMap.enter || keyCode === key_map_1.KeyMap.spaceBar || key_map_1.KeyMap.backSpace) {
+        if (keyCode === key_map_1.KeyMap.enter || keyCode === key_map_1.KeyMap.spaceBar || keyCode === key_map_1.KeyMap.backSpace) {
             return true;
         }
         return false;

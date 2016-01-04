@@ -19,11 +19,11 @@ export class TextEditor implements OnInit {
     currentDocument = new Document();
 
     isSuportedCharacter(keyCode){
-        if(keyCode >= KeyMap.upperCaseA && keyCode < KeyMap.upperCaseZ){
+        if(keyCode >= KeyMap.a && keyCode < KeyMap.z){
             return true;
         }
 
-        if(keyCode === KeyMap.enter || keyCode === KeyMap.spaceBar || KeyMap.backSpace){
+        if(keyCode === KeyMap.enter || keyCode === KeyMap.spaceBar || keyCode === KeyMap.backSpace){
             return true;
         }
 

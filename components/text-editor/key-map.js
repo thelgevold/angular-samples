@@ -3,8 +3,8 @@ var KeyMap = (function () {
     }
     KeyMap.spaceBar = 32;
     KeyMap.enter = 13;
-    KeyMap.upperCaseA = 65;
-    KeyMap.upperCaseZ = 90;
+    KeyMap.a = 65;
+    KeyMap.z = 90;
     KeyMap.backSpace = 8;
     return KeyMap;
 })();
