@@ -12,20 +12,30 @@ var contact_1 = require('./contact');
 var ContactList = (function () {
     function ContactList() {
         this.contacts = [];
+        this.name = '';
+        this.phone = '';
     }
-    ContactList.prototype.addContact = function (name, phone) {
-        var contact = new contact_1.Contact(name, phone);
+    ContactList.prototype.addContact = function () {
+        var contact = new contact_1.Contact(this.name, this.phone);
         this.contacts.push(contact);
+        this.name = '';
+        this.phone = '';
     };
     ContactList.prototype.removeContact = function (contact) {
         var index = this.contacts.indexOf(contact);
         this.contacts.splice(index, 1);
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], ContactList.prototype, "name", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Object)
+    ], ContactList.prototype, "phone", void 0);
     ContactList = __decorate([
         core_1.Component({
-            selector: 'contact-list'
-        }),
-        core_1.View({
+            selector: 'contact-list',
             templateUrl: './components/contact-list/contact-list.html'
         }), 
         __metadata('design:paramtypes', [])

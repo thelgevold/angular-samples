@@ -14,8 +14,8 @@
     </table>
 
     <div class="addContactControls">
-        <input #name placeholder="name" />
-        <input #phone placeholder="phone" />
+        <input [(ngModel)]="name" placeholder="name" />
+        <input [(ngModel)]="phone" placeholder="phone" />
         <button class="btn btn-primary btn-xs" (click)="addContact(name.value,phone.value)">Add Contact</button>
     </div>
 </div>
