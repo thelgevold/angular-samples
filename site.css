@@ -120,9 +120,8 @@ div.edge{
 }
 
 .page{
-    margin-left: 10px;
-    margin-right: 10px;
-    white-space: pre-line;
+    margin: 10px;
+    white-space: pre;
 }
 
 .currentChar{

@@ -28,12 +28,6 @@ var TextEditor = (function () {
     TextEditor.prototype.ngOnInit = function () {
         var _this = this;
         var editor = document.getElementById('page');
-        //Prevents page jumping
-        this.keyDown = Rx_1.Observable.fromEvent(document, 'keydown')
-            .filter(function (k) { return k.which === key_map_1.KeyMap.spaceBar || k.which === key_map_1.KeyMap.backSpace; })
-            .map(function (k) {
-            return { element: k };
-        });
         //Capture supported printable characters
         this.keyUp = Rx_1.Observable.fromEvent(document, 'keyup')
             .filter(function (k) { return _this.isSuportedCharacter(k.which); })
@@ -48,6 +42,12 @@ var TextEditor = (function () {
             }
             return null;
         }).filter(function (e) { return e !== null; });
+        //Prevents page jumping
+        this.keyDown = Rx_1.Observable.fromEvent(document, 'keydown')
+            .filter(function (k) { return k.which === key_map_1.KeyMap.spaceBar || k.which === key_map_1.KeyMap.backSpace; })
+            .map(function (k) {
+            return { element: k };
+        });
         this.keyUp.merge(this.click).merge(this.keyDown).subscribe(function (e) {
             _this.currentDocument.processInput(e.character, e.operation);
             e.element.preventDefault();

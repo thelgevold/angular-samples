@@ -33,13 +33,6 @@ export class TextEditor implements OnInit {
     ngOnInit(){
         let editor = document.getElementById('page');
 
-        //Prevents page jumping
-        this.keyDown = Observable.fromEvent(document,'keydown')
-            .filter((k:any) => k.which === KeyMap.spaceBar || k.which === KeyMap.backSpace)
-            .map((k:any) => {
-                return {element:k};
-            });
-
         //Capture supported printable characters
         this.keyUp = Observable.fromEvent(document,'keyup')
                      .filter((k:any) => this.isSuportedCharacter(k.which))
@@ -55,6 +48,13 @@ export class TextEditor implements OnInit {
             }
             return null;
         }).filter(e => e !== null);
+
+        //Prevents page jumping
+        this.keyDown = Observable.fromEvent(document,'keydown')
+            .filter((k:any) => k.which === KeyMap.spaceBar || k.which === KeyMap.backSpace)
+            .map((k:any) => {
+                return {element:k};
+            });
 
         this.keyUp.merge(this.click).merge(this.keyDown).subscribe(e =>
         {

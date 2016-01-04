@@ -42,6 +42,7 @@ export class Document{
                 index = this.characters.length - 1;
             }
             this.addCharacter(character,index + 1);
+            console.log(this.characters);
         }
         if(operation === 'select'){
             this.selectCharacter(character);
