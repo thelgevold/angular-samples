@@ -6,6 +6,7 @@ export class Character{
     lineBreak = false;
     placeHolder = false;
     value:string;
+    deleteChar = false;
 
     constructor(keyCode){
 
@@ -16,6 +17,9 @@ export class Character{
         else if (keyCode === -1) {
             this.value = '';
             this.placeHolder = true;
+        }
+        else if(keyCode === KeyMap.backSpace){
+            this.deleteChar = true;
         }
         else {
             this.value = String.fromCharCode(keyCode);

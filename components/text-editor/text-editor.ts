@@ -23,7 +23,7 @@ export class TextEditor implements OnInit {
             return true;
         }
 
-        if(keyCode === KeyMap.enter || keyCode === KeyMap.spaceBar){
+        if(keyCode === KeyMap.enter || keyCode === KeyMap.spaceBar || KeyMap.backSpace){
             return true;
         }
 
@@ -37,7 +37,7 @@ export class TextEditor implements OnInit {
         this.keyUp = Observable.fromEvent(document,'keyup')
                      .filter((k:any) => this.isSuportedCharacter(k.which))
                      .map((k:any) => {
-                        return {operation:'add',character:new Character(k.which),element:k};
+                        return {operation:'modify',character:new Character(k.which),element:k};
                      });
 
         //Support document selection

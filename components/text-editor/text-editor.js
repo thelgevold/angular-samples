@@ -20,7 +20,7 @@ var TextEditor = (function () {
         if (keyCode >= key_map_1.KeyMap.upperCaseA && keyCode < key_map_1.KeyMap.upperCaseZ) {
             return true;
         }
-        if (keyCode === key_map_1.KeyMap.enter || keyCode === key_map_1.KeyMap.spaceBar) {
+        if (keyCode === key_map_1.KeyMap.enter || keyCode === key_map_1.KeyMap.spaceBar || key_map_1.KeyMap.backSpace) {
             return true;
         }
         return false;
@@ -32,7 +32,7 @@ var TextEditor = (function () {
         this.keyUp = Rx_1.Observable.fromEvent(document, 'keyup')
             .filter(function (k) { return _this.isSuportedCharacter(k.which); })
             .map(function (k) {
-            return { operation: 'add', character: new character_1.Character(k.which), element: k };
+            return { operation: 'modify', character: new character_1.Character(k.which), element: k };
         });
         //Support document selection
         this.click = Rx_1.Observable.fromEvent(editor, 'click').map(function (e) {

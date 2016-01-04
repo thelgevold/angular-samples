@@ -11,7 +11,26 @@ export class Document{
         }
     }
 
-    addCharacter(character,index){
+    edit(character,index){
+
+        if(character.deleteChar){
+            var deleteIndex = this.characters.indexOf(this.currentChar);
+
+            if(deleteIndex >= 0) {
+                this.characters.splice(deleteIndex, 1);
+
+                if (this.characters.length > 0) {
+                    this.characters[deleteIndex - 1].isCurrent = true;
+                    this.currentChar = this.characters[deleteIndex - 1];
+                }
+                else{
+                    this.currentChar = null;
+                }
+            }
+
+            return;
+        }
+
         this.characters.splice(index, 0, character);
 
         if(character.lineBreak){
@@ -35,14 +54,13 @@ export class Document{
     }
 
     processInput(character, operation){
-        if(operation === 'add'){
+        if(operation === 'modify'){
             var index = this.characters.indexOf(this.currentChar);
 
             if(index < 0){
                 index = this.characters.length - 1;
             }
-            this.addCharacter(character,index + 1);
-            console.log(this.characters);
+            this.edit(character,index + 1);
         }
         if(operation === 'select'){
             this.selectCharacter(character);
