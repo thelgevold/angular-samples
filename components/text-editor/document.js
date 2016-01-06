@@ -20,7 +20,7 @@ var Document = (function () {
             var deleteIndex = this.characters.indexOf(this.currentChar);
             if (deleteIndex >= 1) {
                 this.characters.splice(deleteIndex, 1);
-                if (this.characters.length > 1 && deleteIndex > 1) {
+                if (this.characters.length > 1) {
                     this.characters[deleteIndex - 1].isCurrent = true;
                     this.currentChar = this.characters[deleteIndex - 1];
                 }

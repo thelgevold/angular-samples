@@ -30,7 +30,7 @@ export class Document{
             if(deleteIndex >= 1) {
                 this.characters.splice(deleteIndex, 1);
 
-                if (this.characters.length > 1 && deleteIndex > 1) {
+                if (this.characters.length > 1) {
                     this.characters[deleteIndex - 1].isCurrent = true;
                     this.currentChar = this.characters[deleteIndex - 1];
                 }
@@ -38,9 +38,6 @@ export class Document{
                     this.characters[0].isCurrent = true;
                     this.currentChar = this.characters[0];
                 }
-                //else{
-                //    this.currentChar = null;
-                //}
             }
         }
         else {
