@@ -29,6 +29,10 @@ export class TextEditor implements OnInit {
             return true;
         }
 
+        if(keyCode >= KeyMap.zero && keyCode <= KeyMap.nine){
+            return true;
+        }
+
         return false;
     }
 

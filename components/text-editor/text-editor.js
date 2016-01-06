@@ -23,6 +23,9 @@ var TextEditor = (function () {
         if (keyCode === key_map_1.KeyMap.enter || keyCode === key_map_1.KeyMap.spaceBar || keyCode === key_map_1.KeyMap.backSpace) {
             return true;
         }
+        if (keyCode >= key_map_1.KeyMap.zero && keyCode <= key_map_1.KeyMap.nine) {
+            return true;
+        }
         return false;
     };
     TextEditor.prototype.getCharacterFromElement = function (e, operation) {
