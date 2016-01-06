@@ -7,5 +7,4 @@ export class PubSubService{
     constructor(){
         this.Stream = new CustomerEventEmitter();
     }
-
 }
