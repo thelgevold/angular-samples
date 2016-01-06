@@ -4,6 +4,12 @@ export class Document{
     characters = [];
     currentChar;
 
+    constructor(){
+        this.currentChar = new Character(-1);
+        this.characters.push(this.currentChar);
+        this.characters[0].isCurrent = true;
+    }
+
     deselectPreviousCharacter(){
         if(this.currentChar){
             var index = this.characters.indexOf(this.currentChar);
@@ -18,33 +24,38 @@ export class Document{
     edit(character,index){
 
         if(character.deleteChar){
+
             var deleteIndex = this.characters.indexOf(this.currentChar);
 
-            if(deleteIndex >= 0) {
+            if(deleteIndex >= 1) {
                 this.characters.splice(deleteIndex, 1);
 
-                if (this.characters.length > 0 && deleteIndex >= 1) {
+                if (this.characters.length > 1 && deleteIndex > 1) {
                     this.characters[deleteIndex - 1].isCurrent = true;
                     this.currentChar = this.characters[deleteIndex - 1];
                 }
-                else{
-                    this.currentChar = null;
+                else if(this.characters.length === 1){
+                    this.characters[0].isCurrent = true;
+                    this.currentChar = this.characters[0];
                 }
+                //else{
+                //    this.currentChar = null;
+                //}
             }
-
-            return;
-        }
-
-        this.characters.splice(index, 0, character);
-
-        if(character.lineBreak){
-            this.deselectPreviousCharacter();
-            var placeHolder = new Character(-1);
-            this.characters.splice(index + 1, 0, placeHolder);
-            this.placeCursor(placeHolder);
         }
         else {
-            this.placeCursor(character);
+
+            this.characters.splice(index, 0, character);
+
+            if (character.lineBreak) {
+                this.deselectPreviousCharacter();
+                var placeHolder = new Character(-1);
+                this.characters.splice(index + 1, 0, placeHolder);
+                this.placeCursor(placeHolder);
+            }
+            else {
+                this.placeCursor(character);
+            }
         }
     }
 
