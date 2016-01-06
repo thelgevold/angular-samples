@@ -18,7 +18,7 @@ var Character = (function () {
             this.deleteChar = true;
         }
         else {
-            this.value = String.fromCharCode(keyCode);
+            this.value = String.fromCharCode(keyCode).toLowerCase();
         }
     }
     return Character;

@@ -23,7 +23,7 @@ export class Character{
             this.deleteChar = true;
         }
         else {
-            this.value = String.fromCharCode(keyCode);
+            this.value = String.fromCharCode(keyCode).toLowerCase();
         }
     }
 }
