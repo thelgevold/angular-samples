@@ -1,12 +1,11 @@
-import {EventEmitter} from 'angular2/core';
-import {Customer} from './customer';
+import {CustomerEventEmitter} from './customer-event-emitter';
 
 export class PubSubService{
 
-    Stream:EventEmitter<Customer>;
+    Stream:CustomerEventEmitter;
 
     constructor(){
-        this.Stream = new EventEmitter<Customer>();
+        this.Stream = new CustomerEventEmitter();
     }
 
 }
