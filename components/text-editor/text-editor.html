@@ -1,5 +1,10 @@
 
-<h4>Text Editor where all events are captured as Observables</h4>
+<h1>Text Editor based on Observables</h1>
+
+<div class="alert alert-success" role="alert">
+    Supports typing of letters and numbers. Basic text selection and cursor placement is also supported.
+</div>
+
 <div class="editor">
 <div class="page noselect" id="page"><span *ngFor="#char of currentDocument.characters" [ngClass]="{currentChar:char.isCurrent,selectedChar:char.isSelected}">{{char.value}}</span></div>
 </div>
