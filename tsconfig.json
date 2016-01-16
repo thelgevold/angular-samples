@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
     "target": "ES5",
-    "module": "commonjs",
+    "module": "system",
     "jsx":"react",
+    "moduleResolution":"node",
     "emitDecoratorMetadata":true,
     "experimentalDecorators":true,
     "watch":true
   },
-  "files":["app.ts"],
   "exclude": [
-    "node_modules"
+    "node_modules","components/web-workers"
   ]
 }

@@ -1,6 +1,14 @@
-var Customer = (function () {
-    function Customer() {
+System.register([], function(exports_1) {
+    var Customer;
+    return {
+        setters:[],
+        execute: function() {
+            Customer = (function () {
+                function Customer() {
+                }
+                return Customer;
+            })();
+            exports_1("Customer", Customer);
+        }
     }
-    return Customer;
-})();
-exports.Customer = Customer;
+});
