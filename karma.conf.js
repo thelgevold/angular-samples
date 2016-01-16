@@ -21,6 +21,7 @@ module.exports = function(config) {
             { pattern: 'node_modules/systemjs/dist/system-polyfills.js', included: false, watched: false },
 
             { pattern: 'components/**/*.js', included: false, watched: true },
+            { pattern: 'unit-test-scenarios/**/*.js', included: false, watched: true },
 
             'test-main.js'
         ],
