@@ -20,6 +20,7 @@ import {Graph} from './components/algorithms/graph/graph';
 import {PubSub} from './components/pub-sub/pub-sub';
 import {TextEditor} from './components/text-editor/text-editor';
 import {ROUTER_DIRECTIVES, RouteConfig, Route} from 'angular2/router';
+import {CommentDemo} from './components/change-detection/comment-demo';
 
 import {
     ComponentInstruction,
@@ -29,7 +30,7 @@ import {
 @Component({
     selector: 'demo-page',
     templateUrl: './demo-page.html',
-    directives: [ROUTER_DIRECTIVES, Spreadsheet, HttpSample, GridDemo, ContactList,
+    directives: [ROUTER_DIRECTIVES, Spreadsheet, HttpSample, GridDemo, ContactList, CommentDemo,
                  JqueryIntegration, Angular2Host, Algorithms, AddressBook, InputControls, TreeViewDemo, PubSub, TextEditor]
 })
 
@@ -51,6 +52,7 @@ import {
     new Route({ path: '/non-bindable', component:IgnoreBindings, name: 'IgnoreBindings'}),
     new Route({ path: '/greeting', component:GreetingComponent, name: 'Greeting'}),
     new Route({ path: '/form', component:AddressForm, name: 'AddressForm'}),
+    new Route({ path: '/change', component:CommentDemo, name: 'Change'}),
 ])
 
 export class DemoPage {

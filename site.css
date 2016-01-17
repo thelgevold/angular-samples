@@ -146,3 +146,7 @@ div.edge{
     -ms-user-select: none;
     user-select: none;
 }
+
+.bold{
+    font-weight: bold;
+}

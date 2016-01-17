@@ -1,4 +1,4 @@
-System.register(['angular2/core', './components/tree-view/tree-view-demo', './components/contact-list/contact-list', './components/bound-textbox/bound-textbox', './components/grid/grid-demo', './components/non-bindable/non-bindable', './components/greeting/greeting-component', './components/http/http', './components/spreadsheet/spreadsheet', './components/algorithms/algorithms', './components/react-integration/angular-2-host', './components/jquery-integration/jquery-integration', './components/input-controls/input-controls', './components/dependency-injection/address-book', './components/address-form/address-form', './components/algorithms/graph/graph', './components/pub-sub/pub-sub', './components/text-editor/text-editor', 'angular2/router'], function(exports_1) {
+System.register(['angular2/core', './components/tree-view/tree-view-demo', './components/contact-list/contact-list', './components/bound-textbox/bound-textbox', './components/grid/grid-demo', './components/non-bindable/non-bindable', './components/greeting/greeting-component', './components/http/http', './components/spreadsheet/spreadsheet', './components/algorithms/algorithms', './components/react-integration/angular-2-host', './components/jquery-integration/jquery-integration', './components/input-controls/input-controls', './components/dependency-injection/address-book', './components/address-form/address-form', './components/algorithms/graph/graph', './components/pub-sub/pub-sub', './components/text-editor/text-editor', 'angular2/router', './components/change-detection/comment-demo'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', './components/tree-view/tree-view-demo', './co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, tree_view_demo_1, contact_list_1, bound_textbox_1, grid_demo_1, non_bindable_1, greeting_component_1, http_1, spreadsheet_1, algorithms_1, angular_2_host_1, jquery_integration_1, input_controls_1, address_book_1, address_form_1, graph_1, pub_sub_1, text_editor_1, router_1, router_2;
+    var core_1, tree_view_demo_1, contact_list_1, bound_textbox_1, grid_demo_1, non_bindable_1, greeting_component_1, http_1, spreadsheet_1, algorithms_1, angular_2_host_1, jquery_integration_1, input_controls_1, address_book_1, address_form_1, graph_1, pub_sub_1, text_editor_1, router_1, comment_demo_1, router_2;
     var DemoPage;
     return {
         setters:[
@@ -69,6 +69,9 @@ System.register(['angular2/core', './components/tree-view/tree-view-demo', './co
             function (router_1_1) {
                 router_1 = router_1_1;
                 router_2 = router_1_1;
+            },
+            function (comment_demo_1_1) {
+                comment_demo_1 = comment_demo_1_1;
             }],
         execute: function() {
             DemoPage = (function () {
@@ -82,7 +85,7 @@ System.register(['angular2/core', './components/tree-view/tree-view-demo', './co
                     core_1.Component({
                         selector: 'demo-page',
                         templateUrl: './demo-page.html',
-                        directives: [router_1.ROUTER_DIRECTIVES, spreadsheet_1.Spreadsheet, http_1.HttpSample, grid_demo_1.GridDemo, contact_list_1.ContactList,
+                        directives: [router_1.ROUTER_DIRECTIVES, spreadsheet_1.Spreadsheet, http_1.HttpSample, grid_demo_1.GridDemo, contact_list_1.ContactList, comment_demo_1.CommentDemo,
                             jquery_integration_1.JqueryIntegration, angular_2_host_1.Angular2Host, algorithms_1.Algorithms, address_book_1.AddressBook, input_controls_1.InputControls, tree_view_demo_1.TreeViewDemo, pub_sub_1.PubSub, text_editor_1.TextEditor]
                     }),
                     router_1.RouteConfig([
@@ -103,6 +106,7 @@ System.register(['angular2/core', './components/tree-view/tree-view-demo', './co
                         new router_1.Route({ path: '/non-bindable', component: non_bindable_1.IgnoreBindings, name: 'IgnoreBindings' }),
                         new router_1.Route({ path: '/greeting', component: greeting_component_1.GreetingComponent, name: 'Greeting' }),
                         new router_1.Route({ path: '/form', component: address_form_1.AddressForm, name: 'AddressForm' }),
+                        new router_1.Route({ path: '/change', component: comment_demo_1.CommentDemo, name: 'Change' }),
                     ]), 
                     __metadata('design:paramtypes', [router_2.Location])
                 ], DemoPage);
