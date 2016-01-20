@@ -7,7 +7,6 @@ import {Directory} from './components/tree-view/directory';
 import {GridDemo} from './components/grid/grid-demo';
 import {Column} from './components/grid/column';
 import {IgnoreBindings} from './components/non-bindable/non-bindable';
-import {GreetingComponent} from './components/greeting/greeting-component';
 import {HttpSample} from './components/http/http';
 import {Spreadsheet} from './components/spreadsheet/spreadsheet';
 import {Algorithms} from './components/algorithms/algorithms';
@@ -49,7 +48,6 @@ import {
     new Route({ path: '/contact', component:ContactList, name: 'Contact'}),
     new Route({ path: '/textbox', component:BoundTextbox, name: 'Textbox'}),
     new Route({ path: '/non-bindable', component:IgnoreBindings, name: 'IgnoreBindings'}),
-    new Route({ path: '/greeting', component:GreetingComponent, name: 'Greeting'}),
     new Route({ path: '/form', component:AddressForm, name: 'AddressForm'}),
     new Route({ path: '/change', component:CommentDemo, name: 'Change'}),
 ])

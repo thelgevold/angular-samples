@@ -1,4 +1,4 @@
-System.register(['angular2/core', './components/tree-view/tree-view-demo', './components/contact-list/contact-list', './components/bound-textbox/bound-textbox', './components/grid/grid-demo', './components/non-bindable/non-bindable', './components/greeting/greeting-component', './components/http/http', './components/spreadsheet/spreadsheet', './components/algorithms/algorithms', './components/react-integration/angular-2-host', './components/jquery-integration/jquery-integration', './components/input-controls/input-controls', './components/dependency-injection/address-book', './components/address-form/address-form', './components/algorithms/graph/graph', './components/pub-sub/pub-sub', './components/text-editor/text-editor', 'angular2/router', './components/change-detection/comment-demo'], function(exports_1) {
+System.register(['angular2/core', './components/tree-view/tree-view-demo', './components/contact-list/contact-list', './components/bound-textbox/bound-textbox', './components/grid/grid-demo', './components/non-bindable/non-bindable', './components/http/http', './components/spreadsheet/spreadsheet', './components/algorithms/algorithms', './components/react-integration/angular-2-host', './components/jquery-integration/jquery-integration', './components/input-controls/input-controls', './components/dependency-injection/address-book', './components/address-form/address-form', './components/algorithms/graph/graph', './components/pub-sub/pub-sub', './components/text-editor/text-editor', 'angular2/router', './components/change-detection/comment-demo'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', './components/tree-view/tree-view-demo', './co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, tree_view_demo_1, contact_list_1, bound_textbox_1, grid_demo_1, non_bindable_1, greeting_component_1, http_1, spreadsheet_1, algorithms_1, angular_2_host_1, jquery_integration_1, input_controls_1, address_book_1, address_form_1, graph_1, pub_sub_1, text_editor_1, router_1, comment_demo_1, router_2;
+    var core_1, tree_view_demo_1, contact_list_1, bound_textbox_1, grid_demo_1, non_bindable_1, http_1, spreadsheet_1, algorithms_1, angular_2_host_1, jquery_integration_1, input_controls_1, address_book_1, address_form_1, graph_1, pub_sub_1, text_editor_1, router_1, comment_demo_1, router_2;
     var DemoPage;
     return {
         setters:[
@@ -29,9 +29,6 @@ System.register(['angular2/core', './components/tree-view/tree-view-demo', './co
             },
             function (non_bindable_1_1) {
                 non_bindable_1 = non_bindable_1_1;
-            },
-            function (greeting_component_1_1) {
-                greeting_component_1 = greeting_component_1_1;
             },
             function (http_1_1) {
                 http_1 = http_1_1;
@@ -103,7 +100,6 @@ System.register(['angular2/core', './components/tree-view/tree-view-demo', './co
                         new router_1.Route({ path: '/contact', component: contact_list_1.ContactList, name: 'Contact' }),
                         new router_1.Route({ path: '/textbox', component: bound_textbox_1.BoundTextbox, name: 'Textbox' }),
                         new router_1.Route({ path: '/non-bindable', component: non_bindable_1.IgnoreBindings, name: 'IgnoreBindings' }),
-                        new router_1.Route({ path: '/greeting', component: greeting_component_1.GreetingComponent, name: 'Greeting' }),
                         new router_1.Route({ path: '/form', component: address_form_1.AddressForm, name: 'AddressForm' }),
                         new router_1.Route({ path: '/change', component: comment_demo_1.CommentDemo, name: 'Change' }),
                     ]), 
