@@ -28,9 +28,7 @@ System.register(['angular2/core'], function(exports_1) {
                 };
                 JqueryIntegration = __decorate([
                     core_1.Component({
-                        selector: 'jquery-integration'
-                    }),
-                    core_1.View({
+                        selector: 'jquery-integration',
                         templateUrl: './components/jquery-integration/jquery-integration.html'
                     }),
                     __param(0, core_1.Inject(core_1.ElementRef)), 

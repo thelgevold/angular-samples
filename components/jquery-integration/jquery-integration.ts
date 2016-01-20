@@ -1,12 +1,9 @@
-import {Component, View, ElementRef, Inject, OnInit} from 'angular2/core';
+import {Component, ElementRef, Inject, OnInit} from 'angular2/core';
 
 declare var jQuery:any;
 
 @Component({
-    selector: 'jquery-integration'
-})
-
-@View({
+    selector: 'jquery-integration',
     templateUrl: './components/jquery-integration/jquery-integration.html'
 })
 
