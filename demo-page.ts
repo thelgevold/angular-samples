@@ -30,8 +30,7 @@ import {
 @Component({
     selector: 'demo-page',
     templateUrl: './demo-page.html',
-    directives: [ROUTER_DIRECTIVES, Spreadsheet, HttpSample, GridDemo, ContactList, CommentDemo,
-                 JqueryIntegration, Angular2Host, Algorithms, AddressBook, InputControls, TreeViewDemo, PubSub, TextEditor]
+    directives: [ROUTER_DIRECTIVES]
 })
 
 @RouteConfig([

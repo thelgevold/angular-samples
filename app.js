@@ -56,7 +56,7 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
                     core_1.Component({
                         selector: 'demo-app',
                         templateUrl: './demo-app.html',
-                        directives: [demo_page_1.DemoPage, about_1.About, router_1.ROUTER_DIRECTIVES]
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }),
                     router_1.RouteConfig([
                         new router_1.Route({ path: '/', component: about_1.About, name: 'About', data: { project: 'angular-2-samples' } }),

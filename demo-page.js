@@ -85,8 +85,7 @@ System.register(['angular2/core', './components/tree-view/tree-view-demo', './co
                     core_1.Component({
                         selector: 'demo-page',
                         templateUrl: './demo-page.html',
-                        directives: [router_1.ROUTER_DIRECTIVES, spreadsheet_1.Spreadsheet, http_1.HttpSample, grid_demo_1.GridDemo, contact_list_1.ContactList, comment_demo_1.CommentDemo,
-                            jquery_integration_1.JqueryIntegration, angular_2_host_1.Angular2Host, algorithms_1.Algorithms, address_book_1.AddressBook, input_controls_1.InputControls, tree_view_demo_1.TreeViewDemo, pub_sub_1.PubSub, text_editor_1.TextEditor]
+                        directives: [router_1.ROUTER_DIRECTIVES]
                     }),
                     router_1.RouteConfig([
                         new router_1.Route({ path: '/spreadsheet', component: spreadsheet_1.Spreadsheet, name: 'Spreadsheet' }),

@@ -20,7 +20,7 @@ declare var System:any;
 {
     selector: 'demo-app',
     templateUrl: './demo-app.html',
-    directives:[DemoPage, About, ROUTER_DIRECTIVES]
+    directives:[ROUTER_DIRECTIVES]
 })
 
 @RouteConfig([
