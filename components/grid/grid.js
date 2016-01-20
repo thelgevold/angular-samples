@@ -29,9 +29,7 @@ System.register(['angular2/core', './sorter'], function(exports_1) {
                 Grid = __decorate([
                     core_1.Component({
                         selector: 'grid',
-                        inputs: ['rows: rows', 'columns: columns']
-                    }),
-                    core_1.View({
+                        inputs: ['rows: rows', 'columns: columns'],
                         templateUrl: './components/grid/grid.html'
                     }), 
                     __metadata('design:paramtypes', [])

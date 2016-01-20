@@ -4,10 +4,7 @@ import {Sorter} from './sorter';
 
 @Component({
     selector: 'grid',
-    inputs: ['rows: rows','columns: columns']
-})
-
-@View({
+    inputs: ['rows: rows','columns: columns'],
     templateUrl: './components/grid/grid.html'
 })
 
