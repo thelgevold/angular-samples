@@ -19,12 +19,13 @@ System.register(['angular2/core'], function(exports_1) {
             TreeView = (function () {
                 function TreeView() {
                 }
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Array)
+                ], TreeView.prototype, "directories", void 0);
                 TreeView = __decorate([
                     core_1.Component({
                         selector: 'tree-view',
-                        inputs: ['directories: directories']
-                    }),
-                    core_1.View({
                         templateUrl: './components/tree-view/tree-view.html',
                         directives: [TreeView]
                     }), 
