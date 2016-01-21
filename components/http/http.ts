@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {Http, Response, Headers} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
+import {Subject } from 'rxjs/Subject';
 
 @Component({
     templateUrl: './components/http/http.html'
@@ -19,6 +20,7 @@ export class HttpSample {
     pendingRequest: any;
     capitol: any;
     activeCountry: string;
+    country = new Subject();
 
     constructor(http: Http) {
 
@@ -29,20 +31,15 @@ export class HttpSample {
         this.loadFriendsAndCustomers();
         this.loadFriendsAsPromise();
 
+        this.getCapitol()
+
     }
 
-    getCapitol(country){
+    getCapitol(){
 
-        if(this.pendingRequest){
-            this.pendingRequest.unsubscribe();
-            console.log('cancelled observable');
-        }
-
-        this.activeCountry = country;
-
-        this.pendingRequest = this.http.get('./country-info/' + country + '.json')
-                              .map((res: Response) => res.json())
-                              .subscribe(res => this.capitol = res.capitol);
+        this.country.switchMap((country) => this.http.get('./country-info/' + country + '.json'))
+                    .map((res: Response) => res.json())
+                    .subscribe(res => this.capitol = res.capitol);
     }
 
     isActive(country){

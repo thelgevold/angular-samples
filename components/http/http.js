@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(exports_1) {
+System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Subject'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, Observable_1;
+    var core_1, http_1, Observable_1, Subject_1;
     var HttpSample, Person;
     return {
         setters:[
@@ -20,26 +20,26 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
             },
             function (Observable_1_1) {
                 Observable_1 = Observable_1_1;
+            },
+            function (Subject_1_1) {
+                Subject_1 = Subject_1_1;
             }],
         execute: function() {
             HttpSample = (function () {
                 function HttpSample(http) {
                     this.postResponse = new Person();
+                    this.country = new Subject_1.Subject();
                     this.http = http;
                     this.loadFriendsSuccessFully();
                     this.loadFriendsWithError();
                     this.loadContractByCustomer();
                     this.loadFriendsAndCustomers();
                     this.loadFriendsAsPromise();
+                    this.getCapitol();
                 }
-                HttpSample.prototype.getCapitol = function (country) {
+                HttpSample.prototype.getCapitol = function () {
                     var _this = this;
-                    if (this.pendingRequest) {
-                        this.pendingRequest.unsubscribe();
-                        console.log('cancelled observable');
-                    }
-                    this.activeCountry = country;
-                    this.pendingRequest = this.http.get('./country-info/' + country + '.json')
+                    this.country.switchMap(function (country) { return _this.http.get('./country-info/' + country + '.json'); })
                         .map(function (res) { return res.json(); })
                         .subscribe(function (res) { return _this.capitol = res.capitol; });
                 };
