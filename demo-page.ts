@@ -20,6 +20,7 @@ import {PubSub} from './components/pub-sub/pub-sub';
 import {TextEditor} from './components/text-editor/text-editor';
 import {ROUTER_DIRECTIVES, RouteConfig, Route} from 'angular2/router';
 import {CommentDemo} from './components/change-detection/comment-demo';
+import {Parent} from './components/access-child-components/parent';
 
 import {
     ComponentInstruction,
@@ -50,6 +51,7 @@ import {
     new Route({ path: '/non-bindable', component:IgnoreBindings, name: 'IgnoreBindings'}),
     new Route({ path: '/form', component:AddressForm, name: 'AddressForm'}),
     new Route({ path: '/change', component:CommentDemo, name: 'Change'}),
+    new Route({ path: '/parent-child', component:Parent, name: 'Parent'}),
 ])
 
 export class DemoPage {
