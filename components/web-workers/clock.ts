@@ -1,3 +1,4 @@
+declare var moment: any;
 
 export class Clock {
 
