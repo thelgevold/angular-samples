@@ -1,13 +1,15 @@
 Live DEMO here: http://www.syntaxsuccess.com/angular-2-samples
 Documentation: http://www.syntaxsuccess.com/viewarticle/angular-2.0-examples
 
-The project uses TypeScript, so to get started you may have to run the following:
+Here are the prerequisites for running the project:
 
-1-Install the TypeScript compiler: npm install -g typescript@^1.7.0
+1-npm install -g typescript@^1.7.0
 
-2-Run npm install and bower install
+2-npm install
 
-Steps 1-2 takes care of installing required tooling.
+3-bower install
+
+Steps 1-3 will install the required tooling.
 
 The final step is to launch the site by starting the lite-server by running the command
 
