@@ -40,7 +40,7 @@ System.register(['angular2/core', './survey', './question-model', './textbox-que
                     question = new textbox_question_1.TextboxQuestion();
                     question.key = 'firstName';
                     question.text = 'First name';
-                    question.required = false;
+                    question.required = true;
                     question.order = 1;
                     this.questionModel.questions.push(question);
                     question = new textbox_question_1.TextboxQuestion();
