@@ -5,8 +5,7 @@
     "jsx":"react",
     "moduleResolution":"node",
     "emitDecoratorMetadata":true,
-    "experimentalDecorators":true,
-    "watch":true
+    "experimentalDecorators":true
   },
   "exclude": [
     "node_modules","components/web-workers"

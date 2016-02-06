@@ -18,7 +18,17 @@ System.config({
     }
 });
 
-System.import('angular2/src/platform/browser/browser_adapter').then(function(browser_adapter) {
+Promise.all([
+    System.import('angular2/src/platform/browser/browser_adapter'),
+    System.import('angular2/platform/testing/browser'),
+    System.import('angular2/testing')
+]).then(function (modules) {
+    var browser_adapter = modules[0];
+    var providers = modules[1];
+    var testing = modules[2];
+    testing.setBaseTestProviders(providers.TEST_BROWSER_PLATFORM_PROVIDERS,
+        providers.TEST_BROWSER_APPLICATION_PROVIDERS);
+
     browser_adapter.BrowserDomAdapter.makeCurrent();
 }).then(function() {
     return Promise.all(
@@ -41,7 +51,6 @@ System.import('angular2/src/platform/browser/browser_adapter').then(function(bro
         console.error(error.stack || error);
         __karma__.start();
     });
-
 
 function onlySpecFiles(path) {
     return /[\.|-]spec\.js$/.test(path);

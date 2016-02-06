@@ -28,7 +28,7 @@ System.register(['angular2/core'], function(exports_1) {
                         selector: 'bound-textbox'
                     }),
                     core_1.View({
-                        template: '<h1>Bound Textbox</h1><input [value]="text" (keyup)="typing($event)" />{{text}}'
+                        template: '<h1>Bound Textbox</h1><input [value]="text" (keyup)="typing($event)" /><span>{{text}}</span>'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], BoundTextbox);

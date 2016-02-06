@@ -1,7 +1,7 @@
 {
   "name": "angular2-poc",
   "scripts":{
-    "test": "karma start",
+    "test": "tsc && karma start",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
