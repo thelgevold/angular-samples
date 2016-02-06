@@ -4,4 +4,5 @@ export class QuestionBase<T>{
     text:string;
     required:boolean;
     order:number;
+    controlType:string;
 }

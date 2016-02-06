@@ -3,9 +3,14 @@
         <div *ngFor="#question of model.questions" class="form-row">
             <div class="formHeading">{{question.text}}</div>
 
-
-            <input type="{{question.type}}" id="{{question.key}}" ngControl="{{question.key}}">
-
+            <div [ngSwitch]="question.controlType">
+                <div *ngSwitchWhen="'textbox'"><input type="{{question.type}}" id="{{question.key}}" ngControl="{{question.key}}"></div>
+                <div *ngSwitchWhen="'dropdown'">
+                    <select ngControl="{{question.key}}">
+                        <option *ngFor="#c of question.options" [value]="c">{{c}}</option>
+                    </select>
+                </div>
+            </div>
 
             <div class="errorMessage" *ngIf="f.form.controls[question.key].touched && !f.form.controls[question.key].valid">field is required</div>
         </div>

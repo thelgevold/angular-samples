@@ -5,22 +5,26 @@ System.register(['./question-base'], function(exports_1) {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
     var question_base_1;
-    var TextboxQuestion;
+    var DropDownQuestion;
     return {
         setters:[
             function (question_base_1_1) {
                 question_base_1 = question_base_1_1;
             }],
         execute: function() {
-            TextboxQuestion = (function (_super) {
-                __extends(TextboxQuestion, _super);
-                function TextboxQuestion() {
+            DropDownQuestion = (function (_super) {
+                __extends(DropDownQuestion, _super);
+                function DropDownQuestion() {
                     _super.call(this);
-                    this.controlType = 'textbox';
+                    this.options = [];
+                    this.controlType = 'dropdown';
                 }
-                return TextboxQuestion;
+                DropDownQuestion.prototype.addOption = function (value) {
+                    this.options.push(value);
+                };
+                return DropDownQuestion;
             })(question_base_1.QuestionBase);
-            exports_1("TextboxQuestion", TextboxQuestion);
+            exports_1("DropDownQuestion", DropDownQuestion);
         }
     }
 });
