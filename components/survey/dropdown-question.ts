@@ -8,9 +8,4 @@ export class DropDownQuestion extends QuestionBase<string>{
     constructor(){
         super();
     }
-
-    addOption(key,value){
-        this.options.push({key:key,value:value});
-    }
-
 }

@@ -42,10 +42,10 @@ export class SurveyDemo {
         let ddQuestion = new DropDownQuestion();
         ddQuestion.key = 'country';
         ddQuestion.text = 'Country';
-        ddQuestion.addOption('usa','USA');
-        ddQuestion.addOption('germany','Germany');
-        ddQuestion.addOption('canada','Canada');
-        ddQuestion.addOption('australia','Australia');
+        ddQuestion.options.push({key:'usa',value:'USA'});
+        ddQuestion.options.push({key:'germany',value:'Germany'});
+        ddQuestion.options.push({key:'canada',value:'Canada'});
+        ddQuestion.options.push({key:'australia',value:'Australia'});
         ddQuestion.order = 4;
         this.questionModel.questions.push(ddQuestion);
 
