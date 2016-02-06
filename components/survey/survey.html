@@ -12,7 +12,7 @@
                 </div>
             </div>
 
-            <div class="errorMessage" *ngIf="f.form.controls[question.key].touched && !f.form.controls[question.key].valid">field is required</div>
+            <div class="errorMessage" *ngIf="!f.form.controls[question.key].valid">*required</div>
         </div>
 
         <div class="form-row">

@@ -7,7 +7,7 @@ import {DropDownQuestion} from './dropdown-question';
 
 @Component({
     selector:'survey-demo',
-    template:'<div><h1>Survey</h1><survey [model]="questionModel"></survey></div>',
+    template:'<div><h1>Survey using Dynamic Form</h1><survey [model]="questionModel"></survey></div>',
     directives:[Survey]
 })
 

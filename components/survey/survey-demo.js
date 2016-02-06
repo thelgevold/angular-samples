@@ -64,7 +64,7 @@ System.register(['angular2/core', './survey', './question-model', './textbox-que
                 SurveyDemo = __decorate([
                     core_1.Component({
                         selector: 'survey-demo',
-                        template: '<div><h1>Survey</h1><survey [model]="questionModel"></survey></div>',
+                        template: '<div><h1>Survey using Dynamic Form</h1><survey [model]="questionModel"></survey></div>',
                         directives: [survey_1.Survey]
                     }), 
                     __metadata('design:paramtypes', [])
