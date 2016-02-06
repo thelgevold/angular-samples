@@ -2,7 +2,11 @@
     <form (ngSubmit)="onSubmit()" [ngFormModel]="form" #f="ngForm">
         <div *ngFor="#question of model.questions" class="form-row">
             <div class="formHeading">{{question.text}}</div>
-            <input type="text" id="{{question.key}}" ngControl="{{question.key}}">
+
+
+            <input type="{{question.type}}" id="{{question.key}}" ngControl="{{question.key}}">
+
+
             <div class="errorMessage" *ngIf="f.form.controls[question.key].touched && !f.form.controls[question.key].valid">field is required</div>
         </div>
 

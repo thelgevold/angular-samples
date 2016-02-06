@@ -1,6 +1,8 @@
 import {Component,Input, OnInit} from 'angular2/core';
-import {QuestionModel} from './question-model';
 import {FormBuilder, Validators, ControlGroup, FORM_DIRECTIVES} from 'angular2/common';
+
+import {QuestionModel} from './question-model';
+import {TextboxQuestion} from './textbox-question';
 
 @Component({
     selector:'survey',
