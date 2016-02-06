@@ -19,8 +19,8 @@ System.register(['./question-base'], function(exports_1) {
                     this.options = [];
                     this.controlType = 'dropdown';
                 }
-                DropDownQuestion.prototype.addOption = function (value) {
-                    this.options.push(value);
+                DropDownQuestion.prototype.addOption = function (key, value) {
+                    this.options.push({ key: key, value: value });
                 };
                 return DropDownQuestion;
             })(question_base_1.QuestionBase);
