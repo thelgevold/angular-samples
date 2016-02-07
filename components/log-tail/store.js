@@ -15,12 +15,12 @@ System.register(['rxjs/Subject', './log-reducer'], function(exports_1) {
                     var _this = this;
                     this.dispatcher = new Subject_1.Subject();
                     this.log = new Subject_1.Subject();
-                    this._logItems = [];
+                    this.logItems = [];
                     this.dispatcher.subscribe(function (action) { return _this.handleAction(action); });
                 }
                 Store.prototype.handleAction = function (action) {
-                    this._logItems = log_reducer_1.logReducer(this._logItems, action);
-                    this.log.next(this._logItems);
+                    this.logItems = log_reducer_1.logReducer(this.logItems, action);
+                    this.log.next(this.logItems);
                 };
                 Store.prototype.dispatchAction = function (action) {
                     this.dispatcher.next(action);

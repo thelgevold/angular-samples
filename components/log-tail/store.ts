@@ -10,15 +10,15 @@ export class Store{
     private dispatcher = new Subject<LogAction>();
     log = new Subject<Array<LogEntry>>();
 
-    private _logItems = [];
+    private logItems = [];
 
     constructor(){
         this.dispatcher.subscribe((action) => this.handleAction(action));
     }
 
-    handleAction(action) {
-        this._logItems = logReducer(this._logItems, action);
-        this.log.next(this._logItems);
+    private handleAction(action) {
+        this.logItems = logReducer(this.logItems, action);
+        this.log.next(this.logItems);
     }
 
     dispatchAction(action){

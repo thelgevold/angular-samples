@@ -15,7 +15,7 @@ import {LogEntry} from './log-entry';
                 <input placeholder="severity" type="number" [(ngModel)]="severity" />
                 <table class="table">
                      <tr>
-                        <td>Message</td><td>Severity</td>
+                        <td><strong>Message</strong></td><td><strong>Severity</strong></td>
                      </tr>
                      <tr *ngFor="#log of store.log | async">
                         <td>{{log.text}}</td>
