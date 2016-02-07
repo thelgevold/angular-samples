@@ -1,0 +1,9 @@
+{
+  "entries":[
+    {"text":"loading failed","severity":1},
+    {"text":"system failure","severity":1},
+    {"text":"slow response","severity":2},
+    {"text":"login failed","severity":2},
+    {"text":"null argument exception","severity":1}
+  ]
+}
