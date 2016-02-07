@@ -9,10 +9,10 @@ import {LogEntry} from './log-entry';
 @Component({
     providers:[Store],
     template:`<div>
-                <h1>Log state managed using Redux</h1>
-                <button style="margin-bottom: 10px;" (click)="generateLogEntry()">Simulate new log entry</button>
-                <input type="text" [(ngModel)]="msg" />
-                <input type="number" [(ngModel)]="severity" />
+                <h1>Error log state managed using Redux</h1>
+                <button style="margin-bottom: 10px;" (click)="generateLogEntry()">Add new log entry</button>
+                <input placeholder="message" type="text" [(ngModel)]="msg" />
+                <input placeholder="severity" type="number" [(ngModel)]="severity" />
                 <table class="table">
                      <tr>
                         <td>Message</td><td>Severity</td>

@@ -13,17 +13,17 @@ System.register(['rxjs/Subject', './log-reducer'], function(exports_1) {
             Store = (function () {
                 function Store() {
                     var _this = this;
-                    this.subject = new Subject_1.Subject();
+                    this.dispatcher = new Subject_1.Subject();
                     this.log = new Subject_1.Subject();
                     this._logItems = [];
-                    this.subject.subscribe(function (action) { return _this.handleAction(action); });
+                    this.dispatcher.subscribe(function (action) { return _this.handleAction(action); });
                 }
                 Store.prototype.handleAction = function (action) {
                     this._logItems = log_reducer_1.logReducer(this._logItems, action);
                     this.log.next(this._logItems);
                 };
                 Store.prototype.dispatchAction = function (action) {
-                    this.subject.next(action);
+                    this.dispatcher.next(action);
                 };
                 return Store;
             })();

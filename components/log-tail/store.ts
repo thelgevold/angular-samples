@@ -7,13 +7,13 @@ import {logReducer} from './log-reducer';
 
 export class Store{
 
-    subject = new Subject<LogAction>();
+    private dispatcher = new Subject<LogAction>();
     log = new Subject<Array<LogEntry>>();
 
     private _logItems = [];
 
     constructor(){
-        this.subject.subscribe((action) => this.handleAction(action));
+        this.dispatcher.subscribe((action) => this.handleAction(action));
     }
 
     handleAction(action) {
@@ -22,6 +22,6 @@ export class Store{
     }
 
     dispatchAction(action){
-        this.subject.next(action);
+        this.dispatcher.next(action);
     }
 }
