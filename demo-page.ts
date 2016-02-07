@@ -22,6 +22,7 @@ import {ROUTER_DIRECTIVES, RouteConfig, Route} from 'angular2/router';
 import {CommentDemo} from './components/change-detection/comment-demo';
 import {Parent} from './components/access-child-components/parent';
 import {SurveyDemo} from './components/survey/survey-demo';
+import {LogDemo} from './components/log-tail/log-demo';
 
 import {
     ComponentInstruction,
@@ -54,6 +55,7 @@ import {
     new Route({ path: '/change', component:CommentDemo, name: 'Change'}),
     new Route({ path: '/parent-child', component:Parent, name: 'Parent'}),
     new Route({ path: '/survey', component:SurveyDemo, name: 'Survey'}),
+    new Route({ path: '/redux', component:LogDemo, name: 'Redux'}),
 ])
 
 export class DemoPage {

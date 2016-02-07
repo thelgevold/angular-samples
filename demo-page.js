@@ -1,4 +1,4 @@
-System.register(['angular2/core', './components/tree-view/tree-view-demo', './components/contact-list/contact-list', './components/bound-textbox/bound-textbox', './components/grid/grid-demo', './components/non-bindable/non-bindable', './components/http/http', './components/spreadsheet/spreadsheet', './components/algorithms/algorithms', './components/react-integration/angular-2-host', './components/jquery-integration/jquery-integration', './components/input-controls/input-controls', './components/dependency-injection/address-book', './components/address-form/address-form', './components/algorithms/graph/graph', './components/pub-sub/pub-sub', './components/text-editor/text-editor', 'angular2/router', './components/change-detection/comment-demo', './components/access-child-components/parent', './components/survey/survey-demo'], function(exports_1) {
+System.register(['angular2/core', './components/tree-view/tree-view-demo', './components/contact-list/contact-list', './components/bound-textbox/bound-textbox', './components/grid/grid-demo', './components/non-bindable/non-bindable', './components/http/http', './components/spreadsheet/spreadsheet', './components/algorithms/algorithms', './components/react-integration/angular-2-host', './components/jquery-integration/jquery-integration', './components/input-controls/input-controls', './components/dependency-injection/address-book', './components/address-form/address-form', './components/algorithms/graph/graph', './components/pub-sub/pub-sub', './components/text-editor/text-editor', 'angular2/router', './components/change-detection/comment-demo', './components/access-child-components/parent', './components/survey/survey-demo', './components/log-tail/log-demo'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', './components/tree-view/tree-view-demo', './co
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, tree_view_demo_1, contact_list_1, bound_textbox_1, grid_demo_1, non_bindable_1, http_1, spreadsheet_1, algorithms_1, angular_2_host_1, jquery_integration_1, input_controls_1, address_book_1, address_form_1, graph_1, pub_sub_1, text_editor_1, router_1, comment_demo_1, parent_1, survey_demo_1, router_2;
+    var core_1, tree_view_demo_1, contact_list_1, bound_textbox_1, grid_demo_1, non_bindable_1, http_1, spreadsheet_1, algorithms_1, angular_2_host_1, jquery_integration_1, input_controls_1, address_book_1, address_form_1, graph_1, pub_sub_1, text_editor_1, router_1, comment_demo_1, parent_1, survey_demo_1, log_demo_1, router_2;
     var DemoPage;
     return {
         setters:[
@@ -75,6 +75,9 @@ System.register(['angular2/core', './components/tree-view/tree-view-demo', './co
             },
             function (survey_demo_1_1) {
                 survey_demo_1 = survey_demo_1_1;
+            },
+            function (log_demo_1_1) {
+                log_demo_1 = log_demo_1_1;
             }],
         execute: function() {
             DemoPage = (function () {
@@ -110,6 +113,7 @@ System.register(['angular2/core', './components/tree-view/tree-view-demo', './co
                         new router_1.Route({ path: '/change', component: comment_demo_1.CommentDemo, name: 'Change' }),
                         new router_1.Route({ path: '/parent-child', component: parent_1.Parent, name: 'Parent' }),
                         new router_1.Route({ path: '/survey', component: survey_demo_1.SurveyDemo, name: 'Survey' }),
+                        new router_1.Route({ path: '/redux', component: log_demo_1.LogDemo, name: 'Redux' }),
                     ]), 
                     __metadata('design:paramtypes', [router_2.Location])
                 ], DemoPage);
