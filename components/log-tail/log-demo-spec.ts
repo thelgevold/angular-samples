@@ -13,7 +13,7 @@ export function main() {
 
     const mockLogEntries = {entries:[new LogEntry('error',2)]};
 
-    describe('DisplayName', () => {
+    describe('LogDemo', () => {
 
         class LogTailServiceMock{
             getLogEntries(){
