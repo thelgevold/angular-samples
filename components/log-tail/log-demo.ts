@@ -22,6 +22,7 @@ import {LogEntry} from './log-entry';
                         <td>{{log.severity}}</td>
                      </tr>
                 </table>
+                <h4><a href="http://www.syntaxsuccess.com/viewarticle/redux-in-angular-2.0">Read more here</a></h4>
               </div>`
 })
 
