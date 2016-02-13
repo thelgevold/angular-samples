@@ -1,13 +1,13 @@
 import {Component, OnInit} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
-import {Http,Response} from 'angular2/http';
 
 import {Store} from './store';
 import {LogAction} from './log-action';
 import {LogEntry} from './log-entry';
+import {LogTailService} from './log-tail-service';
 
 @Component({
-    providers:[Store],
+    providers:[Store,LogTailService],
     template:`<div>
                 <h1>Error log state managed using Redux</h1>
                 <button style="margin-bottom: 10px;" (click)="generateLogEntry()">Add new log entry</button>
@@ -29,13 +29,13 @@ import {LogEntry} from './log-entry';
 export class LogDemo implements OnInit{
 
     store:Store;
-    http:Http;
     msg:string;
     severity:number;
+    logTailService:LogTailService
 
-    constructor(store:Store, http:Http){
+    constructor(store:Store, logTailService:LogTailService){
         this.store = store;
-        this.http = http;
+        this.logTailService = logTailService;
     }
 
     generateLogEntry(){
@@ -46,9 +46,6 @@ export class LogDemo implements OnInit{
     }
 
     ngOnInit(){
-        this.http.get('./components/log-tail/log.json')
-            .map((res: Response) => res.json())
-            .subscribe((res) => this.store.dispatchAction(new LogAction('LOAD_ENTRIES', res.entries)));
+        this.logTailService.getLogEntries().subscribe((res) => this.store.dispatchAction(new LogAction('LOAD_ENTRIES', res.entries)));
     }
-
 }
