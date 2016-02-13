@@ -1,3 +1,4 @@
+///<reference path="node_modules/angular2/typings/browser.d.ts"/>
 System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/operator/mergeMap', 'rxjs/add/observable/interval', 'rxjs/add/observable/forkJoin', 'angular2/http', 'angular2/core', 'angular2/platform/browser', './demo-page', './components/about/about', 'angular2/router', './components/dependency-injection/address-book-title-service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

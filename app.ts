@@ -1,3 +1,5 @@
+///<reference path="node_modules/angular2/typings/browser.d.ts"/>
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/mergeMap';
