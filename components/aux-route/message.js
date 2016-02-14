@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router'], function(exports_1) {
+System.register(['angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,35 +8,26 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, router_2;
-    var About;
+    var core_1;
+    var Message;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (router_1_1) {
-                router_1 = router_1_1;
-                router_2 = router_1_1;
             }],
         execute: function() {
-            About = (function () {
-                function About(params, data) {
-                    this.id = params.get('id');
-                    console.log(data.get('project'));
-                    console.log('aa');
+            Message = (function () {
+                function Message() {
                 }
-                About = __decorate([
+                Message = __decorate([
                     core_1.Component({
-                        selector: 'about',
-                        directives: [router_2.ROUTER_DIRECTIVES],
-                        templateUrl: './components/about/about.html'
+                        template: "<h1>Testing Aux Routes</h1>"
                     }), 
-                    __metadata('design:paramtypes', [router_1.RouteParams, router_1.RouteData])
-                ], About);
-                return About;
+                    __metadata('design:paramtypes', [])
+                ], Message);
+                return Message;
             })();
-            exports_1("About", About);
+            exports_1("Message", Message);
         }
     }
 });

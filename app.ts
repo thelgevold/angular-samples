@@ -12,9 +12,10 @@ import {bootstrap} from 'angular2/platform/browser';
 
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
-import {ROUTER_DIRECTIVES, RouteConfig, Location,ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router} from 'angular2/router';
+import {ROUTER_DIRECTIVES, RouteConfig, Location,ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router, AuxRoute} from 'angular2/router';
 
 import {AddressBookTitleService} from './components/dependency-injection/address-book-title-service';
+import {Message} from './components/aux-route/message';
 
 declare var System:any;
 
@@ -28,6 +29,7 @@ declare var System:any;
 @RouteConfig([
     new Route({path: '/', component: About, name: 'About', data: {project: 'angular-2-samples'}}),
     new Route({path: '/demo/...', component: DemoPage, name: 'Demo'}),
+    new AuxRoute({ path: '/msg', component:Message, name: 'Msg'}),
     new AsyncRoute({
         path: '/lazy',
         loader: () => ComponentHelper.LoadComponentAsync('LazyLoaded','./components/lazy-loaded/lazy-loaded'),

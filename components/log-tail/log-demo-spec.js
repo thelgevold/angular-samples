@@ -2,7 +2,7 @@ System.register(['angular2/core', 'angular2/testing', 'rxjs/Rx', './log-demo', '
     var core_1, testing_1, Rx_1, log_demo_1, log_action_1, log_entry_1, store_1, http_1, log_tail_service_1;
     function main() {
         var mockLogEntries = { entries: [new log_entry_1.LogEntry('error', 2)] };
-        testing_1.describe('DisplayName', function () {
+        testing_1.describe('LogDemo', function () {
             var LogTailServiceMock = (function () {
                 function LogTailServiceMock() {
                 }

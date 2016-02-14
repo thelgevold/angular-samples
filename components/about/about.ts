@@ -15,5 +15,7 @@ export class About {
     constructor(params: RouteParams, data: RouteData){
         this.id = params.get('id');
         console.log(data.get('project'));
+
+        console.log('aa');
     }
 }
