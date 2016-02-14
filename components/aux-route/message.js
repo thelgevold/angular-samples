@@ -19,9 +19,12 @@ System.register(['angular2/core'], function(exports_1) {
             Message = (function () {
                 function Message() {
                 }
+                Message.prototype.close = function () {
+                    window.location.href = '/angular-2-samples/';
+                };
                 Message = __decorate([
                     core_1.Component({
-                        template: "<div class=\"alert alert-success\" role=\"alert\"><h1>Testing Aux Routes</h1></div>"
+                        template: "<div class=\"alert alert-success\" role=\"alert\"><h1>Testing Aux Routes</h1>\n                <button (click)=\"close()\">Close</button>\n              </div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Message);
