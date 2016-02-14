@@ -21,7 +21,7 @@ System.register(['angular2/core'], function(exports_1) {
                 }
                 Message = __decorate([
                     core_1.Component({
-                        template: "<h1>Testing Aux Routes</h1>"
+                        template: "<div class=\"alert alert-success\" role=\"alert\"><h1>Testing Aux Routes</h1></div>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Message);
