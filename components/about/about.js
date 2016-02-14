@@ -24,7 +24,6 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1) {
                 function About(params, data) {
                     this.id = params.get('id');
                     console.log(data.get('project'));
-                    console.log('aa');
                 }
                 About = __decorate([
                     core_1.Component({
