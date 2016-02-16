@@ -1,5 +1,4 @@
 import {Component,Input, Output, EventEmitter, Attribute} from 'angular2/core';
-import {Base} from './base';
 
 @Component({
     template:`<h1>{{headline}}</h1>
@@ -10,7 +9,7 @@ import {Base} from './base';
     selector:'input-output'
 })
 
-export class InputOutput extends Base{
+export class InputOutput{
 
     private _growingString;
 
@@ -36,7 +35,6 @@ export class InputOutput extends Base{
     }
 
     constructor(@Attribute('plain') plain){
-        super();
         console.log(plain);
     }
 

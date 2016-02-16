@@ -1,9 +1,4 @@
-System.register(['angular2/core', './base'], function(exports_1) {
-    var __extends = (this && this.__extends) || function (d, b) {
-        for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
+System.register(['angular2/core'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -16,21 +11,16 @@ System.register(['angular2/core', './base'], function(exports_1) {
     var __param = (this && this.__param) || function (paramIndex, decorator) {
         return function (target, key) { decorator(target, key, paramIndex); }
     };
-    var core_1, base_1;
+    var core_1;
     var InputOutput;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (base_1_1) {
-                base_1 = base_1_1;
             }],
         execute: function() {
-            InputOutput = (function (_super) {
-                __extends(InputOutput, _super);
+            InputOutput = (function () {
                 function InputOutput(plain) {
-                    _super.call(this);
                     this.stringChanged = new core_1.EventEmitter();
                     console.log(plain);
                 }
@@ -75,7 +65,7 @@ System.register(['angular2/core', './base'], function(exports_1) {
                     __metadata('design:paramtypes', [Object])
                 ], InputOutput);
                 return InputOutput;
-            })(base_1.Base);
+            })();
             exports_1("InputOutput", InputOutput);
         }
     }
