@@ -24,6 +24,7 @@ System.register(['angular2/core', './input-output'], function(exports_1) {
                     this.count = 0;
                     this.runningTotal = 0;
                     this.myString = '';
+                    this.myTitle = 'Input/Output Demo';
                 }
                 InputOutputDemo.prototype.update = function () {
                     this.count++;
@@ -36,7 +37,7 @@ System.register(['angular2/core', './input-output'], function(exports_1) {
                 InputOutputDemo = __decorate([
                     core_1.Component({
                         directives: [input_output_1.InputOutput],
-                        template: "<button (click)=\"update()\">Update</button>\n              <input-output plain=\"just a simple attribute\"\n                            (stringChanged)=\"myStringChanged($event)\"\n                            [mySum]=\"runningTotal\"\n                            [counter]=\"count\"\n                            [growingString]=\"myString\">\n              </input-output>"
+                        template: "<button (click)=\"update()\">Update</button>\n              <input-output plain=\"just a simple attribute\"\n                            (stringChanged)=\"myStringChanged($event)\"\n                            [mySum]=\"runningTotal\"\n                            [counter]=\"count\"\n                            [headline]=\"myTitle\"\n                            [growingString]=\"myString\">\n              </input-output>"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], InputOutputDemo);

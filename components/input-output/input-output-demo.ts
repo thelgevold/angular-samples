@@ -8,6 +8,7 @@ import {InputOutput} from './input-output';
                             (stringChanged)="myStringChanged($event)"
                             [mySum]="runningTotal"
                             [counter]="count"
+                            [headline]="myTitle"
                             [growingString]="myString">
               </input-output>`
 })
@@ -17,6 +18,8 @@ export class InputOutputDemo{
     count = 0;
     runningTotal = 0;
     myString = '';
+
+    myTitle = 'Input/Output Demo';
 
     update(){
         this.count++;

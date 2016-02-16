@@ -1,14 +1,16 @@
 import {Component,Input, Output, EventEmitter, Attribute} from 'angular2/core';
+import {Base} from './base';
 
 @Component({
-    template:`<div>Counter: {{counter}}</div>
+    template:`<h1>{{headline}}</h1>
+              <div>Counter: {{counter}}</div>
               <div>Running total of counter values: {{sum}}</div>
               <div>Growing string: {{growingString}}</div>`,
 
     selector:'input-output'
 })
 
-export class InputOutput{
+export class InputOutput extends Base{
 
     private _growingString;
 
@@ -22,6 +24,9 @@ export class InputOutput{
     sum:number;
 
     @Input()
+    headline:string;
+
+    @Input()
     set growingString(value){
         this._growingString = value.toLowerCase();
         this.stringChanged.next({value:'changed to ' + this._growingString});
@@ -31,6 +36,7 @@ export class InputOutput{
     }
 
     constructor(@Attribute('plain') plain){
+        super();
         console.log(plain);
     }
 
