@@ -65,6 +65,7 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
                     router_1.RouteConfig([
                         new router_1.Route({ path: '/', component: about_1.About, name: 'About', data: { project: 'angular-2-samples' } }),
                         new router_1.Route({ path: '/demo/...', component: demo_page_1.DemoPage, name: 'Demo' }),
+                        new router_1.Route({ path: '/tgh', component: message_1.Message, name: 'Tgh' }),
                         new router_1.AuxRoute({ path: '/msg', component: message_1.Message, name: 'Msg' }),
                         new router_1.AsyncRoute({
                             path: '/lazy',
