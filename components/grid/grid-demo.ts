@@ -4,7 +4,7 @@ import {Column} from './column';
 
 @Component({
     directives:[Grid],
-    template:'<grid [rows]="people" [columns]="columns"></grid>'
+    template:'<grid name="person grid" [rows]="people" [columns]="columns"></grid>'
 })
 
 export class GridDemo {

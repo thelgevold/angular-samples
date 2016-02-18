@@ -45,7 +45,7 @@ System.register(['angular2/core', './grid', './column'], function(exports_1) {
                 GridDemo = __decorate([
                     core_1.Component({
                         directives: [grid_1.Grid],
-                        template: '<grid [rows]="people" [columns]="columns"></grid>'
+                        template: '<grid name="person grid" [rows]="people" [columns]="columns"></grid>'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], GridDemo);

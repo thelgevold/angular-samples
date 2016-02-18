@@ -26,6 +26,13 @@ System.register(['angular2/core', './sorter'], function(exports_1) {
                 Grid.prototype.sort = function (key) {
                     this.sorter.sort(key, this.rows);
                 };
+                Grid.prototype.ngOnInit = function () {
+                    console.log(this.name);
+                };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', String)
+                ], Grid.prototype, "name", void 0);
                 Grid = __decorate([
                     core_1.Component({
                         selector: 'grid',
