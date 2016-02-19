@@ -35,6 +35,9 @@ System.register(['angular2/core'], function(exports_1) {
                     enumerable: true,
                     configurable: true
                 });
+                InputOutput.prototype.ngOnInit = function () {
+                    console.log(this.fixedValue);
+                };
                 __decorate([
                     core_1.Output(), 
                     __metadata('design:type', Object)
@@ -43,6 +46,10 @@ System.register(['angular2/core'], function(exports_1) {
                     core_1.Input(), 
                     __metadata('design:type', Number)
                 ], InputOutput.prototype, "counter", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', String)
+                ], InputOutput.prototype, "fixedValue", void 0);
                 __decorate([
                     core_1.Input('mySum'), 
                     __metadata('design:type', Number)

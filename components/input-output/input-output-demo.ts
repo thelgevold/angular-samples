@@ -5,6 +5,7 @@ import {InputOutput} from './input-output';
     directives:[InputOutput],
     template:`<button (click)="update()">Update</button>
               <input-output plain="just a simple attribute"
+                            fixedValue="another hard coded value"
                             (stringChanged)="myStringChanged($event)"
                             [mySum]="runningTotal"
                             [counter]="count"

@@ -1,4 +1,4 @@
-import {Component,Input, Output, EventEmitter, Attribute} from 'angular2/core';
+import {Component,Input, Output, EventEmitter, Attribute, OnInit} from 'angular2/core';
 
 @Component({
     template:`<h1>{{headline}}</h1>
@@ -9,7 +9,7 @@ import {Component,Input, Output, EventEmitter, Attribute} from 'angular2/core';
     selector:'input-output'
 })
 
-export class InputOutput{
+export class InputOutput implements OnInit{
 
     private _growingString;
 
@@ -18,6 +18,9 @@ export class InputOutput{
 
     @Input()
     counter:number;
+
+    @Input()
+    fixedValue:string;
 
     @Input('mySum')
     sum:number;
@@ -36,6 +39,10 @@ export class InputOutput{
 
     constructor(@Attribute('plain') plain){
         console.log(plain);
+    }
+
+    ngOnInit(){
+        console.log(this.fixedValue);
     }
 
 }
