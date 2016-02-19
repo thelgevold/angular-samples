@@ -1,4 +1,4 @@
-import {Component,Input, Output, EventEmitter, Attribute, OnInit} from 'angular2/core';
+import {Component,Input, Output, EventEmitter, Attribute, OnInit, ElementRef} from 'angular2/core';
 
 @Component({
     template:`<h1>{{headline}}</h1>
@@ -15,6 +15,8 @@ export class InputOutput implements OnInit{
 
     @Output()
     stringChanged = new EventEmitter();
+
+    el:ElementRef;
 
     @Input()
     counter:number;
@@ -37,8 +39,10 @@ export class InputOutput implements OnInit{
         return this._growingString;
     }
 
-    constructor(@Attribute('plain') plain){
+    constructor(el:ElementRef,@Attribute('plain') plain){
         console.log(plain);
+        this.el = el;
+
     }
 
     ngOnInit(){

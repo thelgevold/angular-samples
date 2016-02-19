@@ -20,9 +20,10 @@ System.register(['angular2/core'], function(exports_1) {
             }],
         execute: function() {
             InputOutput = (function () {
-                function InputOutput(plain) {
+                function InputOutput(el, plain) {
                     this.stringChanged = new core_1.EventEmitter();
                     console.log(plain);
+                    this.el = el;
                 }
                 Object.defineProperty(InputOutput.prototype, "growingString", {
                     get: function () {
@@ -68,8 +69,8 @@ System.register(['angular2/core'], function(exports_1) {
                         template: "<h1>{{headline}}</h1>\n              <div>Counter: {{counter}}</div>\n              <div>Running total of counter values: {{sum}}</div>\n              <div>Growing string: {{growingString}}</div>",
                         selector: 'input-output'
                     }),
-                    __param(0, core_1.Attribute('plain')), 
-                    __metadata('design:paramtypes', [Object])
+                    __param(1, core_1.Attribute('plain')), 
+                    __metadata('design:paramtypes', [core_1.ElementRef, Object])
                 ], InputOutput);
                 return InputOutput;
             })();
