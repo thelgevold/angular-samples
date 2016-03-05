@@ -44,10 +44,10 @@ System.register(['angular2/core', './survey', './question-model', './textbox-que
                     question.order = 1;
                     this.questionModel.questions.push(question);
                     question = new textbox_question_1.TextboxQuestion();
-                    question.key = 'age';
-                    question.text = 'Age';
+                    question.key = 'emailAddress';
+                    question.text = 'Email';
                     question.required = false;
-                    question.type = 'number';
+                    question.type = 'email';
                     question.order = 3;
                     this.questionModel.questions.push(question);
                     var ddQuestion = new dropdown_question_1.DropDownQuestion();

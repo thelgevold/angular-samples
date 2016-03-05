@@ -32,10 +32,10 @@ export class SurveyDemo {
         this.questionModel.questions.push(question);
 
         question = new TextboxQuestion();
-        question.key = 'age';
-        question.text = 'Age';
+        question.key = 'emailAddress';
+        question.text = 'Email';
         question.required = false;
-        question.type = 'number';
+        question.type = 'email';
         question.order = 3;
         this.questionModel.questions.push(question);
 
