@@ -10,12 +10,13 @@ import {Customer} from './customer';
 export class Consumer implements OnInit{
 
     processed = [];
+    subscription = null;
 
     constructor(private pubSubService:PubSubService){
     }
 
     ngOnInit(){
-        this.pubSubService.Stream.subscribe(customer => this.processCustomer(customer));
+        this.subscription = this.pubSubService.Stream.subscribe(customer => this.processCustomer(customer));
     }
 
     processCustomer(customer){
@@ -23,6 +24,6 @@ export class Consumer implements OnInit{
     }
 
     stopProcessing(){
-        this.pubSubService.Stream.unsubscribe();
+        this.subscription.unsubscribe();
     }
 }

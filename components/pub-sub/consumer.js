@@ -23,16 +23,17 @@ System.register(['angular2/core', './pub-sub-service'], function(exports_1) {
                 function Consumer(pubSubService) {
                     this.pubSubService = pubSubService;
                     this.processed = [];
+                    this.subscription = null;
                 }
                 Consumer.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.pubSubService.Stream.subscribe(function (customer) { return _this.processCustomer(customer); });
+                    this.subscription = this.pubSubService.Stream.subscribe(function (customer) { return _this.processCustomer(customer); });
                 };
                 Consumer.prototype.processCustomer = function (customer) {
                     this.processed.push(customer);
                 };
                 Consumer.prototype.stopProcessing = function () {
-                    this.pubSubService.Stream.unsubscribe();
+                    this.subscription.unsubscribe();
                 };
                 Consumer = __decorate([
                     core_1.Component({
