@@ -3,7 +3,7 @@ Documentation: http://www.syntaxsuccess.com/viewarticle/angular-2.0-examples
 
 Here are the prerequisites for running the project:
 
-1-npm install -g typescript@^1.7.0
+1-npm install -g typescript
 
 2-npm install
 
