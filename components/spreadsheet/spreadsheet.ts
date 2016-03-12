@@ -1,24 +1,18 @@
-import {Component, View, AfterViewChecked} from 'angular2/core';
-import {NgModel} from 'angular2/common';
+import {Component, AfterViewChecked, Input} from 'angular2/core';
 import {SpreadsheetModel} from './spreadsheetModel';
 import {KeyMap} from './key-map';
 import {HeaderRowService} from './header-row-service';
 
 @Component({
     selector: 'spreadsheet',
-    inputs: ['rows','columns']
-})
-
-@View({
-    templateUrl: './components/spreadsheet/spreadsheet.html',
-    directives: [NgModel]
+    templateUrl: './components/spreadsheet/spreadsheet.html'
 })
 
 export class Spreadsheet implements AfterViewChecked{
 
     model:SpreadsheetModel;
-    rows:Number;
-    columns:Number;
+    @Input() rows:Number;
+    @Input() columns:Number;
     header = [];
     visibleRows = [];
 

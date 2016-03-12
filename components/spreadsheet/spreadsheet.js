@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/common', './spreadsheetModel', './header-row-service'], function(exports_1) {
+System.register(['angular2/core', './spreadsheetModel', './header-row-service'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,15 +8,12 @@ System.register(['angular2/core', 'angular2/common', './spreadsheetModel', './he
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, spreadsheetModel_1, header_row_service_1;
+    var core_1, spreadsheetModel_1, header_row_service_1;
     var Spreadsheet;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (common_1_1) {
-                common_1 = common_1_1;
             },
             function (spreadsheetModel_1_1) {
                 spreadsheetModel_1 = spreadsheetModel_1_1;
@@ -53,14 +50,18 @@ System.register(['angular2/core', 'angular2/common', './spreadsheetModel', './he
                         return 'active-cell';
                     }
                 };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Number)
+                ], Spreadsheet.prototype, "rows", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Number)
+                ], Spreadsheet.prototype, "columns", void 0);
                 Spreadsheet = __decorate([
                     core_1.Component({
                         selector: 'spreadsheet',
-                        inputs: ['rows', 'columns']
-                    }),
-                    core_1.View({
-                        templateUrl: './components/spreadsheet/spreadsheet.html',
-                        directives: [common_1.NgModel]
+                        templateUrl: './components/spreadsheet/spreadsheet.html'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], Spreadsheet);
