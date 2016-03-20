@@ -44,9 +44,7 @@ System.register(['angular2/core', '../../algorithms/insertion-sort'], function(e
                 InsertionSort = __decorate([
                     core_1.Component({
                         selector: 'insertion-sort',
-                        inputs: ['list: list']
-                    }),
-                    core_1.View({
+                        inputs: ['list: list'],
                         templateUrl: './components/insertion-sort/insertion-sort.html'
                     }), 
                     __metadata('design:paramtypes', [])

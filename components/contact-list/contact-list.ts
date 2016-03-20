@@ -1,11 +1,8 @@
-import {Component, View} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {Contact} from './contact';
 
 @Component({
-    selector: 'contact-list'
-})
-
-@View({
+    selector: 'contact-list',
     templateUrl: './components/contact-list/contact-list.html'
 })
 

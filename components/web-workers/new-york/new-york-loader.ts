@@ -4,6 +4,7 @@ importScripts("https://code.angularjs.org/tools/system.js",
     "../../../bower_components/moment/min/moment.min.js",
     "../../../node_modules/reflect-metadata/Reflect.js",
     "../../../node_modules/zone.js/dist/zone.min.js",
+    "../../../node_modules/zone.js/dist/long-stack-trace-zone.min.js",
     "../config.js");
 
 

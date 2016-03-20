@@ -35,9 +35,7 @@ System.register(['angular2/core', './contact'], function(exports_1) {
                 };
                 ContactList = __decorate([
                     core_1.Component({
-                        selector: 'contact-list'
-                    }),
-                    core_1.View({
+                        selector: 'contact-list',
                         templateUrl: './components/contact-list/contact-list.html'
                     }), 
                     __metadata('design:paramtypes', [])

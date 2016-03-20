@@ -27,9 +27,7 @@ System.register(['angular2/core', './react-tree-view'], function(exports_1) {
                 };
                 Angular2Host = __decorate([
                     core_1.Component({
-                        selector: 'angular-2-host'
-                    }),
-                    core_1.View({
+                        selector: 'angular-2-host',
                         templateUrl: './components/react-integration/angular-2-host.html'
                     }), 
                     __metadata('design:paramtypes', [])

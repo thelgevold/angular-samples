@@ -24,9 +24,7 @@ System.register(['angular2/core', '../insertion-sort/insertion-sort'], function(
                 }
                 Algorithms = __decorate([
                     core_1.Component({
-                        selector: 'algorithms'
-                    }),
-                    core_1.View({
+                        selector: 'algorithms',
                         templateUrl: './components/algorithms/algorithms.html',
                         directives: [insertion_sort_1.InsertionSort]
                     }), 

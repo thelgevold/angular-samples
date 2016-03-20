@@ -1,11 +1,8 @@
-import {Component, View} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {InsertionSort} from '../insertion-sort/insertion-sort';
 
 @Component({
-    selector: 'algorithms'
-})
-
-@View({
+    selector: 'algorithms',
     templateUrl: './components/algorithms/algorithms.html',
     directives: [InsertionSort]
 })

@@ -1,11 +1,7 @@
-
-import {Component, View} from 'angular2/core';
+import {Component} from 'angular2/core';
 
 @Component({
-    selector: 'bound-textbox'
-})
-
-@View({
+    selector: 'bound-textbox',
     template: '<h1>Bound Textbox</h1><input [value]="text" (keyup)="typing($event)" /><span>{{text}}</span>'
 })
 
