@@ -7,7 +7,7 @@ import 'rxjs/add/observable/interval';
 import 'rxjs/add/observable/forkJoin';
 
 import {HTTP_PROVIDERS} from 'angular2/http';
-import {Component, View, provide} from 'angular2/core';
+import {Component, provide} from 'angular2/core';
 import {bootstrap} from 'angular2/platform/browser';
 
 import {DemoPage} from './demo-page';
