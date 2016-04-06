@@ -8,6 +8,8 @@ module.exports = function(config) {
         frameworks: ['jasmine'],
 
         files: [
+            'node_modules/zone.js/dist/zone.min.js',
+            'node_modules/zone.js/dist/long-stack-trace-zone.min.js',
             'node_modules/zone.js/dist/zone-microtask.js',
             'node_modules/zone.js/dist/long-stack-trace-zone.js',
             'node_modules/zone.js/dist/jasmine-patch.js',
