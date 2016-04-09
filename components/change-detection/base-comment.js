@@ -1,4 +1,6 @@
-System.register(['./comment'], function(exports_1) {
+System.register(['./comment'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var comment_1;
     var BaseComment;
     return {
@@ -21,7 +23,7 @@ System.register(['./comment'], function(exports_1) {
                     return Date().toString();
                 };
                 return BaseComment;
-            })();
+            }());
             exports_1("BaseComment", BaseComment);
         }
     }

@@ -1,4 +1,6 @@
-System.register(['angular2/core', '../../algorithms/insertion-sort'], function(exports_1) {
+System.register(['angular2/core', '../../algorithms/insertion-sort'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -50,7 +52,7 @@ System.register(['angular2/core', '../../algorithms/insertion-sort'], function(e
                     __metadata('design:paramtypes', [])
                 ], InsertionSort);
                 return InsertionSort;
-            })();
+            }());
             exports_1("InsertionSort", InsertionSort);
             ValList = (function () {
                 function ValList() {
@@ -63,7 +65,7 @@ System.register(['angular2/core', '../../algorithms/insertion-sort'], function(e
                     this.items.forEach(function (i) { return i.current = false; });
                 };
                 return ValList;
-            })();
+            }());
             ListItem = (function () {
                 function ListItem(val) {
                     this.val = val;
@@ -76,7 +78,7 @@ System.register(['angular2/core', '../../algorithms/insertion-sort'], function(e
                     return null;
                 };
                 return ListItem;
-            })();
+            }());
         }
     }
 });

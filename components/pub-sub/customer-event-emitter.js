@@ -1,4 +1,6 @@
-System.register(['rxjs/Subject'], function(exports_1) {
+System.register(['rxjs/Subject'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -19,7 +21,7 @@ System.register(['rxjs/Subject'], function(exports_1) {
                 }
                 CustomerEventEmitter.prototype.emit = function (value) { _super.prototype.next.call(this, value); };
                 return CustomerEventEmitter;
-            })(Subject_1.Subject);
+            }(Subject_1.Subject));
             exports_1("CustomerEventEmitter", CustomerEventEmitter);
         }
     }

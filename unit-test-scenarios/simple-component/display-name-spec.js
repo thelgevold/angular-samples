@@ -1,4 +1,6 @@
-System.register(['angular2/testing', './display-name'], function(exports_1) {
+System.register(['angular2/testing', './display-name'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var testing_1, display_name_1;
     function main() {
         testing_1.describe('DisplayName', function () {

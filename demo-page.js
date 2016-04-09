@@ -1,4 +1,6 @@
-System.register(['angular2/core', './components/tree-view/tree-view-demo', './components/contact-list/contact-list', './components/bound-textbox/bound-textbox', './components/grid/grid-demo', './components/non-bindable/non-bindable', './components/http/http', './components/spreadsheet/spreadsheet', './components/algorithms/algorithms', './components/react-integration/angular-2-host', './components/jquery-integration/jquery-integration', './components/input-controls/input-controls', './components/dependency-injection/address-book', './components/address-form/address-form', './components/algorithms/graph/graph', './components/pub-sub/pub-sub', './components/text-editor/text-editor', 'angular2/router', './components/change-detection/comment-demo', './components/access-child-components/parent', './components/survey/survey-demo', './components/log-tail/log-demo', './components/input-output/input-output-demo'], function(exports_1) {
+System.register(['angular2/core', './components/tree-view/tree-view-demo', './components/contact-list/contact-list', './components/bound-textbox/bound-textbox', './components/grid/grid-demo', './components/non-bindable/non-bindable', './components/http/http', './components/spreadsheet/spreadsheet', './components/algorithms/algorithms', './components/react-integration/angular-2-host', './components/jquery-integration/jquery-integration', './components/input-controls/input-controls', './components/dependency-injection/address-book', './components/address-form/address-form', './components/algorithms/graph/graph', './components/pub-sub/pub-sub', './components/text-editor/text-editor', 'angular2/router', './components/change-detection/comment-demo', './components/access-child-components/parent', './components/survey/survey-demo', './components/log-tail/log-demo', './components/input-output/input-output-demo'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -122,7 +124,7 @@ System.register(['angular2/core', './components/tree-view/tree-view-demo', './co
                     __metadata('design:paramtypes', [router_2.Location])
                 ], DemoPage);
                 return DemoPage;
-            })();
+            }());
             exports_1("DemoPage", DemoPage);
         }
     }

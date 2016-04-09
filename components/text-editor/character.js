@@ -1,4 +1,6 @@
-System.register(['./key-map'], function(exports_1) {
+System.register(['./key-map'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var key_map_1;
     var Character;
     return {
@@ -30,7 +32,7 @@ System.register(['./key-map'], function(exports_1) {
                     }
                 }
                 return Character;
-            })();
+            }());
             exports_1("Character", Character);
         }
     }

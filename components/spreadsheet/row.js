@@ -1,4 +1,6 @@
-System.register(['./column'], function(exports_1) {
+System.register(['./column'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var column_1;
     var Row;
     return {
@@ -17,7 +19,7 @@ System.register(['./column'], function(exports_1) {
                     }
                 }
                 return Row;
-            })();
+            }());
             exports_1("Row", Row);
         }
     }

@@ -1,4 +1,6 @@
-System.register(['angular2/common'], function(exports_1) {
+System.register(['angular2/common'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var common_1;
     var QuestionModel;
     return {
@@ -22,7 +24,7 @@ System.register(['angular2/common'], function(exports_1) {
                     return group;
                 };
                 return QuestionModel;
-            })();
+            }());
             exports_1("QuestionModel", QuestionModel);
         }
     }

@@ -1,4 +1,6 @@
-System.register(['rxjs/Subject', './log-reducer'], function(exports_1) {
+System.register(['rxjs/Subject', './log-reducer'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var Subject_1, log_reducer_1;
     var Store;
     return {
@@ -26,7 +28,7 @@ System.register(['rxjs/Subject', './log-reducer'], function(exports_1) {
                     this.dispatcher.next(action);
                 };
                 return Store;
-            })();
+            }());
             exports_1("Store", Store);
         }
     }

@@ -1,4 +1,6 @@
-System.register(['angular2/core', './base-comment'], function(exports_1) {
+System.register(['angular2/core', './base-comment'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
         for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
         function __() { this.constructor = d; }
@@ -39,7 +41,7 @@ System.register(['angular2/core', './base-comment'], function(exports_1) {
                     __metadata('design:paramtypes', [])
                 ], CommentSection2);
                 return CommentSection2;
-            })(base_comment_1.BaseComment);
+            }(base_comment_1.BaseComment));
             exports_1("CommentSection2", CommentSection2);
         }
     }

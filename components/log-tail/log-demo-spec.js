@@ -1,4 +1,6 @@
-System.register(['angular2/core', 'angular2/testing', 'rxjs/Rx', './log-demo', './log-action', './log-entry', './store', 'angular2/http', './log-tail-service'], function(exports_1) {
+System.register(['angular2/core', 'angular2/testing', 'rxjs/Rx', './log-demo', './log-action', './log-entry', './store', 'angular2/http', './log-tail-service'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var core_1, testing_1, Rx_1, log_demo_1, log_action_1, log_entry_1, store_1, http_1, log_tail_service_1;
     function main() {
         var mockLogEntries = { entries: [new log_entry_1.LogEntry('error', 2)] };
@@ -11,7 +13,7 @@ System.register(['angular2/core', 'angular2/testing', 'rxjs/Rx', './log-demo', '
                     return Rx_1.Observable.of(mockLogEntries);
                 };
                 return LogTailServiceMock;
-            })();
+            }());
             testing_1.beforeEachProviders(function () { return [
                 log_demo_1.LogDemo,
                 store_1.Store,

@@ -1,4 +1,6 @@
-System.register(['./character'], function(exports_1) {
+System.register(['./character'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var character_1;
     var Document;
     return {
@@ -77,7 +79,7 @@ System.register(['./character'], function(exports_1) {
                     }
                 };
                 return Document;
-            })();
+            }());
             exports_1("Document", Document);
         }
     }

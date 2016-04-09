@@ -1,4 +1,6 @@
-System.register([], function(exports_1) {
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var KeyMap, KeyDirection;
     return {
         setters:[],
@@ -26,13 +28,13 @@ System.register([], function(exports_1) {
                     return direction;
                 };
                 return KeyMap;
-            })();
+            }());
             exports_1("KeyMap", KeyMap);
             KeyDirection = (function () {
                 function KeyDirection() {
                 }
                 return KeyDirection;
-            })();
+            }());
         }
     }
 });

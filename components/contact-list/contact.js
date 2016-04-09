@@ -1,4 +1,6 @@
-System.register([], function(exports_1) {
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var Contact;
     return {
         setters:[],
@@ -10,7 +12,7 @@ System.register([], function(exports_1) {
                     this.descr = this.name + ' ' + this.phone;
                 }
                 return Contact;
-            })();
+            }());
             exports_1("Contact", Contact);
         }
     }

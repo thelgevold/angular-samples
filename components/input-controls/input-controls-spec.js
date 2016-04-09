@@ -1,4 +1,6 @@
-System.register(['angular2/testing', './input-controls'], function(exports_1) {
+System.register(['angular2/testing', './input-controls'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var testing_1, testing_2, input_controls_1;
     function main() {
         testing_1.describe('Two Way Bound Textbox', function () {

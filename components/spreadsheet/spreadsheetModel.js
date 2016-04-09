@@ -1,4 +1,6 @@
-System.register(['./key-map', './row'], function(exports_1) {
+System.register(['./key-map', './row'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var key_map_1, row_1;
     var SpreadsheetModel;
     return {
@@ -82,7 +84,7 @@ System.register(['./key-map', './row'], function(exports_1) {
                     }
                 };
                 return SpreadsheetModel;
-            })();
+            }());
             exports_1("SpreadsheetModel", SpreadsheetModel);
         }
     }

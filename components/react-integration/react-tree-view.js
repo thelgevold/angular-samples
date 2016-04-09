@@ -1,5 +1,7 @@
 /// <reference path="../../typings/tsd.d.ts" />
-System.register(['./country-view-model'], function(exports_1) {
+System.register(['./country-view-model'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var country_view_model_1;
     var React, AppDispatcher, NodeStore, TreeNode, TreeView, ReactTreeView;
     return {
@@ -52,10 +54,10 @@ System.register(['./country-view-model'], function(exports_1) {
                 render: function () {
                     var nodes = this.props.children.map(function (n) {
                         if (n.visible) {
-                            return React.createElement(TreeNode, {"node": n, "children": n.children});
+                            return React.createElement(TreeNode, {node: n, children: n.children});
                         }
                     });
-                    return (React.createElement("li", null, React.createElement("span", {"onClick": this.toggle}, this.props.node.getIcon()), React.createElement("span", null, this.props.node.text), React.createElement("ul", null, nodes)));
+                    return (React.createElement("li", null, React.createElement("span", {onClick: this.toggle}, this.props.node.getIcon()), React.createElement("span", null, this.props.node.text), React.createElement("ul", null, nodes)));
                 }
             });
             TreeView = React.createClass({
@@ -74,7 +76,7 @@ System.register(['./country-view-model'], function(exports_1) {
                 render: function () {
                     var countries = this.state.countries;
                     var nodes = countries.map(function (n) {
-                        return React.createElement(TreeNode, {"node": n, "children": n.children});
+                        return React.createElement(TreeNode, {node: n, children: n.children});
                     });
                     return (React.createElement("div", null, React.createElement("h2", null, this.props.title), React.createElement("ul", null, nodes)));
                 }
@@ -83,10 +85,10 @@ System.register(['./country-view-model'], function(exports_1) {
                 function ReactTreeView() {
                 }
                 ReactTreeView.initialize = function (title) {
-                    React.render(React.createElement(TreeView, {"title": title}), document.getElementById('react-tree-view'));
+                    React.render(React.createElement(TreeView, {title: title}), document.getElementById('react-tree-view'));
                 };
                 return ReactTreeView;
-            })();
+            }());
             exports_1("ReactTreeView", ReactTreeView);
         }
     }

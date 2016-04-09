@@ -1,4 +1,6 @@
-System.register(['angular2/testing', './bound-textbox'], function(exports_1) {
+System.register(['angular2/testing', './bound-textbox'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var testing_1, testing_2, bound_textbox_1;
     function main() {
         testing_1.describe('Bound Textbox', function () {

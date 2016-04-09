@@ -1,5 +1,7 @@
 ///<reference path="node_modules/angular2/typings/browser.d.ts"/>
-System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/operator/mergeMap', 'rxjs/add/observable/interval', 'rxjs/add/observable/forkJoin', 'angular2/http', 'angular2/core', 'angular2/platform/browser', './demo-page', './components/about/about', 'angular2/router', './components/dependency-injection/address-book-title-service', './components/aux-route/message'], function(exports_1) {
+System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/operator/mergeMap', 'rxjs/add/observable/interval', 'rxjs/add/observable/forkJoin', 'angular2/http', 'angular2/core', 'angular2/platform/browser', './demo-page', './components/about/about', 'angular2/router', './components/dependency-injection/address-book-title-service', './components/aux-route/message'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -75,7 +77,7 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
                     __metadata('design:paramtypes', [router_1.Router, router_1.Location])
                 ], MyDemoApp);
                 return MyDemoApp;
-            })();
+            }());
             ComponentHelper = (function () {
                 function ComponentHelper() {
                 }
@@ -83,7 +85,7 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
                     return System.import(path).then(function (c) { return c[name]; });
                 };
                 return ComponentHelper;
-            })();
+            }());
             browser_1.bootstrap(MyDemoApp, [address_book_title_service_1.AddressBookTitleService, router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS,
                 core_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy })]);
         }

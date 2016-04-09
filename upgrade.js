@@ -1,4 +1,6 @@
-System.register(['angular2/upgrade', './components/algorithms/algorithms', './components/adder/adder', './components/counter/counter'], function(exports_1) {
+System.register(['angular2/upgrade', './components/algorithms/algorithms', './components/adder/adder', './components/counter/counter'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var upgrade_1, algorithms_1, adder_1, counter_1;
     var adapter;
     return {

@@ -1,4 +1,6 @@
-System.register([], function(exports_1) {
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var CountryViewModelFactory, CountryModel;
     return {
         setters:[],
@@ -29,7 +31,7 @@ System.register([], function(exports_1) {
                     return countries;
                 };
                 return CountryViewModelFactory;
-            })();
+            }());
             exports_1("CountryViewModelFactory", CountryViewModelFactory);
             CountryModel = (function () {
                 function CountryModel(text) {
@@ -48,7 +50,7 @@ System.register([], function(exports_1) {
                     return null;
                 };
                 return CountryModel;
-            })();
+            }());
         }
     }
 });

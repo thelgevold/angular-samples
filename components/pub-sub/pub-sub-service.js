@@ -1,4 +1,6 @@
-System.register(['./customer-event-emitter'], function(exports_1) {
+System.register(['./customer-event-emitter'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var customer_event_emitter_1;
     var PubSubService;
     return {
@@ -12,7 +14,7 @@ System.register(['./customer-event-emitter'], function(exports_1) {
                     this.Stream = new customer_event_emitter_1.CustomerEventEmitter();
                 }
                 return PubSubService;
-            })();
+            }());
             exports_1("PubSubService", PubSubService);
         }
     }

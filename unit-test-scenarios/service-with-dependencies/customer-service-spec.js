@@ -1,4 +1,6 @@
-System.register(['angular2/testing', './customer-service', './product-service'], function(exports_1) {
+System.register(['angular2/testing', './customer-service', './product-service'], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var testing_1, customer_service_1, product_service_1;
     function main() {
         testing_1.describe('CustomerService', function () {

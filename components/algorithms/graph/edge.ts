@@ -1,5 +1,5 @@
 import {Component, OnInit} from 'angular2/core';
-
+import {Http} from 'angular2/http';
 @Component({
     selector: 'edge',
     inputs:['x1:x1','y1:y1','x2:x2','y2:y2'],
@@ -13,6 +13,10 @@ export class Edge {
     y1:number;
     x2:number;
     y2:number;
+
+    constructor(http:Http){
+        console.log(http);
+    }
 
     setCoordinates(x1, y1, x2, y2){
         this.x1 = x1;
