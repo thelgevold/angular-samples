@@ -45,3 +45,4 @@ System.register(['angular2/core', './comment-section-1', './comment-section-2'],
         }
     }
 });
+//# sourceMappingURL=comment-demo.js.map

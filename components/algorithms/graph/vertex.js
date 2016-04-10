@@ -46,3 +46,4 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=vertex.js.map

@@ -39,3 +39,4 @@ System.register(['angular2/core', './lazy-message'], function(exports_1, context
         }
     }
 });
+//# sourceMappingURL=lazy-loaded.js.map

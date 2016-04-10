@@ -48,3 +48,4 @@ System.register(['angular2/core', './contact'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=contact-list.js.map

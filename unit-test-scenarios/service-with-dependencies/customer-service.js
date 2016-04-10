@@ -39,3 +39,4 @@ System.register(['./product-service', 'angular2/core'], function(exports_1, cont
         }
     }
 });
+//# sourceMappingURL=customer-service.js.map

@@ -57,3 +57,4 @@ System.register(['angular2/core', './pub-sub-service', './customer'], function(e
         }
     }
 });
+//# sourceMappingURL=producer.js.map

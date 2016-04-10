@@ -49,3 +49,4 @@ System.register(['angular2/core', './sorter'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=grid.js.map

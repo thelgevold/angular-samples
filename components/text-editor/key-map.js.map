@@ -1,1 +1,1 @@
-{"version":3,"file":"character-map.js","sourceRoot":"","sources":["character-map.ts"],"names":[],"mappings":"AAAA;;GAEG"}
+{"version":3,"file":"key-map.js","sourceRoot":"","sources":["key-map.ts"],"names":[],"mappings":";;;;;;;YAAA;gBAAA;gBAQA,CAAC;gBAPU,eAAQ,GAAG,EAAE,CAAC;gBACd,YAAK,GAAG,EAAE,CAAC;gBACX,QAAC,GAAG,EAAE,CAAC;gBACP,QAAC,GAAG,EAAE,CAAC;gBACP,gBAAS,GAAG,CAAC,CAAC;gBACd,WAAI,GAAG,EAAE,CAAC;gBACV,WAAI,GAAG,EAAE,CAAC;gBACrB,aAAC;YAAD,CAAC,AARD,IAQC;YARD,2BAQC,CAAA"}

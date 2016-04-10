@@ -19,3 +19,4 @@ System.register(['./customer-event-emitter'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=pub-sub-service.js.map

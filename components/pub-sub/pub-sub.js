@@ -45,3 +45,4 @@ System.register(['angular2/core', './producer', './consumer', './pub-sub-service
         }
     }
 });
+//# sourceMappingURL=pub-sub.js.map

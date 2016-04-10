@@ -105,3 +105,4 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', 'rxjs/Subj
         }
     }
 });
+//# sourceMappingURL=http.js.map

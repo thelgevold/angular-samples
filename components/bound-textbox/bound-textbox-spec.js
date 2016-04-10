@@ -31,3 +31,4 @@ System.register(['angular2/testing', './bound-textbox'], function(exports_1, con
         }
     }
 });
+//# sourceMappingURL=bound-textbox-spec.js.map

@@ -38,3 +38,4 @@ System.register(['angular2/http', 'angular2/core'], function(exports_1, context_
         }
     }
 });
+//# sourceMappingURL=log-tail-service.js.map

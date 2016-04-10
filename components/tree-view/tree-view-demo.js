@@ -49,3 +49,4 @@ System.register(['angular2/core', './tree-view', './directory'], function(export
         }
     }
 });
+//# sourceMappingURL=tree-view-demo.js.map

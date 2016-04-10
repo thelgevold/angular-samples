@@ -28,3 +28,4 @@ System.register(['./comment'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=base-comment.js.map

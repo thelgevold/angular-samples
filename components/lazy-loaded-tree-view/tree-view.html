@@ -1,0 +1,13 @@
+<ul>
+  <li *ngFor="#node of children | async">
+
+    <span class="iconButton" [ngClass]='{"tree-node-no-children": !node.showIcon}' (click)="expand(node)">{{node.icon}}</span>
+    <span>{{ node.name }}</span>
+
+    <div *ngIf="node.expanded">
+      <tree-view [root]="node"></tree-view>
+    </div>
+  </li>
+  <li><div class="addNewNode"><input [(ngModel)]="nodeText" /><button (click)="addNode()">Add</button></div></li>
+</ul>
+

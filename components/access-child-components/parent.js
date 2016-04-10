@@ -45,3 +45,4 @@ System.register(['angular2/core', './child'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=parent.js.map

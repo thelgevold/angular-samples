@@ -38,3 +38,4 @@ System.register(['angular2/core', '../insertion-sort/insertion-sort'], function(
         }
     }
 });
+//# sourceMappingURL=algorithms.js.map

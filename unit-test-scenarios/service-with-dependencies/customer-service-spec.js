@@ -30,3 +30,4 @@ System.register(['angular2/testing', './customer-service', './product-service'],
         }
     }
 });
+//# sourceMappingURL=customer-service-spec.js.map

@@ -24,6 +24,7 @@ import {Parent} from './components/access-child-components/parent';
 import {SurveyDemo} from './components/survey/survey-demo';
 import {LogDemo} from './components/log-tail/log-demo';
 import {InputOutputDemo} from './components/input-output/input-output-demo';
+import {CountryDemo} from './components/lazy-loaded-tree-view/country-demo';
 
 import {
     ComponentInstruction,
@@ -58,6 +59,8 @@ import {
     new Route({ path: '/survey', component:SurveyDemo, name: 'Survey'}),
     new Route({ path: '/redux', component:LogDemo, name: 'Redux'}),
     new Route({ path: '/iodemo', component:InputOutputDemo, name: 'InputOutput'}),
+    new Route({ path: '/countries', component:CountryDemo, name: 'CountryDemo'})
+
 ])
 
 export class DemoPage {

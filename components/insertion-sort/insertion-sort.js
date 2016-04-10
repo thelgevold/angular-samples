@@ -82,3 +82,4 @@ System.register(['angular2/core', '../../algorithms/insertion-sort'], function(e
         }
     }
 });
+//# sourceMappingURL=insertion-sort.js.map

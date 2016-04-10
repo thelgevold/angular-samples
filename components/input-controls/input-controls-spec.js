@@ -31,3 +31,4 @@ System.register(['angular2/testing', './input-controls'], function(exports_1, co
         }
     }
 });
+//# sourceMappingURL=input-controls-spec.js.map

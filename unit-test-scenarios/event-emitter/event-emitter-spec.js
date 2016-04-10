@@ -27,3 +27,4 @@ System.register(['angular2/testing', './event-emitter'], function(exports_1, con
         }
     }
 });
+//# sourceMappingURL=event-emitter-spec.js.map

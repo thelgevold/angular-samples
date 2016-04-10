@@ -50,3 +50,4 @@ System.register(['angular2/core', './pub-sub-service'], function(exports_1, cont
         }
     }
 });
+//# sourceMappingURL=consumer.js.map

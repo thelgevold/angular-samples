@@ -37,3 +37,4 @@ System.register(['angular2/testing', './display-name'], function(exports_1, cont
         }
     }
 });
+//# sourceMappingURL=display-name-spec.js.map

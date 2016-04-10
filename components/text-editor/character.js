@@ -37,3 +37,4 @@ System.register(['./key-map'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=character.js.map

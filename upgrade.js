@@ -26,3 +26,4 @@ System.register(['angular2/upgrade', './components/algorithms/algorithms', './co
         }
     }
 });
+//# sourceMappingURL=upgrade.js.map

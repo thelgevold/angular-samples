@@ -29,3 +29,4 @@ System.register(['angular2/common'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=question-model.js.map

@@ -84,3 +84,4 @@ System.register(['./character'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=document.js.map

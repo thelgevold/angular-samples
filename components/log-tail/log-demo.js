@@ -58,3 +58,4 @@ System.register(['angular2/core', './store', './log-action', './log-entry', './l
         }
     }
 });
+//# sourceMappingURL=log-demo.js.map

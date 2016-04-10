@@ -97,3 +97,4 @@ System.register(['angular2/core', 'rxjs/Rx', './character', './document', './key
         }
     }
 });
+//# sourceMappingURL=text-editor.js.map

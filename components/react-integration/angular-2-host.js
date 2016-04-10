@@ -40,3 +40,4 @@ System.register(['angular2/core', './react-tree-view'], function(exports_1, cont
         }
     }
 });
+//# sourceMappingURL=angular-2-host.js.map

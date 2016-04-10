@@ -63,3 +63,4 @@ System.register(['angular2/core', './edge', './vertex'], function(exports_1, con
         }
     }
 });
+//# sourceMappingURL=graph.js.map

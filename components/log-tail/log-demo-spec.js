@@ -61,3 +61,4 @@ System.register(['angular2/core', 'angular2/testing', 'rxjs/Rx', './log-demo', '
         }
     }
 });
+//# sourceMappingURL=log-demo-spec.js.map

@@ -26,3 +26,4 @@ System.register(['rxjs/Subject'], function(exports_1, context_1) {
         }
     }
 });
+//# sourceMappingURL=customer-event-emitter.js.map

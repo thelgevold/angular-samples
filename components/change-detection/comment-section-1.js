@@ -46,3 +46,4 @@ System.register(['angular2/core', './base-comment'], function(exports_1, context
         }
     }
 });
+//# sourceMappingURL=comment-section-1.js.map

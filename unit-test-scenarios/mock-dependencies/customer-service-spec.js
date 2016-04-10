@@ -41,3 +41,4 @@ System.register(['angular2/core', 'angular2/testing', '../service-with-dependenc
         }
     }
 });
+//# sourceMappingURL=customer-service-spec.js.map

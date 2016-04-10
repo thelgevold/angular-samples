@@ -57,3 +57,4 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
         }
     }
 });
+//# sourceMappingURL=edge.js.map

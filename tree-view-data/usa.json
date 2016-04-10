@@ -1,0 +1,8 @@
+{
+  "nodes":[
+    {"name":"New York","key":"nyc", "url":"./tree-view-data/new-york.json"},
+    {"name":"Chicago","key":"c"},
+    {"name":"Los Angeles","key":"la"},
+    {"name":"Miami","key":"m"},
+    {"name":"Boston","key":"b"}]
+}
