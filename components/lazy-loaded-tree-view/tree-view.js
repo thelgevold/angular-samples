@@ -31,23 +31,21 @@ System.register(['angular2/core', './tree-node', './redux/store', './tree-node-s
                 function TreeView(_store, _treeNodeService) {
                     this._store = _store;
                     this._treeNodeService = _treeNodeService;
+                    this.items = [];
                 }
                 TreeView.prototype.addNode = function () {
                     this._treeNodeService.addNewNode(this.root, this.nodeText);
                     this.nodeText = '';
                 };
-                TreeView.prototype.expand = function (node) {
-                    node.expand();
-                    // this.children = this._store.getChildren(node.key);
-                    //this._treeNodeService.loadTreeNodes(node);
-                };
                 TreeView.prototype.ngOnInit = function () {
-                    this.children = this._store.getChildren(this.root.key);
-                    this._treeNodeService.loadTreeNodes(this.root);
-                    this.children.subscribe(function (a) {
-                        console.log('----------------');
-                        console.log(a);
+                    var _this = this;
+                    this.subscription = this.children = this._store.getChildren(this.root.key).subscribe(function (res) {
+                        _this.items = res;
                     });
+                    this._treeNodeService.loadTreeNodes(this.root);
+                };
+                TreeView.prototype.ngOnDestroy = function () {
+                    this.subscription.unsubscribe();
                 };
                 __decorate([
                     core_1.Input(), 
@@ -57,7 +55,7 @@ System.register(['angular2/core', './tree-node', './redux/store', './tree-node-s
                     core_1.Component({
                         templateUrl: './components/lazy-loaded-tree-view/tree-view.html',
                         selector: 'tree-view',
-                        directives: [TreeView]
+                        directives: [TreeView],
                     }), 
                     __metadata('design:paramtypes', [store_1.Store, tree_node_service_1.TreeNodeService])
                 ], TreeView);

@@ -1,9 +1,11 @@
+import {Injectable} from 'angular2/core';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
-
+import {Http,Response} from 'angular2/http';
 import {TreeNode} from '../tree-node';
 import {treeNodeReducer} from './tree-node-reducer';
 
+@Injectable()
 export class Store{
 
   private dispatcher = new Subject<any>();
@@ -11,24 +13,38 @@ export class Store{
 
   private nodes = {};
 
-  constructor(){
+  constructor(private _http:Http){
     this.dispatcher.subscribe((action) => this.handleAction(action));
   }
 
   private handleAction(action) {
-    this.nodes[action.key] = treeNodeReducer(this.nodes[action.key], action);
-    this.treeNodes[action.key].next(this.nodes[action.key]);
-  }
 
-  dataAlreadyLoaded(key){
-    return this.nodes.hasOwnProperty(key);
+    if(action.name === 'LOAD_NODES') {
+      if (this.nodes[action.key]) {
+        this.treeNodes[action.key].next(this.nodes[action.key]);
+      }
+      else {
+        this._http
+            .get(action.url)
+            .map((res:Response) => res.json())
+            .subscribe(res => {
+              this.nodes[action.key] = treeNodeReducer(res, action);
+              this.treeNodes[action.key].next(this.nodes[action.key]);
+            });
+      }
+    }
+
+    if(action.name === 'ADD_NEW_NODE'){
+      this.nodes[action.key] = treeNodeReducer(this.nodes[action.key], action);
+      this.treeNodes[action.key].next(this.nodes[action.key]);
+    }
   }
 
   getChildren(key){
     if(!this.treeNodes.hasOwnProperty(key)){
       this.treeNodes[key] = new Subject<Array<TreeNode>>();
     }
-    return this.treeNodes[key].asObservable().share();
+    return this.treeNodes[key].asObservable();
   }
 
   dispatchAction(action){

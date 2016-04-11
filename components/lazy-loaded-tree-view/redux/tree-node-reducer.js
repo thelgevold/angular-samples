@@ -12,16 +12,12 @@ System.register(['../tree-node'], function(exports_1, context_1) {
             exports_1("treeNodeReducer", treeNodeReducer = function (state, action) {
                 if (state === void 0) { state = []; }
                 switch (action.name) {
-                    case 'ADD_NODE':
-                        return state.concat([action.data]);
                     case 'LOAD_NODES':
-                        return action.data.nodes.map(function (n) {
+                        return state.nodes.map(function (n) {
                             return new tree_node_1.TreeNode(n.key, n.url, n.name);
                         });
                     case 'ADD_NEW_NODE':
                         return state.concat([new tree_node_1.TreeNode(null, null, action.data)]);
-                    case 'LOAD_EXISTING_NODES':
-                        return state;
                 }
             });
         }

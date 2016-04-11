@@ -33,15 +33,7 @@ System.register(['angular2/core', 'angular2/http', './redux/store'], function(ex
                     this._store.dispatchAction({ key: root.key, name: 'ADD_NEW_NODE', data: newNode });
                 };
                 TreeNodeService.prototype.loadTreeNodes = function (root) {
-                    var _this = this;
-                    if (this._store.dataAlreadyLoaded(root.key)) {
-                        this._store.dispatchAction({ key: root.key, name: 'LOAD_EXISTING_NODES' });
-                    }
-                    else {
-                        this._http.get(root.url)
-                            .map(function (res) { return res.json(); })
-                            .subscribe(function (res) { return _this._store.dispatchAction({ key: root.key, data: res, name: 'LOAD_NODES' }); });
-                    }
+                    this._store.dispatchAction({ key: root.key, url: root.url, name: 'LOAD_NODES' });
                 };
                 TreeNodeService = __decorate([
                     core_1.Injectable(), 

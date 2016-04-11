@@ -1,4 +1,4 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, ChangeDetectionStrategy} from 'angular2/core';
 import {TreeView} from './tree-view';
 import {TreeNode} from './tree-node';
 import {Store} from './redux/store';
@@ -10,7 +10,7 @@ import {TreeNodeService} from './tree-node-service';
   providers:[Store,TreeNodeService]
 })
 
-export class CountryDemo implements OnInit{
+export class CountryDemo{
   node:TreeNode;
 
   ngOnInit(){

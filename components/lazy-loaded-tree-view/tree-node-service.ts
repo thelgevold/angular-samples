@@ -13,16 +13,7 @@ export class TreeNodeService{
   }
 
   loadTreeNodes(root){
-
-    if(this._store.dataAlreadyLoaded(root.key)){
-      this._store.dispatchAction({key:root.key, name:'LOAD_EXISTING_NODES'});
-    }
-
-    else {
-      this._http.get(root.url)
-        .map((res:Response) => res.json())
-        .subscribe(res => this._store.dispatchAction({key:root.key, data:res, name:'LOAD_NODES'}));
-    }
+    this._store.dispatchAction({key:root.key, url:root.url, name:'LOAD_NODES'})
   }
 
 }

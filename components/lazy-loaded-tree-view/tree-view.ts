@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ChangeDetectionStrategy} from 'angular2/core';
+import {Component, Input, OnInit} from 'angular2/core';
 import {TreeNode} from './tree-node';
 import {Store} from './redux/store';
 import {TreeNodeService} from './tree-node-service';
@@ -6,8 +6,7 @@ import {TreeNodeService} from './tree-node-service';
 @Component({
   templateUrl:'./components/lazy-loaded-tree-view/tree-view.html',
   selector:'tree-view',
-  directives:[TreeView]
- // changeDetection:ChangeDetectionStrategy.OnPush
+  directives:[TreeView],
 })
 
 export class TreeView implements OnInit{
@@ -15,6 +14,8 @@ export class TreeView implements OnInit{
   @Input() root:TreeNode;
   children:any;
   nodeText:string;
+  items = [];
+  subscription;
 
   constructor(private _store:Store, private _treeNodeService:TreeNodeService){
   }
@@ -24,23 +25,14 @@ export class TreeView implements OnInit{
     this.nodeText = '';
   }
 
-  expand(node){
-    node.expand();
-
-   // this.children = this._store.getChildren(node.key);
-    //this._treeNodeService.loadTreeNodes(node);
+  ngOnInit(){
+    this.subscription = this.children = this._store.getChildren(this.root.key).subscribe(res => {
+      this.items = res;
+    });
+    this._treeNodeService.loadTreeNodes(this.root);
   }
 
-  ngOnInit(){
-
-    this.children = this._store.getChildren(this.root.key);
-
-    this._treeNodeService.loadTreeNodes(this.root);
-
-    this.children.subscribe(a => {
-      console.log('----------------');
-      console.log(a);
-    });
-
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 }
