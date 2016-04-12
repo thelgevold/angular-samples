@@ -16,8 +16,6 @@ System.register(['../tree-node'], function(exports_1, context_1) {
                         return state.nodes.map(function (n) {
                             return new tree_node_1.TreeNode(n.key, n.url, n.name);
                         });
-                    case 'ADD_NEW_NODE':
-                        return state.concat([new tree_node_1.TreeNode(null, null, action.data)]);
                 }
             });
         }

@@ -32,6 +32,7 @@ System.register(['angular2/core', './tree-view', './tree-node', './redux/store',
         execute: function() {
             CountryDemo = (function () {
                 function CountryDemo() {
+                    this.node = null;
                 }
                 CountryDemo.prototype.ngOnInit = function () {
                     this.node = new tree_node_1.TreeNode('root', './tree-view-data/countries.json', '');

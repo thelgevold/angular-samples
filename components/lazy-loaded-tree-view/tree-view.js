@@ -33,13 +33,9 @@ System.register(['angular2/core', './tree-node', './redux/store', './tree-node-s
                     this._treeNodeService = _treeNodeService;
                     this.items = [];
                 }
-                TreeView.prototype.addNode = function () {
-                    this._treeNodeService.addNewNode(this.root, this.nodeText);
-                    this.nodeText = '';
-                };
                 TreeView.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.subscription = this.children = this._store.getChildren(this.root.key).subscribe(function (res) {
+                    this.subscription = this._store.getChildren(this.root.key).subscribe(function (res) {
                         _this.items = res;
                     });
                     this._treeNodeService.loadTreeNodes(this.root);
@@ -55,7 +51,7 @@ System.register(['angular2/core', './tree-node', './redux/store', './tree-node-s
                     core_1.Component({
                         templateUrl: './components/lazy-loaded-tree-view/tree-view.html',
                         selector: 'tree-view',
-                        directives: [TreeView],
+                        directives: [TreeView]
                     }), 
                     __metadata('design:paramtypes', [store_1.Store, tree_node_service_1.TreeNodeService])
                 ], TreeView);

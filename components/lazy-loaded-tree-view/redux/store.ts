@@ -33,11 +33,6 @@ export class Store{
             });
       }
     }
-
-    if(action.name === 'ADD_NEW_NODE'){
-      this.nodes[action.key] = treeNodeReducer(this.nodes[action.key], action);
-      this.treeNodes[action.key].next(this.nodes[action.key]);
-    }
   }
 
   getChildren(key){

@@ -1,4 +1,4 @@
-import {Component, ChangeDetectionStrategy} from 'angular2/core';
+import {Component} from 'angular2/core';
 import {TreeView} from './tree-view';
 import {TreeNode} from './tree-node';
 import {Store} from './redux/store';
@@ -11,7 +11,7 @@ import {TreeNodeService} from './tree-node-service';
 })
 
 export class CountryDemo{
-  node:TreeNode;
+  node:TreeNode = null;
 
   ngOnInit(){
     this.node = new TreeNode('root','./tree-view-data/countries.json', '');

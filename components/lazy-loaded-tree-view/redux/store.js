@@ -52,10 +52,6 @@ System.register(['angular2/core', 'rxjs/Subject', 'angular2/http', './tree-node-
                             });
                         }
                     }
-                    if (action.name === 'ADD_NEW_NODE') {
-                        this.nodes[action.key] = tree_node_reducer_1.treeNodeReducer(this.nodes[action.key], action);
-                        this.treeNodes[action.key].next(this.nodes[action.key]);
-                    }
                 };
                 Store.prototype.getChildren = function (key) {
                     if (!this.treeNodes.hasOwnProperty(key)) {
