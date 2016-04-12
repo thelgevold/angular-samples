@@ -7,7 +7,7 @@ Here are the prerequisites for running the project:
 
 2-npm install
 
-3-bower install
+3-bower install --config.directory="bower_components" (to override alternate directory settings in ~/.bowerrc)
 
 Steps 1-3 will install the required tooling.
 
