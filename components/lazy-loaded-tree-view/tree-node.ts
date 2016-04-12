@@ -1,5 +1,4 @@
 export class TreeNode{
-  children;
   showIcon = false;
   expanded = false;
   icon = null;
