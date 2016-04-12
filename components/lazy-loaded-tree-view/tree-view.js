@@ -35,7 +35,7 @@ System.register(['angular2/core', './tree-node', './redux/store', './tree-node-s
                 }
                 TreeView.prototype.ngOnInit = function () {
                     var _this = this;
-                    this.subscription = this._store.getChildren(this.root.key).subscribe(function (res) {
+                    this.subscription = this._store.getTreeNodes(this.root.key).subscribe(function (res) {
                         _this.items = res;
                     });
                     this._treeNodeService.loadTreeNodes(this.root);

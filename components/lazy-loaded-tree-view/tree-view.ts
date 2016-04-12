@@ -20,7 +20,7 @@ export class TreeView implements OnInit{
   }
 
   ngOnInit(){
-    this.subscription = this._store.getChildren(this.root.key).subscribe(res => {
+    this.subscription = this._store.getTreeNodes(this.root.key).subscribe(res => {
       this.items = res;
     });
     this._treeNodeService.loadTreeNodes(this.root);

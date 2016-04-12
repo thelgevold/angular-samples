@@ -35,7 +35,7 @@ export class Store{
     }
   }
 
-  getChildren(key){
+  getTreeNodes(key){
     if(!this.treeNodes.hasOwnProperty(key)){
       this.treeNodes[key] = new Subject<Array<TreeNode>>();
     }

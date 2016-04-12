@@ -53,7 +53,7 @@ System.register(['angular2/core', 'rxjs/Subject', 'angular2/http', './tree-node-
                         }
                     }
                 };
-                Store.prototype.getChildren = function (key) {
+                Store.prototype.getTreeNodes = function (key) {
                     if (!this.treeNodes.hasOwnProperty(key)) {
                         this.treeNodes[key] = new Subject_1.Subject();
                     }
