@@ -169,3 +169,26 @@ div.edge{
 
     margin-left: 2px;
 }
+
+.stream1{
+    background-color: lightgreen;
+    float: left;
+    width:70px;
+    text-align: center;
+    margin-right: 2px;
+    margin-top: 2px;
+}
+
+.stream2{
+    background-color: lightskyblue;
+    float: left;
+    width:70px;
+    text-align: center;
+    margin-right: 2px;
+    margin-top: 2px;
+}
+
+.stream-section{
+    clear: both;
+    margin-top: 40px;
+}

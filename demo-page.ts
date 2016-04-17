@@ -25,6 +25,7 @@ import {SurveyDemo} from './components/survey/survey-demo';
 import {LogDemo} from './components/log-tail/log-demo';
 import {InputOutputDemo} from './components/input-output/input-output-demo';
 import {CountryDemo} from './components/lazy-loaded-tree-view/country-demo';
+import {RxJsStreams} from './components/rxjs-streams/rxjs-streams';
 
 import {
     ComponentInstruction,
@@ -59,6 +60,7 @@ import {
     new Route({ path: '/survey', component:SurveyDemo, name: 'Survey'}),
     new Route({ path: '/redux', component:LogDemo, name: 'Redux'}),
     new Route({ path: '/iodemo', component:InputOutputDemo, name: 'InputOutput'}),
+    new Route({ path: '/rxjs', component:RxJsStreams, name: 'RxJsStreams'}),
     new Route({ path: '/countries', component:CountryDemo, name: 'CountryDemo'})
 
 ])
