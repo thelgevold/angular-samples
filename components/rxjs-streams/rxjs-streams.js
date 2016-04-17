@@ -40,20 +40,20 @@ System.register(['angular2/core', 'rxjs/Observable'], function(exports_1, contex
                     var _this = this;
                     var first = Observable_1.Observable.timer(10, 500).map(function (r) {
                         return { source: 1, value: r };
-                    }).take(5);
+                    }).take(4);
                     var second = Observable_1.Observable.timer(10, 500).map(function (r) {
                         return { source: 2, value: r };
-                    }).take(5);
+                    }).take(4);
                     first.concat(second).subscribe(function (res) { return _this.concatStream.push(res); });
                 };
                 RxJsStreams.prototype.mergeStreams = function () {
                     var _this = this;
                     var first = Observable_1.Observable.timer(10, 500).map(function (r) {
                         return { source: 1, value: r };
-                    }).take(5);
+                    }).take(4);
                     var second = Observable_1.Observable.timer(10, 500).map(function (r) {
                         return { source: 2, value: r };
-                    }).take(5);
+                    }).take(4);
                     first.merge(second).subscribe(function (res) { return _this.mergeStream.push(res); });
                 };
                 RxJsStreams.prototype.forkJoinStreams = function () {

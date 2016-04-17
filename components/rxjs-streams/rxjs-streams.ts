@@ -24,11 +24,11 @@ export class RxJsStreams{
   concatStreams(){
     let first = Observable.timer(10,500).map(r => {
       return {source:1,value:r};
-    }).take(5);
+    }).take(4);
 
     let second = Observable.timer(10,500).map(r => {
       return {source:2,value:r};
-    }).take(5);
+    }).take(4);
 
     first.concat(second).subscribe(res => this.concatStream.push(res));
   }
@@ -36,11 +36,11 @@ export class RxJsStreams{
   mergeStreams(){
     let first = Observable.timer(10,500).map(r => {
       return {source:1,value:r};
-    }).take(5);
+    }).take(4);
 
     let second = Observable.timer(10,500).map(r => {
       return {source:2,value:r};
-    }).take(5);
+    }).take(4);
 
     first.merge(second).subscribe(res => this.mergeStream.push(res));
   }
