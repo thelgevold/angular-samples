@@ -14,3 +14,10 @@
     <div [ngClass]="{stream1:item.source === 1,stream2:item.source === 2}">{{item.value}}</div>
   </div>
 </div>
+
+<div class="stream-section">
+  <button (click)="forkJoinStreams()">ForkJoin Streams</button>
+  <div *ngFor="#item of forkJoinStream">
+    <div [ngClass]="{stream1:item.source === 1,stream2:item.source === 2}">{{item.value}}</div>
+  </div>
+</div>

@@ -25,6 +25,7 @@ System.register(['angular2/core', 'rxjs/Observable'], function(exports_1, contex
                 function RxJsStreams() {
                     this.concatStream = [];
                     this.mergeStream = [];
+                    this.forkJoinStream = [];
                 }
                 RxJsStreams.prototype.concatStreams = function () {
                     var _this = this;
@@ -45,6 +46,13 @@ System.register(['angular2/core', 'rxjs/Observable'], function(exports_1, contex
                         return { source: 2, value: r };
                     }).take(5);
                     first.merge(second).subscribe(function (res) { return _this.mergeStream.push(res); });
+                };
+                RxJsStreams.prototype.forkJoinStreams = function () {
+                    var _this = this;
+                    var first = Observable_1.Observable.of({ source: 1, value: 1 });
+                    var second = Observable_1.Observable.of({ source: 2, value: 1 });
+                    Observable_1.Observable.forkJoin(first, second)
+                        .subscribe(function (res) { return _this.forkJoinStream = res; });
                 };
                 RxJsStreams = __decorate([
                     core_1.Component({
