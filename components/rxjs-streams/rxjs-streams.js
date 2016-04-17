@@ -26,7 +26,16 @@ System.register(['angular2/core', 'rxjs/Observable'], function(exports_1, contex
                     this.concatStream = [];
                     this.mergeStream = [];
                     this.forkJoinStream = [];
+                    this.flatMappedStreams = {};
                 }
+                RxJsStreams.prototype.flatMapStreams = function () {
+                    var _this = this;
+                    var first = Observable_1.Observable.of(10);
+                    first.flatMap(function (operand1) {
+                        return Observable_1.Observable.of(operand1 + 10);
+                    })
+                        .subscribe(function (res) { return _this.flatMappedStreams = { msg: '10 + 10 = ' + res }; });
+                };
                 RxJsStreams.prototype.concatStreams = function () {
                     var _this = this;
                     var first = Observable_1.Observable.timer(10, 500).map(function (r) {

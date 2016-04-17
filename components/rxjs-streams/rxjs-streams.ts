@@ -10,6 +10,16 @@ export class RxJsStreams{
   concatStream = [];
   mergeStream = [];
   forkJoinStream = [];
+  flatMappedStreams = {};
+
+  flatMapStreams(){
+    let first = Observable.of(10);
+
+    first.flatMap((operand1) => {
+      return Observable.of(operand1 + 10);
+    })
+    .subscribe(res => this.flatMappedStreams = {msg: '10 + 10 = ' + res});
+  }
 
   concatStreams(){
     let first = Observable.timer(10,500).map(r => {
