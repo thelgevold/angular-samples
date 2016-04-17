@@ -4,14 +4,14 @@
 <div class="stream-section">
   <button (click)="concatStreams()">Concat Streams</button>
   <div *ngFor="#item of concatStream">
-    <div [ngClass]="{stream1:item.source === 1,stream2:item.source === 2}">{{item.value}}</div>
+    <div class="floatLeft" [ngClass]="{stream1:item.source === 1,stream2:item.source === 2}">{{item.value}}</div>
   </div>
 </div>
 
 <div class="stream-section">
   <button (click)="mergeStreams()">Merge Streams</button>
   <div *ngFor="#item of mergeStream">
-    <div [ngClass]="{stream1:item.source === 1,stream2:item.source === 2}">{{item.value}}</div>
+    <div class="floatLeft" [ngClass]="{stream1:item.source === 1,stream2:item.source === 2}">{{item.value}}</div>
   </div>
 </div>
 

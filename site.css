@@ -172,7 +172,6 @@ div.edge{
 
 .stream1{
     background-color: lightgreen;
-    float: left;
     width:70px;
     text-align: center;
     margin-right: 2px;
@@ -181,7 +180,6 @@ div.edge{
 
 .stream2{
     background-color: lightskyblue;
-    float: left;
     width:70px;
     text-align: center;
     margin-right: 2px;
@@ -191,4 +189,8 @@ div.edge{
 .stream-section{
     clear: both;
     margin-top: 40px;
+}
+
+.floatLeft{
+    float:left;
 }
