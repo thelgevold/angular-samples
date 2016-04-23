@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class FriendsService{
   
-  _friends = null;
+  _friends:Observable<any> = null;
 
   constructor(private _http:Http){
   }
