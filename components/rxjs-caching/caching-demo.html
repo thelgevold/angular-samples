@@ -1,0 +1,21 @@
+<div>
+  <button (click)="clearCache()">Clear Cache</button>
+  <button (click)="reset()">Reset</button>
+</div>
+
+<table>
+    <tr *ngIf="display.first">
+        <td>    
+            <h2>Friends 1</h2>
+            <friends-list></friends-list>
+            <button (click)="remove('first')">Remove</button>
+        </td>
+    </tr>
+    <tr *ngIf="display.second">
+        <td>    
+            <h2>Friends 2</h2>
+            <friends-list></friends-list>
+            <button (click)="remove('second')">Remove</button>
+        </td>
+    </tr>
+</table>

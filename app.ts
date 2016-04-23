@@ -5,6 +5,7 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/operator/publishReplay';
 
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {Component, provide} from 'angular2/core';

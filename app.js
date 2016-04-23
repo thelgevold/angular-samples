@@ -1,5 +1,5 @@
 ///<reference path="node_modules/angular2/typings/browser.d.ts"/>
-System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/operator/mergeMap', 'rxjs/add/observable/interval', 'rxjs/add/observable/forkJoin', 'angular2/http', 'angular2/core', 'angular2/platform/browser', './demo-page', './components/about/about', 'angular2/router', './components/dependency-injection/address-book-title-service', './components/aux-route/message'], function(exports_1, context_1) {
+System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/operator/mergeMap', 'rxjs/add/observable/interval', 'rxjs/add/observable/forkJoin', 'rxjs/add/operator/publishReplay', 'angular2/http', 'angular2/core', 'angular2/platform/browser', './demo-page', './components/about/about', 'angular2/router', './components/dependency-injection/address-book-title-service', './components/aux-route/message'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -20,6 +20,7 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
             function (_3) {},
             function (_4) {},
             function (_5) {},
+            function (_6) {},
             function (http_1_1) {
                 http_1 = http_1_1;
             },
