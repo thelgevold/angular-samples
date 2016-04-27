@@ -25,9 +25,8 @@ System.register(['angular2/core', './edge', './vertex'], function(exports_1, con
             }],
         execute: function() {
             Graph = (function () {
-                function Graph(dynamicComponentLoader, elementRef) {
+                function Graph(dynamicComponentLoader) {
                     this.dynamicComponentLoader = dynamicComponentLoader;
-                    this.elementRef = elementRef;
                     this.first = null;
                     this.second = null;
                 }
@@ -41,21 +40,57 @@ System.register(['angular2/core', './edge', './vertex'], function(exports_1, con
                     }
                     else if (this.second === null) {
                         this.second = e.coordinates;
-                        this.dynamicComponentLoader.loadIntoLocation(edge_1.Edge, this.elementRef, this.first.dynamicLocation)
+                        this.dynamicComponentLoader.loadNextToLocation(edge_1.Edge, this[this.first.dynamicLocation])
                             .then(function (res) {
                             res.instance.setCoordinates(_this.first.x, _this.first.y, _this.second.x, _this.second.y);
                             _this.first = null;
                             _this.second = null;
-                        });
+                        }).catch(function (e) { return console.log(e); });
                     }
                 };
+                __decorate([
+                    core_1.ViewChild('a', { read: core_1.ViewContainerRef }), 
+                    __metadata('design:type', core_1.ViewContainerRef)
+                ], Graph.prototype, "a", void 0);
+                __decorate([
+                    core_1.ViewChild('b', { read: core_1.ViewContainerRef }), 
+                    __metadata('design:type', core_1.ViewContainerRef)
+                ], Graph.prototype, "b", void 0);
+                __decorate([
+                    core_1.ViewChild('c', { read: core_1.ViewContainerRef }), 
+                    __metadata('design:type', core_1.ViewContainerRef)
+                ], Graph.prototype, "c", void 0);
+                __decorate([
+                    core_1.ViewChild('d', { read: core_1.ViewContainerRef }), 
+                    __metadata('design:type', core_1.ViewContainerRef)
+                ], Graph.prototype, "d", void 0);
+                __decorate([
+                    core_1.ViewChild('e', { read: core_1.ViewContainerRef }), 
+                    __metadata('design:type', core_1.ViewContainerRef)
+                ], Graph.prototype, "e", void 0);
+                __decorate([
+                    core_1.ViewChild('f', { read: core_1.ViewContainerRef }), 
+                    __metadata('design:type', core_1.ViewContainerRef)
+                ], Graph.prototype, "f", void 0);
+                __decorate([
+                    core_1.ViewChild('g', { read: core_1.ViewContainerRef }), 
+                    __metadata('design:type', core_1.ViewContainerRef)
+                ], Graph.prototype, "g", void 0);
+                __decorate([
+                    core_1.ViewChild('h', { read: core_1.ViewContainerRef }), 
+                    __metadata('design:type', core_1.ViewContainerRef)
+                ], Graph.prototype, "h", void 0);
+                __decorate([
+                    core_1.ViewChild('i', { read: core_1.ViewContainerRef }), 
+                    __metadata('design:type', core_1.ViewContainerRef)
+                ], Graph.prototype, "i", void 0);
                 Graph = __decorate([
                     core_1.Component({
                         selector: 'graph',
                         directives: [edge_1.Edge, vertex_1.Vertex],
                         templateUrl: './components/algorithms/graph/graph.html'
                     }), 
-                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader, core_1.ElementRef])
+                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader])
                 ], Graph);
                 return Graph;
             }());

@@ -28,10 +28,9 @@ import {CountryDemo} from './components/lazy-loaded-tree-view/country-demo';
 import {RxJsStreams} from './components/rxjs-streams/rxjs-streams';
 import {CachingDemo} from './components/rxjs-caching/caching-demo';
 
-import {
-    ComponentInstruction,
-    Location
-} from 'angular2/router';
+import {ComponentInstruction} from 'angular2/router';
+
+import {Location} from 'angular2/platform/common';
 
 @Component({
     selector: 'demo-page',

@@ -7,5 +7,4 @@ importScripts("https://code.angularjs.org/tools/system.js",
     "../../../node_modules/zone.js/dist/long-stack-trace-zone.min.js",
     "../config.js");
 
-
 System.import('./london.ts');

@@ -13,8 +13,8 @@ import {bootstrap} from 'angular2/platform/browser';
 
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
-import {ROUTER_DIRECTIVES, RouteConfig, Location,ROUTER_PROVIDERS, LocationStrategy, HashLocationStrategy, Route, AsyncRoute, Router, AuxRoute} from 'angular2/router';
-
+import {ROUTER_DIRECTIVES, RouteConfig, ROUTER_PROVIDERS, Route, AsyncRoute, Router, AuxRoute} from 'angular2/router';
+import {HashLocationStrategy, LocationStrategy, Location} from 'angular2/platform/common';
 import {AddressBookTitleService} from './components/dependency-injection/address-book-title-service';
 import {Message} from './components/aux-route/message';
 

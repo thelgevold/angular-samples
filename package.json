@@ -18,7 +18,7 @@
     "typescript": "^1.7.3"
   },
   "dependencies": {
-    "angular2": "^2.0.0-beta.15",
+    "angular2": "^2.0.0-beta.16",
     "events": "^1.0.2",
     "fbjs": "^0.3.1",
     "flux": "^2.1.1",
@@ -26,7 +26,7 @@
     "es6-shim": "^0.35.0",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.2",
-    "zone.js": "0.6.10",
+    "zone.js": "0.6.12",
     "systemjs": "0.19.9"
   }
 }

@@ -1,5 +1,5 @@
 ///<reference path="node_modules/angular2/typings/browser.d.ts"/>
-System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/operator/mergeMap', 'rxjs/add/observable/interval', 'rxjs/add/observable/forkJoin', 'rxjs/add/operator/publishReplay', 'angular2/http', 'angular2/core', 'angular2/platform/browser', './demo-page', './components/about/about', 'angular2/router', './components/dependency-injection/address-book-title-service', './components/aux-route/message'], function(exports_1, context_1) {
+System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/operator/mergeMap', 'rxjs/add/observable/interval', 'rxjs/add/observable/forkJoin', 'rxjs/add/operator/publishReplay', 'angular2/http', 'angular2/core', 'angular2/platform/browser', './demo-page', './components/about/about', 'angular2/router', 'angular2/platform/common', './components/dependency-injection/address-book-title-service', './components/aux-route/message'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,7 +11,7 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var http_1, core_1, browser_1, demo_page_1, about_1, router_1, address_book_title_service_1, message_1;
+    var http_1, core_1, browser_1, demo_page_1, about_1, router_1, common_1, address_book_title_service_1, message_1;
     var MyDemoApp, ComponentHelper;
     return {
         setters:[
@@ -38,6 +38,9 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
             },
             function (address_book_title_service_1_1) {
                 address_book_title_service_1 = address_book_title_service_1_1;
@@ -75,7 +78,7 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
                             name: 'Lazy'
                         })
                     ]), 
-                    __metadata('design:paramtypes', [router_1.Router, router_1.Location])
+                    __metadata('design:paramtypes', [router_1.Router, common_1.Location])
                 ], MyDemoApp);
                 return MyDemoApp;
             }());
@@ -88,7 +91,7 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
                 return ComponentHelper;
             }());
             browser_1.bootstrap(MyDemoApp, [address_book_title_service_1.AddressBookTitleService, router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS,
-                core_1.provide(router_1.LocationStrategy, { useClass: router_1.HashLocationStrategy })]);
+                core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy })]);
         }
     }
 });

@@ -1,4 +1,6 @@
-System.register([], function(exports_1) {
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
     var Clock;
     return {
         setters:[],
@@ -15,8 +17,9 @@ System.register([], function(exports_1) {
                     }, 1000);
                 };
                 return Clock;
-            })();
+            }());
             exports_1("Clock", Clock);
         }
     }
 });
+//# sourceMappingURL=clock.js.map

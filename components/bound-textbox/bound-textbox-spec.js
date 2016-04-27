@@ -4,7 +4,7 @@ System.register(['angular2/testing', './bound-textbox'], function(exports_1, con
     var testing_1, testing_2, bound_textbox_1;
     function main() {
         testing_1.describe('Bound Textbox', function () {
-            testing_1.it('should update text', testing_2.injectAsync([testing_2.TestComponentBuilder], function (tcb) {
+            testing_1.it('should update text', testing_1.inject([testing_2.TestComponentBuilder], function (tcb) {
                 return tcb.createAsync(bound_textbox_1.BoundTextbox)
                     .then(function (fixture) {
                     fixture.detectChanges();

@@ -4,7 +4,7 @@ System.register(['angular2/testing', './input-controls'], function(exports_1, co
     var testing_1, testing_2, input_controls_1;
     function main() {
         testing_1.describe('Two Way Bound Textbox', function () {
-            testing_1.it('should update textbox from model', testing_2.injectAsync([testing_2.TestComponentBuilder], function (tcb) {
+            testing_1.it('should update textbox from model', testing_1.inject([testing_2.TestComponentBuilder], function (tcb) {
                 return tcb.createAsync(input_controls_1.InputControls)
                     .then(function (fixture) {
                     fixture.detectChanges();

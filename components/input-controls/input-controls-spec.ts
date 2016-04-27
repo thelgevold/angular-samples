@@ -1,11 +1,11 @@
 import {describe,expect,it,xit, inject, beforeEachProviders} from 'angular2/testing';
-import {TestComponentBuilder, ComponentFixture, injectAsync} from 'angular2/testing';
+import {TestComponentBuilder, ComponentFixture} from 'angular2/testing';
 import {InputControls} from './input-controls';
 
 export function main() {
     describe('Two Way Bound Textbox', () => {
 
-        it('should update textbox from model', injectAsync([TestComponentBuilder], (tcb:TestComponentBuilder) => {
+        it('should update textbox from model', inject([TestComponentBuilder], (tcb:TestComponentBuilder) => {
             return tcb.createAsync(InputControls)
                 .then((fixture) => {
                     fixture.detectChanges();
