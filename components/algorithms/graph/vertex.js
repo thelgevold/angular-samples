@@ -31,21 +31,16 @@ System.register(['angular2/core', './edge-service', './coordinates'], function(e
                     this.coordinates = { x: null, y: null };
                     this.elementRef = elementRef;
                 }
-                Vertex.prototype.setCoordinates = function (event) {
+                Vertex.prototype.setCoordinates = function () {
                     var element = jQuery(this.elementRef.nativeElement).find('.vertex');
                     var offset = element.offset();
-                    this.coordinates.x = offset.left;
-                    this.coordinates.y = offset.top;
-                    event.coordinates = this.coordinates;
-                    event.coordinates.dynamicLocation = this.value.toLowerCase();
-                    event.vertex = true;
                     this.edgeService.next(new coordinates_1.Coordinates(offset.left, offset.top, this.vc));
                 };
                 Vertex = __decorate([
                     core_1.Component({
                         selector: 'vertex',
                         inputs: ['value'],
-                        template: '<div class="vertex" (click)="setCoordinates($event)"><span class="vertex-text">{{value}}</span></div>'
+                        template: '<div class="vertex" (click)="setCoordinates()"><span class="vertex-text">{{value}}</span></div>'
                     }), 
                     __metadata('design:paramtypes', [core_1.ElementRef, edge_service_1.EdgeService, core_1.ViewContainerRef])
                 ], Vertex);
