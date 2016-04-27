@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', './edge-service', './coordinates'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,16 +10,24 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, edge_service_1, coordinates_1;
     var Vertex;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (edge_service_1_1) {
+                edge_service_1 = edge_service_1_1;
+            },
+            function (coordinates_1_1) {
+                coordinates_1 = coordinates_1_1;
             }],
         execute: function() {
             Vertex = (function () {
-                function Vertex(elementRef) {
+                function Vertex(elementRef, edgeService, vc) {
+                    this.edgeService = edgeService;
+                    this.vc = vc;
                     this.coordinates = { x: null, y: null };
                     this.elementRef = elementRef;
                 }
@@ -31,6 +39,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     event.coordinates = this.coordinates;
                     event.coordinates.dynamicLocation = this.value.toLowerCase();
                     event.vertex = true;
+                    this.edgeService.next(new coordinates_1.Coordinates(offset.left, offset.top, this.vc));
                 };
                 Vertex = __decorate([
                     core_1.Component({
@@ -38,7 +47,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                         inputs: ['value'],
                         template: '<div class="vertex" (click)="setCoordinates($event)"><span class="vertex-text">{{value}}</span></div>'
                     }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef])
+                    __metadata('design:paramtypes', [core_1.ElementRef, edge_service_1.EdgeService, core_1.ViewContainerRef])
                 ], Vertex);
                 return Vertex;
             }());

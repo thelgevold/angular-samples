@@ -1,53 +1,29 @@
-import {Component,DynamicComponentLoader, ViewChild, ViewContainerRef} from 'angular2/core';
+import {Component, DynamicComponentLoader, ViewChild, OnInit} from 'angular2/core';
 import {Edge} from './edge';
 import {Vertex} from './vertex';
+import {EdgeService} from './edge-service';
 
 @Component({
     selector: 'graph',
     directives:[Edge,Vertex],
-    templateUrl: './components/algorithms/graph/graph.html'
+    templateUrl: './components/algorithms/graph/graph.html',
+    providers:[EdgeService]
 })
 
-export class Graph {
+export class Graph implements OnInit {
 
-    first:any;
-    second:any;
-
-    @ViewChild('a', {read: ViewContainerRef}) a: ViewContainerRef;
-    @ViewChild('b', {read: ViewContainerRef}) b: ViewContainerRef;
-    @ViewChild('c', {read: ViewContainerRef}) c: ViewContainerRef;
-    @ViewChild('d', {read: ViewContainerRef}) d: ViewContainerRef;
-    @ViewChild('e', {read: ViewContainerRef}) e: ViewContainerRef;
-    @ViewChild('f', {read: ViewContainerRef}) f: ViewContainerRef;
-    @ViewChild('g', {read: ViewContainerRef}) g: ViewContainerRef;
-    @ViewChild('h', {read: ViewContainerRef}) h: ViewContainerRef;
-    @ViewChild('i', {read: ViewContainerRef}) i: ViewContainerRef;
-
-
-    constructor(private dynamicComponentLoader:DynamicComponentLoader){
-        this.first = null;
-        this.second = null;
+    constructor(private dynamicComponentLoader:DynamicComponentLoader, private edgeService:EdgeService){
     }
 
-    elementClicked(e){
-
-        if(!e.vertex){
-            return;
-        }
-
-        if(this.first === null){
-            this.first = e.coordinates;
-        }
-        else if(this.second === null){
-            this.second = e.coordinates;
-
-            this.dynamicComponentLoader.loadNextToLocation(Edge,this[this.first.dynamicLocation])
+    ngOnInit(){
+        this.edgeService.getCoordinates().subscribe(coordinates => {
+            this.dynamicComponentLoader
+                .loadNextToLocation(Edge,coordinates.first.viewContainer)
                 .then((res) => {
-                    res.instance.setCoordinates(this.first.x, this.first.y, this.second.x, this.second.y);
-                    this.first = null;
-                    this.second = null;
-                }).catch(e => console.log(e));
-        }
+                  res.instance.setCoordinates(coordinates.first, coordinates.second);
+                })
+                .catch(e => console.log(e));
+        });
     }
 
 }

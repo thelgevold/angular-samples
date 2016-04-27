@@ -1,31 +1,25 @@
-import {Component, OnInit} from 'angular2/core';
-import {Http} from 'angular2/http';
+import {Component, Input} from 'angular2/core';
+import {Coordinates} from './coordinates';
+
 @Component({
     selector: 'edge',
-    inputs:['x1:x1','y1:y1','x2:x2','y2:y2'],
     template: '<div class="edge" [ngStyle]="style"></div>'
 })
 
 export class Edge {
-
     style = {};
     x1:number;
     y1:number;
     x2:number;
     y2:number;
 
-    constructor(http:Http){
-        console.log(http);
-    }
-
-    setCoordinates(x1, y1, x2, y2){
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
+    setCoordinates(first, second){
+        this.x1 = first.x;
+        this.y1 = first.y;
+        this.x2 = second.x;
+        this.y2 = second.y;
 
         this.drawLine(this.x1,this.y1,this.x2,this.y2);
-
     }
 
     drawLine(x1, y1, x2, y2){

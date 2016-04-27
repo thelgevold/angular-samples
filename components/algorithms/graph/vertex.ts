@@ -1,4 +1,6 @@
-import {Component, ElementRef} from 'angular2/core';
+import {Component, ElementRef, ViewContainerRef} from 'angular2/core';
+import {EdgeService} from './edge-service';
+import {Coordinates} from './coordinates';
 
 declare var jQuery:any;
 
@@ -14,7 +16,7 @@ export class Vertex {
     coordinates = {x:null,y:null};
     value:string;
 
-    constructor(elementRef:ElementRef){
+    constructor(elementRef:ElementRef, private edgeService:EdgeService, private vc: ViewContainerRef){
         this.elementRef = elementRef;
     }
 
@@ -27,5 +29,7 @@ export class Vertex {
         event.coordinates = this.coordinates;
         event.coordinates.dynamicLocation = this.value.toLowerCase();
         event.vertex = true;
+
+        this.edgeService.next(new Coordinates(offset.left, offset.top, this.vc));
     }
 }

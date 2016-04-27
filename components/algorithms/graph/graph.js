@@ -1,4 +1,4 @@
-System.register(['angular2/core', './edge', './vertex'], function(exports_1, context_1) {
+System.register(['angular2/core', './edge', './vertex', './edge-service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './edge', './vertex'], function(exports_1, con
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, edge_1, vertex_1;
+    var core_1, edge_1, vertex_1, edge_service_1;
     var Graph;
     return {
         setters:[
@@ -22,75 +22,35 @@ System.register(['angular2/core', './edge', './vertex'], function(exports_1, con
             },
             function (vertex_1_1) {
                 vertex_1 = vertex_1_1;
+            },
+            function (edge_service_1_1) {
+                edge_service_1 = edge_service_1_1;
             }],
         execute: function() {
             Graph = (function () {
-                function Graph(dynamicComponentLoader) {
+                function Graph(dynamicComponentLoader, edgeService) {
                     this.dynamicComponentLoader = dynamicComponentLoader;
-                    this.first = null;
-                    this.second = null;
+                    this.edgeService = edgeService;
                 }
-                Graph.prototype.elementClicked = function (e) {
+                Graph.prototype.ngOnInit = function () {
                     var _this = this;
-                    if (!e.vertex) {
-                        return;
-                    }
-                    if (this.first === null) {
-                        this.first = e.coordinates;
-                    }
-                    else if (this.second === null) {
-                        this.second = e.coordinates;
-                        this.dynamicComponentLoader.loadNextToLocation(edge_1.Edge, this[this.first.dynamicLocation])
+                    this.edgeService.getCoordinates().subscribe(function (coordinates) {
+                        _this.dynamicComponentLoader
+                            .loadNextToLocation(edge_1.Edge, coordinates.first.viewContainer)
                             .then(function (res) {
-                            res.instance.setCoordinates(_this.first.x, _this.first.y, _this.second.x, _this.second.y);
-                            _this.first = null;
-                            _this.second = null;
-                        }).catch(function (e) { return console.log(e); });
-                    }
+                            res.instance.setCoordinates(coordinates.first, coordinates.second);
+                        })
+                            .catch(function (e) { return console.log(e); });
+                    });
                 };
-                __decorate([
-                    core_1.ViewChild('a', { read: core_1.ViewContainerRef }), 
-                    __metadata('design:type', core_1.ViewContainerRef)
-                ], Graph.prototype, "a", void 0);
-                __decorate([
-                    core_1.ViewChild('b', { read: core_1.ViewContainerRef }), 
-                    __metadata('design:type', core_1.ViewContainerRef)
-                ], Graph.prototype, "b", void 0);
-                __decorate([
-                    core_1.ViewChild('c', { read: core_1.ViewContainerRef }), 
-                    __metadata('design:type', core_1.ViewContainerRef)
-                ], Graph.prototype, "c", void 0);
-                __decorate([
-                    core_1.ViewChild('d', { read: core_1.ViewContainerRef }), 
-                    __metadata('design:type', core_1.ViewContainerRef)
-                ], Graph.prototype, "d", void 0);
-                __decorate([
-                    core_1.ViewChild('e', { read: core_1.ViewContainerRef }), 
-                    __metadata('design:type', core_1.ViewContainerRef)
-                ], Graph.prototype, "e", void 0);
-                __decorate([
-                    core_1.ViewChild('f', { read: core_1.ViewContainerRef }), 
-                    __metadata('design:type', core_1.ViewContainerRef)
-                ], Graph.prototype, "f", void 0);
-                __decorate([
-                    core_1.ViewChild('g', { read: core_1.ViewContainerRef }), 
-                    __metadata('design:type', core_1.ViewContainerRef)
-                ], Graph.prototype, "g", void 0);
-                __decorate([
-                    core_1.ViewChild('h', { read: core_1.ViewContainerRef }), 
-                    __metadata('design:type', core_1.ViewContainerRef)
-                ], Graph.prototype, "h", void 0);
-                __decorate([
-                    core_1.ViewChild('i', { read: core_1.ViewContainerRef }), 
-                    __metadata('design:type', core_1.ViewContainerRef)
-                ], Graph.prototype, "i", void 0);
                 Graph = __decorate([
                     core_1.Component({
                         selector: 'graph',
                         directives: [edge_1.Edge, vertex_1.Vertex],
-                        templateUrl: './components/algorithms/graph/graph.html'
+                        templateUrl: './components/algorithms/graph/graph.html',
+                        providers: [edge_service_1.EdgeService]
                     }), 
-                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader])
+                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader, edge_service_1.EdgeService])
                 ], Graph);
                 return Graph;
             }());

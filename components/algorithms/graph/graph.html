@@ -1,20 +1,20 @@
-<div (click)="elementClicked($event)">
+<div>
     <h1>Create a Graph</h1>
 
     <div class="alert alert-info" role="alert">
         Click any pair of nodes to connect them with an edge
     </div>
 
-    <vertex #a [value]="'A'"></vertex>
+    <vertex [value]="'A'"></vertex>
 
     <table class="graph-table">
         <tr>
-            <td><vertex #b [value]="'B'"></vertex><td><vertex #c [value]="'C'" ></vertex></td>
+            <td><vertex [value]="'B'"></vertex><td><vertex [value]="'C'" ></vertex></td>
         <tr>
-            <td><vertex #e [value]="'E'" ></vertex></td><td><vertex #f [value]="'F'" ></vertex></td>
+            <td><vertex [value]="'E'" ></vertex></td><td><vertex [value]="'F'" ></vertex></td>
         </tr>
         <tr>
-            <td><vertex #g [value]="'G'" ></vertex></td><td><vertex #h [value]="'H'" ></vertex></td><td><vertex #i [value]="'I'" ></vertex></td>
+            <td><vertex [value]="'G'" ></vertex></td><td><vertex [value]="'H'" ></vertex></td><td><vertex [value]="'I'" ></vertex></td>
         </tr>
     </table>
 </div>

@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,27 +10,23 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1;
+    var core_1;
     var Edge;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (http_1_1) {
-                http_1 = http_1_1;
             }],
         execute: function() {
             Edge = (function () {
-                function Edge(http) {
+                function Edge() {
                     this.style = {};
-                    console.log(http);
                 }
-                Edge.prototype.setCoordinates = function (x1, y1, x2, y2) {
-                    this.x1 = x1;
-                    this.y1 = y1;
-                    this.x2 = x2;
-                    this.y2 = y2;
+                Edge.prototype.setCoordinates = function (first, second) {
+                    this.x1 = first.x;
+                    this.y1 = first.y;
+                    this.x2 = second.x;
+                    this.y2 = second.y;
                     this.drawLine(this.x1, this.y1, this.x2, this.y2);
                 };
                 Edge.prototype.drawLine = function (x1, y1, x2, y2) {
@@ -46,10 +42,9 @@ System.register(['angular2/core', 'angular2/http'], function(exports_1, context_
                 Edge = __decorate([
                     core_1.Component({
                         selector: 'edge',
-                        inputs: ['x1:x1', 'y1:y1', 'x2:x2', 'y2:y2'],
                         template: '<div class="edge" [ngStyle]="style"></div>'
                     }), 
-                    __metadata('design:paramtypes', [http_1.Http])
+                    __metadata('design:paramtypes', [])
                 ], Edge);
                 return Edge;
             }());
