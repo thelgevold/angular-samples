@@ -13,7 +13,6 @@ declare var jQuery:any;
 export class Vertex {
 
     elementRef: ElementRef;
-    coordinates = {x:null,y:null};
     value:string;
 
     constructor(elementRef:ElementRef, private edgeService:EdgeService, private vc: ViewContainerRef){

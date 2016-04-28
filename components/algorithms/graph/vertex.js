@@ -28,7 +28,6 @@ System.register(['angular2/core', './edge-service', './coordinates'], function(e
                 function Vertex(elementRef, edgeService, vc) {
                     this.edgeService = edgeService;
                     this.vc = vc;
-                    this.coordinates = { x: null, y: null };
                     this.elementRef = elementRef;
                 }
                 Vertex.prototype.setCoordinates = function () {
