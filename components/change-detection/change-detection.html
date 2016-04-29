@@ -19,7 +19,7 @@
     <br/>
     <br/>
     <table class="table">
-        <tr *ngFor="#comment of comments">
+        <tr *ngFor="let comment of comments">
             <td>{{comment.author}}</td>
             <td>{{comment.text}}</td>
         </tr>

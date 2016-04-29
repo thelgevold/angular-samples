@@ -17,7 +17,7 @@ import {LogTailService} from './log-tail-service';
                      <tr>
                         <td><strong>Message</strong></td><td><strong>Severity</strong></td>
                      </tr>
-                     <tr *ngFor="#log of store.log | async">
+                     <tr *ngFor="let log of store.log | async">
                         <td>{{log.text}}</td>
                         <td>{{log.severity}}</td>
                      </tr>

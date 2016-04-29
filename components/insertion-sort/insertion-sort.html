@@ -1,6 +1,6 @@
 <table class="sort">
     <tr>
-        <td *ngFor="#item of list.items" [ngClass]="item.getClass()">
+        <td *ngFor="let item of list.items" [ngClass]="item.getClass()">
             <span>{{item.val}}</span>
         </td>
     </tr>

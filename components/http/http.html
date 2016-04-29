@@ -18,7 +18,7 @@
 <div class="alert alert-success" role="alert">
     List of friends using Observables
 </div>
-<div *ngFor="#friend of result.friends">
+<div *ngFor="let friend of result.friends">
     {{friend}}
 </div>
 <br/>
@@ -26,7 +26,7 @@
 <div class="alert alert-success" role="alert">
     List of friends loaded using Promises
 </div>
-<div *ngFor="#friend of friendsAsPromise.friends">
+<div *ngFor="let friend of friendsAsPromise.friends">
     {{friend}}
 </div>
 <br/>
@@ -35,7 +35,7 @@
     List of friends and customer loaded successfully in parallel
 </div>
 <div>Friends:</div>
-<div *ngFor="#friend of combined.friends">
+<div *ngFor="let friend of combined.friends">
     {{friend}}
 </div>
 <br/>

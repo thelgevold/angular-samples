@@ -42,7 +42,7 @@ System.register(['angular2/core', './friends-service'], function(exports_1, cont
                 FriendsList = __decorate([
                     core_1.Component({
                         selector: 'friends-list',
-                        template: "\n    <div *ngFor=\"#friend of friends\">\n      {{friend}}\n    </div>\n    <button (click)=\"loadData()\">Reload</button>\n  "
+                        template: "\n    <div *ngFor=\"let friend of friends\">\n      {{friend}}\n    </div>\n    <button (click)=\"loadData()\">Reload</button>\n  "
                     }), 
                     __metadata('design:paramtypes', [friends_service_1.FriendsService])
                 ], FriendsList);

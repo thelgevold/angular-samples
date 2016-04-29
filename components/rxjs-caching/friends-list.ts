@@ -4,7 +4,7 @@ import {FriendsService} from './friends-service';
 @Component({
   selector:'friends-list',
   template:`
-    <div *ngFor="#friend of friends">
+    <div *ngFor="let friend of friends">
       {{friend}}
     </div>
     <button (click)="loadData()">Reload</button>
