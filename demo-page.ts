@@ -27,6 +27,7 @@ import {InputOutputDemo} from './components/input-output/input-output-demo';
 import {CountryDemo} from './components/lazy-loaded-tree-view/country-demo';
 import {RxJsStreams} from './components/rxjs-streams/rxjs-streams';
 import {CachingDemo} from './components/rxjs-caching/caching-demo';
+import {RxJsBuffering} from './components/rxjs-buffering/rxjs-buffering';
 
 import {ComponentInstruction} from 'angular2/router';
 
@@ -62,6 +63,7 @@ import {Location} from 'angular2/platform/common';
     new Route({ path: '/iodemo', component:InputOutputDemo, name: 'InputOutput'}),
     new Route({ path: '/rxjs', component:RxJsStreams, name: 'RxJsStreams'}),
     new Route({ path: '/friends', component:CachingDemo, name: 'Friends'}),
+    new Route({ path: '/buffering', component:RxJsBuffering, name: 'Buffering'}),
     new Route({ path: '/countries', component:CountryDemo, name: 'CountryDemo'})
 
 ])
