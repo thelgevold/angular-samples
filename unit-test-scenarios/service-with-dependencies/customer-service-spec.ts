@@ -1,4 +1,4 @@
-import {describe,expect,it,xit, inject, beforeEachProviders} from 'angular2/testing';
+import {describe,expect,it,xit, inject, beforeEachProviders} from '@angular/core/testing';
 import {CustomerService} from './customer-service';
 import {ProductService} from './product-service';
 

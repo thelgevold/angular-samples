@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {TreeView} from './tree-view';
 import {TreeNode} from './tree-node';
 import {Store} from './redux/store';

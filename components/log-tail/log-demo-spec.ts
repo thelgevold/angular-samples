@@ -1,12 +1,12 @@
-import {provide} from 'angular2/core';
-import {describe,expect,it,xit, inject, beforeEachProviders} from 'angular2/testing';
+import {provide} from '@angular/core';
+import {describe,expect,it,xit, inject, beforeEachProviders} from '@angular/core/testing';
 import {Observable} from 'rxjs/Rx';
 
 import {LogDemo} from './log-demo';
 import {LogAction} from './log-action';
 import {LogEntry} from './log-entry';
 import {Store} from './store';
-import {HTTP_PROVIDERS} from 'angular2/http';
+import {HTTP_PROVIDERS} from '@angular/http';
 import {LogTailService} from './log-tail-service';
 
 export function main() {

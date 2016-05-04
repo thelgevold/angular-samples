@@ -1,4 +1,4 @@
-import {describe,expect,it,xit, inject, beforeEachProviders} from 'angular2/testing';
+import {describe,expect,it,xit, inject, beforeEachProviders} from '@angular/core/testing';
 import {DisplayName} from './display-name';
 
 export function main() {

@@ -1,4 +1,4 @@
-import {Component,ViewChildren,QueryList,ContentChildren} from 'angular2/core';
+import {Component,ViewChildren,QueryList,ContentChildren} from '@angular/core';
 import {Child} from './child';
 
 @Component({

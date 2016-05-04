@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewContainerRef} from 'angular2/core';
+import {Component, ElementRef, ViewContainerRef} from '@angular/core';
 import {EdgeService} from './edge-service';
 import {Coordinates} from './coordinates';
 

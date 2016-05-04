@@ -1,4 +1,4 @@
-import {Validators} from 'angular2/common';
+import {Validators} from '@angular/common';
 
 export class QuestionModel{
     questions = [];

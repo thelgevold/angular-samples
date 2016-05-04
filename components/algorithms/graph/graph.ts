@@ -1,4 +1,4 @@
-import {Component, DynamicComponentLoader, ViewChild, OnInit} from 'angular2/core';
+import {Component, DynamicComponentLoader, ViewChild, OnInit} from '@angular/core';
 import {Edge} from './edge';
 import {Vertex} from './vertex';
 import {EdgeService} from './edge-service';

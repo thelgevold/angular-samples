@@ -1,5 +1,3 @@
-///<reference path="node_modules/angular2/typings/browser.d.ts"/>
-
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/mergeMap';
@@ -7,14 +5,14 @@ import 'rxjs/add/observable/interval';
 import 'rxjs/add/observable/forkJoin';
 import 'rxjs/add/operator/publishReplay';
 
-import {HTTP_PROVIDERS} from 'angular2/http';
-import {Component, provide} from 'angular2/core';
-import {bootstrap} from 'angular2/platform/browser';
+import {HTTP_PROVIDERS} from '@angular/http';
+import {Component, provide} from '@angular/core';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
-import {ROUTER_DIRECTIVES, RouteConfig, ROUTER_PROVIDERS, Route, AsyncRoute, Router, AuxRoute} from 'angular2/router';
-import {HashLocationStrategy, LocationStrategy, Location} from 'angular2/platform/common';
+import {ROUTER_DIRECTIVES, RouteConfig, ROUTER_PROVIDERS, Route, AsyncRoute, Router} from '@angular/router-deprecated';
+import {HashLocationStrategy, LocationStrategy, Location} from '@angular/common';
 import {AddressBookTitleService} from './components/dependency-injection/address-book-title-service';
 import {Message} from './components/aux-route/message';
 
@@ -30,7 +28,6 @@ declare var System:any;
 @RouteConfig([
     new Route({path: '/', component: About, name: 'About', data: {project: 'angular-2-samples'}}),
     new Route({path: '/demo/...', component: DemoPage, name: 'Demo'}),
-    new AuxRoute({ path: '/msg', component:Message, name: 'Msg'}),
     new AsyncRoute({
         path: '/lazy',
         loader: () => ComponentHelper.LoadComponentAsync('LazyLoaded','./components/lazy-loaded/lazy-loaded'),

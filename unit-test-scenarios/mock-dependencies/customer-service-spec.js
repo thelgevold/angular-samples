@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/testing', '../service-with-dependencies/customer-service', '../service-with-dependencies/product-service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/core/testing', '../service-with-dependencies/customer-service', '../service-with-dependencies/product-service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var core_1, testing_1, customer_service_1, product_service_1;

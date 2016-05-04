@@ -1,5 +1,4 @@
-///<reference path="node_modules/angular2/typings/browser.d.ts"/>
-System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/operator/mergeMap', 'rxjs/add/observable/interval', 'rxjs/add/observable/forkJoin', 'rxjs/add/operator/publishReplay', 'angular2/http', 'angular2/core', 'angular2/platform/browser', './demo-page', './components/about/about', 'angular2/router', 'angular2/platform/common', './components/dependency-injection/address-book-title-service', './components/aux-route/message'], function(exports_1, context_1) {
+System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/operator/mergeMap', 'rxjs/add/observable/interval', 'rxjs/add/observable/forkJoin', 'rxjs/add/operator/publishReplay', '@angular/http', '@angular/core', '@angular/platform-browser-dynamic', './demo-page', './components/about/about', '@angular/router-deprecated', '@angular/common', './components/dependency-injection/address-book-title-service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -11,7 +10,7 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var http_1, core_1, browser_1, demo_page_1, about_1, router_1, common_1, address_book_title_service_1, message_1;
+    var http_1, core_1, platform_browser_dynamic_1, demo_page_1, about_1, router_deprecated_1, common_1, address_book_title_service_1;
     var MyDemoApp, ComponentHelper;
     return {
         setters:[
@@ -27,8 +26,8 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (browser_1_1) {
-                browser_1 = browser_1_1;
+            function (platform_browser_dynamic_1_1) {
+                platform_browser_dynamic_1 = platform_browser_dynamic_1_1;
             },
             function (demo_page_1_1) {
                 demo_page_1 = demo_page_1_1;
@@ -36,17 +35,14 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
             function (about_1_1) {
                 about_1 = about_1_1;
             },
-            function (router_1_1) {
-                router_1 = router_1_1;
+            function (router_deprecated_1_1) {
+                router_deprecated_1 = router_deprecated_1_1;
             },
             function (common_1_1) {
                 common_1 = common_1_1;
             },
             function (address_book_title_service_1_1) {
                 address_book_title_service_1 = address_book_title_service_1_1;
-            },
-            function (message_1_1) {
-                message_1 = message_1_1;
             }],
         execute: function() {
             MyDemoApp = (function () {
@@ -66,19 +62,18 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
                     core_1.Component({
                         selector: 'demo-app',
                         templateUrl: './demo-app.html',
-                        directives: [router_1.ROUTER_DIRECTIVES]
+                        directives: [router_deprecated_1.ROUTER_DIRECTIVES]
                     }),
-                    router_1.RouteConfig([
-                        new router_1.Route({ path: '/', component: about_1.About, name: 'About', data: { project: 'angular-2-samples' } }),
-                        new router_1.Route({ path: '/demo/...', component: demo_page_1.DemoPage, name: 'Demo' }),
-                        new router_1.AuxRoute({ path: '/msg', component: message_1.Message, name: 'Msg' }),
-                        new router_1.AsyncRoute({
+                    router_deprecated_1.RouteConfig([
+                        new router_deprecated_1.Route({ path: '/', component: about_1.About, name: 'About', data: { project: 'angular-2-samples' } }),
+                        new router_deprecated_1.Route({ path: '/demo/...', component: demo_page_1.DemoPage, name: 'Demo' }),
+                        new router_deprecated_1.AsyncRoute({
                             path: '/lazy',
                             loader: function () { return ComponentHelper.LoadComponentAsync('LazyLoaded', './components/lazy-loaded/lazy-loaded'); },
                             name: 'Lazy'
                         })
                     ]), 
-                    __metadata('design:paramtypes', [router_1.Router, common_1.Location])
+                    __metadata('design:paramtypes', [router_deprecated_1.Router, common_1.Location])
                 ], MyDemoApp);
                 return MyDemoApp;
             }());
@@ -90,9 +85,9 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
                 };
                 return ComponentHelper;
             }());
-            browser_1.bootstrap(MyDemoApp, [address_book_title_service_1.AddressBookTitleService, router_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS,
+            platform_browser_dynamic_1.bootstrap(MyDemoApp, [address_book_title_service_1.AddressBookTitleService, router_deprecated_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS,
                 core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy })]);
         }
     }
 });
-//# sourceMappingURL=app.js.map
+//# sourceMappingURL=main.js.map

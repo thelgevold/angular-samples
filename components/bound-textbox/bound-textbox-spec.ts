@@ -1,5 +1,5 @@
-import {describe,expect,it,xit, inject, beforeEachProviders} from 'angular2/testing';
-import {TestComponentBuilder, ComponentFixture, async} from 'angular2/testing';
+import {describe,expect,it,xit, inject, beforeEachProviders} from '@angular/core/testing';
+import {TestComponentBuilder} from '@angular/compiler/testing';
 import {BoundTextbox} from './bound-textbox';
 
 export function main() {

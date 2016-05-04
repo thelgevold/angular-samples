@@ -1,4 +1,4 @@
-import {Component,Input, Output, EventEmitter, Attribute, OnInit, ElementRef} from 'angular2/core';
+import {Component,Input, Output, EventEmitter, Attribute, OnInit, ElementRef} from '@angular/core';
 
 @Component({
     template:`<h1>{{headline}}</h1>

@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/testing', 'rxjs/Rx', './log-demo', './log-action', './log-entry', './store', 'angular2/http', './log-tail-service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/core/testing', 'rxjs/Rx', './log-demo', './log-action', './log-entry', './store', '@angular/http', './log-tail-service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var core_1, testing_1, Rx_1, log_demo_1, log_action_1, log_entry_1, store_1, http_1, log_tail_service_1;

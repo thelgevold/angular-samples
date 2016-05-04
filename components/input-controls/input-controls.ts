@@ -1,9 +1,9 @@
-import {Component} from 'angular2/core';
-import {FORM_DIRECTIVES} from 'angular2/common';
+import {Component} from '@angular/core';
+import {FORM_DIRECTIVES} from '@angular/common';
 import {
     ComponentInstruction,
     CanReuse
-} from 'angular2/router';
+} from '@angular/router-deprecated';
 
 @Component({
     selector: 'input-controls',

@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 
 @Component({
     template:`<div class="alert alert-success" role="alert"><h1>Testing Aux Routes</h1>

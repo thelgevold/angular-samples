@@ -1,5 +1,5 @@
-import {Component} from 'angular2/core';
-import {Injectable} from 'angular2/core'
+import {Component} from '@angular/core';
+import {Injectable} from '@angular/core'
 import {AddressBookService} from './address-book-service';
 import {AddressBookTitleService} from './address-book-title-service';
 

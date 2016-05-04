@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {CommentSection1} from './comment-section-1';
 import {CommentSection2} from './comment-section-2';
 

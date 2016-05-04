@@ -1,4 +1,4 @@
-import {Component, AfterViewChecked, Input} from 'angular2/core';
+import {Component, AfterViewChecked, Input} from '@angular/core';
 import {SpreadsheetModel} from './spreadsheetModel';
 import {KeyMap} from './key-map';
 import {HeaderRowService} from './header-row-service';

@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {Producer} from './producer';
 import {Consumer} from './consumer';
 import {PubSubService} from './pub-sub-service';

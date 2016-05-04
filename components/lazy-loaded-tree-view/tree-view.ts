@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from 'angular2/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TreeNode} from './tree-node';
 import {Store} from './redux/store';
 import {TreeNodeService} from './tree-node-service';

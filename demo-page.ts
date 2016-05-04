@@ -1,5 +1,4 @@
-/// <reference path="./typings/tsd.d.ts" />
-import {Component} from 'angular2/core';
+import {Component} from '@angular/core';
 import {TreeViewDemo} from './components/tree-view/tree-view-demo';
 import {ContactList} from './components/contact-list/contact-list';
 import {BoundTextbox} from './components/bound-textbox/bound-textbox';
@@ -18,7 +17,7 @@ import {AddressForm} from './components/address-form/address-form';
 import {Graph} from './components/algorithms/graph/graph';
 import {PubSub} from './components/pub-sub/pub-sub';
 import {TextEditor} from './components/text-editor/text-editor';
-import {ROUTER_DIRECTIVES, RouteConfig, Route} from 'angular2/router';
+import {ROUTER_DIRECTIVES, RouteConfig, Route} from '@angular/router-deprecated';
 import {CommentDemo} from './components/change-detection/comment-demo';
 import {Parent} from './components/access-child-components/parent';
 import {SurveyDemo} from './components/survey/survey-demo';
@@ -29,9 +28,9 @@ import {RxJsStreams} from './components/rxjs-streams/rxjs-streams';
 import {CachingDemo} from './components/rxjs-caching/caching-demo';
 import {RxJsBuffering} from './components/rxjs-buffering/rxjs-buffering';
 
-import {ComponentInstruction} from 'angular2/router';
+import {ComponentInstruction} from '@angular/router-deprecated';
 
-import {Location} from 'angular2/platform/common';
+import {Location} from '@angular/common';
 
 @Component({
     selector: 'demo-page',

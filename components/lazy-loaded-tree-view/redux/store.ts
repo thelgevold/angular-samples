@@ -1,7 +1,7 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
-import {Http,Response} from 'angular2/http';
+import {Http,Response} from '@angular/http';
 import {TreeNode} from '../tree-node';
 import {treeNodeReducer} from './tree-node-reducer';
 

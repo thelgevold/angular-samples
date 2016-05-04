@@ -1,4 +1,4 @@
-System.register(['angular2/testing', './bound-textbox'], function(exports_1, context_1) {
+System.register(['@angular/core/testing', '@angular/compiler/testing', './bound-textbox'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var testing_1, testing_2, bound_textbox_1;
@@ -22,7 +22,9 @@ System.register(['angular2/testing', './bound-textbox'], function(exports_1, con
         setters:[
             function (testing_1_1) {
                 testing_1 = testing_1_1;
-                testing_2 = testing_1_1;
+            },
+            function (testing_2_1) {
+                testing_2 = testing_2_1;
             },
             function (bound_textbox_1_1) {
                 bound_textbox_1 = bound_textbox_1_1;

@@ -1,4 +1,4 @@
-import {describe,expect,it} from 'angular2/testing';
+import {describe,expect,it} from '@angular/core/testing';
 import {Child} from './event-emitter';
 
 export function main() {

@@ -1,5 +1,5 @@
-import {Component,Input, OnInit} from 'angular2/core';
-import {FormBuilder, Validators, ControlGroup, FORM_DIRECTIVES} from 'angular2/common';
+import {Component,Input, OnInit} from '@angular/core';
+import {FormBuilder, Validators, ControlGroup, FORM_DIRECTIVES} from '@angular/common';
 
 import {QuestionModel} from './question-model';
 import {TextboxQuestion} from './textbox-question';

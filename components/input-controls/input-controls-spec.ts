@@ -1,5 +1,5 @@
-import {describe,expect,it,xit, inject, beforeEachProviders} from 'angular2/testing';
-import {TestComponentBuilder, ComponentFixture} from 'angular2/testing';
+import {describe,expect,it,xit, inject, beforeEachProviders} from '@angular/core/testing';
+import {TestComponentBuilder} from '@angular/compiler/testing';
 import {InputControls} from './input-controls';
 
 export function main() {
