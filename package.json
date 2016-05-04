@@ -1,5 +1,8 @@
 {
   "name": "angular2-poc",
+  "engines": {
+    "node": "5.0.0"
+  },
   "scripts": {
     "test": "tsc && karma start",
     "tsc": "tsc",
