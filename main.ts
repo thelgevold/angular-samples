@@ -1,10 +1,3 @@
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/delay';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/observable/interval';
-import 'rxjs/add/observable/forkJoin';
-import 'rxjs/add/operator/publishReplay';
-
 import {HTTP_PROVIDERS} from '@angular/http';
 import {Component, provide} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
@@ -55,6 +48,7 @@ class MyDemoApp {
         }
     }
 }
+
 
 class ComponentHelper{
 

@@ -1,4 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
 System.register(['@angular/core', './lazy-message'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;

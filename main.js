@@ -1,4 +1,4 @@
-System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/operator/mergeMap', 'rxjs/add/observable/interval', 'rxjs/add/observable/forkJoin', 'rxjs/add/operator/publishReplay', '@angular/http', '@angular/core', '@angular/platform-browser-dynamic', './demo-page', './components/about/about', '@angular/router-deprecated', '@angular/common', './components/dependency-injection/address-book-title-service'], function(exports_1, context_1) {
+System.register(['@angular/http', '@angular/core', '@angular/platform-browser-dynamic', './demo-page', './components/about/about', '@angular/router-deprecated', '@angular/common', './components/dependency-injection/address-book-title-service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -14,12 +14,6 @@ System.register(['rxjs/add/operator/map', 'rxjs/add/operator/delay', 'rxjs/add/o
     var MyDemoApp, ComponentHelper;
     return {
         setters:[
-            function (_1) {},
-            function (_2) {},
-            function (_3) {},
-            function (_4) {},
-            function (_5) {},
-            function (_6) {},
             function (http_1_1) {
                 http_1 = http_1_1;
             },
