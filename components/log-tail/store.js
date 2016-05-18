@@ -19,6 +19,7 @@ System.register(['rxjs/Subject', './log-reducer'], function(exports_1, context_1
                     this.log = new Subject_1.Subject();
                     this.logItems = [];
                     this.dispatcher.subscribe(function (action) { return _this.handleAction(action); });
+                    this.logEntries = this.log.asObservable();
                 }
                 Store.prototype.handleAction = function (action) {
                     this.logItems = log_reducer_1.logReducer(this.logItems, action);

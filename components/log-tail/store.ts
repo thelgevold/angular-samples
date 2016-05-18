@@ -8,12 +8,13 @@ import {logReducer} from './log-reducer';
 export class Store{
 
     private dispatcher = new Subject<LogAction>();
-    log = new Subject<Array<LogEntry>>();
-
+    private log = new Subject<Array<LogEntry>>();
+    public logEntries;
     private logItems = [];
 
     constructor(){
         this.dispatcher.subscribe((action) => this.handleAction(action));
+        this.logEntries = this.log.asObservable();
     }
 
     private handleAction(action) {
