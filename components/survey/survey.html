@@ -4,8 +4,8 @@
             <div class="formHeading">{{question.text}}</div>
 
             <div [ngSwitch]="question.controlType">
-                <div *ngSwitchWhen="'textbox'"><input type="{{question.type}}" id="{{question.key}}" ngControl="{{question.key}}"></div>
-                <div *ngSwitchWhen="'dropdown'">
+                <div *ngSwitchCase="'textbox'"><input type="{{question.type}}" id="{{question.key}}" ngControl="{{question.key}}"></div>
+                <div *ngSwitchCase="'dropdown'">
                     <select ngControl="{{question.key}}">
                         <option *ngFor="let o of question.options" [value]="o.key">{{o.value}}</option>
                     </select>
