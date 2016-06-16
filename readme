@@ -11,7 +11,11 @@ Here are the prerequisites for running the project:
 
 3-bower install
 
+4-gulp bundle
+
 Steps 1-3 will install the required tooling.
+
+Step 4 creates a javascript bundle that will be loaded when the site launches 
 
 The final step is to launch the site by starting the lite-server
 
