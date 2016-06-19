@@ -1,27 +1,23 @@
-import {Component, ElementRef, ViewContainerRef} from '@angular/core';
+import {Component, ElementRef, ViewContainerRef, ViewChild} from '@angular/core';
 import {EdgeService} from './edge-service';
 import {Coordinates} from './coordinates';
-
-declare var jQuery:any;
 
 @Component({
     selector: 'vertex',
     inputs:['value'],
-    template: '<div class="vertex" (click)="setCoordinates()"><span class="vertex-text">{{value}}</span></div>'
+    template: '<div #vertex class="vertex" (click)="setCoordinates()"><span class="vertex-text">{{value}}</span></div>'
 })
 
 export class Vertex {
 
-    elementRef: ElementRef;
+    @ViewChild('vertex') element: ElementRef;
     value:string;
 
-    constructor(elementRef:ElementRef, private edgeService:EdgeService, private vc: ViewContainerRef){
-        this.elementRef = elementRef;
-    }
+    constructor(private edgeService:EdgeService, private vc: ViewContainerRef){}
 
     setCoordinates(){
-        var element = jQuery(this.elementRef.nativeElement).find('.vertex');
-        let offset = element.offset();
-        this.edgeService.next(new Coordinates(offset.left, offset.top, this.vc));
+        let offsetLeft = this.element.nativeElement.offsetLeft;
+        let offsetTop = this.element.nativeElement.offsetTop;
+        this.edgeService.next(new Coordinates(offsetLeft, offsetTop, this.vc));
     }
 }

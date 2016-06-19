@@ -25,23 +25,26 @@ System.register(['@angular/core', './edge-service', './coordinates'], function(e
             }],
         execute: function() {
             Vertex = (function () {
-                function Vertex(elementRef, edgeService, vc) {
+                function Vertex(edgeService, vc) {
                     this.edgeService = edgeService;
                     this.vc = vc;
-                    this.elementRef = elementRef;
                 }
                 Vertex.prototype.setCoordinates = function () {
-                    var element = jQuery(this.elementRef.nativeElement).find('.vertex');
-                    var offset = element.offset();
-                    this.edgeService.next(new coordinates_1.Coordinates(offset.left, offset.top, this.vc));
+                    var offsetLeft = this.element.nativeElement.offsetLeft;
+                    var offsetTop = this.element.nativeElement.offsetTop;
+                    this.edgeService.next(new coordinates_1.Coordinates(offsetLeft, offsetTop, this.vc));
                 };
+                __decorate([
+                    core_1.ViewChild('vertex'), 
+                    __metadata('design:type', core_1.ElementRef)
+                ], Vertex.prototype, "element", void 0);
                 Vertex = __decorate([
                     core_1.Component({
                         selector: 'vertex',
                         inputs: ['value'],
-                        template: '<div class="vertex" (click)="setCoordinates()"><span class="vertex-text">{{value}}</span></div>'
+                        template: '<div #vertex class="vertex" (click)="setCoordinates()"><span class="vertex-text">{{value}}</span></div>'
                     }), 
-                    __metadata('design:paramtypes', [core_1.ElementRef, edge_service_1.EdgeService, core_1.ViewContainerRef])
+                    __metadata('design:paramtypes', [edge_service_1.EdgeService, core_1.ViewContainerRef])
                 ], Vertex);
                 return Vertex;
             }());
