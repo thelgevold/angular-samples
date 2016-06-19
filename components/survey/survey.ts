@@ -1,5 +1,5 @@
 import {Component,Input, OnInit} from '@angular/core';
-import {FormBuilder, Validators, ControlGroup, FORM_DIRECTIVES} from '@angular/common';
+import {FormGroup, Validators, FormControl, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
 
 import {QuestionModel} from './question-model';
 import {TextboxQuestion} from './textbox-question';
@@ -7,22 +7,17 @@ import {TextboxQuestion} from './textbox-question';
 @Component({
     selector:'survey',
     templateUrl:'./components/survey/survey.html',
-    providers: [FormBuilder]
+    directives:[REACTIVE_FORM_DIRECTIVES]
 })
 
 export class Survey implements OnInit{
 
     @Input() model : any;
-    form : ControlGroup;
-    fb: FormBuilder;
+    form : FormGroup;
     payLoad = null;
 
-    constructor(fb: FormBuilder) {
-        this.fb = fb;
-    }
-
     ngOnInit(){
-        this.form = this.fb.group(this.model.toGroup());
+        this.form = this.model.toGroup();
     }
 
     onSubmit() {

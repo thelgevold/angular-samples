@@ -37,6 +37,7 @@
     "@angular/platform-browser-dynamic": "2.0.0-rc.2",
     "@angular/router-deprecated": "2.0.0-rc.2",
     "@angular/upgrade": "2.0.0-rc.2",
+    "@angular/forms": "0.1.0",
     "es6-shim": "^0.35.0",
     "events": "^1.0.2",
     "fbjs": "^0.3.1",

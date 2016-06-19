@@ -10,14 +10,12 @@ function zipValidator(zip) {
 }
 
 import {Component} from '@angular/core';
-
-import {FormBuilder, Validators, ControlGroup, FORM_DIRECTIVES} from '@angular/common';
+import {FormGroup, Validators, FormControl, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
 
 @Component({
     selector: 'address-form',
-    directives:[FORM_DIRECTIVES],
-    templateUrl: './components/address-form/address-form.html',
-    providers: [FormBuilder]
+    directives:[REACTIVE_FORM_DIRECTIVES],
+    templateUrl: './components/address-form/address-form.html'
 })
 
 export class AddressForm {
@@ -25,14 +23,14 @@ export class AddressForm {
     form;
     payLoad = null;
 
-    constructor(fb: FormBuilder) {
+    constructor() {
+        let group:any = {};
+        group.firstName =  new FormControl('', Validators.required);
+        group.streetAddress = new FormControl('', Validators.required);
+        group.zip = new FormControl('', zipValidator);
+        group.type = new FormControl('home');
 
-        this.form = fb.group({
-            "firstName": ['', Validators.required],
-            "streetAddress": ['',Validators.required],
-            "zip": ['', Validators.compose([zipValidator])],
-            "type": ['home']
-        });
+        this.form = new FormGroup(group);
     }
 
     onSubmit() {

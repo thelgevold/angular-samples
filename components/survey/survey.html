@@ -1,12 +1,12 @@
 <div>
-    <form (ngSubmit)="onSubmit()" [ngFormModel]="form" #f="ngForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form" #f="ngForm">
         <div *ngFor="let question of model.questions" class="form-row">
             <div class="formHeading">{{question.text}}</div>
 
             <div [ngSwitch]="question.controlType">
-                <div *ngSwitchCase="'textbox'"><input type="{{question.type}}" id="{{question.key}}" ngControl="{{question.key}}"></div>
+                <div *ngSwitchCase="'textbox'"><input type="{{question.type}}" id="{{question.key}}" [formControlName]="question.key"></div>
                 <div *ngSwitchCase="'dropdown'">
-                    <select ngControl="{{question.key}}">
+                    <select [formControlName]="question.key">
                         <option *ngFor="let o of question.options" [value]="o.key">{{o.value}}</option>
                     </select>
                 </div>

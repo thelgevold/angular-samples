@@ -1,4 +1,4 @@
-System.register(['@angular/http', '@angular/core', '@angular/platform-browser-dynamic', './demo-page', './components/about/about', '@angular/router-deprecated', '@angular/common', './components/dependency-injection/address-book-title-service'], function(exports_1, context_1) {
+System.register(['@angular/http', '@angular/core', '@angular/platform-browser-dynamic', '@angular/forms', './demo-page', './components/about/about', '@angular/router-deprecated', '@angular/common', './components/dependency-injection/address-book-title-service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/http', '@angular/core', '@angular/platform-browser-dy
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var http_1, core_1, platform_browser_dynamic_1, demo_page_1, about_1, router_deprecated_1, common_1, address_book_title_service_1;
+    var http_1, core_1, platform_browser_dynamic_1, forms_1, demo_page_1, about_1, router_deprecated_1, common_1, address_book_title_service_1;
     var MyDemoApp, ComponentHelper;
     return {
         setters:[
@@ -22,6 +22,9 @@ System.register(['@angular/http', '@angular/core', '@angular/platform-browser-dy
             },
             function (platform_browser_dynamic_1_1) {
                 platform_browser_dynamic_1 = platform_browser_dynamic_1_1;
+            },
+            function (forms_1_1) {
+                forms_1 = forms_1_1;
             },
             function (demo_page_1_1) {
                 demo_page_1 = demo_page_1_1;
@@ -79,7 +82,11 @@ System.register(['@angular/http', '@angular/core', '@angular/platform-browser-dy
                 };
                 return ComponentHelper;
             }());
-            platform_browser_dynamic_1.bootstrap(MyDemoApp, [address_book_title_service_1.AddressBookTitleService, router_deprecated_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS,
+            platform_browser_dynamic_1.bootstrap(MyDemoApp, [
+                address_book_title_service_1.AddressBookTitleService,
+                forms_1.disableDeprecatedForms(),
+                forms_1.provideForms(),
+                router_deprecated_1.ROUTER_PROVIDERS, http_1.HTTP_PROVIDERS,
                 core_1.provide(common_1.LocationStrategy, { useClass: common_1.HashLocationStrategy })]);
         }
     }

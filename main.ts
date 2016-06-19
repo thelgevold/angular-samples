@@ -1,6 +1,7 @@
 import {HTTP_PROVIDERS} from '@angular/http';
 import {Component, provide} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
+import {provideForms, disableDeprecatedForms} from '@angular/forms';
 
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
@@ -57,5 +58,9 @@ class ComponentHelper{
     }
 }
 
-bootstrap(MyDemoApp,[AddressBookTitleService,ROUTER_PROVIDERS, HTTP_PROVIDERS,
+bootstrap(MyDemoApp,[
+          AddressBookTitleService,
+          disableDeprecatedForms(),
+          provideForms(),
+          ROUTER_PROVIDERS, HTTP_PROVIDERS,
           provide(LocationStrategy, {useClass: HashLocationStrategy})]);

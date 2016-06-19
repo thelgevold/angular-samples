@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,24 +10,23 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1;
+    var core_1, forms_1;
     var Survey;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (common_1_1) {
-                common_1 = common_1_1;
+            function (forms_1_1) {
+                forms_1 = forms_1_1;
             }],
         execute: function() {
             Survey = (function () {
-                function Survey(fb) {
+                function Survey() {
                     this.payLoad = null;
-                    this.fb = fb;
                 }
                 Survey.prototype.ngOnInit = function () {
-                    this.form = this.fb.group(this.model.toGroup());
+                    this.form = this.model.toGroup();
                 };
                 Survey.prototype.onSubmit = function () {
                     this.payLoad = JSON.stringify(this.form.value);
@@ -40,9 +39,9 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
                     core_1.Component({
                         selector: 'survey',
                         templateUrl: './components/survey/survey.html',
-                        providers: [common_1.FormBuilder]
+                        directives: [forms_1.REACTIVE_FORM_DIRECTIVES]
                     }), 
-                    __metadata('design:paramtypes', [common_1.FormBuilder])
+                    __metadata('design:paramtypes', [])
                 ], Survey);
                 return Survey;
             }());

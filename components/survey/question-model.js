@@ -1,12 +1,12 @@
-System.register(['@angular/common'], function(exports_1, context_1) {
+System.register(['@angular/forms'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var common_1;
+    var forms_1;
     var QuestionModel;
     return {
         setters:[
-            function (common_1_1) {
-                common_1 = common_1_1;
+            function (forms_1_1) {
+                forms_1 = forms_1_1;
             }],
         execute: function() {
             QuestionModel = (function () {
@@ -16,12 +16,14 @@ System.register(['@angular/common'], function(exports_1, context_1) {
                 QuestionModel.prototype.toGroup = function () {
                     var group = {};
                     this.questions.forEach(function (question) {
-                        group[question.key] = [''];
                         if (question.required) {
-                            group[question.key].push(common_1.Validators.required);
+                            group[question.key] = new forms_1.FormControl('', forms_1.Validators.required);
+                        }
+                        else {
+                            group[question.key] = new forms_1.FormControl('');
                         }
                     });
-                    return group;
+                    return new forms_1.FormGroup(group);
                 };
                 return QuestionModel;
             }());

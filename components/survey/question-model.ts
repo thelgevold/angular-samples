@@ -1,18 +1,20 @@
-import {Validators} from '@angular/common';
+import {FormGroup, Validators, FormControl} from '@angular/forms';
 
 export class QuestionModel{
     questions = [];
 
     toGroup(){
-        let group = {};
+        let group:any = {};
 
         this.questions.forEach((question) => {
-            group[question.key] = [''];
             if(question.required){
-                group[question.key].push(Validators.required);
+                group[question.key] = new FormControl('', Validators.required);
+            }
+            else{
+                group[question.key] = new FormControl('');
             }
         });
 
-        return group;
+        return new FormGroup(group);
     }
 }

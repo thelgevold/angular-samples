@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/forms'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1;
+    var core_1, forms_1;
     var AddressForm;
     function zipValidator(zip) {
         var valid = /^\d{5}$/.test(zip.value);
@@ -24,19 +24,19 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (common_1_1) {
-                common_1 = common_1_1;
+            function (forms_1_1) {
+                forms_1 = forms_1_1;
             }],
         execute: function() {
             AddressForm = (function () {
-                function AddressForm(fb) {
+                function AddressForm() {
                     this.payLoad = null;
-                    this.form = fb.group({
-                        "firstName": ['', common_1.Validators.required],
-                        "streetAddress": ['', common_1.Validators.required],
-                        "zip": ['', common_1.Validators.compose([zipValidator])],
-                        "type": ['home']
-                    });
+                    var group = {};
+                    group.firstName = new forms_1.FormControl('', forms_1.Validators.required);
+                    group.streetAddress = new forms_1.FormControl('', forms_1.Validators.required);
+                    group.zip = new forms_1.FormControl('', zipValidator);
+                    group.type = new forms_1.FormControl('home');
+                    this.form = new forms_1.FormGroup(group);
                 }
                 AddressForm.prototype.onSubmit = function () {
                     this.payLoad = JSON.stringify(this.form.value);
@@ -44,11 +44,10 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
                 AddressForm = __decorate([
                     core_1.Component({
                         selector: 'address-form',
-                        directives: [common_1.FORM_DIRECTIVES],
-                        templateUrl: './components/address-form/address-form.html',
-                        providers: [common_1.FormBuilder]
+                        directives: [forms_1.REACTIVE_FORM_DIRECTIVES],
+                        templateUrl: './components/address-form/address-form.html'
                     }), 
-                    __metadata('design:paramtypes', [common_1.FormBuilder])
+                    __metadata('design:paramtypes', [])
                 ], AddressForm);
                 return AddressForm;
             }());
