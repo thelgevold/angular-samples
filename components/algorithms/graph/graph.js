@@ -28,19 +28,17 @@ System.register(['@angular/core', './edge', './vertex', './edge-service'], funct
             }],
         execute: function() {
             Graph = (function () {
-                function Graph(dynamicComponentLoader, edgeService) {
-                    this.dynamicComponentLoader = dynamicComponentLoader;
+                function Graph(componentResolver, edgeService) {
+                    this.componentResolver = componentResolver;
                     this.edgeService = edgeService;
                 }
                 Graph.prototype.ngOnInit = function () {
                     var _this = this;
                     this.edgeService.getCoordinates().subscribe(function (coordinates) {
-                        _this.dynamicComponentLoader
-                            .loadNextToLocation(edge_1.Edge, coordinates.first.viewContainer)
-                            .then(function (res) {
+                        _this.componentResolver.resolveComponent(edge_1.Edge).then(function (factory) {
+                            var res = coordinates.first.viewContainer.createComponent(factory);
                             res.instance.setCoordinates(coordinates.first, coordinates.second);
-                        })
-                            .catch(function (e) { return console.log(e); });
+                        });
                     });
                 };
                 Graph = __decorate([
@@ -50,7 +48,7 @@ System.register(['@angular/core', './edge', './vertex', './edge-service'], funct
                         templateUrl: './components/algorithms/graph/graph.html',
                         providers: [edge_service_1.EdgeService]
                     }), 
-                    __metadata('design:paramtypes', [core_1.DynamicComponentLoader, edge_service_1.EdgeService])
+                    __metadata('design:paramtypes', [core_1.ComponentResolver, edge_service_1.EdgeService])
                 ], Graph);
                 return Graph;
             }());
