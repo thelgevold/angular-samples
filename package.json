@@ -35,7 +35,7 @@
     "@angular/http": "2.0.0-rc.3",
     "@angular/platform-browser": "2.0.0-rc.3",
     "@angular/platform-browser-dynamic": "2.0.0-rc.3",
-    "@angular/router-deprecated": "2.0.0-rc.2",
+    "@angular/router": "3.0.0-alpha.7",
     "@angular/upgrade": "2.0.0-rc.3",
     "@angular/forms": "0.1.1",
     "es6-shim": "^0.35.0",

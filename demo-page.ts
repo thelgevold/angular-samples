@@ -1,34 +1,5 @@
 import {Component} from '@angular/core';
-import {TreeViewDemo} from './components/tree-view/tree-view-demo';
-import {ContactList} from './components/contact-list/contact-list';
-import {BoundTextbox} from './components/bound-textbox/bound-textbox';
-import {Directory} from './components/tree-view/directory';
-import {GridDemo} from './components/grid/grid-demo';
-import {Column} from './components/grid/column';
-import {IgnoreBindings} from './components/non-bindable/non-bindable';
-import {HttpSample} from './components/http/http';
-import {Spreadsheet} from './components/spreadsheet/spreadsheet';
-import {Algorithms} from './components/algorithms/algorithms';
-import {Angular2Host} from './components/react-integration/angular-2-host';
-import {JqueryIntegration} from './components/jquery-integration/jquery-integration';
-import {InputControls} from './components/input-controls/input-controls';
-import {AddressBook} from './components/dependency-injection/address-book';
-import {AddressForm} from './components/address-form/address-form';
-import {Graph} from './components/algorithms/graph/graph';
-import {PubSub} from './components/pub-sub/pub-sub';
-import {TextEditor} from './components/text-editor/text-editor';
-import {ROUTER_DIRECTIVES, RouteConfig, Route} from '@angular/router-deprecated';
-import {CommentDemo} from './components/change-detection/comment-demo';
-import {Parent} from './components/access-child-components/parent';
-import {SurveyDemo} from './components/survey/survey-demo';
-import {LogDemo} from './components/log-tail/log-demo';
-import {InputOutputDemo} from './components/input-output/input-output-demo';
-import {CountryDemo} from './components/lazy-loaded-tree-view/country-demo';
-import {RxJsStreams} from './components/rxjs-streams/rxjs-streams';
-import {CachingDemo} from './components/rxjs-caching/caching-demo';
-import {RxJsBuffering} from './components/rxjs-buffering/rxjs-buffering';
-
-import {ComponentInstruction} from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 
 import {Location} from '@angular/common';
 
@@ -38,35 +9,6 @@ import {Location} from '@angular/common';
     directives: [ROUTER_DIRECTIVES]
 })
 
-@RouteConfig([
-    new Route({ path: '/spreadsheet', component: Spreadsheet, name: 'Spreadsheet' }),
-    new Route({ path: '/jquery', component: JqueryIntegration, name: 'JqueryIntegration' }),
-    new Route({ path: '/react', component:Angular2Host, name: 'React'}),
-    new Route({ path: '/algorithms', component:Algorithms, name: 'Algorithms'}),
-    new Route({ path: '/graph', component:Graph, name: 'Graph'}),
-    new Route({ path: '/pub-sub', component:PubSub, name: 'PubSub'}),
-    new Route({ path: '/text-editor', component:TextEditor, name: 'TextEditor'}),
-    new Route({ path: '/address', component:AddressBook, name: 'AddressBook'}),
-    new Route({ path: '/http', component:HttpSample, name: 'Http'}),
-    new Route({ path: '/treeview', component:TreeViewDemo, name: 'TreeView'}),
-    new Route({ path: '/grid', component:GridDemo, name: 'Grid'}),
-    new Route({ path: '/input', component:InputControls, name: 'Input'}),
-    new Route({ path: '/contact', component:ContactList, name: 'Contact'}),
-    new Route({ path: '/textbox', component:BoundTextbox, name: 'Textbox'}),
-    new Route({ path: '/non-bindable', component:IgnoreBindings, name: 'IgnoreBindings'}),
-    new Route({ path: '/form', component:AddressForm, name: 'AddressForm'}),
-    new Route({ path: '/change', component:CommentDemo, name: 'Change'}),
-    new Route({ path: '/parent-child', component:Parent, name: 'Parent'}),
-    new Route({ path: '/survey', component:SurveyDemo, name: 'Survey'}),
-    new Route({ path: '/redux', component:LogDemo, name: 'Redux'}),
-    new Route({ path: '/iodemo', component:InputOutputDemo, name: 'InputOutput'}),
-    new Route({ path: '/rxjs', component:RxJsStreams, name: 'RxJsStreams'}),
-    new Route({ path: '/friends', component:CachingDemo, name: 'Friends'}),
-    new Route({ path: '/buffering', component:RxJsBuffering, name: 'Buffering'}),
-    new Route({ path: '/countries', component:CountryDemo, name: 'CountryDemo'})
-
-])
- 
 export class DemoPage {
 
     location:Location;

@@ -28,7 +28,6 @@ System.register(['@angular/core', '@angular/common'], function(exports_1, contex
                     this.csharp = false;
                     this.name = 'Two way bound';
                 }
-                InputControls.prototype.routerCanReuse = function (next, prev) { return false; };
                 InputControls = __decorate([
                     core_1.Component({
                         selector: 'input-controls',
