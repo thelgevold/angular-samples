@@ -1,11 +1,10 @@
 import{Clock} from '../clock.ts';
-
-import {Component} from 'angular2/web_worker/worker';
-import {bootstrapApp} from "angular2/platform/worker_app";
+import {Component} from '@angular/core';
+import {bootstrapApp} from '@angular/platform-browser';
 
 @Component({
     selector: 'new-york',
-    templateUrl: './clock.html'
+    templateUrl: '../clock.html'
 })
 
 export class NewYork extends Clock{
@@ -16,5 +15,5 @@ export class NewYork extends Clock{
     }
 }
 
-bootstrapApp(NewYork);
+bootstrapApp(NewYork, []).catch(err => console.error(err));
 

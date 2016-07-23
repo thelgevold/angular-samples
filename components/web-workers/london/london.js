@@ -1,4 +1,4 @@
-System.register(['../clock.ts', 'angular2/web_worker/worker', "angular2/platform/worker_app"], function(exports_1, context_1) {
+System.register(['../clock.ts', '@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __extends = (this && this.__extends) || function (d, b) {
@@ -15,18 +15,15 @@ System.register(['../clock.ts', 'angular2/web_worker/worker', "angular2/platform
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var clock_ts_1, worker_1, worker_app_1;
+    var clock_ts_1, core_1;
     var London;
     return {
         setters:[
             function (clock_ts_1_1) {
                 clock_ts_1 = clock_ts_1_1;
             },
-            function (worker_1_1) {
-                worker_1 = worker_1_1;
-            },
-            function (worker_app_1_1) {
-                worker_app_1 = worker_app_1_1;
+            function (core_1_1) {
+                core_1 = core_1_1;
             }],
         execute: function() {
             London = (function (_super) {
@@ -36,7 +33,7 @@ System.register(['../clock.ts', 'angular2/web_worker/worker', "angular2/platform
                     this.city = 'London';
                 }
                 London = __decorate([
-                    worker_1.Component({
+                    core_1.Component({
                         selector: 'london',
                         templateUrl: './clock.html'
                     }), 
@@ -45,7 +42,6 @@ System.register(['../clock.ts', 'angular2/web_worker/worker', "angular2/platform
                 return London;
             }(clock_ts_1.Clock));
             exports_1("London", London);
-            worker_app_1.bootstrapApp(London);
         }
     }
 });
