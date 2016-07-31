@@ -40,8 +40,11 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/platfor
                     broker.registerMethod("factorial", [platform_browser_1.PRIMITIVE], this.calculate, platform_browser_1.PRIMITIVE);
                 }
                 Worker.prototype.calculate = function (val) {
-                    var result = factorial(parseInt(val));
-                    return Promise.resolve(result);
+                    if (val) {
+                        var result = factorial(parseInt(val));
+                        return Promise.resolve(result);
+                    }
+                    return Promise.resolve('');
                 };
                 Worker = __decorate([
                     core_1.Component({

@@ -17,8 +17,11 @@ class Worker {
   }
 
   private calculate(val: string) {
-    let result = factorial(parseInt(val));
-    return Promise.resolve(result);
+    if(val) {
+      let result = factorial(parseInt(val));
+      return Promise.resolve(result);
+    }
+    return Promise.resolve('');
   }
 }
 
