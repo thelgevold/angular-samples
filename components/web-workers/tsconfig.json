@@ -2,13 +2,12 @@
   "compilerOptions": {
     "target": "ES5",
     "module": "system",
-    "jsx":"react",
     "moduleResolution":"node",
     "emitDecoratorMetadata":true,
     "experimentalDecorators":true,
     "sourceMap": true
   },
   "exclude": [
-    "node_modules", "components/web-workers"
+    "node_modules"
   ]
 }

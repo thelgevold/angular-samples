@@ -3,6 +3,7 @@ System.config({
         'rxjs': 'node_modules/rxjs',
         '@angular': 'node_modules/@angular',
         'app': './'
+
     },
     packages: {
         'app': {
@@ -51,5 +52,6 @@ System.config({
         'rxjs': {
             defaultExtension: 'js'
         }
+
     }
 })
