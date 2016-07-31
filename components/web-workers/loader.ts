@@ -7,4 +7,4 @@ importScripts(
   "config.js");
 
 
-System.import("./background.js");
+System.import("./web-worker-app.js");

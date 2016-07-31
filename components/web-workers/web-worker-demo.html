@@ -6,7 +6,9 @@
 
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <script src="https://code.angularjs.org/2.0.0-beta.17/angular2-polyfills.js"></script>
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.min.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.js"></script>
 
     <script src="config.js"></script>
@@ -33,16 +35,21 @@
             </div>
         </nav>
 
-        <div class="alert alert-info" role="alert">Each clock runs in a separate web worker</div>
+        <div class="alert alert-info" role="alert">The n-factorial calculation is done in a web worker</div>
         <div class="col-md-3">
-            <div class="panel panel-default">
+            <div>
                 <app>
-                    loading...
+                    loading web worker...
                 </app>
+                <input class="form-control" placeholder="specify n" type="number" id="factorial" />
+                <br/>
+                <button class="btn btn-primary" type="button" id="calculate_factorial">Calculate Factorial</button>
+                <br/><br/>
+                <div>The calculated factorial is:</div>
+                <div id="result"></div>
             </div>
 
         </div>
-
     </div>
 
 </body>
