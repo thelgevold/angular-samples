@@ -1,4 +1,4 @@
-System.register(['@angular/core', './edge', './vertex', './edge-service'], function(exports_1, context_1) {
+System.register(['@angular/core', './edge-service', './edge'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,21 +10,18 @@ System.register(['@angular/core', './edge', './vertex', './edge-service'], funct
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, edge_1, vertex_1, edge_service_1;
+    var core_1, edge_service_1, edge_1;
     var Graph;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (edge_1_1) {
-                edge_1 = edge_1_1;
-            },
-            function (vertex_1_1) {
-                vertex_1 = vertex_1_1;
-            },
             function (edge_service_1_1) {
                 edge_service_1 = edge_service_1_1;
+            },
+            function (edge_1_1) {
+                edge_1 = edge_1_1;
             }],
         execute: function() {
             Graph = (function () {
@@ -44,7 +41,6 @@ System.register(['@angular/core', './edge', './vertex', './edge-service'], funct
                 Graph = __decorate([
                     core_1.Component({
                         selector: 'graph',
-                        directives: [edge_1.Edge, vertex_1.Vertex],
                         templateUrl: './components/algorithms/graph/graph.html',
                         providers: [edge_service_1.EdgeService]
                     }), 

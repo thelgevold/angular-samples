@@ -44,7 +44,6 @@ System.register(['@angular/core', '@angular/forms'], function(exports_1, context
                 AddressForm = __decorate([
                     core_1.Component({
                         selector: 'address-form',
-                        directives: [forms_1.REACTIVE_FORM_DIRECTIVES],
                         templateUrl: './components/address-form/address-form.html'
                     }), 
                     __metadata('design:paramtypes', [])

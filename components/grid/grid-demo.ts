@@ -1,9 +1,7 @@
 import {Component} from '@angular/core';
-import {Grid} from './grid';
 import {Column} from './column';
 
 @Component({
-    directives:[Grid],
     template:'<grid name="person grid" [rows]="people" [columns]="columns"></grid>'
 })
 

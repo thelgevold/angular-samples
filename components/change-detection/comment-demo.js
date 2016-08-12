@@ -1,4 +1,4 @@
-System.register(['@angular/core', './comment-section-1', './comment-section-2'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,18 +10,12 @@ System.register(['@angular/core', './comment-section-1', './comment-section-2'],
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, comment_section_1_1, comment_section_2_1;
+    var core_1;
     var CommentDemo;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (comment_section_1_1_1) {
-                comment_section_1_1 = comment_section_1_1_1;
-            },
-            function (comment_section_2_1_1) {
-                comment_section_2_1 = comment_section_2_1_1;
             }],
         execute: function() {
             CommentDemo = (function () {
@@ -33,7 +27,6 @@ System.register(['@angular/core', './comment-section-1', './comment-section-2'],
                 };
                 CommentDemo = __decorate([
                     core_1.Component({
-                        directives: [comment_section_1_1.CommentSection1, comment_section_2_1.CommentSection2],
                         selector: 'comment-demo',
                         templateUrl: './components/change-detection/comment-demo.html'
                     }), 

@@ -1,4 +1,4 @@
-System.register(['@angular/core', './friends-list', './friends-service'], function(exports_1, context_1) {
+System.register(['@angular/core', './friends-service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['@angular/core', './friends-list', './friends-service'], functi
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, friends_list_1, friends_service_1;
+    var core_1, friends_service_1;
     var CachingDemo;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (friends_list_1_1) {
-                friends_list_1 = friends_list_1_1;
             },
             function (friends_service_1_1) {
                 friends_service_1 = friends_service_1_1;
@@ -41,8 +38,7 @@ System.register(['@angular/core', './friends-list', './friends-service'], functi
                 CachingDemo = __decorate([
                     core_1.Component({
                         providers: [friends_service_1.FriendsService],
-                        templateUrl: './components/rxjs-caching/caching-demo.html',
-                        directives: [friends_list_1.FriendsList]
+                        templateUrl: './components/rxjs-caching/caching-demo.html'
                     }), 
                     __metadata('design:paramtypes', [friends_service_1.FriendsService])
                 ], CachingDemo);

@@ -1,4 +1,4 @@
-System.register(['@angular/core', './grid', './column'], function(exports_1, context_1) {
+System.register(['@angular/core', './column'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['@angular/core', './grid', './column'], function(exports_1, con
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, grid_1, column_1;
+    var core_1, column_1;
     var GridDemo;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (grid_1_1) {
-                grid_1 = grid_1_1;
             },
             function (column_1_1) {
                 column_1 = column_1_1;
@@ -46,7 +43,6 @@ System.register(['@angular/core', './grid', './column'], function(exports_1, con
                 };
                 GridDemo = __decorate([
                     core_1.Component({
-                        directives: [grid_1.Grid],
                         template: '<grid name="person grid" [rows]="people" [columns]="columns"></grid>'
                     }), 
                     __metadata('design:paramtypes', [])

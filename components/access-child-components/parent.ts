@@ -3,7 +3,6 @@ import {Child} from './child';
 
 @Component({
     selector:'parent',
-    directives:[Child],
     template:`<div>
                 <button (click)="updateViewChildren()">Update Time via ViewChildren</button>
                 <child></child>

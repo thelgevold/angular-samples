@@ -10,11 +10,10 @@ function zipValidator(zip) {
 }
 
 import {Component} from '@angular/core';
-import {FormGroup, Validators, FormControl, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
+import {FormGroup, Validators, FormControl} from '@angular/forms';
 
 @Component({
     selector: 'address-form',
-    directives:[REACTIVE_FORM_DIRECTIVES],
     templateUrl: './components/address-form/address-form.html'
 })
 

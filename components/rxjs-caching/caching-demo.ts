@@ -1,11 +1,9 @@
 import {Component} from '@angular/core';
-import {FriendsList} from './friends-list';
 import {FriendsService} from './friends-service';
 
 @Component({
   providers:[FriendsService],
-  templateUrl:'./components/rxjs-caching/caching-demo.html',
-  directives:[FriendsList]
+  templateUrl:'./components/rxjs-caching/caching-demo.html'
 })
 export class CachingDemo{
   

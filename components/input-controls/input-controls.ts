@@ -1,6 +1,4 @@
 import {Component} from '@angular/core';
-import {FORM_DIRECTIVES} from '@angular/common';
-
 
 @Component({
     selector: 'input-controls',
@@ -64,8 +62,7 @@ import {FORM_DIRECTIVES} from '@angular/common';
                 </ul>
             </div>
 
-            <h4><a href="http://www.syntaxsuccess.com/viewarticle/input-controls-in-angular-2.0">Read more here</a></h4>`,
-    directives:[FORM_DIRECTIVES]
+            <h4><a href="http://www.syntaxsuccess.com/viewarticle/input-controls-in-angular-2.0">Read more here</a></h4>`
 })
 
 export class InputControls {

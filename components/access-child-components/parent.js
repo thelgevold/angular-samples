@@ -34,7 +34,6 @@ System.register(['@angular/core', './child'], function(exports_1, context_1) {
                 Parent = __decorate([
                     core_1.Component({
                         selector: 'parent',
-                        directives: [child_1.Child],
                         template: "<div>\n                <button (click)=\"updateViewChildren()\">Update Time via ViewChildren</button>\n                <child></child>\n                <child></child>\n              </div>"
                     }), 
                     __metadata('design:paramtypes', [])

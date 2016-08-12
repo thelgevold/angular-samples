@@ -13,6 +13,18 @@ import {AddressBookTitleService}        from './components/dependency-injection/
 import {TreeView} from './components/tree-view/tree-view';
 import {LazyTreeView} from './components/lazy-loaded-tree-view/tree-view';
 import {Survey} from './components/survey/survey';
+import {FriendsList} from './components/rxjs-caching/friends-list';
+import {Producer} from './components/pub-sub/producer';
+import {Consumer} from './components/pub-sub/consumer';
+import {InputOutput} from './components/input-output/input-output';
+import {Grid} from './components/grid/grid';
+import {CommentSection1} from './components/change-detection/comment-section-1';
+import {CommentSection2} from './components/change-detection/comment-section-2';
+import {Edge} from './components/algorithms/graph/edge';
+import {Vertex} from './components/algorithms/graph/vertex';
+import {InsertionSort} from './components/insertion-sort/insertion-sort';
+import {Child} from './components/access-child-components/child';
+
 
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
@@ -46,8 +58,10 @@ import {RxJsBuffering} from './components/rxjs-buffering/rxjs-buffering';
 
 @NgModule({
   imports: [ BrowserModule, ReactiveFormsModule, routing, FormsModule, HttpModule ],
-  declarations: [ AppComponent, TreeView, LazyTreeView, Survey, About, DemoPage,
+  declarations: [ AppComponent, FriendsList, Producer, Consumer,
+    TreeView, LazyTreeView, Survey, About, DemoPage, InputOutput,
     Spreadsheet, JqueryIntegration, Angular2Host, Algorithms, Graph, PubSub,
+    Grid, CommentSection1, CommentSection2, Edge, Vertex, InsertionSort, Child,
     TextEditor, AddressBook, HttpSample, TreeViewDemo, GridDemo, InputControls,
     ContactList, BoundTextbox, IgnoreBindings, AddressForm, CommentDemo, Parent,
     SurveyDemo, LogDemo, InputOutputDemo, RxJsStreams, CachingDemo, RxJsBuffering, CountryDemo

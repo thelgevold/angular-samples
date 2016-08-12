@@ -1,11 +1,9 @@
 import {Component, ComponentResolver, ViewChild, OnInit} from '@angular/core';
-import {Edge} from './edge';
-import {Vertex} from './vertex';
 import {EdgeService} from './edge-service';
+import {Edge} from './edge';
 
 @Component({
     selector: 'graph',
-    directives:[Edge,Vertex],
     templateUrl: './components/algorithms/graph/graph.html',
     providers:[EdgeService]
 })

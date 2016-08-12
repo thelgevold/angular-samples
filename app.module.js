@@ -1,4 +1,4 @@
-System.register(['@angular/platform-browser', '@angular/forms', '@angular/core', './app.component', './app.routes', '@angular/http', '@angular/common', './components/dependency-injection/address-book-title-service', './components/tree-view/tree-view', './components/lazy-loaded-tree-view/tree-view', './components/survey/survey', './demo-page', './components/about/about', './components/tree-view/tree-view-demo', './components/contact-list/contact-list', './components/bound-textbox/bound-textbox', './components/grid/grid-demo', './components/non-bindable/non-bindable', './components/http/http', './components/spreadsheet/spreadsheet', './components/algorithms/algorithms', './components/react-integration/angular-2-host', './components/jquery-integration/jquery-integration', './components/input-controls/input-controls', './components/dependency-injection/address-book', './components/address-form/address-form', './components/algorithms/graph/graph', './components/pub-sub/pub-sub', './components/text-editor/text-editor', './components/change-detection/comment-demo', './components/access-child-components/parent', './components/survey/survey-demo', './components/log-tail/log-demo', './components/input-output/input-output-demo', './components/lazy-loaded-tree-view/country-demo', './components/rxjs-streams/rxjs-streams', './components/rxjs-caching/caching-demo', './components/rxjs-buffering/rxjs-buffering'], function(exports_1, context_1) {
+System.register(['@angular/platform-browser', '@angular/forms', '@angular/core', './app.component', './app.routes', '@angular/http', '@angular/common', './components/dependency-injection/address-book-title-service', './components/tree-view/tree-view', './components/lazy-loaded-tree-view/tree-view', './components/survey/survey', './components/rxjs-caching/friends-list', './components/pub-sub/producer', './components/pub-sub/consumer', './components/input-output/input-output', './components/grid/grid', './components/change-detection/comment-section-1', './components/change-detection/comment-section-2', './components/algorithms/graph/edge', './components/algorithms/graph/vertex', './components/insertion-sort/insertion-sort', './components/access-child-components/child', './demo-page', './components/about/about', './components/tree-view/tree-view-demo', './components/contact-list/contact-list', './components/bound-textbox/bound-textbox', './components/grid/grid-demo', './components/non-bindable/non-bindable', './components/http/http', './components/spreadsheet/spreadsheet', './components/algorithms/algorithms', './components/react-integration/angular-2-host', './components/jquery-integration/jquery-integration', './components/input-controls/input-controls', './components/dependency-injection/address-book', './components/address-form/address-form', './components/algorithms/graph/graph', './components/pub-sub/pub-sub', './components/text-editor/text-editor', './components/change-detection/comment-demo', './components/access-child-components/parent', './components/survey/survey-demo', './components/log-tail/log-demo', './components/input-output/input-output-demo', './components/lazy-loaded-tree-view/country-demo', './components/rxjs-streams/rxjs-streams', './components/rxjs-caching/caching-demo', './components/rxjs-buffering/rxjs-buffering'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/platform-browser', '@angular/forms', '@angular/core',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var platform_browser_1, forms_1, core_1, forms_2, app_component_1, app_routes_1, http_1, common_1, address_book_title_service_1, tree_view_1, tree_view_2, survey_1, demo_page_1, about_1, tree_view_demo_1, contact_list_1, bound_textbox_1, grid_demo_1, non_bindable_1, http_2, spreadsheet_1, algorithms_1, angular_2_host_1, jquery_integration_1, input_controls_1, address_book_1, address_form_1, graph_1, pub_sub_1, text_editor_1, comment_demo_1, parent_1, survey_demo_1, log_demo_1, input_output_demo_1, country_demo_1, rxjs_streams_1, caching_demo_1, rxjs_buffering_1;
+    var platform_browser_1, forms_1, core_1, forms_2, app_component_1, app_routes_1, http_1, common_1, address_book_title_service_1, tree_view_1, tree_view_2, survey_1, friends_list_1, producer_1, consumer_1, input_output_1, grid_1, comment_section_1_1, comment_section_2_1, edge_1, vertex_1, insertion_sort_1, child_1, demo_page_1, about_1, tree_view_demo_1, contact_list_1, bound_textbox_1, grid_demo_1, non_bindable_1, http_2, spreadsheet_1, algorithms_1, angular_2_host_1, jquery_integration_1, input_controls_1, address_book_1, address_form_1, graph_1, pub_sub_1, text_editor_1, comment_demo_1, parent_1, survey_demo_1, log_demo_1, input_output_demo_1, country_demo_1, rxjs_streams_1, caching_demo_1, rxjs_buffering_1;
     var AppModule;
     return {
         setters:[
@@ -47,6 +47,39 @@ System.register(['@angular/platform-browser', '@angular/forms', '@angular/core',
             },
             function (survey_1_1) {
                 survey_1 = survey_1_1;
+            },
+            function (friends_list_1_1) {
+                friends_list_1 = friends_list_1_1;
+            },
+            function (producer_1_1) {
+                producer_1 = producer_1_1;
+            },
+            function (consumer_1_1) {
+                consumer_1 = consumer_1_1;
+            },
+            function (input_output_1_1) {
+                input_output_1 = input_output_1_1;
+            },
+            function (grid_1_1) {
+                grid_1 = grid_1_1;
+            },
+            function (comment_section_1_1_1) {
+                comment_section_1_1 = comment_section_1_1_1;
+            },
+            function (comment_section_2_1_1) {
+                comment_section_2_1 = comment_section_2_1_1;
+            },
+            function (edge_1_1) {
+                edge_1 = edge_1_1;
+            },
+            function (vertex_1_1) {
+                vertex_1 = vertex_1_1;
+            },
+            function (insertion_sort_1_1) {
+                insertion_sort_1 = insertion_sort_1_1;
+            },
+            function (child_1_1) {
+                child_1 = child_1_1;
             },
             function (demo_page_1_1) {
                 demo_page_1 = demo_page_1_1;
@@ -136,8 +169,10 @@ System.register(['@angular/platform-browser', '@angular/forms', '@angular/core',
                 AppModule = __decorate([
                     core_1.NgModule({
                         imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, app_routes_1.routing, forms_2.FormsModule, http_1.HttpModule],
-                        declarations: [app_component_1.AppComponent, tree_view_1.TreeView, tree_view_2.LazyTreeView, survey_1.Survey, about_1.About, demo_page_1.DemoPage,
+                        declarations: [app_component_1.AppComponent, friends_list_1.FriendsList, producer_1.Producer, consumer_1.Consumer,
+                            tree_view_1.TreeView, tree_view_2.LazyTreeView, survey_1.Survey, about_1.About, demo_page_1.DemoPage, input_output_1.InputOutput,
                             spreadsheet_1.Spreadsheet, jquery_integration_1.JqueryIntegration, angular_2_host_1.Angular2Host, algorithms_1.Algorithms, graph_1.Graph, pub_sub_1.PubSub,
+                            grid_1.Grid, comment_section_1_1.CommentSection1, comment_section_2_1.CommentSection2, edge_1.Edge, vertex_1.Vertex, insertion_sort_1.InsertionSort, child_1.Child,
                             text_editor_1.TextEditor, address_book_1.AddressBook, http_2.HttpSample, tree_view_demo_1.TreeViewDemo, grid_demo_1.GridDemo, input_controls_1.InputControls,
                             contact_list_1.ContactList, bound_textbox_1.BoundTextbox, non_bindable_1.IgnoreBindings, address_form_1.AddressForm, comment_demo_1.CommentDemo, parent_1.Parent,
                             survey_demo_1.SurveyDemo, log_demo_1.LogDemo, input_output_demo_1.InputOutputDemo, rxjs_streams_1.RxJsStreams, caching_demo_1.CachingDemo, rxjs_buffering_1.RxJsBuffering, country_demo_1.CountryDemo

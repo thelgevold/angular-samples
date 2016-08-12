@@ -1,4 +1,4 @@
-System.register(['@angular/core', './producer', './consumer', './pub-sub-service'], function(exports_1, context_1) {
+System.register(['@angular/core', './pub-sub-service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,18 +10,12 @@ System.register(['@angular/core', './producer', './consumer', './pub-sub-service
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, producer_1, consumer_1, pub_sub_service_1;
+    var core_1, pub_sub_service_1;
     var PubSub;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (producer_1_1) {
-                producer_1 = producer_1_1;
-            },
-            function (consumer_1_1) {
-                consumer_1 = consumer_1_1;
             },
             function (pub_sub_service_1_1) {
                 pub_sub_service_1 = pub_sub_service_1_1;
@@ -34,7 +28,6 @@ System.register(['@angular/core', './producer', './consumer', './pub-sub-service
                     core_1.Component({
                         selector: 'pub-sub',
                         templateUrl: './components/pub-sub/pub-sub.html',
-                        directives: [producer_1.Producer, consumer_1.Consumer],
                         providers: [pub_sub_service_1.PubSubService]
                     }), 
                     __metadata('design:paramtypes', [])

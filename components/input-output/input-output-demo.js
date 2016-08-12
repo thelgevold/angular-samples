@@ -1,4 +1,4 @@
-System.register(['@angular/core', './input-output'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['@angular/core', './input-output'], function(exports_1, context
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, input_output_1;
+    var core_1;
     var InputOutputDemo;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (input_output_1_1) {
-                input_output_1 = input_output_1_1;
             }],
         execute: function() {
             InputOutputDemo = (function () {
@@ -38,7 +35,6 @@ System.register(['@angular/core', './input-output'], function(exports_1, context
                 };
                 InputOutputDemo = __decorate([
                     core_1.Component({
-                        directives: [input_output_1.InputOutput],
                         template: "<button (click)=\"update()\">Update</button>\n              <input-output plain=\"just a simple attribute\"\n                            fixedValue=\"another hard coded value\"\n                            (stringChanged)=\"myStringChanged($event)\"\n                            [mySum]=\"runningTotal\"\n                            [counter]=\"count\"\n                            [headline]=\"myTitle\"\n                            [growingString]=\"myString\">\n              </input-output>"
                     }), 
                     __metadata('design:paramtypes', [])
