@@ -1,13 +1,12 @@
 import {Component,Input, OnInit} from '@angular/core';
-import {FormGroup, Validators, FormControl, REACTIVE_FORM_DIRECTIVES} from '@angular/forms';
+import {FormGroup} from '@angular/forms';
 
 import {QuestionModel} from './question-model';
 import {TextboxQuestion} from './textbox-question';
 
 @Component({
     selector:'survey',
-    templateUrl:'./components/survey/survey.html',
-    directives:[REACTIVE_FORM_DIRECTIVES]
+    templateUrl:'./components/survey/survey.html'
 })
 
 export class Survey implements OnInit{

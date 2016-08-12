@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,40 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var TreeView;
+    var core_1, common_1;
+    var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (common_1_1) {
+                common_1 = common_1_1;
             }],
         execute: function() {
-            TreeView = (function () {
-                function TreeView() {
+            AppComponent = (function () {
+                function AppComponent(location) {
+                    this.location = location;
                 }
-                __decorate([
-                    core_1.Input(), 
-                    __metadata('design:type', Array)
-                ], TreeView.prototype, "directories", void 0);
-                TreeView = __decorate([
+                AppComponent.prototype.getLinkStyle = function (path) {
+                    if (path === this.location.path()) {
+                        return true;
+                    }
+                    else if (path.length > 0) {
+                        return this.location.path().indexOf(path) > -1;
+                    }
+                };
+                AppComponent = __decorate([
                     core_1.Component({
-                        selector: 'tree-view',
-                        templateUrl: './components/tree-view/tree-view.html'
+                        selector: 'demo-app',
+                        templateUrl: './demo-app.html'
                     }), 
-                    __metadata('design:paramtypes', [])
-                ], TreeView);
-                return TreeView;
+                    __metadata('design:paramtypes', [common_1.Location])
+                ], AppComponent);
+                return AppComponent;
             }());
-            exports_1("TreeView", TreeView);
+            exports_1("AppComponent", AppComponent);
         }
     }
 });
-//# sourceMappingURL=tree-view.js.map
+//# sourceMappingURL=app.component.js.map

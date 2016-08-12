@@ -1,5 +1,9 @@
-import {provide} from '@angular/core';
-import {describe,expect,it,xit, inject, beforeEachProviders} from '@angular/core/testing';
+import {
+  async,
+  inject,
+  TestBed,
+  ComponentFixture
+} from '@angular/core/testing';
 import {CustomerService} from '../service-with-dependencies/customer-service';
 import {ProductService} from '../service-with-dependencies/product-service';
 
@@ -13,10 +17,12 @@ export function main() {
 
     describe('CustomerService', () => {
 
-        beforeEachProviders(() => [
-            provide(ProductService,{useClass: ProductServiceMock}),
-            CustomerService
-        ]);
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                providers: [{provide:ProductService, useClass: ProductServiceMock}]
+            });
+        });
+
 
         it('should get customer details', inject([CustomerService], (customerService) => {
             let customerDetails = customerService.printCustomerDetails(1);

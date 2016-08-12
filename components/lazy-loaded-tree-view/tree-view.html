@@ -5,7 +5,7 @@
     <span>{{ node.name }}</span>
 
     <div *ngIf="node.expanded">
-      <tree-view [root]="node"></tree-view>
+      <lazy-tree-view [root]="node"></lazy-tree-view>
     </div>
   </li>
 </ul>

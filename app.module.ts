@@ -1,8 +1,21 @@
-import { Routes, RouterModule }   from '@angular/router';
+import { BrowserModule }                from '@angular/platform-browser';
+import { ReactiveFormsModule }          from '@angular/forms';
+import { NgModule }                     from '@angular/core';
+import { FormsModule }                  from '@angular/forms';
+
+import { AppComponent }                 from './app.component';
+import { routing }                       from './app.routes';
+import { HttpModule }                   from '@angular/http';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
+import {AddressBookTitleService}        from './components/dependency-injection/address-book-title-service';
+
+import {TreeView} from './components/tree-view/tree-view';
+import {LazyTreeView} from './components/lazy-loaded-tree-view/tree-view';
+import {Survey} from './components/survey/survey';
 
 import {DemoPage} from './demo-page';
 import {About} from './components/about/about';
-
 import {TreeViewDemo} from './components/tree-view/tree-view-demo';
 import {ContactList} from './components/contact-list/contact-list';
 import {BoundTextbox} from './components/bound-textbox/bound-textbox';
@@ -31,44 +44,19 @@ import {RxJsStreams} from './components/rxjs-streams/rxjs-streams';
 import {CachingDemo} from './components/rxjs-caching/caching-demo';
 import {RxJsBuffering} from './components/rxjs-buffering/rxjs-buffering';
 
-const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/about',
-    terminal: true
-  },
-  { path: 'about', component: About},
-  {
-    path: 'demo',
-    component: DemoPage,
-    children: [
-      { path: 'spreadsheet', component: Spreadsheet},
-      { path: 'jquery', component: JqueryIntegration},
-      { path: 'react', component:Angular2Host},
-      { path: 'algorithms', component:Algorithms},
-      { path: 'graph', component:Graph},
-      { path: 'pub-sub', component:PubSub},
-      { path: 'text-editor', component:TextEditor},
-      { path: 'address', component:AddressBook},
-      { path: 'http', component:HttpSample},
-      { path: 'treeview', component:TreeViewDemo},
-      { path: 'grid', component:GridDemo},
-      { path: 'input', component:InputControls},
-      { path: 'contact', component:ContactList},
-      { path: 'textbox', component:BoundTextbox},
-      { path: 'non-bindable', component:IgnoreBindings},
-      { path: 'form', component:AddressForm},
-      { path: 'change', component:CommentDemo},
-      { path: 'parent-child', component:Parent},
-      { path: 'survey', component:SurveyDemo},
-      { path: 'redux', component:LogDemo},
-      { path: 'iodemo', component:InputOutputDemo},
-      { path: 'rxjs', component:RxJsStreams},
-      { path: 'friends', component:CachingDemo},
-      { path: 'buffering', component:RxJsBuffering},
-      { path: 'countries', component:CountryDemo}
-    ]
-  }
-];
-
-export const routing = RouterModule.forRoot(routes);
+@NgModule({
+  imports: [ BrowserModule, ReactiveFormsModule, routing, FormsModule, HttpModule ],
+  declarations: [ AppComponent, TreeView, LazyTreeView, Survey, About, DemoPage,
+    Spreadsheet, JqueryIntegration, Angular2Host, Algorithms, Graph, PubSub,
+    TextEditor, AddressBook, HttpSample, TreeViewDemo, GridDemo, InputControls,
+    ContactList, BoundTextbox, IgnoreBindings, AddressForm, CommentDemo, Parent,
+    SurveyDemo, LogDemo, InputOutputDemo, RxJsStreams, CachingDemo, RxJsBuffering, CountryDemo
+  ],
+  providers: [
+    AddressBookTitleService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
+  ],
+  bootstrap: [ AppComponent ]
+})
+export class AppModule {
+}

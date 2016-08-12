@@ -26,8 +26,9 @@ Promise.all([
     var browser_adapter = modules[0];
     var providers = modules[1];
     var testing = modules[2];
-    testing.setBaseTestProviders(providers.TEST_BROWSER_PLATFORM_PROVIDERS,
-        providers.TEST_BROWSER_APPLICATION_PROVIDERS);
+
+    testing.TestBed.initTestEnvironment(testingBrowser.BrowserDynamicTestingModule,
+        testingBrowser.platformBrowserDynamicTesting());
 
     browser_adapter.BrowserDomAdapter.makeCurrent();
 }).then(function() {

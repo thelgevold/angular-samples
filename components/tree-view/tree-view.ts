@@ -3,8 +3,7 @@ import {Directory} from './directory';
 
 @Component({
     selector: 'tree-view',
-    templateUrl: './components/tree-view/tree-view.html',
-    directives: [TreeView]
+    templateUrl: './components/tree-view/tree-view.html'
 })
 
 export class TreeView {

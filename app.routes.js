@@ -2,7 +2,7 @@ System.register(['@angular/router', './demo-page', './components/about/about', '
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var router_1, demo_page_1, about_1, tree_view_demo_1, contact_list_1, bound_textbox_1, grid_demo_1, non_bindable_1, http_1, spreadsheet_1, algorithms_1, angular_2_host_1, jquery_integration_1, input_controls_1, address_book_1, address_form_1, graph_1, pub_sub_1, text_editor_1, comment_demo_1, parent_1, survey_demo_1, log_demo_1, input_output_demo_1, country_demo_1, rxjs_streams_1, caching_demo_1, rxjs_buffering_1;
-    var routes, APP_ROUTER_PROVIDERS;
+    var routes, routing;
     return {
         setters:[
             function (router_1_1) {
@@ -90,7 +90,7 @@ System.register(['@angular/router', './demo-page', './components/about/about', '
                 rxjs_buffering_1 = rxjs_buffering_1_1;
             }],
         execute: function() {
-            exports_1("routes", routes = [
+            routes = [
                 {
                     path: '',
                     redirectTo: '/about',
@@ -128,10 +128,8 @@ System.register(['@angular/router', './demo-page', './components/about/about', '
                         { path: 'countries', component: country_demo_1.CountryDemo }
                     ]
                 }
-            ]);
-            exports_1("APP_ROUTER_PROVIDERS", APP_ROUTER_PROVIDERS = [
-                router_1.provideRouter(routes)
-            ]);
+            ];
+            exports_1("routing", routing = router_1.RouterModule.forRoot(routes));
         }
     }
 });

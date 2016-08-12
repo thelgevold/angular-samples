@@ -5,11 +5,10 @@ import {TreeNodeService} from './tree-node-service';
 
 @Component({
   templateUrl:'./components/lazy-loaded-tree-view/tree-view.html',
-  selector:'tree-view',
-  directives:[TreeView]
+  selector:'lazy-tree-view'
 })
 
-export class TreeView implements OnInit{
+export class LazyTreeView implements OnInit{
 
   @Input() root:TreeNode;
   children:any;

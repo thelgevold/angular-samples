@@ -1,13 +1,15 @@
-import {describe,expect,it,xit, inject, beforeEachProviders} from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 import {DisplayName} from './display-name';
 
 export function main() {
 
     describe('DisplayName', () => {
 
-        beforeEachProviders(() => [
-            DisplayName
-        ]);
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                providers: [DisplayName]
+            });
+        });
 
         //Manually instantiate DisplayName
         it('should define full name', () => {

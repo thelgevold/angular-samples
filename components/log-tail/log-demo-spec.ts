@@ -1,5 +1,5 @@
 import {provide} from '@angular/core';
-import {describe,expect,it,xit, inject, beforeEachProviders} from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 import {Observable} from 'rxjs/Rx';
 
 import {LogDemo} from './log-demo';
@@ -15,19 +15,18 @@ export function main() {
 
     describe('LogDemo', () => {
 
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                providers: [LogDemo, Store, HTTP_PROVIDERS, {provide:LogTailService, useClass:LogTailServiceMock}]
+            });
+        });
+
         class LogTailServiceMock{
             getLogEntries(){
                 console.log('mock log returned');
                 return Observable.of(mockLogEntries);
             }
         }
-
-        beforeEachProviders(() => [
-            LogDemo,
-            Store,
-            HTTP_PROVIDERS,
-            provide(LogTailService,{useClass:LogTailServiceMock})
-        ]);
 
         it('should initialize', inject([LogDemo], (logDemo) => {
 

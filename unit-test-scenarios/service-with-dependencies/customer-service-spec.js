@@ -3,14 +3,15 @@ System.register(['@angular/core/testing', './customer-service', './product-servi
     var __moduleName = context_1 && context_1.id;
     var testing_1, customer_service_1, product_service_1;
     function main() {
-        testing_1.describe('CustomerService', function () {
-            testing_1.beforeEachProviders(function () { return [
-                product_service_1.ProductService,
-                customer_service_1.CustomerService
-            ]; });
-            testing_1.it('should get customer details', testing_1.inject([customer_service_1.CustomerService], function (customerService) {
+        describe('CustomerService', function () {
+            beforeEach(function () {
+                testing_1.TestBed.configureTestingModule({
+                    providers: [product_service_1.ProductService, customer_service_1.CustomerService]
+                });
+            });
+            it('should get customer details', testing_1.inject([customer_service_1.CustomerService], function (customerService) {
                 var customerDetails = customerService.printCustomerDetails(1);
-                testing_1.expect(customerDetails).toBe('Customer purchased: Milk,Soda,Bread');
+                expect(customerDetails).toBe('Customer purchased: Milk,Soda,Bread');
             }));
         });
     }

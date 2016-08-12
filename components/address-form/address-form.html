@@ -4,23 +4,23 @@
     Error messages per field and disabled save button until entire form is valid.
 </div>
 
-<form (ngSubmit)="onSubmit()" [formGroup]="form" #f="ngForm">
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
     <div class="form-row">
         <div class="formHeading">First Name</div>
         <input type="text" id="firstName" formControlName="firstName">
-        <div class="errorMessage" *ngIf="f.form.controls.firstName.touched && !f.form.controls.firstName.valid">First Name is required</div>
+        <div class="errorMessage" *ngIf="form.controls.firstName.touched && !form.controls.firstName.valid">First Name is required</div>
     </div>
 
     <div class="form-row">
         <div class="formHeading">Street Address</div>
         <input type="text" id="streetAddress" formControlName="streetAddress">
-        <div class="errorMessage" *ngIf="f.form.controls.streetAddress.touched && !f.form.controls.streetAddress.valid">Street Address is required</div>
+        <div class="errorMessage" *ngIf="form.controls.streetAddress.touched && !form.controls.streetAddress.valid">Street Address is required</div>
     </div>
 
     <div class="form-row">
         <div class="formHeading">Zip Code</div>
         <input type="text" id="zip" formControlName="zip">
-        <div class="errorMessage" *ngIf="f.form.controls.zip.touched && !f.form.controls.zip.valid">Zip code has to be 5 digits long</div>
+        <div class="errorMessage" *ngIf="form.controls.zip.touched && !form.controls.zip.valid">Zip code has to be 5 digits long</div>
     </div>
 
     <div class="form-row">
@@ -31,7 +31,7 @@
         </select>
     </div>
     <div class="form-row">
-        <button type="submit" [disabled]="!f.valid">Save</button>
+        <button type="submit" [disabled]="!form.valid">Save</button>
     </div>
 
 </form>

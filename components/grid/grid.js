@@ -33,12 +33,19 @@ System.register(['@angular/core', './sorter'], function(exports_1, context_1) {
                 };
                 __decorate([
                     core_1.Input(), 
+                    __metadata('design:type', Array)
+                ], Grid.prototype, "columns", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Array)
+                ], Grid.prototype, "rows", void 0);
+                __decorate([
+                    core_1.Input(), 
                     __metadata('design:type', String)
                 ], Grid.prototype, "name", void 0);
                 Grid = __decorate([
                     core_1.Component({
                         selector: 'grid',
-                        inputs: ['rows: rows', 'columns: columns'],
                         templateUrl: './components/grid/grid.html'
                     }), 
                     __metadata('design:paramtypes', [])

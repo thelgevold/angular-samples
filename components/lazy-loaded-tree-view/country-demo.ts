@@ -1,12 +1,10 @@
 import {Component} from '@angular/core';
-import {TreeView} from './tree-view';
 import {TreeNode} from './tree-node';
 import {Store} from './redux/store';
 import {TreeNodeService} from './tree-node-service';
 
 @Component({
-  template:`<tree-view [root]="node"></tree-view>`,
-  directives:[TreeView],
+  template:`<lazy-tree-view [root]="node"></lazy-tree-view>`,
   providers:[Store,TreeNodeService]
 })
 

@@ -1,4 +1,4 @@
-System.register(['@angular/core', './tree-view', './directory'], function(exports_1, context_1) {
+System.register(['@angular/core', './directory'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['@angular/core', './tree-view', './directory'], function(export
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, tree_view_1, directory_1;
+    var core_1, directory_1;
     var TreeViewDemo;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (tree_view_1_1) {
-                tree_view_1 = tree_view_1_1;
             },
             function (directory_1_1) {
                 directory_1 = directory_1_1;
@@ -38,8 +35,7 @@ System.register(['@angular/core', './tree-view', './directory'], function(export
                 TreeViewDemo = __decorate([
                     core_1.Component({
                         template: '<h1>Recursive TreeView</h1><tree-view [directories]="directories"></tree-view>' +
-                            '          <h4><a href="http://www.syntaxsuccess.com/viewarticle/recursive-treeview-in-angular-2.0">Read more here</a></h4>',
-                        directives: [tree_view_1.TreeView]
+                            '          <h4><a href="http://www.syntaxsuccess.com/viewarticle/recursive-treeview-in-angular-2.0">Read more here</a></h4>'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], TreeViewDemo);

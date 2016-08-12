@@ -1,5 +1,5 @@
 <div>
-    <form (ngSubmit)="onSubmit()" [formGroup]="form" #f="ngForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="form">
         <div *ngFor="let question of model.questions" class="form-row">
             <div class="formHeading">{{question.text}}</div>
 
@@ -12,11 +12,11 @@
                 </div>
             </div>
 
-            <div class="errorMessage" *ngIf="!f.form.controls[question.key].valid">*required</div>
+            <div class="errorMessage" *ngIf="!form.controls[question.key].valid">*required</div>
         </div>
 
         <div class="form-row">
-            <button type="submit" [disabled]="!f.form.valid">Save</button>
+            <button type="submit" [disabled]="!form.valid">Save</button>
         </div>
     </form>
 

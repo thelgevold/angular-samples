@@ -1,4 +1,4 @@
-System.register(['@angular/core', './tree-view', './tree-node', './redux/store', './tree-node-service'], function(exports_1, context_1) {
+System.register(['@angular/core', './tree-node', './redux/store', './tree-node-service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['@angular/core', './tree-view', './tree-node', './redux/store',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, tree_view_1, tree_node_1, store_1, tree_node_service_1;
+    var core_1, tree_node_1, store_1, tree_node_service_1;
     var CountryDemo;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (tree_view_1_1) {
-                tree_view_1 = tree_view_1_1;
             },
             function (tree_node_1_1) {
                 tree_node_1 = tree_node_1_1;
@@ -39,8 +36,7 @@ System.register(['@angular/core', './tree-view', './tree-node', './redux/store',
                 };
                 CountryDemo = __decorate([
                     core_1.Component({
-                        template: "<tree-view [root]=\"node\"></tree-view>",
-                        directives: [tree_view_1.TreeView],
+                        template: "<lazy-tree-view [root]=\"node\"></lazy-tree-view>",
                         providers: [store_1.Store, tree_node_service_1.TreeNodeService]
                     }), 
                     __metadata('design:paramtypes', [])

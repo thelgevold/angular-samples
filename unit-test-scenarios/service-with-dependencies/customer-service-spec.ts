@@ -1,4 +1,4 @@
-import {describe,expect,it,xit, inject, beforeEachProviders} from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 import {CustomerService} from './customer-service';
 import {ProductService} from './product-service';
 
@@ -6,10 +6,11 @@ export function main() {
 
     describe('CustomerService', () => {
 
-        beforeEachProviders(() => [
-            ProductService,
-            CustomerService
-        ]);
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                providers: [ProductService, CustomerService]
+            });
+        });
 
         it('should get customer details', inject([CustomerService], (customerService) => {
             let customerDetails = customerService.printCustomerDetails(1);

@@ -1,7 +1,7 @@
-System.register(['@angular/core', '@angular/core/testing', '../service-with-dependencies/customer-service', '../service-with-dependencies/product-service'], function(exports_1, context_1) {
+System.register(['@angular/core/testing', '../service-with-dependencies/customer-service', '../service-with-dependencies/product-service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var core_1, testing_1, customer_service_1, product_service_1;
+    var testing_1, customer_service_1, product_service_1;
     function main() {
         var ProductServiceMock = (function () {
             function ProductServiceMock() {
@@ -11,23 +11,21 @@ System.register(['@angular/core', '@angular/core/testing', '../service-with-depe
             };
             return ProductServiceMock;
         }());
-        testing_1.describe('CustomerService', function () {
-            testing_1.beforeEachProviders(function () { return [
-                core_1.provide(product_service_1.ProductService, { useClass: ProductServiceMock }),
-                customer_service_1.CustomerService
-            ]; });
-            testing_1.it('should get customer details', testing_1.inject([customer_service_1.CustomerService], function (customerService) {
+        describe('CustomerService', function () {
+            beforeEach(function () {
+                testing_1.TestBed.configureTestingModule({
+                    providers: [{ provide: product_service_1.ProductService, useClass: ProductServiceMock }]
+                });
+            });
+            it('should get customer details', testing_1.inject([customer_service_1.CustomerService], function (customerService) {
                 var customerDetails = customerService.printCustomerDetails(1);
-                testing_1.expect(customerDetails).toBe('Customer purchased: Hamburger,Fries');
+                expect(customerDetails).toBe('Customer purchased: Hamburger,Fries');
             }));
         });
     }
     exports_1("main", main);
     return {
         setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
             function (testing_1_1) {
                 testing_1 = testing_1_1;
             },
