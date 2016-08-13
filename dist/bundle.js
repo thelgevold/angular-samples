@@ -24348,7 +24348,7 @@ $__System.register('74', ['3', 'c9', 'af', 'c3'], function (exports_1, context_1
                     var _this = this;
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
-                    this.http.post('http://www.syntaxsuccess.com/poc-post/', JSON.stringify({ firstName: 'Joe', lastName: 'Smith' }), { headers: headers }).map(function (res) {
+                    this.http.post('http://www.syntaxsuccess.com/poc-post/', { firstName: 'Joe', lastName: 'Smith' }, { headers: headers }).map(function (res) {
                         return res.json();
                     }).subscribe(function (res) {
                         return _this.postResponse = res;
