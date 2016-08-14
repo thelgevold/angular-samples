@@ -1,7 +1,7 @@
 System.config({
     map: {
-        'rxjs': 'node_modules/rxjs',
-        '@angular': 'node_modules/@angular',
+        'rxjs': '../node_modules/rxjs',
+        '@angular': '../node_modules/@angular',
         'factorial': 'factorial'
 
     },

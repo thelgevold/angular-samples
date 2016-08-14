@@ -13,7 +13,7 @@ System.register(['@angular/platform-browser', "@angular/platform-browser-dynamic
             }],
         execute: function() {
             FACTORIAL_CHANNEL = "FACTORIAL";
-            platform_browser_dynamic_1.bootstrapWorkerUi("./loader.js")
+            platform_browser_dynamic_1.bootstrapWorkerUi("factorial/loader.js")
                 .then(function (ref) {
                 var brokerFactory = ref.injector.get(platform_browser_1.ClientMessageBrokerFactory);
                 var broker = brokerFactory.createMessageBroker(FACTORIAL_CHANNEL, false);

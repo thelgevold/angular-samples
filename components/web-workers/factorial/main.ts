@@ -4,7 +4,7 @@ import {bootstrapWorkerUi} from "@angular/platform-browser-dynamic";
 
 const FACTORIAL_CHANNEL = "FACTORIAL";
 
-bootstrapWorkerUi("./loader.js")
+bootstrapWorkerUi("factorial/loader.js")
   .then((ref: any) => {
     let brokerFactory: ClientMessageBrokerFactory = ref.injector.get(ClientMessageBrokerFactory);
     var broker = brokerFactory.createMessageBroker(FACTORIAL_CHANNEL, false);
