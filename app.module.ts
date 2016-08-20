@@ -66,6 +66,7 @@ import {RxJsBuffering} from './components/rxjs-buffering/rxjs-buffering';
     ContactList, BoundTextbox, IgnoreBindings, AddressForm, CommentDemo, Parent,
     SurveyDemo, LogDemo, InputOutputDemo, RxJsStreams, CachingDemo, RxJsBuffering, CountryDemo
   ],
+  entryComponents: [Edge],
   providers: [
     AddressBookTitleService,
     {provide: LocationStrategy, useClass: HashLocationStrategy}

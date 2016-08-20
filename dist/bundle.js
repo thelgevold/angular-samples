@@ -25244,17 +25244,16 @@ $__System.register('7c', ['3', '9d', 'd4'], function (exports_1, context_1) {
                 Graph.prototype.ngOnInit = function () {
                     var _this = this;
                     this.edgeService.getCoordinates().subscribe(function (coordinates) {
-                        _this.componentResolver.resolveComponent(edge_1.Edge).then(function (factory) {
-                            var res = coordinates.first.viewContainer.createComponent(factory);
-                            res.instance.setCoordinates(coordinates.first, coordinates.second);
-                        });
+                        var factory = _this.componentResolver.resolveComponentFactory(edge_1.Edge);
+                        var res = coordinates.first.viewContainer.createComponent(factory);
+                        res.instance.setCoordinates(coordinates.first, coordinates.second);
                     });
                 };
                 Graph = __decorate([core_1.Component({
                     selector: 'graph',
                     templateUrl: './components/algorithms/graph/graph.html',
                     providers: [edge_service_1.EdgeService]
-                }), __metadata('design:paramtypes', [core_1.ComponentResolver, edge_service_1.EdgeService])], Graph);
+                }), __metadata('design:paramtypes', [core_1.ComponentFactoryResolver, edge_service_1.EdgeService])], Graph);
                 return Graph;
             }();
             exports_1("Graph", Graph);
@@ -67054,6 +67053,7 @@ $__System.register('2f2', ['5', 'd3', '3', '69', '6b', 'c9', '6a', 'd2', '88', '
                 AppModule = __decorate([core_1.NgModule({
                     imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, app_routes_1.routing, forms_2.FormsModule, http_1.HttpModule],
                     declarations: [app_component_1.AppComponent, friends_list_1.FriendsList, producer_1.Producer, consumer_1.Consumer, tree_view_1.TreeView, tree_view_2.LazyTreeView, survey_1.Survey, about_1.About, demo_page_1.DemoPage, input_output_1.InputOutput, spreadsheet_1.Spreadsheet, jquery_integration_1.JqueryIntegration, angular_2_host_1.Angular2Host, algorithms_1.Algorithms, graph_1.Graph, pub_sub_1.PubSub, grid_1.Grid, comment_section_1_1.CommentSection1, comment_section_2_1.CommentSection2, edge_1.Edge, vertex_1.Vertex, insertion_sort_1.InsertionSort, child_1.Child, text_editor_1.TextEditor, address_book_1.AddressBook, http_2.HttpSample, tree_view_demo_1.TreeViewDemo, grid_demo_1.GridDemo, input_controls_1.InputControls, contact_list_1.ContactList, bound_textbox_1.BoundTextbox, non_bindable_1.IgnoreBindings, address_form_1.AddressForm, comment_demo_1.CommentDemo, parent_1.Parent, survey_demo_1.SurveyDemo, log_demo_1.LogDemo, input_output_demo_1.InputOutputDemo, rxjs_streams_1.RxJsStreams, caching_demo_1.CachingDemo, rxjs_buffering_1.RxJsBuffering, country_demo_1.CountryDemo],
+                    entryComponents: [edge_1.Edge],
                     providers: [address_book_title_service_1.AddressBookTitleService, { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }],
                     bootstrap: [app_component_1.AppComponent]
                 }), __metadata('design:paramtypes', [])], AppModule);

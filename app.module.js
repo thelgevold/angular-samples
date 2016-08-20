@@ -177,6 +177,7 @@ System.register(['@angular/platform-browser', '@angular/forms', '@angular/core',
                             contact_list_1.ContactList, bound_textbox_1.BoundTextbox, non_bindable_1.IgnoreBindings, address_form_1.AddressForm, comment_demo_1.CommentDemo, parent_1.Parent,
                             survey_demo_1.SurveyDemo, log_demo_1.LogDemo, input_output_demo_1.InputOutputDemo, rxjs_streams_1.RxJsStreams, caching_demo_1.CachingDemo, rxjs_buffering_1.RxJsBuffering, country_demo_1.CountryDemo
                         ],
+                        entryComponents: [edge_1.Edge],
                         providers: [
                             address_book_title_service_1.AddressBookTitleService,
                             { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }

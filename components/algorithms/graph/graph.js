@@ -32,10 +32,9 @@ System.register(['@angular/core', './edge-service', './edge'], function(exports_
                 Graph.prototype.ngOnInit = function () {
                     var _this = this;
                     this.edgeService.getCoordinates().subscribe(function (coordinates) {
-                        _this.componentResolver.resolveComponent(edge_1.Edge).then(function (factory) {
-                            var res = coordinates.first.viewContainer.createComponent(factory);
-                            res.instance.setCoordinates(coordinates.first, coordinates.second);
-                        });
+                        var factory = _this.componentResolver.resolveComponentFactory(edge_1.Edge);
+                        var res = coordinates.first.viewContainer.createComponent(factory);
+                        res.instance.setCoordinates(coordinates.first, coordinates.second);
                     });
                 };
                 Graph = __decorate([
@@ -44,7 +43,7 @@ System.register(['@angular/core', './edge-service', './edge'], function(exports_
                         templateUrl: './components/algorithms/graph/graph.html',
                         providers: [edge_service_1.EdgeService]
                     }), 
-                    __metadata('design:paramtypes', [core_1.ComponentResolver, edge_service_1.EdgeService])
+                    __metadata('design:paramtypes', [core_1.ComponentFactoryResolver, edge_service_1.EdgeService])
                 ], Graph);
                 return Graph;
             }());

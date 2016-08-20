@@ -1,4 +1,4 @@
-import {Component, ComponentResolver, ViewChild, OnInit} from '@angular/core';
+import {Component, ComponentFactoryResolver, ViewChild, OnInit} from '@angular/core';
 import {EdgeService} from './edge-service';
 import {Edge} from './edge';
 
@@ -10,14 +10,13 @@ import {Edge} from './edge';
 
 export class Graph implements OnInit {
 
-    constructor(private componentResolver: ComponentResolver, private edgeService:EdgeService){}
+    constructor(private componentResolver: ComponentFactoryResolver, private edgeService:EdgeService){}
 
     ngOnInit(){
         this.edgeService.getCoordinates().subscribe(coordinates => {
-            this.componentResolver.resolveComponent(Edge).then(factory => {
-                let res = coordinates.first.viewContainer.createComponent(factory);
-                res.instance.setCoordinates(coordinates.first, coordinates.second);
-            });
+            let factory = this.componentResolver.resolveComponentFactory(Edge);
+            let res = coordinates.first.viewContainer.createComponent(factory);
+            res.instance.setCoordinates(coordinates.first, coordinates.second);
         });
     }
 }
