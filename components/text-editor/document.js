@@ -12,6 +12,7 @@ System.register(['./character'], function(exports_1, context_1) {
             Document = (function () {
                 function Document() {
                     this.characters = [];
+                    this.firstSelectedCharacter = -1;
                     this.currentChar = new character_1.Character(-1);
                     this.characters.push(this.currentChar);
                     this.characters[0].isCurrent = true;
@@ -22,7 +23,11 @@ System.register(['./character'], function(exports_1, context_1) {
                         this.characters[index].isCurrent = false;
                     }
                 };
-                Document.prototype.clearSelection = function () {
+                Document.prototype.clearSelection = function (e) {
+                    this.firstSelectedCharacter = -1;
+                    if (e) {
+                        this.firstSelectedCharacter = this.characters.indexOf(e.character);
+                    }
                     this.characters.forEach(function (c) { return c.isSelected = false; });
                 };
                 Document.prototype.edit = function (character, index) {
@@ -61,7 +66,9 @@ System.register(['./character'], function(exports_1, context_1) {
                 };
                 Document.prototype.selectCharacter = function (character) {
                     var index = this.characters.indexOf(character);
-                    this.characters[index].isSelected = true;
+                    for (var i = this.firstSelectedCharacter; i <= index; i++) {
+                        this.characters[i].isSelected = true;
+                    }
                 };
                 Document.prototype.processInput = function (character, operation) {
                     if (operation === 'modify') {

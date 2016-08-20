@@ -62,7 +62,7 @@ System.register(['@angular/core', 'rxjs/Rx', './character', './document', './key
                         return { operation: 'modify', character: new character_1.Character(k.which), element: k };
                     });
                     this.mouseDown = Rx_1.Observable.fromEvent(this.editor, 'mousedown')
-                        .do(function (e) { return _this.currentDocument.clearSelection(); })
+                        .do(function (e) { return _this.currentDocument.clearSelection(_this.getCharacterFromElement(e, 'range')); })
                         .flatMap(function (m) { return Rx_1.Observable.fromEvent(_this.editor, 'mousemove'); })
                         .map(function (e) { return _this.getCharacterFromElement(e, 'range'); })
                         .filter(function (e) { return e !== null; })

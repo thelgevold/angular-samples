@@ -3,6 +3,7 @@ import {Character} from './character';
 export class Document{
     characters = [];
     currentChar;
+    firstSelectedCharacter = -1;
 
     constructor(){
         this.currentChar = new Character(-1);
@@ -17,7 +18,11 @@ export class Document{
         }
     }
 
-    clearSelection(){
+    clearSelection(e){
+        this.firstSelectedCharacter = -1;
+        if(e) {
+            this.firstSelectedCharacter = this.characters.indexOf(e.character);
+        }
         this.characters.forEach(c => c.isSelected = false);
     }
 
@@ -67,7 +72,9 @@ export class Document{
 
     selectCharacter(character){
         var index = this.characters.indexOf(character);
-        this.characters[index].isSelected = true;
+        for(var i = this.firstSelectedCharacter; i <= index; i++){
+            this.characters[i].isSelected = true;
+        }
     }
 
     processInput(character, operation){

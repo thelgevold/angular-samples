@@ -35861,6 +35861,7 @@ $__System.register('1d6', ['1d4'], function (exports_1, context_1) {
             Document = function () {
                 function Document() {
                     this.characters = [];
+                    this.firstSelectedCharacter = -1;
                     this.currentChar = new character_1.Character(-1);
                     this.characters.push(this.currentChar);
                     this.characters[0].isCurrent = true;
@@ -35871,7 +35872,11 @@ $__System.register('1d6', ['1d4'], function (exports_1, context_1) {
                         this.characters[index].isCurrent = false;
                     }
                 };
-                Document.prototype.clearSelection = function () {
+                Document.prototype.clearSelection = function (e) {
+                    this.firstSelectedCharacter = -1;
+                    if (e) {
+                        this.firstSelectedCharacter = this.characters.indexOf(e.character);
+                    }
                     this.characters.forEach(function (c) {
                         return c.isSelected = false;
                     });
@@ -35909,7 +35914,9 @@ $__System.register('1d6', ['1d4'], function (exports_1, context_1) {
                 };
                 Document.prototype.selectCharacter = function (character) {
                     var index = this.characters.indexOf(character);
-                    this.characters[index].isSelected = true;
+                    for (var i = this.firstSelectedCharacter; i <= index; i++) {
+                        this.characters[i].isSelected = true;
+                    }
                 };
                 Document.prototype.processInput = function (character, operation) {
                     if (operation === 'modify') {
@@ -36018,7 +36025,7 @@ $__System.register('7e', ['3', '1d1', '1d4', '1d6', '1d5'], function (exports_1,
                         return { operation: 'modify', character: new character_1.Character(k.which), element: k };
                     });
                     this.mouseDown = Rx_1.Observable.fromEvent(this.editor, 'mousedown').do(function (e) {
-                        return _this.currentDocument.clearSelection();
+                        return _this.currentDocument.clearSelection(_this.getCharacterFromElement(e, 'range'));
                     }).flatMap(function (m) {
                         return Rx_1.Observable.fromEvent(_this.editor, 'mousemove');
                     }).map(function (e) {
