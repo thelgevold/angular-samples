@@ -1,79 +1,57 @@
-System.register(['@angular/core', 'rxjs/Observable'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-        var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-    };
-    var __metadata = (this && this.__metadata) || function (k, v) {
-        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-    };
-    var core_1, Observable_1;
-    var RxJsStreams;
-    return {
-        setters:[
-            function (core_1_1) {
-                core_1 = core_1_1;
-            },
-            function (Observable_1_1) {
-                Observable_1 = Observable_1_1;
-            }],
-        execute: function() {
-            RxJsStreams = (function () {
-                function RxJsStreams() {
-                    this.concatStream = [];
-                    this.mergeStream = [];
-                    this.forkJoinStream = [];
-                    this.flatMappedStreams = {};
-                }
-                RxJsStreams.prototype.flatMapStreams = function () {
-                    var _this = this;
-                    var first = Observable_1.Observable.of(10);
-                    first.flatMap(function (operand1) {
-                        return Observable_1.Observable.of(operand1 + 10);
-                    })
-                        .subscribe(function (res) { return _this.flatMappedStreams = { msg: '10 + 10 = ' + res }; });
-                };
-                RxJsStreams.prototype.concatStreams = function () {
-                    var _this = this;
-                    var first = Observable_1.Observable.timer(10, 500).map(function (r) {
-                        return { source: 1, value: r };
-                    }).take(4);
-                    var second = Observable_1.Observable.timer(10, 500).map(function (r) {
-                        return { source: 2, value: r };
-                    }).take(4);
-                    first.concat(second).subscribe(function (res) { return _this.concatStream.push(res); });
-                };
-                RxJsStreams.prototype.mergeStreams = function () {
-                    var _this = this;
-                    var first = Observable_1.Observable.timer(10, 500).map(function (r) {
-                        return { source: 1, value: r };
-                    }).take(4);
-                    var second = Observable_1.Observable.timer(10, 500).map(function (r) {
-                        return { source: 2, value: r };
-                    }).take(4);
-                    first.merge(second).subscribe(function (res) { return _this.mergeStream.push(res); });
-                };
-                RxJsStreams.prototype.forkJoinStreams = function () {
-                    var _this = this;
-                    var first = Observable_1.Observable.of({ source: 1, value: 1 });
-                    var second = Observable_1.Observable.of({ source: 2, value: 1 });
-                    Observable_1.Observable.forkJoin(first, second)
-                        .subscribe(function (res) { return _this.forkJoinStream = res; });
-                };
-                RxJsStreams = __decorate([
-                    core_1.Component({
-                        selector: 'rxjs-streams',
-                        templateUrl: './components/rxjs-streams/rxjs-streams.html'
-                    }), 
-                    __metadata('design:paramtypes', [])
-                ], RxJsStreams);
-                return RxJsStreams;
-            }());
-            exports_1("RxJsStreams", RxJsStreams);
-        }
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+export let RxJsStreams = class RxJsStreams {
+    constructor() {
+        this.concatStream = [];
+        this.mergeStream = [];
+        this.forkJoinStream = [];
+        this.flatMappedStreams = {};
     }
-});
-//# sourceMappingURL=rxjs-streams.js.map
+    flatMapStreams() {
+        let first = Observable.of(10);
+        first.flatMap((operand1) => {
+            return Observable.of(operand1 + 10);
+        })
+            .subscribe(res => this.flatMappedStreams = { msg: '10 + 10 = ' + res });
+    }
+    concatStreams() {
+        let first = Observable.timer(10, 500).map(r => {
+            return { source: 1, value: r };
+        }).take(4);
+        let second = Observable.timer(10, 500).map(r => {
+            return { source: 2, value: r };
+        }).take(4);
+        first.concat(second).subscribe(res => this.concatStream.push(res));
+    }
+    mergeStreams() {
+        let first = Observable.timer(10, 500).map(r => {
+            return { source: 1, value: r };
+        }).take(4);
+        let second = Observable.timer(10, 500).map(r => {
+            return { source: 2, value: r };
+        }).take(4);
+        first.merge(second).subscribe(res => this.mergeStream.push(res));
+    }
+    forkJoinStreams() {
+        let first = Observable.of({ source: 1, value: 1 });
+        let second = Observable.of({ source: 2, value: 1 });
+        Observable.forkJoin(first, second)
+            .subscribe((res) => this.forkJoinStream = res);
+    }
+};
+RxJsStreams = __decorate([
+    Component({
+        selector: 'rxjs-streams',
+        templateUrl: './components/rxjs-streams/rxjs-streams.html'
+    }), 
+    __metadata('design:paramtypes', [])
+], RxJsStreams);

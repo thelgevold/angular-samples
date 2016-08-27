@@ -1,31 +1,15 @@
-System.register(['./comment'], function(exports_1, context_1) {
-    "use strict";
-    var __moduleName = context_1 && context_1.id;
-    var comment_1;
-    var BaseComment;
-    return {
-        setters:[
-            function (comment_1_1) {
-                comment_1 = comment_1_1;
-            }],
-        execute: function() {
-            BaseComment = (function () {
-                function BaseComment() {
-                    this.comments = [];
-                }
-                BaseComment.prototype.addComment = function () {
-                    var comment = new comment_1.Comment();
-                    comment.text = this.text;
-                    comment.author = this.author;
-                    this.comments.push(comment);
-                };
-                BaseComment.prototype.lastUpdated = function () {
-                    return Date().toString();
-                };
-                return BaseComment;
-            }());
-            exports_1("BaseComment", BaseComment);
-        }
+import { Comment } from './comment';
+export class BaseComment {
+    constructor() {
+        this.comments = [];
     }
-});
-//# sourceMappingURL=base-comment.js.map
+    addComment() {
+        let comment = new Comment();
+        comment.text = this.text;
+        comment.author = this.author;
+        this.comments.push(comment);
+    }
+    lastUpdated() {
+        return Date().toString();
+    }
+}
