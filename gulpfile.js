@@ -8,9 +8,9 @@ gulp.task('bundle', function() {
         .then(function(){
             var outputFile = 'dist/bundle.js';
             return builder.buildStatic('app', outputFile, {
-                minify: false,
+                minify: true,
                 mangle: false,
-                rollup: false
+                rollup: true
             });
         })
         .then(function(){
