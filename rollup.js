@@ -15,11 +15,11 @@ const rollupNG2 = (config) => new RollupNG2(config);
 
 export default {
     entry: 'main.js',
-    dest: 'dist/bundle.es2015.js',
+    dest: 'dist/bundle.js',
     sourceMap: false,
     plugins: [
         rollupNG2(),
-        nodeResolve({jsnext: true, main: true})
+        nodeResolve({module: true})
     ]
 
 }

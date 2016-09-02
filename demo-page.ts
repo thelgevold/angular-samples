@@ -1,12 +1,10 @@
 import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router';
 
 import {Location} from '@angular/common';
 
 @Component({
     selector: 'demo-page',
-    templateUrl: './demo-page.html',
-    directives: [ROUTER_DIRECTIVES]
+    templateUrl: './demo-page.html'
 })
 
 export class DemoPage {

@@ -46,7 +46,10 @@ var TreeNode = React.createClass({
                 return React.createElement(TreeNode, {node: n, children: n.children});
             }
         });
-        return (React.createElement("li", null, React.createElement("span", {onClick: this.toggle}, this.props.node.getIcon()), React.createElement("span", null, this.props.node.text), React.createElement("ul", null, nodes)));
+        return (React.createElement("li", null, 
+            React.createElement("span", {onClick: this.toggle}, this.props.node.getIcon()), 
+            React.createElement("span", null, this.props.node.text), 
+            React.createElement("ul", null, nodes)));
     }
 });
 var TreeView = React.createClass({
@@ -67,7 +70,9 @@ var TreeView = React.createClass({
         var nodes = countries.map(function (n) {
             return React.createElement(TreeNode, {node: n, children: n.children});
         });
-        return (React.createElement("div", null, React.createElement("h2", null, this.props.title), React.createElement("ul", null, nodes)));
+        return (React.createElement("div", null, 
+            React.createElement("h2", null, this.props.title), 
+            React.createElement("ul", null, nodes)));
     }
 });
 export class ReactTreeView {

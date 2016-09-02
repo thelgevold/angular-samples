@@ -1,4 +1,3 @@
-import {HTTP_PROVIDERS} from '@angular/http';
 import {Component} from '@angular/core';
 
 import {HashLocationStrategy, LocationStrategy, Location} from '@angular/common';

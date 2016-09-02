@@ -30,7 +30,7 @@ const routes = [
     {
         path: '',
         redirectTo: '/about',
-        terminal: true
+        pathMatch: 'full'
     },
     { path: 'about', component: About },
     {

@@ -8,7 +8,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Location } from '@angular/common';
 export let DemoPage = class DemoPage {
     constructor(location) {
@@ -21,8 +20,7 @@ export let DemoPage = class DemoPage {
 DemoPage = __decorate([
     Component({
         selector: 'demo-page',
-        templateUrl: './demo-page.html',
-        directives: [ROUTER_DIRECTIVES]
+        templateUrl: './demo-page.html'
     }), 
     __metadata('design:paramtypes', [Location])
 ], DemoPage);

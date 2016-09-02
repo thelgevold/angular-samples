@@ -11,11 +11,15 @@ Here are the prerequisites for running the project:
 
 3-bower install
 
-4-gulp bundle (repeat this step if you are making code changes)
+4-npm run run bundle (create a single bundle file using rollup with tree shaking)
+
+5-npm run es5 (convert bundle to es5)
+
+6-npm run minify (minfy and mangle bundle)
 
 Steps 1-3 will install the required tooling.
 
-Step 4 creates a javascript bundle that will be loaded when the site launches 
+Step 4-6 creates a javascript bundle that will be loaded when the site launches
 
 The final step is to launch the site by starting the lite-server
 

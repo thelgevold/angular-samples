@@ -10,6 +10,6 @@
     "allowJs": true
   },
   "files": [
-    "bundle.es2015.js"
+    "bundle.js"
   ]
 }

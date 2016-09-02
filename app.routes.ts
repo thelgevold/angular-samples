@@ -35,7 +35,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/about',
-    terminal: true
+    pathMatch: 'full'
   },
   { path: 'about', component: About},
   {
