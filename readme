@@ -5,12 +5,13 @@ Documentation: http://www.syntaxsuccess.com/angular-2-articles
 
 Here are the prerequisites for running the project:
 
-1-npm run install-application 
- -Installs all dependencies 
- -AOT compiles
- -Tree shakes 
- -Bundles app into single file
+1) npm run install-application 
+   
+   -Installs all dependencies 
+   -AOT compiles
+   -Tree shakes 
+   -Bundles app into single file
 
-2-npm run start
+2) npm run start
 
 
