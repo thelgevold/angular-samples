@@ -4,14 +4,14 @@ import {Observable} from 'rxjs/Observable';
 import {Subject } from 'rxjs/Subject';
 
 @Component({
-    templateUrl: './components/http/http.html'
+    templateUrl: './http.html'
 })
 
 export class HttpSample {
 
-    result: Object;
+    result: any;
     combined: any;
-    error: Object;
+    error: any;
     http: Http;
     contract: any;
     customer: any;

@@ -5,7 +5,7 @@ import {HeaderRowService} from './header-row-service';
 
 @Component({
     selector: 'spreadsheet',
-    templateUrl: './components/spreadsheet/spreadsheet.html'
+    templateUrl: './spreadsheet.html'
 })
 
 export class Spreadsheet implements AfterViewChecked{

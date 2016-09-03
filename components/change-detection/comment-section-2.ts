@@ -2,7 +2,7 @@ import {Component,ChangeDetectionStrategy} from '@angular/core';
 import {BaseComment} from './base-comment';
 
 @Component({
-    templateUrl:'./components/change-detection/change-detection.html',
+    templateUrl:'./change-detection.html',
     selector:'comment-section-2',
     changeDetection:ChangeDetectionStrategy.Default
 })

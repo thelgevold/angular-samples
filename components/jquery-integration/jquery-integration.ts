@@ -4,7 +4,7 @@ declare var jQuery:any;
 
 @Component({
     selector: 'jquery-integration',
-    templateUrl: './components/jquery-integration/jquery-integration.html'
+    templateUrl: './jquery-integration.html'
 })
 
 export class JqueryIntegration implements OnInit {

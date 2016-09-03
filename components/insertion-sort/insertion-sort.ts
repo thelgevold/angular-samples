@@ -4,7 +4,7 @@ import {Insertion} from '../../algorithms/insertion-sort';
 @Component({
     selector: 'insertion-sort',
     inputs: ['list: list'],
-    templateUrl: './components/insertion-sort/insertion-sort.html'
+    templateUrl: './insertion-sort.html'
 })
 
 export class InsertionSort {

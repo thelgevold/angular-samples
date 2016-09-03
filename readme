@@ -1,27 +1,13 @@
-These samples use Angular 2.0 rc-5
+These samples use Angular 2.0 rc-6
 
 Live DEMO here: http://www.syntaxsuccess.com/angular-2-samples
 Documentation: http://www.syntaxsuccess.com/angular-2-articles
 
 Here are the prerequisites for running the project:
 
-1-npm install -g typescript
+1-npm run install-application (installs all dependencies, AOT compiles, tree shakes and bundles app into single file)
 
-2-npm install
-
-3-bower install
-
-4-npm run run bundle (create a single bundle file using rollup with tree shaking)
-
-5-npm run es5 (convert bundle to es5)
-
-6-npm run minify (minfy and mangle bundle)
-
-Steps 1-3 will install the required tooling.
-
-Step 4-6 creates a javascript bundle that will be loaded when the site launches
-
-The final step is to launch the site by starting the lite-server
+2-npm run start
 
 npm run start
 

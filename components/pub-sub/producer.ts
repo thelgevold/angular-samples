@@ -4,7 +4,7 @@ import {Customer} from './customer';
 
 @Component({
     selector: 'producer',
-    templateUrl: './components/pub-sub/producer.html'
+    templateUrl: './producer.html'
 })
 
 export class Producer {

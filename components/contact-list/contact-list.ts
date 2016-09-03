@@ -3,7 +3,7 @@ import {Contact} from './contact';
 
 @Component({
     selector: 'contact-list',
-    templateUrl: './components/contact-list/contact-list.html'
+    templateUrl: './contact-list.html'
 })
 
 export class ContactList {

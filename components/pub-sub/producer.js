@@ -1,16 +1,7 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 import { Component, Input } from '@angular/core';
 import { PubSubService } from './pub-sub-service';
 import { Customer } from './customer';
-export let Producer = class Producer {
+export class Producer {
     constructor(pubSubService) {
         this.pubSubService = pubSubService;
         this.firstName = '';
@@ -22,19 +13,17 @@ export let Producer = class Producer {
         customer.lastName = this.lastName;
         this.pubSubService.Stream.emit(customer);
     }
+}
+Producer.decorators = [
+    { type: Component, args: [{
+                selector: 'producer',
+                templateUrl: './producer.html'
+            },] },
+];
+Producer.ctorParameters = [
+    { type: PubSubService, },
+];
+Producer.propDecorators = {
+    'firstName': [{ type: Input },],
+    'lastName': [{ type: Input },],
 };
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], Producer.prototype, "firstName", void 0);
-__decorate([
-    Input(), 
-    __metadata('design:type', Object)
-], Producer.prototype, "lastName", void 0);
-Producer = __decorate([
-    Component({
-        selector: 'producer',
-        templateUrl: './components/pub-sub/producer.html'
-    }), 
-    __metadata('design:paramtypes', [PubSubService])
-], Producer);

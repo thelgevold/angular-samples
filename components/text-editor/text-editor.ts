@@ -7,7 +7,7 @@ import {KeyMap} from './key-map';
 
 @Component({
     selector: 'editor',
-    templateUrl: './components/text-editor/text-editor.html'
+    templateUrl: './text-editor.html'
 })
 
 export class TextEditor implements OnInit {

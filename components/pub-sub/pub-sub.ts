@@ -3,7 +3,7 @@ import {PubSubService} from './pub-sub-service';
 
 @Component({
     selector: 'pub-sub',
-    templateUrl: './components/pub-sub/pub-sub.html',
+    templateUrl: './pub-sub.html',
     providers:[PubSubService]
 })
 

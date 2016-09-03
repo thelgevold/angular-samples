@@ -14,7 +14,7 @@ import {FormGroup, Validators, FormControl} from '@angular/forms';
 
 @Component({
     selector: 'address-form',
-    templateUrl: './components/address-form/address-form.html'
+    templateUrl: './address-form.html'
 })
 
 export class AddressForm {

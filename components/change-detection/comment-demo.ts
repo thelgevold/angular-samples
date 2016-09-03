@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
   selector:'comment-demo',
-  templateUrl:'./components/change-detection/comment-demo.html'
+  templateUrl:'./comment-demo.html'
 })
 
 export class CommentDemo{

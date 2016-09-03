@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+const babel = require('gulp-babel');
 
 gulp.task('bundle', function() {
     var SystemBuilder = require('systemjs-builder');
@@ -9,8 +10,8 @@ gulp.task('bundle', function() {
             var outputFile = 'dist/bundle.js';
             return builder.buildStatic('app', outputFile, {
                 minify: true,
-                mangle: false,
-                rollup: true
+                mangle: true,
+                rollup: false
             });
         })
         .then(function(){
@@ -18,3 +19,10 @@ gulp.task('bundle', function() {
         });
 });
 
+gulp.task('es5', function () {
+    return gulp.src('dist/temp.js')
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('dist'));
+});

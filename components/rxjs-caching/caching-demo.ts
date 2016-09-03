@@ -3,7 +3,7 @@ import {FriendsService} from './friends-service';
 
 @Component({
   providers:[FriendsService],
-  templateUrl:'./components/rxjs-caching/caching-demo.html'
+  templateUrl:'./caching-demo.html'
 })
 export class CachingDemo{
   

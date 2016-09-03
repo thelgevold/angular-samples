@@ -4,7 +4,7 @@ import {Edge} from './edge';
 
 @Component({
     selector: 'graph',
-    templateUrl: './components/algorithms/graph/graph.html',
+    templateUrl: './graph.html',
     providers:[EdgeService]
 })
 

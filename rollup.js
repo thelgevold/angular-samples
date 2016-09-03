@@ -13,13 +13,17 @@ class RollupNG2 {
 }
 const rollupNG2 = (config) => new RollupNG2(config);
 
+
 export default {
     entry: 'main.js',
-    dest: 'dist/bundle.js',
+    dest: 'dist/temp.js',
     sourceMap: false,
+    format: 'iife',
     plugins: [
         rollupNG2(),
-        nodeResolve({module: true})
+        nodeResolve({
+            jsnext: true
+        })
     ]
 
 }

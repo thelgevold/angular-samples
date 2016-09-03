@@ -3,14 +3,14 @@ import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector:'rxjs-streams',
-  templateUrl:'./components/rxjs-streams/rxjs-streams.html'
+  templateUrl:'./rxjs-streams.html'
 })
 export class RxJsStreams{
 
   concatStream = [];
   mergeStream = [];
   forkJoinStream = [];
-  flatMappedStreams = {};
+  flatMappedStreams:any = {};
 
   flatMapStreams(){
     let first = Observable.of(10);

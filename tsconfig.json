@@ -11,6 +11,12 @@
     "noImplicitAny": false
   },
   "files": [
+    "app.module.ts",
     "main.ts"
-  ]
+  ],
+
+  "angularCompilerOptions": {
+    "genDir": "./aot",
+    "debug": false
+  }
 }

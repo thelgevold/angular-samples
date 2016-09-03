@@ -4,7 +4,7 @@ import {Store} from './redux/store';
 import {TreeNodeService} from './tree-node-service';
 
 @Component({
-  templateUrl:'./components/lazy-loaded-tree-view/tree-view.html',
+  templateUrl:'./tree-view.html',
   selector:'lazy-tree-view'
 })
 

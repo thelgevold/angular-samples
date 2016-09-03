@@ -5,13 +5,13 @@ import {AddressBookTitleService} from './address-book-title-service';
 
 @Component({
     selector: 'address-book',
-    templateUrl: './components/dependency-injection/address-book.html',
+    templateUrl: './address-book.html',
     providers:[AddressBookService]
 })
 
 export class AddressBook {
 
-    result:Object;
+    result:any;
     title:String;
 
     constructor(addressBookService:AddressBookService,addressBookTitleService:AddressBookTitleService){

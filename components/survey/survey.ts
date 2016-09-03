@@ -6,7 +6,7 @@ import {TextboxQuestion} from './textbox-question';
 
 @Component({
     selector:'survey',
-    templateUrl:'./components/survey/survey.html'
+    templateUrl:'./survey.html'
 })
 
 export class Survey implements OnInit{
