@@ -22,7 +22,7 @@ export default {
     plugins: [
         rollupNG2(),
         nodeResolve({
-            jsnext: true
+            jsnext: true, module: true
         })
     ]
 
