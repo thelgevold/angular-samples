@@ -6,8 +6,8 @@
     "tsc:w": "tsc -w",
     "lite": "lite-server",
     "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ",
-    
-    "clean": "rm -rf aot && rm -rf dist && rm -rf node_modules && rm -rf bower_components",
+
+    "clean": "rm -rf aot && rm -rf dist",
     "aot": "node_modules/.bin/ngc -p .",
     "rollup": "./node_modules/.bin/rollup -c rollup.js",
     "minify": "./node_modules/.bin/uglifyjs dist/temp.js --compress --mangle --screw-ie8 > dist/bundle.js",
