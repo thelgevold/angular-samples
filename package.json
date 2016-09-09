@@ -53,7 +53,7 @@
     "@angular/platform-server": "^2.0.0-rc.6",
     "@angular/router": "3.0.0-rc.2",
     "@angular/upgrade": "2.0.0-rc.6",
-    "es6-shim": "^0.35.0",
+    "core-js": "^2.4.1",
     "events": "^1.0.2",
     "fbjs": "^0.3.1",
     "flux": "^2.1.1",
