@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/text-editor/text-editor';
@@ -13,11 +18,12 @@ import * as import13 from '@angular/common/src/directives/ng_class';
 import * as import14 from '@angular/core/src/change_detection/differs/keyvalue_differs';
 import * as import15 from '@angular/core/src/linker/element_ref';
 var renderType_TextEditor_Host = null;
-class _View_TextEditor_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_TextEditor_Host0, renderType_TextEditor_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_TextEditor_Host0 = (function (_super) {
+    __extends(_View_TextEditor_Host0, _super);
+    function _View_TextEditor_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_TextEditor_Host0, renderType_TextEditor_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_TextEditor_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('editor', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_TextEditor0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -26,36 +32,38 @@ class _View_TextEditor_Host0 extends import1.AppView {
         compView_0.create(this._TextEditor_0_4, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_TextEditor_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.TextEditor) && (0 === requestNodeIndex))) {
             return this._TextEditor_0_4;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_TextEditor_Host0.prototype.detectChangesInternal = function (throwOnChange) {
         if (((this.numberOfChecks === 0) && !throwOnChange)) {
             this._TextEditor_0_4.ngOnInit();
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_TextEditor_Host0;
+}(import1.AppView));
 function viewFactory_TextEditor_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_TextEditor_Host === null)) {
         (renderType_TextEditor_Host = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, [], {}));
     }
     return new _View_TextEditor_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const TextEditorNgFactory = new import9.ComponentFactory('editor', viewFactory_TextEditor_Host0, import3.TextEditor);
-const styles_TextEditor = [];
+export var TextEditorNgFactory = new import9.ComponentFactory('editor', viewFactory_TextEditor_Host0, import3.TextEditor);
+var styles_TextEditor = [];
 var renderType_TextEditor = null;
-class _View_TextEditor0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_TextEditor0, renderType_TextEditor, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_TextEditor0 = (function (_super) {
+    __extends(_View_TextEditor0, _super);
+    function _View_TextEditor0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_TextEditor0, renderType_TextEditor, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_TextEditor0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._text_0 = this.renderer.createText(parentRenderNode, '\n', null);
         this._el_1 = this.renderer.createElement(parentRenderNode, 'h1', null);
         this._text_2 = this.renderer.createText(this._el_1, 'Text editor based on Observables', null);
@@ -101,8 +109,8 @@ class _View_TextEditor0 extends import1.AppView {
             this._text_15
         ], [], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_TextEditor0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import11.TemplateRef) && (10 === requestNodeIndex))) {
             return this._TemplateRef_10_5;
         }
@@ -110,11 +118,11 @@ class _View_TextEditor0 extends import1.AppView {
             return this._NgFor_10_6;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_TextEditor0.prototype.detectChangesInternal = function (throwOnChange) {
         var changes = null;
         changes = null;
-        const currVal_0 = this.context.currentDocument.characters;
+        var currVal_0 = this.context.currentDocument.characters;
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this._NgFor_10_6.ngForOf = currVal_0;
             if ((changes === null)) {
@@ -131,23 +139,25 @@ class _View_TextEditor0 extends import1.AppView {
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_TextEditor0;
+}(import1.AppView));
 export function viewFactory_TextEditor0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_TextEditor === null)) {
         (renderType_TextEditor = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/text-editor/text-editor.html', 0, import8.ViewEncapsulation.None, styles_TextEditor, {}));
     }
     return new _View_TextEditor0(viewUtils, parentInjector, declarationEl);
 }
-class _View_TextEditor1 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_TextEditor1, renderType_TextEditor, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_TextEditor1 = (function (_super) {
+    __extends(_View_TextEditor1, _super);
+    function _View_TextEditor1(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_TextEditor1, renderType_TextEditor, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_TextEditor1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'span', null);
         this._NgClass_0_3 = new import13.NgClass(this.parent.parentInjector.get(import12.IterableDiffers), this.parent.parentInjector.get(import14.KeyValueDiffers), new import15.ElementRef(this._el_0), this.renderer);
         this._text_1 = this.renderer.createText(this._el_0, '', null);
-        this._map_0 = import4.pureProxy2((p0, p1) => {
+        this._map_0 = import4.pureProxy2(function (p0, p1) {
             return {
                 currentChar: p0,
                 selectedChar: p1
@@ -160,15 +170,15 @@ class _View_TextEditor1 extends import1.AppView {
             this._text_1
         ], [], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_TextEditor1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import13.NgClass) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 1)))) {
             return this._NgClass_0_3;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
-        const currVal_0 = this._map_0(this.context.$implicit.isCurrent, this.context.$implicit.isSelected);
+    };
+    _View_TextEditor1.prototype.detectChangesInternal = function (throwOnChange) {
+        var currVal_0 = this._map_0(this.context.$implicit.isCurrent, this.context.$implicit.isSelected);
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this._NgClass_0_3.ngClass = currVal_0;
             this._expr_0 = currVal_0;
@@ -177,14 +187,15 @@ class _View_TextEditor1 extends import1.AppView {
             this._NgClass_0_3.ngDoCheck();
         }
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_1 = import4.interpolate(1, '', this.context.$implicit.value, '');
+        var currVal_1 = import4.interpolate(1, '', this.context.$implicit.value, '');
         if (import4.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setText(this._text_1, currVal_1);
             this._expr_1 = currVal_1;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_TextEditor1;
+}(import1.AppView));
 function viewFactory_TextEditor1(viewUtils, parentInjector, declarationEl) {
     return new _View_TextEditor1(viewUtils, parentInjector, declarationEl);
 }

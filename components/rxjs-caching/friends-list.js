@@ -1,34 +1,31 @@
 import { Component } from '@angular/core';
 import { FriendsService } from './friends-service';
-export class FriendsList {
-    constructor(_friendsServce) {
+export var FriendsList = (function () {
+    function FriendsList(_friendsServce) {
         this._friendsServce = _friendsServce;
         this.friends = [];
     }
-    loadData() {
+    FriendsList.prototype.loadData = function () {
+        var _this = this;
         this.subscription = this._friendsServce
             .getFriends()
-            .subscribe(res => this.friends = res, error => console.log(error));
-    }
-    ngOnInit() {
+            .subscribe(function (res) { return _this.friends = res; }, function (error) { return console.log(error); });
+    };
+    FriendsList.prototype.ngOnInit = function () {
         this.loadData();
-    }
-    ngOnDestroy() {
+    };
+    FriendsList.prototype.ngOnDestroy = function () {
         this.subscription.unsubscribe();
         console.log('Destroyed');
-    }
-}
-FriendsList.decorators = [
-    { type: Component, args: [{
-                selector: 'friends-list',
-                template: `
-    <div *ngFor="let friend of friends">
-      {{friend}}
-    </div>
-    <button (click)="loadData()">Reload</button>
-  `
-            },] },
-];
-FriendsList.ctorParameters = [
-    { type: FriendsService, },
-];
+    };
+    FriendsList.decorators = [
+        { type: Component, args: [{
+                    selector: 'friends-list',
+                    template: "\n    <div *ngFor=\"let friend of friends\">\n      {{friend}}\n    </div>\n    <button (click)=\"loadData()\">Reload</button>\n  "
+                },] },
+    ];
+    FriendsList.ctorParameters = [
+        { type: FriendsService, },
+    ];
+    return FriendsList;
+}());

@@ -1,6 +1,7 @@
-export class Column {
-    constructor(name, descr) {
+export var Column = (function () {
+    function Column(name, descr) {
         this.name = name;
         this.descr = descr;
     }
-}
+    return Column;
+}());

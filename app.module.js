@@ -48,25 +48,28 @@ import { CountryDemo } from './components/lazy-loaded-tree-view/country-demo';
 import { RxJsStreams } from './components/rxjs-streams/rxjs-streams';
 import { CachingDemo } from './components/rxjs-caching/caching-demo';
 import { RxJsBuffering } from './components/rxjs-buffering/rxjs-buffering';
-export class AppModule {
-}
-AppModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [BrowserModule, ReactiveFormsModule, routing, FormsModule, HttpModule],
-                declarations: [AppComponent, FriendsList, Producer, Consumer,
-                    TreeView, LazyTreeView, Survey, About, DemoPage, InputOutput,
-                    Spreadsheet, JqueryIntegration, Angular2Host, Algorithms, Graph, PubSub,
-                    Grid, CommentSection1, CommentSection2, Edge, Vertex, InsertionSort, Child,
-                    TextEditor, AddressBook, HttpSample, TreeViewDemo, GridDemo, InputControls,
-                    ContactList, BoundTextbox, IgnoreBindings, AddressForm, CommentDemo, Parent,
-                    SurveyDemo, LogDemo, InputOutputDemo, RxJsStreams, CachingDemo, RxJsBuffering, CountryDemo
-                ],
-                entryComponents: [Edge],
-                providers: [
-                    AddressBookTitleService,
-                    { provide: LocationStrategy, useClass: HashLocationStrategy }
-                ],
-                bootstrap: [AppComponent]
-            },] },
-];
-AppModule.ctorParameters = [];
+export var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule.decorators = [
+        { type: NgModule, args: [{
+                    imports: [BrowserModule, ReactiveFormsModule, routing, FormsModule, HttpModule],
+                    declarations: [AppComponent, FriendsList, Producer, Consumer,
+                        TreeView, LazyTreeView, Survey, About, DemoPage, InputOutput,
+                        Spreadsheet, JqueryIntegration, Angular2Host, Algorithms, Graph, PubSub,
+                        Grid, CommentSection1, CommentSection2, Edge, Vertex, InsertionSort, Child,
+                        TextEditor, AddressBook, HttpSample, TreeViewDemo, GridDemo, InputControls,
+                        ContactList, BoundTextbox, IgnoreBindings, AddressForm, CommentDemo, Parent,
+                        SurveyDemo, LogDemo, InputOutputDemo, RxJsStreams, CachingDemo, RxJsBuffering, CountryDemo
+                    ],
+                    entryComponents: [Edge],
+                    providers: [
+                        AddressBookTitleService,
+                        { provide: LocationStrategy, useClass: HashLocationStrategy }
+                    ],
+                    bootstrap: [AppComponent]
+                },] },
+    ];
+    AppModule.ctorParameters = [];
+    return AppModule;
+}());

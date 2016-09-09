@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-export class Child {
-    setTime(time) {
-        this.time = time;
+export var Child = (function () {
+    function Child() {
     }
-}
-Child.decorators = [
-    { type: Component, args: [{
-                selector: 'child',
-                template: '<div>{{time}}</div>'
-            },] },
-];
-Child.ctorParameters = [];
+    Child.prototype.setTime = function (time) {
+        this.time = time;
+    };
+    Child.decorators = [
+        { type: Component, args: [{
+                    selector: 'child',
+                    template: '<div>{{time}}</div>'
+                },] },
+    ];
+    Child.ctorParameters = [];
+    return Child;
+}());

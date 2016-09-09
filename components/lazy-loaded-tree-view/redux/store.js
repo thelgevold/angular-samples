@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Http } from '@angular/http';
 import { treeNodeReducer } from './tree-node-reducer';
-export class Store {
-    constructor(_http) {
+export var Store = (function () {
+    function Store(_http) {
+        var _this = this;
         this._http = _http;
         this.dispatcher = new Subject();
         this.treeNodes = {};
         this.nodes = {};
-        this.dispatcher.subscribe((action) => this.handleAction(action));
+        this.dispatcher.subscribe(function (action) { return _this.handleAction(action); });
     }
-    handleAction(action) {
+    Store.prototype.handleAction = function (action) {
+        var _this = this;
         if (action.name === 'LOAD_NODES') {
             if (this.nodes[action.key]) {
                 this.treeNodes[action.key].next(this.nodes[action.key]);
@@ -18,27 +20,28 @@ export class Store {
             else {
                 this._http
                     .get(action.url)
-                    .map((res) => res.json())
-                    .subscribe(res => {
-                    this.nodes[action.key] = treeNodeReducer(res, action);
-                    this.treeNodes[action.key].next(this.nodes[action.key]);
+                    .map(function (res) { return res.json(); })
+                    .subscribe(function (res) {
+                    _this.nodes[action.key] = treeNodeReducer(res, action);
+                    _this.treeNodes[action.key].next(_this.nodes[action.key]);
                 });
             }
         }
-    }
-    getTreeNodes(key) {
+    };
+    Store.prototype.getTreeNodes = function (key) {
         if (!this.treeNodes.hasOwnProperty(key)) {
             this.treeNodes[key] = new Subject();
         }
         return this.treeNodes[key].asObservable();
-    }
-    dispatchAction(action) {
+    };
+    Store.prototype.dispatchAction = function (action) {
         this.dispatcher.next(action);
-    }
-}
-Store.decorators = [
-    { type: Injectable },
-];
-Store.ctorParameters = [
-    { type: Http, },
-];
+    };
+    Store.decorators = [
+        { type: Injectable },
+    ];
+    Store.ctorParameters = [
+        { type: Http, },
+    ];
+    return Store;
+}());

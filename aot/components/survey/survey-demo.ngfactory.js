@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/survey/survey-demo';
@@ -9,11 +14,12 @@ import * as import9 from '@angular/core/src/linker/component_factory';
 import * as import10 from '../../../components/survey/survey';
 import * as import11 from './survey.ngfactory';
 var renderType_SurveyDemo_Host = null;
-class _View_SurveyDemo_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_SurveyDemo_Host0, renderType_SurveyDemo_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_SurveyDemo_Host0 = (function (_super) {
+    __extends(_View_SurveyDemo_Host0, _super);
+    function _View_SurveyDemo_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_SurveyDemo_Host0, renderType_SurveyDemo_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_SurveyDemo_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('survey-demo', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_SurveyDemo0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -22,29 +28,31 @@ class _View_SurveyDemo_Host0 extends import1.AppView {
         compView_0.create(this._SurveyDemo_0_4, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_SurveyDemo_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.SurveyDemo) && (0 === requestNodeIndex))) {
             return this._SurveyDemo_0_4;
         }
         return notFoundResult;
-    }
-}
+    };
+    return _View_SurveyDemo_Host0;
+}(import1.AppView));
 function viewFactory_SurveyDemo_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_SurveyDemo_Host === null)) {
         (renderType_SurveyDemo_Host = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, [], {}));
     }
     return new _View_SurveyDemo_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const SurveyDemoNgFactory = new import9.ComponentFactory('survey-demo', viewFactory_SurveyDemo_Host0, import3.SurveyDemo);
-const styles_SurveyDemo = [];
+export var SurveyDemoNgFactory = new import9.ComponentFactory('survey-demo', viewFactory_SurveyDemo_Host0, import3.SurveyDemo);
+var styles_SurveyDemo = [];
 var renderType_SurveyDemo = null;
-class _View_SurveyDemo0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_SurveyDemo0, renderType_SurveyDemo, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_SurveyDemo0 = (function (_super) {
+    __extends(_View_SurveyDemo0, _super);
+    function _View_SurveyDemo0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_SurveyDemo0, renderType_SurveyDemo, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_SurveyDemo0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this._el_1 = this.renderer.createElement(this._el_0, 'h1', null);
         this._text_2 = this.renderer.createText(this._el_1, 'Survey using Dynamic Form', null);
@@ -62,15 +70,15 @@ class _View_SurveyDemo0 extends import1.AppView {
             this._el_3
         ], [], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_SurveyDemo0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import10.Survey) && (3 === requestNodeIndex))) {
             return this._Survey_3_4;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
-        const currVal_0 = this.context.questionModel;
+    };
+    _View_SurveyDemo0.prototype.detectChangesInternal = function (throwOnChange) {
+        var currVal_0 = this.context.questionModel;
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this._Survey_3_4.model = currVal_0;
             this._expr_0 = currVal_0;
@@ -80,8 +88,9 @@ class _View_SurveyDemo0 extends import1.AppView {
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_SurveyDemo0;
+}(import1.AppView));
 export function viewFactory_SurveyDemo0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_SurveyDemo === null)) {
         (renderType_SurveyDemo = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/survey/survey-demo.ts class SurveyDemo - inline template', 0, import8.ViewEncapsulation.None, styles_SurveyDemo, {}));

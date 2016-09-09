@@ -1,22 +1,22 @@
 import { KeyMap } from './key-map';
 import { Row } from './row';
-export class SpreadsheetModel {
-    constructor(rowCount, columnCount) {
+export var SpreadsheetModel = (function () {
+    function SpreadsheetModel(rowCount, columnCount) {
         this.rowCount = rowCount;
         this.columnCount = columnCount;
         this.rows = [];
         this.start = 0;
         this.end = rowCount;
-        for (let i = 0; i < this.rowCount; i++) {
+        for (var i = 0; i < this.rowCount; i++) {
             this.rows.push(new Row(i, this.columnCount));
         }
         this.current = this.rows[0].columns[0];
     }
-    selectColumn(col) {
+    SpreadsheetModel.prototype.selectColumn = function (col) {
         this.current = col;
-    }
-    navigate(keyCode) {
-        const navDirection = KeyMap.getNavigationDirection(keyCode);
+    };
+    SpreadsheetModel.prototype.navigate = function (keyCode) {
+        var navDirection = KeyMap.getNavigationDirection(keyCode);
         if (navDirection.down) {
             this.ensureRow();
             this.current = this.rows[this.current.rowIndex + 1].columns[this.current.columnIndex];
@@ -51,24 +51,25 @@ export class SpreadsheetModel {
                 this.current = this.rows[this.current.rowIndex].columns[this.current.columnIndex + 1];
             }
         }
-    }
-    adjustRowRangeUpward() {
+    };
+    SpreadsheetModel.prototype.adjustRowRangeUpward = function () {
         if (this.current.rowIndex < this.start) {
             this.shiftRowsBy(-1);
         }
-    }
-    adjustRowRangeDownward() {
+    };
+    SpreadsheetModel.prototype.adjustRowRangeDownward = function () {
         if (this.current.rowIndex === this.end) {
             this.shiftRowsBy(1);
         }
-    }
-    shiftRowsBy(offset) {
+    };
+    SpreadsheetModel.prototype.shiftRowsBy = function (offset) {
         this.start = this.start + offset;
         this.end = this.end + offset;
-    }
-    ensureRow() {
+    };
+    SpreadsheetModel.prototype.ensureRow = function () {
         if (this.current.rowIndex + 1 >= this.rows.length) {
             this.rows.push(new Row(this.current.rowIndex + 1, this.columnCount));
         }
-    }
-}
+    };
+    return SpreadsheetModel;
+}());

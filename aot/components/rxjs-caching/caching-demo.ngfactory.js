@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/rxjs-caching/friends-service';
@@ -13,11 +18,12 @@ import * as import13 from '@angular/core/src/linker/template_ref';
 import * as import14 from '../../../components/rxjs-caching/friends-list';
 import * as import15 from './friends-list.ngfactory';
 var renderType_CachingDemo_Host = null;
-class _View_CachingDemo_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_CachingDemo_Host0, renderType_CachingDemo_Host, import7.ViewType.HOST, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
+var _View_CachingDemo_Host0 = (function (_super) {
+    __extends(_View_CachingDemo_Host0, _super);
+    function _View_CachingDemo_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_CachingDemo_Host0, renderType_CachingDemo_Host, import7.ViewType.HOST, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_CachingDemo_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_CachingDemo0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -27,8 +33,8 @@ class _View_CachingDemo_Host0 extends import1.AppView {
         compView_0.create(this._CachingDemo_0_5, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_CachingDemo_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.FriendsService) && (0 === requestNodeIndex))) {
             return this._FriendsService_0_4;
         }
@@ -36,23 +42,25 @@ class _View_CachingDemo_Host0 extends import1.AppView {
             return this._CachingDemo_0_5;
         }
         return notFoundResult;
-    }
-}
+    };
+    return _View_CachingDemo_Host0;
+}(import1.AppView));
 function viewFactory_CachingDemo_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_CachingDemo_Host === null)) {
         (renderType_CachingDemo_Host = viewUtils.createRenderComponentType('', 0, import10.ViewEncapsulation.None, [], {}));
     }
     return new _View_CachingDemo_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const CachingDemoNgFactory = new import11.ComponentFactory('ng-component', viewFactory_CachingDemo_Host0, import4.CachingDemo);
-const styles_CachingDemo = [];
+export var CachingDemoNgFactory = new import11.ComponentFactory('ng-component', viewFactory_CachingDemo_Host0, import4.CachingDemo);
+var styles_CachingDemo = [];
 var renderType_CachingDemo = null;
-class _View_CachingDemo0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_CachingDemo0, renderType_CachingDemo, import7.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
+var _View_CachingDemo0 = (function (_super) {
+    __extends(_View_CachingDemo0, _super);
+    function _View_CachingDemo0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_CachingDemo0, renderType_CachingDemo, import7.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_CachingDemo0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this._text_1 = this.renderer.createText(this._el_0, '\n  ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'button', null);
@@ -101,8 +109,8 @@ class _View_CachingDemo0 extends import1.AppView {
             disposable_1
         ], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_CachingDemo0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import13.TemplateRef) && (12 === requestNodeIndex))) {
             return this._TemplateRef_12_5;
         }
@@ -116,43 +124,45 @@ class _View_CachingDemo0 extends import1.AppView {
             return this._NgIf_14_6;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
-        const currVal_2 = this.context.display.first;
+    };
+    _View_CachingDemo0.prototype.detectChangesInternal = function (throwOnChange) {
+        var currVal_2 = this.context.display.first;
         if (import5.checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this._NgIf_12_6.ngIf = currVal_2;
             this._expr_2 = currVal_2;
         }
-        const currVal_3 = this.context.display.second;
+        var currVal_3 = this.context.display.second;
         if (import5.checkBinding(throwOnChange, this._expr_3, currVal_3)) {
             this._NgIf_14_6.ngIf = currVal_3;
             this._expr_3 = currVal_3;
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
-    }
-    _handle_click_2_0($event) {
+    };
+    _View_CachingDemo0.prototype._handle_click_2_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this.context.clearCache() !== false);
+        var pd_0 = (this.context.clearCache() !== false);
         return (true && pd_0);
-    }
-    _handle_click_5_0($event) {
+    };
+    _View_CachingDemo0.prototype._handle_click_5_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this.context.reset() !== false);
+        var pd_0 = (this.context.reset() !== false);
         return (true && pd_0);
-    }
-}
+    };
+    return _View_CachingDemo0;
+}(import1.AppView));
 export function viewFactory_CachingDemo0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_CachingDemo === null)) {
         (renderType_CachingDemo = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/rxjs-caching/caching-demo.html', 0, import10.ViewEncapsulation.None, styles_CachingDemo, {}));
     }
     return new _View_CachingDemo0(viewUtils, parentInjector, declarationEl);
 }
-class _View_CachingDemo1 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_CachingDemo1, renderType_CachingDemo, import7.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
+var _View_CachingDemo1 = (function (_super) {
+    __extends(_View_CachingDemo1, _super);
+    function _View_CachingDemo1(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_CachingDemo1, renderType_CachingDemo, import7.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_CachingDemo1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'tr', null);
         this._text_1 = this.renderer.createText(this._el_0, '\n        ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'td', null);
@@ -188,37 +198,39 @@ class _View_CachingDemo1 extends import1.AppView {
             this._text_12
         ], [disposable_0], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_CachingDemo1.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import14.FriendsList) && (7 === requestNodeIndex))) {
             return this._FriendsList_7_4;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_CachingDemo1.prototype.detectChangesInternal = function (throwOnChange) {
         if (((this.numberOfChecks === 0) && !throwOnChange)) {
             this._FriendsList_7_4.ngOnInit();
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
-    }
-    destroyInternal() {
+    };
+    _View_CachingDemo1.prototype.destroyInternal = function () {
         this._FriendsList_7_4.ngOnDestroy();
-    }
-    _handle_click_9_0($event) {
+    };
+    _View_CachingDemo1.prototype._handle_click_9_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this.parent.context.remove('first') !== false);
+        var pd_0 = (this.parent.context.remove('first') !== false);
         return (true && pd_0);
-    }
-}
+    };
+    return _View_CachingDemo1;
+}(import1.AppView));
 function viewFactory_CachingDemo1(viewUtils, parentInjector, declarationEl) {
     return new _View_CachingDemo1(viewUtils, parentInjector, declarationEl);
 }
-class _View_CachingDemo2 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_CachingDemo2, renderType_CachingDemo, import7.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
+var _View_CachingDemo2 = (function (_super) {
+    __extends(_View_CachingDemo2, _super);
+    function _View_CachingDemo2(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_CachingDemo2, renderType_CachingDemo, import7.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_CachingDemo2.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'tr', null);
         this._text_1 = this.renderer.createText(this._el_0, '\n        ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'td', null);
@@ -254,29 +266,30 @@ class _View_CachingDemo2 extends import1.AppView {
             this._text_12
         ], [disposable_0], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_CachingDemo2.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import14.FriendsList) && (7 === requestNodeIndex))) {
             return this._FriendsList_7_4;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_CachingDemo2.prototype.detectChangesInternal = function (throwOnChange) {
         if (((this.numberOfChecks === 0) && !throwOnChange)) {
             this._FriendsList_7_4.ngOnInit();
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
-    }
-    destroyInternal() {
+    };
+    _View_CachingDemo2.prototype.destroyInternal = function () {
         this._FriendsList_7_4.ngOnDestroy();
-    }
-    _handle_click_9_0($event) {
+    };
+    _View_CachingDemo2.prototype._handle_click_9_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this.parent.context.remove('second') !== false);
+        var pd_0 = (this.parent.context.remove('second') !== false);
         return (true && pd_0);
-    }
-}
+    };
+    return _View_CachingDemo2;
+}(import1.AppView));
 function viewFactory_CachingDemo2(viewUtils, parentInjector, declarationEl) {
     return new _View_CachingDemo2(viewUtils, parentInjector, declarationEl);
 }

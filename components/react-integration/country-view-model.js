@@ -1,9 +1,11 @@
-export class CountryViewModelFactory {
-    createModel() {
-        let countries = [];
-        let america = new CountryModel('North America');
+export var CountryViewModelFactory = (function () {
+    function CountryViewModelFactory() {
+    }
+    CountryViewModelFactory.prototype.createModel = function () {
+        var countries = [];
+        var america = new CountryModel('North America');
         america.visible = true;
-        let usa = new CountryModel('USA');
+        var usa = new CountryModel('USA');
         usa.children.push(new CountryModel('New York'));
         usa.children.push(new CountryModel('Texas'));
         usa.children.push(new CountryModel('Oregon'));
@@ -11,7 +13,7 @@ export class CountryViewModelFactory {
         america.children.push(usa);
         america.children.push(new CountryModel('Canada'));
         america.children.push(new CountryModel('Mexico'));
-        let europe = new CountryModel('Europe');
+        var europe = new CountryModel('Europe');
         europe.children.push(new CountryModel('Norway'));
         europe.children.push(new CountryModel('Sweden'));
         europe.children.push(new CountryModel('France'));
@@ -20,16 +22,17 @@ export class CountryViewModelFactory {
         countries.push(america);
         countries.push(europe);
         return countries;
-    }
-}
-class CountryModel {
-    constructor(text) {
+    };
+    return CountryViewModelFactory;
+}());
+var CountryModel = (function () {
+    function CountryModel(text) {
         this.visible = true;
         this.children = [];
         this.text = text;
         this.icon = this.getIcon();
     }
-    getIcon() {
+    CountryModel.prototype.getIcon = function () {
         if (this.children.length > 0) {
             if (this.children[0].visible === false) {
                 return '+ ';
@@ -37,5 +40,6 @@ class CountryModel {
             return '- ';
         }
         return null;
-    }
-}
+    };
+    return CountryModel;
+}());

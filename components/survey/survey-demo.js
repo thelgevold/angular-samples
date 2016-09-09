@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { QuestionModel } from './question-model';
 import { TextboxQuestion } from './textbox-question';
 import { DropDownQuestion } from './dropdown-question';
-export class SurveyDemo {
-    constructor() {
+export var SurveyDemo = (function () {
+    function SurveyDemo() {
         this.questionModel = new QuestionModel();
-        let question = new TextboxQuestion();
+        var question = new TextboxQuestion();
         question.key = 'lastName';
         question.text = 'Last name';
         question.required = true;
@@ -24,7 +24,7 @@ export class SurveyDemo {
         question.type = 'email';
         question.order = 3;
         this.questionModel.questions.push(question);
-        let ddQuestion = new DropDownQuestion();
+        var ddQuestion = new DropDownQuestion();
         ddQuestion.key = 'country';
         ddQuestion.text = 'Country';
         ddQuestion.options.push({ key: 'usa', value: 'USA' });
@@ -33,13 +33,14 @@ export class SurveyDemo {
         ddQuestion.options.push({ key: 'australia', value: 'Australia' });
         ddQuestion.order = 4;
         this.questionModel.questions.push(ddQuestion);
-        this.questionModel.questions.sort((a, b) => a.order - b.order);
+        this.questionModel.questions.sort(function (a, b) { return a.order - b.order; });
     }
-}
-SurveyDemo.decorators = [
-    { type: Component, args: [{
-                selector: 'survey-demo',
-                template: '<div><h1>Survey using Dynamic Form</h1><survey [model]="questionModel"></survey></div>'
-            },] },
-];
-SurveyDemo.ctorParameters = [];
+    SurveyDemo.decorators = [
+        { type: Component, args: [{
+                    selector: 'survey-demo',
+                    template: '<div><h1>Survey using Dynamic Form</h1><survey [model]="questionModel"></survey></div>'
+                },] },
+    ];
+    SurveyDemo.ctorParameters = [];
+    return SurveyDemo;
+}());

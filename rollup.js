@@ -1,29 +1,30 @@
-import {rollup} from 'rollup'
-import nodeResolve from 'rollup-plugin-node-resolve'
+import rollup from 'rollup';
+import nodeResolve from 'rollup-plugin-node-resolve';
+var closure = require('google-closure-compiler-js');
+import commonjs from 'rollup-plugin-commonjs';
 
-class RollupNG2 {
-    constructor(options){
-        this.options = options;
+function closureCompilerPlugin(){
+  return {
+    transformBundle(bundle){
+      var transformed = closure.compile({jsCode: [{src: bundle}]});
+      return transformed.compiledCode;
     }
-    resolveId(id, from){
-        if (id.startsWith('rxjs/')){
-            return `${__dirname}/node_modules/rxjs-es/${id.replace('rxjs/', '')}.js`;
-        }
-    }
+  }
 }
-const rollupNG2 = (config) => new RollupNG2(config);
-
 
 export default {
     entry: 'main.js',
-    dest: 'dist/temp.js',
+    dest: 'dist/bundle.js',
     sourceMap: false,
     format: 'iife',
     plugins: [
-        rollupNG2(),
+        commonjs({
+            include: 'node_modules/rxjs/**',
+        }),
         nodeResolve({
             jsnext: true, module: true
-        })
+        }),
+        closureCompilerPlugin()
     ]
 
 }

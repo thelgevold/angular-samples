@@ -1,5 +1,5 @@
-export class TreeNode {
-    constructor(key, url, name) {
+export var TreeNode = (function () {
+    function TreeNode(key, url, name) {
         this.key = key;
         this.url = url;
         this.name = name;
@@ -11,11 +11,11 @@ export class TreeNode {
             this.icon = this.getIcon();
         }
     }
-    expand() {
+    TreeNode.prototype.expand = function () {
         this.expanded = !this.expanded;
         this.icon = this.getIcon();
-    }
-    getIcon() {
+    };
+    TreeNode.prototype.getIcon = function () {
         if (this.showIcon === true) {
             if (this.expanded) {
                 return '- ';
@@ -23,5 +23,6 @@ export class TreeNode {
             return '+ ';
         }
         return null;
-    }
-}
+    };
+    return TreeNode;
+}());

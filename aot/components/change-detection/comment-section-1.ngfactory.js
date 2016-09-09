@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/change-detection/comment-section-1';
@@ -16,11 +21,12 @@ import * as import16 from '@angular/core/src/change_detection/differs/iterable_d
 import * as import17 from '@angular/forms/src/directives/control_value_accessor';
 import * as import18 from '@angular/forms/src/directives/ng_control';
 var renderType_CommentSection1_Host = null;
-class _View_CommentSection1_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_CommentSection1_Host0, renderType_CommentSection1_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_CommentSection1_Host0 = (function (_super) {
+    __extends(_View_CommentSection1_Host0, _super);
+    function _View_CommentSection1_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_CommentSection1_Host0, renderType_CommentSection1_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_CommentSection1_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('comment-section-1', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_CommentSection10(this.viewUtils, this.injector(0), this._appEl_0);
@@ -29,29 +35,31 @@ class _View_CommentSection1_Host0 extends import1.AppView {
         compView_0.create(this._CommentSection1_0_4, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_CommentSection1_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.CommentSection1) && (0 === requestNodeIndex))) {
             return this._CommentSection1_0_4;
         }
         return notFoundResult;
-    }
-}
+    };
+    return _View_CommentSection1_Host0;
+}(import1.AppView));
 function viewFactory_CommentSection1_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_CommentSection1_Host === null)) {
         (renderType_CommentSection1_Host = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, [], {}));
     }
     return new _View_CommentSection1_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const CommentSection1NgFactory = new import9.ComponentFactory('comment-section-1', viewFactory_CommentSection1_Host0, import3.CommentSection1);
-const styles_CommentSection1 = [];
+export var CommentSection1NgFactory = new import9.ComponentFactory('comment-section-1', viewFactory_CommentSection1_Host0, import3.CommentSection1);
+var styles_CommentSection1 = [];
 var renderType_CommentSection1 = null;
-class _View_CommentSection10 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_CommentSection10, renderType_CommentSection1, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckOnce);
+var _View_CommentSection10 = (function (_super) {
+    __extends(_View_CommentSection10, _super);
+    function _View_CommentSection10(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_CommentSection10, renderType_CommentSection1, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckOnce);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_CommentSection10.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_0, 'style', 'border: 1px solid black;padding: 5px;');
         this._text_1 = this.renderer.createText(this._el_0, '\n\n    ', null);
@@ -113,7 +121,7 @@ class _View_CommentSection10 extends import1.AppView {
         var disposable_2 = this.renderer.listen(this._el_20, 'input', this.eventHandler(this._handle_input_20_1.bind(this)));
         var disposable_3 = this.renderer.listen(this._el_20, 'blur', this.eventHandler(this._handle_blur_20_2.bind(this)));
         this._expr_6 = import7.UNINITIALIZED;
-        const subscription_0 = this._NgModel_20_5.update.subscribe(this.eventHandler(this._handle_ngModelChange_20_0.bind(this)));
+        var subscription_0 = this._NgModel_20_5.update.subscribe(this.eventHandler(this._handle_ngModelChange_20_0.bind(this)));
         this._expr_7 = import7.UNINITIALIZED;
         this._expr_8 = import7.UNINITIALIZED;
         this._expr_9 = import7.UNINITIALIZED;
@@ -124,7 +132,7 @@ class _View_CommentSection10 extends import1.AppView {
         var disposable_5 = this.renderer.listen(this._el_25, 'input', this.eventHandler(this._handle_input_25_1.bind(this)));
         var disposable_6 = this.renderer.listen(this._el_25, 'blur', this.eventHandler(this._handle_blur_25_2.bind(this)));
         this._expr_16 = import7.UNINITIALIZED;
-        const subscription_1 = this._NgModel_25_5.update.subscribe(this.eventHandler(this._handle_ngModelChange_25_0.bind(this)));
+        var subscription_1 = this._NgModel_25_5.update.subscribe(this.eventHandler(this._handle_ngModelChange_25_0.bind(this)));
         this._expr_17 = import7.UNINITIALIZED;
         this._expr_18 = import7.UNINITIALIZED;
         this._expr_19 = import7.UNINITIALIZED;
@@ -184,8 +192,8 @@ class _View_CommentSection10 extends import1.AppView {
             subscription_1
         ]);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_CommentSection10.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import10.DefaultValueAccessor) && (20 === requestNodeIndex))) {
             return this._DefaultValueAccessor_20_3;
         }
@@ -223,11 +231,11 @@ class _View_CommentSection10 extends import1.AppView {
             return this._NgFor_34_6;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_CommentSection10.prototype.detectChangesInternal = function (throwOnChange) {
         var changes = null;
         changes = null;
-        const currVal_6 = this.context.author;
+        var currVal_6 = this.context.author;
         if (import4.checkBinding(throwOnChange, this._expr_6, currVal_6)) {
             this._NgModel_20_5.model = currVal_6;
             if ((changes === null)) {
@@ -240,7 +248,7 @@ class _View_CommentSection10 extends import1.AppView {
             this._NgModel_20_5.ngOnChanges(changes);
         }
         changes = null;
-        const currVal_16 = this.context.text;
+        var currVal_16 = this.context.text;
         if (import4.checkBinding(throwOnChange, this._expr_16, currVal_16)) {
             this._NgModel_25_5.model = currVal_16;
             if ((changes === null)) {
@@ -253,7 +261,7 @@ class _View_CommentSection10 extends import1.AppView {
             this._NgModel_25_5.ngOnChanges(changes);
         }
         changes = null;
-        const currVal_23 = this.context.comments;
+        var currVal_23 = this.context.comments;
         if (import4.checkBinding(throwOnChange, this._expr_23, currVal_23)) {
             this._NgFor_34_6.ngForOf = currVal_23;
             if ((changes === null)) {
@@ -269,129 +277,131 @@ class _View_CommentSection10 extends import1.AppView {
             this._NgFor_34_6.ngDoCheck();
         }
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_0 = import4.interpolate(1, '\n        ', this.context.message, '\n    ');
+        var currVal_0 = import4.interpolate(1, '\n        ', this.context.message, '\n    ');
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setText(this._text_3, currVal_0);
             this._expr_0 = currVal_0;
         }
-        const currVal_1 = import4.interpolate(1, '', this.context.lastUpdated(), '');
+        var currVal_1 = import4.interpolate(1, '', this.context.lastUpdated(), '');
         if (import4.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setText(this._text_7, currVal_1);
             this._expr_1 = currVal_1;
         }
-        const currVal_7 = this._NgControlStatus_20_7.ngClassUntouched;
+        var currVal_7 = this._NgControlStatus_20_7.ngClassUntouched;
         if (import4.checkBinding(throwOnChange, this._expr_7, currVal_7)) {
             this.renderer.setElementClass(this._el_20, 'ng-untouched', currVal_7);
             this._expr_7 = currVal_7;
         }
-        const currVal_8 = this._NgControlStatus_20_7.ngClassTouched;
+        var currVal_8 = this._NgControlStatus_20_7.ngClassTouched;
         if (import4.checkBinding(throwOnChange, this._expr_8, currVal_8)) {
             this.renderer.setElementClass(this._el_20, 'ng-touched', currVal_8);
             this._expr_8 = currVal_8;
         }
-        const currVal_9 = this._NgControlStatus_20_7.ngClassPristine;
+        var currVal_9 = this._NgControlStatus_20_7.ngClassPristine;
         if (import4.checkBinding(throwOnChange, this._expr_9, currVal_9)) {
             this.renderer.setElementClass(this._el_20, 'ng-pristine', currVal_9);
             this._expr_9 = currVal_9;
         }
-        const currVal_10 = this._NgControlStatus_20_7.ngClassDirty;
+        var currVal_10 = this._NgControlStatus_20_7.ngClassDirty;
         if (import4.checkBinding(throwOnChange, this._expr_10, currVal_10)) {
             this.renderer.setElementClass(this._el_20, 'ng-dirty', currVal_10);
             this._expr_10 = currVal_10;
         }
-        const currVal_11 = this._NgControlStatus_20_7.ngClassValid;
+        var currVal_11 = this._NgControlStatus_20_7.ngClassValid;
         if (import4.checkBinding(throwOnChange, this._expr_11, currVal_11)) {
             this.renderer.setElementClass(this._el_20, 'ng-valid', currVal_11);
             this._expr_11 = currVal_11;
         }
-        const currVal_12 = this._NgControlStatus_20_7.ngClassInvalid;
+        var currVal_12 = this._NgControlStatus_20_7.ngClassInvalid;
         if (import4.checkBinding(throwOnChange, this._expr_12, currVal_12)) {
             this.renderer.setElementClass(this._el_20, 'ng-invalid', currVal_12);
             this._expr_12 = currVal_12;
         }
-        const currVal_17 = this._NgControlStatus_25_7.ngClassUntouched;
+        var currVal_17 = this._NgControlStatus_25_7.ngClassUntouched;
         if (import4.checkBinding(throwOnChange, this._expr_17, currVal_17)) {
             this.renderer.setElementClass(this._el_25, 'ng-untouched', currVal_17);
             this._expr_17 = currVal_17;
         }
-        const currVal_18 = this._NgControlStatus_25_7.ngClassTouched;
+        var currVal_18 = this._NgControlStatus_25_7.ngClassTouched;
         if (import4.checkBinding(throwOnChange, this._expr_18, currVal_18)) {
             this.renderer.setElementClass(this._el_25, 'ng-touched', currVal_18);
             this._expr_18 = currVal_18;
         }
-        const currVal_19 = this._NgControlStatus_25_7.ngClassPristine;
+        var currVal_19 = this._NgControlStatus_25_7.ngClassPristine;
         if (import4.checkBinding(throwOnChange, this._expr_19, currVal_19)) {
             this.renderer.setElementClass(this._el_25, 'ng-pristine', currVal_19);
             this._expr_19 = currVal_19;
         }
-        const currVal_20 = this._NgControlStatus_25_7.ngClassDirty;
+        var currVal_20 = this._NgControlStatus_25_7.ngClassDirty;
         if (import4.checkBinding(throwOnChange, this._expr_20, currVal_20)) {
             this.renderer.setElementClass(this._el_25, 'ng-dirty', currVal_20);
             this._expr_20 = currVal_20;
         }
-        const currVal_21 = this._NgControlStatus_25_7.ngClassValid;
+        var currVal_21 = this._NgControlStatus_25_7.ngClassValid;
         if (import4.checkBinding(throwOnChange, this._expr_21, currVal_21)) {
             this.renderer.setElementClass(this._el_25, 'ng-valid', currVal_21);
             this._expr_21 = currVal_21;
         }
-        const currVal_22 = this._NgControlStatus_25_7.ngClassInvalid;
+        var currVal_22 = this._NgControlStatus_25_7.ngClassInvalid;
         if (import4.checkBinding(throwOnChange, this._expr_22, currVal_22)) {
             this.renderer.setElementClass(this._el_25, 'ng-invalid', currVal_22);
             this._expr_22 = currVal_22;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-    destroyInternal() {
+    };
+    _View_CommentSection10.prototype.destroyInternal = function () {
         this._NgModel_20_5.ngOnDestroy();
         this._NgModel_25_5.ngOnDestroy();
-    }
-    _handle_click_11_0($event) {
+    };
+    _View_CommentSection10.prototype._handle_click_11_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this.context.addComment() !== false);
+        var pd_0 = (this.context.addComment() !== false);
         return (true && pd_0);
-    }
-    _handle_ngModelChange_20_0($event) {
+    };
+    _View_CommentSection10.prototype._handle_ngModelChange_20_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = ((this.context.author = $event) !== false);
+        var pd_0 = ((this.context.author = $event) !== false);
         return (true && pd_0);
-    }
-    _handle_input_20_1($event) {
+    };
+    _View_CommentSection10.prototype._handle_input_20_1 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this._DefaultValueAccessor_20_3.onChange($event.target.value) !== false);
+        var pd_0 = (this._DefaultValueAccessor_20_3.onChange($event.target.value) !== false);
         return (true && pd_0);
-    }
-    _handle_blur_20_2($event) {
+    };
+    _View_CommentSection10.prototype._handle_blur_20_2 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this._DefaultValueAccessor_20_3.onTouched() !== false);
+        var pd_0 = (this._DefaultValueAccessor_20_3.onTouched() !== false);
         return (true && pd_0);
-    }
-    _handle_ngModelChange_25_0($event) {
+    };
+    _View_CommentSection10.prototype._handle_ngModelChange_25_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = ((this.context.text = $event) !== false);
+        var pd_0 = ((this.context.text = $event) !== false);
         return (true && pd_0);
-    }
-    _handle_input_25_1($event) {
+    };
+    _View_CommentSection10.prototype._handle_input_25_1 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this._DefaultValueAccessor_25_3.onChange($event.target.value) !== false);
+        var pd_0 = (this._DefaultValueAccessor_25_3.onChange($event.target.value) !== false);
         return (true && pd_0);
-    }
-    _handle_blur_25_2($event) {
+    };
+    _View_CommentSection10.prototype._handle_blur_25_2 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this._DefaultValueAccessor_25_3.onTouched() !== false);
+        var pd_0 = (this._DefaultValueAccessor_25_3.onTouched() !== false);
         return (true && pd_0);
-    }
-}
+    };
+    return _View_CommentSection10;
+}(import1.AppView));
 export function viewFactory_CommentSection10(viewUtils, parentInjector, declarationEl) {
     if ((renderType_CommentSection1 === null)) {
         (renderType_CommentSection1 = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/change-detection/change-detection.html', 0, import8.ViewEncapsulation.None, styles_CommentSection1, {}));
     }
     return new _View_CommentSection10(viewUtils, parentInjector, declarationEl);
 }
-class _View_CommentSection11 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_CommentSection11, renderType_CommentSection1, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_CommentSection11 = (function (_super) {
+    __extends(_View_CommentSection11, _super);
+    function _View_CommentSection11(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_CommentSection11, renderType_CommentSection1, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_CommentSection11.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'tr', null);
         this._text_1 = this.renderer.createText(this._el_0, '\n            ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'td', null);
@@ -413,22 +423,23 @@ class _View_CommentSection11 extends import1.AppView {
             this._text_7
         ], [], []);
         return null;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_CommentSection11.prototype.detectChangesInternal = function (throwOnChange) {
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_0 = import4.interpolate(1, '', this.context.$implicit.author, '');
+        var currVal_0 = import4.interpolate(1, '', this.context.$implicit.author, '');
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setText(this._text_3, currVal_0);
             this._expr_0 = currVal_0;
         }
-        const currVal_1 = import4.interpolate(1, '', this.context.$implicit.text, '');
+        var currVal_1 = import4.interpolate(1, '', this.context.$implicit.text, '');
         if (import4.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setText(this._text_6, currVal_1);
             this._expr_1 = currVal_1;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_CommentSection11;
+}(import1.AppView));
 function viewFactory_CommentSection11(viewUtils, parentInjector, declarationEl) {
     return new _View_CommentSection11(viewUtils, parentInjector, declarationEl);
 }

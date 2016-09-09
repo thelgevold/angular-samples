@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/tree-view/tree-view-demo';
@@ -9,11 +14,12 @@ import * as import9 from '@angular/core/src/linker/component_factory';
 import * as import10 from '../../../components/tree-view/tree-view';
 import * as import11 from './tree-view.ngfactory';
 var renderType_TreeViewDemo_Host = null;
-class _View_TreeViewDemo_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_TreeViewDemo_Host0, renderType_TreeViewDemo_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_TreeViewDemo_Host0 = (function (_super) {
+    __extends(_View_TreeViewDemo_Host0, _super);
+    function _View_TreeViewDemo_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_TreeViewDemo_Host0, renderType_TreeViewDemo_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_TreeViewDemo_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_TreeViewDemo0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -22,29 +28,31 @@ class _View_TreeViewDemo_Host0 extends import1.AppView {
         compView_0.create(this._TreeViewDemo_0_4, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_TreeViewDemo_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.TreeViewDemo) && (0 === requestNodeIndex))) {
             return this._TreeViewDemo_0_4;
         }
         return notFoundResult;
-    }
-}
+    };
+    return _View_TreeViewDemo_Host0;
+}(import1.AppView));
 function viewFactory_TreeViewDemo_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_TreeViewDemo_Host === null)) {
         (renderType_TreeViewDemo_Host = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, [], {}));
     }
     return new _View_TreeViewDemo_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const TreeViewDemoNgFactory = new import9.ComponentFactory('ng-component', viewFactory_TreeViewDemo_Host0, import3.TreeViewDemo);
-const styles_TreeViewDemo = [];
+export var TreeViewDemoNgFactory = new import9.ComponentFactory('ng-component', viewFactory_TreeViewDemo_Host0, import3.TreeViewDemo);
+var styles_TreeViewDemo = [];
 var renderType_TreeViewDemo = null;
-class _View_TreeViewDemo0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_TreeViewDemo0, renderType_TreeViewDemo, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_TreeViewDemo0 = (function (_super) {
+    __extends(_View_TreeViewDemo0, _super);
+    function _View_TreeViewDemo0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_TreeViewDemo0, renderType_TreeViewDemo, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_TreeViewDemo0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'h1', null);
         this._text_1 = this.renderer.createText(this._el_0, 'Recursive TreeView', null);
         this._el_2 = this.renderer.createElement(parentRenderNode, 'tree-view', null);
@@ -69,23 +77,24 @@ class _View_TreeViewDemo0 extends import1.AppView {
             this._text_6
         ], [], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_TreeViewDemo0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import10.TreeView) && (2 === requestNodeIndex))) {
             return this._TreeView_2_4;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
-        const currVal_0 = this.context.directories;
+    };
+    _View_TreeViewDemo0.prototype.detectChangesInternal = function (throwOnChange) {
+        var currVal_0 = this.context.directories;
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this._TreeView_2_4.directories = currVal_0;
             this._expr_0 = currVal_0;
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_TreeViewDemo0;
+}(import1.AppView));
 export function viewFactory_TreeViewDemo0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_TreeViewDemo === null)) {
         (renderType_TreeViewDemo = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/tree-view/tree-view-demo.ts class TreeViewDemo - inline template', 0, import8.ViewEncapsulation.None, styles_TreeViewDemo, {}));

@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/pub-sub/pub-sub';
@@ -11,17 +16,22 @@ import * as import12 from '../../../components/pub-sub/consumer';
 import * as import13 from './producer.ngfactory';
 import * as import14 from './consumer.ngfactory';
 var renderType_PubSub_Host = null;
-class _View_PubSub_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_PubSub_Host0, renderType_PubSub_Host, import7.ViewType.HOST, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
+var _View_PubSub_Host0 = (function (_super) {
+    __extends(_View_PubSub_Host0, _super);
+    function _View_PubSub_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_PubSub_Host0, renderType_PubSub_Host, import7.ViewType.HOST, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
     }
-    get _PubSubService_0_5() {
-        if ((this.__PubSubService_0_5 == null)) {
-            (this.__PubSubService_0_5 = new import4.PubSubService());
-        }
-        return this.__PubSubService_0_5;
-    }
-    createInternal(rootSelector) {
+    Object.defineProperty(_View_PubSub_Host0.prototype, "_PubSubService_0_5", {
+        get: function () {
+            if ((this.__PubSubService_0_5 == null)) {
+                (this.__PubSubService_0_5 = new import4.PubSubService());
+            }
+            return this.__PubSubService_0_5;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    _View_PubSub_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('pub-sub', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_PubSub0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -30,8 +40,8 @@ class _View_PubSub_Host0 extends import1.AppView {
         compView_0.create(this._PubSub_0_4, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_PubSub_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.PubSub) && (0 === requestNodeIndex))) {
             return this._PubSub_0_4;
         }
@@ -39,23 +49,25 @@ class _View_PubSub_Host0 extends import1.AppView {
             return this._PubSubService_0_5;
         }
         return notFoundResult;
-    }
-}
+    };
+    return _View_PubSub_Host0;
+}(import1.AppView));
 function viewFactory_PubSub_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PubSub_Host === null)) {
         (renderType_PubSub_Host = viewUtils.createRenderComponentType('', 0, import9.ViewEncapsulation.None, [], {}));
     }
     return new _View_PubSub_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const PubSubNgFactory = new import10.ComponentFactory('pub-sub', viewFactory_PubSub_Host0, import3.PubSub);
-const styles_PubSub = [];
+export var PubSubNgFactory = new import10.ComponentFactory('pub-sub', viewFactory_PubSub_Host0, import3.PubSub);
+var styles_PubSub = [];
 var renderType_PubSub = null;
-class _View_PubSub0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_PubSub0, renderType_PubSub, import7.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
+var _View_PubSub0 = (function (_super) {
+    __extends(_View_PubSub0, _super);
+    function _View_PubSub0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_PubSub0, renderType_PubSub, import7.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_PubSub0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'h1', null);
         this._text_1 = this.renderer.createText(this._el_0, 'Pub Sub Using Observables', null);
         this._text_2 = this.renderer.createText(parentRenderNode, '\n\n', null);
@@ -96,8 +108,8 @@ class _View_PubSub0 extends import1.AppView {
             this._text_12
         ], [], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_PubSub0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import11.Producer) && (3 === requestNodeIndex))) {
             return this._Producer_3_4;
         }
@@ -105,15 +117,16 @@ class _View_PubSub0 extends import1.AppView {
             return this._Consumer_8_4;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_PubSub0.prototype.detectChangesInternal = function (throwOnChange) {
         if (((this.numberOfChecks === 0) && !throwOnChange)) {
             this._Consumer_8_4.ngOnInit();
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_PubSub0;
+}(import1.AppView));
 export function viewFactory_PubSub0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_PubSub === null)) {
         (renderType_PubSub = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/pub-sub/pub-sub.html', 0, import9.ViewEncapsulation.None, styles_PubSub, {}));

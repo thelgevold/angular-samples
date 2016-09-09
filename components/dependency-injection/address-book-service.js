@@ -1,17 +1,18 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
-export class AddressBookService {
-    constructor(http) {
+export var AddressBookService = (function () {
+    function AddressBookService(http) {
         console.log('Creating AddressBookService');
         this.http = http;
     }
-    getEntries() {
-        return this.http.get('./people.json').map((res) => res.json());
-    }
-}
-AddressBookService.decorators = [
-    { type: Injectable },
-];
-AddressBookService.ctorParameters = [
-    { type: Http, },
-];
+    AddressBookService.prototype.getEntries = function () {
+        return this.http.get('./people.json').map(function (res) { return res.json(); });
+    };
+    AddressBookService.decorators = [
+        { type: Injectable },
+    ];
+    AddressBookService.ctorParameters = [
+        { type: Http, },
+    ];
+    return AddressBookService;
+}());

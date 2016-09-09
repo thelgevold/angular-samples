@@ -1,16 +1,17 @@
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
-export class LogTailService {
-    constructor(http) {
+export var LogTailService = (function () {
+    function LogTailService(http) {
         this.http = http;
     }
-    getLogEntries() {
-        return this.http.get('./components/log-tail/log.json').map((res) => res.json());
-    }
-}
-LogTailService.decorators = [
-    { type: Injectable },
-];
-LogTailService.ctorParameters = [
-    { type: Http, },
-];
+    LogTailService.prototype.getLogEntries = function () {
+        return this.http.get('./components/log-tail/log.json').map(function (res) { return res.json(); });
+    };
+    LogTailService.decorators = [
+        { type: Injectable },
+    ];
+    LogTailService.ctorParameters = [
+        { type: Http, },
+    ];
+    return LogTailService;
+}());

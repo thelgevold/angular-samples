@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
-export class About {
-}
-About.decorators = [
-    { type: Component, args: [{
-                selector: 'about',
-                templateUrl: './about.html'
-            },] },
-];
-About.ctorParameters = [];
+export var About = (function () {
+    function About() {
+    }
+    About.decorators = [
+        { type: Component, args: [{
+                    selector: 'about',
+                    templateUrl: './about.html'
+                },] },
+    ];
+    About.ctorParameters = [];
+    return About;
+}());

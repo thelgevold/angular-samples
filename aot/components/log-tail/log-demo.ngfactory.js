@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/log-tail/store';
@@ -21,11 +26,12 @@ import * as import21 from '@angular/core/src/change_detection/differs/iterable_d
 import * as import22 from '@angular/forms/src/directives/control_value_accessor';
 import * as import23 from '@angular/forms/src/directives/ng_control';
 var renderType_LogDemo_Host = null;
-class _View_LogDemo_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_LogDemo_Host0, renderType_LogDemo_Host, import8.ViewType.HOST, viewUtils, parentInjector, declarationEl, import9.ChangeDetectorStatus.CheckAlways);
+var _View_LogDemo_Host0 = (function (_super) {
+    __extends(_View_LogDemo_Host0, _super);
+    function _View_LogDemo_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_LogDemo_Host0, renderType_LogDemo_Host, import8.ViewType.HOST, viewUtils, parentInjector, declarationEl, import9.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_LogDemo_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_LogDemo0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -36,8 +42,8 @@ class _View_LogDemo_Host0 extends import1.AppView {
         compView_0.create(this._LogDemo_0_6, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_LogDemo_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.Store) && (0 === requestNodeIndex))) {
             return this._Store_0_4;
         }
@@ -48,30 +54,32 @@ class _View_LogDemo_Host0 extends import1.AppView {
             return this._LogDemo_0_6;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_LogDemo_Host0.prototype.detectChangesInternal = function (throwOnChange) {
         if (((this.numberOfChecks === 0) && !throwOnChange)) {
             this._LogDemo_0_6.ngOnInit();
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_LogDemo_Host0;
+}(import1.AppView));
 function viewFactory_LogDemo_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_LogDemo_Host === null)) {
         (renderType_LogDemo_Host = viewUtils.createRenderComponentType('', 0, import11.ViewEncapsulation.None, [], {}));
     }
     return new _View_LogDemo_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const LogDemoNgFactory = new import12.ComponentFactory('ng-component', viewFactory_LogDemo_Host0, import5.LogDemo);
-const styles_LogDemo = [];
+export var LogDemoNgFactory = new import12.ComponentFactory('ng-component', viewFactory_LogDemo_Host0, import5.LogDemo);
+var styles_LogDemo = [];
 var renderType_LogDemo = null;
-class _View_LogDemo0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_LogDemo0, renderType_LogDemo, import8.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import9.ChangeDetectorStatus.CheckAlways);
+var _View_LogDemo0 = (function (_super) {
+    __extends(_View_LogDemo0, _super);
+    function _View_LogDemo0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_LogDemo0, renderType_LogDemo, import8.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import9.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_LogDemo0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this._text_1 = this.renderer.createText(this._el_0, '\n                ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'h1', null);
@@ -133,7 +141,7 @@ class _View_LogDemo0 extends import1.AppView {
         var disposable_2 = this.renderer.listen(this._el_8, 'input', this.eventHandler(this._handle_input_8_1.bind(this)));
         var disposable_3 = this.renderer.listen(this._el_8, 'blur', this.eventHandler(this._handle_blur_8_2.bind(this)));
         this._expr_4 = import9.UNINITIALIZED;
-        const subscription_0 = this._NgModel_8_5.update.subscribe(this.eventHandler(this._handle_ngModelChange_8_0.bind(this)));
+        var subscription_0 = this._NgModel_8_5.update.subscribe(this.eventHandler(this._handle_ngModelChange_8_0.bind(this)));
         this._expr_5 = import9.UNINITIALIZED;
         this._expr_6 = import9.UNINITIALIZED;
         this._expr_7 = import9.UNINITIALIZED;
@@ -145,7 +153,7 @@ class _View_LogDemo0 extends import1.AppView {
         var disposable_6 = this.renderer.listen(this._el_10, 'blur', this.eventHandler(this._handle_blur_10_2.bind(this)));
         var disposable_7 = this.renderer.listen(this._el_10, 'change', this.eventHandler(this._handle_change_10_3.bind(this)));
         this._expr_17 = import9.UNINITIALIZED;
-        const subscription_1 = this._NgModel_10_6.update.subscribe(this.eventHandler(this._handle_ngModelChange_10_0.bind(this)));
+        var subscription_1 = this._NgModel_10_6.update.subscribe(this.eventHandler(this._handle_ngModelChange_10_0.bind(this)));
         this._expr_18 = import9.UNINITIALIZED;
         this._expr_19 = import9.UNINITIALIZED;
         this._expr_20 = import9.UNINITIALIZED;
@@ -201,8 +209,8 @@ class _View_LogDemo0 extends import1.AppView {
             subscription_1
         ]);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_LogDemo0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import13.DefaultValueAccessor) && (8 === requestNodeIndex))) {
             return this._DefaultValueAccessor_8_3;
         }
@@ -243,12 +251,12 @@ class _View_LogDemo0 extends import1.AppView {
             return this._NgFor_25_6;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_LogDemo0.prototype.detectChangesInternal = function (throwOnChange) {
         var changes = null;
-        const valUnwrapper = new import9.ValueUnwrapper();
+        var valUnwrapper = new import9.ValueUnwrapper();
         changes = null;
-        const currVal_4 = this.context.msg;
+        var currVal_4 = this.context.msg;
         if (import6.checkBinding(throwOnChange, this._expr_4, currVal_4)) {
             this._NgModel_8_5.model = currVal_4;
             if ((changes === null)) {
@@ -261,7 +269,7 @@ class _View_LogDemo0 extends import1.AppView {
             this._NgModel_8_5.ngOnChanges(changes);
         }
         changes = null;
-        const currVal_17 = this.context.severity;
+        var currVal_17 = this.context.severity;
         if (import6.checkBinding(throwOnChange, this._expr_17, currVal_17)) {
             this._NgModel_10_6.model = currVal_17;
             if ((changes === null)) {
@@ -275,7 +283,7 @@ class _View_LogDemo0 extends import1.AppView {
         }
         changes = null;
         valUnwrapper.reset();
-        const currVal_24 = valUnwrapper.unwrap(this._pipe_async_0.transform(this.context.store.logEntries));
+        var currVal_24 = valUnwrapper.unwrap(this._pipe_async_0.transform(this.context.store.logEntries));
         if ((valUnwrapper.hasWrappedValue || import6.checkBinding(throwOnChange, this._expr_24, currVal_24))) {
             this._NgFor_25_6.ngForOf = currVal_24;
             if ((changes === null)) {
@@ -291,127 +299,129 @@ class _View_LogDemo0 extends import1.AppView {
             this._NgFor_25_6.ngDoCheck();
         }
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_5 = this._NgControlStatus_8_7.ngClassUntouched;
+        var currVal_5 = this._NgControlStatus_8_7.ngClassUntouched;
         if (import6.checkBinding(throwOnChange, this._expr_5, currVal_5)) {
             this.renderer.setElementClass(this._el_8, 'ng-untouched', currVal_5);
             this._expr_5 = currVal_5;
         }
-        const currVal_6 = this._NgControlStatus_8_7.ngClassTouched;
+        var currVal_6 = this._NgControlStatus_8_7.ngClassTouched;
         if (import6.checkBinding(throwOnChange, this._expr_6, currVal_6)) {
             this.renderer.setElementClass(this._el_8, 'ng-touched', currVal_6);
             this._expr_6 = currVal_6;
         }
-        const currVal_7 = this._NgControlStatus_8_7.ngClassPristine;
+        var currVal_7 = this._NgControlStatus_8_7.ngClassPristine;
         if (import6.checkBinding(throwOnChange, this._expr_7, currVal_7)) {
             this.renderer.setElementClass(this._el_8, 'ng-pristine', currVal_7);
             this._expr_7 = currVal_7;
         }
-        const currVal_8 = this._NgControlStatus_8_7.ngClassDirty;
+        var currVal_8 = this._NgControlStatus_8_7.ngClassDirty;
         if (import6.checkBinding(throwOnChange, this._expr_8, currVal_8)) {
             this.renderer.setElementClass(this._el_8, 'ng-dirty', currVal_8);
             this._expr_8 = currVal_8;
         }
-        const currVal_9 = this._NgControlStatus_8_7.ngClassValid;
+        var currVal_9 = this._NgControlStatus_8_7.ngClassValid;
         if (import6.checkBinding(throwOnChange, this._expr_9, currVal_9)) {
             this.renderer.setElementClass(this._el_8, 'ng-valid', currVal_9);
             this._expr_9 = currVal_9;
         }
-        const currVal_10 = this._NgControlStatus_8_7.ngClassInvalid;
+        var currVal_10 = this._NgControlStatus_8_7.ngClassInvalid;
         if (import6.checkBinding(throwOnChange, this._expr_10, currVal_10)) {
             this.renderer.setElementClass(this._el_8, 'ng-invalid', currVal_10);
             this._expr_10 = currVal_10;
         }
-        const currVal_18 = this._NgControlStatus_10_8.ngClassUntouched;
+        var currVal_18 = this._NgControlStatus_10_8.ngClassUntouched;
         if (import6.checkBinding(throwOnChange, this._expr_18, currVal_18)) {
             this.renderer.setElementClass(this._el_10, 'ng-untouched', currVal_18);
             this._expr_18 = currVal_18;
         }
-        const currVal_19 = this._NgControlStatus_10_8.ngClassTouched;
+        var currVal_19 = this._NgControlStatus_10_8.ngClassTouched;
         if (import6.checkBinding(throwOnChange, this._expr_19, currVal_19)) {
             this.renderer.setElementClass(this._el_10, 'ng-touched', currVal_19);
             this._expr_19 = currVal_19;
         }
-        const currVal_20 = this._NgControlStatus_10_8.ngClassPristine;
+        var currVal_20 = this._NgControlStatus_10_8.ngClassPristine;
         if (import6.checkBinding(throwOnChange, this._expr_20, currVal_20)) {
             this.renderer.setElementClass(this._el_10, 'ng-pristine', currVal_20);
             this._expr_20 = currVal_20;
         }
-        const currVal_21 = this._NgControlStatus_10_8.ngClassDirty;
+        var currVal_21 = this._NgControlStatus_10_8.ngClassDirty;
         if (import6.checkBinding(throwOnChange, this._expr_21, currVal_21)) {
             this.renderer.setElementClass(this._el_10, 'ng-dirty', currVal_21);
             this._expr_21 = currVal_21;
         }
-        const currVal_22 = this._NgControlStatus_10_8.ngClassValid;
+        var currVal_22 = this._NgControlStatus_10_8.ngClassValid;
         if (import6.checkBinding(throwOnChange, this._expr_22, currVal_22)) {
             this.renderer.setElementClass(this._el_10, 'ng-valid', currVal_22);
             this._expr_22 = currVal_22;
         }
-        const currVal_23 = this._NgControlStatus_10_8.ngClassInvalid;
+        var currVal_23 = this._NgControlStatus_10_8.ngClassInvalid;
         if (import6.checkBinding(throwOnChange, this._expr_23, currVal_23)) {
             this.renderer.setElementClass(this._el_10, 'ng-invalid', currVal_23);
             this._expr_23 = currVal_23;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-    destroyInternal() {
+    };
+    _View_LogDemo0.prototype.destroyInternal = function () {
         this._NgModel_8_5.ngOnDestroy();
         this._NgModel_10_6.ngOnDestroy();
         this._pipe_async_0.ngOnDestroy();
-    }
-    _handle_click_5_0($event) {
+    };
+    _View_LogDemo0.prototype._handle_click_5_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this.context.generateLogEntry() !== false);
+        var pd_0 = (this.context.generateLogEntry() !== false);
         return (true && pd_0);
-    }
-    _handle_ngModelChange_8_0($event) {
+    };
+    _View_LogDemo0.prototype._handle_ngModelChange_8_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = ((this.context.msg = $event) !== false);
+        var pd_0 = ((this.context.msg = $event) !== false);
         return (true && pd_0);
-    }
-    _handle_input_8_1($event) {
+    };
+    _View_LogDemo0.prototype._handle_input_8_1 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this._DefaultValueAccessor_8_3.onChange($event.target.value) !== false);
+        var pd_0 = (this._DefaultValueAccessor_8_3.onChange($event.target.value) !== false);
         return (true && pd_0);
-    }
-    _handle_blur_8_2($event) {
+    };
+    _View_LogDemo0.prototype._handle_blur_8_2 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this._DefaultValueAccessor_8_3.onTouched() !== false);
+        var pd_0 = (this._DefaultValueAccessor_8_3.onTouched() !== false);
         return (true && pd_0);
-    }
-    _handle_ngModelChange_10_0($event) {
+    };
+    _View_LogDemo0.prototype._handle_ngModelChange_10_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = ((this.context.severity = $event) !== false);
+        var pd_0 = ((this.context.severity = $event) !== false);
         return (true && pd_0);
-    }
-    _handle_input_10_1($event) {
+    };
+    _View_LogDemo0.prototype._handle_input_10_1 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this._DefaultValueAccessor_10_3.onChange($event.target.value) !== false);
-        const pd_1 = (this._NumberValueAccessor_10_4.onChange($event.target.value) !== false);
+        var pd_0 = (this._DefaultValueAccessor_10_3.onChange($event.target.value) !== false);
+        var pd_1 = (this._NumberValueAccessor_10_4.onChange($event.target.value) !== false);
         return ((true && pd_0) && pd_1);
-    }
-    _handle_blur_10_2($event) {
+    };
+    _View_LogDemo0.prototype._handle_blur_10_2 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this._DefaultValueAccessor_10_3.onTouched() !== false);
-        const pd_1 = (this._NumberValueAccessor_10_4.onTouched() !== false);
+        var pd_0 = (this._DefaultValueAccessor_10_3.onTouched() !== false);
+        var pd_1 = (this._NumberValueAccessor_10_4.onTouched() !== false);
         return ((true && pd_0) && pd_1);
-    }
-    _handle_change_10_3($event) {
+    };
+    _View_LogDemo0.prototype._handle_change_10_3 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this._NumberValueAccessor_10_4.onChange($event.target.value) !== false);
+        var pd_0 = (this._NumberValueAccessor_10_4.onChange($event.target.value) !== false);
         return (true && pd_0);
-    }
-}
+    };
+    return _View_LogDemo0;
+}(import1.AppView));
 export function viewFactory_LogDemo0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_LogDemo === null)) {
         (renderType_LogDemo = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/log-tail/log-demo.ts class LogDemo - inline template', 0, import11.ViewEncapsulation.None, styles_LogDemo, {}));
     }
     return new _View_LogDemo0(viewUtils, parentInjector, declarationEl);
 }
-class _View_LogDemo1 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_LogDemo1, renderType_LogDemo, import8.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import9.ChangeDetectorStatus.CheckAlways);
+var _View_LogDemo1 = (function (_super) {
+    __extends(_View_LogDemo1, _super);
+    function _View_LogDemo1(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_LogDemo1, renderType_LogDemo, import8.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import9.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_LogDemo1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'tr', null);
         this._text_1 = this.renderer.createText(this._el_0, '\n                        ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'td', null);
@@ -433,22 +443,23 @@ class _View_LogDemo1 extends import1.AppView {
             this._text_7
         ], [], []);
         return null;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_LogDemo1.prototype.detectChangesInternal = function (throwOnChange) {
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_0 = import6.interpolate(1, '', this.context.$implicit.text, '');
+        var currVal_0 = import6.interpolate(1, '', this.context.$implicit.text, '');
         if (import6.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setText(this._text_3, currVal_0);
             this._expr_0 = currVal_0;
         }
-        const currVal_1 = import6.interpolate(1, '', this.context.$implicit.severity, '');
+        var currVal_1 = import6.interpolate(1, '', this.context.$implicit.severity, '');
         if (import6.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setText(this._text_6, currVal_1);
             this._expr_1 = currVal_1;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_LogDemo1;
+}(import1.AppView));
 function viewFactory_LogDemo1(viewUtils, parentInjector, declarationEl) {
     return new _View_LogDemo1(viewUtils, parentInjector, declarationEl);
 }

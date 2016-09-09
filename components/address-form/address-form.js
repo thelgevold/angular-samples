@@ -7,24 +7,25 @@ function zipValidator(zip) {
 }
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-export class AddressForm {
-    constructor() {
+export var AddressForm = (function () {
+    function AddressForm() {
         this.payLoad = null;
-        let group = {};
+        var group = {};
         group.firstName = new FormControl('', Validators.required);
         group.streetAddress = new FormControl('', Validators.required);
         group.zip = new FormControl('', zipValidator);
         group.type = new FormControl('home');
         this.form = new FormGroup(group);
     }
-    onSubmit() {
+    AddressForm.prototype.onSubmit = function () {
         this.payLoad = JSON.stringify(this.form.value);
-    }
-}
-AddressForm.decorators = [
-    { type: Component, args: [{
-                selector: 'address-form',
-                templateUrl: './address-form.html'
-            },] },
-];
-AddressForm.ctorParameters = [];
+    };
+    AddressForm.decorators = [
+        { type: Component, args: [{
+                    selector: 'address-form',
+                    templateUrl: './address-form.html'
+                },] },
+    ];
+    AddressForm.ctorParameters = [];
+    return AddressForm;
+}());

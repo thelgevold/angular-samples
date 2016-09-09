@@ -1,15 +1,16 @@
 import { Comment } from './comment';
-export class BaseComment {
-    constructor() {
+export var BaseComment = (function () {
+    function BaseComment() {
         this.comments = [];
     }
-    addComment() {
-        let comment = new Comment();
+    BaseComment.prototype.addComment = function () {
+        var comment = new Comment();
         comment.text = this.text;
         comment.author = this.author;
         this.comments.push(comment);
-    }
-    lastUpdated() {
+    };
+    BaseComment.prototype.lastUpdated = function () {
         return Date().toString();
-    }
-}
+    };
+    return BaseComment;
+}());

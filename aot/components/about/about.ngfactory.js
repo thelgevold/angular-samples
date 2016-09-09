@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/about/about';
@@ -12,11 +17,12 @@ import * as import12 from '@angular/router/src/router_state';
 import * as import13 from '@angular/common/src/location/location_strategy';
 import * as import14 from '@angular/core/src/security';
 var renderType_About_Host = null;
-class _View_About_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_About_Host0, renderType_About_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_About_Host0 = (function (_super) {
+    __extends(_View_About_Host0, _super);
+    function _View_About_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_About_Host0, renderType_About_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_About_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('about', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_About0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -25,29 +31,31 @@ class _View_About_Host0 extends import1.AppView {
         compView_0.create(this._About_0_4, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_About_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.About) && (0 === requestNodeIndex))) {
             return this._About_0_4;
         }
         return notFoundResult;
-    }
-}
+    };
+    return _View_About_Host0;
+}(import1.AppView));
 function viewFactory_About_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_About_Host === null)) {
         (renderType_About_Host = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, [], {}));
     }
     return new _View_About_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const AboutNgFactory = new import9.ComponentFactory('about', viewFactory_About_Host0, import3.About);
-const styles_About = [];
+export var AboutNgFactory = new import9.ComponentFactory('about', viewFactory_About_Host0, import3.About);
+var styles_About = [];
 var renderType_About = null;
-class _View_About0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_About0, renderType_About, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_About0 = (function (_super) {
+    __extends(_View_About0, _super);
+    function _View_About0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_About0, renderType_About, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_About0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'container');
         this._text_1 = this.renderer.createText(this._el_0, '\n    ', null);
@@ -79,7 +87,7 @@ class _View_About0 extends import1.AppView {
         this._text_24 = this.renderer.createText(this._el_20, '\n    ', null);
         this._text_25 = this.renderer.createText(this._el_0, '\n\n', null);
         var disposable_0 = this.renderer.listen(this._el_10, 'click', this.eventHandler(this._handle_click_10_0.bind(this)));
-        this._arr_0 = import4.pureProxy1((p0) => {
+        this._arr_0 = import4.pureProxy1(function (p0) {
             return [p0];
         });
         this._expr_1 = import7.UNINITIALIZED;
@@ -113,17 +121,17 @@ class _View_About0 extends import1.AppView {
             this._text_25
         ], [disposable_0], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_About0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import10.RouterLinkWithHref) && ((10 <= requestNodeIndex) && (requestNodeIndex <= 11)))) {
             return this._RouterLinkWithHref_10_3;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_About0.prototype.detectChangesInternal = function (throwOnChange) {
         var changes = null;
         changes = null;
-        const currVal_1 = this._arr_0('/Demo/Spreadsheet');
+        var currVal_1 = this._arr_0('/Demo/Spreadsheet');
         if (import4.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this._RouterLinkWithHref_10_3.routerLink = currVal_1;
             if ((changes === null)) {
@@ -136,22 +144,23 @@ class _View_About0 extends import1.AppView {
             this._RouterLinkWithHref_10_3.ngOnChanges(changes);
         }
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_2 = this._RouterLinkWithHref_10_3.href;
+        var currVal_2 = this._RouterLinkWithHref_10_3.href;
         if (import4.checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this.renderer.setElementProperty(this._el_10, 'href', this.viewUtils.sanitizer.sanitize(import14.SecurityContext.URL, currVal_2));
             this._expr_2 = currVal_2;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-    destroyInternal() {
+    };
+    _View_About0.prototype.destroyInternal = function () {
         this._RouterLinkWithHref_10_3.ngOnDestroy();
-    }
-    _handle_click_10_0($event) {
+    };
+    _View_About0.prototype._handle_click_10_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this._RouterLinkWithHref_10_3.onClick($event.button, $event.ctrlKey, $event.metaKey) !== false);
+        var pd_0 = (this._RouterLinkWithHref_10_3.onClick($event.button, $event.ctrlKey, $event.metaKey) !== false);
         return (true && pd_0);
-    }
-}
+    };
+    return _View_About0;
+}(import1.AppView));
 export function viewFactory_About0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_About === null)) {
         (renderType_About = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/about/about.html', 0, import8.ViewEncapsulation.None, styles_About, {}));

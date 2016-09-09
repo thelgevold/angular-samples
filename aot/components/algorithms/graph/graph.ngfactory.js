@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../../components/algorithms/graph/edge-service';
@@ -11,11 +16,12 @@ import * as import11 from '@angular/core/src/linker/component_factory';
 import * as import12 from '../../../../components/algorithms/graph/vertex';
 import * as import13 from './vertex.ngfactory';
 var renderType_Graph_Host = null;
-class _View_Graph_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_Graph_Host0, renderType_Graph_Host, import7.ViewType.HOST, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
+var _View_Graph_Host0 = (function (_super) {
+    __extends(_View_Graph_Host0, _super);
+    function _View_Graph_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Graph_Host0, renderType_Graph_Host, import7.ViewType.HOST, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_Graph_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('graph', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Graph0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -25,8 +31,8 @@ class _View_Graph_Host0 extends import1.AppView {
         compView_0.create(this._Graph_0_5, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_Graph_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.EdgeService) && (0 === requestNodeIndex))) {
             return this._EdgeService_0_4;
         }
@@ -34,30 +40,32 @@ class _View_Graph_Host0 extends import1.AppView {
             return this._Graph_0_5;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_Graph_Host0.prototype.detectChangesInternal = function (throwOnChange) {
         if (((this.numberOfChecks === 0) && !throwOnChange)) {
             this._Graph_0_5.ngOnInit();
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_Graph_Host0;
+}(import1.AppView));
 function viewFactory_Graph_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Graph_Host === null)) {
         (renderType_Graph_Host = viewUtils.createRenderComponentType('', 0, import10.ViewEncapsulation.None, [], {}));
     }
     return new _View_Graph_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const GraphNgFactory = new import11.ComponentFactory('graph', viewFactory_Graph_Host0, import4.Graph);
-const styles_Graph = [];
+export var GraphNgFactory = new import11.ComponentFactory('graph', viewFactory_Graph_Host0, import4.Graph);
+var styles_Graph = [];
 var renderType_Graph = null;
-class _View_Graph0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_Graph0, renderType_Graph, import7.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
+var _View_Graph0 = (function (_super) {
+    __extends(_View_Graph0, _super);
+    function _View_Graph0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Graph0, renderType_Graph, import7.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_Graph0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this._text_1 = this.renderer.createText(this._el_0, '\n    ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'h1', null);
@@ -199,8 +207,8 @@ class _View_Graph0 extends import1.AppView {
             this._text_42
         ], [], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_Graph0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import12.Vertex) && (8 === requestNodeIndex))) {
             return this._Vertex_8_5;
         }
@@ -226,52 +234,53 @@ class _View_Graph0 extends import1.AppView {
             return this._Vertex_35_5;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
-        const currVal_0 = 'A';
+    };
+    _View_Graph0.prototype.detectChangesInternal = function (throwOnChange) {
+        var currVal_0 = 'A';
         if (import5.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this._Vertex_8_5.value = currVal_0;
             this._expr_0 = currVal_0;
         }
-        const currVal_1 = 'B';
+        var currVal_1 = 'B';
         if (import5.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this._Vertex_16_5.value = currVal_1;
             this._expr_1 = currVal_1;
         }
-        const currVal_2 = 'C';
+        var currVal_2 = 'C';
         if (import5.checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this._Vertex_18_5.value = currVal_2;
             this._expr_2 = currVal_2;
         }
-        const currVal_3 = 'E';
+        var currVal_3 = 'E';
         if (import5.checkBinding(throwOnChange, this._expr_3, currVal_3)) {
             this._Vertex_23_5.value = currVal_3;
             this._expr_3 = currVal_3;
         }
-        const currVal_4 = 'F';
+        var currVal_4 = 'F';
         if (import5.checkBinding(throwOnChange, this._expr_4, currVal_4)) {
             this._Vertex_25_5.value = currVal_4;
             this._expr_4 = currVal_4;
         }
-        const currVal_5 = 'G';
+        var currVal_5 = 'G';
         if (import5.checkBinding(throwOnChange, this._expr_5, currVal_5)) {
             this._Vertex_31_5.value = currVal_5;
             this._expr_5 = currVal_5;
         }
-        const currVal_6 = 'H';
+        var currVal_6 = 'H';
         if (import5.checkBinding(throwOnChange, this._expr_6, currVal_6)) {
             this._Vertex_33_5.value = currVal_6;
             this._expr_6 = currVal_6;
         }
-        const currVal_7 = 'I';
+        var currVal_7 = 'I';
         if (import5.checkBinding(throwOnChange, this._expr_7, currVal_7)) {
             this._Vertex_35_5.value = currVal_7;
             this._expr_7 = currVal_7;
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_Graph0;
+}(import1.AppView));
 export function viewFactory_Graph0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Graph === null)) {
         (renderType_Graph = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/algorithms/graph/graph.html', 0, import10.ViewEncapsulation.None, styles_Graph, {}));

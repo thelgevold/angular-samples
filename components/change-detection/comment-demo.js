@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-export class CommentDemo {
-    constructor() {
+export var CommentDemo = (function () {
+    function CommentDemo() {
         this.counter = 0;
     }
-    count() {
+    CommentDemo.prototype.count = function () {
         this.counter++;
-    }
-}
-CommentDemo.decorators = [
-    { type: Component, args: [{
-                selector: 'comment-demo',
-                templateUrl: './comment-demo.html'
-            },] },
-];
-CommentDemo.ctorParameters = [];
+    };
+    CommentDemo.decorators = [
+        { type: Component, args: [{
+                    selector: 'comment-demo',
+                    templateUrl: './comment-demo.html'
+                },] },
+    ];
+    CommentDemo.ctorParameters = [];
+    return CommentDemo;
+}());

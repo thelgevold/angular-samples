@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/http/http';
@@ -15,11 +20,12 @@ import * as import15 from '@angular/core/src/change_detection/differs/keyvalue_d
 import * as import16 from '@angular/core/src/linker/element_ref';
 import * as import17 from '@angular/core/src/linker/template_ref';
 var renderType_HttpSample_Host = null;
-class _View_HttpSample_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_HttpSample_Host0, renderType_HttpSample_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_HttpSample_Host0 = (function (_super) {
+    __extends(_View_HttpSample_Host0, _super);
+    function _View_HttpSample_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_HttpSample_Host0, renderType_HttpSample_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_HttpSample_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_HttpSample0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -28,29 +34,31 @@ class _View_HttpSample_Host0 extends import1.AppView {
         compView_0.create(this._HttpSample_0_4, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_HttpSample_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.HttpSample) && (0 === requestNodeIndex))) {
             return this._HttpSample_0_4;
         }
         return notFoundResult;
-    }
-}
+    };
+    return _View_HttpSample_Host0;
+}(import1.AppView));
 function viewFactory_HttpSample_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_HttpSample_Host === null)) {
         (renderType_HttpSample_Host = viewUtils.createRenderComponentType('', 0, import9.ViewEncapsulation.None, [], {}));
     }
     return new _View_HttpSample_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const HttpSampleNgFactory = new import10.ComponentFactory('ng-component', viewFactory_HttpSample_Host0, import3.HttpSample);
-const styles_HttpSample = [];
+export var HttpSampleNgFactory = new import10.ComponentFactory('ng-component', viewFactory_HttpSample_Host0, import3.HttpSample);
+var styles_HttpSample = [];
 var renderType_HttpSample = null;
-class _View_HttpSample0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_HttpSample0, renderType_HttpSample, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_HttpSample0 = (function (_super) {
+    __extends(_View_HttpSample0, _super);
+    function _View_HttpSample0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_HttpSample0, renderType_HttpSample, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_HttpSample0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'h1', null);
         this._text_1 = this.renderer.createText(this._el_0, 'Making Http Requests', null);
         this._text_2 = this.renderer.createText(parentRenderNode, '\n\n', null);
@@ -185,22 +193,22 @@ class _View_HttpSample0 extends import1.AppView {
         this.renderer.setElementAttribute(this._el_100, 'href', 'http://www.syntaxsuccess.com/viewarticle/angular-2.0-and-http');
         this._text_101 = this.renderer.createText(this._el_100, 'Read more here', null);
         var disposable_0 = this.renderer.listen(this._el_9, 'click', this.eventHandler(this._handle_click_9_0.bind(this)));
-        this._map_0 = import4.pureProxy1((p0) => {
+        this._map_0 = import4.pureProxy1(function (p0) {
             return { active: p0 };
         });
         this._expr_1 = import7.UNINITIALIZED;
         var disposable_1 = this.renderer.listen(this._el_13, 'click', this.eventHandler(this._handle_click_13_0.bind(this)));
-        this._map_1 = import4.pureProxy1((p0) => {
+        this._map_1 = import4.pureProxy1(function (p0) {
             return { active: p0 };
         });
         this._expr_3 = import7.UNINITIALIZED;
         var disposable_2 = this.renderer.listen(this._el_17, 'click', this.eventHandler(this._handle_click_17_0.bind(this)));
-        this._map_2 = import4.pureProxy1((p0) => {
+        this._map_2 = import4.pureProxy1(function (p0) {
             return { active: p0 };
         });
         this._expr_5 = import7.UNINITIALIZED;
         var disposable_3 = this.renderer.listen(this._el_21, 'click', this.eventHandler(this._handle_click_21_0.bind(this)));
-        this._map_3 = import4.pureProxy1((p0) => {
+        this._map_3 = import4.pureProxy1(function (p0) {
             return { active: p0 };
         });
         this._expr_7 = import7.UNINITIALIZED;
@@ -326,8 +334,8 @@ class _View_HttpSample0 extends import1.AppView {
             disposable_4
         ], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_HttpSample0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import11.NgClass) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 11)))) {
             return this._NgClass_9_3;
         }
@@ -365,10 +373,10 @@ class _View_HttpSample0 extends import1.AppView {
             return this._NgIf_79_6;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_HttpSample0.prototype.detectChangesInternal = function (throwOnChange) {
         var changes = null;
-        const currVal_1 = this._map_0(this.context.isActive('usa'));
+        var currVal_1 = this._map_0(this.context.isActive('usa'));
         if (import4.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this._NgClass_9_3.ngClass = currVal_1;
             this._expr_1 = currVal_1;
@@ -376,7 +384,7 @@ class _View_HttpSample0 extends import1.AppView {
         if (!throwOnChange) {
             this._NgClass_9_3.ngDoCheck();
         }
-        const currVal_3 = this._map_1(this.context.isActive('denmark'));
+        var currVal_3 = this._map_1(this.context.isActive('denmark'));
         if (import4.checkBinding(throwOnChange, this._expr_3, currVal_3)) {
             this._NgClass_13_3.ngClass = currVal_3;
             this._expr_3 = currVal_3;
@@ -384,7 +392,7 @@ class _View_HttpSample0 extends import1.AppView {
         if (!throwOnChange) {
             this._NgClass_13_3.ngDoCheck();
         }
-        const currVal_5 = this._map_2(this.context.isActive('germany'));
+        var currVal_5 = this._map_2(this.context.isActive('germany'));
         if (import4.checkBinding(throwOnChange, this._expr_5, currVal_5)) {
             this._NgClass_17_3.ngClass = currVal_5;
             this._expr_5 = currVal_5;
@@ -392,7 +400,7 @@ class _View_HttpSample0 extends import1.AppView {
         if (!throwOnChange) {
             this._NgClass_17_3.ngDoCheck();
         }
-        const currVal_7 = this._map_3(this.context.isActive('argentina'));
+        var currVal_7 = this._map_3(this.context.isActive('argentina'));
         if (import4.checkBinding(throwOnChange, this._expr_7, currVal_7)) {
             this._NgClass_21_3.ngClass = currVal_7;
             this._expr_7 = currVal_7;
@@ -401,7 +409,7 @@ class _View_HttpSample0 extends import1.AppView {
             this._NgClass_21_3.ngDoCheck();
         }
         changes = null;
-        const currVal_9 = this.context.result.friends;
+        var currVal_9 = this.context.result.friends;
         if (import4.checkBinding(throwOnChange, this._expr_9, currVal_9)) {
             this._NgFor_36_6.ngForOf = currVal_9;
             if ((changes === null)) {
@@ -417,7 +425,7 @@ class _View_HttpSample0 extends import1.AppView {
             this._NgFor_36_6.ngDoCheck();
         }
         changes = null;
-        const currVal_10 = this.context.friendsAsPromise.friends;
+        var currVal_10 = this.context.friendsAsPromise.friends;
         if (import4.checkBinding(throwOnChange, this._expr_10, currVal_10)) {
             this._NgFor_43_6.ngForOf = currVal_10;
             if ((changes === null)) {
@@ -433,7 +441,7 @@ class _View_HttpSample0 extends import1.AppView {
             this._NgFor_43_6.ngDoCheck();
         }
         changes = null;
-        const currVal_11 = this.context.combined.friends;
+        var currVal_11 = this.context.combined.friends;
         if (import4.checkBinding(throwOnChange, this._expr_11, currVal_11)) {
             this._NgFor_53_6.ngForOf = currVal_11;
             if ((changes === null)) {
@@ -448,85 +456,87 @@ class _View_HttpSample0 extends import1.AppView {
         if (!throwOnChange) {
             this._NgFor_53_6.ngDoCheck();
         }
-        const currVal_15 = this.context.error;
+        var currVal_15 = this.context.error;
         if (import4.checkBinding(throwOnChange, this._expr_15, currVal_15)) {
             this._NgIf_79_6.ngIf = currVal_15;
             this._expr_15 = currVal_15;
         }
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_8 = import4.interpolate(1, '', this.context.capitol, '');
+        var currVal_8 = import4.interpolate(1, '', this.context.capitol, '');
         if (import4.checkBinding(throwOnChange, this._expr_8, currVal_8)) {
             this.renderer.setText(this._text_29, currVal_8);
             this._expr_8 = currVal_8;
         }
-        const currVal_12 = import4.interpolate(1, '', this.context.combined.customer.name, '');
+        var currVal_12 = import4.interpolate(1, '', this.context.combined.customer.name, '');
         if (import4.checkBinding(throwOnChange, this._expr_12, currVal_12)) {
             this.renderer.setText(this._text_61, currVal_12);
             this._expr_12 = currVal_12;
         }
-        const currVal_13 = import4.interpolate(1, 'Customer: ', ((this.context.customer == null) ? null : this.context.customer.name), '');
+        var currVal_13 = import4.interpolate(1, 'Customer: ', ((this.context.customer == null) ? null : this.context.customer.name), '');
         if (import4.checkBinding(throwOnChange, this._expr_13, currVal_13)) {
             this.renderer.setText(this._text_71, currVal_13);
             this._expr_13 = currVal_13;
         }
-        const currVal_14 = import4.interpolate(1, 'Product: ', ((this.context.contract == null) ? null : this.context.contract.product), '');
+        var currVal_14 = import4.interpolate(1, 'Product: ', ((this.context.contract == null) ? null : this.context.contract.product), '');
         if (import4.checkBinding(throwOnChange, this._expr_14, currVal_14)) {
             this.renderer.setText(this._text_74, currVal_14);
             this._expr_14 = currVal_14;
         }
-        const currVal_17 = import4.interpolate(1, '', this.context.postResponse.firstName, '');
+        var currVal_17 = import4.interpolate(1, '', this.context.postResponse.firstName, '');
         if (import4.checkBinding(throwOnChange, this._expr_17, currVal_17)) {
             this.renderer.setText(this._text_93, currVal_17);
             this._expr_17 = currVal_17;
         }
-        const currVal_18 = import4.interpolate(1, '', this.context.postResponse.lastName, '');
+        var currVal_18 = import4.interpolate(1, '', this.context.postResponse.lastName, '');
         if (import4.checkBinding(throwOnChange, this._expr_18, currVal_18)) {
             this.renderer.setText(this._text_96, currVal_18);
             this._expr_18 = currVal_18;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-    _handle_click_9_0($event) {
+    };
+    _View_HttpSample0.prototype._handle_click_9_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
         this.context.country.next('usa');
-        const pd_0 = ((this.context.activeCountry = 'usa') !== false);
+        var pd_0 = ((this.context.activeCountry = 'usa') !== false);
         return (true && pd_0);
-    }
-    _handle_click_13_0($event) {
+    };
+    _View_HttpSample0.prototype._handle_click_13_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
         this.context.country.next('denmark');
-        const pd_0 = ((this.context.activeCountry = 'denmark') !== false);
+        var pd_0 = ((this.context.activeCountry = 'denmark') !== false);
         return (true && pd_0);
-    }
-    _handle_click_17_0($event) {
+    };
+    _View_HttpSample0.prototype._handle_click_17_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
         this.context.country.next('germany');
-        const pd_0 = ((this.context.activeCountry = 'germany') !== false);
+        var pd_0 = ((this.context.activeCountry = 'germany') !== false);
         return (true && pd_0);
-    }
-    _handle_click_21_0($event) {
+    };
+    _View_HttpSample0.prototype._handle_click_21_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
         this.context.country.next('argentina');
-        const pd_0 = ((this.context.activeCountry = 'argentina') !== false);
+        var pd_0 = ((this.context.activeCountry = 'argentina') !== false);
         return (true && pd_0);
-    }
-    _handle_click_86_0($event) {
+    };
+    _View_HttpSample0.prototype._handle_click_86_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this.context.postData() !== false);
+        var pd_0 = (this.context.postData() !== false);
         return (true && pd_0);
-    }
-}
+    };
+    return _View_HttpSample0;
+}(import1.AppView));
 export function viewFactory_HttpSample0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_HttpSample === null)) {
         (renderType_HttpSample = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/http/http.html', 0, import9.ViewEncapsulation.None, styles_HttpSample, {}));
     }
     return new _View_HttpSample0(viewUtils, parentInjector, declarationEl);
 }
-class _View_HttpSample1 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_HttpSample1, renderType_HttpSample, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_HttpSample1 = (function (_super) {
+    __extends(_View_HttpSample1, _super);
+    function _View_HttpSample1(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_HttpSample1, renderType_HttpSample, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_HttpSample1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'div', null);
         this._text_1 = this.renderer.createText(this._el_0, '', null);
         this._expr_0 = import7.UNINITIALIZED;
@@ -535,25 +545,27 @@ class _View_HttpSample1 extends import1.AppView {
             this._text_1
         ], [], []);
         return null;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_HttpSample1.prototype.detectChangesInternal = function (throwOnChange) {
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_0 = import4.interpolate(1, '\n    ', this.context.$implicit, '\n');
+        var currVal_0 = import4.interpolate(1, '\n    ', this.context.$implicit, '\n');
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setText(this._text_1, currVal_0);
             this._expr_0 = currVal_0;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_HttpSample1;
+}(import1.AppView));
 function viewFactory_HttpSample1(viewUtils, parentInjector, declarationEl) {
     return new _View_HttpSample1(viewUtils, parentInjector, declarationEl);
 }
-class _View_HttpSample2 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_HttpSample2, renderType_HttpSample, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_HttpSample2 = (function (_super) {
+    __extends(_View_HttpSample2, _super);
+    function _View_HttpSample2(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_HttpSample2, renderType_HttpSample, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_HttpSample2.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'div', null);
         this._text_1 = this.renderer.createText(this._el_0, '', null);
         this._expr_0 = import7.UNINITIALIZED;
@@ -562,25 +574,27 @@ class _View_HttpSample2 extends import1.AppView {
             this._text_1
         ], [], []);
         return null;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_HttpSample2.prototype.detectChangesInternal = function (throwOnChange) {
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_0 = import4.interpolate(1, '\n    ', this.context.$implicit, '\n');
+        var currVal_0 = import4.interpolate(1, '\n    ', this.context.$implicit, '\n');
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setText(this._text_1, currVal_0);
             this._expr_0 = currVal_0;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_HttpSample2;
+}(import1.AppView));
 function viewFactory_HttpSample2(viewUtils, parentInjector, declarationEl) {
     return new _View_HttpSample2(viewUtils, parentInjector, declarationEl);
 }
-class _View_HttpSample3 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_HttpSample3, renderType_HttpSample, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_HttpSample3 = (function (_super) {
+    __extends(_View_HttpSample3, _super);
+    function _View_HttpSample3(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_HttpSample3, renderType_HttpSample, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_HttpSample3.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'div', null);
         this._text_1 = this.renderer.createText(this._el_0, '', null);
         this._expr_0 = import7.UNINITIALIZED;
@@ -589,25 +603,27 @@ class _View_HttpSample3 extends import1.AppView {
             this._text_1
         ], [], []);
         return null;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_HttpSample3.prototype.detectChangesInternal = function (throwOnChange) {
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_0 = import4.interpolate(1, '\n    ', this.context.$implicit, '\n');
+        var currVal_0 = import4.interpolate(1, '\n    ', this.context.$implicit, '\n');
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setText(this._text_1, currVal_0);
             this._expr_0 = currVal_0;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_HttpSample3;
+}(import1.AppView));
 function viewFactory_HttpSample3(viewUtils, parentInjector, declarationEl) {
     return new _View_HttpSample3(viewUtils, parentInjector, declarationEl);
 }
-class _View_HttpSample4 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_HttpSample4, renderType_HttpSample, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_HttpSample4 = (function (_super) {
+    __extends(_View_HttpSample4, _super);
+    function _View_HttpSample4(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_HttpSample4, renderType_HttpSample, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_HttpSample4.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'div', null);
         this._text_1 = this.renderer.createText(this._el_0, '\n    ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'div', null);
@@ -623,8 +639,9 @@ class _View_HttpSample4 extends import1.AppView {
             this._text_4
         ], [], []);
         return null;
-    }
-}
+    };
+    return _View_HttpSample4;
+}(import1.AppView));
 function viewFactory_HttpSample4(viewUtils, parentInjector, declarationEl) {
     return new _View_HttpSample4(viewUtils, parentInjector, declarationEl);
 }

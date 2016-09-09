@@ -1,6 +1,8 @@
-export class KeyMap {
-    static getNavigationDirection(keyCode) {
-        let direction = new KeyDirection();
+export var KeyMap = (function () {
+    function KeyMap() {
+    }
+    KeyMap.getNavigationDirection = function (keyCode) {
+        var direction = new KeyDirection();
         if (keyCode === 38) {
             direction.up = true;
         }
@@ -17,7 +19,11 @@ export class KeyMap {
             direction.left = true;
         }
         return direction;
+    };
+    return KeyMap;
+}());
+var KeyDirection = (function () {
+    function KeyDirection() {
     }
-}
-class KeyDirection {
-}
+    return KeyDirection;
+}());

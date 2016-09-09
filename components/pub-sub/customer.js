@@ -1,2 +1,5 @@
-export class Customer {
-}
+export var Customer = (function () {
+    function Customer() {
+    }
+    return Customer;
+}());

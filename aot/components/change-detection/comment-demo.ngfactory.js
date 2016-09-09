@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/change-detection/comment-demo';
@@ -11,11 +16,12 @@ import * as import11 from '../../../components/change-detection/comment-section-
 import * as import12 from './comment-section-1.ngfactory';
 import * as import13 from './comment-section-2.ngfactory';
 var renderType_CommentDemo_Host = null;
-class _View_CommentDemo_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_CommentDemo_Host0, renderType_CommentDemo_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_CommentDemo_Host0 = (function (_super) {
+    __extends(_View_CommentDemo_Host0, _super);
+    function _View_CommentDemo_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_CommentDemo_Host0, renderType_CommentDemo_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_CommentDemo_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('comment-demo', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_CommentDemo0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -24,29 +30,31 @@ class _View_CommentDemo_Host0 extends import1.AppView {
         compView_0.create(this._CommentDemo_0_4, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_CommentDemo_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.CommentDemo) && (0 === requestNodeIndex))) {
             return this._CommentDemo_0_4;
         }
         return notFoundResult;
-    }
-}
+    };
+    return _View_CommentDemo_Host0;
+}(import1.AppView));
 function viewFactory_CommentDemo_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_CommentDemo_Host === null)) {
         (renderType_CommentDemo_Host = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, [], {}));
     }
     return new _View_CommentDemo_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const CommentDemoNgFactory = new import9.ComponentFactory('comment-demo', viewFactory_CommentDemo_Host0, import3.CommentDemo);
-const styles_CommentDemo = [];
+export var CommentDemoNgFactory = new import9.ComponentFactory('comment-demo', viewFactory_CommentDemo_Host0, import3.CommentDemo);
+var styles_CommentDemo = [];
 var renderType_CommentDemo = null;
-class _View_CommentDemo0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_CommentDemo0, renderType_CommentDemo, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_CommentDemo0 = (function (_super) {
+    __extends(_View_CommentDemo0, _super);
+    function _View_CommentDemo0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_CommentDemo0, renderType_CommentDemo, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_CommentDemo0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'h1', null);
         this._text_1 = this.renderer.createText(this._el_0, 'Change Detection', null);
         this._text_2 = this.renderer.createText(parentRenderNode, '\n', null);
@@ -132,8 +140,8 @@ class _View_CommentDemo0 extends import1.AppView {
             this._text_31
         ], [disposable_0], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_CommentDemo0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import10.CommentSection1) && (7 === requestNodeIndex))) {
             return this._CommentSection1_7_4;
         }
@@ -141,22 +149,23 @@ class _View_CommentDemo0 extends import1.AppView {
             return this._CommentSection2_12_4;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_CommentDemo0.prototype.detectChangesInternal = function (throwOnChange) {
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_1 = import4.interpolate(1, '', this.context.counter, '');
+        var currVal_1 = import4.interpolate(1, '', this.context.counter, '');
         if (import4.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setText(this._text_25, currVal_1);
             this._expr_1 = currVal_1;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-    _handle_click_20_0($event) {
+    };
+    _View_CommentDemo0.prototype._handle_click_20_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this.context.count() !== false);
+        var pd_0 = (this.context.count() !== false);
         return (true && pd_0);
-    }
-}
+    };
+    return _View_CommentDemo0;
+}(import1.AppView));
 export function viewFactory_CommentDemo0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_CommentDemo === null)) {
         (renderType_CommentDemo = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/change-detection/comment-demo.html', 0, import8.ViewEncapsulation.None, styles_CommentDemo, {}));

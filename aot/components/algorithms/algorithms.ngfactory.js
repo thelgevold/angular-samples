@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/algorithms/algorithms';
@@ -8,11 +13,12 @@ import * as import9 from '@angular/core/src/linker/component_factory';
 import * as import10 from '../../../components/insertion-sort/insertion-sort';
 import * as import11 from '../insertion-sort/insertion-sort.ngfactory';
 var renderType_Algorithms_Host = null;
-class _View_Algorithms_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_Algorithms_Host0, renderType_Algorithms_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_Algorithms_Host0 = (function (_super) {
+    __extends(_View_Algorithms_Host0, _super);
+    function _View_Algorithms_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Algorithms_Host0, renderType_Algorithms_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_Algorithms_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('algorithms', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Algorithms0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -21,29 +27,31 @@ class _View_Algorithms_Host0 extends import1.AppView {
         compView_0.create(this._Algorithms_0_4, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_Algorithms_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.Algorithms) && (0 === requestNodeIndex))) {
             return this._Algorithms_0_4;
         }
         return notFoundResult;
-    }
-}
+    };
+    return _View_Algorithms_Host0;
+}(import1.AppView));
 function viewFactory_Algorithms_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Algorithms_Host === null)) {
         (renderType_Algorithms_Host = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, [], {}));
     }
     return new _View_Algorithms_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const AlgorithmsNgFactory = new import9.ComponentFactory('algorithms', viewFactory_Algorithms_Host0, import3.Algorithms);
-const styles_Algorithms = [];
+export var AlgorithmsNgFactory = new import9.ComponentFactory('algorithms', viewFactory_Algorithms_Host0, import3.Algorithms);
+var styles_Algorithms = [];
 var renderType_Algorithms = null;
-class _View_Algorithms0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_Algorithms0, renderType_Algorithms, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_Algorithms0 = (function (_super) {
+    __extends(_View_Algorithms0, _super);
+    function _View_Algorithms0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Algorithms0, renderType_Algorithms, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_Algorithms0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'h1', null);
         this._text_1 = this.renderer.createText(this._el_0, 'Insertion Sort Demo', null);
         this._text_2 = this.renderer.createText(parentRenderNode, '\n', null);
@@ -75,14 +83,15 @@ class _View_Algorithms0 extends import1.AppView {
             this._text_10
         ], [], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_Algorithms0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import10.InsertionSort) && (6 === requestNodeIndex))) {
             return this._InsertionSort_6_4;
         }
         return notFoundResult;
-    }
-}
+    };
+    return _View_Algorithms0;
+}(import1.AppView));
 export function viewFactory_Algorithms0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Algorithms === null)) {
         (renderType_Algorithms = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/algorithms/algorithms.html', 0, import8.ViewEncapsulation.None, styles_Algorithms, {}));

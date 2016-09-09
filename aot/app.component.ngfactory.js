@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../app.component';
@@ -16,11 +21,12 @@ import * as import16 from '@angular/router/src/router_outlet_map';
 import * as import17 from '@angular/core/src/linker/component_factory_resolver';
 import * as import18 from '@angular/core/src/security';
 var renderType_AppComponent_Host = null;
-class _View_AppComponent_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_AppComponent_Host0, renderType_AppComponent_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_AppComponent_Host0 = (function (_super) {
+    __extends(_View_AppComponent_Host0, _super);
+    function _View_AppComponent_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_AppComponent_Host0, renderType_AppComponent_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_AppComponent_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('demo-app', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_AppComponent0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -29,29 +35,31 @@ class _View_AppComponent_Host0 extends import1.AppView {
         compView_0.create(this._AppComponent_0_4, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_AppComponent_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.AppComponent) && (0 === requestNodeIndex))) {
             return this._AppComponent_0_4;
         }
         return notFoundResult;
-    }
-}
+    };
+    return _View_AppComponent_Host0;
+}(import1.AppView));
 function viewFactory_AppComponent_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_AppComponent_Host === null)) {
         (renderType_AppComponent_Host = viewUtils.createRenderComponentType('', 0, import9.ViewEncapsulation.None, [], {}));
     }
     return new _View_AppComponent_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const AppComponentNgFactory = new import10.ComponentFactory('demo-app', viewFactory_AppComponent_Host0, import3.AppComponent);
-const styles_AppComponent = [];
+export var AppComponentNgFactory = new import10.ComponentFactory('demo-app', viewFactory_AppComponent_Host0, import3.AppComponent);
+var styles_AppComponent = [];
 var renderType_AppComponent = null;
-class _View_AppComponent0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_AppComponent0, renderType_AppComponent, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_AppComponent0 = (function (_super) {
+    __extends(_View_AppComponent0, _super);
+    function _View_AppComponent0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_AppComponent0, renderType_AppComponent, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_AppComponent0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'container');
         this._text_1 = this.renderer.createText(this._el_0, '\n    ', null);
@@ -117,14 +125,14 @@ class _View_AppComponent0 extends import1.AppView {
         this._text_42 = this.renderer.createText(parentRenderNode, '\n', null);
         this._expr_0 = import7.UNINITIALIZED;
         var disposable_0 = this.renderer.listen(this._el_15, 'click', this.eventHandler(this._handle_click_15_0.bind(this)));
-        this._arr_0 = import4.pureProxy1((p0) => {
+        this._arr_0 = import4.pureProxy1(function (p0) {
             return [p0];
         });
         this._expr_2 = import7.UNINITIALIZED;
         this._expr_3 = import7.UNINITIALIZED;
         this._expr_4 = import7.UNINITIALIZED;
         var disposable_1 = this.renderer.listen(this._el_19, 'click', this.eventHandler(this._handle_click_19_0.bind(this)));
-        this._arr_1 = import4.pureProxy1((p0) => {
+        this._arr_1 = import4.pureProxy1(function (p0) {
             return [p0];
         });
         this._expr_6 = import7.UNINITIALIZED;
@@ -178,8 +186,8 @@ class _View_AppComponent0 extends import1.AppView {
             disposable_1
         ], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_AppComponent0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import11.RouterLinkWithHref) && ((15 <= requestNodeIndex) && (requestNodeIndex <= 16)))) {
             return this._RouterLinkWithHref_15_3;
         }
@@ -193,11 +201,11 @@ class _View_AppComponent0 extends import1.AppView {
             return this._RouterOutlet_41_5;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_AppComponent0.prototype.detectChangesInternal = function (throwOnChange) {
         var changes = null;
         changes = null;
-        const currVal_2 = this._arr_0('/about');
+        var currVal_2 = this._arr_0('/about');
         if (import4.checkBinding(throwOnChange, this._expr_2, currVal_2)) {
             this._RouterLinkWithHref_15_3.routerLink = currVal_2;
             if ((changes === null)) {
@@ -210,7 +218,7 @@ class _View_AppComponent0 extends import1.AppView {
             this._RouterLinkWithHref_15_3.ngOnChanges(changes);
         }
         changes = null;
-        const currVal_6 = this._arr_1('/demo/spreadsheet');
+        var currVal_6 = this._arr_1('/demo/spreadsheet');
         if (import4.checkBinding(throwOnChange, this._expr_6, currVal_6)) {
             this._RouterLinkWithHref_19_3.routerLink = currVal_6;
             if ((changes === null)) {
@@ -223,45 +231,46 @@ class _View_AppComponent0 extends import1.AppView {
             this._RouterLinkWithHref_19_3.ngOnChanges(changes);
         }
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_0 = this.context.getLinkStyle('');
+        var currVal_0 = this.context.getLinkStyle('');
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setElementClass(this._el_14, 'active', currVal_0);
             this._expr_0 = currVal_0;
         }
-        const currVal_3 = this._RouterLinkWithHref_15_3.href;
+        var currVal_3 = this._RouterLinkWithHref_15_3.href;
         if (import4.checkBinding(throwOnChange, this._expr_3, currVal_3)) {
             this.renderer.setElementProperty(this._el_15, 'href', this.viewUtils.sanitizer.sanitize(import18.SecurityContext.URL, currVal_3));
             this._expr_3 = currVal_3;
         }
-        const currVal_4 = this.context.getLinkStyle('/demo');
+        var currVal_4 = this.context.getLinkStyle('/demo');
         if (import4.checkBinding(throwOnChange, this._expr_4, currVal_4)) {
             this.renderer.setElementClass(this._el_18, 'active', currVal_4);
             this._expr_4 = currVal_4;
         }
-        const currVal_7 = this._RouterLinkWithHref_19_3.href;
+        var currVal_7 = this._RouterLinkWithHref_19_3.href;
         if (import4.checkBinding(throwOnChange, this._expr_7, currVal_7)) {
             this.renderer.setElementProperty(this._el_19, 'href', this.viewUtils.sanitizer.sanitize(import18.SecurityContext.URL, currVal_7));
             this._expr_7 = currVal_7;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-    destroyInternal() {
+    };
+    _View_AppComponent0.prototype.destroyInternal = function () {
         this._RouterLinkWithHref_15_3.ngOnDestroy();
         this._RouterLinkWithHref_19_3.ngOnDestroy();
         this._RouterOutlet_38_5.ngOnDestroy();
         this._RouterOutlet_41_5.ngOnDestroy();
-    }
-    _handle_click_15_0($event) {
+    };
+    _View_AppComponent0.prototype._handle_click_15_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this._RouterLinkWithHref_15_3.onClick($event.button, $event.ctrlKey, $event.metaKey) !== false);
+        var pd_0 = (this._RouterLinkWithHref_15_3.onClick($event.button, $event.ctrlKey, $event.metaKey) !== false);
         return (true && pd_0);
-    }
-    _handle_click_19_0($event) {
+    };
+    _View_AppComponent0.prototype._handle_click_19_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this._RouterLinkWithHref_19_3.onClick($event.button, $event.ctrlKey, $event.metaKey) !== false);
+        var pd_0 = (this._RouterLinkWithHref_19_3.onClick($event.button, $event.ctrlKey, $event.metaKey) !== false);
         return (true && pd_0);
-    }
-}
+    };
+    return _View_AppComponent0;
+}(import1.AppView));
 export function viewFactory_AppComponent0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_AppComponent === null)) {
         (renderType_AppComponent = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/demo-app.html', 0, import9.ViewEncapsulation.None, styles_AppComponent, {}));

@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/dependency-injection/address-book-service';
@@ -13,11 +18,12 @@ import * as import13 from '@angular/common/src/directives/ng_for';
 import * as import14 from '@angular/core/src/linker/template_ref';
 import * as import15 from '@angular/core/src/change_detection/differs/iterable_differs';
 var renderType_AddressBook_Host = null;
-class _View_AddressBook_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_AddressBook_Host0, renderType_AddressBook_Host, import7.ViewType.HOST, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
+var _View_AddressBook_Host0 = (function (_super) {
+    __extends(_View_AddressBook_Host0, _super);
+    function _View_AddressBook_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_AddressBook_Host0, renderType_AddressBook_Host, import7.ViewType.HOST, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_AddressBook_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('address-book', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_AddressBook0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -27,8 +33,8 @@ class _View_AddressBook_Host0 extends import1.AppView {
         compView_0.create(this._AddressBook_0_5, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_AddressBook_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.AddressBookService) && (0 === requestNodeIndex))) {
             return this._AddressBookService_0_4;
         }
@@ -36,23 +42,25 @@ class _View_AddressBook_Host0 extends import1.AppView {
             return this._AddressBook_0_5;
         }
         return notFoundResult;
-    }
-}
+    };
+    return _View_AddressBook_Host0;
+}(import1.AppView));
 function viewFactory_AddressBook_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_AddressBook_Host === null)) {
         (renderType_AddressBook_Host = viewUtils.createRenderComponentType('', 0, import11.ViewEncapsulation.None, [], {}));
     }
     return new _View_AddressBook_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const AddressBookNgFactory = new import12.ComponentFactory('address-book', viewFactory_AddressBook_Host0, import4.AddressBook);
-const styles_AddressBook = [];
+export var AddressBookNgFactory = new import12.ComponentFactory('address-book', viewFactory_AddressBook_Host0, import4.AddressBook);
+var styles_AddressBook = [];
 var renderType_AddressBook = null;
-class _View_AddressBook0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_AddressBook0, renderType_AddressBook, import7.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
+var _View_AddressBook0 = (function (_super) {
+    __extends(_View_AddressBook0, _super);
+    function _View_AddressBook0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_AddressBook0, renderType_AddressBook, import7.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_AddressBook0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'div', null);
         this._text_1 = this.renderer.createText(this._el_0, '\n    ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'h1', null);
@@ -99,8 +107,8 @@ class _View_AddressBook0 extends import1.AppView {
             this._text_17
         ], [], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_AddressBook0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import14.TemplateRef) && (11 === requestNodeIndex))) {
             return this._TemplateRef_11_5;
         }
@@ -108,11 +116,11 @@ class _View_AddressBook0 extends import1.AppView {
             return this._NgFor_11_6;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_AddressBook0.prototype.detectChangesInternal = function (throwOnChange) {
         var changes = null;
         changes = null;
-        const currVal_1 = this.context.result.people;
+        var currVal_1 = this.context.result.people;
         if (import5.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this._NgFor_11_6.ngForOf = currVal_1;
             if ((changes === null)) {
@@ -128,25 +136,27 @@ class _View_AddressBook0 extends import1.AppView {
             this._NgFor_11_6.ngDoCheck();
         }
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_0 = import5.interpolate(1, '', this.context.title, '');
+        var currVal_0 = import5.interpolate(1, '', this.context.title, '');
         if (import5.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setText(this._text_6, currVal_0);
             this._expr_0 = currVal_0;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_AddressBook0;
+}(import1.AppView));
 export function viewFactory_AddressBook0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_AddressBook === null)) {
         (renderType_AddressBook = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/dependency-injection/address-book.html', 0, import11.ViewEncapsulation.None, styles_AddressBook, {}));
     }
     return new _View_AddressBook0(viewUtils, parentInjector, declarationEl);
 }
-class _View_AddressBook1 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_AddressBook1, renderType_AddressBook, import7.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
+var _View_AddressBook1 = (function (_super) {
+    __extends(_View_AddressBook1, _super);
+    function _View_AddressBook1(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_AddressBook1, renderType_AddressBook, import7.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import8.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_AddressBook1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'tr', null);
         this._text_1 = this.renderer.createText(this._el_0, '\n            ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'td', null);
@@ -168,22 +178,23 @@ class _View_AddressBook1 extends import1.AppView {
             this._text_7
         ], [], []);
         return null;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_AddressBook1.prototype.detectChangesInternal = function (throwOnChange) {
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_0 = import5.interpolate(1, '', this.context.$implicit.name, '');
+        var currVal_0 = import5.interpolate(1, '', this.context.$implicit.name, '');
         if (import5.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setText(this._text_3, currVal_0);
             this._expr_0 = currVal_0;
         }
-        const currVal_1 = import5.interpolate(1, '', this.context.$implicit.address, '');
+        var currVal_1 = import5.interpolate(1, '', this.context.$implicit.address, '');
         if (import5.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this.renderer.setText(this._text_6, currVal_1);
             this._expr_1 = currVal_1;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_AddressBook1;
+}(import1.AppView));
 function viewFactory_AddressBook1(viewUtils, parentInjector, declarationEl) {
     return new _View_AddressBook1(viewUtils, parentInjector, declarationEl);
 }

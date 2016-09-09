@@ -1,6 +1,7 @@
 import { CustomerEventEmitter } from './customer-event-emitter';
-export class PubSubService {
-    constructor() {
+export var PubSubService = (function () {
+    function PubSubService() {
         this.Stream = new CustomerEventEmitter();
     }
-}
+    return PubSubService;
+}());

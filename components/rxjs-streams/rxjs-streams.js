@@ -1,48 +1,53 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-export class RxJsStreams {
-    constructor() {
+export var RxJsStreams = (function () {
+    function RxJsStreams() {
         this.concatStream = [];
         this.mergeStream = [];
         this.forkJoinStream = [];
         this.flatMappedStreams = {};
     }
-    flatMapStreams() {
-        let first = Observable.of(10);
-        first.flatMap((operand1) => {
+    RxJsStreams.prototype.flatMapStreams = function () {
+        var _this = this;
+        var first = Observable.of(10);
+        first.flatMap(function (operand1) {
             return Observable.of(operand1 + 10);
         })
-            .subscribe(res => this.flatMappedStreams = { msg: '10 + 10 = ' + res });
-    }
-    concatStreams() {
-        let first = Observable.timer(10, 500).map(r => {
+            .subscribe(function (res) { return _this.flatMappedStreams = { msg: '10 + 10 = ' + res }; });
+    };
+    RxJsStreams.prototype.concatStreams = function () {
+        var _this = this;
+        var first = Observable.timer(10, 500).map(function (r) {
             return { source: 1, value: r };
         }).take(4);
-        let second = Observable.timer(10, 500).map(r => {
+        var second = Observable.timer(10, 500).map(function (r) {
             return { source: 2, value: r };
         }).take(4);
-        first.concat(second).subscribe(res => this.concatStream.push(res));
-    }
-    mergeStreams() {
-        let first = Observable.timer(10, 500).map(r => {
+        first.concat(second).subscribe(function (res) { return _this.concatStream.push(res); });
+    };
+    RxJsStreams.prototype.mergeStreams = function () {
+        var _this = this;
+        var first = Observable.timer(10, 500).map(function (r) {
             return { source: 1, value: r };
         }).take(4);
-        let second = Observable.timer(10, 500).map(r => {
+        var second = Observable.timer(10, 500).map(function (r) {
             return { source: 2, value: r };
         }).take(4);
-        first.merge(second).subscribe(res => this.mergeStream.push(res));
-    }
-    forkJoinStreams() {
-        let first = Observable.of({ source: 1, value: 1 });
-        let second = Observable.of({ source: 2, value: 1 });
+        first.merge(second).subscribe(function (res) { return _this.mergeStream.push(res); });
+    };
+    RxJsStreams.prototype.forkJoinStreams = function () {
+        var _this = this;
+        var first = Observable.of({ source: 1, value: 1 });
+        var second = Observable.of({ source: 2, value: 1 });
         Observable.forkJoin(first, second)
-            .subscribe((res) => this.forkJoinStream = res);
-    }
-}
-RxJsStreams.decorators = [
-    { type: Component, args: [{
-                selector: 'rxjs-streams',
-                templateUrl: './rxjs-streams.html'
-            },] },
-];
-RxJsStreams.ctorParameters = [];
+            .subscribe(function (res) { return _this.forkJoinStream = res; });
+    };
+    RxJsStreams.decorators = [
+        { type: Component, args: [{
+                    selector: 'rxjs-streams',
+                    templateUrl: './rxjs-streams.html'
+                },] },
+    ];
+    RxJsStreams.ctorParameters = [];
+    return RxJsStreams;
+}());

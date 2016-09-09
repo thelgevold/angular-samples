@@ -1,3 +1,8 @@
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 import * as import1 from '@angular/core/src/linker/view';
 import * as import2 from '@angular/core/src/linker/element';
 import * as import3 from '../../../components/spreadsheet/spreadsheet';
@@ -10,11 +15,12 @@ import * as import10 from '@angular/common/src/directives/ng_for';
 import * as import11 from '@angular/core/src/linker/template_ref';
 import * as import12 from '@angular/core/src/change_detection/differs/iterable_differs';
 var renderType_Spreadsheet_Host = null;
-class _View_Spreadsheet_Host0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_Spreadsheet_Host0, renderType_Spreadsheet_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_Spreadsheet_Host0 = (function (_super) {
+    __extends(_View_Spreadsheet_Host0, _super);
+    function _View_Spreadsheet_Host0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Spreadsheet_Host0, renderType_Spreadsheet_Host, import6.ViewType.HOST, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_Spreadsheet_Host0.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.selectOrCreateHostElement('spreadsheet', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_Spreadsheet0(this.viewUtils, this.injector(0), this._appEl_0);
@@ -23,36 +29,38 @@ class _View_Spreadsheet_Host0 extends import1.AppView {
         compView_0.create(this._Spreadsheet_0_4, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
         return this._appEl_0;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_Spreadsheet_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import3.Spreadsheet) && (0 === requestNodeIndex))) {
             return this._Spreadsheet_0_4;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_Spreadsheet_Host0.prototype.detectChangesInternal = function (throwOnChange) {
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
             this._Spreadsheet_0_4.ngAfterViewChecked();
         }
-    }
-}
+    };
+    return _View_Spreadsheet_Host0;
+}(import1.AppView));
 function viewFactory_Spreadsheet_Host0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Spreadsheet_Host === null)) {
         (renderType_Spreadsheet_Host = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, [], {}));
     }
     return new _View_Spreadsheet_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const SpreadsheetNgFactory = new import9.ComponentFactory('spreadsheet', viewFactory_Spreadsheet_Host0, import3.Spreadsheet);
-const styles_Spreadsheet = [];
+export var SpreadsheetNgFactory = new import9.ComponentFactory('spreadsheet', viewFactory_Spreadsheet_Host0, import3.Spreadsheet);
+var styles_Spreadsheet = [];
 var renderType_Spreadsheet = null;
-class _View_Spreadsheet0 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_Spreadsheet0, renderType_Spreadsheet, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_Spreadsheet0 = (function (_super) {
+    __extends(_View_Spreadsheet0, _super);
+    function _View_Spreadsheet0(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Spreadsheet0, renderType_Spreadsheet, import6.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    _View_Spreadsheet0.prototype.createInternal = function (rootSelector) {
+        var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'h1', null);
         this._text_1 = this.renderer.createText(this._el_0, 'Virtualized Spreadsheet', null);
         this._text_2 = this.renderer.createText(parentRenderNode, '\n', null);
@@ -105,8 +113,8 @@ class _View_Spreadsheet0 extends import1.AppView {
             this._text_18
         ], [], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_Spreadsheet0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import11.TemplateRef) && (10 === requestNodeIndex))) {
             return this._TemplateRef_10_5;
         }
@@ -120,11 +128,11 @@ class _View_Spreadsheet0 extends import1.AppView {
             return this._NgFor_13_6;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_Spreadsheet0.prototype.detectChangesInternal = function (throwOnChange) {
         var changes = null;
         changes = null;
-        const currVal_0 = this.context.header;
+        var currVal_0 = this.context.header;
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this._NgFor_10_6.ngForOf = currVal_0;
             if ((changes === null)) {
@@ -140,7 +148,7 @@ class _View_Spreadsheet0 extends import1.AppView {
             this._NgFor_10_6.ngDoCheck();
         }
         changes = null;
-        const currVal_1 = this.context.visibleRows;
+        var currVal_1 = this.context.visibleRows;
         if (import4.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this._NgFor_13_6.ngForOf = currVal_1;
             if ((changes === null)) {
@@ -157,19 +165,21 @@ class _View_Spreadsheet0 extends import1.AppView {
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_Spreadsheet0;
+}(import1.AppView));
 export function viewFactory_Spreadsheet0(viewUtils, parentInjector, declarationEl) {
     if ((renderType_Spreadsheet === null)) {
         (renderType_Spreadsheet = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/spreadsheet/spreadsheet.html', 0, import8.ViewEncapsulation.None, styles_Spreadsheet, {}));
     }
     return new _View_Spreadsheet0(viewUtils, parentInjector, declarationEl);
 }
-class _View_Spreadsheet1 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_Spreadsheet1, renderType_Spreadsheet, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_Spreadsheet1 = (function (_super) {
+    __extends(_View_Spreadsheet1, _super);
+    function _View_Spreadsheet1(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Spreadsheet1, renderType_Spreadsheet, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_Spreadsheet1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'td', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'columnHeader');
         this._text_1 = this.renderer.createText(this._el_0, '', null);
@@ -179,25 +189,27 @@ class _View_Spreadsheet1 extends import1.AppView {
             this._text_1
         ], [], []);
         return null;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_Spreadsheet1.prototype.detectChangesInternal = function (throwOnChange) {
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_0 = import4.interpolate(1, '', this.context.$implicit, '');
+        var currVal_0 = import4.interpolate(1, '', this.context.$implicit, '');
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setText(this._text_1, currVal_0);
             this._expr_0 = currVal_0;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_Spreadsheet1;
+}(import1.AppView));
 function viewFactory_Spreadsheet1(viewUtils, parentInjector, declarationEl) {
     return new _View_Spreadsheet1(viewUtils, parentInjector, declarationEl);
 }
-class _View_Spreadsheet2 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_Spreadsheet2, renderType_Spreadsheet, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_Spreadsheet2 = (function (_super) {
+    __extends(_View_Spreadsheet2, _super);
+    function _View_Spreadsheet2(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Spreadsheet2, renderType_Spreadsheet, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_Spreadsheet2.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'tr', null);
         this._text_1 = this.renderer.createText(this._el_0, '\n        ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'td', null);
@@ -221,8 +233,8 @@ class _View_Spreadsheet2 extends import1.AppView {
             this._text_6
         ], [], []);
         return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
+    };
+    _View_Spreadsheet2.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
         if (((token === import11.TemplateRef) && (5 === requestNodeIndex))) {
             return this._TemplateRef_5_5;
         }
@@ -230,11 +242,11 @@ class _View_Spreadsheet2 extends import1.AppView {
             return this._NgFor_5_6;
         }
         return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_Spreadsheet2.prototype.detectChangesInternal = function (throwOnChange) {
         var changes = null;
         changes = null;
-        const currVal_1 = this.context.$implicit.columns;
+        var currVal_1 = this.context.$implicit.columns;
         if (import4.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
             this._NgFor_5_6.ngForOf = currVal_1;
             if ((changes === null)) {
@@ -250,22 +262,24 @@ class _View_Spreadsheet2 extends import1.AppView {
             this._NgFor_5_6.ngDoCheck();
         }
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_0 = import4.interpolate(1, '', this.context.$implicit.rowIndex, '');
+        var currVal_0 = import4.interpolate(1, '', this.context.$implicit.rowIndex, '');
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
             this.renderer.setText(this._text_3, currVal_0);
             this._expr_0 = currVal_0;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-}
+    };
+    return _View_Spreadsheet2;
+}(import1.AppView));
 function viewFactory_Spreadsheet2(viewUtils, parentInjector, declarationEl) {
     return new _View_Spreadsheet2(viewUtils, parentInjector, declarationEl);
 }
-class _View_Spreadsheet3 extends import1.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_Spreadsheet3, renderType_Spreadsheet, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
+var _View_Spreadsheet3 = (function (_super) {
+    __extends(_View_Spreadsheet3, _super);
+    function _View_Spreadsheet3(viewUtils, parentInjector, declarationEl) {
+        _super.call(this, _View_Spreadsheet3, renderType_Spreadsheet, import6.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import7.ChangeDetectorStatus.CheckAlways);
     }
-    createInternal(rootSelector) {
+    _View_Spreadsheet3.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'td', null);
         this._text_1 = this.renderer.createText(this._el_0, '\n            ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'input', null);
@@ -286,37 +300,38 @@ class _View_Spreadsheet3 extends import1.AppView {
             disposable_2
         ], []);
         return null;
-    }
-    detectChangesInternal(throwOnChange) {
+    };
+    _View_Spreadsheet3.prototype.detectChangesInternal = function (throwOnChange) {
         this.detectContentChildrenChanges(throwOnChange);
-        const currVal_3 = import4.interpolate(2, '', this.context.$implicit.rowIndex, '-', this.context.$implicit.columnIndex, '');
+        var currVal_3 = import4.interpolate(2, '', this.context.$implicit.rowIndex, '-', this.context.$implicit.columnIndex, '');
         if (import4.checkBinding(throwOnChange, this._expr_3, currVal_3)) {
             this.renderer.setElementProperty(this._el_2, 'id', currVal_3);
             this._expr_3 = currVal_3;
         }
-        const currVal_4 = this.context.$implicit.cellValue;
+        var currVal_4 = this.context.$implicit.cellValue;
         if (import4.checkBinding(throwOnChange, this._expr_4, currVal_4)) {
             this.renderer.setElementProperty(this._el_2, 'value', currVal_4);
             this._expr_4 = currVal_4;
         }
         this.detectViewChildrenChanges(throwOnChange);
-    }
-    _handle_input_2_0($event) {
+    };
+    _View_Spreadsheet3.prototype._handle_input_2_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = ((this.context.$implicit.cellValue = $event.target.value) !== false);
+        var pd_0 = ((this.context.$implicit.cellValue = $event.target.value) !== false);
         return (true && pd_0);
-    }
-    _handle_click_2_1($event) {
+    };
+    _View_Spreadsheet3.prototype._handle_click_2_1 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this.parent.parent.context.model.selectColumn(this.context.$implicit) !== false);
+        var pd_0 = (this.parent.parent.context.model.selectColumn(this.context.$implicit) !== false);
         return (true && pd_0);
-    }
-    _handle_keyup_2_2($event) {
+    };
+    _View_Spreadsheet3.prototype._handle_keyup_2_2 = function ($event) {
         this.markPathToRootAsCheckOnce();
-        const pd_0 = (this.parent.parent.context.navigate($event) !== false);
+        var pd_0 = (this.parent.parent.context.navigate($event) !== false);
         return (true && pd_0);
-    }
-}
+    };
+    return _View_Spreadsheet3;
+}(import1.AppView));
 function viewFactory_Spreadsheet3(viewUtils, parentInjector, declarationEl) {
     return new _View_Spreadsheet3(viewUtils, parentInjector, declarationEl);
 }

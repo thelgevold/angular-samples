@@ -1,7 +1,8 @@
-export class Contact {
-    constructor(name, phone) {
+export var Contact = (function () {
+    function Contact(name, phone) {
         this.name = name;
         this.phone = phone;
         this.descr = this.name + ' ' + this.phone;
     }
-}
+    return Contact;
+}());

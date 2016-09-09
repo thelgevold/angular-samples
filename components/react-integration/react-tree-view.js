@@ -75,8 +75,11 @@ var TreeView = React.createClass({
             React.createElement("ul", null, nodes)));
     }
 });
-export class ReactTreeView {
-    static initialize(title) {
-        React.render(React.createElement(TreeView, {title: title}), document.getElementById('react-tree-view'));
+export var ReactTreeView = (function () {
+    function ReactTreeView() {
     }
-}
+    ReactTreeView.initialize = function (title) {
+        React.render(React.createElement(TreeView, {title: title}), document.getElementById('react-tree-view'));
+    };
+    return ReactTreeView;
+}());
