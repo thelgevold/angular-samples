@@ -69,7 +69,7 @@ class _View_DemoPage0 extends import1.AppView {
         this._text_11 = this.renderer.createText(this._el_7, '.\n        ', null);
         this._text_12 = this.renderer.createText(this._el_2, '\n        ', null);
         this._el_13 = this.renderer.createElement(this._el_2, 'p', null);
-        this._text_14 = this.renderer.createText(this._el_13, 'Current version: Angular 2.0 RC.6', null);
+        this._text_14 = this.renderer.createText(this._el_13, 'Current version: Angular 2.0 RC.7', null);
         this._text_15 = this.renderer.createText(this._el_2, '\n    ', null);
         this._text_16 = this.renderer.createText(this._el_0, '\n\n    ', null);
         this._el_17 = this.renderer.createElement(this._el_0, 'div', null);

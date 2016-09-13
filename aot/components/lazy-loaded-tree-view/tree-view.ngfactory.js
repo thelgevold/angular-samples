@@ -175,7 +175,7 @@ class _View_LazyTreeView1 extends import1.AppView {
     detectChangesInternal(throwOnChange) {
         const currVal_1 = 'iconButton';
         if (import4.checkBinding(throwOnChange, this._expr_1, currVal_1)) {
-            this._NgClass_2_3.initialClasses = currVal_1;
+            this._NgClass_2_3.klass = currVal_1;
             this._expr_1 = currVal_1;
         }
         const currVal_2 = this._map_0(!this.context.$implicit.showIcon);

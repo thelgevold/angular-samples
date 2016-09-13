@@ -335,7 +335,7 @@ class _View_RxJsStreams1 extends import1.AppView {
     detectChangesInternal(throwOnChange) {
         const currVal_0 = 'floatLeft';
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgClass_2_3.initialClasses = currVal_0;
+            this._NgClass_2_3.klass = currVal_0;
             this._expr_0 = currVal_0;
         }
         const currVal_1 = this._map_0((this.context.$implicit.source === 1), (this.context.$implicit.source === 2));
@@ -397,7 +397,7 @@ class _View_RxJsStreams2 extends import1.AppView {
     detectChangesInternal(throwOnChange) {
         const currVal_0 = 'floatLeft';
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._NgClass_2_3.initialClasses = currVal_0;
+            this._NgClass_2_3.klass = currVal_0;
             this._expr_0 = currVal_0;
         }
         const currVal_1 = this._map_0((this.context.$implicit.source === 1), (this.context.$implicit.source === 2));
