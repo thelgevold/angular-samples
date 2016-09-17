@@ -4,12 +4,9 @@
     <link href="site.css?v=1" rel="stylesheet">
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-
-    <script src="system.config.js"></script>
 
     <script src="https://code.angularjs.org/1.4.7/angular.min.js"></script>
 
@@ -17,7 +14,7 @@
         angular.module('angular-legacy',[]);
 
         angular.module('angular-legacy').controller('testController', function(){
-            this.message = 'Angular 1.x integrating with Angular 2.0 components';
+            this.message = 'NgUpgrade';
 
             this.operands = {op1:10,op2:20};
 
@@ -32,8 +29,7 @@
 </head>
 
 <body>
-    <script>System.import('upgrade');</script>
-
+    
     <div class="container">
 
         <nav class="navbar navbar-default">
@@ -43,36 +39,23 @@
                         <li><a href="http://www.syntaxsuccess.com" class="link">Home</a></li>
                         <li><a href="/angular-2-samples" class="link">About</a></li>
                         <li><a href="/angular-2-samples/#/demo/spreadsheet" class="link">Demos</a></li>
-                        <!--<li><a href="/angular-2-samples/#/lazy" class="link">Lazy Loaded</a></li>-->
                         <!--<li><a href="components/web-workers/web-worker-demo.html" class="link">Web Workers</a></li>-->
-                        <li class="active"><a href="upgrade.html" class="link">Angular 2.0 inside Angular 1.x</a></li>
+                        <li class="active"><a href="upgrade.html" class="link">NgUpgrade</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <h4><a href="http://www.syntaxsuccess.com/viewarticle/upgrading-angular-1.x-to-2.0">Read more here</a></h4>
-
         <div ng-controller="testController as testController">
-            <h1>{{testController.message}}</h1>
+            
+            <editor></editor>
 
-            <div class="alert alert-info" role="alert">Passing data to Angular 2.0 component</div>
-            <span>{{testController.operands.op1}} + {{testController.operands.op2}} = </span>
-            <add [operands]="testController.operands"></add>
-            <button ng-click="testController.increment()">Increment and Add</button>
-
-            <div style="margin-top: 30px;">
-                <div class="alert alert-info" role="alert">Getting changes back from Angular 2.0 component</div>
-
-                <counter-button [value]="testController.value"></counter-button>
-                <span>The current value is <strong>{{testController.value.current}}.</strong></span>
-                <span>The previous value is <strong>{{testController.value.previous}}.</strong></span>
-            </div>
-
-            <div style="margin-top: 30px;" class="alert alert-info" role="alert">Including independent Angular 2.0 components</div>
             <algorithms></algorithms>
+
+            <survey></survey>
 
         </div>
     </div>
+    <script src="upgrade-build.js"></script>
 </body>
 </html>

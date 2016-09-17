@@ -38,7 +38,7 @@ class _View_CountryDemo_Host0 extends import1.AppView<any> {
     return this.__TreeNodeService_0_6;
   }
   createInternal(rootSelector:string):import2.AppElement {
-    this._el_0 = this.selectOrCreateHostElement('ng-component',rootSelector,(null as any));
+    this._el_0 = this.selectOrCreateHostElement('country-demo',rootSelector,(null as any));
     this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_CountryDemo0(this.viewUtils,this.injector(0),this._appEl_0);
     this._CountryDemo_0_4 = new import3.CountryDemo();
@@ -63,45 +63,57 @@ function viewFactory_CountryDemo_Host0(viewUtils:import6.ViewUtils,parentInjecto
   if ((renderType_CountryDemo_Host === (null as any))) { (renderType_CountryDemo_Host = viewUtils.createRenderComponentType('',0,import11.ViewEncapsulation.None,[],{})); }
   return new _View_CountryDemo_Host0(viewUtils,parentInjector,declarationEl);
 }
-export const CountryDemoNgFactory:import12.ComponentFactory<import3.CountryDemo> = new import12.ComponentFactory<import3.CountryDemo>('ng-component',viewFactory_CountryDemo_Host0,import3.CountryDemo);
+export const CountryDemoNgFactory:import12.ComponentFactory<import3.CountryDemo> = new import12.ComponentFactory<import3.CountryDemo>('country-demo',viewFactory_CountryDemo_Host0,import3.CountryDemo);
 const styles_CountryDemo:any[] = [];
 var renderType_CountryDemo:import0.RenderComponentType = (null as any);
 class _View_CountryDemo0 extends import1.AppView<import3.CountryDemo> {
   _el_0:any;
-  /*private*/ _appEl_0:import2.AppElement;
-  _LazyTreeView_0_4:import13.LazyTreeView;
+  _text_1:any;
+  _text_2:any;
+  _el_3:any;
+  /*private*/ _appEl_3:import2.AppElement;
+  _LazyTreeView_3_4:import13.LazyTreeView;
   /*private*/ _expr_0:any;
   constructor(viewUtils:import6.ViewUtils,parentInjector:import7.Injector,declarationEl:import2.AppElement) {
     super(_View_CountryDemo0,renderType_CountryDemo,import8.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import9.ChangeDetectorStatus.CheckAlways);
   }
   createInternal(rootSelector:string):import2.AppElement {
     const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
-    this._el_0 = this.renderer.createElement(parentRenderNode,'lazy-tree-view',(null as any));
-    this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
-    var compView_0:any = import14.viewFactory_LazyTreeView0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._LazyTreeView_0_4 = new import13.LazyTreeView(this.parentInjector.get(import4.Store),this.parentInjector.get(import5.TreeNodeService));
-    this._appEl_0.initComponent(this._LazyTreeView_0_4,[],compView_0);
-    compView_0.create(this._LazyTreeView_0_4,[],(null as any));
+    this._el_0 = this.renderer.createElement(parentRenderNode,'h1',(null as any));
+    this._text_1 = this.renderer.createText(this._el_0,'Lazy loaded TreeView using Redux and RxJs',(null as any));
+    this._text_2 = this.renderer.createText(parentRenderNode,'\n            ',(null as any));
+    this._el_3 = this.renderer.createElement(parentRenderNode,'lazy-tree-view',(null as any));
+    this._appEl_3 = new import2.AppElement(3,(null as any),this,this._el_3);
+    var compView_3:any = import14.viewFactory_LazyTreeView0(this.viewUtils,this.injector(3),this._appEl_3);
+    this._LazyTreeView_3_4 = new import13.LazyTreeView(this.parentInjector.get(import4.Store),this.parentInjector.get(import5.TreeNodeService));
+    this._appEl_3.initComponent(this._LazyTreeView_3_4,[],compView_3);
+    compView_3.create(this._LazyTreeView_3_4,[],(null as any));
     this._expr_0 = import9.UNINITIALIZED;
-    this.init([],[this._el_0],[],[]);
+    this.init([],[
+      this._el_0,
+      this._text_1,
+      this._text_2,
+      this._el_3
+    ]
+    ,[],[]);
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import13.LazyTreeView) && (0 === requestNodeIndex))) { return this._LazyTreeView_0_4; }
+    if (((token === import13.LazyTreeView) && (3 === requestNodeIndex))) { return this._LazyTreeView_3_4; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
     const currVal_0:any = this.context.node;
     if (import6.checkBinding(throwOnChange,this._expr_0,currVal_0)) {
-      this._LazyTreeView_0_4.root = currVal_0;
+      this._LazyTreeView_3_4.root = currVal_0;
       this._expr_0 = currVal_0;
     }
-    if (((this.numberOfChecks === 0) && !throwOnChange)) { this._LazyTreeView_0_4.ngOnInit(); }
+    if (((this.numberOfChecks === 0) && !throwOnChange)) { this._LazyTreeView_3_4.ngOnInit(); }
     this.detectContentChildrenChanges(throwOnChange);
     this.detectViewChildrenChanges(throwOnChange);
   }
   destroyInternal():void {
-    this._LazyTreeView_0_4.ngOnDestroy();
+    this._LazyTreeView_3_4.ngOnDestroy();
   }
 }
 export function viewFactory_CountryDemo0(viewUtils:import6.ViewUtils,parentInjector:import7.Injector,declarationEl:import2.AppElement):import1.AppView<import3.CountryDemo> {

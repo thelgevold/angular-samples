@@ -95,7 +95,7 @@ class _View_AppComponent0 extends import1.AppView {
         this._el_28 = this.renderer.createElement(this._el_27, 'a', null);
         this.renderer.setElementAttribute(this._el_28, 'class', 'link');
         this.renderer.setElementAttribute(this._el_28, 'href', 'upgrade.html');
-        this._text_29 = this.renderer.createText(this._el_28, 'Angular 2.0 inside Angular 1.x', null);
+        this._text_29 = this.renderer.createText(this._el_28, 'NgUpgrade', null);
         this._text_30 = this.renderer.createText(this._el_8, '\n                ', null);
         this._text_31 = this.renderer.createText(this._el_6, '\n            ', null);
         this._text_32 = this.renderer.createText(this._el_4, '\n        ', null);

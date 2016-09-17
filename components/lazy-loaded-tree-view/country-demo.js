@@ -12,7 +12,9 @@ export class CountryDemo {
 }
 CountryDemo.decorators = [
     { type: Component, args: [{
-                template: `<lazy-tree-view [root]="node"></lazy-tree-view>`,
+                selector: 'country-demo',
+                template: `<h1>Lazy loaded TreeView using Redux and RxJs</h1>
+            <lazy-tree-view [root]="node"></lazy-tree-view>`,
                 providers: [Store, TreeNodeService]
             },] },
 ];

@@ -29,7 +29,7 @@ class _View_CountryDemo_Host0 extends import1.AppView {
         return this.__TreeNodeService_0_6;
     }
     createInternal(rootSelector) {
-        this._el_0 = this.selectOrCreateHostElement('ng-component', rootSelector, null);
+        this._el_0 = this.selectOrCreateHostElement('country-demo', rootSelector, null);
         this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_CountryDemo0(this.viewUtils, this.injector(0), this._appEl_0);
         this._CountryDemo_0_4 = new import3.CountryDemo();
@@ -64,7 +64,7 @@ function viewFactory_CountryDemo_Host0(viewUtils, parentInjector, declarationEl)
     }
     return new _View_CountryDemo_Host0(viewUtils, parentInjector, declarationEl);
 }
-export const CountryDemoNgFactory = new import12.ComponentFactory('ng-component', viewFactory_CountryDemo_Host0, import3.CountryDemo);
+export const CountryDemoNgFactory = new import12.ComponentFactory('country-demo', viewFactory_CountryDemo_Host0, import3.CountryDemo);
 const styles_CountryDemo = [];
 var renderType_CountryDemo = null;
 class _View_CountryDemo0 extends import1.AppView {
@@ -73,36 +73,44 @@ class _View_CountryDemo0 extends import1.AppView {
     }
     createInternal(rootSelector) {
         const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
-        this._el_0 = this.renderer.createElement(parentRenderNode, 'lazy-tree-view', null);
-        this._appEl_0 = new import2.AppElement(0, null, this, this._el_0);
-        var compView_0 = import14.viewFactory_LazyTreeView0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._LazyTreeView_0_4 = new import13.LazyTreeView(this.parentInjector.get(import4.Store), this.parentInjector.get(import5.TreeNodeService));
-        this._appEl_0.initComponent(this._LazyTreeView_0_4, [], compView_0);
-        compView_0.create(this._LazyTreeView_0_4, [], null);
+        this._el_0 = this.renderer.createElement(parentRenderNode, 'h1', null);
+        this._text_1 = this.renderer.createText(this._el_0, 'Lazy loaded TreeView using Redux and RxJs', null);
+        this._text_2 = this.renderer.createText(parentRenderNode, '\n            ', null);
+        this._el_3 = this.renderer.createElement(parentRenderNode, 'lazy-tree-view', null);
+        this._appEl_3 = new import2.AppElement(3, null, this, this._el_3);
+        var compView_3 = import14.viewFactory_LazyTreeView0(this.viewUtils, this.injector(3), this._appEl_3);
+        this._LazyTreeView_3_4 = new import13.LazyTreeView(this.parentInjector.get(import4.Store), this.parentInjector.get(import5.TreeNodeService));
+        this._appEl_3.initComponent(this._LazyTreeView_3_4, [], compView_3);
+        compView_3.create(this._LazyTreeView_3_4, [], null);
         this._expr_0 = import9.UNINITIALIZED;
-        this.init([], [this._el_0], [], []);
+        this.init([], [
+            this._el_0,
+            this._text_1,
+            this._text_2,
+            this._el_3
+        ], [], []);
         return null;
     }
     injectorGetInternal(token, requestNodeIndex, notFoundResult) {
-        if (((token === import13.LazyTreeView) && (0 === requestNodeIndex))) {
-            return this._LazyTreeView_0_4;
+        if (((token === import13.LazyTreeView) && (3 === requestNodeIndex))) {
+            return this._LazyTreeView_3_4;
         }
         return notFoundResult;
     }
     detectChangesInternal(throwOnChange) {
         const currVal_0 = this.context.node;
         if (import6.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
-            this._LazyTreeView_0_4.root = currVal_0;
+            this._LazyTreeView_3_4.root = currVal_0;
             this._expr_0 = currVal_0;
         }
         if (((this.numberOfChecks === 0) && !throwOnChange)) {
-            this._LazyTreeView_0_4.ngOnInit();
+            this._LazyTreeView_3_4.ngOnInit();
         }
         this.detectContentChildrenChanges(throwOnChange);
         this.detectViewChildrenChanges(throwOnChange);
     }
     destroyInternal() {
-        this._LazyTreeView_0_4.ngOnDestroy();
+        this._LazyTreeView_3_4.ngOnDestroy();
     }
 }
 export function viewFactory_CountryDemo0(viewUtils, parentInjector, declarationEl) {

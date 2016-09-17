@@ -8,17 +8,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Component } from '@angular/core';
-export let Counter = class Counter {
-    increment() {
+export var Counter = (function () {
+    function Counter() {
+    }
+    Counter.prototype.increment = function () {
         this.value.previous = this.value.current;
         this.value.current++;
-    }
-};
-Counter = __decorate([
-    Component({
-        selector: 'counter',
-        inputs: ['value'],
-        template: '<button (click)="increment()">Increment Value</button>'
-    }), 
-    __metadata('design:paramtypes', [])
-], Counter);
+    };
+    Counter = __decorate([
+        Component({
+            selector: 'counter',
+            inputs: ['value'],
+            template: '<button (click)="increment()">Increment Value</button>'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], Counter);
+    return Counter;
+}());

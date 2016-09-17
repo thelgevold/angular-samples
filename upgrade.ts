@@ -1,16 +1,26 @@
-import {Component} from '@angular/core';
+import {Component, NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {ReactiveFormsModule} from '@angular/forms';
 import {UpgradeAdapter} from '@angular/upgrade';
-import {bootstrap} from '@angular/platform-browser-dynamic';
+
+import {TextEditor} from './components/text-editor/text-editor';
 import {Algorithms} from './components/algorithms/algorithms';
-import {Adder} from './components/adder/adder';
-import {Counter} from './components/counter/counter';
+import {SurveyDemo} from './components/survey/survey-demo';
+import {Survey} from './components/survey/survey';
+import {InsertionSort} from './components/insertion-sort/insertion-sort';
 
 declare var angular:any;
 
-var adapter: UpgradeAdapter = new UpgradeAdapter();
+@NgModule({
+  declarations: [Algorithms, InsertionSort, SurveyDemo, Survey, TextEditor],
+  imports: [BrowserModule, ReactiveFormsModule]
+})
+class UpgradeModule {}
+
+var adapter: UpgradeAdapter = new UpgradeAdapter(UpgradeModule);
 
 angular.module('angular-legacy').directive('algorithms',adapter.downgradeNg2Component(Algorithms));
-angular.module('angular-legacy').directive('add',adapter.downgradeNg2Component(Adder));
-angular.module('angular-legacy').directive('counterButton',adapter.downgradeNg2Component(Counter));
+angular.module('angular-legacy').directive('survey',adapter.downgradeNg2Component(SurveyDemo));
+angular.module('angular-legacy').directive('editor',adapter.downgradeNg2Component(TextEditor));
 
 adapter.bootstrap(document.body, ['angular-legacy']);
