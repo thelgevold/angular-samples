@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/platform-browser-dynamic'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-webworker', '@angular/platform-webworker-dynamic'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,8 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/platfor
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, platform_browser_dynamic_1;
-    var FACTORIAL_CHANNEL, Worker;
+    var core_1, core_2, platform_webworker_1, platform_webworker_dynamic_1, platform_webworker_2;
+    var FACTORIAL_CHANNEL, Worker, WorkerModule;
     function factorial(num) {
         if (num === 0) {
             return 1;
@@ -24,12 +24,14 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/platfor
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+                core_2 = core_1_1;
             },
-            function (platform_browser_1_1) {
-                platform_browser_1 = platform_browser_1_1;
+            function (platform_webworker_1_1) {
+                platform_webworker_1 = platform_webworker_1_1;
+                platform_webworker_2 = platform_webworker_1_1;
             },
-            function (platform_browser_dynamic_1_1) {
-                platform_browser_dynamic_1 = platform_browser_dynamic_1_1;
+            function (platform_webworker_dynamic_1_1) {
+                platform_webworker_dynamic_1 = platform_webworker_dynamic_1_1;
             }],
         execute: function() {
             FACTORIAL_CHANNEL = "FACTORIAL";
@@ -37,7 +39,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/platfor
                 function Worker(_serviceBrokerFactory) {
                     this._serviceBrokerFactory = _serviceBrokerFactory;
                     var broker = _serviceBrokerFactory.createMessageBroker(FACTORIAL_CHANNEL, false);
-                    broker.registerMethod("factorial", [platform_browser_1.PRIMITIVE], this.calculate, platform_browser_1.PRIMITIVE);
+                    broker.registerMethod("factorial", [platform_webworker_2.PRIMITIVE], this.calculate, platform_webworker_2.PRIMITIVE);
                 }
                 Worker.prototype.calculate = function (val) {
                     if (val) {
@@ -51,11 +53,20 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/platfor
                         selector: 'app',
                         template: '<div>Web worker loaded</div>'
                     }), 
-                    __metadata('design:paramtypes', [platform_browser_1.ServiceMessageBrokerFactory])
+                    __metadata('design:paramtypes', [platform_webworker_2.ServiceMessageBrokerFactory])
                 ], Worker);
                 return Worker;
             }());
-            platform_browser_dynamic_1.bootstrapWorkerApp(Worker).catch(function (err) { return console.error(err); });
+            WorkerModule = (function () {
+                function WorkerModule() {
+                }
+                WorkerModule = __decorate([
+                    core_2.NgModule({ imports: [platform_webworker_1.WorkerAppModule], bootstrap: [Worker], declarations: [Worker] }), 
+                    __metadata('design:paramtypes', [])
+                ], WorkerModule);
+                return WorkerModule;
+            }());
+            platform_webworker_dynamic_1.platformWorkerAppDynamic().bootstrapModule(WorkerModule);
         }
     }
 });

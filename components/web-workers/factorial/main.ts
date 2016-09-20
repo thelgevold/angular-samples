@@ -1,6 +1,6 @@
 import {PlatformRef} from '@angular/core';
-import {UiArguments, FnArg, PRIMITIVE, ClientMessageBrokerFactory} from '@angular/platform-browser';
-import {bootstrapWorkerUi} from "@angular/platform-browser-dynamic";
+import {UiArguments, FnArg, PRIMITIVE, ClientMessageBrokerFactory} from '@angular/platform-webworker';
+import {bootstrapWorkerUi} from "@angular/platform-webworker";
 
 const FACTORIAL_CHANNEL = "FACTORIAL";
 

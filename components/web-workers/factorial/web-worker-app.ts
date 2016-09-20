@@ -1,8 +1,11 @@
 import {Component} from '@angular/core';
-import {ServiceMessageBrokerFactory, PRIMITIVE} from '@angular/platform-browser';
-import {bootstrapWorkerApp} from '@angular/platform-browser-dynamic';
 
 const FACTORIAL_CHANNEL = "FACTORIAL";
+
+import {NgModule} from '@angular/core';
+import {WorkerAppModule} from '@angular/platform-webworker';
+import {platformWorkerAppDynamic} from '@angular/platform-webworker-dynamic';
+import {ServiceMessageBrokerFactory, PRIMITIVE} from '@angular/platform-webworker';
 
 @Component({
   selector: 'app',
@@ -25,7 +28,11 @@ class Worker {
   }
 }
 
-bootstrapWorkerApp(Worker).catch(err => console.error(err));
+@NgModule({imports: [WorkerAppModule], bootstrap: [Worker], declarations: [Worker]})
+class WorkerModule {
+}
+
+platformWorkerAppDynamic().bootstrapModule(WorkerModule);
 
 function factorial(num) {
 
