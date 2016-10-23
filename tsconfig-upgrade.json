@@ -10,7 +10,11 @@
     "noImplicitAny": false
   },
   "files": [
-    "upgrade.ts",
-    "typings/index.d.ts"
-  ]
+    "./upgrade-module.ts",
+    "./upgrade.ts",
+    "./typings/index.d.ts"
+  ],
+   "angularCompilerOptions": {
+    "genDir": "./upgrade-aot"
+  }
 }
