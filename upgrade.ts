@@ -1,7 +1,10 @@
 import {Component, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
-import {UpgradeAdapter} from '@angular/upgrade';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+
+import {UpgradeModule} from '@angular/upgrade';
+import {downgradeComponent} from '@angular/upgrade';
 
 import {TextEditor} from './components/text-editor/text-editor';
 import {Algorithms} from './components/algorithms/algorithms';
@@ -9,18 +12,17 @@ import {SurveyDemo} from './components/survey/survey-demo';
 import {Survey} from './components/survey/survey';
 import {InsertionSort} from './components/insertion-sort/insertion-sort';
 
+import {AngularModuleNgFactory} from './upgrade-aot/upgrade-module.ngfactory';
+
+
 declare var angular:any;
 
-@NgModule({
-  declarations: [Algorithms, InsertionSort, SurveyDemo, Survey, TextEditor],
-  imports: [BrowserModule, ReactiveFormsModule]
-})
-class UpgradeModule {}
+angular.module('angular-legacy').directive('algorithms', downgradeComponent({component: Algorithms}));
+angular.module('angular-legacy').directive('survey', downgradeComponent({component: SurveyDemo}));
+angular.module('angular-legacy').directive('editor', downgradeComponent({component: TextEditor}));
 
-var adapter: UpgradeAdapter = new UpgradeAdapter(UpgradeModule);
-
-angular.module('angular-legacy').directive('algorithms',adapter.downgradeNg2Component(Algorithms));
-angular.module('angular-legacy').directive('survey',adapter.downgradeNg2Component(SurveyDemo));
-angular.module('angular-legacy').directive('editor',adapter.downgradeNg2Component(TextEditor));
-
-adapter.bootstrap(document.body, ['angular-legacy']);
+platformBrowserDynamic().bootstrapModuleFactory(AngularModuleNgFactory).then((ref) => {
+  const adapter = ref.injector.get(UpgradeModule) as UpgradeModule;
+  console.log('bootstrapping');
+  adapter.bootstrap(document.body, ['angular-legacy']);
+});
