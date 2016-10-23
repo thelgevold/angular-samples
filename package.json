@@ -11,7 +11,7 @@
     "rollup": "./node_modules/.bin/rollup -c rollup.js",
     "rollup-ng-upgrade": "./node_modules/.bin/rollup -c rollup-ng-upgrade.js",
     "closure-compiler": "java -jar ./closure-compiler/compiler.jar --compilation_level SIMPLE_OPTIMIZATIONS --language_in=ES6 --language_out=ES5 --js ./dist/temp.js --js_output_file dist/bundle.js",
-    "install-upgrade-application": "bower install && npm install && tsc -p tsconfig-upgrade.json && npm run rollup-ng-upgrade",
+    "install-upgrade-application": "bower install && npm install && ngc -p tsconfig-upgrade.json && npm run rollup-ng-upgrade",
     "install-application": "npm run clean && bower install && npm install && npm run aot && npm run rollup && npm run closure-compiler"
   },
   "devDependencies": {
