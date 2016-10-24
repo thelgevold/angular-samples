@@ -3,8 +3,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule} from '@angular/forms';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
-import {UpgradeModule} from '@angular/upgrade';
-import {downgradeComponent} from '@angular/upgrade';
+import {UpgradeModule} from '@angular/upgrade/src/aot/upgrade_module';
+import {downgradeComponent} from '@angular/upgrade/src/aot/downgrade_component';
 
 import {TextEditor} from './components/text-editor/text-editor';
 import {Algorithms} from './components/algorithms/algorithms';
@@ -13,7 +13,6 @@ import {Survey} from './components/survey/survey';
 import {InsertionSort} from './components/insertion-sort/insertion-sort';
 
 import {AngularModuleNgFactory} from './upgrade-aot/upgrade-module.ngfactory';
-
 
 declare var angular:any;
 
