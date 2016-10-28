@@ -4,10 +4,10 @@
  */
  /* tslint:disable */
 
-import * as import0 from '@angular/core/src/render/api';
+import * as import0 from '../app.component';
 import * as import1 from '@angular/core/src/linker/view';
-import * as import2 from '@angular/core/src/linker/element';
-import * as import3 from '../app.component';
+import * as import2 from '@angular/core/src/render/api';
+import * as import3 from '@angular/core/src/linker/element';
 import * as import4 from '@angular/core/src/linker/view_utils';
 import * as import5 from '@angular/core/src/di/injector';
 import * as import6 from '@angular/core/src/linker/view_type';
@@ -15,45 +15,67 @@ import * as import7 from '@angular/core/src/change_detection/change_detection';
 import * as import8 from '@angular/common/src/location/location';
 import * as import9 from '@angular/core/src/metadata/view';
 import * as import10 from '@angular/core/src/linker/component_factory';
-import * as import11 from '@angular/router/src/directives/router_link';
-import * as import12 from '@angular/router/src/directives/router_outlet';
+import * as import11 from './node_modules/@angular/router/src/directives/router_link.ngfactory';
+import * as import12 from './node_modules/@angular/router/src/directives/router_outlet.ngfactory';
 import * as import13 from '@angular/router/src/router';
 import * as import14 from '@angular/router/src/router_state';
 import * as import15 from '@angular/common/src/location/location_strategy';
 import * as import16 from '@angular/router/src/router_outlet_map';
 import * as import17 from '@angular/core/src/linker/component_factory_resolver';
-import * as import18 from '@angular/core/src/security';
-var renderType_AppComponent_Host:import0.RenderComponentType = (null as any);
+import * as import18 from '@angular/router/src/directives/router_link';
+import * as import19 from '@angular/router/src/directives/router_outlet';
+export class Wrapper_AppComponent {
+  context:import0.AppComponent;
+  changed:boolean;
+  constructor(p0:any) {
+    this.changed = false;
+    this.context = new import0.AppComponent(p0);
+  }
+  detectChangesInInputProps(view:import1.AppView<any>,el:any,throwOnChange:boolean):boolean {
+    var changed:any = this.changed;
+    this.changed = false;
+    return changed;
+  }
+  detectChangesInHostProps(view:import1.AppView<any>,el:any,throwOnChange:boolean):void {
+  }
+}
+var renderType_AppComponent_Host:import2.RenderComponentType = (null as any);
 class _View_AppComponent_Host0 extends import1.AppView<any> {
   _el_0:any;
-  /*private*/ _appEl_0:import2.AppElement;
-  _AppComponent_0_4:import3.AppComponent;
-  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
+  /*private*/ _appEl_0:import3.AppElement;
+  _AppComponent_0_4:Wrapper_AppComponent;
+  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement) {
     super(_View_AppComponent_Host0,renderType_AppComponent_Host,import6.ViewType.HOST,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
   }
-  createInternal(rootSelector:string):import2.AppElement {
-    this._el_0 = this.selectOrCreateHostElement('demo-app',rootSelector,(null as any));
-    this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
+  createInternal(rootSelector:string):import3.AppElement {
+    this._el_0 = import4.selectOrCreateRenderHostElement(this.renderer,'demo-app',import4.EMPTY_INLINE_ARRAY,rootSelector,(null as any));
+    this._appEl_0 = new import3.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_AppComponent0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._AppComponent_0_4 = new import3.AppComponent(this.parentInjector.get(import8.Location));
-    this._appEl_0.initComponent(this._AppComponent_0_4,[],compView_0);
-    compView_0.create(this._AppComponent_0_4,this.projectableNodes,(null as any));
-    this.init([].concat([this._el_0]),[this._el_0],[],[]);
+    this._AppComponent_0_4 = new Wrapper_AppComponent(this.parentInjector.get(import8.Location));
+    this._appEl_0.initComponent(this._AppComponent_0_4.context,([] as any[]),compView_0);
+    compView_0.create(this._AppComponent_0_4.context,this.projectableNodes,(null as any));
+    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import3.AppComponent) && (0 === requestNodeIndex))) { return this._AppComponent_0_4; }
+    if (((token === import0.AppComponent) && (0 === requestNodeIndex))) { return this._AppComponent_0_4.context; }
     return notFoundResult;
   }
+  detectChangesInternal(throwOnChange:boolean):void {
+    this._AppComponent_0_4.detectChangesInInputProps(this,this._el_0,throwOnChange);
+    this.detectContentChildrenChanges(throwOnChange);
+    this._AppComponent_0_4.detectChangesInHostProps(this,this._el_0,throwOnChange);
+    this.detectViewChildrenChanges(throwOnChange);
+  }
 }
-function viewFactory_AppComponent_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_AppComponent_Host === (null as any))) { (renderType_AppComponent_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,[],{})); }
+function viewFactory_AppComponent_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement):import1.AppView<any> {
+  if ((renderType_AppComponent_Host === (null as any))) { (renderType_AppComponent_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,([] as any[]),{})); }
   return new _View_AppComponent_Host0(viewUtils,parentInjector,declarationEl);
 }
-export const AppComponentNgFactory:import10.ComponentFactory<import3.AppComponent> = new import10.ComponentFactory<import3.AppComponent>('demo-app',viewFactory_AppComponent_Host0,import3.AppComponent);
-const styles_AppComponent:any[] = [];
-var renderType_AppComponent:import0.RenderComponentType = (null as any);
-class _View_AppComponent0 extends import1.AppView<import3.AppComponent> {
+export const AppComponentNgFactory:import10.ComponentFactory<import0.AppComponent> = new import10.ComponentFactory<import0.AppComponent>('demo-app',viewFactory_AppComponent_Host0,import0.AppComponent);
+const styles_AppComponent:any[] = ([] as any[]);
+var renderType_AppComponent:import2.RenderComponentType = (null as any);
+class _View_AppComponent0 extends import1.AppView<import0.AppComponent> {
   _el_0:any;
   _text_1:any;
   _el_2:any;
@@ -70,12 +92,12 @@ class _View_AppComponent0 extends import1.AppView<import3.AppComponent> {
   _text_13:any;
   _el_14:any;
   _el_15:any;
-  _RouterLinkWithHref_15_3:import11.RouterLinkWithHref;
+  _RouterLinkWithHref_15_3:import11.Wrapper_RouterLinkWithHref;
   _text_16:any;
   _text_17:any;
   _el_18:any;
   _el_19:any;
-  _RouterLinkWithHref_19_3:import11.RouterLinkWithHref;
+  _RouterLinkWithHref_19_3:import11.Wrapper_RouterLinkWithHref;
   _text_20:any;
   _text_21:any;
   _text_22:any;
@@ -95,70 +117,62 @@ class _View_AppComponent0 extends import1.AppView<import3.AppComponent> {
   _el_36:any;
   _text_37:any;
   _el_38:any;
-  /*private*/ _appEl_38:import2.AppElement;
-  _RouterOutlet_38_5:import12.RouterOutlet;
+  /*private*/ _appEl_38:import3.AppElement;
+  _RouterOutlet_38_5:import12.Wrapper_RouterOutlet;
   _text_39:any;
   _text_40:any;
   _el_41:any;
-  /*private*/ _appEl_41:import2.AppElement;
-  _RouterOutlet_41_5:import12.RouterOutlet;
+  /*private*/ _appEl_41:import3.AppElement;
+  _RouterOutlet_41_5:import12.Wrapper_RouterOutlet;
   _text_42:any;
-  /*private*/ _expr_0:any;
-  _arr_0:any;
-  /*private*/ _expr_2:any;
-  /*private*/ _expr_3:any;
-  /*private*/ _expr_4:any;
-  _arr_1:any;
-  /*private*/ _expr_6:any;
-  /*private*/ _expr_7:any;
-  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
+  /*private*/ _expr_49:any;
+  _arr_50:any;
+  /*private*/ _expr_51:any;
+  _arr_52:any;
+  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement) {
     super(_View_AppComponent0,renderType_AppComponent,import6.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
+    this._expr_49 = import7.UNINITIALIZED;
+    this._arr_50 = import4.pureProxy1((p0:any):any[] => {
+      return [p0];
+    });
+    this._expr_51 = import7.UNINITIALIZED;
+    this._arr_52 = import4.pureProxy1((p0:any):any[] => {
+      return [p0];
+    });
   }
-  createInternal(rootSelector:string):import2.AppElement {
+  createInternal(rootSelector:string):import3.AppElement {
     const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
-    this._el_0 = this.renderer.createElement(parentRenderNode,'div',(null as any));
-    this.renderer.setElementAttribute(this._el_0,'class','container');
+    this._el_0 = import4.createRenderElement(this.renderer,parentRenderNode,'div',new import4.InlineArray2(2,'class','container'),(null as any));
     this._text_1 = this.renderer.createText(this._el_0,'\n    ',(null as any));
-    this._el_2 = this.renderer.createElement(this._el_0,'nav',(null as any));
-    this.renderer.setElementAttribute(this._el_2,'class','navbar navbar-default');
+    this._el_2 = import4.createRenderElement(this.renderer,this._el_0,'nav',new import4.InlineArray2(2,'class','navbar navbar-default'),(null as any));
     this._text_3 = this.renderer.createText(this._el_2,'\n        ',(null as any));
-    this._el_4 = this.renderer.createElement(this._el_2,'div',(null as any));
-    this.renderer.setElementAttribute(this._el_4,'class','container-fluid');
+    this._el_4 = import4.createRenderElement(this.renderer,this._el_2,'div',new import4.InlineArray2(2,'class','container-fluid'),(null as any));
     this._text_5 = this.renderer.createText(this._el_4,'\n            ',(null as any));
-    this._el_6 = this.renderer.createElement(this._el_4,'div',(null as any));
+    this._el_6 = import4.createRenderElement(this.renderer,this._el_4,'div',import4.EMPTY_INLINE_ARRAY,(null as any));
     this._text_7 = this.renderer.createText(this._el_6,'\n                ',(null as any));
-    this._el_8 = this.renderer.createElement(this._el_6,'ul',(null as any));
-    this.renderer.setElementAttribute(this._el_8,'class','nav navbar-nav');
+    this._el_8 = import4.createRenderElement(this.renderer,this._el_6,'ul',new import4.InlineArray2(2,'class','nav navbar-nav'),(null as any));
     this._text_9 = this.renderer.createText(this._el_8,'\n                    ',(null as any));
-    this._el_10 = this.renderer.createElement(this._el_8,'li',(null as any));
-    this._el_11 = this.renderer.createElement(this._el_10,'a',(null as any));
-    this.renderer.setElementAttribute(this._el_11,'class','link');
-    this.renderer.setElementAttribute(this._el_11,'href','http://www.syntaxsuccess.com');
+    this._el_10 = import4.createRenderElement(this.renderer,this._el_8,'li',import4.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_11 = import4.createRenderElement(this.renderer,this._el_10,'a',new import4.InlineArray4(4,'class','link','href','http://www.syntaxsuccess.com'),(null as any));
     this._text_12 = this.renderer.createText(this._el_11,'Home',(null as any));
     this._text_13 = this.renderer.createText(this._el_8,'\n                    ',(null as any));
-    this._el_14 = this.renderer.createElement(this._el_8,'li',(null as any));
-    this._el_15 = this.renderer.createElement(this._el_14,'a',(null as any));
-    this.renderer.setElementAttribute(this._el_15,'class','link');
-    this._RouterLinkWithHref_15_3 = new import11.RouterLinkWithHref(this.parentInjector.get(import13.Router),this.parentInjector.get(import14.ActivatedRoute),this.parentInjector.get(import15.LocationStrategy));
+    this._el_14 = import4.createRenderElement(this.renderer,this._el_8,'li',import4.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_15 = import4.createRenderElement(this.renderer,this._el_14,'a',new import4.InlineArray2(2,'class','link'),(null as any));
+    this._RouterLinkWithHref_15_3 = new import11.Wrapper_RouterLinkWithHref(this.parentInjector.get(import13.Router),this.parentInjector.get(import14.ActivatedRoute),this.parentInjector.get(import15.LocationStrategy));
     this._text_16 = this.renderer.createText(this._el_15,'About',(null as any));
     this._text_17 = this.renderer.createText(this._el_8,'\n                    ',(null as any));
-    this._el_18 = this.renderer.createElement(this._el_8,'li',(null as any));
-    this._el_19 = this.renderer.createElement(this._el_18,'a',(null as any));
-    this.renderer.setElementAttribute(this._el_19,'class','link');
-    this._RouterLinkWithHref_19_3 = new import11.RouterLinkWithHref(this.parentInjector.get(import13.Router),this.parentInjector.get(import14.ActivatedRoute),this.parentInjector.get(import15.LocationStrategy));
+    this._el_18 = import4.createRenderElement(this.renderer,this._el_8,'li',import4.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_19 = import4.createRenderElement(this.renderer,this._el_18,'a',new import4.InlineArray2(2,'class','link'),(null as any));
+    this._RouterLinkWithHref_19_3 = new import11.Wrapper_RouterLinkWithHref(this.parentInjector.get(import13.Router),this.parentInjector.get(import14.ActivatedRoute),this.parentInjector.get(import15.LocationStrategy));
     this._text_20 = this.renderer.createText(this._el_19,'Demos',(null as any));
     this._text_21 = this.renderer.createText(this._el_8,'\n                    ',(null as any));
     this._text_22 = this.renderer.createText(this._el_8,'\n                    ',(null as any));
-    this._el_23 = this.renderer.createElement(this._el_8,'li',(null as any));
-    this._el_24 = this.renderer.createElement(this._el_23,'a',(null as any));
-    this.renderer.setElementAttribute(this._el_24,'class','link');
-    this.renderer.setElementAttribute(this._el_24,'href','components/web-workers/web-worker-demo.html');
+    this._el_23 = import4.createRenderElement(this.renderer,this._el_8,'li',import4.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_24 = import4.createRenderElement(this.renderer,this._el_23,'a',new import4.InlineArray4(4,'class','link','href','components/web-workers/web-worker-demo.html'),(null as any));
     this._text_25 = this.renderer.createText(this._el_24,'Web Workers',(null as any));
     this._text_26 = this.renderer.createText(this._el_8,'\n                    ',(null as any));
-    this._el_27 = this.renderer.createElement(this._el_8,'li',(null as any));
-    this._el_28 = this.renderer.createElement(this._el_27,'a',(null as any));
-    this.renderer.setElementAttribute(this._el_28,'class','link');
-    this.renderer.setElementAttribute(this._el_28,'href','upgrade.html');
+    this._el_27 = import4.createRenderElement(this.renderer,this._el_8,'li',import4.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_28 = import4.createRenderElement(this.renderer,this._el_27,'a',new import4.InlineArray4(4,'class','link','href','upgrade.html'),(null as any));
     this._text_29 = this.renderer.createText(this._el_28,'NgUpgrade',(null as any));
     this._text_30 = this.renderer.createText(this._el_8,'\n                ',(null as any));
     this._text_31 = this.renderer.createText(this._el_6,'\n            ',(null as any));
@@ -166,34 +180,20 @@ class _View_AppComponent0 extends import1.AppView<import3.AppComponent> {
     this._text_33 = this.renderer.createText(this._el_2,'\n    ',(null as any));
     this._text_34 = this.renderer.createText(this._el_0,'\n',(null as any));
     this._text_35 = this.renderer.createText(parentRenderNode,'\n\n',(null as any));
-    this._el_36 = this.renderer.createElement(parentRenderNode,'div',(null as any));
-    this.renderer.setElementAttribute(this._el_36,'class','container');
+    this._el_36 = import4.createRenderElement(this.renderer,parentRenderNode,'div',new import4.InlineArray2(2,'class','container'),(null as any));
     this._text_37 = this.renderer.createText(this._el_36,'\n    ',(null as any));
-    this._el_38 = this.renderer.createElement(this._el_36,'router-outlet',(null as any));
-    this.renderer.setElementAttribute(this._el_38,'name','msg');
-    this._appEl_38 = new import2.AppElement(38,36,this,this._el_38);
-    this._RouterOutlet_38_5 = new import12.RouterOutlet(this.parentInjector.get(import16.RouterOutletMap),this._appEl_38.vcRef,this.parentInjector.get(import17.ComponentFactoryResolver),'msg');
+    this._el_38 = import4.createRenderElement(this.renderer,this._el_36,'router-outlet',new import4.InlineArray2(2,'name','msg'),(null as any));
+    this._appEl_38 = new import3.AppElement(38,36,this,this._el_38);
+    this._RouterOutlet_38_5 = new import12.Wrapper_RouterOutlet(this.parentInjector.get(import16.RouterOutletMap),this._appEl_38.vcRef,this.parentInjector.get(import17.ComponentFactoryResolver),'msg');
     this._text_39 = this.renderer.createText(this._el_36,'\n',(null as any));
     this._text_40 = this.renderer.createText(parentRenderNode,'\n',(null as any));
-    this._el_41 = this.renderer.createElement(parentRenderNode,'router-outlet',(null as any));
-    this._appEl_41 = new import2.AppElement(41,(null as any),this,this._el_41);
-    this._RouterOutlet_41_5 = new import12.RouterOutlet(this.parentInjector.get(import16.RouterOutletMap),this._appEl_41.vcRef,this.parentInjector.get(import17.ComponentFactoryResolver),(null as any));
+    this._el_41 = import4.createRenderElement(this.renderer,parentRenderNode,'router-outlet',import4.EMPTY_INLINE_ARRAY,(null as any));
+    this._appEl_41 = new import3.AppElement(41,(null as any),this,this._el_41);
+    this._RouterOutlet_41_5 = new import12.Wrapper_RouterOutlet(this.parentInjector.get(import16.RouterOutletMap),this._appEl_41.vcRef,this.parentInjector.get(import17.ComponentFactoryResolver),(null as any));
     this._text_42 = this.renderer.createText(parentRenderNode,'\n',(null as any));
-    this._expr_0 = import7.UNINITIALIZED;
     var disposable_0:Function = this.renderer.listen(this._el_15,'click',this.eventHandler(this._handle_click_15_0.bind(this)));
-    this._arr_0 = import4.pureProxy1((p0:any):any[] => {
-      return [p0];
-    });
-    this._expr_2 = import7.UNINITIALIZED;
-    this._expr_3 = import7.UNINITIALIZED;
-    this._expr_4 = import7.UNINITIALIZED;
     var disposable_1:Function = this.renderer.listen(this._el_19,'click',this.eventHandler(this._handle_click_19_0.bind(this)));
-    this._arr_1 = import4.pureProxy1((p0:any):any[] => {
-      return [p0];
-    });
-    this._expr_6 = import7.UNINITIALIZED;
-    this._expr_7 = import7.UNINITIALIZED;
-    this.init([],[
+    this.init(([] as any[]),[
       this._el_0,
       this._text_1,
       this._el_2,
@@ -242,77 +242,60 @@ class _View_AppComponent0 extends import1.AppView<import3.AppComponent> {
       disposable_0,
       disposable_1
     ]
-    ,[]);
+    ,([] as any[]));
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import11.RouterLinkWithHref) && ((15 <= requestNodeIndex) && (requestNodeIndex <= 16)))) { return this._RouterLinkWithHref_15_3; }
-    if (((token === import11.RouterLinkWithHref) && ((19 <= requestNodeIndex) && (requestNodeIndex <= 20)))) { return this._RouterLinkWithHref_19_3; }
-    if (((token === import12.RouterOutlet) && (38 === requestNodeIndex))) { return this._RouterOutlet_38_5; }
-    if (((token === import12.RouterOutlet) && (41 === requestNodeIndex))) { return this._RouterOutlet_41_5; }
+    if (((token === import18.RouterLinkWithHref) && ((15 <= requestNodeIndex) && (requestNodeIndex <= 16)))) { return this._RouterLinkWithHref_15_3.context; }
+    if (((token === import18.RouterLinkWithHref) && ((19 <= requestNodeIndex) && (requestNodeIndex <= 20)))) { return this._RouterLinkWithHref_19_3.context; }
+    if (((token === import19.RouterOutlet) && (38 === requestNodeIndex))) { return this._RouterOutlet_38_5.context; }
+    if (((token === import19.RouterOutlet) && (41 === requestNodeIndex))) { return this._RouterOutlet_41_5.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
-    var changes:{[key: string]:import7.SimpleChange} = (null as any);
-    changes = (null as any);
-    const currVal_2:any = this._arr_0('/about');
-    if (import4.checkBinding(throwOnChange,this._expr_2,currVal_2)) {
-      this._RouterLinkWithHref_15_3.routerLink = currVal_2;
-      if ((changes === (null as any))) { (changes = {}); }
-      changes['routerLink'] = new import7.SimpleChange(this._expr_2,currVal_2);
-      this._expr_2 = currVal_2;
-    }
-    if ((changes !== (null as any))) { this._RouterLinkWithHref_15_3.ngOnChanges(changes); }
-    changes = (null as any);
-    const currVal_6:any = this._arr_1('/demo/spreadsheet');
-    if (import4.checkBinding(throwOnChange,this._expr_6,currVal_6)) {
-      this._RouterLinkWithHref_19_3.routerLink = currVal_6;
-      if ((changes === (null as any))) { (changes = {}); }
-      changes['routerLink'] = new import7.SimpleChange(this._expr_6,currVal_6);
-      this._expr_6 = currVal_6;
-    }
-    if ((changes !== (null as any))) { this._RouterLinkWithHref_19_3.ngOnChanges(changes); }
+    const currVal_15_0_0:any = this._arr_50('/about');
+    this._RouterLinkWithHref_15_3.check_routerLink(currVal_15_0_0,throwOnChange,false);
+    this._RouterLinkWithHref_15_3.detectChangesInInputProps(this,this._el_15,throwOnChange);
+    const currVal_19_0_0:any = this._arr_52('/demo/spreadsheet');
+    this._RouterLinkWithHref_19_3.check_routerLink(currVal_19_0_0,throwOnChange,false);
+    this._RouterLinkWithHref_19_3.detectChangesInInputProps(this,this._el_19,throwOnChange);
+    this._RouterOutlet_38_5.detectChangesInInputProps(this,this._el_38,throwOnChange);
+    this._RouterOutlet_41_5.detectChangesInInputProps(this,this._el_41,throwOnChange);
     this.detectContentChildrenChanges(throwOnChange);
-    const currVal_0:any = this.context.getLinkStyle('');
-    if (import4.checkBinding(throwOnChange,this._expr_0,currVal_0)) {
-      this.renderer.setElementClass(this._el_14,'active',currVal_0);
-      this._expr_0 = currVal_0;
+    const currVal_49:any = this.context.getLinkStyle('');
+    if (import4.checkBinding(throwOnChange,this._expr_49,currVal_49)) {
+      this.renderer.setElementClass(this._el_14,'active',currVal_49);
+      this._expr_49 = currVal_49;
     }
-    const currVal_3:any = this._RouterLinkWithHref_15_3.href;
-    if (import4.checkBinding(throwOnChange,this._expr_3,currVal_3)) {
-      this.renderer.setElementProperty(this._el_15,'href',this.viewUtils.sanitizer.sanitize(import18.SecurityContext.URL,currVal_3));
-      this._expr_3 = currVal_3;
+    this._RouterLinkWithHref_15_3.detectChangesInHostProps(this,this._el_15,throwOnChange);
+    const currVal_51:any = this.context.getLinkStyle('/demo');
+    if (import4.checkBinding(throwOnChange,this._expr_51,currVal_51)) {
+      this.renderer.setElementClass(this._el_18,'active',currVal_51);
+      this._expr_51 = currVal_51;
     }
-    const currVal_4:any = this.context.getLinkStyle('/demo');
-    if (import4.checkBinding(throwOnChange,this._expr_4,currVal_4)) {
-      this.renderer.setElementClass(this._el_18,'active',currVal_4);
-      this._expr_4 = currVal_4;
-    }
-    const currVal_7:any = this._RouterLinkWithHref_19_3.href;
-    if (import4.checkBinding(throwOnChange,this._expr_7,currVal_7)) {
-      this.renderer.setElementProperty(this._el_19,'href',this.viewUtils.sanitizer.sanitize(import18.SecurityContext.URL,currVal_7));
-      this._expr_7 = currVal_7;
-    }
+    this._RouterLinkWithHref_19_3.detectChangesInHostProps(this,this._el_19,throwOnChange);
+    this._RouterOutlet_38_5.detectChangesInHostProps(this,this._el_38,throwOnChange);
+    this._RouterOutlet_41_5.detectChangesInHostProps(this,this._el_41,throwOnChange);
     this.detectViewChildrenChanges(throwOnChange);
   }
   destroyInternal():void {
-    this._RouterLinkWithHref_15_3.ngOnDestroy();
-    this._RouterLinkWithHref_19_3.ngOnDestroy();
-    this._RouterOutlet_38_5.ngOnDestroy();
-    this._RouterOutlet_41_5.ngOnDestroy();
+    this._RouterLinkWithHref_15_3.context.ngOnDestroy();
+    this._RouterLinkWithHref_19_3.context.ngOnDestroy();
+    this._RouterOutlet_38_5.context.ngOnDestroy();
+    this._RouterOutlet_41_5.context.ngOnDestroy();
   }
   private _handle_click_15_0($event:any):boolean {
     this.markPathToRootAsCheckOnce();
-    const pd_0:any = ((<any>this._RouterLinkWithHref_15_3.onClick($event.button,$event.ctrlKey,$event.metaKey)) !== false);
-    return (true && pd_0);
+    const pd_15_0:any = ((<any>this._RouterLinkWithHref_15_3.context.onClick($event.button,$event.ctrlKey,$event.metaKey)) !== false);
+    return (true && pd_15_0);
   }
   private _handle_click_19_0($event:any):boolean {
     this.markPathToRootAsCheckOnce();
-    const pd_0:any = ((<any>this._RouterLinkWithHref_19_3.onClick($event.button,$event.ctrlKey,$event.metaKey)) !== false);
-    return (true && pd_0);
+    const pd_19_0:any = ((<any>this._RouterLinkWithHref_19_3.context.onClick($event.button,$event.ctrlKey,$event.metaKey)) !== false);
+    return (true && pd_19_0);
   }
 }
-export function viewFactory_AppComponent0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.AppComponent> {
-  if ((renderType_AppComponent === (null as any))) { (renderType_AppComponent = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/demo-app.html',0,import9.ViewEncapsulation.None,styles_AppComponent,{})); }
+export function viewFactory_AppComponent0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement):import1.AppView<import0.AppComponent> {
+  if ((renderType_AppComponent === (null as any))) { (renderType_AppComponent = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,styles_AppComponent,{})); }
   return new _View_AppComponent0(viewUtils,parentInjector,declarationEl);
 }

@@ -4,10 +4,10 @@
  */
  /* tslint:disable */
 
-import * as import0 from '@angular/core/src/render/api';
+import * as import0 from '../../../components/access-child-components/parent';
 import * as import1 from '@angular/core/src/linker/view';
-import * as import2 from '@angular/core/src/linker/element';
-import * as import3 from '../../../components/access-child-components/parent';
+import * as import2 from '@angular/core/src/render/api';
+import * as import3 from '@angular/core/src/linker/element';
 import * as import4 from '@angular/core/src/linker/view_utils';
 import * as import5 from '@angular/core/src/di/injector';
 import * as import6 from '@angular/core/src/linker/view_type';
@@ -15,39 +15,60 @@ import * as import7 from '@angular/core/src/change_detection/change_detection';
 import * as import8 from '@angular/core/src/metadata/view';
 import * as import9 from '@angular/core/src/linker/component_factory';
 import * as import10 from '@angular/core/src/linker/query_list';
-import * as import11 from '../../../components/access-child-components/child';
-import * as import12 from './child.ngfactory';
-var renderType_Parent_Host:import0.RenderComponentType = (null as any);
+import * as import11 from './child.ngfactory';
+import * as import12 from '../../../components/access-child-components/child';
+export class Wrapper_Parent {
+  context:import0.Parent;
+  changed:boolean;
+  constructor() {
+    this.changed = false;
+    this.context = new import0.Parent();
+  }
+  detectChangesInInputProps(view:import1.AppView<any>,el:any,throwOnChange:boolean):boolean {
+    var changed:any = this.changed;
+    this.changed = false;
+    return changed;
+  }
+  detectChangesInHostProps(view:import1.AppView<any>,el:any,throwOnChange:boolean):void {
+  }
+}
+var renderType_Parent_Host:import2.RenderComponentType = (null as any);
 class _View_Parent_Host0 extends import1.AppView<any> {
   _el_0:any;
-  /*private*/ _appEl_0:import2.AppElement;
-  _Parent_0_4:import3.Parent;
-  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
+  /*private*/ _appEl_0:import3.AppElement;
+  _Parent_0_4:Wrapper_Parent;
+  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement) {
     super(_View_Parent_Host0,renderType_Parent_Host,import6.ViewType.HOST,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
   }
-  createInternal(rootSelector:string):import2.AppElement {
-    this._el_0 = this.selectOrCreateHostElement('parent',rootSelector,(null as any));
-    this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
+  createInternal(rootSelector:string):import3.AppElement {
+    this._el_0 = import4.selectOrCreateRenderHostElement(this.renderer,'parent',import4.EMPTY_INLINE_ARRAY,rootSelector,(null as any));
+    this._appEl_0 = new import3.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_Parent0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._Parent_0_4 = new import3.Parent();
-    this._appEl_0.initComponent(this._Parent_0_4,[],compView_0);
-    compView_0.create(this._Parent_0_4,this.projectableNodes,(null as any));
-    this.init([].concat([this._el_0]),[this._el_0],[],[]);
+    this._Parent_0_4 = new Wrapper_Parent();
+    this._appEl_0.initComponent(this._Parent_0_4.context,([] as any[]),compView_0);
+    compView_0.create(this._Parent_0_4.context,this.projectableNodes,(null as any));
+    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import3.Parent) && (0 === requestNodeIndex))) { return this._Parent_0_4; }
+    if (((token === import0.Parent) && (0 === requestNodeIndex))) { return this._Parent_0_4.context; }
     return notFoundResult;
   }
+  detectChangesInternal(throwOnChange:boolean):void {
+    this._Parent_0_4.detectChangesInInputProps(this,this._el_0,throwOnChange);
+    this.detectContentChildrenChanges(throwOnChange);
+    this._Parent_0_4.detectChangesInHostProps(this,this._el_0,throwOnChange);
+    this.detectViewChildrenChanges(throwOnChange);
+  }
 }
-function viewFactory_Parent_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_Parent_Host === (null as any))) { (renderType_Parent_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
+function viewFactory_Parent_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement):import1.AppView<any> {
+  if ((renderType_Parent_Host === (null as any))) { (renderType_Parent_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,([] as any[]),{})); }
   return new _View_Parent_Host0(viewUtils,parentInjector,declarationEl);
 }
-export const ParentNgFactory:import9.ComponentFactory<import3.Parent> = new import9.ComponentFactory<import3.Parent>('parent',viewFactory_Parent_Host0,import3.Parent);
-const styles_Parent:any[] = [];
-var renderType_Parent:import0.RenderComponentType = (null as any);
-class _View_Parent0 extends import1.AppView<import3.Parent> {
+export const ParentNgFactory:import9.ComponentFactory<import0.Parent> = new import9.ComponentFactory<import0.Parent>('parent',viewFactory_Parent_Host0,import0.Parent);
+const styles_Parent:any[] = ([] as any[]);
+var renderType_Parent:import2.RenderComponentType = (null as any);
+class _View_Parent0 extends import1.AppView<import0.Parent> {
   _viewQuery_Child_0:import10.QueryList<any>;
   _el_0:any;
   _text_1:any;
@@ -55,40 +76,40 @@ class _View_Parent0 extends import1.AppView<import3.Parent> {
   _text_3:any;
   _text_4:any;
   _el_5:any;
-  /*private*/ _appEl_5:import2.AppElement;
-  _Child_5_4:import11.Child;
+  /*private*/ _appEl_5:import3.AppElement;
+  _Child_5_4:import11.Wrapper_Child;
   _text_6:any;
   _el_7:any;
-  /*private*/ _appEl_7:import2.AppElement;
-  _Child_7_4:import11.Child;
+  /*private*/ _appEl_7:import3.AppElement;
+  _Child_7_4:import11.Wrapper_Child;
   _text_8:any;
-  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
+  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement) {
     super(_View_Parent0,renderType_Parent,import6.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
   }
-  createInternal(rootSelector:string):import2.AppElement {
+  createInternal(rootSelector:string):import3.AppElement {
     const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
     this._viewQuery_Child_0 = new import10.QueryList<any>();
-    this._el_0 = this.renderer.createElement(parentRenderNode,'div',(null as any));
+    this._el_0 = import4.createRenderElement(this.renderer,parentRenderNode,'div',import4.EMPTY_INLINE_ARRAY,(null as any));
     this._text_1 = this.renderer.createText(this._el_0,'\n                ',(null as any));
-    this._el_2 = this.renderer.createElement(this._el_0,'button',(null as any));
+    this._el_2 = import4.createRenderElement(this.renderer,this._el_0,'button',import4.EMPTY_INLINE_ARRAY,(null as any));
     this._text_3 = this.renderer.createText(this._el_2,'Update Time via ViewChildren',(null as any));
     this._text_4 = this.renderer.createText(this._el_0,'\n                ',(null as any));
-    this._el_5 = this.renderer.createElement(this._el_0,'child',(null as any));
-    this._appEl_5 = new import2.AppElement(5,0,this,this._el_5);
-    var compView_5:any = import12.viewFactory_Child0(this.viewUtils,this.injector(5),this._appEl_5);
-    this._Child_5_4 = new import11.Child();
-    this._appEl_5.initComponent(this._Child_5_4,[],compView_5);
-    compView_5.create(this._Child_5_4,[],(null as any));
+    this._el_5 = import4.createRenderElement(this.renderer,this._el_0,'child',import4.EMPTY_INLINE_ARRAY,(null as any));
+    this._appEl_5 = new import3.AppElement(5,0,this,this._el_5);
+    var compView_5:any = import11.viewFactory_Child0(this.viewUtils,this.injector(5),this._appEl_5);
+    this._Child_5_4 = new import11.Wrapper_Child();
+    this._appEl_5.initComponent(this._Child_5_4.context,([] as any[]),compView_5);
+    compView_5.create(this._Child_5_4.context,([] as any[]),(null as any));
     this._text_6 = this.renderer.createText(this._el_0,'\n                ',(null as any));
-    this._el_7 = this.renderer.createElement(this._el_0,'child',(null as any));
-    this._appEl_7 = new import2.AppElement(7,0,this,this._el_7);
-    var compView_7:any = import12.viewFactory_Child0(this.viewUtils,this.injector(7),this._appEl_7);
-    this._Child_7_4 = new import11.Child();
-    this._appEl_7.initComponent(this._Child_7_4,[],compView_7);
-    compView_7.create(this._Child_7_4,[],(null as any));
+    this._el_7 = import4.createRenderElement(this.renderer,this._el_0,'child',import4.EMPTY_INLINE_ARRAY,(null as any));
+    this._appEl_7 = new import3.AppElement(7,0,this,this._el_7);
+    var compView_7:any = import11.viewFactory_Child0(this.viewUtils,this.injector(7),this._appEl_7);
+    this._Child_7_4 = new import11.Wrapper_Child();
+    this._appEl_7.initComponent(this._Child_7_4.context,([] as any[]),compView_7);
+    compView_7.create(this._Child_7_4.context,([] as any[]),(null as any));
     this._text_8 = this.renderer.createText(this._el_0,'\n              ',(null as any));
     var disposable_0:Function = this.renderer.listen(this._el_2,'click',this.eventHandler(this._handle_click_2_0.bind(this)));
-    this.init([],[
+    this.init(([] as any[]),[
       this._el_0,
       this._text_1,
       this._el_2,
@@ -99,21 +120,25 @@ class _View_Parent0 extends import1.AppView<import3.Parent> {
       this._el_7,
       this._text_8
     ]
-    ,[disposable_0],[]);
+    ,[disposable_0],([] as any[]));
     return (null as any);
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import11.Child) && (5 === requestNodeIndex))) { return this._Child_5_4; }
-    if (((token === import11.Child) && (7 === requestNodeIndex))) { return this._Child_7_4; }
+    if (((token === import12.Child) && (5 === requestNodeIndex))) { return this._Child_5_4.context; }
+    if (((token === import12.Child) && (7 === requestNodeIndex))) { return this._Child_7_4.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
+    this._Child_5_4.detectChangesInInputProps(this,this._el_5,throwOnChange);
+    this._Child_7_4.detectChangesInInputProps(this,this._el_7,throwOnChange);
     this.detectContentChildrenChanges(throwOnChange);
+    this._Child_5_4.detectChangesInHostProps(this,this._el_5,throwOnChange);
+    this._Child_7_4.detectChangesInHostProps(this,this._el_7,throwOnChange);
     this.detectViewChildrenChanges(throwOnChange);
     if (!throwOnChange) { if (this._viewQuery_Child_0.dirty) {
       this._viewQuery_Child_0.reset([
-        this._Child_5_4,
-        this._Child_7_4
+        this._Child_5_4.context,
+        this._Child_7_4.context
       ]
       );
       this.context.viewChildren = this._viewQuery_Child_0;
@@ -122,11 +147,11 @@ class _View_Parent0 extends import1.AppView<import3.Parent> {
   }
   private _handle_click_2_0($event:any):boolean {
     this.markPathToRootAsCheckOnce();
-    const pd_0:any = ((<any>this.context.updateViewChildren()) !== false);
-    return (true && pd_0);
+    const pd_2_0:any = ((<any>this.context.updateViewChildren()) !== false);
+    return (true && pd_2_0);
   }
 }
-export function viewFactory_Parent0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.Parent> {
-  if ((renderType_Parent === (null as any))) { (renderType_Parent = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/access-child-components/parent.ts class Parent - inline template',0,import8.ViewEncapsulation.None,styles_Parent,{})); }
+export function viewFactory_Parent0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement):import1.AppView<import0.Parent> {
+  if ((renderType_Parent === (null as any))) { (renderType_Parent = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,styles_Parent,{})); }
   return new _View_Parent0(viewUtils,parentInjector,declarationEl);
 }

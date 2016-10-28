@@ -4,52 +4,69 @@
  */
  /* tslint:disable */
 
-import * as import0 from '@angular/core/src/render/api';
+import * as import0 from '../../../components/react-integration/angular-2-host';
 import * as import1 from '@angular/core/src/linker/view';
-import * as import2 from '@angular/core/src/linker/element';
-import * as import3 from '../../../components/react-integration/angular-2-host';
+import * as import2 from '@angular/core/src/render/api';
+import * as import3 from '@angular/core/src/linker/element';
 import * as import4 from '@angular/core/src/linker/view_utils';
 import * as import5 from '@angular/core/src/di/injector';
 import * as import6 from '@angular/core/src/linker/view_type';
 import * as import7 from '@angular/core/src/change_detection/change_detection';
 import * as import8 from '@angular/core/src/metadata/view';
 import * as import9 from '@angular/core/src/linker/component_factory';
-var renderType_Angular2Host_Host:import0.RenderComponentType = (null as any);
+export class Wrapper_Angular2Host {
+  context:import0.Angular2Host;
+  changed:boolean;
+  constructor() {
+    this.changed = false;
+    this.context = new import0.Angular2Host();
+  }
+  detectChangesInInputProps(view:import1.AppView<any>,el:any,throwOnChange:boolean):boolean {
+    var changed:any = this.changed;
+    this.changed = false;
+    if (!throwOnChange) { if ((view.numberOfChecks === 0)) { this.context.ngOnInit(); } }
+    return changed;
+  }
+  detectChangesInHostProps(view:import1.AppView<any>,el:any,throwOnChange:boolean):void {
+  }
+}
+var renderType_Angular2Host_Host:import2.RenderComponentType = (null as any);
 class _View_Angular2Host_Host0 extends import1.AppView<any> {
   _el_0:any;
-  /*private*/ _appEl_0:import2.AppElement;
-  _Angular2Host_0_4:import3.Angular2Host;
-  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
+  /*private*/ _appEl_0:import3.AppElement;
+  _Angular2Host_0_4:Wrapper_Angular2Host;
+  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement) {
     super(_View_Angular2Host_Host0,renderType_Angular2Host_Host,import6.ViewType.HOST,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
   }
-  createInternal(rootSelector:string):import2.AppElement {
-    this._el_0 = this.selectOrCreateHostElement('angular-2-host',rootSelector,(null as any));
-    this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
+  createInternal(rootSelector:string):import3.AppElement {
+    this._el_0 = import4.selectOrCreateRenderHostElement(this.renderer,'angular-2-host',import4.EMPTY_INLINE_ARRAY,rootSelector,(null as any));
+    this._appEl_0 = new import3.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_Angular2Host0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._Angular2Host_0_4 = new import3.Angular2Host();
-    this._appEl_0.initComponent(this._Angular2Host_0_4,[],compView_0);
-    compView_0.create(this._Angular2Host_0_4,this.projectableNodes,(null as any));
-    this.init([].concat([this._el_0]),[this._el_0],[],[]);
+    this._Angular2Host_0_4 = new Wrapper_Angular2Host();
+    this._appEl_0.initComponent(this._Angular2Host_0_4.context,([] as any[]),compView_0);
+    compView_0.create(this._Angular2Host_0_4.context,this.projectableNodes,(null as any));
+    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import3.Angular2Host) && (0 === requestNodeIndex))) { return this._Angular2Host_0_4; }
+    if (((token === import0.Angular2Host) && (0 === requestNodeIndex))) { return this._Angular2Host_0_4.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
-    if (((this.numberOfChecks === 0) && !throwOnChange)) { this._Angular2Host_0_4.ngOnInit(); }
+    this._Angular2Host_0_4.detectChangesInInputProps(this,this._el_0,throwOnChange);
     this.detectContentChildrenChanges(throwOnChange);
+    this._Angular2Host_0_4.detectChangesInHostProps(this,this._el_0,throwOnChange);
     this.detectViewChildrenChanges(throwOnChange);
   }
 }
-function viewFactory_Angular2Host_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_Angular2Host_Host === (null as any))) { (renderType_Angular2Host_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
+function viewFactory_Angular2Host_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement):import1.AppView<any> {
+  if ((renderType_Angular2Host_Host === (null as any))) { (renderType_Angular2Host_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,([] as any[]),{})); }
   return new _View_Angular2Host_Host0(viewUtils,parentInjector,declarationEl);
 }
-export const Angular2HostNgFactory:import9.ComponentFactory<import3.Angular2Host> = new import9.ComponentFactory<import3.Angular2Host>('angular-2-host',viewFactory_Angular2Host_Host0,import3.Angular2Host);
-const styles_Angular2Host:any[] = [];
-var renderType_Angular2Host:import0.RenderComponentType = (null as any);
-class _View_Angular2Host0 extends import1.AppView<import3.Angular2Host> {
+export const Angular2HostNgFactory:import9.ComponentFactory<import0.Angular2Host> = new import9.ComponentFactory<import0.Angular2Host>('angular-2-host',viewFactory_Angular2Host_Host0,import0.Angular2Host);
+const styles_Angular2Host:any[] = ([] as any[]);
+var renderType_Angular2Host:import2.RenderComponentType = (null as any);
+class _View_Angular2Host0 extends import1.AppView<import0.Angular2Host> {
   _el_0:any;
   _text_1:any;
   _el_2:any;
@@ -64,28 +81,26 @@ class _View_Angular2Host0 extends import1.AppView<import3.Angular2Host> {
   _el_11:any;
   _el_12:any;
   _text_13:any;
-  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
+  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement) {
     super(_View_Angular2Host0,renderType_Angular2Host,import6.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
   }
-  createInternal(rootSelector:string):import2.AppElement {
+  createInternal(rootSelector:string):import3.AppElement {
     const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
-    this._el_0 = this.renderer.createElement(parentRenderNode,'div',(null as any));
+    this._el_0 = import4.createRenderElement(this.renderer,parentRenderNode,'div',import4.EMPTY_INLINE_ARRAY,(null as any));
     this._text_1 = this.renderer.createText(this._el_0,'\n    ',(null as any));
-    this._el_2 = this.renderer.createElement(this._el_0,'h1',(null as any));
+    this._el_2 = import4.createRenderElement(this.renderer,this._el_0,'h1',import4.EMPTY_INLINE_ARRAY,(null as any));
     this._text_3 = this.renderer.createText(this._el_2,'Integrating React with Angular 2.0',(null as any));
     this._text_4 = this.renderer.createText(this._el_0,'\n    ',(null as any));
-    this._el_5 = this.renderer.createElement(this._el_0,'p',(null as any));
+    this._el_5 = import4.createRenderElement(this.renderer,this._el_0,'p',import4.EMPTY_INLINE_ARRAY,(null as any));
     this._text_6 = this.renderer.createText(this._el_5,'This component integrates a FLUX based React component with Angular 2.0.\n       The treeview supports expanding and collapsing of nodes. Click the "icon" next to the node text to expand or\n       collapse a node.\n    ',(null as any));
     this._text_7 = this.renderer.createText(this._el_0,'\n    ',(null as any));
-    this._el_8 = this.renderer.createElement(this._el_0,'div',(null as any));
-    this.renderer.setElementAttribute(this._el_8,'id','react-tree-view');
+    this._el_8 = import4.createRenderElement(this.renderer,this._el_0,'div',new import4.InlineArray2(2,'id','react-tree-view'),(null as any));
     this._text_9 = this.renderer.createText(this._el_0,'\n',(null as any));
     this._text_10 = this.renderer.createText(parentRenderNode,'\n\n',(null as any));
-    this._el_11 = this.renderer.createElement(parentRenderNode,'h4',(null as any));
-    this._el_12 = this.renderer.createElement(this._el_11,'a',(null as any));
-    this.renderer.setElementAttribute(this._el_12,'href','http://www.syntaxsuccess.com/viewarticle/integrating-react-with-angular-2.0');
+    this._el_11 = import4.createRenderElement(this.renderer,parentRenderNode,'h4',import4.EMPTY_INLINE_ARRAY,(null as any));
+    this._el_12 = import4.createRenderElement(this.renderer,this._el_11,'a',new import4.InlineArray2(2,'href','http://www.syntaxsuccess.com/viewarticle/integrating-react-with-angular-2.0'),(null as any));
     this._text_13 = this.renderer.createText(this._el_12,'Read more here',(null as any));
-    this.init([],[
+    this.init(([] as any[]),[
       this._el_0,
       this._text_1,
       this._el_2,
@@ -101,11 +116,11 @@ class _View_Angular2Host0 extends import1.AppView<import3.Angular2Host> {
       this._el_12,
       this._text_13
     ]
-    ,[],[]);
+    ,([] as any[]),([] as any[]));
     return (null as any);
   }
 }
-export function viewFactory_Angular2Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.Angular2Host> {
-  if ((renderType_Angular2Host === (null as any))) { (renderType_Angular2Host = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/react-integration/angular-2-host.html',0,import8.ViewEncapsulation.None,styles_Angular2Host,{})); }
+export function viewFactory_Angular2Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement):import1.AppView<import0.Angular2Host> {
+  if ((renderType_Angular2Host === (null as any))) { (renderType_Angular2Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,styles_Angular2Host,{})); }
   return new _View_Angular2Host0(viewUtils,parentInjector,declarationEl);
 }

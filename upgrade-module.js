@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UpgradeModule } from '@angular/upgrade/src/aot/upgrade_module';
+import { UpgradeModule } from '@angular/upgrade/static';
 import { TextEditor } from './components/text-editor/text-editor';
 import { Algorithms } from './components/algorithms/algorithms';
 import { SurveyDemo } from './components/survey/survey-demo';

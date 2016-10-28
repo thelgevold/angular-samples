@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import 'rxjs/add/operator/publishReplay';
 export class FriendsService {
     constructor(_http) {
         this._http = _http;

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/toPromise';
 export class HttpSample {
     constructor(http) {
         this.postResponse = new Person();

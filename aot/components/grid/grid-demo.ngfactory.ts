@@ -4,99 +4,105 @@
  */
  /* tslint:disable */
 
-import * as import0 from '@angular/core/src/render/api';
+import * as import0 from '../../../components/grid/grid-demo';
 import * as import1 from '@angular/core/src/linker/view';
-import * as import2 from '@angular/core/src/linker/element';
-import * as import3 from '../../../components/grid/grid-demo';
+import * as import2 from '@angular/core/src/render/api';
+import * as import3 from '@angular/core/src/linker/element';
 import * as import4 from '@angular/core/src/linker/view_utils';
 import * as import5 from '@angular/core/src/di/injector';
 import * as import6 from '@angular/core/src/linker/view_type';
 import * as import7 from '@angular/core/src/change_detection/change_detection';
 import * as import8 from '@angular/core/src/metadata/view';
 import * as import9 from '@angular/core/src/linker/component_factory';
-import * as import10 from '../../../components/grid/grid';
-import * as import11 from './grid.ngfactory';
-var renderType_GridDemo_Host:import0.RenderComponentType = (null as any);
+import * as import10 from './grid.ngfactory';
+import * as import11 from '../../../components/grid/grid';
+export class Wrapper_GridDemo {
+  context:import0.GridDemo;
+  changed:boolean;
+  constructor() {
+    this.changed = false;
+    this.context = new import0.GridDemo();
+  }
+  detectChangesInInputProps(view:import1.AppView<any>,el:any,throwOnChange:boolean):boolean {
+    var changed:any = this.changed;
+    this.changed = false;
+    return changed;
+  }
+  detectChangesInHostProps(view:import1.AppView<any>,el:any,throwOnChange:boolean):void {
+  }
+}
+var renderType_GridDemo_Host:import2.RenderComponentType = (null as any);
 class _View_GridDemo_Host0 extends import1.AppView<any> {
   _el_0:any;
-  /*private*/ _appEl_0:import2.AppElement;
-  _GridDemo_0_4:import3.GridDemo;
-  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
+  /*private*/ _appEl_0:import3.AppElement;
+  _GridDemo_0_4:Wrapper_GridDemo;
+  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement) {
     super(_View_GridDemo_Host0,renderType_GridDemo_Host,import6.ViewType.HOST,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
   }
-  createInternal(rootSelector:string):import2.AppElement {
-    this._el_0 = this.selectOrCreateHostElement('ng-component',rootSelector,(null as any));
-    this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
+  createInternal(rootSelector:string):import3.AppElement {
+    this._el_0 = import4.selectOrCreateRenderHostElement(this.renderer,'ng-component',import4.EMPTY_INLINE_ARRAY,rootSelector,(null as any));
+    this._appEl_0 = new import3.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_GridDemo0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._GridDemo_0_4 = new import3.GridDemo();
-    this._appEl_0.initComponent(this._GridDemo_0_4,[],compView_0);
-    compView_0.create(this._GridDemo_0_4,this.projectableNodes,(null as any));
-    this.init([].concat([this._el_0]),[this._el_0],[],[]);
+    this._GridDemo_0_4 = new Wrapper_GridDemo();
+    this._appEl_0.initComponent(this._GridDemo_0_4.context,([] as any[]),compView_0);
+    compView_0.create(this._GridDemo_0_4.context,this.projectableNodes,(null as any));
+    this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import3.GridDemo) && (0 === requestNodeIndex))) { return this._GridDemo_0_4; }
-    return notFoundResult;
-  }
-}
-function viewFactory_GridDemo_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_GridDemo_Host === (null as any))) { (renderType_GridDemo_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,[],{})); }
-  return new _View_GridDemo_Host0(viewUtils,parentInjector,declarationEl);
-}
-export const GridDemoNgFactory:import9.ComponentFactory<import3.GridDemo> = new import9.ComponentFactory<import3.GridDemo>('ng-component',viewFactory_GridDemo_Host0,import3.GridDemo);
-const styles_GridDemo:any[] = [];
-var renderType_GridDemo:import0.RenderComponentType = (null as any);
-class _View_GridDemo0 extends import1.AppView<import3.GridDemo> {
-  _el_0:any;
-  /*private*/ _appEl_0:import2.AppElement;
-  _Grid_0_4:import10.Grid;
-  /*private*/ _expr_0:any;
-  /*private*/ _expr_1:any;
-  /*private*/ _expr_2:any;
-  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
-    super(_View_GridDemo0,renderType_GridDemo,import6.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
-  }
-  createInternal(rootSelector:string):import2.AppElement {
-    const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
-    this._el_0 = this.renderer.createElement(parentRenderNode,'grid',(null as any));
-    this.renderer.setElementAttribute(this._el_0,'name','person grid');
-    this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
-    var compView_0:any = import11.viewFactory_Grid0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._Grid_0_4 = new import10.Grid();
-    this._appEl_0.initComponent(this._Grid_0_4,[],compView_0);
-    compView_0.create(this._Grid_0_4,[],(null as any));
-    this._expr_0 = import7.UNINITIALIZED;
-    this._expr_1 = import7.UNINITIALIZED;
-    this._expr_2 = import7.UNINITIALIZED;
-    this.init([],[this._el_0],[],[]);
-    return (null as any);
-  }
-  injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import10.Grid) && (0 === requestNodeIndex))) { return this._Grid_0_4; }
+    if (((token === import0.GridDemo) && (0 === requestNodeIndex))) { return this._GridDemo_0_4.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
-    const currVal_0:any = this.context.columns;
-    if (import4.checkBinding(throwOnChange,this._expr_0,currVal_0)) {
-      this._Grid_0_4.columns = currVal_0;
-      this._expr_0 = currVal_0;
-    }
-    const currVal_1:any = this.context.people;
-    if (import4.checkBinding(throwOnChange,this._expr_1,currVal_1)) {
-      this._Grid_0_4.rows = currVal_1;
-      this._expr_1 = currVal_1;
-    }
-    const currVal_2:any = 'person grid';
-    if (import4.checkBinding(throwOnChange,this._expr_2,currVal_2)) {
-      this._Grid_0_4.name = currVal_2;
-      this._expr_2 = currVal_2;
-    }
-    if (((this.numberOfChecks === 0) && !throwOnChange)) { this._Grid_0_4.ngOnInit(); }
+    this._GridDemo_0_4.detectChangesInInputProps(this,this._el_0,throwOnChange);
     this.detectContentChildrenChanges(throwOnChange);
+    this._GridDemo_0_4.detectChangesInHostProps(this,this._el_0,throwOnChange);
     this.detectViewChildrenChanges(throwOnChange);
   }
 }
-export function viewFactory_GridDemo0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.GridDemo> {
-  if ((renderType_GridDemo === (null as any))) { (renderType_GridDemo = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/grid/grid-demo.ts class GridDemo - inline template',0,import8.ViewEncapsulation.None,styles_GridDemo,{})); }
+function viewFactory_GridDemo_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement):import1.AppView<any> {
+  if ((renderType_GridDemo_Host === (null as any))) { (renderType_GridDemo_Host = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,([] as any[]),{})); }
+  return new _View_GridDemo_Host0(viewUtils,parentInjector,declarationEl);
+}
+export const GridDemoNgFactory:import9.ComponentFactory<import0.GridDemo> = new import9.ComponentFactory<import0.GridDemo>('ng-component',viewFactory_GridDemo_Host0,import0.GridDemo);
+const styles_GridDemo:any[] = ([] as any[]);
+var renderType_GridDemo:import2.RenderComponentType = (null as any);
+class _View_GridDemo0 extends import1.AppView<import0.GridDemo> {
+  _el_0:any;
+  /*private*/ _appEl_0:import3.AppElement;
+  _Grid_0_4:import10.Wrapper_Grid;
+  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement) {
+    super(_View_GridDemo0,renderType_GridDemo,import6.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
+  }
+  createInternal(rootSelector:string):import3.AppElement {
+    const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
+    this._el_0 = import4.createRenderElement(this.renderer,parentRenderNode,'grid',new import4.InlineArray2(2,'name','person grid'),(null as any));
+    this._appEl_0 = new import3.AppElement(0,(null as any),this,this._el_0);
+    var compView_0:any = import10.viewFactory_Grid0(this.viewUtils,this.injector(0),this._appEl_0);
+    this._Grid_0_4 = new import10.Wrapper_Grid();
+    this._appEl_0.initComponent(this._Grid_0_4.context,([] as any[]),compView_0);
+    compView_0.create(this._Grid_0_4.context,([] as any[]),(null as any));
+    this.init(([] as any[]),[this._el_0],([] as any[]),([] as any[]));
+    return (null as any);
+  }
+  injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
+    if (((token === import11.Grid) && (0 === requestNodeIndex))) { return this._Grid_0_4.context; }
+    return notFoundResult;
+  }
+  detectChangesInternal(throwOnChange:boolean):void {
+    const currVal_0_0_0:any = this.context.columns;
+    this._Grid_0_4.check_columns(currVal_0_0_0,throwOnChange,false);
+    const currVal_0_0_1:any = this.context.people;
+    this._Grid_0_4.check_rows(currVal_0_0_1,throwOnChange,false);
+    const currVal_0_0_2:any = 'person grid';
+    this._Grid_0_4.check_name(currVal_0_0_2,throwOnChange,false);
+    this._Grid_0_4.detectChangesInInputProps(this,this._el_0,throwOnChange);
+    this.detectContentChildrenChanges(throwOnChange);
+    this._Grid_0_4.detectChangesInHostProps(this,this._el_0,throwOnChange);
+    this.detectViewChildrenChanges(throwOnChange);
+  }
+}
+export function viewFactory_GridDemo0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement):import1.AppView<import0.GridDemo> {
+  if ((renderType_GridDemo === (null as any))) { (renderType_GridDemo = viewUtils.createRenderComponentType('',0,import8.ViewEncapsulation.None,styles_GridDemo,{})); }
   return new _View_GridDemo0(viewUtils,parentInjector,declarationEl);
 }

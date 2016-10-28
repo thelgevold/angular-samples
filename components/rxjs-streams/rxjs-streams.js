@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/timer';
+import 'rxjs/add/observable/forkJoin';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/merge';
+import 'rxjs/add/operator/concat';
 export class RxJsStreams {
     constructor() {
         this.concatStream = [];

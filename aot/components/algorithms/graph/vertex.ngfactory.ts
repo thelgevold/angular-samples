@@ -4,94 +4,122 @@
  */
  /* tslint:disable */
 
-import * as import0 from '@angular/core/src/render/api';
-import * as import1 from '@angular/core/src/linker/view';
-import * as import2 from '@angular/core/src/linker/element';
-import * as import3 from '../../../../components/algorithms/graph/vertex';
-import * as import4 from '@angular/core/src/linker/view_utils';
-import * as import5 from '@angular/core/src/di/injector';
-import * as import6 from '@angular/core/src/linker/view_type';
-import * as import7 from '@angular/core/src/change_detection/change_detection';
+import * as import0 from '../../../../components/algorithms/graph/vertex';
+import * as import1 from '@angular/core/src/change_detection/change_detection';
+import * as import2 from '@angular/core/src/linker/view_utils';
+import * as import3 from '@angular/core/src/linker/view';
+import * as import4 from '@angular/core/src/render/api';
+import * as import5 from '@angular/core/src/linker/element';
+import * as import6 from '@angular/core/src/di/injector';
+import * as import7 from '@angular/core/src/linker/view_type';
 import * as import8 from '../../../../components/algorithms/graph/edge-service';
 import * as import9 from '@angular/core/src/metadata/view';
 import * as import10 from '@angular/core/src/linker/component_factory';
 import * as import11 from '@angular/core/src/linker/query_list';
 import * as import12 from '@angular/core/src/linker/element_ref';
-var renderType_Vertex_Host:import0.RenderComponentType = (null as any);
-class _View_Vertex_Host0 extends import1.AppView<any> {
-  _el_0:any;
-  /*private*/ _appEl_0:import2.AppElement;
-  _Vertex_0_5:import3.Vertex;
-  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
-    super(_View_Vertex_Host0,renderType_Vertex_Host,import6.ViewType.HOST,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
+export class Wrapper_Vertex {
+  context:import0.Vertex;
+  changed:boolean;
+  /*private*/ _expr_0:any;
+  constructor(p0:any,p1:any) {
+    this.changed = false;
+    this.context = new import0.Vertex(p0,p1);
+    this._expr_0 = import1.UNINITIALIZED;
   }
-  createInternal(rootSelector:string):import2.AppElement {
-    this._el_0 = this.selectOrCreateHostElement('vertex',rootSelector,(null as any));
-    this._appEl_0 = new import2.AppElement(0,(null as any),this,this._el_0);
+  check_value(currValue:any,throwOnChange:boolean,forceUpdate:boolean):void {
+    if ((forceUpdate || import2.checkBinding(throwOnChange,this._expr_0,currValue))) {
+      this.changed = true;
+      this.context.value = currValue;
+      this._expr_0 = currValue;
+    }
+  }
+  detectChangesInInputProps(view:import3.AppView<any>,el:any,throwOnChange:boolean):boolean {
+    var changed:any = this.changed;
+    this.changed = false;
+    return changed;
+  }
+  detectChangesInHostProps(view:import3.AppView<any>,el:any,throwOnChange:boolean):void {
+  }
+}
+var renderType_Vertex_Host:import4.RenderComponentType = (null as any);
+class _View_Vertex_Host0 extends import3.AppView<any> {
+  _el_0:any;
+  /*private*/ _appEl_0:import5.AppElement;
+  _Vertex_0_5:Wrapper_Vertex;
+  constructor(viewUtils:import2.ViewUtils,parentInjector:import6.Injector,declarationEl:import5.AppElement) {
+    super(_View_Vertex_Host0,renderType_Vertex_Host,import7.ViewType.HOST,viewUtils,parentInjector,declarationEl,import1.ChangeDetectorStatus.CheckAlways);
+  }
+  createInternal(rootSelector:string):import5.AppElement {
+    this._el_0 = import2.selectOrCreateRenderHostElement(this.renderer,'vertex',import2.EMPTY_INLINE_ARRAY,rootSelector,(null as any));
+    this._appEl_0 = new import5.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_Vertex0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._Vertex_0_5 = new import3.Vertex(this.parentInjector.get(import8.EdgeService),this._appEl_0.vcRef);
-    this._appEl_0.initComponent(this._Vertex_0_5,[],compView_0);
-    compView_0.create(this._Vertex_0_5,this.projectableNodes,(null as any));
-    this.init([].concat([this._appEl_0]),[this._el_0],[],[]);
+    this._Vertex_0_5 = new Wrapper_Vertex(this.parentInjector.get(import8.EdgeService),this._appEl_0.vcRef);
+    this._appEl_0.initComponent(this._Vertex_0_5.context,([] as any[]),compView_0);
+    compView_0.create(this._Vertex_0_5.context,this.projectableNodes,(null as any));
+    this.init(([] as any[]).concat([this._appEl_0]),[this._el_0],([] as any[]),([] as any[]));
     return this._appEl_0;
   }
   injectorGetInternal(token:any,requestNodeIndex:number,notFoundResult:any):any {
-    if (((token === import3.Vertex) && (0 === requestNodeIndex))) { return this._Vertex_0_5; }
+    if (((token === import0.Vertex) && (0 === requestNodeIndex))) { return this._Vertex_0_5.context; }
     return notFoundResult;
   }
+  detectChangesInternal(throwOnChange:boolean):void {
+    this._Vertex_0_5.detectChangesInInputProps(this,this._el_0,throwOnChange);
+    this.detectContentChildrenChanges(throwOnChange);
+    this._Vertex_0_5.detectChangesInHostProps(this,this._el_0,throwOnChange);
+    this.detectViewChildrenChanges(throwOnChange);
+  }
 }
-function viewFactory_Vertex_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<any> {
-  if ((renderType_Vertex_Host === (null as any))) { (renderType_Vertex_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,[],{})); }
+function viewFactory_Vertex_Host0(viewUtils:import2.ViewUtils,parentInjector:import6.Injector,declarationEl:import5.AppElement):import3.AppView<any> {
+  if ((renderType_Vertex_Host === (null as any))) { (renderType_Vertex_Host = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,([] as any[]),{})); }
   return new _View_Vertex_Host0(viewUtils,parentInjector,declarationEl);
 }
-export const VertexNgFactory:import10.ComponentFactory<import3.Vertex> = new import10.ComponentFactory<import3.Vertex>('vertex',viewFactory_Vertex_Host0,import3.Vertex);
-const styles_Vertex:any[] = [];
-var renderType_Vertex:import0.RenderComponentType = (null as any);
-class _View_Vertex0 extends import1.AppView<import3.Vertex> {
+export const VertexNgFactory:import10.ComponentFactory<import0.Vertex> = new import10.ComponentFactory<import0.Vertex>('vertex',viewFactory_Vertex_Host0,import0.Vertex);
+const styles_Vertex:any[] = ([] as any[]);
+var renderType_Vertex:import4.RenderComponentType = (null as any);
+class _View_Vertex0 extends import3.AppView<import0.Vertex> {
   _viewQuery_vertex_0:import11.QueryList<any>;
   _el_0:any;
   _el_1:any;
   _text_2:any;
-  /*private*/ _expr_1:any;
-  constructor(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement) {
-    super(_View_Vertex0,renderType_Vertex,import6.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import7.ChangeDetectorStatus.CheckAlways);
+  /*private*/ _expr_4:any;
+  constructor(viewUtils:import2.ViewUtils,parentInjector:import6.Injector,declarationEl:import5.AppElement) {
+    super(_View_Vertex0,renderType_Vertex,import7.ViewType.COMPONENT,viewUtils,parentInjector,declarationEl,import1.ChangeDetectorStatus.CheckAlways);
+    this._expr_4 = import1.UNINITIALIZED;
   }
-  createInternal(rootSelector:string):import2.AppElement {
+  createInternal(rootSelector:string):import5.AppElement {
     const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
     this._viewQuery_vertex_0 = new import11.QueryList<any>();
-    this._el_0 = this.renderer.createElement(parentRenderNode,'div',(null as any));
-    this.renderer.setElementAttribute(this._el_0,'class','vertex');
-    this._el_1 = this.renderer.createElement(this._el_0,'span',(null as any));
-    this.renderer.setElementAttribute(this._el_1,'class','vertex-text');
+    this._el_0 = import2.createRenderElement(this.renderer,parentRenderNode,'div',new import2.InlineArray2(2,'class','vertex'),(null as any));
+    this._el_1 = import2.createRenderElement(this.renderer,this._el_0,'span',new import2.InlineArray2(2,'class','vertex-text'),(null as any));
     this._text_2 = this.renderer.createText(this._el_1,'',(null as any));
     var disposable_0:Function = this.renderer.listen(this._el_0,'click',this.eventHandler(this._handle_click_0_0.bind(this)));
-    this._expr_1 = import7.UNINITIALIZED;
     this._viewQuery_vertex_0.reset([new import12.ElementRef(this._el_0)]);
     this.context.element = this._viewQuery_vertex_0.first;
-    this.init([],[
+    this.init(([] as any[]),[
       this._el_0,
       this._el_1,
       this._text_2
     ]
-    ,[disposable_0],[]);
+    ,[disposable_0],([] as any[]));
     return (null as any);
   }
   detectChangesInternal(throwOnChange:boolean):void {
     this.detectContentChildrenChanges(throwOnChange);
-    const currVal_1:any = import4.interpolate(1,'',this.context.value,'');
-    if (import4.checkBinding(throwOnChange,this._expr_1,currVal_1)) {
-      this.renderer.setText(this._text_2,currVal_1);
-      this._expr_1 = currVal_1;
+    const currVal_4:any = import2.interpolate(1,'',this.context.value,'');
+    if (import2.checkBinding(throwOnChange,this._expr_4,currVal_4)) {
+      this.renderer.setText(this._text_2,currVal_4);
+      this._expr_4 = currVal_4;
     }
     this.detectViewChildrenChanges(throwOnChange);
   }
   private _handle_click_0_0($event:any):boolean {
     this.markPathToRootAsCheckOnce();
-    const pd_0:any = ((<any>this.context.setCoordinates()) !== false);
-    return (true && pd_0);
+    const pd_0_0:any = ((<any>this.context.setCoordinates()) !== false);
+    return (true && pd_0_0);
   }
 }
-export function viewFactory_Vertex0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import2.AppElement):import1.AppView<import3.Vertex> {
-  if ((renderType_Vertex === (null as any))) { (renderType_Vertex = viewUtils.createRenderComponentType('/Users/tor/Development/angular-2-samples/components/algorithms/graph/vertex.ts class Vertex - inline template',0,import9.ViewEncapsulation.None,styles_Vertex,{})); }
+export function viewFactory_Vertex0(viewUtils:import2.ViewUtils,parentInjector:import6.Injector,declarationEl:import5.AppElement):import3.AppView<import0.Vertex> {
+  if ((renderType_Vertex === (null as any))) { (renderType_Vertex = viewUtils.createRenderComponentType('',0,import9.ViewEncapsulation.None,styles_Vertex,{})); }
   return new _View_Vertex0(viewUtils,parentInjector,declarationEl);
 }

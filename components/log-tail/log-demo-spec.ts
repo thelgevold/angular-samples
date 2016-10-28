@@ -1,6 +1,6 @@
 import {provide} from '@angular/core';
 import {inject, TestBed} from '@angular/core/testing';
-import {Observable} from 'rxjs/Rx';
+import {Observable} from 'rxjs/Observable';
 
 import {LogDemo} from './log-demo';
 import {LogAction} from './log-action';

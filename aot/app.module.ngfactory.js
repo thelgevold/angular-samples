@@ -30,123 +30,124 @@ import * as import28 from '@angular/common/src/location/location';
 import * as import29 from '@angular/router/src/url_tree';
 import * as import30 from '@angular/router/src/router_outlet_map';
 import * as import31 from '@angular/core/src/linker/system_js_ng_module_factory_loader';
-import * as import32 from '../components/dependency-injection/address-book-title-service';
-import * as import34 from './components/about/about.ngfactory';
-import * as import35 from './demo-page.ngfactory';
-import * as import36 from './components/spreadsheet/spreadsheet.ngfactory';
-import * as import37 from './components/jquery-integration/jquery-integration.ngfactory';
-import * as import38 from './components/react-integration/angular-2-host.ngfactory';
-import * as import39 from './components/algorithms/algorithms.ngfactory';
-import * as import40 from './components/algorithms/graph/graph.ngfactory';
-import * as import41 from './components/pub-sub/pub-sub.ngfactory';
-import * as import42 from './components/text-editor/text-editor.ngfactory';
-import * as import43 from './components/dependency-injection/address-book.ngfactory';
-import * as import44 from './components/http/http.ngfactory';
-import * as import45 from './components/tree-view/tree-view-demo.ngfactory';
-import * as import46 from './components/grid/grid-demo.ngfactory';
-import * as import47 from './components/input-controls/input-controls.ngfactory';
-import * as import48 from './components/contact-list/contact-list.ngfactory';
-import * as import49 from './components/bound-textbox/bound-textbox.ngfactory';
-import * as import50 from './components/non-bindable/non-bindable.ngfactory';
-import * as import51 from './components/address-form/address-form.ngfactory';
-import * as import52 from './components/change-detection/comment-demo.ngfactory';
-import * as import53 from './components/access-child-components/parent.ngfactory';
-import * as import54 from './components/survey/survey-demo.ngfactory';
-import * as import55 from './components/log-tail/log-demo.ngfactory';
-import * as import56 from './components/input-output/input-output-demo.ngfactory';
-import * as import57 from './components/rxjs-streams/rxjs-streams.ngfactory';
-import * as import58 from './components/rxjs-caching/caching-demo.ngfactory';
-import * as import59 from './components/rxjs-buffering/rxjs-buffering.ngfactory';
-import * as import60 from './components/lazy-loaded-tree-view/country-demo.ngfactory';
-import * as import61 from './components/algorithms/graph/edge.ngfactory';
-import * as import62 from './app.component.ngfactory';
-import * as import63 from '@angular/core/src/application_tokens';
-import * as import64 from '@angular/platform-browser/src/dom/events/dom_events';
-import * as import65 from '@angular/platform-browser/src/dom/events/key_events';
-import * as import66 from '@angular/core/src/zone/ng_zone';
-import * as import67 from '@angular/platform-browser/src/dom/debug/ng_probe';
-import * as import68 from '@angular/common/src/location/platform_location';
-import * as import69 from '@angular/common/src/location/location_strategy';
-import * as import70 from '../components/about/about';
-import * as import71 from '../demo-page';
-import * as import72 from '../components/spreadsheet/spreadsheet';
-import * as import73 from '../components/jquery-integration/jquery-integration';
-import * as import74 from '../components/react-integration/angular-2-host';
-import * as import75 from '../components/algorithms/algorithms';
-import * as import76 from '../components/algorithms/graph/graph';
-import * as import77 from '../components/pub-sub/pub-sub';
-import * as import78 from '../components/text-editor/text-editor';
-import * as import79 from '../components/dependency-injection/address-book';
-import * as import80 from '../components/http/http';
-import * as import81 from '../components/tree-view/tree-view-demo';
-import * as import82 from '../components/grid/grid-demo';
-import * as import83 from '../components/input-controls/input-controls';
-import * as import84 from '../components/contact-list/contact-list';
-import * as import85 from '../components/bound-textbox/bound-textbox';
-import * as import86 from '../components/non-bindable/non-bindable';
-import * as import87 from '../components/address-form/address-form';
-import * as import88 from '../components/change-detection/comment-demo';
-import * as import89 from '../components/access-child-components/parent';
-import * as import90 from '../components/survey/survey-demo';
-import * as import91 from '../components/log-tail/log-demo';
-import * as import92 from '../components/input-output/input-output-demo';
-import * as import93 from '../components/rxjs-streams/rxjs-streams';
-import * as import94 from '../components/rxjs-caching/caching-demo';
-import * as import95 from '../components/rxjs-buffering/rxjs-buffering';
-import * as import96 from '../components/lazy-loaded-tree-view/country-demo';
-import * as import97 from '@angular/router/src/router';
-import * as import98 from '@angular/core/src/console';
-import * as import99 from '@angular/core/src/i18n/tokens';
-import * as import100 from '@angular/core/src/error_handler';
-import * as import101 from '@angular/platform-browser/src/dom/dom_tokens';
-import * as import102 from '@angular/platform-browser/src/dom/animation_driver';
-import * as import103 from '@angular/core/src/render/api';
-import * as import104 from '@angular/core/src/security';
-import * as import105 from '@angular/core/src/change_detection/differs/iterable_differs';
-import * as import106 from '@angular/core/src/change_detection/differs/keyvalue_differs';
-import * as import107 from '@angular/http/src/interfaces';
-import * as import108 from '@angular/http/src/http';
-import * as import109 from '@angular/core/src/linker/ng_module_factory_loader';
-import * as import110 from '@angular/router/src/router_config_loader';
-import * as import111 from '@angular/router/src/router_state';
-import * as import112 from '@angular/core/src/i18n/tokens';
+import * as import32 from '@angular/router/src/router_preloader';
+import * as import33 from '../components/dependency-injection/address-book-title-service';
+import * as import35 from './components/about/about.ngfactory';
+import * as import36 from './demo-page.ngfactory';
+import * as import37 from './components/spreadsheet/spreadsheet.ngfactory';
+import * as import38 from './components/jquery-integration/jquery-integration.ngfactory';
+import * as import39 from './components/react-integration/angular-2-host.ngfactory';
+import * as import40 from './components/algorithms/algorithms.ngfactory';
+import * as import41 from './components/algorithms/graph/graph.ngfactory';
+import * as import42 from './components/pub-sub/pub-sub.ngfactory';
+import * as import43 from './components/text-editor/text-editor.ngfactory';
+import * as import44 from './components/dependency-injection/address-book.ngfactory';
+import * as import45 from './components/http/http.ngfactory';
+import * as import46 from './components/tree-view/tree-view-demo.ngfactory';
+import * as import47 from './components/grid/grid-demo.ngfactory';
+import * as import48 from './components/input-controls/input-controls.ngfactory';
+import * as import49 from './components/contact-list/contact-list.ngfactory';
+import * as import50 from './components/bound-textbox/bound-textbox.ngfactory';
+import * as import51 from './components/non-bindable/non-bindable.ngfactory';
+import * as import52 from './components/address-form/address-form.ngfactory';
+import * as import53 from './components/change-detection/comment-demo.ngfactory';
+import * as import54 from './components/access-child-components/parent.ngfactory';
+import * as import55 from './components/survey/survey-demo.ngfactory';
+import * as import56 from './components/log-tail/log-demo.ngfactory';
+import * as import57 from './components/input-output/input-output-demo.ngfactory';
+import * as import58 from './components/rxjs-streams/rxjs-streams.ngfactory';
+import * as import59 from './components/rxjs-caching/caching-demo.ngfactory';
+import * as import60 from './components/rxjs-buffering/rxjs-buffering.ngfactory';
+import * as import61 from './components/lazy-loaded-tree-view/country-demo.ngfactory';
+import * as import62 from './components/algorithms/graph/edge.ngfactory';
+import * as import63 from './app.component.ngfactory';
+import * as import64 from '@angular/core/src/application_tokens';
+import * as import65 from '@angular/platform-browser/src/dom/events/dom_events';
+import * as import66 from '@angular/platform-browser/src/dom/events/key_events';
+import * as import67 from '@angular/core/src/zone/ng_zone';
+import * as import68 from '@angular/platform-browser/src/dom/debug/ng_probe';
+import * as import69 from '@angular/common/src/location/platform_location';
+import * as import70 from '@angular/common/src/location/location_strategy';
+import * as import71 from '../components/about/about';
+import * as import72 from '../demo-page';
+import * as import73 from '../components/spreadsheet/spreadsheet';
+import * as import74 from '../components/jquery-integration/jquery-integration';
+import * as import75 from '../components/react-integration/angular-2-host';
+import * as import76 from '../components/algorithms/algorithms';
+import * as import77 from '../components/algorithms/graph/graph';
+import * as import78 from '../components/pub-sub/pub-sub';
+import * as import79 from '../components/text-editor/text-editor';
+import * as import80 from '../components/dependency-injection/address-book';
+import * as import81 from '../components/http/http';
+import * as import82 from '../components/tree-view/tree-view-demo';
+import * as import83 from '../components/grid/grid-demo';
+import * as import84 from '../components/input-controls/input-controls';
+import * as import85 from '../components/contact-list/contact-list';
+import * as import86 from '../components/bound-textbox/bound-textbox';
+import * as import87 from '../components/non-bindable/non-bindable';
+import * as import88 from '../components/address-form/address-form';
+import * as import89 from '../components/change-detection/comment-demo';
+import * as import90 from '../components/access-child-components/parent';
+import * as import91 from '../components/survey/survey-demo';
+import * as import92 from '../components/log-tail/log-demo';
+import * as import93 from '../components/input-output/input-output-demo';
+import * as import94 from '../components/rxjs-streams/rxjs-streams';
+import * as import95 from '../components/rxjs-caching/caching-demo';
+import * as import96 from '../components/rxjs-buffering/rxjs-buffering';
+import * as import97 from '../components/lazy-loaded-tree-view/country-demo';
+import * as import98 from '@angular/router/src/url_handling_strategy';
+import * as import99 from '@angular/router/src/router';
+import * as import100 from '@angular/core/src/console';
+import * as import101 from '@angular/core/src/i18n/tokens';
+import * as import102 from '@angular/core/src/error_handler';
+import * as import103 from '@angular/platform-browser/src/dom/dom_tokens';
+import * as import104 from '@angular/platform-browser/src/dom/animation_driver';
+import * as import105 from '@angular/core/src/render/api';
+import * as import106 from '@angular/core/src/security';
+import * as import107 from '@angular/core/src/change_detection/differs/iterable_differs';
+import * as import108 from '@angular/core/src/change_detection/differs/keyvalue_differs';
+import * as import109 from '@angular/http/src/interfaces';
+import * as import110 from '@angular/http/src/http';
+import * as import111 from '@angular/core/src/linker/ng_module_factory_loader';
+import * as import112 from '@angular/router/src/router_config_loader';
+import * as import113 from '@angular/router/src/router_state';
 class AppModuleInjector extends import0.NgModuleInjector {
     constructor(parent) {
         super(parent, [
-            import34.AboutNgFactory,
-            import35.DemoPageNgFactory,
-            import36.SpreadsheetNgFactory,
-            import37.JqueryIntegrationNgFactory,
-            import38.Angular2HostNgFactory,
-            import39.AlgorithmsNgFactory,
-            import40.GraphNgFactory,
-            import41.PubSubNgFactory,
-            import42.TextEditorNgFactory,
-            import43.AddressBookNgFactory,
-            import44.HttpSampleNgFactory,
-            import45.TreeViewDemoNgFactory,
-            import46.GridDemoNgFactory,
-            import47.InputControlsNgFactory,
-            import48.ContactListNgFactory,
-            import49.BoundTextboxNgFactory,
-            import50.IgnoreBindingsNgFactory,
-            import51.AddressFormNgFactory,
-            import52.CommentDemoNgFactory,
-            import53.ParentNgFactory,
-            import54.SurveyDemoNgFactory,
-            import55.LogDemoNgFactory,
-            import56.InputOutputDemoNgFactory,
-            import57.RxJsStreamsNgFactory,
-            import58.CachingDemoNgFactory,
-            import59.RxJsBufferingNgFactory,
-            import60.CountryDemoNgFactory,
-            import61.EdgeNgFactory,
-            import62.AppComponentNgFactory
-        ], [import62.AppComponentNgFactory]);
+            import35.AboutNgFactory,
+            import36.DemoPageNgFactory,
+            import37.SpreadsheetNgFactory,
+            import38.JqueryIntegrationNgFactory,
+            import39.Angular2HostNgFactory,
+            import40.AlgorithmsNgFactory,
+            import41.GraphNgFactory,
+            import42.PubSubNgFactory,
+            import43.TextEditorNgFactory,
+            import44.AddressBookNgFactory,
+            import45.HttpSampleNgFactory,
+            import46.TreeViewDemoNgFactory,
+            import47.GridDemoNgFactory,
+            import48.InputControlsNgFactory,
+            import49.ContactListNgFactory,
+            import50.BoundTextboxNgFactory,
+            import51.IgnoreBindingsNgFactory,
+            import52.AddressFormNgFactory,
+            import53.CommentDemoNgFactory,
+            import54.ParentNgFactory,
+            import55.SurveyDemoNgFactory,
+            import56.LogDemoNgFactory,
+            import57.InputOutputDemoNgFactory,
+            import58.RxJsStreamsNgFactory,
+            import59.CachingDemoNgFactory,
+            import60.RxJsBufferingNgFactory,
+            import61.CountryDemoNgFactory,
+            import62.EdgeNgFactory,
+            import63.AppComponentNgFactory
+        ], [import63.AppComponentNgFactory]);
     }
     get _LOCALE_ID_10() {
         if ((this.__LOCALE_ID_10 == null)) {
-            (this.__LOCALE_ID_10 = null);
+            (this.__LOCALE_ID_10 = 'en-US');
         }
         return this.__LOCALE_ID_10;
     }
@@ -170,7 +171,7 @@ class AppModuleInjector extends import0.NgModuleInjector {
     }
     get _APP_ID_18() {
         if ((this.__APP_ID_18 == null)) {
-            (this.__APP_ID_18 = import63._appIdRandomProviderFactory());
+            (this.__APP_ID_18 = import64._appIdRandomProviderFactory());
         }
         return this.__APP_ID_18;
     }
@@ -189,8 +190,8 @@ class AppModuleInjector extends import0.NgModuleInjector {
     get _EVENT_MANAGER_PLUGINS_21() {
         if ((this.__EVENT_MANAGER_PLUGINS_21 == null)) {
             (this.__EVENT_MANAGER_PLUGINS_21 = [
-                new import64.DomEventsPlugin(),
-                new import65.KeyEventsPlugin(),
+                new import65.DomEventsPlugin(),
+                new import66.KeyEventsPlugin(),
                 new import14.HammerGesturesPlugin(this._HAMMER_GESTURE_CONFIG_20)
             ]);
         }
@@ -198,7 +199,7 @@ class AppModuleInjector extends import0.NgModuleInjector {
     }
     get _EventManager_22() {
         if ((this.__EventManager_22 == null)) {
-            (this.__EventManager_22 = new import15.EventManager(this._EVENT_MANAGER_PLUGINS_21, this.parent.get(import66.NgZone)));
+            (this.__EventManager_22 = new import15.EventManager(this._EVENT_MANAGER_PLUGINS_21, this.parent.get(import67.NgZone)));
         }
         return this.__EventManager_22;
     }
@@ -222,7 +223,7 @@ class AppModuleInjector extends import0.NgModuleInjector {
     }
     get _RootRenderer_26() {
         if ((this.__RootRenderer_26 == null)) {
-            (this.__RootRenderer_26 = import67._createConditionalRootRenderer(this._DomRootRenderer_25, this.parent.get(import67.NgProbeToken, null)));
+            (this.__RootRenderer_26 = import68._createConditionalRootRenderer(this._DomRootRenderer_25, this.parent.get(import68.NgProbeToken, null)));
         }
         return this.__RootRenderer_26;
     }
@@ -318,7 +319,7 @@ class AppModuleInjector extends import0.NgModuleInjector {
     }
     get _LocationStrategy_42() {
         if ((this.__LocationStrategy_42 == null)) {
-            (this.__LocationStrategy_42 = new import27.HashLocationStrategy(this.parent.get(import68.PlatformLocation), this.parent.get(import69.APP_BASE_HREF, null)));
+            (this.__LocationStrategy_42 = new import27.HashLocationStrategy(this.parent.get(import69.PlatformLocation), this.parent.get(import70.APP_BASE_HREF, null)));
         }
         return this.__LocationStrategy_42;
     }
@@ -356,111 +357,111 @@ class AppModuleInjector extends import0.NgModuleInjector {
                     },
                     {
                         path: 'about',
-                        component: import70.About
+                        component: import71.About
                     },
                     {
                         path: 'demo',
-                        component: import71.DemoPage,
+                        component: import72.DemoPage,
                         children: [
                             {
                                 path: 'spreadsheet',
-                                component: import72.Spreadsheet
+                                component: import73.Spreadsheet
                             },
                             {
                                 path: 'jquery',
-                                component: import73.JqueryIntegration
+                                component: import74.JqueryIntegration
                             },
                             {
                                 path: 'react',
-                                component: import74.Angular2Host
+                                component: import75.Angular2Host
                             },
                             {
                                 path: 'algorithms',
-                                component: import75.Algorithms
+                                component: import76.Algorithms
                             },
                             {
                                 path: 'graph',
-                                component: import76.Graph
+                                component: import77.Graph
                             },
                             {
                                 path: 'pub-sub',
-                                component: import77.PubSub
+                                component: import78.PubSub
                             },
                             {
                                 path: 'text-editor',
-                                component: import78.TextEditor
+                                component: import79.TextEditor
                             },
                             {
                                 path: 'address',
-                                component: import79.AddressBook
+                                component: import80.AddressBook
                             },
                             {
                                 path: 'http',
-                                component: import80.HttpSample
+                                component: import81.HttpSample
                             },
                             {
                                 path: 'treeview',
-                                component: import81.TreeViewDemo
+                                component: import82.TreeViewDemo
                             },
                             {
                                 path: 'grid',
-                                component: import82.GridDemo
+                                component: import83.GridDemo
                             },
                             {
                                 path: 'input',
-                                component: import83.InputControls
+                                component: import84.InputControls
                             },
                             {
                                 path: 'contact',
-                                component: import84.ContactList
+                                component: import85.ContactList
                             },
                             {
                                 path: 'textbox',
-                                component: import85.BoundTextbox
+                                component: import86.BoundTextbox
                             },
                             {
                                 path: 'non-bindable',
-                                component: import86.IgnoreBindings
+                                component: import87.IgnoreBindings
                             },
                             {
                                 path: 'form',
-                                component: import87.AddressForm
+                                component: import88.AddressForm
                             },
                             {
                                 path: 'change',
-                                component: import88.CommentDemo
+                                component: import89.CommentDemo
                             },
                             {
                                 path: 'parent-child',
-                                component: import89.Parent
+                                component: import90.Parent
                             },
                             {
                                 path: 'survey',
-                                component: import90.SurveyDemo
+                                component: import91.SurveyDemo
                             },
                             {
                                 path: 'redux',
-                                component: import91.LogDemo
+                                component: import92.LogDemo
                             },
                             {
                                 path: 'iodemo',
-                                component: import92.InputOutputDemo
+                                component: import93.InputOutputDemo
                             },
                             {
                                 path: 'rxjs',
-                                component: import93.RxJsStreams
+                                component: import94.RxJsStreams
                             },
                             {
                                 path: 'friends',
-                                component: import94.CachingDemo
+                                component: import95.CachingDemo
                             },
                             {
                                 path: 'buffering',
-                                component: import95.RxJsBuffering
+                                component: import96.RxJsBuffering
                             },
                             {
                                 path: 'countries',
-                                component: import96.CountryDemo
+                                component: import97.CountryDemo
                             }
                         ]
                     }
@@ -477,7 +478,7 @@ class AppModuleInjector extends import0.NgModuleInjector {
     }
     get _Router_49() {
         if ((this.__Router_49 == null)) {
-            (this.__Router_49 = import7.setupRouter(this._ApplicationRef_16, this._UrlSerializer_44, this._RouterOutletMap_45, this._Location_43, this, this._NgModuleFactoryLoader_46, this._Compiler_17, this._ROUTES_47, this._ROUTER_CONFIGURATION_48));
+            (this.__Router_49 = import7.setupRouter(this._ApplicationRef_16, this._UrlSerializer_44, this._RouterOutletMap_45, this._Location_43, this, this._NgModuleFactoryLoader_46, this._Compiler_17, this._ROUTES_47, this._ROUTER_CONFIGURATION_48, this.parent.get(import98.UrlHandlingStrategy, null)));
         }
         return this.__Router_49;
     }
@@ -487,23 +488,23 @@ class AppModuleInjector extends import0.NgModuleInjector {
         }
         return this.__ActivatedRoute_50;
     }
-    get _APP_BOOTSTRAP_LISTENER_51() {
-        if ((this.__APP_BOOTSTRAP_LISTENER_51 == null)) {
-            (this.__APP_BOOTSTRAP_LISTENER_51 = [import7.initialRouterNavigation(this._Router_49, this._ROUTER_CONFIGURATION_48)]);
+    get _PreloadAllModules_54() {
+        if ((this.__PreloadAllModules_54 == null)) {
+            (this.__PreloadAllModules_54 = new import32.PreloadAllModules());
         }
-        return this.__APP_BOOTSTRAP_LISTENER_51;
+        return this.__PreloadAllModules_54;
     }
-    get _AddressBookTitleService_52() {
-        if ((this.__AddressBookTitleService_52 == null)) {
-            (this.__AddressBookTitleService_52 = new import32.AddressBookTitleService());
+    get _APP_BOOTSTRAP_LISTENER_55() {
+        if ((this.__APP_BOOTSTRAP_LISTENER_55 == null)) {
+            (this.__APP_BOOTSTRAP_LISTENER_55 = [import7.initialRouterNavigation(this._Router_49, this._ApplicationRef_16, this._RouterPreloader_53, this._ROUTER_CONFIGURATION_48)]);
         }
-        return this.__AddressBookTitleService_52;
+        return this.__APP_BOOTSTRAP_LISTENER_55;
     }
-    get _TRANSLATIONS_FORMAT_53() {
-        if ((this.__TRANSLATIONS_FORMAT_53 == null)) {
-            (this.__TRANSLATIONS_FORMAT_53 = null);
+    get _AddressBookTitleService_56() {
+        if ((this.__AddressBookTitleService_56 == null)) {
+            (this.__AddressBookTitleService_56 = new import33.AddressBookTitleService());
         }
-        return this.__TRANSLATIONS_FORMAT_53;
+        return this.__AddressBookTitleService_56;
     }
     createInternal() {
         this._CommonModule_0 = new import2.CommonModule();
@@ -511,15 +512,18 @@ class AppModuleInjector extends import0.NgModuleInjector {
         this._BrowserModule_2 = new import4.BrowserModule(this.parent.get(import4.BrowserModule, null));
         this._InternalFormsSharedModule_3 = new import5.InternalFormsSharedModule();
         this._ReactiveFormsModule_4 = new import6.ReactiveFormsModule();
-        this._ROUTER_FORROOT_GUARD_5 = import7.provideForRootGuard(this.parent.get(import97.Router, null));
+        this._ROUTER_FORROOT_GUARD_5 = import7.provideForRootGuard(this.parent.get(import99.Router, null));
         this._RouterModule_6 = new import7.RouterModule(this._ROUTER_FORROOT_GUARD_5);
         this._FormsModule_7 = new import6.FormsModule();
         this._HttpModule_8 = new import8.HttpModule();
         this._AppModule_9 = new import1.AppModule();
         this._ErrorHandler_12 = import4.errorHandler();
         this._ApplicationInitStatus_13 = new import10.ApplicationInitStatus(this.parent.get(import10.APP_INITIALIZER, null));
-        this._Testability_14 = new import11.Testability(this.parent.get(import66.NgZone));
-        this._ApplicationRef__15 = new import12.ApplicationRef_(this.parent.get(import66.NgZone), this.parent.get(import98.Console), this, this._ErrorHandler_12, this, this._ApplicationInitStatus_13, this.parent.get(import11.TestabilityRegistry, null), this._Testability_14);
+        this._Testability_14 = new import11.Testability(this.parent.get(import67.NgZone));
+        this._ApplicationRef__15 = new import12.ApplicationRef_(this.parent.get(import67.NgZone), this.parent.get(import100.Console), this, this._ErrorHandler_12, this, this._ApplicationInitStatus_13, this.parent.get(import11.TestabilityRegistry, null), this._Testability_14);
+        this._NoPreloading_51 = new import32.NoPreloading();
+        this._PreloadingStrategy_52 = this._NoPreloading_51;
+        this._RouterPreloader_53 = new import32.RouterPreloader(this._Router_49, this._NgModuleFactoryLoader_46, this._Compiler_17, this, this._PreloadingStrategy_52);
         return this._AppModule_9;
     }
     getInternal(token, notFoundResult) {
@@ -553,13 +557,13 @@ class AppModuleInjector extends import0.NgModuleInjector {
         if ((token === import1.AppModule)) {
             return this._AppModule_9;
         }
-        if ((token === import99.LOCALE_ID)) {
+        if ((token === import101.LOCALE_ID)) {
             return this._LOCALE_ID_10;
         }
         if ((token === import9.NgLocalization)) {
             return this._NgLocalization_11;
         }
-        if ((token === import100.ErrorHandler)) {
+        if ((token === import102.ErrorHandler)) {
             return this._ErrorHandler_12;
         }
         if ((token === import10.ApplicationInitStatus)) {
@@ -577,10 +581,10 @@ class AppModuleInjector extends import0.NgModuleInjector {
         if ((token === import13.Compiler)) {
             return this._Compiler_17;
         }
-        if ((token === import63.APP_ID)) {
+        if ((token === import64.APP_ID)) {
             return this._APP_ID_18;
         }
-        if ((token === import101.DOCUMENT)) {
+        if ((token === import103.DOCUMENT)) {
             return this._DOCUMENT_19;
         }
         if ((token === import14.HAMMER_GESTURE_CONFIG)) {
@@ -595,28 +599,28 @@ class AppModuleInjector extends import0.NgModuleInjector {
         if ((token === import16.DomSharedStylesHost)) {
             return this._DomSharedStylesHost_23;
         }
-        if ((token === import102.AnimationDriver)) {
+        if ((token === import104.AnimationDriver)) {
             return this._AnimationDriver_24;
         }
         if ((token === import17.DomRootRenderer)) {
             return this._DomRootRenderer_25;
         }
-        if ((token === import103.RootRenderer)) {
+        if ((token === import105.RootRenderer)) {
             return this._RootRenderer_26;
         }
         if ((token === import18.DomSanitizer)) {
             return this._DomSanitizer_27;
         }
-        if ((token === import104.Sanitizer)) {
+        if ((token === import106.Sanitizer)) {
             return this._Sanitizer_28;
         }
         if ((token === import19.ViewUtils)) {
             return this._ViewUtils_29;
         }
-        if ((token === import105.IterableDiffers)) {
+        if ((token === import107.IterableDiffers)) {
             return this._IterableDiffers_30;
         }
-        if ((token === import106.KeyValueDiffers)) {
+        if ((token === import108.KeyValueDiffers)) {
             return this._KeyValueDiffers_31;
         }
         if ((token === import16.SharedStylesHost)) {
@@ -637,7 +641,7 @@ class AppModuleInjector extends import0.NgModuleInjector {
         if ((token === import24.ResponseOptions)) {
             return this._ResponseOptions_37;
         }
-        if ((token === import107.XSRFStrategy)) {
+        if ((token === import109.XSRFStrategy)) {
             return this._XSRFStrategy_38;
         }
         if ((token === import25.XHRBackend)) {
@@ -646,10 +650,10 @@ class AppModuleInjector extends import0.NgModuleInjector {
         if ((token === import26.RequestOptions)) {
             return this._RequestOptions_40;
         }
-        if ((token === import108.Http)) {
+        if ((token === import110.Http)) {
             return this._Http_41;
         }
-        if ((token === import69.LocationStrategy)) {
+        if ((token === import70.LocationStrategy)) {
             return this._LocationStrategy_42;
         }
         if ((token === import28.Location)) {
@@ -661,34 +665,44 @@ class AppModuleInjector extends import0.NgModuleInjector {
         if ((token === import30.RouterOutletMap)) {
             return this._RouterOutletMap_45;
         }
-        if ((token === import109.NgModuleFactoryLoader)) {
+        if ((token === import111.NgModuleFactoryLoader)) {
             return this._NgModuleFactoryLoader_46;
         }
-        if ((token === import110.ROUTES)) {
+        if ((token === import112.ROUTES)) {
             return this._ROUTES_47;
         }
         if ((token === import7.ROUTER_CONFIGURATION)) {
             return this._ROUTER_CONFIGURATION_48;
         }
-        if ((token === import97.Router)) {
+        if ((token === import99.Router)) {
             return this._Router_49;
         }
-        if ((token === import111.ActivatedRoute)) {
+        if ((token === import113.ActivatedRoute)) {
             return this._ActivatedRoute_50;
         }
-        if ((token === import63.APP_BOOTSTRAP_LISTENER)) {
-            return this._APP_BOOTSTRAP_LISTENER_51;
+        if ((token === import32.NoPreloading)) {
+            return this._NoPreloading_51;
         }
-        if ((token === import32.AddressBookTitleService)) {
-            return this._AddressBookTitleService_52;
+        if ((token === import32.PreloadingStrategy)) {
+            return this._PreloadingStrategy_52;
         }
-        if ((token === import112.TRANSLATIONS_FORMAT)) {
-            return this._TRANSLATIONS_FORMAT_53;
+        if ((token === import32.RouterPreloader)) {
+            return this._RouterPreloader_53;
+        }
+        if ((token === import32.PreloadAllModules)) {
+            return this._PreloadAllModules_54;
+        }
+        if ((token === import64.APP_BOOTSTRAP_LISTENER)) {
+            return this._APP_BOOTSTRAP_LISTENER_55;
+        }
+        if ((token === import33.AddressBookTitleService)) {
+            return this._AddressBookTitleService_56;
         }
         return notFoundResult;
     }
     destroyInternal() {
         this._ApplicationRef__15.ngOnDestroy();
+        this._RouterPreloader_53.ngOnDestroy();
     }
 }
 export const AppModuleNgFactory = new import0.NgModuleFactory(AppModuleInjector, import1.AppModule);
