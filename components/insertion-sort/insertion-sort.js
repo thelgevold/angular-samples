@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Insertion } from '../../algorithms/insertion-sort';
-export class InsertionSort {
-    constructor() {
+export var InsertionSort = (function () {
+    function InsertionSort() {
         this.list = new ValList();
         this.list.items = [
             new ListItem(5),
@@ -19,36 +19,41 @@ export class InsertionSort {
             new ListItem(30)
         ];
     }
-    sortList() {
+    InsertionSort.prototype.sortList = function () {
         Insertion.sort(this.list);
+    };
+    InsertionSort.decorators = [
+        { type: Component, args: [{
+                    selector: 'insertion-sort',
+                    inputs: ['list: list'],
+                    templateUrl: './insertion-sort.html'
+                },] },
+    ];
+    InsertionSort.ctorParameters = [];
+    return InsertionSort;
+}());
+var ValList = (function () {
+    function ValList() {
     }
-}
-InsertionSort.decorators = [
-    { type: Component, args: [{
-                selector: 'insertion-sort',
-                inputs: ['list: list'],
-                templateUrl: './insertion-sort.html'
-            },] },
-];
-InsertionSort.ctorParameters = [];
-class ValList {
-    setCurrent(item) {
+    ValList.prototype.setCurrent = function (item) {
         this.clearAll();
         item.current = true;
-    }
-    clearAll() {
-        this.items.forEach(i => i.current = false);
-    }
-}
-class ListItem {
-    constructor(val) {
+    };
+    ValList.prototype.clearAll = function () {
+        this.items.forEach(function (i) { return i.current = false; });
+    };
+    return ValList;
+}());
+var ListItem = (function () {
+    function ListItem(val) {
         this.val = val;
         this.current = false;
     }
-    getClass() {
+    ListItem.prototype.getClass = function () {
         if (this.current) {
             return 'current-item';
         }
         return null;
-    }
-}
+    };
+    return ListItem;
+}());

@@ -1,22 +1,23 @@
 import { Component, Input } from '@angular/core';
-export class Survey {
-    constructor() {
+export var Survey = (function () {
+    function Survey() {
         this.payLoad = null;
     }
-    ngOnInit() {
+    Survey.prototype.ngOnInit = function () {
         this.form = this.model.toGroup();
-    }
-    onSubmit() {
+    };
+    Survey.prototype.onSubmit = function () {
         this.payLoad = JSON.stringify(this.form.value);
-    }
-}
-Survey.decorators = [
-    { type: Component, args: [{
-                selector: 'survey',
-                templateUrl: './survey.html'
-            },] },
-];
-Survey.ctorParameters = [];
-Survey.propDecorators = {
-    'model': [{ type: Input },],
-};
+    };
+    Survey.decorators = [
+        { type: Component, args: [{
+                    selector: 'survey',
+                    templateUrl: './survey.html'
+                },] },
+    ];
+    Survey.ctorParameters = [];
+    Survey.propDecorators = {
+        'model': [{ type: Input },],
+    };
+    return Survey;
+}());
