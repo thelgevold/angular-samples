@@ -45,18 +45,18 @@
     "yargs": "^4.7.0"
   },
   "dependencies": {
-    "@angular/common": "2.2.0-beta.1",
-    "@angular/compiler": "2.2.0-beta.1",
-    "@angular/compiler-cli": "2.2.0-beta.1",
-    "@angular/core": "2.2.0-beta.1",
-    "@angular/forms": "2.2.0-beta.1",
-    "@angular/http": "2.2.0-beta.1",
-    "@angular/platform-browser": "2.2.0-beta.1",
-    "@angular/platform-browser-dynamic": "2.2.0-beta.1",
-    "@angular/platform-server": "2.2.0-beta.1",
+    "@angular/common": "2.3.0",
+    "@angular/compiler": "2.3.0",
+    "@angular/compiler-cli": "2.3.0",
+    "@angular/core": "2.3.0",
+    "@angular/forms": "2.3.0",
+    "@angular/http": "2.3.0",
+    "@angular/platform-browser": "2.3.0",
+    "@angular/platform-browser-dynamic": "2.3.0",
+    "@angular/platform-server": "2.3.0",
     "google-closure-compiler-js": "^20160828.0.1",
-    "@angular/router": "3.2.0-beta.1",
-    "@angular/upgrade": "2.2.0-beta.1",
+    "@angular/router": "3.3.0",
+    "@angular/upgrade": "2.3.0",
     "core-js": "^2.4.1",
     "events": "^1.0.2",
     "fbjs": "^0.3.1",
@@ -66,9 +66,8 @@
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-typescript": "^0.8.1",
     "rollup-plugin-uglify": "^1.0.1",
-    "rxjs": "5.0.0-beta.12",
-    "rxjs-es": "5.0.0-beta.12",
+    "rxjs": "5.0.0-rc.4",
     "systemjs": "0.19.27",
-    "zone.js": "^0.6.23"
+    "zone.js": "0.7.2"
   }
 }

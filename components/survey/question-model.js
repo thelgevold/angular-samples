@@ -1,11 +1,11 @@
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-export var QuestionModel = (function () {
-    function QuestionModel() {
+export class QuestionModel {
+    constructor() {
         this.questions = [];
     }
-    QuestionModel.prototype.toGroup = function () {
-        var group = {};
-        this.questions.forEach(function (question) {
+    toGroup() {
+        let group = {};
+        this.questions.forEach((question) => {
             if (question.required) {
                 group[question.key] = new FormControl('', Validators.required);
             }
@@ -14,6 +14,5 @@ export var QuestionModel = (function () {
             }
         });
         return new FormGroup(group);
-    };
-    return QuestionModel;
-}());
+    }
+}

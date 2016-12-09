@@ -1,11 +1,12 @@
 import * as import0 from '../../../components/insertion-sort/insertion-sort';
-import * as import1 from '@angular/core/src/change_detection/change_detection';
-import * as import2 from '@angular/core/src/linker/view_utils';
-import * as import3 from '@angular/core/src/linker/view';
-import * as import5 from '@angular/core/src/linker/element';
-import * as import7 from '@angular/core/src/linker/view_type';
-import * as import8 from '@angular/core/src/metadata/view';
-import * as import9 from '@angular/core/src/linker/component_factory';
+import * as import1 from '@angular/core/src/change_detection/change_detection_util';
+import * as import2 from '@angular/core/src/linker/view';
+import * as import3 from '@angular/core/src/linker/view_utils';
+import * as import5 from '@angular/core/src/metadata/view';
+import * as import6 from '@angular/core/src/linker/view_type';
+import * as import7 from '@angular/core/src/change_detection/constants';
+import * as import8 from '@angular/core/src/linker/component_factory';
+import * as import9 from '@angular/core/src/linker/view_container';
 import * as import10 from '../../node_modules/@angular/common/src/directives/ng_for.ngfactory';
 import * as import11 from '@angular/core/src/linker/template_ref';
 import * as import12 from '@angular/core/src/change_detection/differs/iterable_differs';
@@ -16,87 +17,94 @@ import * as import16 from '@angular/core/src/linker/element_ref';
 import * as import17 from '@angular/common/src/directives/ng_class';
 export class Wrapper_InsertionSort {
     constructor() {
-        this.changed = false;
+        this._changed = false;
         this.context = new import0.InsertionSort();
         this._expr_0 = import1.UNINITIALIZED;
     }
+    ngOnDetach(view, componentView, el) {
+    }
+    ngOnDestroy() {
+    }
     check_list(currValue, throwOnChange, forceUpdate) {
-        if ((forceUpdate || import2.checkBinding(throwOnChange, this._expr_0, currValue))) {
-            this.changed = true;
+        if ((forceUpdate || import3.checkBinding(throwOnChange, this._expr_0, currValue))) {
+            this._changed = true;
             this.context.list = currValue;
             this._expr_0 = currValue;
         }
     }
-    detectChangesInInputProps(view, el, throwOnChange) {
-        var changed = this.changed;
-        this.changed = false;
+    ngDoCheck(view, el, throwOnChange) {
+        var changed = this._changed;
+        this._changed = false;
         return changed;
     }
-    detectChangesInHostProps(view, el, throwOnChange) {
+    checkHost(view, componentView, el, throwOnChange) {
+    }
+    handleEvent(eventName, $event) {
+        var result = true;
+        return result;
+    }
+    subscribe(view, _eventHandler) {
+        this._eventHandler = _eventHandler;
     }
 }
-var renderType_InsertionSort_Host = null;
-class _View_InsertionSort_Host0 extends import3.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_InsertionSort_Host0, renderType_InsertionSort_Host, import7.ViewType.HOST, viewUtils, parentInjector, declarationEl, import1.ChangeDetectorStatus.CheckAlways);
+var renderType_InsertionSort_Host = import3.createRenderComponentType('', 0, import5.ViewEncapsulation.None, [], {});
+class View_InsertionSort_Host0 extends import2.AppView {
+    constructor(viewUtils, parentView, parentIndex, parentElement) {
+        super(View_InsertionSort_Host0, renderType_InsertionSort_Host, import6.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import7.ChangeDetectorStatus.CheckAlways);
     }
     createInternal(rootSelector) {
-        this._el_0 = import2.selectOrCreateRenderHostElement(this.renderer, 'insertion-sort', import2.EMPTY_INLINE_ARRAY, rootSelector, null);
-        this._appEl_0 = new import5.AppElement(0, null, this, this._el_0);
-        var compView_0 = viewFactory_InsertionSort0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._InsertionSort_0_4 = new Wrapper_InsertionSort();
-        this._appEl_0.initComponent(this._InsertionSort_0_4.context, [], compView_0);
-        compView_0.create(this._InsertionSort_0_4.context, this.projectableNodes, null);
-        this.init([].concat([this._el_0]), [this._el_0], [], []);
-        return this._appEl_0;
+        this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer, 'insertion-sort', import3.EMPTY_INLINE_ARRAY, rootSelector, null);
+        this.compView_0 = new View_InsertionSort0(this.viewUtils, this, 0, this._el_0);
+        this._InsertionSort_0_3 = new Wrapper_InsertionSort();
+        this.compView_0.create(this._InsertionSort_0_3.context);
+        this.init(this._el_0, (this.renderer.directRenderer ? null : [this._el_0]), null);
+        return new import8.ComponentRef_(0, this, this._el_0, this._InsertionSort_0_3.context);
     }
     injectorGetInternal(token, requestNodeIndex, notFoundResult) {
         if (((token === import0.InsertionSort) && (0 === requestNodeIndex))) {
-            return this._InsertionSort_0_4.context;
+            return this._InsertionSort_0_3.context;
         }
         return notFoundResult;
     }
     detectChangesInternal(throwOnChange) {
-        this._InsertionSort_0_4.detectChangesInInputProps(this, this._el_0, throwOnChange);
-        this.detectContentChildrenChanges(throwOnChange);
-        this._InsertionSort_0_4.detectChangesInHostProps(this, this._el_0, throwOnChange);
-        this.detectViewChildrenChanges(throwOnChange);
+        this._InsertionSort_0_3.ngDoCheck(this, this._el_0, throwOnChange);
+        this.compView_0.detectChanges(throwOnChange);
+    }
+    destroyInternal() {
+        this.compView_0.destroy();
+    }
+    visitRootNodesInternal(cb, ctx) {
+        cb(this._el_0, ctx);
     }
 }
-function viewFactory_InsertionSort_Host0(viewUtils, parentInjector, declarationEl) {
-    if ((renderType_InsertionSort_Host === null)) {
-        (renderType_InsertionSort_Host = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, [], {}));
-    }
-    return new _View_InsertionSort_Host0(viewUtils, parentInjector, declarationEl);
-}
-export const InsertionSortNgFactory = new import9.ComponentFactory('insertion-sort', viewFactory_InsertionSort_Host0, import0.InsertionSort);
+export const InsertionSortNgFactory = new import8.ComponentFactory('insertion-sort', View_InsertionSort_Host0, import0.InsertionSort);
 const styles_InsertionSort = [];
-var renderType_InsertionSort = null;
-class _View_InsertionSort0 extends import3.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_InsertionSort0, renderType_InsertionSort, import7.ViewType.COMPONENT, viewUtils, parentInjector, declarationEl, import1.ChangeDetectorStatus.CheckAlways);
+var renderType_InsertionSort = import3.createRenderComponentType('', 0, import5.ViewEncapsulation.None, styles_InsertionSort, {});
+export class View_InsertionSort0 extends import2.AppView {
+    constructor(viewUtils, parentView, parentIndex, parentElement) {
+        super(View_InsertionSort0, renderType_InsertionSort, import6.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import7.ChangeDetectorStatus.CheckAlways);
     }
     createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
-        this._el_0 = import2.createRenderElement(this.renderer, parentRenderNode, 'table', new import2.InlineArray2(2, 'class', 'sort'), null);
+        const parentRenderNode = this.renderer.createViewRoot(this.parentElement);
+        this._el_0 = import3.createRenderElement(this.renderer, parentRenderNode, 'table', new import3.InlineArray2(2, 'class', 'sort'), null);
         this._text_1 = this.renderer.createText(this._el_0, '\n    ', null);
-        this._el_2 = import2.createRenderElement(this.renderer, this._el_0, 'tbody', import2.EMPTY_INLINE_ARRAY, null);
-        this._el_3 = import2.createRenderElement(this.renderer, this._el_2, 'tr', import2.EMPTY_INLINE_ARRAY, null);
+        this._el_2 = import3.createRenderElement(this.renderer, this._el_0, 'tbody', import3.EMPTY_INLINE_ARRAY, null);
+        this._el_3 = import3.createRenderElement(this.renderer, this._el_2, 'tr', import3.EMPTY_INLINE_ARRAY, null);
         this._text_4 = this.renderer.createText(this._el_3, '\n        ', null);
         this._anchor_5 = this.renderer.createTemplateAnchor(this._el_3, null);
-        this._appEl_5 = new import5.AppElement(5, 3, this, this._anchor_5);
-        this._TemplateRef_5_5 = new import11.TemplateRef_(this._appEl_5, viewFactory_InsertionSort1);
-        this._NgFor_5_6 = new import10.Wrapper_NgFor(this._appEl_5.vcRef, this._TemplateRef_5_5, this.parentInjector.get(import12.IterableDiffers), this.ref);
+        this._vc_5 = new import9.ViewContainer(5, 3, this, this._anchor_5);
+        this._TemplateRef_5_5 = new import11.TemplateRef_(this, 5, this._anchor_5);
+        this._NgFor_5_6 = new import10.Wrapper_NgFor(this._vc_5.vcRef, this._TemplateRef_5_5, this.parentView.injectorGet(import12.IterableDiffers, this.parentIndex), this.ref);
         this._text_6 = this.renderer.createText(this._el_3, '\n    ', null);
         this._text_7 = this.renderer.createText(this._el_2, '\n', null);
         this._text_8 = this.renderer.createText(parentRenderNode, '\n', null);
-        this._el_9 = import2.createRenderElement(this.renderer, parentRenderNode, 'div', new import2.InlineArray2(2, 'style', 'margin-top: 10px;'), null);
+        this._el_9 = import3.createRenderElement(this.renderer, parentRenderNode, 'div', new import3.InlineArray2(2, 'style', 'margin-top: 10px;'), null);
         this._text_10 = this.renderer.createText(this._el_9, '\n    ', null);
-        this._el_11 = import2.createRenderElement(this.renderer, this._el_9, 'button', import2.EMPTY_INLINE_ARRAY, null);
+        this._el_11 = import3.createRenderElement(this.renderer, this._el_9, 'button', import3.EMPTY_INLINE_ARRAY, null);
         this._text_12 = this.renderer.createText(this._el_11, 'Sort list', null);
         this._text_13 = this.renderer.createText(this._el_9, '\n', null);
-        var disposable_0 = this.renderer.listen(this._el_11, 'click', this.eventHandler(this._handle_click_11_0.bind(this)));
-        this.init([], [
+        var disposable_0 = import3.subscribeToRenderElement(this, this._el_11, new import3.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_11));
+        this.init(null, (this.renderer.directRenderer ? null : [
             this._el_0,
             this._text_1,
             this._el_2,
@@ -111,7 +119,7 @@ class _View_InsertionSort0 extends import3.AppView {
             this._el_11,
             this._text_12,
             this._text_13
-        ], [disposable_0], []);
+        ]), [disposable_0]);
         return null;
     }
     injectorGetInternal(token, requestNodeIndex, notFoundResult) {
@@ -126,41 +134,47 @@ class _View_InsertionSort0 extends import3.AppView {
     detectChangesInternal(throwOnChange) {
         const currVal_5_0_0 = this.context.list.items;
         this._NgFor_5_6.check_ngForOf(currVal_5_0_0, throwOnChange, false);
-        this._NgFor_5_6.detectChangesInInputProps(this, this._anchor_5, throwOnChange);
-        this.detectContentChildrenChanges(throwOnChange);
-        this.detectViewChildrenChanges(throwOnChange);
+        this._NgFor_5_6.ngDoCheck(this, this._anchor_5, throwOnChange);
+        this._vc_5.detectChangesInNestedViews(throwOnChange);
     }
-    _handle_click_11_0($event) {
+    destroyInternal() {
+        this._vc_5.destroyNestedViews();
+    }
+    createEmbeddedViewInternal(nodeIndex) {
+        if ((nodeIndex == 5)) {
+            return new View_InsertionSort1(this.viewUtils, this, 5, this._anchor_5, this._vc_5);
+        }
+        return null;
+    }
+    handleEvent_11(eventName, $event) {
         this.markPathToRootAsCheckOnce();
-        const pd_11_0 = (this.context.sortList() !== false);
-        return (true && pd_11_0);
+        var result = true;
+        if ((eventName == 'click')) {
+            const pd_sub_0 = (this.context.sortList() !== false);
+            result = (pd_sub_0 && result);
+        }
+        return result;
     }
 }
-export function viewFactory_InsertionSort0(viewUtils, parentInjector, declarationEl) {
-    if ((renderType_InsertionSort === null)) {
-        (renderType_InsertionSort = viewUtils.createRenderComponentType('', 0, import8.ViewEncapsulation.None, styles_InsertionSort, {}));
-    }
-    return new _View_InsertionSort0(viewUtils, parentInjector, declarationEl);
-}
-class _View_InsertionSort1 extends import3.AppView {
-    constructor(viewUtils, parentInjector, declarationEl) {
-        super(_View_InsertionSort1, renderType_InsertionSort, import7.ViewType.EMBEDDED, viewUtils, parentInjector, declarationEl, import1.ChangeDetectorStatus.CheckAlways);
+class View_InsertionSort1 extends import2.AppView {
+    constructor(viewUtils, parentView, parentIndex, parentElement, declaredViewContainer) {
+        super(View_InsertionSort1, renderType_InsertionSort, import6.ViewType.EMBEDDED, viewUtils, parentView, parentIndex, parentElement, import7.ChangeDetectorStatus.CheckAlways, declaredViewContainer);
         this._expr_6 = import1.UNINITIALIZED;
     }
     createInternal(rootSelector) {
-        this._el_0 = import2.createRenderElement(this.renderer, null, 'td', import2.EMPTY_INLINE_ARRAY, null);
-        this._NgClass_0_3 = new import14.Wrapper_NgClass(this.parent.parentInjector.get(import12.IterableDiffers), this.parent.parentInjector.get(import15.KeyValueDiffers), new import16.ElementRef(this._el_0), this.renderer);
+        this._el_0 = import3.createRenderElement(this.renderer, null, 'td', import3.EMPTY_INLINE_ARRAY, null);
+        this._NgClass_0_3 = new import14.Wrapper_NgClass(this.parentView.parentView.injectorGet(import12.IterableDiffers, this.parentView.parentIndex), this.parentView.parentView.injectorGet(import15.KeyValueDiffers, this.parentView.parentIndex), new import16.ElementRef(this._el_0), this.renderer);
         this._text_1 = this.renderer.createText(this._el_0, '\n            ', null);
-        this._el_2 = import2.createRenderElement(this.renderer, this._el_0, 'span', import2.EMPTY_INLINE_ARRAY, null);
+        this._el_2 = import3.createRenderElement(this.renderer, this._el_0, 'span', import3.EMPTY_INLINE_ARRAY, null);
         this._text_3 = this.renderer.createText(this._el_2, '', null);
         this._text_4 = this.renderer.createText(this._el_0, '\n        ', null);
-        this.init([].concat([this._el_0]), [
+        this.init(this._el_0, (this.renderer.directRenderer ? null : [
             this._el_0,
             this._text_1,
             this._el_2,
             this._text_3,
             this._text_4
-        ], [], []);
+        ]), null);
         return null;
     }
     injectorGetInternal(token, requestNodeIndex, notFoundResult) {
@@ -172,17 +186,14 @@ class _View_InsertionSort1 extends import3.AppView {
     detectChangesInternal(throwOnChange) {
         const currVal_0_0_0 = this.context.$implicit.getClass();
         this._NgClass_0_3.check_ngClass(currVal_0_0_0, throwOnChange, false);
-        this._NgClass_0_3.detectChangesInInputProps(this, this._el_0, throwOnChange);
-        this.detectContentChildrenChanges(throwOnChange);
-        this._NgClass_0_3.detectChangesInHostProps(this, this._el_0, throwOnChange);
-        const currVal_6 = import2.interpolate(1, '', this.context.$implicit.val, '');
-        if (import2.checkBinding(throwOnChange, this._expr_6, currVal_6)) {
+        this._NgClass_0_3.ngDoCheck(this, this._el_0, throwOnChange);
+        const currVal_6 = import3.inlineInterpolate(1, '', this.context.$implicit.val, '');
+        if (import3.checkBinding(throwOnChange, this._expr_6, currVal_6)) {
             this.renderer.setText(this._text_3, currVal_6);
             this._expr_6 = currVal_6;
         }
-        this.detectViewChildrenChanges(throwOnChange);
     }
-}
-function viewFactory_InsertionSort1(viewUtils, parentInjector, declarationEl) {
-    return new _View_InsertionSort1(viewUtils, parentInjector, declarationEl);
+    visitRootNodesInternal(cb, ctx) {
+        cb(this._el_0, ctx);
+    }
 }

@@ -1,6 +1,6 @@
 import { KeyMap } from './key-map';
-export var Character = (function () {
-    function Character(keyCode) {
+export class Character {
+    constructor(keyCode) {
         this.isCurrent = false;
         this.lineBreak = false;
         this.placeHolder = false;
@@ -21,5 +21,4 @@ export var Character = (function () {
             this.value = String.fromCharCode(keyCode).toLowerCase();
         }
     }
-    return Character;
-}());
+}

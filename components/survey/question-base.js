@@ -1,5 +1,2 @@
-export var QuestionBase = (function () {
-    function QuestionBase() {
-    }
-    return QuestionBase;
-}());
+export class QuestionBase {
+}

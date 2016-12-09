@@ -1,17 +1,6 @@
 import {rollup} from 'rollup'
-import nodeResolve from 'rollup-plugin-node-resolve'
-
-class RollupNG2 {
-    constructor(options){
-        this.options = options;
-    }
-    resolveId(id, from){
-        if (id.startsWith('rxjs/')){
-            return `${__dirname}/node_modules/rxjs-es/${id.replace('rxjs/', '')}.js`;
-        }
-    }
-}
-const rollupNG2 = (config) => new RollupNG2(config);
+import nodeResolve from 'rollup-plugin-node-resolve';
+import commonjs    from 'rollup-plugin-commonjs';
 
 
 export default {
@@ -20,7 +9,9 @@ export default {
     sourceMap: false,
     format: 'iife',
     plugins: [
-        rollupNG2(),
+        commonjs({
+            include: 'node_modules/rxjs/**'
+        }),
         nodeResolve({
             jsnext: true, module: true
         })

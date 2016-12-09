@@ -1,26 +1,26 @@
 import { Character } from './character';
-export var Document = (function () {
-    function Document() {
+export class Document {
+    constructor() {
         this.characters = [];
         this.firstSelectedCharacter = -1;
         this.currentChar = new Character(-1);
         this.characters.push(this.currentChar);
         this.characters[0].isCurrent = true;
     }
-    Document.prototype.deselectPreviousCharacter = function () {
+    deselectPreviousCharacter() {
         if (this.currentChar) {
             var index = this.characters.indexOf(this.currentChar);
             this.characters[index].isCurrent = false;
         }
-    };
-    Document.prototype.clearSelection = function (e) {
+    }
+    clearSelection(e) {
         this.firstSelectedCharacter = -1;
         if (e) {
             this.firstSelectedCharacter = this.characters.indexOf(e.character);
         }
-        this.characters.forEach(function (c) { return c.isSelected = false; });
-    };
-    Document.prototype.edit = function (character, index) {
+        this.characters.forEach(c => c.isSelected = false);
+    }
+    edit(character, index) {
         if (character.deleteChar) {
             var deleteIndex = this.characters.indexOf(this.currentChar);
             if (deleteIndex >= 1) {
@@ -47,20 +47,20 @@ export var Document = (function () {
                 this.placeCursor(character);
             }
         }
-    };
-    Document.prototype.placeCursor = function (character) {
+    }
+    placeCursor(character) {
         this.deselectPreviousCharacter();
         var index = this.characters.indexOf(character);
         this.characters[index].isCurrent = true;
         this.currentChar = character;
-    };
-    Document.prototype.selectCharacter = function (character) {
+    }
+    selectCharacter(character) {
         var index = this.characters.indexOf(character);
         for (var i = this.firstSelectedCharacter; i <= index; i++) {
             this.characters[i].isSelected = true;
         }
-    };
-    Document.prototype.processInput = function (character, operation) {
+    }
+    processInput(character, operation) {
         if (operation === 'modify') {
             var index = this.characters.indexOf(this.currentChar);
             if (index < 0) {
@@ -74,6 +74,5 @@ export var Document = (function () {
         if (operation === 'range') {
             this.selectCharacter(character);
         }
-    };
-    return Document;
-}());
+    }
+}

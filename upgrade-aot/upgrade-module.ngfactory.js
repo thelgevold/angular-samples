@@ -173,7 +173,7 @@ var AngularModuleInjector = (function (_super) {
     Object.defineProperty(AngularModuleInjector.prototype, "_DomRootRenderer_22", {
         get: function () {
             if ((this.__DomRootRenderer_22 == null)) {
-                (this.__DomRootRenderer_22 = new import16.DomRootRenderer_(this._DOCUMENT_16, this._EventManager_19, this._DomSharedStylesHost_20, this._AnimationDriver_21));
+                (this.__DomRootRenderer_22 = new import16.DomRootRenderer_(this._DOCUMENT_16, this._EventManager_19, this._DomSharedStylesHost_20, this._AnimationDriver_21, this._APP_ID_15));
             }
             return this.__DomRootRenderer_22;
         },
@@ -183,7 +183,7 @@ var AngularModuleInjector = (function (_super) {
     Object.defineProperty(AngularModuleInjector.prototype, "_RootRenderer_23", {
         get: function () {
             if ((this.__RootRenderer_23 == null)) {
-                (this.__RootRenderer_23 = import32._createConditionalRootRenderer(this._DomRootRenderer_22, this.parent.get(import32.NgProbeToken, null)));
+                (this.__RootRenderer_23 = import32._createConditionalRootRenderer(this._DomRootRenderer_22, this.parent.get(import32.NgProbeToken, null), this.parent.get(import11.NgProbeToken, null)));
             }
             return this.__RootRenderer_23;
         },
@@ -213,7 +213,7 @@ var AngularModuleInjector = (function (_super) {
     Object.defineProperty(AngularModuleInjector.prototype, "_ViewUtils_26", {
         get: function () {
             if ((this.__ViewUtils_26 == null)) {
-                (this.__ViewUtils_26 = new import18.ViewUtils(this._RootRenderer_23, this._APP_ID_15, this._Sanitizer_25));
+                (this.__ViewUtils_26 = new import18.ViewUtils(this._RootRenderer_23, this._Sanitizer_25));
             }
             return this.__ViewUtils_26;
         },

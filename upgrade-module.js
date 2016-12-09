@@ -18,6 +18,6 @@ export var AngularModule = (function () {
                     imports: [BrowserModule, UpgradeModule, ReactiveFormsModule]
                 },] },
     ];
-    AngularModule.ctorParameters = [];
+    AngularModule.ctorParameters = function () { return []; };
     return AngularModule;
 }());
