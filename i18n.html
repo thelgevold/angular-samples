@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    
+</head>
+
+<body>
+  <div class="container">
+    <a class="btn btn-primary btn-lg" href="i18n.html?language=en">English</a>
+    <a class="btn btn-primary btn-lg" href="i18n.html?language=no">Norwegian</a>
+
+    <p class="bg-success">
+      <my-app></my-app>
+    </p>
+  </div>
+
+    <script>
+      var params = new URLSearchParams(location.search.slice(1));
+      var language = params.get('language') || 'en';
+      var script = document.createElement('script');
+      script.setAttribute('src','i18n/dist/build-' + language + '.js');
+      document.head.appendChild(script);
+    </script>
+</body>
+</html>

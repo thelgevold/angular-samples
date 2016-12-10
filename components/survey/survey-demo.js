@@ -1,20 +1,11 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 import { Component } from '@angular/core';
 import { QuestionModel } from './question-model';
 import { TextboxQuestion } from './textbox-question';
 import { DropDownQuestion } from './dropdown-question';
-export let SurveyDemo = class SurveyDemo {
-    constructor() {
+export var SurveyDemo = (function () {
+    function SurveyDemo() {
         this.questionModel = new QuestionModel();
-        let question = new TextboxQuestion();
+        var question = new TextboxQuestion();
         question.key = 'lastName';
         question.text = 'Last name';
         question.required = true;
@@ -33,7 +24,7 @@ export let SurveyDemo = class SurveyDemo {
         question.type = 'email';
         question.order = 3;
         this.questionModel.questions.push(question);
-        let ddQuestion = new DropDownQuestion();
+        var ddQuestion = new DropDownQuestion();
         ddQuestion.key = 'country';
         ddQuestion.text = 'Country';
         ddQuestion.options.push({ key: 'usa', value: 'USA' });
@@ -42,13 +33,14 @@ export let SurveyDemo = class SurveyDemo {
         ddQuestion.options.push({ key: 'australia', value: 'Australia' });
         ddQuestion.order = 4;
         this.questionModel.questions.push(ddQuestion);
-        this.questionModel.questions.sort((a, b) => a.order - b.order);
+        this.questionModel.questions.sort(function (a, b) { return a.order - b.order; });
     }
-};
-SurveyDemo = __decorate([
-    Component({
-        selector: 'survey-demo',
-        template: '<div><h1>Survey using Dynamic Form</h1><survey [model]="questionModel"></survey></div>'
-    }), 
-    __metadata('design:paramtypes', [])
-], SurveyDemo);
+    SurveyDemo.decorators = [
+        { type: Component, args: [{
+                    selector: 'survey-demo',
+                    template: '<div><h1>Survey using Dynamic Form</h1><survey [model]="questionModel"></survey></div>'
+                },] },
+    ];
+    SurveyDemo.ctorParameters = function () { return []; };
+    return SurveyDemo;
+}());

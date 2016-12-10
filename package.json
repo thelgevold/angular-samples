@@ -1,6 +1,9 @@
 {
   "name": "angular2-poc",
   "scripts": {
+    "aot-i18n-en": "ngc -p i18n/tsconfig.json && rollup -c i18n/rollup-config.js -o i18n/dist/build-en.js",
+    "aot-i18n-no": "ngc --i18nFile=./i18n/locale/messages.no.xlf --locale=no --i18nFormat=xlf -p i18n/tsconfig.json && rollup -c i18n/rollup-config.js -o i18n/dist/build-no.js",
+    "generate-i18n-xlf": "ng-xi18n -p i18n/tsconfig.json",
     "test": "tsc && karma start",
     "tsc": "tsc",
     "tsc:w": "tsc -w",

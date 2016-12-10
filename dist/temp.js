@@ -52465,12 +52465,12 @@ var renderType_AppComponent = createRenderComponentType('', 0, ViewEncapsulation
 class View_AppComponent0 extends AppView {
     constructor(viewUtils, parentView, parentIndex, parentElement) {
         super(View_AppComponent0, renderType_AppComponent, ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, ChangeDetectorStatus.CheckAlways);
-        this._expr_49 = UNINITIALIZED;
-        this._arr_50 = pureProxy1((p0) => {
+        this._expr_53 = UNINITIALIZED;
+        this._arr_54 = pureProxy1((p0) => {
             return [p0];
         });
-        this._expr_51 = UNINITIALIZED;
-        this._arr_52 = pureProxy1((p0) => {
+        this._expr_55 = UNINITIALIZED;
+        this._arr_56 = pureProxy1((p0) => {
             return [p0];
         });
     }
@@ -52508,23 +52508,27 @@ class View_AppComponent0 extends AppView {
         this._el_27 = createRenderElement(this.renderer, this._el_8, 'li', EMPTY_INLINE_ARRAY, null);
         this._el_28 = createRenderElement(this.renderer, this._el_27, 'a', new InlineArray4(4, 'class', 'link', 'href', 'upgrade.html'), null);
         this._text_29 = this.renderer.createText(this._el_28, 'NgUpgrade', null);
-        this._text_30 = this.renderer.createText(this._el_8, '\n                ', null);
-        this._text_31 = this.renderer.createText(this._el_6, '\n            ', null);
-        this._text_32 = this.renderer.createText(this._el_4, '\n        ', null);
-        this._text_33 = this.renderer.createText(this._el_2, '\n    ', null);
-        this._text_34 = this.renderer.createText(this._el_0, '\n', null);
-        this._text_35 = this.renderer.createText(parentRenderNode, '\n\n', null);
-        this._el_36 = createRenderElement(this.renderer, parentRenderNode, 'div', new InlineArray2(2, 'class', 'container'), null);
-        this._text_37 = this.renderer.createText(this._el_36, '\n    ', null);
-        this._el_38 = createRenderElement(this.renderer, this._el_36, 'router-outlet', new InlineArray2(2, 'name', 'msg'), null);
-        this._vc_38 = new ViewContainer(38, 36, this, this._el_38);
-        this._RouterOutlet_38_5 = new Wrapper_RouterOutlet(this.parentView.injectorGet(RouterOutletMap, this.parentIndex), this._vc_38.vcRef, this.parentView.injectorGet(ComponentFactoryResolver, this.parentIndex), 'msg');
-        this._text_39 = this.renderer.createText(this._el_36, '\n', null);
-        this._text_40 = this.renderer.createText(parentRenderNode, '\n', null);
-        this._el_41 = createRenderElement(this.renderer, parentRenderNode, 'router-outlet', EMPTY_INLINE_ARRAY, null);
-        this._vc_41 = new ViewContainer(41, null, this, this._el_41);
-        this._RouterOutlet_41_5 = new Wrapper_RouterOutlet(this.parentView.injectorGet(RouterOutletMap, this.parentIndex), this._vc_41.vcRef, this.parentView.injectorGet(ComponentFactoryResolver, this.parentIndex), null);
-        this._text_42 = this.renderer.createText(parentRenderNode, '\n', null);
+        this._text_30 = this.renderer.createText(this._el_8, '\n                    ', null);
+        this._el_31 = createRenderElement(this.renderer, this._el_8, 'li', EMPTY_INLINE_ARRAY, null);
+        this._el_32 = createRenderElement(this.renderer, this._el_31, 'a', new InlineArray4(4, 'class', 'link', 'href', 'i18n.html'), null);
+        this._text_33 = this.renderer.createText(this._el_32, 'i18n', null);
+        this._text_34 = this.renderer.createText(this._el_8, '\n                ', null);
+        this._text_35 = this.renderer.createText(this._el_6, '\n            ', null);
+        this._text_36 = this.renderer.createText(this._el_4, '\n        ', null);
+        this._text_37 = this.renderer.createText(this._el_2, '\n    ', null);
+        this._text_38 = this.renderer.createText(this._el_0, '\n', null);
+        this._text_39 = this.renderer.createText(parentRenderNode, '\n\n', null);
+        this._el_40 = createRenderElement(this.renderer, parentRenderNode, 'div', new InlineArray2(2, 'class', 'container'), null);
+        this._text_41 = this.renderer.createText(this._el_40, '\n    ', null);
+        this._el_42 = createRenderElement(this.renderer, this._el_40, 'router-outlet', new InlineArray2(2, 'name', 'msg'), null);
+        this._vc_42 = new ViewContainer(42, 40, this, this._el_42);
+        this._RouterOutlet_42_5 = new Wrapper_RouterOutlet(this.parentView.injectorGet(RouterOutletMap, this.parentIndex), this._vc_42.vcRef, this.parentView.injectorGet(ComponentFactoryResolver, this.parentIndex), 'msg');
+        this._text_43 = this.renderer.createText(this._el_40, '\n', null);
+        this._text_44 = this.renderer.createText(parentRenderNode, '\n', null);
+        this._el_45 = createRenderElement(this.renderer, parentRenderNode, 'router-outlet', EMPTY_INLINE_ARRAY, null);
+        this._vc_45 = new ViewContainer(45, null, this, this._el_45);
+        this._RouterOutlet_45_5 = new Wrapper_RouterOutlet(this.parentView.injectorGet(RouterOutletMap, this.parentIndex), this._vc_45.vcRef, this.parentView.injectorGet(ComponentFactoryResolver, this.parentIndex), null);
+        this._text_46 = this.renderer.createText(parentRenderNode, '\n', null);
         var disposable_0 = subscribeToRenderElement(this, this._el_15, new InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_15));
         var disposable_1 = subscribeToRenderElement(this, this._el_19, new InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_19));
         this.init(null, (this.renderer.directRenderer ? null : [
@@ -52559,18 +52563,22 @@ class View_AppComponent0 extends AppView {
             this._el_28,
             this._text_29,
             this._text_30,
-            this._text_31,
-            this._text_32,
+            this._el_31,
+            this._el_32,
             this._text_33,
             this._text_34,
             this._text_35,
-            this._el_36,
+            this._text_36,
             this._text_37,
-            this._el_38,
+            this._text_38,
             this._text_39,
-            this._text_40,
-            this._el_41,
-            this._text_42
+            this._el_40,
+            this._text_41,
+            this._el_42,
+            this._text_43,
+            this._text_44,
+            this._el_45,
+            this._text_46
         ]), [
             disposable_0,
             disposable_1
@@ -52584,45 +52592,45 @@ class View_AppComponent0 extends AppView {
         if (((token === RouterLinkWithHref) && ((19 <= requestNodeIndex) && (requestNodeIndex <= 20)))) {
             return this._RouterLinkWithHref_19_3.context;
         }
-        if (((token === RouterOutlet) && (38 === requestNodeIndex))) {
-            return this._RouterOutlet_38_5.context;
+        if (((token === RouterOutlet) && (42 === requestNodeIndex))) {
+            return this._RouterOutlet_42_5.context;
         }
-        if (((token === RouterOutlet) && (41 === requestNodeIndex))) {
-            return this._RouterOutlet_41_5.context;
+        if (((token === RouterOutlet) && (45 === requestNodeIndex))) {
+            return this._RouterOutlet_45_5.context;
         }
         return notFoundResult;
     }
     detectChangesInternal(throwOnChange) {
-        const currVal_15_0_0 = this._arr_50('/about');
+        const currVal_15_0_0 = this._arr_54('/about');
         this._RouterLinkWithHref_15_3.check_routerLink(currVal_15_0_0, throwOnChange, false);
         this._RouterLinkWithHref_15_3.ngDoCheck(this, this._el_15, throwOnChange);
-        const currVal_19_0_0 = this._arr_52('/demo/spreadsheet');
+        const currVal_19_0_0 = this._arr_56('/demo/spreadsheet');
         this._RouterLinkWithHref_19_3.check_routerLink(currVal_19_0_0, throwOnChange, false);
         this._RouterLinkWithHref_19_3.ngDoCheck(this, this._el_19, throwOnChange);
-        this._RouterOutlet_38_5.ngDoCheck(this, this._el_38, throwOnChange);
-        this._RouterOutlet_41_5.ngDoCheck(this, this._el_41, throwOnChange);
-        this._vc_38.detectChangesInNestedViews(throwOnChange);
-        this._vc_41.detectChangesInNestedViews(throwOnChange);
-        const currVal_49 = this.context.getLinkStyle('');
-        if (checkBinding(throwOnChange, this._expr_49, currVal_49)) {
-            this.renderer.setElementClass(this._el_14, 'active', currVal_49);
-            this._expr_49 = currVal_49;
+        this._RouterOutlet_42_5.ngDoCheck(this, this._el_42, throwOnChange);
+        this._RouterOutlet_45_5.ngDoCheck(this, this._el_45, throwOnChange);
+        this._vc_42.detectChangesInNestedViews(throwOnChange);
+        this._vc_45.detectChangesInNestedViews(throwOnChange);
+        const currVal_53 = this.context.getLinkStyle('');
+        if (checkBinding(throwOnChange, this._expr_53, currVal_53)) {
+            this.renderer.setElementClass(this._el_14, 'active', currVal_53);
+            this._expr_53 = currVal_53;
         }
         this._RouterLinkWithHref_15_3.checkHost(this, this, this._el_15, throwOnChange);
-        const currVal_51 = this.context.getLinkStyle('/demo');
-        if (checkBinding(throwOnChange, this._expr_51, currVal_51)) {
-            this.renderer.setElementClass(this._el_18, 'active', currVal_51);
-            this._expr_51 = currVal_51;
+        const currVal_55 = this.context.getLinkStyle('/demo');
+        if (checkBinding(throwOnChange, this._expr_55, currVal_55)) {
+            this.renderer.setElementClass(this._el_18, 'active', currVal_55);
+            this._expr_55 = currVal_55;
         }
         this._RouterLinkWithHref_19_3.checkHost(this, this, this._el_19, throwOnChange);
     }
     destroyInternal() {
-        this._vc_38.destroyNestedViews();
-        this._vc_41.destroyNestedViews();
+        this._vc_42.destroyNestedViews();
+        this._vc_45.destroyNestedViews();
         this._RouterLinkWithHref_15_3.ngOnDestroy();
         this._RouterLinkWithHref_19_3.ngOnDestroy();
-        this._RouterOutlet_38_5.ngOnDestroy();
-        this._RouterOutlet_41_5.ngOnDestroy();
+        this._RouterOutlet_42_5.ngOnDestroy();
+        this._RouterOutlet_45_5.ngOnDestroy();
     }
     handleEvent_15(eventName, $event) {
         this.markPathToRootAsCheckOnce();
