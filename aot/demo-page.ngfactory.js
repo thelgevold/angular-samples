@@ -185,7 +185,7 @@ export class View_DemoPage0 extends import1.AppView {
         this._el_2 = import3.createRenderElement(this.renderer, this._el_0, 'div', new import3.InlineArray2(2, 'class', 'jumbotron'), null);
         this._text_3 = this.renderer.createText(this._el_2, '\n        ', null);
         this._el_4 = import3.createRenderElement(this.renderer, this._el_2, 'h1', import3.EMPTY_INLINE_ARRAY, null);
-        this._text_5 = this.renderer.createText(this._el_4, 'Angular 2.0 sample components', null);
+        this._text_5 = this.renderer.createText(this._el_4, 'Angular sample components', null);
         this._text_6 = this.renderer.createText(this._el_2, '\n        ', null);
         this._el_7 = import3.createRenderElement(this.renderer, this._el_2, 'p', import3.EMPTY_INLINE_ARRAY, null);
         this._text_8 = this.renderer.createText(this._el_7, '\n            More documentation about each specific component can be found\n            ', null);

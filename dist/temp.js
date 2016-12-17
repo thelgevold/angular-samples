@@ -41785,7 +41785,7 @@ class View_About0 extends AppView {
         this._text_3 = this.renderer.createText(this._el_2, 'Welcome', null);
         this._text_4 = this.renderer.createText(this._el_0, '\n\n    ', null);
         this._el_5 = createRenderElement(this.renderer, this._el_0, 'p', EMPTY_INLINE_ARRAY, null);
-        this._text_6 = this.renderer.createText(this._el_5, '\n        This is a live demo of my Angular 2.0 sample components.\n    ', null);
+        this._text_6 = this.renderer.createText(this._el_5, '\n        This is a live demo of my Angular sample components.\n    ', null);
         this._text_7 = this.renderer.createText(this._el_0, '\n    ', null);
         this._el_8 = createRenderElement(this.renderer, this._el_0, 'p', EMPTY_INLINE_ARRAY, null);
         this._text_9 = this.renderer.createText(this._el_8, '\n        I hope you will find these ', null);
@@ -41798,7 +41798,7 @@ class View_About0 extends AppView {
         this._text_15 = this.renderer.createText(this._el_14, '\n        Click ', null);
         this._el_16 = createRenderElement(this.renderer, this._el_14, 'a', new InlineArray2(2, 'href', 'http://www.syntaxsuccess.com/angular-2-articles'), null);
         this._text_17 = this.renderer.createText(this._el_16, 'here', null);
-        this._text_18 = this.renderer.createText(this._el_14, ' for a full list of my Angular 2.0 articles.\n    ', null);
+        this._text_18 = this.renderer.createText(this._el_14, ' for a full list of my Angular articles.\n    ', null);
         this._text_19 = this.renderer.createText(this._el_0, '\n\n    ', null);
         this._el_20 = createRenderElement(this.renderer, this._el_0, 'p', EMPTY_INLINE_ARRAY, null);
         this._text_21 = this.renderer.createText(this._el_20, '\n        The source code for the full set of components is available on ', null);
@@ -42062,7 +42062,7 @@ class View_DemoPage0 extends AppView {
         this._el_2 = createRenderElement(this.renderer, this._el_0, 'div', new InlineArray2(2, 'class', 'jumbotron'), null);
         this._text_3 = this.renderer.createText(this._el_2, '\n        ', null);
         this._el_4 = createRenderElement(this.renderer, this._el_2, 'h1', EMPTY_INLINE_ARRAY, null);
-        this._text_5 = this.renderer.createText(this._el_4, 'Angular 2.0 sample components', null);
+        this._text_5 = this.renderer.createText(this._el_4, 'Angular sample components', null);
         this._text_6 = this.renderer.createText(this._el_2, '\n        ', null);
         this._el_7 = createRenderElement(this.renderer, this._el_2, 'p', EMPTY_INLINE_ARRAY, null);
         this._text_8 = this.renderer.createText(this._el_7, '\n            More documentation about each specific component can be found\n            ', null);

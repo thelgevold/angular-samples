@@ -1,12 +1,3 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/timer';
@@ -15,7 +6,7 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/merge';
 import 'rxjs/add/operator/concat';
-export let RxJsStreams = class RxJsStreams {
+export class RxJsStreams {
     constructor() {
         this.concatStream = [];
         this.mergeStream = [];
@@ -53,11 +44,11 @@ export let RxJsStreams = class RxJsStreams {
         Observable.forkJoin(first, second)
             .subscribe((res) => this.forkJoinStream = res);
     }
-};
-RxJsStreams = __decorate([
-    Component({
-        selector: 'rxjs-streams',
-        templateUrl: './rxjs-streams.html'
-    }), 
-    __metadata('design:paramtypes', [])
-], RxJsStreams);
+}
+RxJsStreams.decorators = [
+    { type: Component, args: [{
+                selector: 'rxjs-streams',
+                templateUrl: './rxjs-streams.html'
+            },] },
+];
+RxJsStreams.ctorParameters = () => [];

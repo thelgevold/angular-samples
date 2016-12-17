@@ -82,7 +82,7 @@ export class View_About0 extends import1.AppView {
         this._text_3 = this.renderer.createText(this._el_2, 'Welcome', null);
         this._text_4 = this.renderer.createText(this._el_0, '\n\n    ', null);
         this._el_5 = import3.createRenderElement(this.renderer, this._el_0, 'p', import3.EMPTY_INLINE_ARRAY, null);
-        this._text_6 = this.renderer.createText(this._el_5, '\n        This is a live demo of my Angular 2.0 sample components.\n    ', null);
+        this._text_6 = this.renderer.createText(this._el_5, '\n        This is a live demo of my Angular sample components.\n    ', null);
         this._text_7 = this.renderer.createText(this._el_0, '\n    ', null);
         this._el_8 = import3.createRenderElement(this.renderer, this._el_0, 'p', import3.EMPTY_INLINE_ARRAY, null);
         this._text_9 = this.renderer.createText(this._el_8, '\n        I hope you will find these ', null);
@@ -95,7 +95,7 @@ export class View_About0 extends import1.AppView {
         this._text_15 = this.renderer.createText(this._el_14, '\n        Click ', null);
         this._el_16 = import3.createRenderElement(this.renderer, this._el_14, 'a', new import3.InlineArray2(2, 'href', 'http://www.syntaxsuccess.com/angular-2-articles'), null);
         this._text_17 = this.renderer.createText(this._el_16, 'here', null);
-        this._text_18 = this.renderer.createText(this._el_14, ' for a full list of my Angular 2.0 articles.\n    ', null);
+        this._text_18 = this.renderer.createText(this._el_14, ' for a full list of my Angular articles.\n    ', null);
         this._text_19 = this.renderer.createText(this._el_0, '\n\n    ', null);
         this._el_20 = import3.createRenderElement(this.renderer, this._el_0, 'p', import3.EMPTY_INLINE_ARRAY, null);
         this._text_21 = this.renderer.createText(this._el_20, '\n        The source code for the full set of components is available on ', null);
