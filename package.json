@@ -45,7 +45,8 @@
     "traceur": "^0.0.91",
     "typescript": "2.0.2",
     "uglify-js": "2.7.0",
-    "yargs": "^4.7.0"
+    "yargs": "^4.7.0",
+    "compression": "^1.6.2"
   },
   "dependencies": {
     "@angular/common": "2.3.0",
