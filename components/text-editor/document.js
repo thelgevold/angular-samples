@@ -1,5 +1,5 @@
 import { Character } from './character';
-export var Document = (function () {
+var Document = (function () {
     function Document() {
         this.characters = [];
         this.firstSelectedCharacter = -1;
@@ -77,3 +77,4 @@ export var Document = (function () {
     };
     return Document;
 }());
+export { Document };

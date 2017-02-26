@@ -1,4 +1,4 @@
-export var Insertion = (function () {
+var Insertion = (function () {
     function Insertion() {
     }
     Insertion.sort = function (input) {
@@ -19,3 +19,4 @@ export var Insertion = (function () {
     };
     return Insertion;
 }());
+export { Insertion };

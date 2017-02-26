@@ -1,12 +1,14 @@
-export class HeaderRowService {
-    static createHeader(length) {
-        const alpha = 'abcdefghijklmnopqrstuvwxyz';
-        let headerLength = 1;
-        let header = [];
-        let prefix = '';
-        let pass = 0;
-        let charCounter = 0;
-        for (let i = 0; i < length; i++) {
+var HeaderRowService = (function () {
+    function HeaderRowService() {
+    }
+    HeaderRowService.createHeader = function (length) {
+        var alpha = 'abcdefghijklmnopqrstuvwxyz';
+        var headerLength = 1;
+        var header = [];
+        var prefix = '';
+        var pass = 0;
+        var charCounter = 0;
+        for (var i = 0; i < length; i++) {
             if (charCounter === alpha.length) {
                 prefix += alpha.substr(pass, 1);
                 charCounter = 0;
@@ -15,5 +17,7 @@ export class HeaderRowService {
             charCounter++;
         }
         return header;
-    }
-}
+    };
+    return HeaderRowService;
+}());
+export { HeaderRowService };

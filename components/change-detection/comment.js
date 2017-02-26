@@ -1,2 +1,6 @@
-export class Comment {
-}
+var Comment = (function () {
+    function Comment() {
+    }
+    return Comment;
+}());
+export { Comment };

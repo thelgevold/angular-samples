@@ -1,1 +1,1 @@
-[{"__symbolic":"module","version":2,"metadata":{"PubSubService":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor"}]}}}},{"__symbolic":"module","metadata":{"PubSubService":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor"}]}}},"version":1}]
+[{"__symbolic":"module","version":3,"metadata":{"PubSubService":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor"}]}}}},{"__symbolic":"module","version":1,"metadata":{"PubSubService":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor"}]}}}}]

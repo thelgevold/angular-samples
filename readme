@@ -7,12 +7,11 @@ Here are the prerequisites for running the project:
 
 1) npm install && bower install
 
-2) npm run install-application 
+2) npm run install-application && npm run install-upgrade-application && npm start
    
    -AOT compiles
    -Tree shakes 
    -Bundles app into single file
 
-2) npm run start
 
 

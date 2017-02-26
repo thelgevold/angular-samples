@@ -1,28 +1,30 @@
-export class Directory {
-    constructor(name, directories, files) {
+var Directory = (function () {
+    function Directory(name, directories, files) {
         this.name = name;
         this.directories = directories;
         this.files = files;
         this.expanded = true;
         this.checked = false;
     }
-    toggle() {
+    Directory.prototype.toggle = function () {
         this.expanded = !this.expanded;
-    }
-    getIcon() {
+    };
+    Directory.prototype.getIcon = function () {
         if (this.expanded) {
             return '-';
         }
         return '+';
-    }
-    check() {
+    };
+    Directory.prototype.check = function () {
         this.checked = !this.checked;
         this.checkRecursive(this.checked);
-    }
-    checkRecursive(state) {
-        this.directories.forEach(d => {
+    };
+    Directory.prototype.checkRecursive = function (state) {
+        this.directories.forEach(function (d) {
             d.checked = state;
             d.checkRecursive(state);
         });
-    }
-}
+    };
+    return Directory;
+}());
+export { Directory };

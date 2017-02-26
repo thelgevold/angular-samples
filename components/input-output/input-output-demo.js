@@ -1,31 +1,30 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 import { Component } from '@angular/core';
-export class InputOutputDemo {
-    constructor() {
+var InputOutputDemo = (function () {
+    function InputOutputDemo() {
         this.count = 0;
         this.runningTotal = 0;
         this.myString = '';
         this.myTitle = 'Input/Output Demo';
     }
-    update() {
+    InputOutputDemo.prototype.update = function () {
         this.count++;
         this.runningTotal += this.count;
         this.myString += 'A';
-    }
-    myStringChanged(val) {
+    };
+    InputOutputDemo.prototype.myStringChanged = function (val) {
         console.log(val);
-    }
-}
-InputOutputDemo.decorators = [
-    { type: Component, args: [{
-                template: `<button (click)="update()">Update</button>
-              <input-output plain="just a simple attribute"
-                            fixedValue="another hard coded value"
-                            (stringChanged)="myStringChanged($event)"
-                            [mySum]="runningTotal"
-                            [counter]="count"
-                            [headline]="myTitle"
-                            [growingString]="myString">
-              </input-output>`
-            },] },
-];
-InputOutputDemo.ctorParameters = () => [];
+    };
+    return InputOutputDemo;
+}());
+InputOutputDemo = __decorate([
+    Component({
+        template: "<button (click)=\"update()\">Update</button>\n              <input-output plain=\"just a simple attribute\"\n                            fixedValue=\"another hard coded value\"\n                            (stringChanged)=\"myStringChanged($event)\"\n                            [mySum]=\"runningTotal\"\n                            [counter]=\"count\"\n                            [headline]=\"myTitle\"\n                            [growingString]=\"myString\">\n              </input-output>"
+    })
+], InputOutputDemo);
+export { InputOutputDemo };

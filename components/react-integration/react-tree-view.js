@@ -43,12 +43,12 @@ var TreeNode = React.createClass({
     render: function () {
         var nodes = this.props.children.map(function (n) {
             if (n.visible) {
-                return React.createElement(TreeNode, {node: n, children: n.children});
+                return React.createElement(TreeNode, { node: n, children: n.children });
             }
         });
-        return (React.createElement("li", null, 
-            React.createElement("span", {onClick: this.toggle}, this.props.node.getIcon()), 
-            React.createElement("span", null, this.props.node.text), 
+        return (React.createElement("li", null,
+            React.createElement("span", { onClick: this.toggle }, this.props.node.getIcon()),
+            React.createElement("span", null, this.props.node.text),
             React.createElement("ul", null, nodes)));
     }
 });
@@ -68,15 +68,19 @@ var TreeView = React.createClass({
     render: function () {
         var countries = this.state.countries;
         var nodes = countries.map(function (n) {
-            return React.createElement(TreeNode, {node: n, children: n.children});
+            return React.createElement(TreeNode, { node: n, children: n.children });
         });
-        return (React.createElement("div", null, 
-            React.createElement("h2", null, this.props.title), 
+        return (React.createElement("div", null,
+            React.createElement("h2", null, this.props.title),
             React.createElement("ul", null, nodes)));
     }
 });
-export class ReactTreeView {
-    static initialize(title) {
-        React.render(React.createElement(TreeView, {title: title}), document.getElementById('react-tree-view'));
+var ReactTreeView = (function () {
+    function ReactTreeView() {
     }
-}
+    ReactTreeView.initialize = function (title) {
+        React.render(React.createElement(TreeView, { title: title }), document.getElementById('react-tree-view'));
+    };
+    return ReactTreeView;
+}());
+export { ReactTreeView };

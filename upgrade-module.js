@@ -7,17 +7,18 @@ import { Algorithms } from './components/algorithms/algorithms';
 import { SurveyDemo } from './components/survey/survey-demo';
 import { Survey } from './components/survey/survey';
 import { InsertionSort } from './components/insertion-sort/insertion-sort';
-export var AngularModule = (function () {
+var AngularModule = (function () {
     function AngularModule() {
     }
     AngularModule.prototype.ngDoBootstrap = function () { };
-    AngularModule.decorators = [
-        { type: NgModule, args: [{
-                    declarations: [Algorithms, InsertionSort, SurveyDemo, Survey, TextEditor],
-                    entryComponents: [Algorithms, InsertionSort, SurveyDemo, Survey, TextEditor],
-                    imports: [BrowserModule, UpgradeModule, ReactiveFormsModule]
-                },] },
-    ];
-    AngularModule.ctorParameters = function () { return []; };
     return AngularModule;
 }());
+export { AngularModule };
+AngularModule.decorators = [
+    { type: NgModule, args: [{
+                declarations: [Algorithms, InsertionSort, SurveyDemo, Survey, TextEditor],
+                entryComponents: [Algorithms, InsertionSort, SurveyDemo, Survey, TextEditor],
+                imports: [BrowserModule, UpgradeModule, ReactiveFormsModule]
+            },] },
+];
+AngularModule.ctorParameters = function () { return []; };

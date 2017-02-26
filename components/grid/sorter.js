@@ -1,8 +1,9 @@
-export class Sorter {
-    constructor() {
+var Sorter = (function () {
+    function Sorter() {
         this.direction = 1;
     }
-    sort(key, data) {
+    Sorter.prototype.sort = function (key, data) {
+        var _this = this;
         if (this.key === key) {
             this.direction = -this.direction;
         }
@@ -10,16 +11,18 @@ export class Sorter {
             this.direction = 1;
         }
         this.key = key;
-        data.sort((a, b) => {
+        data.sort(function (a, b) {
             if (a[key] === b[key]) {
                 return 0;
             }
             else if (a[key] > b[key]) {
-                return this.direction;
+                return _this.direction;
             }
             else {
-                return -this.direction;
+                return -_this.direction;
             }
         });
-    }
-}
+    };
+    return Sorter;
+}());
+export { Sorter };

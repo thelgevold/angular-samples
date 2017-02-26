@@ -1,10 +1,12 @@
-export class AddressBookTitleService {
-    constructor() {
+var AddressBookTitleService = (function () {
+    function AddressBookTitleService() {
         this.callCount = 0;
         console.log('AddressBookTitleService');
     }
-    getTitle() {
+    AddressBookTitleService.prototype.getTitle = function () {
         this.callCount++;
         return "My Address Book";
-    }
-}
+    };
+    return AddressBookTitleService;
+}());
+export { AddressBookTitleService };

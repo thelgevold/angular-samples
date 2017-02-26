@@ -4,11 +4,13 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 import { QuestionBase } from './question-base';
-export var TextboxQuestion = (function (_super) {
+var TextboxQuestion = (function (_super) {
     __extends(TextboxQuestion, _super);
     function TextboxQuestion() {
-        _super.call(this);
-        this.controlType = 'textbox';
+        var _this = _super.call(this) || this;
+        _this.controlType = 'textbox';
+        return _this;
     }
     return TextboxQuestion;
 }(QuestionBase));
+export { TextboxQuestion };

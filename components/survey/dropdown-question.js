@@ -4,12 +4,14 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 import { QuestionBase } from './question-base';
-export var DropDownQuestion = (function (_super) {
+var DropDownQuestion = (function (_super) {
     __extends(DropDownQuestion, _super);
     function DropDownQuestion() {
-        _super.call(this);
-        this.options = [];
-        this.controlType = 'dropdown';
+        var _this = _super.call(this) || this;
+        _this.options = [];
+        _this.controlType = 'dropdown';
+        return _this;
     }
     return DropDownQuestion;
 }(QuestionBase));
+export { DropDownQuestion };

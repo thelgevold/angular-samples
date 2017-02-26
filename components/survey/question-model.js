@@ -1,5 +1,5 @@
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-export var QuestionModel = (function () {
+var QuestionModel = (function () {
     function QuestionModel() {
         this.questions = [];
     }
@@ -17,3 +17,4 @@ export var QuestionModel = (function () {
     };
     return QuestionModel;
 }());
+export { QuestionModel };

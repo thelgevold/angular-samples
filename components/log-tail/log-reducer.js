@@ -1,7 +1,8 @@
-export const logReducer = (state = [], action) => {
+export var logReducer = function (state, action) {
+    if (state === void 0) { state = []; }
     switch (action.type) {
         case 'ADD_ENTRY':
-            return [...state, action.data];
+            return state.concat([action.data]);
         case 'LOAD_ENTRIES':
             return action.data;
         default:

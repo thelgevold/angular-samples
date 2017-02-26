@@ -1,18 +1,21 @@
 import { Subject } from 'rxjs/Subject';
 import { logReducer } from './log-reducer';
-export class Store {
-    constructor() {
+var Store = (function () {
+    function Store() {
+        var _this = this;
         this.dispatcher = new Subject();
         this.log = new Subject();
         this.logItems = [];
-        this.dispatcher.subscribe((action) => this.handleAction(action));
+        this.dispatcher.subscribe(function (action) { return _this.handleAction(action); });
         this.logEntries = this.log.asObservable();
     }
-    handleAction(action) {
+    Store.prototype.handleAction = function (action) {
         this.logItems = logReducer(this.logItems, action);
         this.log.next(this.logItems);
-    }
-    dispatchAction(action) {
+    };
+    Store.prototype.dispatchAction = function (action) {
         this.dispatcher.next(action);
-    }
-}
+    };
+    return Store;
+}());
+export { Store };

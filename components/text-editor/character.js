@@ -1,5 +1,5 @@
 import { KeyMap } from './key-map';
-export var Character = (function () {
+var Character = (function () {
     function Character(keyCode) {
         this.isCurrent = false;
         this.lineBreak = false;
@@ -23,3 +23,4 @@ export var Character = (function () {
     }
     return Character;
 }());
+export { Character };

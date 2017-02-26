@@ -26,7 +26,7 @@ import { CountryDemo } from './components/lazy-loaded-tree-view/country-demo';
 import { RxJsStreams } from './components/rxjs-streams/rxjs-streams';
 import { CachingDemo } from './components/rxjs-caching/caching-demo';
 import { RxJsBuffering } from './components/rxjs-buffering/rxjs-buffering';
-const routes = [
+var routes = [
     {
         path: '',
         redirectTo: '/about',
@@ -65,4 +65,4 @@ const routes = [
         ]
     }
 ];
-export const routing = RouterModule.forRoot(routes);
+export var routing = RouterModule.forRoot(routes);

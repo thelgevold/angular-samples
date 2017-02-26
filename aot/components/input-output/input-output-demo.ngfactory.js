@@ -1,139 +1,100 @@
-import * as import0 from '../../../components/input-output/input-output-demo';
-import * as import1 from '@angular/core/src/linker/view';
-import * as import3 from '@angular/core/src/linker/view_utils';
-import * as import4 from '@angular/core/src/metadata/view';
-import * as import5 from '@angular/core/src/linker/view_type';
-import * as import6 from '@angular/core/src/change_detection/constants';
-import * as import7 from '@angular/core/src/linker/component_factory';
-import * as import8 from '../../../components/input-output/input-output';
-import * as import9 from './input-output.ngfactory';
-import * as import10 from '@angular/core/src/linker/element_ref';
-export class Wrapper_InputOutputDemo {
-    constructor() {
-        this._changed = false;
-        this.context = new import0.InputOutputDemo();
-    }
-    ngOnDetach(view, componentView, el) {
-    }
-    ngOnDestroy() {
-    }
-    ngDoCheck(view, el, throwOnChange) {
-        var changed = this._changed;
-        this._changed = false;
-        return changed;
-    }
-    checkHost(view, componentView, el, throwOnChange) {
-    }
-    handleEvent(eventName, $event) {
-        var result = true;
-        return result;
-    }
-    subscribe(view, _eventHandler) {
-        this._eventHandler = _eventHandler;
-    }
+import * as import0 from '@angular/core';
+import * as import1 from '../../../components/input-output/input-output-demo';
+import * as import2 from './input-output.ngfactory';
+import * as import3 from '../../../components/input-output/input-output';
+var styles_InputOutputDemo = [];
+export var RenderType_InputOutputDemo = import0.ɵcreateRendererTypeV2({
+    encapsulation: 2,
+    styles: styles_InputOutputDemo,
+    data: { animation: [] }
+});
+export function View_InputOutputDemo_0() {
+    return import0.ɵviewDef(0, [
+        import0.ɵelementDef(0, null, null, 1, 'button', [], null, [[
+                null,
+                'click'
+            ]
+        ], function (view, eventName, $event) {
+            var allowDefault = true;
+            var comp = view.component;
+            if (('click' === eventName)) {
+                var pd_0 = (comp.update() !== false);
+                allowDefault = (pd_0 && allowDefault);
+            }
+            return allowDefault;
+        }, null, null),
+        import0.ɵtextDef(null, ['Update']),
+        import0.ɵtextDef(null, ['\n              ']),
+        import0.ɵelementDef(0, null, null, 2, 'input-output', [
+            [
+                'fixedValue',
+                'another hard coded value'
+            ],
+            [
+                'plain',
+                'just a simple attribute'
+            ]
+        ], null, [[
+                null,
+                'stringChanged'
+            ]
+        ], function (view, eventName, $event) {
+            var allowDefault = true;
+            var comp = view.component;
+            if (('stringChanged' === eventName)) {
+                var pd_0 = (comp.myStringChanged($event) !== false);
+                allowDefault = (pd_0 && allowDefault);
+            }
+            return allowDefault;
+        }, import2.View_InputOutput_0, import2.RenderType_InputOutput),
+        import0.ɵdirectiveDef(1025, null, 0, import3.InputOutput, [
+            import0.ElementRef,
+            [
+                8,
+                'just a simple attribute'
+            ]
+        ], {
+            counter: [
+                0,
+                'counter'
+            ],
+            fixedValue: [
+                1,
+                'fixedValue'
+            ],
+            sum: [
+                2,
+                'sum'
+            ],
+            headline: [
+                3,
+                'headline'
+            ],
+            growingString: [
+                4,
+                'growingString'
+            ]
+        }, { stringChanged: 'stringChanged' }),
+        import0.ɵtextDef(null, ['\n              '])
+    ], function (check, view) {
+        var comp = view.component;
+        var currVal_0 = comp.count;
+        var currVal_1 = 'another hard coded value';
+        var currVal_2 = comp.runningTotal;
+        var currVal_3 = comp.myTitle;
+        var currVal_4 = comp.myString;
+        check(view, 4, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4);
+    }, null);
 }
-var renderType_InputOutputDemo_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
-class View_InputOutputDemo_Host0 extends import1.AppView {
-    constructor(viewUtils, parentView, parentIndex, parentElement) {
-        super(View_InputOutputDemo_Host0, renderType_InputOutputDemo_Host, import5.ViewType.HOST, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
-    }
-    createInternal(rootSelector) {
-        this._el_0 = import3.selectOrCreateRenderHostElement(this.renderer, 'ng-component', import3.EMPTY_INLINE_ARRAY, rootSelector, null);
-        this.compView_0 = new View_InputOutputDemo0(this.viewUtils, this, 0, this._el_0);
-        this._InputOutputDemo_0_3 = new Wrapper_InputOutputDemo();
-        this.compView_0.create(this._InputOutputDemo_0_3.context);
-        this.init(this._el_0, (this.renderer.directRenderer ? null : [this._el_0]), null);
-        return new import7.ComponentRef_(0, this, this._el_0, this._InputOutputDemo_0_3.context);
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
-        if (((token === import0.InputOutputDemo) && (0 === requestNodeIndex))) {
-            return this._InputOutputDemo_0_3.context;
-        }
-        return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
-        this._InputOutputDemo_0_3.ngDoCheck(this, this._el_0, throwOnChange);
-        this.compView_0.detectChanges(throwOnChange);
-    }
-    destroyInternal() {
-        this.compView_0.destroy();
-    }
-    visitRootNodesInternal(cb, ctx) {
-        cb(this._el_0, ctx);
-    }
+var RenderType_InputOutputDemo_Host = import0.ɵcreateRendererTypeV2({
+    encapsulation: 2,
+    styles: [],
+    data: { animation: [] }
+});
+function View_InputOutputDemo_Host_0() {
+    return import0.ɵviewDef(0, [
+        import0.ɵelementDef(0, null, null, 1, 'ng-component', [], null, null, null, View_InputOutputDemo_0, RenderType_InputOutputDemo),
+        import0.ɵdirectiveDef(1024, null, 0, import1.InputOutputDemo, [], null, null)
+    ], null, null);
 }
-export const InputOutputDemoNgFactory = new import7.ComponentFactory('ng-component', View_InputOutputDemo_Host0, import0.InputOutputDemo);
-const styles_InputOutputDemo = [];
-var renderType_InputOutputDemo = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_InputOutputDemo, {});
-export class View_InputOutputDemo0 extends import1.AppView {
-    constructor(viewUtils, parentView, parentIndex, parentElement) {
-        super(View_InputOutputDemo0, renderType_InputOutputDemo, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
-    }
-    createInternal(rootSelector) {
-        const parentRenderNode = this.renderer.createViewRoot(this.parentElement);
-        this._el_0 = import3.createRenderElement(this.renderer, parentRenderNode, 'button', import3.EMPTY_INLINE_ARRAY, null);
-        this._text_1 = this.renderer.createText(this._el_0, 'Update', null);
-        this._text_2 = this.renderer.createText(parentRenderNode, '\n              ', null);
-        this._el_3 = import3.createRenderElement(this.renderer, parentRenderNode, 'input-output', new import3.InlineArray4(4, 'fixedValue', 'another hard coded value', 'plain', 'just a simple attribute'), null);
-        this.compView_3 = new import9.View_InputOutput0(this.viewUtils, this, 3, this._el_3);
-        this._InputOutput_3_3 = new import9.Wrapper_InputOutput(new import10.ElementRef(this._el_3), 'just a simple attribute');
-        this._text_4 = this.renderer.createText(null, '\n              ', null);
-        this.compView_3.create(this._InputOutput_3_3.context);
-        var disposable_0 = import3.subscribeToRenderElement(this, this._el_0, new import3.InlineArray2(2, 'click', null), this.eventHandler(this.handleEvent_0));
-        var disposable_1 = import3.subscribeToRenderElement(this, this._el_3, new import3.InlineArray2(2, 'stringChanged', null), this.eventHandler(this.handleEvent_3));
-        this._InputOutput_3_3.subscribe(this, this.eventHandler(this.handleEvent_3), true);
-        this.init(null, (this.renderer.directRenderer ? null : [
-            this._el_0,
-            this._text_1,
-            this._text_2,
-            this._el_3,
-            this._text_4
-        ]), [
-            disposable_0,
-            disposable_1
-        ]);
-        return null;
-    }
-    injectorGetInternal(token, requestNodeIndex, notFoundResult) {
-        if (((token === import8.InputOutput) && ((3 <= requestNodeIndex) && (requestNodeIndex <= 4)))) {
-            return this._InputOutput_3_3.context;
-        }
-        return notFoundResult;
-    }
-    detectChangesInternal(throwOnChange) {
-        const currVal_3_0_0 = this.context.count;
-        this._InputOutput_3_3.check_counter(currVal_3_0_0, throwOnChange, false);
-        const currVal_3_0_1 = 'another hard coded value';
-        this._InputOutput_3_3.check_fixedValue(currVal_3_0_1, throwOnChange, false);
-        const currVal_3_0_2 = this.context.runningTotal;
-        this._InputOutput_3_3.check_sum(currVal_3_0_2, throwOnChange, false);
-        const currVal_3_0_3 = this.context.myTitle;
-        this._InputOutput_3_3.check_headline(currVal_3_0_3, throwOnChange, false);
-        const currVal_3_0_4 = this.context.myString;
-        this._InputOutput_3_3.check_growingString(currVal_3_0_4, throwOnChange, false);
-        this._InputOutput_3_3.ngDoCheck(this, this._el_3, throwOnChange);
-        this.compView_3.detectChanges(throwOnChange);
-    }
-    destroyInternal() {
-        this.compView_3.destroy();
-        this._InputOutput_3_3.ngOnDestroy();
-    }
-    handleEvent_0(eventName, $event) {
-        this.markPathToRootAsCheckOnce();
-        var result = true;
-        if ((eventName == 'click')) {
-            const pd_sub_0 = (this.context.update() !== false);
-            result = (pd_sub_0 && result);
-        }
-        return result;
-    }
-    handleEvent_3(eventName, $event) {
-        this.markPathToRootAsCheckOnce();
-        var result = true;
-        if ((eventName == 'stringChanged')) {
-            const pd_sub_0 = (this.context.myStringChanged($event) !== false);
-            result = (pd_sub_0 && result);
-        }
-        return result;
-    }
-}
+export var InputOutputDemoNgFactory = import0.ɵcreateComponentFactory('ng-component', import1.InputOutputDemo, View_InputOutputDemo_Host_0);

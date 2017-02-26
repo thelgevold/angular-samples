@@ -1,3 +1,9 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -48,25 +54,28 @@ import { CountryDemo } from './components/lazy-loaded-tree-view/country-demo';
 import { RxJsStreams } from './components/rxjs-streams/rxjs-streams';
 import { CachingDemo } from './components/rxjs-caching/caching-demo';
 import { RxJsBuffering } from './components/rxjs-buffering/rxjs-buffering';
-export class AppModule {
-}
-AppModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [BrowserModule, ReactiveFormsModule, routing, FormsModule, HttpModule],
-                declarations: [AppComponent, FriendsList, Producer, Consumer,
-                    TreeView, LazyTreeView, Survey, About, DemoPage, InputOutput,
-                    Spreadsheet, JqueryIntegration, Angular2Host, Algorithms, Graph, PubSub,
-                    Grid, CommentSection1, CommentSection2, Edge, Vertex, InsertionSort, Child,
-                    TextEditor, AddressBook, HttpSample, TreeViewDemo, GridDemo, InputControls,
-                    ContactList, BoundTextbox, IgnoreBindings, AddressForm, CommentDemo, Parent,
-                    SurveyDemo, LogDemo, InputOutputDemo, RxJsStreams, CachingDemo, RxJsBuffering, CountryDemo
-                ],
-                entryComponents: [Edge],
-                providers: [
-                    AddressBookTitleService,
-                    { provide: LocationStrategy, useClass: HashLocationStrategy }
-                ],
-                bootstrap: [AppComponent]
-            },] },
-];
-AppModule.ctorParameters = () => [];
+var AppModule = (function () {
+    function AppModule() {
+    }
+    return AppModule;
+}());
+AppModule = __decorate([
+    NgModule({
+        imports: [BrowserModule, ReactiveFormsModule, routing, FormsModule, HttpModule],
+        declarations: [AppComponent, FriendsList, Producer, Consumer,
+            TreeView, LazyTreeView, Survey, About, DemoPage, InputOutput,
+            Spreadsheet, JqueryIntegration, Angular2Host, Algorithms, Graph, PubSub,
+            Grid, CommentSection1, CommentSection2, Edge, Vertex, InsertionSort, Child,
+            TextEditor, AddressBook, HttpSample, TreeViewDemo, GridDemo, InputControls,
+            ContactList, BoundTextbox, IgnoreBindings, AddressForm, CommentDemo, Parent,
+            SurveyDemo, LogDemo, InputOutputDemo, RxJsStreams, CachingDemo, RxJsBuffering, CountryDemo
+        ],
+        entryComponents: [Edge],
+        providers: [
+            AddressBookTitleService,
+            { provide: LocationStrategy, useClass: HashLocationStrategy }
+        ],
+        bootstrap: [AppComponent]
+    })
+], AppModule);
+export { AppModule };

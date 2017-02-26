@@ -5,14 +5,14 @@
     "moduleResolution": "node",
     "removeComments": true,
     "emitDecoratorMetadata": true,
+    "lib": ["es2015", "dom"],
     "experimentalDecorators": true,
     "allowUnreachableCode": false,
     "noImplicitAny": false
   },
   "files": [
     "./upgrade-module.ts",
-    "./upgrade.ts",
-    "./typings/index.d.ts"
+    "./upgrade.ts"
   ],
    "angularCompilerOptions": {
     "genDir": "./upgrade-aot"
