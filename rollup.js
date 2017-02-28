@@ -37,7 +37,7 @@ export default {
           jsnext: true, module: true
       }),
       new RollupRemoveDecorators(),
-      //uglify()
+      uglify()
       
     ]
 
