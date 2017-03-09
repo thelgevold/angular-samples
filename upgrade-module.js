@@ -7,6 +7,8 @@ import { Algorithms } from './components/algorithms/algorithms';
 import { SurveyDemo } from './components/survey/survey-demo';
 import { Survey } from './components/survey/survey';
 import { InsertionSort } from './components/insertion-sort/insertion-sort';
+import { UpgradePubSubService } from './upgrade-pub-sub.service';
+import { MessageComponent } from './message.component';
 var AngularModule = (function () {
     function AngularModule() {
     }
@@ -16,9 +18,10 @@ var AngularModule = (function () {
 export { AngularModule };
 AngularModule.decorators = [
     { type: NgModule, args: [{
-                declarations: [Algorithms, InsertionSort, SurveyDemo, Survey, TextEditor],
-                entryComponents: [Algorithms, InsertionSort, SurveyDemo, Survey, TextEditor],
-                imports: [BrowserModule, UpgradeModule, ReactiveFormsModule]
+                declarations: [Algorithms, InsertionSort, SurveyDemo, Survey, TextEditor, MessageComponent],
+                entryComponents: [Algorithms, InsertionSort, SurveyDemo, Survey, TextEditor, MessageComponent],
+                imports: [BrowserModule, UpgradeModule, ReactiveFormsModule],
+                providers: [UpgradePubSubService]
             },] },
 ];
 AngularModule.ctorParameters = function () { return []; };

@@ -3,27 +3,30 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-export { ɵa as ɵa_65, UpgradeModule as UpgradeModule_66, ɵb as ɵb_67, ɵc as ɵc_68, ɵd as ɵd_69, ɵf as ɵf_70 } from '@angular/upgrade/static';
+export { ɵa as ɵa_67, UpgradeModule as UpgradeModule_68, ɵb as ɵb_69, ɵc as ɵc_70, ɵd as ɵd_71, ɵf as ɵf_72 } from '@angular/upgrade/static';
 import * as import0 from '@angular/core';
 import * as import1 from '../upgrade-module';
 import * as import2 from '@angular/common';
 import * as import3 from '@angular/platform-browser';
 import * as import4 from '@angular/upgrade/static';
 import * as import5 from '@angular/forms';
-import * as import6 from './components/algorithms/algorithms.ngfactory';
-import * as import7 from './components/insertion-sort/insertion-sort.ngfactory';
-import * as import8 from './components/survey/survey-demo.ngfactory';
-import * as import9 from './components/survey/survey.ngfactory';
-import * as import10 from './components/text-editor/text-editor.ngfactory';
+import * as import6 from '../upgrade-pub-sub.service';
+import * as import7 from './components/algorithms/algorithms.ngfactory';
+import * as import8 from './components/insertion-sort/insertion-sort.ngfactory';
+import * as import9 from './components/survey/survey-demo.ngfactory';
+import * as import10 from './components/survey/survey.ngfactory';
+import * as import11 from './components/text-editor/text-editor.ngfactory';
+import * as import12 from './message.component.ngfactory';
 var AngularModuleInjector = (function (_super) {
     __extends(AngularModuleInjector, _super);
     function AngularModuleInjector(parent) {
         return _super.call(this, parent, [
-            import6.AlgorithmsNgFactory,
-            import7.InsertionSortNgFactory,
-            import8.SurveyDemoNgFactory,
-            import9.SurveyNgFactory,
-            import10.TextEditorNgFactory
+            import7.AlgorithmsNgFactory,
+            import8.InsertionSortNgFactory,
+            import9.SurveyDemoNgFactory,
+            import10.SurveyNgFactory,
+            import11.TextEditorNgFactory,
+            import12.MessageComponentNgFactory
         ], []) || this;
     }
     Object.defineProperty(AngularModuleInjector.prototype, "_LOCALE_ID_7", {
@@ -320,6 +323,16 @@ var AngularModuleInjector = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(AngularModuleInjector.prototype, "_UpgradePubSubService_42", {
+        get: function () {
+            if ((this.__UpgradePubSubService_42 == null)) {
+                (this.__UpgradePubSubService_42 = new import6.UpgradePubSubService());
+            }
+            return this.__UpgradePubSubService_42;
+        },
+        enumerable: true,
+        configurable: true
+    });
     AngularModuleInjector.prototype.createInternal = function () {
         this._CommonModule_0 = new import2.CommonModule();
         this._ApplicationModule_1 = new import0.ApplicationModule();
@@ -462,6 +475,9 @@ var AngularModuleInjector = (function (_super) {
         }
         if ((token === import5.ɵi)) {
             return this._ɵi_41;
+        }
+        if ((token === import6.UpgradePubSubService)) {
+            return this._UpgradePubSubService_42;
         }
         return notFoundResult;
     };
