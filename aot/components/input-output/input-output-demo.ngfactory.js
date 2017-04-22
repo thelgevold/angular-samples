@@ -3,29 +3,29 @@ import * as import1 from '../../../components/input-output/input-output-demo';
 import * as import2 from './input-output.ngfactory';
 import * as import3 from '../../../components/input-output/input-output';
 var styles_InputOutputDemo = [];
-export var RenderType_InputOutputDemo = import0.ɵcreateRendererTypeV2({
+export var RenderType_InputOutputDemo = import0.ɵcrt({
     encapsulation: 2,
     styles: styles_InputOutputDemo,
-    data: { animation: [] }
+    data: {}
 });
-export function View_InputOutputDemo_0() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 1, 'button', [], null, [[
+export function View_InputOutputDemo_0(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 1, 'button', [], null, [[
                 null,
                 'click'
             ]
-        ], function (view, eventName, $event) {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                var pd_0 = (comp.update() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], function (v, en, $event) {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                var pd_0 = (co.update() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
-        }, null, null),
-        import0.ɵtextDef(null, ['Update']),
-        import0.ɵtextDef(null, ['\n              ']),
-        import0.ɵelementDef(0, null, null, 2, 'input-output', [
+            return ad;
+        }, null, null)),
+        (l()(), import0.ɵted(null, ['Update'])),
+        (l()(), import0.ɵted(null, ['\n              '])),
+        (l()(), import0.ɵeld(0, null, null, 2, 'input-output', [
             [
                 'fixedValue',
                 'another hard coded value'
@@ -38,16 +38,16 @@ export function View_InputOutputDemo_0() {
                 null,
                 'stringChanged'
             ]
-        ], function (view, eventName, $event) {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('stringChanged' === eventName)) {
-                var pd_0 = (comp.myStringChanged($event) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], function (v, en, $event) {
+            var ad = true;
+            var co = v.component;
+            if (('stringChanged' === en)) {
+                var pd_0 = (co.myStringChanged($event) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
-        }, import2.View_InputOutput_0, import2.RenderType_InputOutput),
-        import0.ɵdirectiveDef(1025, null, 0, import3.InputOutput, [
+            return ad;
+        }, import2.View_InputOutput_0, import2.RenderType_InputOutput)),
+        import0.ɵdid(57344, null, 0, import3.InputOutput, [
             import0.ElementRef,
             [
                 8,
@@ -75,26 +75,21 @@ export function View_InputOutputDemo_0() {
                 'growingString'
             ]
         }, { stringChanged: 'stringChanged' }),
-        import0.ɵtextDef(null, ['\n              '])
-    ], function (check, view) {
-        var comp = view.component;
-        var currVal_0 = comp.count;
+        (l()(), import0.ɵted(null, ['\n              ']))
+    ], function (ck, v) {
+        var co = v.component;
+        var currVal_0 = co.count;
         var currVal_1 = 'another hard coded value';
-        var currVal_2 = comp.runningTotal;
-        var currVal_3 = comp.myTitle;
-        var currVal_4 = comp.myString;
-        check(view, 4, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4);
+        var currVal_2 = co.runningTotal;
+        var currVal_3 = co.myTitle;
+        var currVal_4 = co.myString;
+        ck(v, 4, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4);
     }, null);
 }
-var RenderType_InputOutputDemo_Host = import0.ɵcreateRendererTypeV2({
-    encapsulation: 2,
-    styles: [],
-    data: { animation: [] }
-});
-function View_InputOutputDemo_Host_0() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 1, 'ng-component', [], null, null, null, View_InputOutputDemo_0, RenderType_InputOutputDemo),
-        import0.ɵdirectiveDef(1024, null, 0, import1.InputOutputDemo, [], null, null)
+function View_InputOutputDemo_Host_0(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 1, 'ng-component', [], null, null, null, View_InputOutputDemo_0, RenderType_InputOutputDemo)),
+        import0.ɵdid(24576, null, 0, import1.InputOutputDemo, [], null, null)
     ], null, null);
 }
-export var InputOutputDemoNgFactory = import0.ɵcreateComponentFactory('ng-component', import1.InputOutputDemo, View_InputOutputDemo_Host_0);
+export var InputOutputDemoNgFactory = import0.ɵccf('ng-component', import1.InputOutputDemo, View_InputOutputDemo_Host_0, {}, {}, []);

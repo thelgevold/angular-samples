@@ -3,44 +3,51 @@ import * as import1 from '../../../components/pub-sub/producer';
 import * as import2 from '@angular/forms';
 import * as import3 from '../../../components/pub-sub/pub-sub-service';
 var styles_Producer = [];
-export var RenderType_Producer = import0.ɵcreateRendererTypeV2({
+export var RenderType_Producer = import0.ɵcrt({
     encapsulation: 2,
     styles: styles_Producer,
-    data: { animation: [] }
+    data: {}
 });
-export function View_Producer_0() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 1, 'div', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['First Name']),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵelementDef(0, null, null, 5, 'input', [], [
+export function View_Producer_0(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 1, 'div', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['First Name'])),
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵeld(0, null, null, 5, 'input', [], [
             [
-                1,
-                'ng-untouched'
+                2,
+                'ng-untouched',
+                null
             ],
             [
-                1,
-                'ng-touched'
+                2,
+                'ng-touched',
+                null
             ],
             [
-                1,
-                'ng-pristine'
+                2,
+                'ng-pristine',
+                null
             ],
             [
-                1,
-                'ng-dirty'
+                2,
+                'ng-dirty',
+                null
             ],
             [
-                1,
-                'ng-valid'
+                2,
+                'ng-valid',
+                null
             ],
             [
-                1,
-                'ng-invalid'
+                2,
+                'ng-invalid',
+                null
             ],
             [
-                1,
-                'ng-pending'
+                2,
+                'ng-pending',
+                null
             ]
         ], [
             [
@@ -63,39 +70,43 @@ export function View_Producer_0() {
                 null,
                 'compositionend'
             ]
-        ], function (view, eventName, $event) {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('input' === eventName)) {
-                var pd_0 = (import0.ɵnodeValue(view, 4).onChange($event.target.value) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], function (v, en, $event) {
+            var ad = true;
+            var co = v.component;
+            if (('input' === en)) {
+                var pd_0 = (import0.ɵnov(v, 4)._handleInput($event.target.value) !== false);
+                ad = (pd_0 && ad);
             }
-            if (('blur' === eventName)) {
-                var pd_1 = (import0.ɵnodeValue(view, 4).onTouched() !== false);
-                allowDefault = (pd_1 && allowDefault);
+            if (('blur' === en)) {
+                var pd_1 = (import0.ɵnov(v, 4).onTouched() !== false);
+                ad = (pd_1 && ad);
             }
-            if (('compositionstart' === eventName)) {
-                var pd_2 = (import0.ɵnodeValue(view, 6).compositionStart() !== false);
-                allowDefault = (pd_2 && allowDefault);
+            if (('compositionstart' === en)) {
+                var pd_2 = (import0.ɵnov(v, 4)._compositionStart() !== false);
+                ad = (pd_2 && ad);
             }
-            if (('compositionend' === eventName)) {
-                var pd_3 = (import0.ɵnodeValue(view, 6).compositionEnd() !== false);
-                allowDefault = (pd_3 && allowDefault);
+            if (('compositionend' === en)) {
+                var pd_3 = (import0.ɵnov(v, 4)._compositionEnd($event.target.value) !== false);
+                ad = (pd_3 && ad);
             }
-            if (('ngModelChange' === eventName)) {
-                var pd_4 = ((comp.firstName = $event) !== false);
-                allowDefault = (pd_4 && allowDefault);
+            if (('ngModelChange' === en)) {
+                var pd_4 = ((co.firstName = $event) !== false);
+                ad = (pd_4 && ad);
             }
-            return allowDefault;
-        }, null, null),
-        import0.ɵdirectiveDef(0, null, 0, import2.DefaultValueAccessor, [
+            return ad;
+        }, null, null)),
+        import0.ɵdid(8192, null, 0, import2.DefaultValueAccessor, [
             import0.Renderer,
-            import0.ElementRef
+            import0.ElementRef,
+            [
+                2,
+                import2.COMPOSITION_BUFFER_MODE
+            ]
         ], null, null),
-        import0.ɵproviderDef(0, null, 2, import2.NG_VALUE_ACCESSOR, function (p0_0) {
+        import0.ɵprd(512, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
             return [p0_0];
         }, [import2.DefaultValueAccessor]),
-        import0.ɵdirectiveDef(10, null, 0, import2.NgModel, [
+        import0.ɵdid(335872, null, 0, import2.NgModel, [
             [
                 8,
                 null
@@ -117,40 +128,47 @@ export function View_Producer_0() {
                 'model'
             ]
         }, { update: 'ngModelChange' }),
-        import0.ɵproviderDef(0, null, 3, import2.NgControl, null, [import2.NgModel]),
-        import0.ɵdirectiveDef(0, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
-        import0.ɵtextDef(null, ['\n\n']),
-        import0.ɵelementDef(0, null, null, 1, 'div', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['Last Name']),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵelementDef(0, null, null, 5, 'input', [], [
+        import0.ɵprd(1024, null, import2.NgControl, null, [import2.NgModel]),
+        import0.ɵdid(8192, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
+        (l()(), import0.ɵted(null, ['\n\n'])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'div', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['Last Name'])),
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵeld(0, null, null, 5, 'input', [], [
             [
-                1,
-                'ng-untouched'
+                2,
+                'ng-untouched',
+                null
             ],
             [
-                1,
-                'ng-touched'
+                2,
+                'ng-touched',
+                null
             ],
             [
-                1,
-                'ng-pristine'
+                2,
+                'ng-pristine',
+                null
             ],
             [
-                1,
-                'ng-dirty'
+                2,
+                'ng-dirty',
+                null
             ],
             [
-                1,
-                'ng-valid'
+                2,
+                'ng-valid',
+                null
             ],
             [
-                1,
-                'ng-invalid'
+                2,
+                'ng-invalid',
+                null
             ],
             [
-                1,
-                'ng-pending'
+                2,
+                'ng-pending',
+                null
             ]
         ], [
             [
@@ -173,39 +191,43 @@ export function View_Producer_0() {
                 null,
                 'compositionend'
             ]
-        ], function (view, eventName, $event) {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('input' === eventName)) {
-                var pd_0 = (import0.ɵnodeValue(view, 14).onChange($event.target.value) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], function (v, en, $event) {
+            var ad = true;
+            var co = v.component;
+            if (('input' === en)) {
+                var pd_0 = (import0.ɵnov(v, 14)._handleInput($event.target.value) !== false);
+                ad = (pd_0 && ad);
             }
-            if (('blur' === eventName)) {
-                var pd_1 = (import0.ɵnodeValue(view, 14).onTouched() !== false);
-                allowDefault = (pd_1 && allowDefault);
+            if (('blur' === en)) {
+                var pd_1 = (import0.ɵnov(v, 14).onTouched() !== false);
+                ad = (pd_1 && ad);
             }
-            if (('compositionstart' === eventName)) {
-                var pd_2 = (import0.ɵnodeValue(view, 16).compositionStart() !== false);
-                allowDefault = (pd_2 && allowDefault);
+            if (('compositionstart' === en)) {
+                var pd_2 = (import0.ɵnov(v, 14)._compositionStart() !== false);
+                ad = (pd_2 && ad);
             }
-            if (('compositionend' === eventName)) {
-                var pd_3 = (import0.ɵnodeValue(view, 16).compositionEnd() !== false);
-                allowDefault = (pd_3 && allowDefault);
+            if (('compositionend' === en)) {
+                var pd_3 = (import0.ɵnov(v, 14)._compositionEnd($event.target.value) !== false);
+                ad = (pd_3 && ad);
             }
-            if (('ngModelChange' === eventName)) {
-                var pd_4 = ((comp.lastName = $event) !== false);
-                allowDefault = (pd_4 && allowDefault);
+            if (('ngModelChange' === en)) {
+                var pd_4 = ((co.lastName = $event) !== false);
+                ad = (pd_4 && ad);
             }
-            return allowDefault;
-        }, null, null),
-        import0.ɵdirectiveDef(0, null, 0, import2.DefaultValueAccessor, [
+            return ad;
+        }, null, null)),
+        import0.ɵdid(8192, null, 0, import2.DefaultValueAccessor, [
             import0.Renderer,
-            import0.ElementRef
+            import0.ElementRef,
+            [
+                2,
+                import2.COMPOSITION_BUFFER_MODE
+            ]
         ], null, null),
-        import0.ɵproviderDef(0, null, 2, import2.NG_VALUE_ACCESSOR, function (p0_0) {
+        import0.ɵprd(512, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
             return [p0_0];
         }, [import2.DefaultValueAccessor]),
-        import0.ɵdirectiveDef(10, null, 0, import2.NgModel, [
+        import0.ɵdid(335872, null, 0, import2.NgModel, [
             [
                 8,
                 null
@@ -227,65 +249,62 @@ export function View_Producer_0() {
                 'model'
             ]
         }, { update: 'ngModelChange' }),
-        import0.ɵproviderDef(0, null, 3, import2.NgControl, null, [import2.NgModel]),
-        import0.ɵdirectiveDef(0, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
-        import0.ɵtextDef(null, ['\n\n']),
-        import0.ɵelementDef(0, null, null, 4, 'div', [[
+        import0.ɵprd(1024, null, import2.NgControl, null, [import2.NgModel]),
+        import0.ɵdid(8192, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
+        (l()(), import0.ɵted(null, ['\n\n'])),
+        (l()(), import0.ɵeld(0, null, null, 4, 'div', [[
                 'style',
                 'margin-top: 10px;'
             ]
-        ], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n    ']),
-        import0.ɵelementDef(0, null, null, 1, 'button', [], null, [[
+        ], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'button', [], null, [[
                 null,
                 'click'
             ]
-        ], function (view, eventName, $event) {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                var pd_0 = (comp.createCustomer() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], function (v, en, $event) {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                var pd_0 = (co.createCustomer() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
-        }, null, null),
-        import0.ɵtextDef(null, ['Create Customer']),
-        import0.ɵtextDef(null, ['\n'])
-    ], function (check, view) {
-        var comp = view.component;
-        var currVal_0 = comp.firstName;
-        check(view, 6, 0, currVal_0);
-        var currVal_1 = comp.lastName;
-        check(view, 16, 0, currVal_1);
-    }, function (check, view) {
-        var comp = view.component;
-        var currVal_0 = import0.ɵnodeValue(view, 8).ngClassUntouched;
-        var currVal_1 = import0.ɵnodeValue(view, 8).ngClassTouched;
-        var currVal_2 = import0.ɵnodeValue(view, 8).ngClassPristine;
-        var currVal_3 = import0.ɵnodeValue(view, 8).ngClassDirty;
-        var currVal_4 = import0.ɵnodeValue(view, 8).ngClassValid;
-        var currVal_5 = import0.ɵnodeValue(view, 8).ngClassInvalid;
-        var currVal_6 = import0.ɵnodeValue(view, 8).ngClassPending;
-        check(view, 3, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6);
-        var currVal_7 = import0.ɵnodeValue(view, 18).ngClassUntouched;
-        var currVal_8 = import0.ɵnodeValue(view, 18).ngClassTouched;
-        var currVal_9 = import0.ɵnodeValue(view, 18).ngClassPristine;
-        var currVal_10 = import0.ɵnodeValue(view, 18).ngClassDirty;
-        var currVal_11 = import0.ɵnodeValue(view, 18).ngClassValid;
-        var currVal_12 = import0.ɵnodeValue(view, 18).ngClassInvalid;
-        var currVal_13 = import0.ɵnodeValue(view, 18).ngClassPending;
-        check(view, 13, 0, currVal_7, currVal_8, currVal_9, currVal_10, currVal_11, currVal_12, currVal_13);
+            return ad;
+        }, null, null)),
+        (l()(), import0.ɵted(null, ['Create Customer'])),
+        (l()(), import0.ɵted(null, ['\n']))
+    ], function (ck, v) {
+        var co = v.component;
+        var currVal_7 = co.firstName;
+        ck(v, 6, 0, currVal_7);
+        var currVal_15 = co.lastName;
+        ck(v, 16, 0, currVal_15);
+    }, function (ck, v) {
+        var currVal_0 = import0.ɵnov(v, 8).ngClassUntouched;
+        var currVal_1 = import0.ɵnov(v, 8).ngClassTouched;
+        var currVal_2 = import0.ɵnov(v, 8).ngClassPristine;
+        var currVal_3 = import0.ɵnov(v, 8).ngClassDirty;
+        var currVal_4 = import0.ɵnov(v, 8).ngClassValid;
+        var currVal_5 = import0.ɵnov(v, 8).ngClassInvalid;
+        var currVal_6 = import0.ɵnov(v, 8).ngClassPending;
+        ck(v, 3, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6);
+        var currVal_8 = import0.ɵnov(v, 18).ngClassUntouched;
+        var currVal_9 = import0.ɵnov(v, 18).ngClassTouched;
+        var currVal_10 = import0.ɵnov(v, 18).ngClassPristine;
+        var currVal_11 = import0.ɵnov(v, 18).ngClassDirty;
+        var currVal_12 = import0.ɵnov(v, 18).ngClassValid;
+        var currVal_13 = import0.ɵnov(v, 18).ngClassInvalid;
+        var currVal_14 = import0.ɵnov(v, 18).ngClassPending;
+        ck(v, 13, 0, currVal_8, currVal_9, currVal_10, currVal_11, currVal_12, currVal_13, currVal_14);
     });
 }
-var RenderType_Producer_Host = import0.ɵcreateRendererTypeV2({
-    encapsulation: 2,
-    styles: [],
-    data: { animation: [] }
-});
-function View_Producer_Host_0() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 1, 'producer', [], null, null, null, View_Producer_0, RenderType_Producer),
-        import0.ɵdirectiveDef(1024, null, 0, import1.Producer, [import3.PubSubService], null, null)
+function View_Producer_Host_0(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 1, 'producer', [], null, null, null, View_Producer_0, RenderType_Producer)),
+        import0.ɵdid(24576, null, 0, import1.Producer, [import3.PubSubService], null, null)
     ], null, null);
 }
-export var ProducerNgFactory = import0.ɵcreateComponentFactory('producer', import1.Producer, View_Producer_Host_0);
+export var ProducerNgFactory = import0.ɵccf('producer', import1.Producer, View_Producer_Host_0, {
+    firstName: 'firstName',
+    lastName: 'lastName'
+}, {}, []);

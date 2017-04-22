@@ -2,21 +2,21 @@ import * as import0 from '@angular/core';
 import * as import1 from '@angular/common';
 import * as import2 from '../../../components/rxjs-streams/rxjs-streams';
 var styles_RxJsStreams = [];
-export var RenderType_RxJsStreams = import0.ɵcreateRendererTypeV2({
+export var RenderType_RxJsStreams = import0.ɵcrt({
     encapsulation: 2,
     styles: styles_RxJsStreams,
-    data: { animation: [] }
+    data: {}
 });
-function View_RxJsStreams_1() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 6, 'div', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n    ']),
-        import0.ɵelementDef(0, null, null, 3, 'div', [[
+function View_RxJsStreams_1(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 6, 'div', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 3, 'div', [[
                 'class',
                 'floatLeft'
             ]
-        ], null, null, null, null, null),
-        import0.ɵdirectiveDef(4, null, 0, import1.NgClass, [
+        ], null, null, null, null, null)),
+        import0.ɵdid(139264, null, 0, import1.NgClass, [
             import0.IterableDiffers,
             import0.KeyValueDiffers,
             import0.ElementRef,
@@ -31,36 +31,34 @@ function View_RxJsStreams_1() {
                 'ngClass'
             ]
         }, null),
-        import0.ɵpureObjectDef([
+        import0.ɵpod([
             'stream1',
             'stream2'
         ]),
-        import0.ɵtextDef(null, [
+        (l()(), import0.ɵted(null, [
             '',
             ''
-        ]),
-        import0.ɵtextDef(null, ['\n  '])
-    ], function (check, view) {
-        var comp = view.component;
+        ])),
+        (l()(), import0.ɵted(null, ['\n  ']))
+    ], function (ck, v) {
         var currVal_0 = 'floatLeft';
-        var currVal_1 = check(view, 4, 0, (view.context.$implicit.source === 1), (view.context.$implicit.source === 2));
-        check(view, 3, 0, currVal_0, currVal_1);
-    }, function (check, view) {
-        var comp = view.component;
-        var currVal_0 = view.context.$implicit.value;
-        check(view, 5, 0, currVal_0);
+        var currVal_1 = ck(v, 4, 0, (v.context.$implicit.source === 1), (v.context.$implicit.source === 2));
+        ck(v, 3, 0, currVal_0, currVal_1);
+    }, function (ck, v) {
+        var currVal_2 = v.context.$implicit.value;
+        ck(v, 5, 0, currVal_2);
     });
 }
-function View_RxJsStreams_2() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 6, 'div', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n    ']),
-        import0.ɵelementDef(0, null, null, 3, 'div', [[
+function View_RxJsStreams_2(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 6, 'div', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 3, 'div', [[
                 'class',
                 'floatLeft'
             ]
-        ], null, null, null, null, null),
-        import0.ɵdirectiveDef(4, null, 0, import1.NgClass, [
+        ], null, null, null, null, null)),
+        import0.ɵdid(139264, null, 0, import1.NgClass, [
             import0.IterableDiffers,
             import0.KeyValueDiffers,
             import0.ElementRef,
@@ -75,32 +73,30 @@ function View_RxJsStreams_2() {
                 'ngClass'
             ]
         }, null),
-        import0.ɵpureObjectDef([
+        import0.ɵpod([
             'stream1',
             'stream2'
         ]),
-        import0.ɵtextDef(null, [
+        (l()(), import0.ɵted(null, [
             '',
             ''
-        ]),
-        import0.ɵtextDef(null, ['\n  '])
-    ], function (check, view) {
-        var comp = view.component;
+        ])),
+        (l()(), import0.ɵted(null, ['\n  ']))
+    ], function (ck, v) {
         var currVal_0 = 'floatLeft';
-        var currVal_1 = check(view, 4, 0, (view.context.$implicit.source === 1), (view.context.$implicit.source === 2));
-        check(view, 3, 0, currVal_0, currVal_1);
-    }, function (check, view) {
-        var comp = view.component;
-        var currVal_0 = view.context.$implicit.value;
-        check(view, 5, 0, currVal_0);
+        var currVal_1 = ck(v, 4, 0, (v.context.$implicit.source === 1), (v.context.$implicit.source === 2));
+        ck(v, 3, 0, currVal_0, currVal_1);
+    }, function (ck, v) {
+        var currVal_2 = v.context.$implicit.value;
+        ck(v, 5, 0, currVal_2);
     });
 }
-function View_RxJsStreams_3() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 6, 'div', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n    ']),
-        import0.ɵelementDef(0, null, null, 3, 'div', [], null, null, null, null, null),
-        import0.ɵdirectiveDef(4, null, 0, import1.NgClass, [
+function View_RxJsStreams_3(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 6, 'div', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 3, 'div', [], null, null, null, null, null)),
+        import0.ɵdid(139264, null, 0, import1.NgClass, [
             import0.IterableDiffers,
             import0.KeyValueDiffers,
             import0.ElementRef,
@@ -110,114 +106,112 @@ function View_RxJsStreams_3() {
                 'ngClass'
             ]
         }, null),
-        import0.ɵpureObjectDef([
+        import0.ɵpod([
             'stream1',
             'stream2'
         ]),
-        import0.ɵtextDef(null, [
+        (l()(), import0.ɵted(null, [
             '',
             ''
-        ]),
-        import0.ɵtextDef(null, ['\n  '])
-    ], function (check, view) {
-        var comp = view.component;
-        var currVal_0 = check(view, 4, 0, (view.context.$implicit.source === 1), (view.context.$implicit.source === 2));
-        check(view, 3, 0, currVal_0);
-    }, function (check, view) {
-        var comp = view.component;
-        var currVal_0 = view.context.$implicit.value;
-        check(view, 5, 0, currVal_0);
+        ])),
+        (l()(), import0.ɵted(null, ['\n  ']))
+    ], function (ck, v) {
+        var currVal_0 = ck(v, 4, 0, (v.context.$implicit.source === 1), (v.context.$implicit.source === 2));
+        ck(v, 3, 0, currVal_0);
+    }, function (ck, v) {
+        var currVal_1 = v.context.$implicit.value;
+        ck(v, 5, 0, currVal_1);
     });
 }
-export function View_RxJsStreams_0() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 1, 'div', [[
+export function View_RxJsStreams_0(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 1, 'div', [[
                 'class',
                 'stream1'
             ]
-        ], null, null, null, null, null),
-        import0.ɵtextDef(null, ['Stream1']),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵelementDef(0, null, null, 1, 'div', [[
+        ], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['Stream1'])),
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'div', [[
                 'class',
                 'stream2'
             ]
-        ], null, null, null, null, null),
-        import0.ɵtextDef(null, ['Stream2']),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵelementDef(0, null, null, 0, 'br', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵelementDef(0, null, null, 1, 'button', [], null, [[
+        ], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['Stream2'])),
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵeld(0, null, null, 0, 'br', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'button', [], null, [[
                 null,
                 'click'
             ]
-        ], function (view, eventName, $event) {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                var pd_0 = (comp.mergeStreams() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], function (v, en, $event) {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                var pd_0 = (co.mergeStreams() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
-        }, null, null),
-        import0.ɵtextDef(null, ['Merge Streams']),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵelementDef(0, null, null, 1, 'button', [], null, [[
+            return ad;
+        }, null, null)),
+        (l()(), import0.ɵted(null, ['Merge Streams'])),
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'button', [], null, [[
                 null,
                 'click'
             ]
-        ], function (view, eventName, $event) {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                var pd_0 = (comp.concatStreams() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], function (v, en, $event) {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                var pd_0 = (co.concatStreams() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
-        }, null, null),
-        import0.ɵtextDef(null, ['Concat Streams']),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵelementDef(0, null, null, 1, 'button', [], null, [[
+            return ad;
+        }, null, null)),
+        (l()(), import0.ɵted(null, ['Concat Streams'])),
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'button', [], null, [[
                 null,
                 'click'
             ]
-        ], function (view, eventName, $event) {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                var pd_0 = (comp.forkJoinStreams() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], function (v, en, $event) {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                var pd_0 = (co.forkJoinStreams() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
-        }, null, null),
-        import0.ɵtextDef(null, ['ForkJoin Streams']),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵelementDef(0, null, null, 1, 'button', [], null, [[
+            return ad;
+        }, null, null)),
+        (l()(), import0.ɵted(null, ['ForkJoin Streams'])),
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'button', [], null, [[
                 null,
                 'click'
             ]
-        ], function (view, eventName, $event) {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                var pd_0 = (comp.flatMapStreams() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], function (v, en, $event) {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                var pd_0 = (co.flatMapStreams() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
-        }, null, null),
-        import0.ɵtextDef(null, ['FlatMap Streams']),
-        import0.ɵtextDef(null, ['\n\n']),
-        import0.ɵelementDef(0, null, null, 7, 'div', [[
+            return ad;
+        }, null, null)),
+        (l()(), import0.ɵted(null, ['FlatMap Streams'])),
+        (l()(), import0.ɵted(null, ['\n\n'])),
+        (l()(), import0.ɵeld(0, null, null, 7, 'div', [[
                 'class',
                 'stream-section'
             ]
-        ], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n  ']),
-        import0.ɵelementDef(0, null, null, 1, 'h4', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['Concatenated Streams']),
-        import0.ɵtextDef(null, ['\n  ']),
-        import0.ɵanchorDef(256, null, null, 1, null, View_RxJsStreams_1),
-        import0.ɵdirectiveDef(12, null, 0, import1.NgForOf, [
+        ], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n  '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'h4', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['Concatenated Streams'])),
+        (l()(), import0.ɵted(null, ['\n  '])),
+        (l()(), import0.ɵand(8388608, null, null, 1, null, View_RxJsStreams_1)),
+        import0.ɵdid(401408, null, 0, import1.NgForOf, [
             import0.ViewContainerRef,
             import0.TemplateRef,
             import0.IterableDiffers
@@ -226,19 +220,19 @@ export function View_RxJsStreams_0() {
                 'ngForOf'
             ]
         }, null),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵtextDef(null, ['\n\n']),
-        import0.ɵelementDef(0, null, null, 7, 'div', [[
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵted(null, ['\n\n'])),
+        (l()(), import0.ɵeld(0, null, null, 7, 'div', [[
                 'class',
                 'stream-section'
             ]
-        ], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n  ']),
-        import0.ɵelementDef(0, null, null, 1, 'h4', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['Merged Streams']),
-        import0.ɵtextDef(null, ['\n  ']),
-        import0.ɵanchorDef(256, null, null, 1, null, View_RxJsStreams_2),
-        import0.ɵdirectiveDef(12, null, 0, import1.NgForOf, [
+        ], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n  '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'h4', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['Merged Streams'])),
+        (l()(), import0.ɵted(null, ['\n  '])),
+        (l()(), import0.ɵand(8388608, null, null, 1, null, View_RxJsStreams_2)),
+        import0.ɵdid(401408, null, 0, import1.NgForOf, [
             import0.ViewContainerRef,
             import0.TemplateRef,
             import0.IterableDiffers
@@ -247,19 +241,19 @@ export function View_RxJsStreams_0() {
                 'ngForOf'
             ]
         }, null),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵtextDef(null, ['\n\n']),
-        import0.ɵelementDef(0, null, null, 7, 'div', [[
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵted(null, ['\n\n'])),
+        (l()(), import0.ɵeld(0, null, null, 7, 'div', [[
                 'class',
                 'stream-section'
             ]
-        ], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n  ']),
-        import0.ɵelementDef(0, null, null, 1, 'h4', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['ForkJoined Streams']),
-        import0.ɵtextDef(null, ['\n  ']),
-        import0.ɵanchorDef(256, null, null, 1, null, View_RxJsStreams_3),
-        import0.ɵdirectiveDef(12, null, 0, import1.NgForOf, [
+        ], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n  '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'h4', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['ForkJoined Streams'])),
+        (l()(), import0.ɵted(null, ['\n  '])),
+        (l()(), import0.ɵand(8388608, null, null, 1, null, View_RxJsStreams_3)),
+        import0.ɵdid(401408, null, 0, import1.NgForOf, [
             import0.ViewContainerRef,
             import0.TemplateRef,
             import0.IterableDiffers
@@ -268,45 +262,40 @@ export function View_RxJsStreams_0() {
                 'ngForOf'
             ]
         }, null),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵtextDef(null, ['\n\n']),
-        import0.ɵelementDef(0, null, null, 0, 'br', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵelementDef(0, null, null, 7, 'div', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n  ']),
-        import0.ɵelementDef(0, null, null, 1, 'h4', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['Flatmapped Streams']),
-        import0.ɵtextDef(null, ['\n  ']),
-        import0.ɵelementDef(0, null, null, 1, 'div', [], null, null, null, null, null),
-        import0.ɵtextDef(null, [
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵted(null, ['\n\n'])),
+        (l()(), import0.ɵeld(0, null, null, 0, 'br', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵeld(0, null, null, 7, 'div', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n  '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'h4', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['Flatmapped Streams'])),
+        (l()(), import0.ɵted(null, ['\n  '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'div', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, [
             '',
             ''
-        ]),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵtextDef(null, ['\n\n'])
-    ], function (check, view) {
-        var comp = view.component;
-        var currVal_0 = comp.concatStream;
-        check(view, 26, 0, currVal_0);
-        var currVal_1 = comp.mergeStream;
-        check(view, 35, 0, currVal_1);
-        var currVal_2 = comp.forkJoinStream;
-        check(view, 44, 0, currVal_2);
-    }, function (check, view) {
-        var comp = view.component;
-        var currVal_0 = comp.flatMappedStreams.msg;
-        check(view, 55, 0, currVal_0);
+        ])),
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵted(null, ['\n\n']))
+    ], function (ck, v) {
+        var co = v.component;
+        var currVal_0 = co.concatStream;
+        ck(v, 26, 0, currVal_0);
+        var currVal_1 = co.mergeStream;
+        ck(v, 35, 0, currVal_1);
+        var currVal_2 = co.forkJoinStream;
+        ck(v, 44, 0, currVal_2);
+    }, function (ck, v) {
+        var co = v.component;
+        var currVal_3 = co.flatMappedStreams.msg;
+        ck(v, 55, 0, currVal_3);
     });
 }
-var RenderType_RxJsStreams_Host = import0.ɵcreateRendererTypeV2({
-    encapsulation: 2,
-    styles: [],
-    data: { animation: [] }
-});
-function View_RxJsStreams_Host_0() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 1, 'rxjs-streams', [], null, null, null, View_RxJsStreams_0, RenderType_RxJsStreams),
-        import0.ɵdirectiveDef(1024, null, 0, import2.RxJsStreams, [], null, null)
+function View_RxJsStreams_Host_0(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 1, 'rxjs-streams', [], null, null, null, View_RxJsStreams_0, RenderType_RxJsStreams)),
+        import0.ɵdid(24576, null, 0, import2.RxJsStreams, [], null, null)
     ], null, null);
 }
-export var RxJsStreamsNgFactory = import0.ɵcreateComponentFactory('rxjs-streams', import2.RxJsStreams, View_RxJsStreams_Host_0);
+export var RxJsStreamsNgFactory = import0.ɵccf('rxjs-streams', import2.RxJsStreams, View_RxJsStreams_Host_0, {}, {}, []);

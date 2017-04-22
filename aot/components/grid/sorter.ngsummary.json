@@ -1,1 +1,1 @@
-{"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class"}}],"symbols":[{"__symbol":0,"name":"Sorter","filePath":"/Users/tor/Development/angular-2-samples/components/grid/sorter.d.ts"}]}
+{"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor"}],"sort":[{"__symbolic":"method"}]}}}],"symbols":[{"__symbol":0,"name":"Sorter","filePath":"/Users/tor/Development/angular-2-samples/components/grid/sorter.d.ts"}]}

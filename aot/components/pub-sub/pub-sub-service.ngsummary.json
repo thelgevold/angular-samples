@@ -1,1 +1,1 @@
-{"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class"}}],"symbols":[{"__symbol":0,"name":"PubSubService","filePath":"/Users/tor/Development/angular-2-samples/components/pub-sub/pub-sub-service.d.ts"}]}
+{"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor"}]}}}],"symbols":[{"__symbol":0,"name":"PubSubService","filePath":"/Users/tor/Development/angular-2-samples/components/pub-sub/pub-sub-service.d.ts"}]}

@@ -2,15 +2,15 @@ import * as import0 from '@angular/core';
 import * as import1 from '@angular/common';
 import * as import2 from '../../../components/insertion-sort/insertion-sort';
 var styles_InsertionSort = [];
-export var RenderType_InsertionSort = import0.ɵcreateRendererTypeV2({
+export var RenderType_InsertionSort = import0.ɵcrt({
     encapsulation: 2,
     styles: styles_InsertionSort,
-    data: { animation: [] }
+    data: {}
 });
-function View_InsertionSort_1() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 5, 'td', [], null, null, null, null, null),
-        import0.ɵdirectiveDef(4, null, 0, import1.NgClass, [
+function View_InsertionSort_1(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 5, 'td', [], null, null, null, null, null)),
+        import0.ɵdid(139264, null, 0, import1.NgClass, [
             import0.IterableDiffers,
             import0.KeyValueDiffers,
             import0.ElementRef,
@@ -20,36 +20,34 @@ function View_InsertionSort_1() {
                 'ngClass'
             ]
         }, null),
-        import0.ɵtextDef(null, ['\n            ']),
-        import0.ɵelementDef(0, null, null, 1, 'span', [], null, null, null, null, null),
-        import0.ɵtextDef(null, [
+        (l()(), import0.ɵted(null, ['\n            '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'span', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, [
             '',
             ''
-        ]),
-        import0.ɵtextDef(null, ['\n        '])
-    ], function (check, view) {
-        var comp = view.component;
-        var currVal_0 = view.context.$implicit.getClass();
-        check(view, 1, 0, currVal_0);
-    }, function (check, view) {
-        var comp = view.component;
-        var currVal_0 = view.context.$implicit.val;
-        check(view, 4, 0, currVal_0);
+        ])),
+        (l()(), import0.ɵted(null, ['\n        ']))
+    ], function (ck, v) {
+        var currVal_0 = v.context.$implicit.getClass();
+        ck(v, 1, 0, currVal_0);
+    }, function (ck, v) {
+        var currVal_1 = v.context.$implicit.val;
+        ck(v, 4, 0, currVal_1);
     });
 }
-export function View_InsertionSort_0() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 8, 'table', [[
+export function View_InsertionSort_0(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 8, 'table', [[
                 'class',
                 'sort'
             ]
-        ], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n    ']),
-        import0.ɵelementDef(0, null, null, 6, 'tbody', [], null, null, null, null, null),
-        import0.ɵelementDef(0, null, null, 4, 'tr', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n        ']),
-        import0.ɵanchorDef(256, null, null, 1, null, View_InsertionSort_1),
-        import0.ɵdirectiveDef(12, null, 0, import1.NgForOf, [
+        ], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 6, 'tbody', [], null, null, null, null, null)),
+        (l()(), import0.ɵeld(0, null, null, 4, 'tr', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n        '])),
+        (l()(), import0.ɵand(8388608, null, null, 1, null, View_InsertionSort_1)),
+        import0.ɵdid(401408, null, 0, import1.NgForOf, [
             import0.ViewContainerRef,
             import0.TemplateRef,
             import0.IterableDiffers
@@ -58,45 +56,40 @@ export function View_InsertionSort_0() {
                 'ngForOf'
             ]
         }, null),
-        import0.ɵtextDef(null, ['\n    ']),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵelementDef(0, null, null, 4, 'div', [[
+        (l()(), import0.ɵted(null, ['\n    '])),
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵeld(0, null, null, 4, 'div', [[
                 'style',
                 'margin-top: 10px;'
             ]
-        ], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n    ']),
-        import0.ɵelementDef(0, null, null, 1, 'button', [], null, [[
+        ], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'button', [], null, [[
                 null,
                 'click'
             ]
-        ], function (view, eventName, $event) {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                var pd_0 = (comp.sortList() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], function (v, en, $event) {
+            var ad = true;
+            var co = v.component;
+            if (('click' === en)) {
+                var pd_0 = (co.sortList() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
-        }, null, null),
-        import0.ɵtextDef(null, ['Sort list']),
-        import0.ɵtextDef(null, ['\n'])
-    ], function (check, view) {
-        var comp = view.component;
-        var currVal_0 = comp.list.items;
-        check(view, 6, 0, currVal_0);
+            return ad;
+        }, null, null)),
+        (l()(), import0.ɵted(null, ['Sort list'])),
+        (l()(), import0.ɵted(null, ['\n']))
+    ], function (ck, v) {
+        var co = v.component;
+        var currVal_0 = co.list.items;
+        ck(v, 6, 0, currVal_0);
     }, null);
 }
-var RenderType_InsertionSort_Host = import0.ɵcreateRendererTypeV2({
-    encapsulation: 2,
-    styles: [],
-    data: { animation: [] }
-});
-function View_InsertionSort_Host_0() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 1, 'insertion-sort', [], null, null, null, View_InsertionSort_0, RenderType_InsertionSort),
-        import0.ɵdirectiveDef(1024, null, 0, import2.InsertionSort, [], null, null)
+function View_InsertionSort_Host_0(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 1, 'insertion-sort', [], null, null, null, View_InsertionSort_0, RenderType_InsertionSort)),
+        import0.ɵdid(24576, null, 0, import2.InsertionSort, [], null, null)
     ], null, null);
 }
-export var InsertionSortNgFactory = import0.ɵcreateComponentFactory('insertion-sort', import2.InsertionSort, View_InsertionSort_Host_0);
+export var InsertionSortNgFactory = import0.ɵccf('insertion-sort', import2.InsertionSort, View_InsertionSort_Host_0, { list: 'list' }, {}, []);

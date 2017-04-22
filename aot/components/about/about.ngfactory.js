@@ -1,37 +1,37 @@
 import * as import0 from '@angular/core';
-import * as import1 from '../../../components/about/about';
-import * as import2 from '@angular/router';
-import * as import3 from '@angular/common';
+import * as import1 from '@angular/router';
+import * as import2 from '@angular/common';
+import * as import3 from '../../../components/about/about';
 var styles_About = [];
-export var RenderType_About = import0.ɵcreateRendererTypeV2({
+export var RenderType_About = import0.ɵcrt({
     encapsulation: 2,
     styles: styles_About,
-    data: { animation: [] }
+    data: {}
 });
-export function View_About_0() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 27, 'div', [[
+export function View_About_0(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 27, 'div', [[
                 'class',
                 'container'
             ]
-        ], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n    ']),
-        import0.ɵelementDef(0, null, null, 1, 'h1', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['Welcome']),
-        import0.ɵtextDef(null, ['\n\n    ']),
-        import0.ɵelementDef(0, null, null, 1, 'p', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n        This is a live demo of my Angular sample components.\n    ']),
-        import0.ɵtextDef(null, ['\n    ']),
-        import0.ɵelementDef(0, null, null, 6, 'p', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n        I hope you will find these ']),
-        import0.ɵelementDef(0, null, null, 3, 'a', [], [
+        ], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'h1', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['Welcome'])),
+        (l()(), import0.ɵted(null, ['\n\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'p', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n        This is a live demo of my Angular sample components.\n    '])),
+        (l()(), import0.ɵted(null, ['\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 6, 'p', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n        I hope you will find these '])),
+        (l()(), import0.ɵeld(0, null, null, 3, 'a', [], [
             [
-                0,
+                1,
                 'target',
                 0
             ],
             [
-                3,
+                8,
                 'href',
                 4
             ]
@@ -39,68 +39,60 @@ export function View_About_0() {
                 null,
                 'click'
             ]
-        ], function (view, eventName, $event) {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                var pd_0 = (import0.ɵnodeValue(view, 11).onClick($event.button, $event.ctrlKey, $event.metaKey) !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], function (v, en, $event) {
+            var ad = true;
+            if (('click' === en)) {
+                var pd_0 = (import0.ɵnov(v, 11).onClick($event.button, $event.ctrlKey, $event.metaKey) !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
-        }, null, null),
-        import0.ɵdirectiveDef(10, null, 0, import2.RouterLinkWithHref, [
-            import2.Router,
-            import2.ActivatedRoute,
-            import3.LocationStrategy
+            return ad;
+        }, null, null)),
+        import0.ɵdid(335872, null, 0, import1.RouterLinkWithHref, [
+            import1.Router,
+            import1.ActivatedRoute,
+            import2.LocationStrategy
         ], { routerLink: [
                 0,
                 'routerLink'
             ]
         }, null),
-        import0.ɵpureArrayDef(1),
-        import0.ɵtextDef(null, ['demos']),
-        import0.ɵtextDef(null, [' useful and educational. Stay tuned for more progress soon.\n        Don\'t hesitate to tweet me at @helgevold with suggestions for more components.\n    ']),
-        import0.ɵtextDef(null, ['\n\n    ']),
-        import0.ɵelementDef(0, null, null, 4, 'p', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n        Click ']),
-        import0.ɵelementDef(0, null, null, 1, 'a', [[
+        import0.ɵpad(1),
+        (l()(), import0.ɵted(null, ['demos'])),
+        (l()(), import0.ɵted(null, [' useful and educational. Stay tuned for more progress soon.\n        Don\'t hesitate to tweet me at @helgevold with suggestions for more components.\n    '])),
+        (l()(), import0.ɵted(null, ['\n\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 4, 'p', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n        Click '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'a', [[
                 'href',
                 'http://www.syntaxsuccess.com/angular-2-articles'
             ]
-        ], null, null, null, null, null),
-        import0.ɵtextDef(null, ['here']),
-        import0.ɵtextDef(null, [' for a full list of my Angular articles.\n    ']),
-        import0.ɵtextDef(null, ['\n\n    ']),
-        import0.ɵelementDef(0, null, null, 4, 'p', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n        The source code for the full set of components is available on ']),
-        import0.ɵelementDef(0, null, null, 1, 'a', [[
+        ], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['here'])),
+        (l()(), import0.ɵted(null, [' for a full list of my Angular articles.\n    '])),
+        (l()(), import0.ɵted(null, ['\n\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 4, 'p', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n        The source code for the full set of components is available on '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'a', [[
                 'href',
                 'https://github.com/thelgevold/angular-2-samples'
             ]
-        ], null, null, null, null, null),
-        import0.ɵtextDef(null, ['GitHub']),
-        import0.ɵtextDef(null, ['\n    ']),
-        import0.ɵtextDef(null, ['\n\n'])
-    ], function (check, view) {
-        var comp = view.component;
-        var currVal_0 = check(view, 12, 0, '/Demo/Spreadsheet');
-        check(view, 11, 0, currVal_0);
-    }, function (check, view) {
-        var comp = view.component;
-        var currVal_0 = import0.ɵnodeValue(view, 11).target;
-        var currVal_1 = import0.ɵnodeValue(view, 11).href;
-        check(view, 10, 0, currVal_0, currVal_1);
+        ], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['GitHub'])),
+        (l()(), import0.ɵted(null, ['\n    '])),
+        (l()(), import0.ɵted(null, ['\n\n']))
+    ], function (ck, v) {
+        var currVal_2 = ck(v, 12, 0, '/Demo/Spreadsheet');
+        ck(v, 11, 0, currVal_2);
+    }, function (ck, v) {
+        var currVal_0 = import0.ɵnov(v, 11).target;
+        var currVal_1 = import0.ɵnov(v, 11).href;
+        ck(v, 10, 0, currVal_0, currVal_1);
     });
 }
-var RenderType_About_Host = import0.ɵcreateRendererTypeV2({
-    encapsulation: 2,
-    styles: [],
-    data: { animation: [] }
-});
-function View_About_Host_0() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 1, 'about', [], null, null, null, View_About_0, RenderType_About),
-        import0.ɵdirectiveDef(1024, null, 0, import1.About, [], null, null)
+function View_About_Host_0(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 1, 'about', [], null, null, null, View_About_0, RenderType_About)),
+        import0.ɵdid(24576, null, 0, import3.About, [], null, null)
     ], null, null);
 }
-export var AboutNgFactory = import0.ɵcreateComponentFactory('about', import1.About, View_About_Host_0);
+export var AboutNgFactory = import0.ɵccf('about', import3.About, View_About_Host_0, {}, {}, []);

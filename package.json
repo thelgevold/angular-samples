@@ -13,7 +13,7 @@
     "aot": "node_modules/.bin/ngc -p .",
     "rollup": "./node_modules/.bin/rollup -c rollup-config.js",
     "rollup-ng-upgrade": "./node_modules/.bin/rollup -c rollup-ng-upgrade.js",
-    "install-upgrade-application": "ngc -p tsconfig-upgrade.json && npm run rollup-ng-upgrade",
+    "install-upgrade-application": "node_modules/.bin/ngc -p tsconfig-upgrade.json && npm run rollup-ng-upgrade",
     "install-application": "npm run clean && npm run aot && npm run rollup"
   },
   "devDependencies": {
@@ -42,24 +42,25 @@
     "rollup-plugin-uglify": "^1.0.1",
     "systemjs-builder": "^0.15.16",
     "traceur": "^0.0.91",
-    "typescript": "2.1.5",
+    "typescript": "2.1.6",
     "uglify-js": "2.7.0",
     "yargs": "^4.7.0",
     "compression": "^1.6.2"
   },
   "dependencies": {
-    "@angular/common": "4.0.0-rc.1",
-    "@angular/compiler": "4.0.0-rc.1",
-    "@angular/compiler-cli": "4.0.0-rc.1",
-    "@angular/core": "4.0.0-rc.1",
-    "@angular/forms": "4.0.0-rc.1",
-    "@angular/http": "4.0.0-rc.1",
-    "@angular/platform-browser": "4.0.0-rc.1",
-    "@angular/platform-browser-dynamic": "4.0.0-rc.1",
-    "@angular/platform-server": "4.0.0-rc.1",
+    "@angular/animations": "4.0.3",
+    "@angular/common": "4.0.3",
+    "@angular/compiler": "4.0.3",
+    "@angular/compiler-cli": "4.0.3",
+    "@angular/core": "4.0.3",
+    "@angular/forms": "4.0.3",
+    "@angular/http": "4.0.3",
+    "@angular/platform-browser": "4.0.3",
+    "@angular/platform-browser-dynamic": "4.0.3",
+    "@angular/platform-server": "4.0.3",
     "google-closure-compiler-js": "^20160828.0.1",
-    "@angular/router": "4.0.0-rc.1",
-    "@angular/upgrade": "4.0.0-rc.1",
+    "@angular/router": "4.0.3",
+    "@angular/upgrade": "4.0.3",
     "core-js": "^2.4.1",
     "events": "^1.0.2",
     "fbjs": "^0.3.1",
@@ -69,8 +70,8 @@
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-typescript": "^0.8.1",
     "rollup-plugin-uglify": "^1.0.1",
-    "rxjs": "5.0.1",
+    "rxjs": "^5.0.1",
     "systemjs": "0.19.27",
-    "zone.js": "0.7.2"
+    "zone.js": "0.8.5"
   }
 }

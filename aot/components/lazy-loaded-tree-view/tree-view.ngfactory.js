@@ -4,17 +4,17 @@ import * as import2 from '../../../components/lazy-loaded-tree-view/redux/store'
 import * as import3 from '../../../components/lazy-loaded-tree-view/tree-node-service';
 import * as import4 from '@angular/common';
 var styles_LazyTreeView = [];
-export var RenderType_LazyTreeView = import0.ɵcreateRendererTypeV2({
+export var RenderType_LazyTreeView = import0.ɵcrt({
     encapsulation: 2,
     styles: styles_LazyTreeView,
-    data: { animation: [] }
+    data: {}
 });
-function View_LazyTreeView_2() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 4, 'div', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n      ']),
-        import0.ɵelementDef(0, null, null, 1, 'lazy-tree-view', [], null, null, null, View_LazyTreeView_0, RenderType_LazyTreeView),
-        import0.ɵdirectiveDef(1027, null, 0, import1.LazyTreeView, [
+function View_LazyTreeView_2(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 4, 'div', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n      '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'lazy-tree-view', [], null, null, null, View_LazyTreeView_0, RenderType_LazyTreeView)),
+        import0.ɵdid(122880, null, 0, import1.LazyTreeView, [
             import2.Store,
             import3.TreeNodeService
         ], { root: [
@@ -22,18 +22,17 @@ function View_LazyTreeView_2() {
                 'root'
             ]
         }, null),
-        import0.ɵtextDef(null, ['\n    '])
-    ], function (check, view) {
-        var comp = view.component;
-        var currVal_0 = view.parent.context.$implicit;
-        check(view, 3, 0, currVal_0);
+        (l()(), import0.ɵted(null, ['\n    ']))
+    ], function (ck, v) {
+        var currVal_0 = v.parent.context.$implicit;
+        ck(v, 3, 0, currVal_0);
     }, null);
 }
-function View_LazyTreeView_1() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 12, 'li', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n\n    ']),
-        import0.ɵelementDef(0, null, null, 3, 'span', [[
+function View_LazyTreeView_1(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 12, 'li', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 3, 'span', [[
                 'class',
                 'iconButton'
             ]
@@ -41,16 +40,15 @@ function View_LazyTreeView_1() {
                 null,
                 'click'
             ]
-        ], function (view, eventName, $event) {
-            var allowDefault = true;
-            var comp = view.component;
-            if (('click' === eventName)) {
-                var pd_0 = (view.context.$implicit.expand() !== false);
-                allowDefault = (pd_0 && allowDefault);
+        ], function (v, en, $event) {
+            var ad = true;
+            if (('click' === en)) {
+                var pd_0 = (v.context.$implicit.expand() !== false);
+                ad = (pd_0 && ad);
             }
-            return allowDefault;
-        }, null, null),
-        import0.ɵdirectiveDef(4, null, 0, import4.NgClass, [
+            return ad;
+        }, null, null)),
+        import0.ɵdid(139264, null, 0, import4.NgClass, [
             import0.IterableDiffers,
             import0.KeyValueDiffers,
             import0.ElementRef,
@@ -65,20 +63,20 @@ function View_LazyTreeView_1() {
                 'ngClass'
             ]
         }, null),
-        import0.ɵpureObjectDef(['tree-node-no-children']),
-        import0.ɵtextDef(null, [
+        import0.ɵpod(['tree-node-no-children']),
+        (l()(), import0.ɵted(null, [
             '',
             ''
-        ]),
-        import0.ɵtextDef(null, ['\n    ']),
-        import0.ɵelementDef(0, null, null, 1, 'span', [], null, null, null, null, null),
-        import0.ɵtextDef(null, [
+        ])),
+        (l()(), import0.ɵted(null, ['\n    '])),
+        (l()(), import0.ɵeld(0, null, null, 1, 'span', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, [
             '',
             ''
-        ]),
-        import0.ɵtextDef(null, ['\n\n    ']),
-        import0.ɵanchorDef(256, null, null, 1, null, View_LazyTreeView_2),
-        import0.ɵdirectiveDef(0, null, 0, import4.NgIf, [
+        ])),
+        (l()(), import0.ɵted(null, ['\n\n    '])),
+        (l()(), import0.ɵand(8388608, null, null, 1, null, View_LazyTreeView_2)),
+        import0.ɵdid(8192, null, 0, import4.NgIf, [
             import0.ViewContainerRef,
             import0.TemplateRef
         ], { ngIf: [
@@ -86,28 +84,26 @@ function View_LazyTreeView_1() {
                 'ngIf'
             ]
         }, null),
-        import0.ɵtextDef(null, ['\n  '])
-    ], function (check, view) {
-        var comp = view.component;
+        (l()(), import0.ɵted(null, ['\n  ']))
+    ], function (ck, v) {
         var currVal_0 = 'iconButton';
-        var currVal_1 = check(view, 4, 0, !view.context.$implicit.showIcon);
-        check(view, 3, 0, currVal_0, currVal_1);
-        var currVal_2 = view.context.$implicit.expanded;
-        check(view, 11, 0, currVal_2);
-    }, function (check, view) {
-        var comp = view.component;
-        var currVal_0 = view.context.$implicit.icon;
-        check(view, 5, 0, currVal_0);
-        var currVal_1 = view.context.$implicit.name;
-        check(view, 8, 0, currVal_1);
+        var currVal_1 = ck(v, 4, 0, !v.context.$implicit.showIcon);
+        ck(v, 3, 0, currVal_0, currVal_1);
+        var currVal_4 = v.context.$implicit.expanded;
+        ck(v, 11, 0, currVal_4);
+    }, function (ck, v) {
+        var currVal_2 = v.context.$implicit.icon;
+        ck(v, 5, 0, currVal_2);
+        var currVal_3 = v.context.$implicit.name;
+        ck(v, 8, 0, currVal_3);
     });
 }
-export function View_LazyTreeView_0() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 4, 'ul', [], null, null, null, null, null),
-        import0.ɵtextDef(null, ['\n  ']),
-        import0.ɵanchorDef(256, null, null, 1, null, View_LazyTreeView_1),
-        import0.ɵdirectiveDef(12, null, 0, import4.NgForOf, [
+export function View_LazyTreeView_0(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 4, 'ul', [], null, null, null, null, null)),
+        (l()(), import0.ɵted(null, ['\n  '])),
+        (l()(), import0.ɵand(8388608, null, null, 1, null, View_LazyTreeView_1)),
+        import0.ɵdid(401408, null, 0, import4.NgForOf, [
             import0.ViewContainerRef,
             import0.TemplateRef,
             import0.IterableDiffers
@@ -116,28 +112,23 @@ export function View_LazyTreeView_0() {
                 'ngForOf'
             ]
         }, null),
-        import0.ɵtextDef(null, ['\n']),
-        import0.ɵtextDef(null, ['\n\n'])
-    ], function (check, view) {
-        var comp = view.component;
-        var currVal_0 = comp.items;
-        check(view, 3, 0, currVal_0);
+        (l()(), import0.ɵted(null, ['\n'])),
+        (l()(), import0.ɵted(null, ['\n\n']))
+    ], function (ck, v) {
+        var co = v.component;
+        var currVal_0 = co.items;
+        ck(v, 3, 0, currVal_0);
     }, null);
 }
-var RenderType_LazyTreeView_Host = import0.ɵcreateRendererTypeV2({
-    encapsulation: 2,
-    styles: [],
-    data: { animation: [] }
-});
-function View_LazyTreeView_Host_0() {
-    return import0.ɵviewDef(0, [
-        import0.ɵelementDef(0, null, null, 1, 'lazy-tree-view', [], null, null, null, View_LazyTreeView_0, RenderType_LazyTreeView),
-        import0.ɵdirectiveDef(1027, null, 0, import1.LazyTreeView, [
+function View_LazyTreeView_Host_0(l) {
+    return import0.ɵvid(0, [
+        (l()(), import0.ɵeld(0, null, null, 1, 'lazy-tree-view', [], null, null, null, View_LazyTreeView_0, RenderType_LazyTreeView)),
+        import0.ɵdid(122880, null, 0, import1.LazyTreeView, [
             import2.Store,
             import3.TreeNodeService
         ], null, null)
-    ], function (check, view) {
-        check(view, 1, 0);
+    ], function (ck, v) {
+        ck(v, 1, 0);
     }, null);
 }
-export var LazyTreeViewNgFactory = import0.ɵcreateComponentFactory('lazy-tree-view', import1.LazyTreeView, View_LazyTreeView_Host_0);
+export var LazyTreeViewNgFactory = import0.ɵccf('lazy-tree-view', import1.LazyTreeView, View_LazyTreeView_Host_0, { root: 'root' }, {}, []);

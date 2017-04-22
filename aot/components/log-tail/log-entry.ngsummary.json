@@ -1,1 +1,1 @@
-{"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class"}}],"symbols":[{"__symbol":0,"name":"LogEntry","filePath":"/Users/tor/Development/angular-2-samples/components/log-tail/log-entry.d.ts"}]}
+{"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class","members":{"__ctor__":[{"__symbolic":"constructor","parameters":[null,null]}]}}}],"symbols":[{"__symbol":0,"name":"LogEntry","filePath":"/Users/tor/Development/angular-2-samples/components/log-tail/log-entry.d.ts"}]}

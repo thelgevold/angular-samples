@@ -1,1 +1,1 @@
-{"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class"}}],"symbols":[{"__symbol":0,"name":"BaseComment","filePath":"/Users/tor/Development/angular-2-samples/components/change-detection/base-comment.d.ts"}]}
+{"summaries":[{"symbol":{"__symbol":0,"members":[]},"metadata":{"__symbolic":"class","members":{"addComment":[{"__symbolic":"method"}],"lastUpdated":[{"__symbolic":"method"}]}}}],"symbols":[{"__symbol":0,"name":"BaseComment","filePath":"/Users/tor/Development/angular-2-samples/components/change-detection/base-comment.d.ts"}]}

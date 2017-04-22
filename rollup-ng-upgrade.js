@@ -1,7 +1,6 @@
 import nodeResolve from 'rollup-plugin-node-resolve'
 import commonjs    from 'rollup-plugin-commonjs';
 import uglify      from 'rollup-plugin-uglify';
-import closure     from 'google-closure-compiler-js';
 
 export default {
   entry: 'upgrade.js',
