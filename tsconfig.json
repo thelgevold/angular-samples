@@ -9,7 +9,8 @@
     "experimentalDecorators": true,
     "lib": ["es2015", "dom"],
     "allowUnreachableCode": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "outDir": "built"
   },
   "files": [
     "app.module.ts",

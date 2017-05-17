@@ -3,7 +3,7 @@ import commonjs    from 'rollup-plugin-commonjs';
 import uglify      from 'rollup-plugin-uglify';
 
 export default {
-  entry: 'upgrade.js',
+  entry: 'built-upgrade/upgrade.js',
   dest: './dist/upgrade-build.js',
   sourceMap: true,
   sourceMapFile: './dist/upgrade-build.js.map',
