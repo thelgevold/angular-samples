@@ -25,8 +25,8 @@ function View_TreeView_2(l) {
         (l()(), import0.ɵted(null, ['\n\n            '])),
         (l()(), import0.ɵeld(0, null, null, 4, 'ul', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n                '])),
-        (l()(), import0.ɵand(8388608, null, null, 1, null, View_TreeView_3)),
-        import0.ɵdid(401408, null, 0, import1.NgForOf, [
+        (l()(), import0.ɵand(16777216, null, null, 1, null, View_TreeView_3)),
+        import0.ɵdid(802816, null, 0, import1.NgForOf, [
             import0.ViewContainerRef,
             import0.TemplateRef,
             import0.IterableDiffers
@@ -38,7 +38,7 @@ function View_TreeView_2(l) {
         (l()(), import0.ɵted(null, ['\n            '])),
         (l()(), import0.ɵted(null, ['\n\n            '])),
         (l()(), import0.ɵeld(0, null, null, 1, 'tree-view', [], null, null, null, View_TreeView_0, RenderType_TreeView)),
-        import0.ɵdid(24576, null, 0, import2.TreeView, [], { directories: [
+        import0.ɵdid(49152, null, 0, import2.TreeView, [], { directories: [
                 0,
                 'directories'
             ]
@@ -100,8 +100,8 @@ function View_TreeView_1(l) {
             ' ',
             '\n\n        '
         ])),
-        (l()(), import0.ɵand(8388608, null, null, 1, null, View_TreeView_2)),
-        import0.ɵdid(8192, null, 0, import1.NgIf, [
+        (l()(), import0.ɵand(16777216, null, null, 1, null, View_TreeView_2)),
+        import0.ɵdid(16384, null, 0, import1.NgIf, [
             import0.ViewContainerRef,
             import0.TemplateRef
         ], { ngIf: [
@@ -126,8 +126,8 @@ export function View_TreeView_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 4, 'ul', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n    '])),
-        (l()(), import0.ɵand(8388608, null, null, 1, null, View_TreeView_1)),
-        import0.ɵdid(401408, null, 0, import1.NgForOf, [
+        (l()(), import0.ɵand(16777216, null, null, 1, null, View_TreeView_1)),
+        import0.ɵdid(802816, null, 0, import1.NgForOf, [
             import0.ViewContainerRef,
             import0.TemplateRef,
             import0.IterableDiffers
@@ -147,7 +147,7 @@ export function View_TreeView_0(l) {
 function View_TreeView_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'tree-view', [], null, null, null, View_TreeView_0, RenderType_TreeView)),
-        import0.ɵdid(24576, null, 0, import2.TreeView, [], null, null)
+        import0.ɵdid(49152, null, 0, import2.TreeView, [], null, null)
     ], null, null);
 }
 export var TreeViewNgFactory = import0.ɵccf('tree-view', import2.TreeView, View_TreeView_Host_0, { directories: 'directories' }, {}, []);

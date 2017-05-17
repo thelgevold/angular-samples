@@ -28,7 +28,7 @@ export function View_CommentDemo_0(l) {
         ], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n\n        '])),
         (l()(), import0.ɵeld(0, null, null, 1, 'comment-section-1', [], null, null, null, import1.View_CommentSection1_0, import1.RenderType_CommentSection1)),
-        import0.ɵdid(24576, null, 0, import2.CommentSection1, [], null, null),
+        import0.ɵdid(49152, null, 0, import2.CommentSection1, [], null, null),
         (l()(), import0.ɵted(null, ['\n    '])),
         (l()(), import0.ɵted(null, ['\n\n    '])),
         (l()(), import0.ɵeld(0, null, null, 4, 'div', [[
@@ -38,7 +38,7 @@ export function View_CommentDemo_0(l) {
         ], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n        '])),
         (l()(), import0.ɵeld(0, null, null, 1, 'comment-section-2', [], null, null, null, import3.View_CommentSection2_0, import3.RenderType_CommentSection2)),
-        import0.ɵdid(24576, null, 0, import4.CommentSection2, [], null, null),
+        import0.ɵdid(49152, null, 0, import4.CommentSection2, [], null, null),
         (l()(), import0.ɵted(null, ['\n    '])),
         (l()(), import0.ɵted(null, ['\n'])),
         (l()(), import0.ɵted(null, ['\n'])),
@@ -94,7 +94,7 @@ export function View_CommentDemo_0(l) {
 function View_CommentDemo_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'comment-demo', [], null, null, null, View_CommentDemo_0, RenderType_CommentDemo)),
-        import0.ɵdid(24576, null, 0, import5.CommentDemo, [], null, null)
+        import0.ɵdid(49152, null, 0, import5.CommentDemo, [], null, null)
     ], null, null);
 }
 export var CommentDemoNgFactory = import0.ɵccf('comment-demo', import5.CommentDemo, View_CommentDemo_Host_0, {}, {}, []);

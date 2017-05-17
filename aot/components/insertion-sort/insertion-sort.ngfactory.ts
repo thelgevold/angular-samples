@@ -19,7 +19,7 @@ export const RenderType_InsertionSort:import0.RendererType2 = import0.ɵcrt({
 function View_InsertionSort_1(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),5,'td',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
-    import0.ɵdid(139264,(null as any),0,import1.NgClass,[
+    import0.ɵdid(278528,(null as any),0,import1.NgClass,[
       import0.IterableDiffers,
       import0.KeyValueDiffers,
       import0.ElementRef,
@@ -58,8 +58,8 @@ export function View_InsertionSort_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵeld(0,(null as any),(null as any),6,'tbody',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵeld(0,(null as any),(null as any),4,'tr',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n        '])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_InsertionSort_1)),
-    import0.ɵdid(401408,(null as any),0,import1.NgForOf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_InsertionSort_1)),
+    import0.ɵdid(802816,(null as any),0,import1.NgForOf,[
       import0.ViewContainerRef,
       import0.TemplateRef,
       import0.IterableDiffers
@@ -103,7 +103,7 @@ export function View_InsertionSort_0(l:any):import0.ɵViewDefinition {
 function View_InsertionSort_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'insertion-sort',([] as any[]),(null as any),(null as any),(null as any),View_InsertionSort_0,RenderType_InsertionSort)),
-    import0.ɵdid(24576,(null as any),0,import2.InsertionSort,([] as any[]),(null as any),(null as any))
+    import0.ɵdid(49152,(null as any),0,import2.InsertionSort,([] as any[]),(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }

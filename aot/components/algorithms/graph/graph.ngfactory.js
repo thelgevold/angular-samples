@@ -28,8 +28,8 @@ export function View_Graph_0(l) {
         ], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n        Click any pair of nodes to connect them with an edge\n    '])),
         (l()(), import0.ɵted(null, ['\n\n    '])),
-        (l()(), import0.ɵeld(8388608, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
-        import0.ɵdid(24576, null, 0, import2.Vertex, [
+        (l()(), import0.ɵeld(16777216, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
+        import0.ɵdid(49152, null, 0, import2.Vertex, [
             import3.EdgeService,
             import0.ViewContainerRef
         ], { value: [
@@ -48,8 +48,8 @@ export function View_Graph_0(l) {
         (l()(), import0.ɵeld(0, null, null, 8, 'tr', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n            '])),
         (l()(), import0.ɵeld(0, null, null, 2, 'td', [], null, null, null, null, null)),
-        (l()(), import0.ɵeld(8388608, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
-        import0.ɵdid(24576, null, 0, import2.Vertex, [
+        (l()(), import0.ɵeld(16777216, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
+        import0.ɵdid(49152, null, 0, import2.Vertex, [
             import3.EdgeService,
             import0.ViewContainerRef
         ], { value: [
@@ -58,8 +58,8 @@ export function View_Graph_0(l) {
             ]
         }, null),
         (l()(), import0.ɵeld(0, null, null, 2, 'td', [], null, null, null, null, null)),
-        (l()(), import0.ɵeld(8388608, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
-        import0.ɵdid(24576, null, 0, import2.Vertex, [
+        (l()(), import0.ɵeld(16777216, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
+        import0.ɵdid(49152, null, 0, import2.Vertex, [
             import3.EdgeService,
             import0.ViewContainerRef
         ], { value: [
@@ -71,8 +71,8 @@ export function View_Graph_0(l) {
         (l()(), import0.ɵeld(0, null, null, 8, 'tr', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n            '])),
         (l()(), import0.ɵeld(0, null, null, 2, 'td', [], null, null, null, null, null)),
-        (l()(), import0.ɵeld(8388608, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
-        import0.ɵdid(24576, null, 0, import2.Vertex, [
+        (l()(), import0.ɵeld(16777216, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
+        import0.ɵdid(49152, null, 0, import2.Vertex, [
             import3.EdgeService,
             import0.ViewContainerRef
         ], { value: [
@@ -81,8 +81,8 @@ export function View_Graph_0(l) {
             ]
         }, null),
         (l()(), import0.ɵeld(0, null, null, 2, 'td', [], null, null, null, null, null)),
-        (l()(), import0.ɵeld(8388608, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
-        import0.ɵdid(24576, null, 0, import2.Vertex, [
+        (l()(), import0.ɵeld(16777216, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
+        import0.ɵdid(49152, null, 0, import2.Vertex, [
             import3.EdgeService,
             import0.ViewContainerRef
         ], { value: [
@@ -95,8 +95,8 @@ export function View_Graph_0(l) {
         (l()(), import0.ɵeld(0, null, null, 11, 'tr', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n            '])),
         (l()(), import0.ɵeld(0, null, null, 2, 'td', [], null, null, null, null, null)),
-        (l()(), import0.ɵeld(8388608, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
-        import0.ɵdid(24576, null, 0, import2.Vertex, [
+        (l()(), import0.ɵeld(16777216, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
+        import0.ɵdid(49152, null, 0, import2.Vertex, [
             import3.EdgeService,
             import0.ViewContainerRef
         ], { value: [
@@ -105,8 +105,8 @@ export function View_Graph_0(l) {
             ]
         }, null),
         (l()(), import0.ɵeld(0, null, null, 2, 'td', [], null, null, null, null, null)),
-        (l()(), import0.ɵeld(8388608, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
-        import0.ɵdid(24576, null, 0, import2.Vertex, [
+        (l()(), import0.ɵeld(16777216, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
+        import0.ɵdid(49152, null, 0, import2.Vertex, [
             import3.EdgeService,
             import0.ViewContainerRef
         ], { value: [
@@ -115,8 +115,8 @@ export function View_Graph_0(l) {
             ]
         }, null),
         (l()(), import0.ɵeld(0, null, null, 2, 'td', [], null, null, null, null, null)),
-        (l()(), import0.ɵeld(8388608, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
-        import0.ɵdid(24576, null, 0, import2.Vertex, [
+        (l()(), import0.ɵeld(16777216, null, null, 1, 'vertex', [], null, null, null, import1.View_Vertex_0, import1.RenderType_Vertex)),
+        import0.ɵdid(49152, null, 0, import2.Vertex, [
             import3.EdgeService,
             import0.ViewContainerRef
         ], { value: [
@@ -157,8 +157,8 @@ export function View_Graph_0(l) {
 function View_Graph_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 2, 'graph', [], null, null, null, View_Graph_0, RenderType_Graph)),
-        import0.ɵprd(256, null, import3.EdgeService, import3.EdgeService, []),
-        import0.ɵdid(57344, null, 0, import4.Graph, [
+        import0.ɵprd(512, null, import3.EdgeService, import3.EdgeService, []),
+        import0.ɵdid(114688, null, 0, import4.Graph, [
             import0.ComponentFactoryResolver,
             import3.EdgeService
         ], null, null)

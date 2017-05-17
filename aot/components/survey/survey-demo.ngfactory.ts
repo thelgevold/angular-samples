@@ -23,7 +23,7 @@ export function View_SurveyDemo_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'h1',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['Survey using Dynamic Form'])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'survey',([] as any[]),(null as any),(null as any),(null as any),import1.View_Survey_0,import1.RenderType_Survey)),
-      import0.ɵdid(57344,(null as any),0,import2.Survey,([] as any[]),{model: [
+      import0.ɵdid(114688,(null as any),0,import2.Survey,([] as any[]),{model: [
         0,
         'model'
       ]
@@ -38,7 +38,7 @@ export function View_SurveyDemo_0(l:any):import0.ɵViewDefinition {
 function View_SurveyDemo_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'survey-demo',([] as any[]),(null as any),(null as any),(null as any),View_SurveyDemo_0,RenderType_SurveyDemo)),
-    import0.ɵdid(24576,(null as any),0,import3.SurveyDemo,([] as any[]),(null as any),(null as any))
+    import0.ɵdid(49152,(null as any),0,import3.SurveyDemo,([] as any[]),(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }

@@ -70,8 +70,8 @@ export function View_ContactList_0(l) {
         (l()(), import0.ɵted(null, ['\n        '])),
         (l()(), import0.ɵeld(0, null, null, 4, 'tbody', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n            '])),
-        (l()(), import0.ɵand(8388608, null, null, 1, null, View_ContactList_1)),
-        import0.ɵdid(401408, null, 0, import1.NgForOf, [
+        (l()(), import0.ɵand(16777216, null, null, 1, null, View_ContactList_1)),
+        import0.ɵdid(802816, null, 0, import1.NgForOf, [
             import0.ViewContainerRef,
             import0.TemplateRef,
             import0.IterableDiffers
@@ -138,7 +138,7 @@ export function View_ContactList_0(l) {
 function View_ContactList_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'contact-list', [], null, null, null, View_ContactList_0, RenderType_ContactList)),
-        import0.ɵdid(24576, null, 0, import2.ContactList, [], null, null)
+        import0.ɵdid(49152, null, 0, import2.ContactList, [], null, null)
     ], null, null);
 }
 export var ContactListNgFactory = import0.ɵccf('contact-list', import2.ContactList, View_ContactList_Host_0, {}, {}, []);

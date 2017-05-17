@@ -35,7 +35,7 @@ export function View_Angular2Host_0(l) {
 function View_Angular2Host_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'angular-2-host', [], null, null, null, View_Angular2Host_0, RenderType_Angular2Host)),
-        import0.ɵdid(57344, null, 0, import1.Angular2Host, [], null, null)
+        import0.ɵdid(114688, null, 0, import1.Angular2Host, [], null, null)
     ], function (ck, v) {
         ck(v, 1, 0);
     }, null);

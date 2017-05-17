@@ -10,7 +10,7 @@ export var RenderType_Parent = import0.ɵcrt({
 });
 export function View_Parent_0(l) {
     return import0.ɵvid(0, [
-        import0.ɵqud(335544320, 1, { viewChildren: 1 }),
+        import0.ɵqud(671088640, 1, { viewChildren: 1 }),
         (l()(), import0.ɵeld(0, null, null, 10, 'div', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n                '])),
         (l()(), import0.ɵeld(0, null, null, 1, 'button', [], null, [[
@@ -29,14 +29,14 @@ export function View_Parent_0(l) {
         (l()(), import0.ɵted(null, ['Update Time via ViewChildren'])),
         (l()(), import0.ɵted(null, ['\n                '])),
         (l()(), import0.ɵeld(0, null, null, 1, 'child', [], null, null, null, import2.View_Child_0, import2.RenderType_Child)),
-        import0.ɵdid(24576, [[
+        import0.ɵdid(49152, [[
                 1,
                 4
             ]
         ], 0, import3.Child, [], null, null),
         (l()(), import0.ɵted(null, ['\n                '])),
         (l()(), import0.ɵeld(0, null, null, 1, 'child', [], null, null, null, import2.View_Child_0, import2.RenderType_Child)),
-        import0.ɵdid(24576, [[
+        import0.ɵdid(49152, [[
                 1,
                 4
             ]
@@ -47,7 +47,7 @@ export function View_Parent_0(l) {
 function View_Parent_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'parent', [], null, null, null, View_Parent_0, RenderType_Parent)),
-        import0.ɵdid(24576, null, 0, import1.Parent, [], null, null)
+        import0.ɵdid(49152, null, 0, import1.Parent, [], null, null)
     ], null, null);
 }
 export var ParentNgFactory = import0.ɵccf('parent', import1.Parent, View_Parent_Host_0, {}, {}, []);

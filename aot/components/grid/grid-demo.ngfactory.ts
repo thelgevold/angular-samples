@@ -24,7 +24,7 @@ export function View_GridDemo_0(l:any):import0.ɵViewDefinition {
         'person grid'
       ]
     ],(null as any),(null as any),(null as any),import1.View_Grid_0,import1.RenderType_Grid)),
-    import0.ɵdid(57344,(null as any),0,import2.Grid,([] as any[]),{
+    import0.ɵdid(114688,(null as any),0,import2.Grid,([] as any[]),{
       columns: [
         0,
         'columns'
@@ -54,7 +54,7 @@ export function View_GridDemo_0(l:any):import0.ɵViewDefinition {
 function View_GridDemo_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'ng-component',([] as any[]),(null as any),(null as any),(null as any),View_GridDemo_0,RenderType_GridDemo)),
-    import0.ɵdid(24576,(null as any),0,import3.GridDemo,([] as any[]),(null as any),(null as any))
+    import0.ɵdid(49152,(null as any),0,import3.GridDemo,([] as any[]),(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }

@@ -82,7 +82,7 @@ export function View_AppComponent_0(l) {
             }
             return ad;
         }, null, null)),
-        import0.ɵdid(335872, null, 0, import1.RouterLinkWithHref, [
+        import0.ɵdid(671744, null, 0, import1.RouterLinkWithHref, [
             import1.Router,
             import1.ActivatedRoute,
             import2.LocationStrategy
@@ -127,7 +127,7 @@ export function View_AppComponent_0(l) {
             }
             return ad;
         }, null, null)),
-        import0.ɵdid(335872, null, 0, import1.RouterLinkWithHref, [
+        import0.ɵdid(671744, null, 0, import1.RouterLinkWithHref, [
             import1.Router,
             import1.ActivatedRoute,
             import2.LocationStrategy
@@ -190,12 +190,12 @@ export function View_AppComponent_0(l) {
             ]
         ], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n    '])),
-        (l()(), import0.ɵeld(8388608, null, null, 1, 'router-outlet', [[
+        (l()(), import0.ɵeld(16777216, null, null, 1, 'router-outlet', [[
                 'name',
                 'msg'
             ]
         ], null, null, null, null, null)),
-        import0.ɵdid(73728, null, 0, import1.RouterOutlet, [
+        import0.ɵdid(147456, null, 0, import1.RouterOutlet, [
             import1.RouterOutletMap,
             import0.ViewContainerRef,
             import0.ComponentFactoryResolver,
@@ -206,8 +206,8 @@ export function View_AppComponent_0(l) {
         ], null, null),
         (l()(), import0.ɵted(null, ['\n'])),
         (l()(), import0.ɵted(null, ['\n'])),
-        (l()(), import0.ɵeld(8388608, null, null, 1, 'router-outlet', [], null, null, null, null, null)),
-        import0.ɵdid(73728, null, 0, import1.RouterOutlet, [
+        (l()(), import0.ɵeld(16777216, null, null, 1, 'router-outlet', [], null, null, null, null, null)),
+        import0.ɵdid(147456, null, 0, import1.RouterOutlet, [
             import1.RouterOutletMap,
             import0.ViewContainerRef,
             import0.ComponentFactoryResolver,
@@ -239,7 +239,7 @@ export function View_AppComponent_0(l) {
 function View_AppComponent_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'demo-app', [], null, null, null, View_AppComponent_0, RenderType_AppComponent)),
-        import0.ɵdid(24576, null, 0, import3.AppComponent, [import2.Location], null, null)
+        import0.ɵdid(49152, null, 0, import3.AppComponent, [import2.Location], null, null)
     ], null, null);
 }
 export var AppComponentNgFactory = import0.ɵccf('demo-app', import3.AppComponent, View_AppComponent_Host_0, {}, {}, []);

@@ -46,7 +46,7 @@ export function View_InputOutput_0(l) {
 function View_InputOutput_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'input-output', [], null, null, null, View_InputOutput_0, RenderType_InputOutput)),
-        import0.ɵdid(57344, null, 0, import1.InputOutput, [
+        import0.ɵdid(114688, null, 0, import1.InputOutput, [
             import0.ElementRef,
             [
                 8,

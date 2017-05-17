@@ -17,7 +17,7 @@ export function View_Algorithms_0(l) {
         (l()(), import0.ɵted(null, ['Watch the list get sorted as the algorithm traverses the list'])),
         (l()(), import0.ɵted(null, ['\n'])),
         (l()(), import0.ɵeld(0, null, null, 1, 'insertion-sort', [], null, null, null, import1.View_InsertionSort_0, import1.RenderType_InsertionSort)),
-        import0.ɵdid(24576, null, 0, import2.InsertionSort, [], null, null),
+        import0.ɵdid(49152, null, 0, import2.InsertionSort, [], null, null),
         (l()(), import0.ɵted(null, ['\n'])),
         (l()(), import0.ɵeld(0, null, null, 2, 'h4', [], null, null, null, null, null)),
         (l()(), import0.ɵeld(0, null, null, 1, 'a', [[
@@ -31,7 +31,7 @@ export function View_Algorithms_0(l) {
 function View_Algorithms_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'algorithms', [], null, null, null, View_Algorithms_0, RenderType_Algorithms)),
-        import0.ɵdid(24576, null, 0, import3.Algorithms, [], null, null)
+        import0.ɵdid(49152, null, 0, import3.Algorithms, [], null, null)
     ], null, null);
 }
 export var AlgorithmsNgFactory = import0.ɵccf('algorithms', import3.Algorithms, View_Algorithms_Host_0, {}, {}, []);

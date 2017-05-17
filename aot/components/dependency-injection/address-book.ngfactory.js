@@ -53,8 +53,8 @@ export function View_AddressBook_0(l) {
         ], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n        '])),
         (l()(), import0.ɵeld(0, null, null, 3, 'tbody', [], null, null, null, null, null)),
-        (l()(), import0.ɵand(8388608, null, null, 1, null, View_AddressBook_1)),
-        import0.ɵdid(401408, null, 0, import1.NgForOf, [
+        (l()(), import0.ɵand(16777216, null, null, 1, null, View_AddressBook_1)),
+        import0.ɵdid(802816, null, 0, import1.NgForOf, [
             import0.ViewContainerRef,
             import0.TemplateRef,
             import0.IterableDiffers
@@ -86,8 +86,8 @@ export function View_AddressBook_0(l) {
 function View_AddressBook_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 2, 'address-book', [], null, null, null, View_AddressBook_0, RenderType_AddressBook)),
-        import0.ɵprd(256, null, import3.AddressBookService, import3.AddressBookService, [import4.Http]),
-        import0.ɵdid(24576, null, 0, import2.AddressBook, [
+        import0.ɵprd(512, null, import3.AddressBookService, import3.AddressBookService, [import4.Http]),
+        import0.ɵdid(49152, null, 0, import2.AddressBook, [
             import3.AddressBookService,
             import5.AddressBookTitleService
         ], null, null)

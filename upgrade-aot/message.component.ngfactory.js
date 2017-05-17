@@ -39,7 +39,7 @@ export function View_MessageComponent_0(l) {
 function View_MessageComponent_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'ng-component', [], null, null, null, View_MessageComponent_0, RenderType_MessageComponent)),
-        import0.ɵdid(57344, null, 0, import1.MessageComponent, [import2.UpgradePubSubService], null, null)
+        import0.ɵdid(114688, null, 0, import1.MessageComponent, [import2.UpgradePubSubService], null, null)
     ], function (ck, v) {
         ck(v, 1, 0);
     }, null);

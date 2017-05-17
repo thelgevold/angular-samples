@@ -19,7 +19,7 @@ export const RenderType_Parent:import0.RendererType2 = import0.ɵcrt({
 );
 export function View_Parent_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
-    import0.ɵqud(335544320,1,{viewChildren: 1}),
+    import0.ɵqud(671088640,1,{viewChildren: 1}),
     (l()(),import0.ɵeld(0,(null as any),(null as any),10,'div',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n                '])),
       (l()(),import0.ɵeld(0,(null as any),(null as any),1,'button',([] as any[]),(null as any),[[
@@ -38,14 +38,14 @@ export function View_Parent_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵted((null as any),['Update Time via ViewChildren'])),
     (l()(),import0.ɵted((null as any),['\n                '])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'child',([] as any[]),(null as any),(null as any),(null as any),import2.View_Child_0,import2.RenderType_Child)),
-      import0.ɵdid(24576,[[
+      import0.ɵdid(49152,[[
         1,
         4
       ]
     ],0,import3.Child,([] as any[]),(null as any),(null as any)),
     (l()(),import0.ɵted((null as any),['\n                '])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'child',([] as any[]),(null as any),(null as any),(null as any),import2.View_Child_0,import2.RenderType_Child)),
-      import0.ɵdid(24576,[[
+      import0.ɵdid(49152,[[
         1,
         4
       ]
@@ -57,7 +57,7 @@ export function View_Parent_0(l:any):import0.ɵViewDefinition {
 function View_Parent_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'parent',([] as any[]),(null as any),(null as any),(null as any),View_Parent_0,RenderType_Parent)),
-    import0.ɵdid(24576,(null as any),0,import1.Parent,([] as any[]),(null as any),(null as any))
+    import0.ɵdid(49152,(null as any),0,import1.Parent,([] as any[]),(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }

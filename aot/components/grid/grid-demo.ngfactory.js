@@ -15,7 +15,7 @@ export function View_GridDemo_0(l) {
                 'person grid'
             ]
         ], null, null, null, import1.View_Grid_0, import1.RenderType_Grid)),
-        import0.ɵdid(57344, null, 0, import2.Grid, [], {
+        import0.ɵdid(114688, null, 0, import2.Grid, [], {
             columns: [
                 0,
                 'columns'
@@ -40,7 +40,7 @@ export function View_GridDemo_0(l) {
 function View_GridDemo_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'ng-component', [], null, null, null, View_GridDemo_0, RenderType_GridDemo)),
-        import0.ɵdid(24576, null, 0, import3.GridDemo, [], null, null)
+        import0.ɵdid(49152, null, 0, import3.GridDemo, [], null, null)
     ], null, null);
 }
 export var GridDemoNgFactory = import0.ɵccf('ng-component', import3.GridDemo, View_GridDemo_Host_0, {}, {}, []);

@@ -47,7 +47,7 @@ export function View_About_0(l) {
             }
             return ad;
         }, null, null)),
-        import0.ɵdid(335872, null, 0, import1.RouterLinkWithHref, [
+        import0.ɵdid(671744, null, 0, import1.RouterLinkWithHref, [
             import1.Router,
             import1.ActivatedRoute,
             import2.LocationStrategy
@@ -92,7 +92,7 @@ export function View_About_0(l) {
 function View_About_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'about', [], null, null, null, View_About_0, RenderType_About)),
-        import0.ɵdid(24576, null, 0, import3.About, [], null, null)
+        import0.ɵdid(49152, null, 0, import3.About, [], null, null)
     ], null, null);
 }
 export var AboutNgFactory = import0.ɵccf('about', import3.About, View_About_Host_0, {}, {}, []);

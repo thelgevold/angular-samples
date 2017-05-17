@@ -40,7 +40,7 @@ export function View_JqueryIntegration_0(l:any):import0.ɵViewDefinition {
 function View_JqueryIntegration_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'jquery-integration',([] as any[]),(null as any),(null as any),(null as any),View_JqueryIntegration_0,RenderType_JqueryIntegration)),
-    import0.ɵdid(57344,(null as any),0,import1.JqueryIntegration,[import0.ElementRef],(null as any),(null as any))
+    import0.ɵdid(114688,(null as any),0,import1.JqueryIntegration,[import0.ElementRef],(null as any),(null as any))
   ]
   ,(ck,v) => {
     ck(v,1,0);

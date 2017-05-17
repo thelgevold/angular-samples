@@ -40,8 +40,8 @@ export function View_Graph_0(l:any):import0.ɵViewDefinition {
     ,(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n        Click any pair of nodes to connect them with an edge\n    '])),
     (l()(),import0.ɵted((null as any),['\n\n    '])),
-    (l()(),import0.ɵeld(8388608,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
-    import0.ɵdid(24576,(null as any),0,import2.Vertex,[
+    (l()(),import0.ɵeld(16777216,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
+    import0.ɵdid(49152,(null as any),0,import2.Vertex,[
       import3.EdgeService,
       import0.ViewContainerRef
     ]
@@ -61,8 +61,8 @@ export function View_Graph_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵeld(0,(null as any),(null as any),8,'tr',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n            '])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),2,'td',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
-    (l()(),import0.ɵeld(8388608,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
-    import0.ɵdid(24576,(null as any),0,import2.Vertex,[
+    (l()(),import0.ɵeld(16777216,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
+    import0.ɵdid(49152,(null as any),0,import2.Vertex,[
       import3.EdgeService,
       import0.ViewContainerRef
     ]
@@ -72,8 +72,8 @@ export function View_Graph_0(l:any):import0.ɵViewDefinition {
       ]
     },(null as any)),
     (l()(),import0.ɵeld(0,(null as any),(null as any),2,'td',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
-    (l()(),import0.ɵeld(8388608,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
-    import0.ɵdid(24576,(null as any),0,import2.Vertex,[
+    (l()(),import0.ɵeld(16777216,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
+    import0.ɵdid(49152,(null as any),0,import2.Vertex,[
       import3.EdgeService,
       import0.ViewContainerRef
     ]
@@ -86,8 +86,8 @@ export function View_Graph_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵeld(0,(null as any),(null as any),8,'tr',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n            '])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),2,'td',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
-    (l()(),import0.ɵeld(8388608,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
-    import0.ɵdid(24576,(null as any),0,import2.Vertex,[
+    (l()(),import0.ɵeld(16777216,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
+    import0.ɵdid(49152,(null as any),0,import2.Vertex,[
       import3.EdgeService,
       import0.ViewContainerRef
     ]
@@ -97,8 +97,8 @@ export function View_Graph_0(l:any):import0.ɵViewDefinition {
       ]
     },(null as any)),
     (l()(),import0.ɵeld(0,(null as any),(null as any),2,'td',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
-    (l()(),import0.ɵeld(8388608,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
-    import0.ɵdid(24576,(null as any),0,import2.Vertex,[
+    (l()(),import0.ɵeld(16777216,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
+    import0.ɵdid(49152,(null as any),0,import2.Vertex,[
       import3.EdgeService,
       import0.ViewContainerRef
     ]
@@ -112,8 +112,8 @@ export function View_Graph_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵeld(0,(null as any),(null as any),11,'tr',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n            '])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),2,'td',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
-    (l()(),import0.ɵeld(8388608,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
-    import0.ɵdid(24576,(null as any),0,import2.Vertex,[
+    (l()(),import0.ɵeld(16777216,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
+    import0.ɵdid(49152,(null as any),0,import2.Vertex,[
       import3.EdgeService,
       import0.ViewContainerRef
     ]
@@ -123,8 +123,8 @@ export function View_Graph_0(l:any):import0.ɵViewDefinition {
       ]
     },(null as any)),
     (l()(),import0.ɵeld(0,(null as any),(null as any),2,'td',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
-    (l()(),import0.ɵeld(8388608,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
-    import0.ɵdid(24576,(null as any),0,import2.Vertex,[
+    (l()(),import0.ɵeld(16777216,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
+    import0.ɵdid(49152,(null as any),0,import2.Vertex,[
       import3.EdgeService,
       import0.ViewContainerRef
     ]
@@ -134,8 +134,8 @@ export function View_Graph_0(l:any):import0.ɵViewDefinition {
       ]
     },(null as any)),
     (l()(),import0.ɵeld(0,(null as any),(null as any),2,'td',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
-    (l()(),import0.ɵeld(8388608,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
-    import0.ɵdid(24576,(null as any),0,import2.Vertex,[
+    (l()(),import0.ɵeld(16777216,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),import1.View_Vertex_0,import1.RenderType_Vertex)),
+    import0.ɵdid(49152,(null as any),0,import2.Vertex,[
       import3.EdgeService,
       import0.ViewContainerRef
     ]
@@ -178,8 +178,8 @@ export function View_Graph_0(l:any):import0.ɵViewDefinition {
 function View_Graph_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),2,'graph',([] as any[]),(null as any),(null as any),(null as any),View_Graph_0,RenderType_Graph)),
-    import0.ɵprd(256,(null as any),import3.EdgeService,import3.EdgeService,([] as any[])),
-    import0.ɵdid(57344,(null as any),0,import4.Graph,[
+    import0.ɵprd(512,(null as any),import3.EdgeService,import3.EdgeService,([] as any[])),
+    import0.ɵdid(114688,(null as any),0,import4.Graph,[
       import0.ComponentFactoryResolver,
       import3.EdgeService
     ]

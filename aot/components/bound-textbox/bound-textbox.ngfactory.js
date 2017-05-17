@@ -44,7 +44,7 @@ export function View_BoundTextbox_0(l) {
 function View_BoundTextbox_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'bound-textbox', [], null, null, null, View_BoundTextbox_0, RenderType_BoundTextbox)),
-        import0.ɵdid(24576, null, 0, import1.BoundTextbox, [], null, null)
+        import0.ɵdid(49152, null, 0, import1.BoundTextbox, [], null, null)
     ], null, null);
 }
 export var BoundTextboxNgFactory = import0.ɵccf('bound-textbox', import1.BoundTextbox, View_BoundTextbox_Host_0, {}, {}, []);

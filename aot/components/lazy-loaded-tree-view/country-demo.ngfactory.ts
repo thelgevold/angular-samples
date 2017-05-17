@@ -26,7 +26,7 @@ export function View_CountryDemo_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵted((null as any),['Lazy loaded TreeView using Redux and RxJs'])),
     (l()(),import0.ɵted((null as any),['\n            '])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'lazy-tree-view',([] as any[]),(null as any),(null as any),(null as any),import1.View_LazyTreeView_0,import1.RenderType_LazyTreeView)),
-    import0.ɵdid(122880,(null as any),0,import2.LazyTreeView,[
+    import0.ɵdid(245760,(null as any),0,import2.LazyTreeView,[
       import3.Store,
       import4.TreeNodeService
     ]
@@ -45,9 +45,9 @@ export function View_CountryDemo_0(l:any):import0.ɵViewDefinition {
 function View_CountryDemo_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),3,'country-demo',([] as any[]),(null as any),(null as any),(null as any),View_CountryDemo_0,RenderType_CountryDemo)),
-    import0.ɵdid(57344,(null as any),0,import5.CountryDemo,([] as any[]),(null as any),(null as any)),
-    import0.ɵprd(2304,(null as any),import3.Store,import3.Store,[import6.Http]),
-    import0.ɵprd(2304,(null as any),import4.TreeNodeService,import4.TreeNodeService,[import3.Store])
+    import0.ɵdid(114688,(null as any),0,import5.CountryDemo,([] as any[]),(null as any),(null as any)),
+    import0.ɵprd(4608,(null as any),import3.Store,import3.Store,[import6.Http]),
+    import0.ɵprd(4608,(null as any),import4.TreeNodeService,import4.TreeNodeService,[import3.Store])
   ]
   ,(ck,v) => {
     ck(v,1,0);

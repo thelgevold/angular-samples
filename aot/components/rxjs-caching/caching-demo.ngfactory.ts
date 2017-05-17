@@ -30,7 +30,7 @@ function View_CachingDemo_1(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵted((null as any),['Friends 1'])),
     (l()(),import0.ɵted((null as any),['\n            '])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'friends-list',([] as any[]),(null as any),(null as any),(null as any),import1.View_FriendsList_0,import1.RenderType_FriendsList)),
-    import0.ɵdid(122880,(null as any),0,import2.FriendsList,[import3.FriendsService],(null as any),(null as any)),
+    import0.ɵdid(245760,(null as any),0,import2.FriendsList,[import3.FriendsService],(null as any),(null as any)),
     (l()(),import0.ɵted((null as any),['\n            '])),
       (l()(),import0.ɵeld(0,(null as any),(null as any),1,'button',([] as any[]),(null as any),[[
         (null as any),
@@ -63,7 +63,7 @@ function View_CachingDemo_2(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵted((null as any),['Friends 2'])),
     (l()(),import0.ɵted((null as any),['\n            '])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'friends-list',([] as any[]),(null as any),(null as any),(null as any),import1.View_FriendsList_0,import1.RenderType_FriendsList)),
-    import0.ɵdid(122880,(null as any),0,import2.FriendsList,[import3.FriendsService],(null as any),(null as any)),
+    import0.ɵdid(245760,(null as any),0,import2.FriendsList,[import3.FriendsService],(null as any),(null as any)),
     (l()(),import0.ɵted((null as any),['\n            '])),
       (l()(),import0.ɵeld(0,(null as any),(null as any),1,'button',([] as any[]),(null as any),[[
         (null as any),
@@ -124,8 +124,8 @@ export function View_CachingDemo_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵeld(0,(null as any),(null as any),8,'table',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n    '])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),6,'tbody',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_CachingDemo_1)),
-    import0.ɵdid(8192,(null as any),0,import5.NgIf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_CachingDemo_1)),
+    import0.ɵdid(16384,(null as any),0,import5.NgIf,[
       import0.ViewContainerRef,
       import0.TemplateRef
     ]
@@ -135,8 +135,8 @@ export function View_CachingDemo_0(l:any):import0.ɵViewDefinition {
       ]
     },(null as any)),
     (l()(),import0.ɵted((null as any),['\n    '])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_CachingDemo_2)),
-    import0.ɵdid(8192,(null as any),0,import5.NgIf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_CachingDemo_2)),
+    import0.ɵdid(16384,(null as any),0,import5.NgIf,[
       import0.ViewContainerRef,
       import0.TemplateRef
     ]
@@ -158,8 +158,8 @@ export function View_CachingDemo_0(l:any):import0.ɵViewDefinition {
 function View_CachingDemo_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),2,'ng-component',([] as any[]),(null as any),(null as any),(null as any),View_CachingDemo_0,RenderType_CachingDemo)),
-    import0.ɵprd(256,(null as any),import3.FriendsService,import3.FriendsService,[import6.Http]),
-    import0.ɵdid(24576,(null as any),0,import4.CachingDemo,[import3.FriendsService],(null as any),(null as any))
+    import0.ɵprd(512,(null as any),import3.FriendsService,import3.FriendsService,[import6.Http]),
+    import0.ɵdid(49152,(null as any),0,import4.CachingDemo,[import3.FriendsService],(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }

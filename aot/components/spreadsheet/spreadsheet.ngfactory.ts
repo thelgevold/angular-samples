@@ -109,8 +109,8 @@ function View_Spreadsheet_2(l:any):import0.ɵViewDefinition {
     ]
     )),
     (l()(),import0.ɵted((null as any),['\n        '])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_Spreadsheet_3)),
-    import0.ɵdid(401408,(null as any),0,import1.NgForOf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Spreadsheet_3)),
+    import0.ɵdid(802816,(null as any),0,import1.NgForOf,[
       import0.ViewContainerRef,
       import0.TemplateRef,
       import0.IterableDiffers
@@ -150,8 +150,8 @@ export function View_Spreadsheet_0(l:any):import0.ɵViewDefinition {
       ]
     ],(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n        '])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_Spreadsheet_1)),
-    import0.ɵdid(401408,(null as any),0,import1.NgForOf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Spreadsheet_1)),
+    import0.ɵdid(802816,(null as any),0,import1.NgForOf,[
       import0.ViewContainerRef,
       import0.TemplateRef,
       import0.IterableDiffers
@@ -163,8 +163,8 @@ export function View_Spreadsheet_0(l:any):import0.ɵViewDefinition {
     },(null as any)),
     (l()(),import0.ɵted((null as any),['\n    '])),
     (l()(),import0.ɵted((null as any),['\n    '])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_Spreadsheet_2)),
-    import0.ɵdid(401408,(null as any),0,import1.NgForOf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_Spreadsheet_2)),
+    import0.ɵdid(802816,(null as any),0,import1.NgForOf,[
       import0.ViewContainerRef,
       import0.TemplateRef,
       import0.IterableDiffers
@@ -195,7 +195,7 @@ export function View_Spreadsheet_0(l:any):import0.ɵViewDefinition {
 function View_Spreadsheet_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'spreadsheet',([] as any[]),(null as any),(null as any),(null as any),View_Spreadsheet_0,RenderType_Spreadsheet)),
-    import0.ɵdid(4218880,(null as any),0,import2.Spreadsheet,([] as any[]),(null as any),(null as any))
+    import0.ɵdid(8437760,(null as any),0,import2.Spreadsheet,([] as any[]),(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }

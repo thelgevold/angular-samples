@@ -23,7 +23,7 @@ export function View_Edge_0(l:any):import0.ɵViewDefinition {
         'edge'
       ]
     ],(null as any),(null as any),(null as any),(null as any),(null as any))),
-    import0.ɵdid(139264,(null as any),0,import1.NgStyle,[
+    import0.ɵdid(278528,(null as any),0,import1.NgStyle,[
       import0.KeyValueDiffers,
       import0.ElementRef,
       import0.Renderer
@@ -43,7 +43,7 @@ export function View_Edge_0(l:any):import0.ɵViewDefinition {
 function View_Edge_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'edge',([] as any[]),(null as any),(null as any),(null as any),View_Edge_0,RenderType_Edge)),
-    import0.ɵdid(24576,(null as any),0,import2.Edge,([] as any[]),(null as any),(null as any))
+    import0.ɵdid(49152,(null as any),0,import2.Edge,([] as any[]),(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }

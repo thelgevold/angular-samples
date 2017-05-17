@@ -118,7 +118,7 @@ export function View_Producer_0(l:any):import0.ɵViewDefinition {
       }
       return ad;
     },(null as any),(null as any))),
-    import0.ɵdid(8192,(null as any),0,import2.DefaultValueAccessor,[
+    import0.ɵdid(16384,(null as any),0,import2.DefaultValueAccessor,[
       import0.Renderer,
       import0.ElementRef,
       [
@@ -128,10 +128,10 @@ export function View_Producer_0(l:any):import0.ɵViewDefinition {
 
     ]
     ,(null as any),(null as any)),
-    import0.ɵprd(512,(null as any),import2.NG_VALUE_ACCESSOR,(p0_0:any) => {
+    import0.ɵprd(1024,(null as any),import2.NG_VALUE_ACCESSOR,(p0_0:any) => {
       return [p0_0];
     },[import2.DefaultValueAccessor]),
-    import0.ɵdid(335872,(null as any),0,import2.NgModel,[
+    import0.ɵdid(671744,(null as any),0,import2.NgModel,[
       [
         8,
         (null as any)
@@ -158,8 +158,8 @@ export function View_Producer_0(l:any):import0.ɵViewDefinition {
         'model'
       ]
     },{update: 'ngModelChange'}),
-    import0.ɵprd(1024,(null as any),import2.NgControl,(null as any),[import2.NgModel]),
-    import0.ɵdid(8192,(null as any),0,import2.NgControlStatus,[import2.NgControl],(null as any),(null as any)),
+    import0.ɵprd(2048,(null as any),import2.NgControl,(null as any),[import2.NgModel]),
+    import0.ɵdid(16384,(null as any),0,import2.NgControlStatus,[import2.NgControl],(null as any),(null as any)),
     (l()(),import0.ɵted((null as any),['\n\n'])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'div',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['Last Name'])),
@@ -260,7 +260,7 @@ export function View_Producer_0(l:any):import0.ɵViewDefinition {
       }
       return ad;
     },(null as any),(null as any))),
-    import0.ɵdid(8192,(null as any),0,import2.DefaultValueAccessor,[
+    import0.ɵdid(16384,(null as any),0,import2.DefaultValueAccessor,[
       import0.Renderer,
       import0.ElementRef,
       [
@@ -270,10 +270,10 @@ export function View_Producer_0(l:any):import0.ɵViewDefinition {
 
     ]
     ,(null as any),(null as any)),
-    import0.ɵprd(512,(null as any),import2.NG_VALUE_ACCESSOR,(p0_0:any) => {
+    import0.ɵprd(1024,(null as any),import2.NG_VALUE_ACCESSOR,(p0_0:any) => {
       return [p0_0];
     },[import2.DefaultValueAccessor]),
-    import0.ɵdid(335872,(null as any),0,import2.NgModel,[
+    import0.ɵdid(671744,(null as any),0,import2.NgModel,[
       [
         8,
         (null as any)
@@ -300,8 +300,8 @@ export function View_Producer_0(l:any):import0.ɵViewDefinition {
         'model'
       ]
     },{update: 'ngModelChange'}),
-    import0.ɵprd(1024,(null as any),import2.NgControl,(null as any),[import2.NgModel]),
-    import0.ɵdid(8192,(null as any),0,import2.NgControlStatus,[import2.NgControl],(null as any),(null as any)),
+    import0.ɵprd(2048,(null as any),import2.NgControl,(null as any),[import2.NgModel]),
+    import0.ɵdid(16384,(null as any),0,import2.NgControlStatus,[import2.NgControl],(null as any),(null as any)),
     (l()(),import0.ɵted((null as any),['\n\n'])),
       (l()(),import0.ɵeld(0,(null as any),(null as any),4,'div',[[
         'style',
@@ -353,7 +353,7 @@ export function View_Producer_0(l:any):import0.ɵViewDefinition {
 function View_Producer_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'producer',([] as any[]),(null as any),(null as any),(null as any),View_Producer_0,RenderType_Producer)),
-    import0.ɵdid(24576,(null as any),0,import1.Producer,[import3.PubSubService],(null as any),(null as any))
+    import0.ɵdid(49152,(null as any),0,import1.Producer,[import3.PubSubService],(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }

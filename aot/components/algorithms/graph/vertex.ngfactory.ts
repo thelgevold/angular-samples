@@ -18,7 +18,7 @@ export const RenderType_Vertex:import0.RendererType2 = import0.ɵcrt({
 );
 export function View_Vertex_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
-    import0.ɵqud(201326592,1,{element: 0}),
+    import0.ɵqud(402653184,1,{element: 0}),
     (l()(),import0.ɵeld(0,[
       [
         1,
@@ -67,8 +67,8 @@ export function View_Vertex_0(l:any):import0.ɵViewDefinition {
 }
 function View_Vertex_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
-    (l()(),import0.ɵeld(8388608,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),View_Vertex_0,RenderType_Vertex)),
-    import0.ɵdid(24576,(null as any),0,import1.Vertex,[
+    (l()(),import0.ɵeld(16777216,(null as any),(null as any),1,'vertex',([] as any[]),(null as any),(null as any),(null as any),View_Vertex_0,RenderType_Vertex)),
+    import0.ɵdid(49152,(null as any),0,import1.Vertex,[
       import2.EdgeService,
       import0.ViewContainerRef
     ]

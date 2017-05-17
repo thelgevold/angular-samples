@@ -161,7 +161,7 @@ export function View_CommentSection2_0(l) {
             }
             return ad;
         }, null, null)),
-        import0.ɵdid(8192, null, 0, import2.DefaultValueAccessor, [
+        import0.ɵdid(16384, null, 0, import2.DefaultValueAccessor, [
             import0.Renderer,
             import0.ElementRef,
             [
@@ -169,10 +169,10 @@ export function View_CommentSection2_0(l) {
                 import2.COMPOSITION_BUFFER_MODE
             ]
         ], null, null),
-        import0.ɵprd(512, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
+        import0.ɵprd(1024, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
             return [p0_0];
         }, [import2.DefaultValueAccessor]),
-        import0.ɵdid(335872, null, 0, import2.NgModel, [
+        import0.ɵdid(671744, null, 0, import2.NgModel, [
             [
                 8,
                 null
@@ -194,8 +194,8 @@ export function View_CommentSection2_0(l) {
                 'model'
             ]
         }, { update: 'ngModelChange' }),
-        import0.ɵprd(1024, null, import2.NgControl, null, [import2.NgModel]),
-        import0.ɵdid(8192, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
+        import0.ɵprd(2048, null, import2.NgControl, null, [import2.NgModel]),
+        import0.ɵdid(16384, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
         (l()(), import0.ɵted(null, ['\n\n    '])),
         (l()(), import0.ɵeld(0, null, null, 1, 'div', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['Text'])),
@@ -282,7 +282,7 @@ export function View_CommentSection2_0(l) {
             }
             return ad;
         }, null, null)),
-        import0.ɵdid(8192, null, 0, import2.DefaultValueAccessor, [
+        import0.ɵdid(16384, null, 0, import2.DefaultValueAccessor, [
             import0.Renderer,
             import0.ElementRef,
             [
@@ -290,10 +290,10 @@ export function View_CommentSection2_0(l) {
                 import2.COMPOSITION_BUFFER_MODE
             ]
         ], null, null),
-        import0.ɵprd(512, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
+        import0.ɵprd(1024, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
             return [p0_0];
         }, [import2.DefaultValueAccessor]),
-        import0.ɵdid(335872, null, 0, import2.NgModel, [
+        import0.ɵdid(671744, null, 0, import2.NgModel, [
             [
                 8,
                 null
@@ -315,8 +315,8 @@ export function View_CommentSection2_0(l) {
                 'model'
             ]
         }, { update: 'ngModelChange' }),
-        import0.ɵprd(1024, null, import2.NgControl, null, [import2.NgModel]),
-        import0.ɵdid(8192, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
+        import0.ɵprd(2048, null, import2.NgControl, null, [import2.NgModel]),
+        import0.ɵdid(16384, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
         (l()(), import0.ɵted(null, ['\n    '])),
         (l()(), import0.ɵeld(0, null, null, 0, 'br', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n    '])),
@@ -329,8 +329,8 @@ export function View_CommentSection2_0(l) {
         ], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n        '])),
         (l()(), import0.ɵeld(0, null, null, 3, 'tbody', [], null, null, null, null, null)),
-        (l()(), import0.ɵand(8388608, null, null, 1, null, View_CommentSection2_1)),
-        import0.ɵdid(401408, null, 0, import3.NgForOf, [
+        (l()(), import0.ɵand(16777216, null, null, 1, null, View_CommentSection2_1)),
+        import0.ɵdid(802816, null, 0, import3.NgForOf, [
             import0.ViewContainerRef,
             import0.TemplateRef,
             import0.IterableDiffers
@@ -377,7 +377,7 @@ export function View_CommentSection2_0(l) {
 function View_CommentSection2_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'comment-section-2', [], null, null, null, View_CommentSection2_0, RenderType_CommentSection2)),
-        import0.ɵdid(24576, null, 0, import1.CommentSection2, [], null, null)
+        import0.ɵdid(49152, null, 0, import1.CommentSection2, [], null, null)
     ], null, null);
 }
 export var CommentSection2NgFactory = import0.ɵccf('comment-section-2', import1.CommentSection2, View_CommentSection2_Host_0, {}, {}, []);

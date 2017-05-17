@@ -38,7 +38,7 @@ export function View_IgnoreBindings_0(l) {
 function View_IgnoreBindings_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'ignore-bindings', [], null, null, null, View_IgnoreBindings_0, RenderType_IgnoreBindings)),
-        import0.ɵdid(24576, null, 0, import1.IgnoreBindings, [], null, null)
+        import0.ɵdid(49152, null, 0, import1.IgnoreBindings, [], null, null)
     ], null, null);
 }
 export var IgnoreBindingsNgFactory = import0.ɵccf('ignore-bindings', import1.IgnoreBindings, View_IgnoreBindings_Host_0, {}, {}, []);

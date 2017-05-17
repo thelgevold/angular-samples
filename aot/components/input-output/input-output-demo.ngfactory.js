@@ -47,7 +47,7 @@ export function View_InputOutputDemo_0(l) {
             }
             return ad;
         }, import2.View_InputOutput_0, import2.RenderType_InputOutput)),
-        import0.ɵdid(57344, null, 0, import3.InputOutput, [
+        import0.ɵdid(114688, null, 0, import3.InputOutput, [
             import0.ElementRef,
             [
                 8,
@@ -89,7 +89,7 @@ export function View_InputOutputDemo_0(l) {
 function View_InputOutputDemo_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'ng-component', [], null, null, null, View_InputOutputDemo_0, RenderType_InputOutputDemo)),
-        import0.ɵdid(24576, null, 0, import1.InputOutputDemo, [], null, null)
+        import0.ɵdid(49152, null, 0, import1.InputOutputDemo, [], null, null)
     ], null, null);
 }
 export var InputOutputDemoNgFactory = import0.ɵccf('ng-component', import1.InputOutputDemo, View_InputOutputDemo_Host_0, {}, {}, []);

@@ -37,7 +37,7 @@ export function View_CommentDemo_0(l:any):import0.ɵViewDefinition {
     ],(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n\n        '])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'comment-section-1',([] as any[]),(null as any),(null as any),(null as any),import1.View_CommentSection1_0,import1.RenderType_CommentSection1)),
-    import0.ɵdid(24576,(null as any),0,import2.CommentSection1,([] as any[]),(null as any),(null as any)),
+    import0.ɵdid(49152,(null as any),0,import2.CommentSection1,([] as any[]),(null as any),(null as any)),
     (l()(),import0.ɵted((null as any),['\n    '])),
     (l()(),import0.ɵted((null as any),['\n\n    '])),
       (l()(),import0.ɵeld(0,(null as any),(null as any),4,'div',[[
@@ -47,7 +47,7 @@ export function View_CommentDemo_0(l:any):import0.ɵViewDefinition {
     ],(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n        '])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'comment-section-2',([] as any[]),(null as any),(null as any),(null as any),import3.View_CommentSection2_0,import3.RenderType_CommentSection2)),
-    import0.ɵdid(24576,(null as any),0,import4.CommentSection2,([] as any[]),(null as any),(null as any)),
+    import0.ɵdid(49152,(null as any),0,import4.CommentSection2,([] as any[]),(null as any),(null as any)),
     (l()(),import0.ɵted((null as any),['\n    '])),
     (l()(),import0.ɵted((null as any),['\n'])),
     (l()(),import0.ɵted((null as any),['\n'])),
@@ -105,7 +105,7 @@ export function View_CommentDemo_0(l:any):import0.ɵViewDefinition {
 function View_CommentDemo_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'comment-demo',([] as any[]),(null as any),(null as any),(null as any),View_CommentDemo_0,RenderType_CommentDemo)),
-    import0.ɵdid(24576,(null as any),0,import5.CommentDemo,([] as any[]),(null as any),(null as any))
+    import0.ɵdid(49152,(null as any),0,import5.CommentDemo,([] as any[]),(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }

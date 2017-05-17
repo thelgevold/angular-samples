@@ -60,7 +60,7 @@ export function View_InputOutput_0(l:any):import0.ɵViewDefinition {
 function View_InputOutput_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'input-output',([] as any[]),(null as any),(null as any),(null as any),View_InputOutput_0,RenderType_InputOutput)),
-    import0.ɵdid(57344,(null as any),0,import1.InputOutput,[
+    import0.ɵdid(114688,(null as any),0,import1.InputOutput,[
       import0.ElementRef,
       [
         8,

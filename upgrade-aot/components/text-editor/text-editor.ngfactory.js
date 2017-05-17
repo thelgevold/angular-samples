@@ -10,7 +10,7 @@ export var RenderType_TextEditor = import0.ɵcrt({
 function View_TextEditor_1(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 3, 'span', [], null, null, null, null, null)),
-        import0.ɵdid(139264, null, 0, import1.NgClass, [
+        import0.ɵdid(278528, null, 0, import1.NgClass, [
             import0.IterableDiffers,
             import0.KeyValueDiffers,
             import0.ElementRef,
@@ -70,8 +70,8 @@ export function View_TextEditor_0(l) {
                 'page'
             ]
         ], null, null, null, null, null)),
-        (l()(), import0.ɵand(8388608, null, null, 1, null, View_TextEditor_1)),
-        import0.ɵdid(401408, null, 0, import1.NgForOf, [
+        (l()(), import0.ɵand(16777216, null, null, 1, null, View_TextEditor_1)),
+        import0.ɵdid(802816, null, 0, import1.NgForOf, [
             import0.ViewContainerRef,
             import0.TemplateRef,
             import0.IterableDiffers
@@ -98,7 +98,7 @@ export function View_TextEditor_0(l) {
 function View_TextEditor_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'editor', [], null, null, null, View_TextEditor_0, RenderType_TextEditor)),
-        import0.ɵdid(57344, null, 0, import2.TextEditor, [], null, null)
+        import0.ɵdid(114688, null, 0, import2.TextEditor, [], null, null)
     ], function (ck, v) {
         ck(v, 1, 0);
     }, null);

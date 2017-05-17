@@ -122,7 +122,7 @@ export function View_HttpSample_0(l:any):import0.ɵViewDefinition {
       }
       return ad;
     },(null as any),(null as any))),
-    import0.ɵdid(139264,(null as any),0,import2.NgClass,[
+    import0.ɵdid(278528,(null as any),0,import2.NgClass,[
       import0.IterableDiffers,
       import0.KeyValueDiffers,
       import0.ElementRef,
@@ -151,7 +151,7 @@ export function View_HttpSample_0(l:any):import0.ɵViewDefinition {
       }
       return ad;
     },(null as any),(null as any))),
-    import0.ɵdid(139264,(null as any),0,import2.NgClass,[
+    import0.ɵdid(278528,(null as any),0,import2.NgClass,[
       import0.IterableDiffers,
       import0.KeyValueDiffers,
       import0.ElementRef,
@@ -180,7 +180,7 @@ export function View_HttpSample_0(l:any):import0.ɵViewDefinition {
       }
       return ad;
     },(null as any),(null as any))),
-    import0.ɵdid(139264,(null as any),0,import2.NgClass,[
+    import0.ɵdid(278528,(null as any),0,import2.NgClass,[
       import0.IterableDiffers,
       import0.KeyValueDiffers,
       import0.ElementRef,
@@ -209,7 +209,7 @@ export function View_HttpSample_0(l:any):import0.ɵViewDefinition {
       }
       return ad;
     },(null as any),(null as any))),
-    import0.ɵdid(139264,(null as any),0,import2.NgClass,[
+    import0.ɵdid(278528,(null as any),0,import2.NgClass,[
       import0.IterableDiffers,
       import0.KeyValueDiffers,
       import0.ElementRef,
@@ -255,8 +255,8 @@ export function View_HttpSample_0(l:any):import0.ɵViewDefinition {
     ,(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n    List of friends using Observables\n'])),
     (l()(),import0.ɵted((null as any),['\n'])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_HttpSample_1)),
-    import0.ɵdid(401408,(null as any),0,import2.NgForOf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_HttpSample_1)),
+    import0.ɵdid(802816,(null as any),0,import2.NgForOf,[
       import0.ViewContainerRef,
       import0.TemplateRef,
       import0.IterableDiffers
@@ -284,8 +284,8 @@ export function View_HttpSample_0(l:any):import0.ɵViewDefinition {
     ,(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n    List of friends loaded using Promises\n'])),
     (l()(),import0.ɵted((null as any),['\n'])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_HttpSample_2)),
-    import0.ɵdid(401408,(null as any),0,import2.NgForOf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_HttpSample_2)),
+    import0.ɵdid(802816,(null as any),0,import2.NgForOf,[
       import0.ViewContainerRef,
       import0.TemplateRef,
       import0.IterableDiffers
@@ -316,8 +316,8 @@ export function View_HttpSample_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'div',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['Friends:'])),
     (l()(),import0.ɵted((null as any),['\n'])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_HttpSample_3)),
-    import0.ɵdid(401408,(null as any),0,import2.NgForOf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_HttpSample_3)),
+    import0.ɵdid(802816,(null as any),0,import2.NgForOf,[
       import0.ViewContainerRef,
       import0.TemplateRef,
       import0.IterableDiffers
@@ -376,8 +376,8 @@ export function View_HttpSample_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵted((null as any),['\n\n'])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),0,'br',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n'])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_HttpSample_4)),
-    import0.ɵdid(8192,(null as any),0,import2.NgIf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_HttpSample_4)),
+    import0.ɵdid(16384,(null as any),0,import2.NgIf,[
       import0.ViewContainerRef,
       import0.TemplateRef
     ]
@@ -482,7 +482,7 @@ export function View_HttpSample_0(l:any):import0.ɵViewDefinition {
 function View_HttpSample_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'ng-component',([] as any[]),(null as any),(null as any),(null as any),View_HttpSample_0,RenderType_HttpSample)),
-    import0.ɵdid(24576,(null as any),0,import1.HttpSample,[import3.Http],(null as any),(null as any))
+    import0.ɵdid(49152,(null as any),0,import1.HttpSample,[import3.Http],(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }

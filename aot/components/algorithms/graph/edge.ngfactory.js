@@ -14,7 +14,7 @@ export function View_Edge_0(l) {
                 'edge'
             ]
         ], null, null, null, null, null)),
-        import0.ɵdid(139264, null, 0, import1.NgStyle, [
+        import0.ɵdid(278528, null, 0, import1.NgStyle, [
             import0.KeyValueDiffers,
             import0.ElementRef,
             import0.Renderer
@@ -32,7 +32,7 @@ export function View_Edge_0(l) {
 function View_Edge_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'edge', [], null, null, null, View_Edge_0, RenderType_Edge)),
-        import0.ɵdid(24576, null, 0, import2.Edge, [], null, null)
+        import0.ɵdid(49152, null, 0, import2.Edge, [], null, null)
     ], null, null);
 }
 export var EdgeNgFactory = import0.ɵccf('edge', import2.Edge, View_Edge_Host_0, {}, {}, []);

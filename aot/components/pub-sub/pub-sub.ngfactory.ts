@@ -26,13 +26,13 @@ export function View_PubSub_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵted((null as any),['Pub Sub Using Observables'])),
     (l()(),import0.ɵted((null as any),['\n\n'])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'producer',([] as any[]),(null as any),(null as any),(null as any),import1.View_Producer_0,import1.RenderType_Producer)),
-    import0.ɵdid(24576,(null as any),0,import2.Producer,[import3.PubSubService],(null as any),(null as any)),
+    import0.ɵdid(49152,(null as any),0,import2.Producer,[import3.PubSubService],(null as any),(null as any)),
     (l()(),import0.ɵted((null as any),['\n\n'])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),0,'br',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵeld(0,(null as any),(null as any),0,'br',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n'])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'consumer',([] as any[]),(null as any),(null as any),(null as any),import4.View_Consumer_0,import4.RenderType_Consumer)),
-    import0.ɵdid(57344,(null as any),0,import5.Consumer,[import3.PubSubService],(null as any),(null as any)),
+    import0.ɵdid(114688,(null as any),0,import5.Consumer,[import3.PubSubService],(null as any),(null as any)),
     (l()(),import0.ɵted((null as any),['\n\n'])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),2,'h4',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
       (l()(),import0.ɵeld(0,(null as any),(null as any),1,'a',[[
@@ -49,8 +49,8 @@ export function View_PubSub_0(l:any):import0.ɵViewDefinition {
 function View_PubSub_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),2,'pub-sub',([] as any[]),(null as any),(null as any),(null as any),View_PubSub_0,RenderType_PubSub)),
-    import0.ɵdid(24576,(null as any),0,import6.PubSub,([] as any[]),(null as any),(null as any)),
-    import0.ɵprd(2304,(null as any),import3.PubSubService,import3.PubSubService,([] as any[]))
+    import0.ɵdid(49152,(null as any),0,import6.PubSub,([] as any[]),(null as any),(null as any)),
+    import0.ɵprd(4608,(null as any),import3.PubSubService,import3.PubSubService,([] as any[]))
   ]
   ,(null as any),(null as any));
 }

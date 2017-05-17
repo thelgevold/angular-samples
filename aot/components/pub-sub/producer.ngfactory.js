@@ -95,7 +95,7 @@ export function View_Producer_0(l) {
             }
             return ad;
         }, null, null)),
-        import0.ɵdid(8192, null, 0, import2.DefaultValueAccessor, [
+        import0.ɵdid(16384, null, 0, import2.DefaultValueAccessor, [
             import0.Renderer,
             import0.ElementRef,
             [
@@ -103,10 +103,10 @@ export function View_Producer_0(l) {
                 import2.COMPOSITION_BUFFER_MODE
             ]
         ], null, null),
-        import0.ɵprd(512, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
+        import0.ɵprd(1024, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
             return [p0_0];
         }, [import2.DefaultValueAccessor]),
-        import0.ɵdid(335872, null, 0, import2.NgModel, [
+        import0.ɵdid(671744, null, 0, import2.NgModel, [
             [
                 8,
                 null
@@ -128,8 +128,8 @@ export function View_Producer_0(l) {
                 'model'
             ]
         }, { update: 'ngModelChange' }),
-        import0.ɵprd(1024, null, import2.NgControl, null, [import2.NgModel]),
-        import0.ɵdid(8192, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
+        import0.ɵprd(2048, null, import2.NgControl, null, [import2.NgModel]),
+        import0.ɵdid(16384, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
         (l()(), import0.ɵted(null, ['\n\n'])),
         (l()(), import0.ɵeld(0, null, null, 1, 'div', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['Last Name'])),
@@ -216,7 +216,7 @@ export function View_Producer_0(l) {
             }
             return ad;
         }, null, null)),
-        import0.ɵdid(8192, null, 0, import2.DefaultValueAccessor, [
+        import0.ɵdid(16384, null, 0, import2.DefaultValueAccessor, [
             import0.Renderer,
             import0.ElementRef,
             [
@@ -224,10 +224,10 @@ export function View_Producer_0(l) {
                 import2.COMPOSITION_BUFFER_MODE
             ]
         ], null, null),
-        import0.ɵprd(512, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
+        import0.ɵprd(1024, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
             return [p0_0];
         }, [import2.DefaultValueAccessor]),
-        import0.ɵdid(335872, null, 0, import2.NgModel, [
+        import0.ɵdid(671744, null, 0, import2.NgModel, [
             [
                 8,
                 null
@@ -249,8 +249,8 @@ export function View_Producer_0(l) {
                 'model'
             ]
         }, { update: 'ngModelChange' }),
-        import0.ɵprd(1024, null, import2.NgControl, null, [import2.NgModel]),
-        import0.ɵdid(8192, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
+        import0.ɵprd(2048, null, import2.NgControl, null, [import2.NgModel]),
+        import0.ɵdid(16384, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
         (l()(), import0.ɵted(null, ['\n\n'])),
         (l()(), import0.ɵeld(0, null, null, 4, 'div', [[
                 'style',
@@ -301,7 +301,7 @@ export function View_Producer_0(l) {
 function View_Producer_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'producer', [], null, null, null, View_Producer_0, RenderType_Producer)),
-        import0.ɵdid(24576, null, 0, import1.Producer, [import3.PubSubService], null, null)
+        import0.ɵdid(49152, null, 0, import1.Producer, [import3.PubSubService], null, null)
     ], null, null);
 }
 export var ProducerNgFactory = import0.ɵccf('producer', import1.Producer, View_Producer_Host_0, {

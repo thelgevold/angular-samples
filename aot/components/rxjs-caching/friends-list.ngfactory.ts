@@ -34,8 +34,8 @@ function View_FriendsList_1(l:any):import0.ɵViewDefinition {
 export function View_FriendsList_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵted((null as any),['\n    '])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_FriendsList_1)),
-    import0.ɵdid(401408,(null as any),0,import1.NgForOf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_FriendsList_1)),
+    import0.ɵdid(802816,(null as any),0,import1.NgForOf,[
       import0.ViewContainerRef,
       import0.TemplateRef,
       import0.IterableDiffers
@@ -71,7 +71,7 @@ export function View_FriendsList_0(l:any):import0.ɵViewDefinition {
 function View_FriendsList_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'friends-list',([] as any[]),(null as any),(null as any),(null as any),View_FriendsList_0,RenderType_FriendsList)),
-    import0.ɵdid(122880,(null as any),0,import2.FriendsList,[import3.FriendsService],(null as any),(null as any))
+    import0.ɵdid(245760,(null as any),0,import2.FriendsList,[import3.FriendsService],(null as any),(null as any))
   ]
   ,(ck,v) => {
     ck(v,1,0);

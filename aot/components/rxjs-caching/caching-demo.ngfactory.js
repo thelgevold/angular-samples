@@ -21,7 +21,7 @@ function View_CachingDemo_1(l) {
         (l()(), import0.ɵted(null, ['Friends 1'])),
         (l()(), import0.ɵted(null, ['\n            '])),
         (l()(), import0.ɵeld(0, null, null, 1, 'friends-list', [], null, null, null, import1.View_FriendsList_0, import1.RenderType_FriendsList)),
-        import0.ɵdid(122880, null, 0, import2.FriendsList, [import3.FriendsService], null, null),
+        import0.ɵdid(245760, null, 0, import2.FriendsList, [import3.FriendsService], null, null),
         (l()(), import0.ɵted(null, ['\n            '])),
         (l()(), import0.ɵeld(0, null, null, 1, 'button', [], null, [[
                 null,
@@ -53,7 +53,7 @@ function View_CachingDemo_2(l) {
         (l()(), import0.ɵted(null, ['Friends 2'])),
         (l()(), import0.ɵted(null, ['\n            '])),
         (l()(), import0.ɵeld(0, null, null, 1, 'friends-list', [], null, null, null, import1.View_FriendsList_0, import1.RenderType_FriendsList)),
-        import0.ɵdid(122880, null, 0, import2.FriendsList, [import3.FriendsService], null, null),
+        import0.ɵdid(245760, null, 0, import2.FriendsList, [import3.FriendsService], null, null),
         (l()(), import0.ɵted(null, ['\n            '])),
         (l()(), import0.ɵeld(0, null, null, 1, 'button', [], null, [[
                 null,
@@ -113,8 +113,8 @@ export function View_CachingDemo_0(l) {
         (l()(), import0.ɵeld(0, null, null, 8, 'table', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n    '])),
         (l()(), import0.ɵeld(0, null, null, 6, 'tbody', [], null, null, null, null, null)),
-        (l()(), import0.ɵand(8388608, null, null, 1, null, View_CachingDemo_1)),
-        import0.ɵdid(8192, null, 0, import5.NgIf, [
+        (l()(), import0.ɵand(16777216, null, null, 1, null, View_CachingDemo_1)),
+        import0.ɵdid(16384, null, 0, import5.NgIf, [
             import0.ViewContainerRef,
             import0.TemplateRef
         ], { ngIf: [
@@ -123,8 +123,8 @@ export function View_CachingDemo_0(l) {
             ]
         }, null),
         (l()(), import0.ɵted(null, ['\n    '])),
-        (l()(), import0.ɵand(8388608, null, null, 1, null, View_CachingDemo_2)),
-        import0.ɵdid(8192, null, 0, import5.NgIf, [
+        (l()(), import0.ɵand(16777216, null, null, 1, null, View_CachingDemo_2)),
+        import0.ɵdid(16384, null, 0, import5.NgIf, [
             import0.ViewContainerRef,
             import0.TemplateRef
         ], { ngIf: [
@@ -144,8 +144,8 @@ export function View_CachingDemo_0(l) {
 function View_CachingDemo_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 2, 'ng-component', [], null, null, null, View_CachingDemo_0, RenderType_CachingDemo)),
-        import0.ɵprd(256, null, import3.FriendsService, import3.FriendsService, [import6.Http]),
-        import0.ɵdid(24576, null, 0, import4.CachingDemo, [import3.FriendsService], null, null)
+        import0.ɵprd(512, null, import3.FriendsService, import3.FriendsService, [import6.Http]),
+        import0.ɵdid(49152, null, 0, import4.CachingDemo, [import3.FriendsService], null, null)
     ], null, null);
 }
 export var CachingDemoNgFactory = import0.ɵccf('ng-component', import4.CachingDemo, View_CachingDemo_Host_0, {}, {}, []);

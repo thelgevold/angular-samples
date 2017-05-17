@@ -13,7 +13,7 @@ export function View_TreeViewDemo_0(l) {
         (l()(), import0.ɵeld(0, null, null, 1, 'h1', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['Recursive TreeView'])),
         (l()(), import0.ɵeld(0, null, null, 1, 'tree-view', [], null, null, null, import1.View_TreeView_0, import1.RenderType_TreeView)),
-        import0.ɵdid(24576, null, 0, import2.TreeView, [], { directories: [
+        import0.ɵdid(49152, null, 0, import2.TreeView, [], { directories: [
                 0,
                 'directories'
             ]
@@ -35,7 +35,7 @@ export function View_TreeViewDemo_0(l) {
 function View_TreeViewDemo_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'ng-component', [], null, null, null, View_TreeViewDemo_0, RenderType_TreeViewDemo)),
-        import0.ɵdid(24576, null, 0, import3.TreeViewDemo, [], null, null)
+        import0.ɵdid(49152, null, 0, import3.TreeViewDemo, [], null, null)
     ], null, null);
 }
 export var TreeViewDemoNgFactory = import0.ɵccf('ng-component', import3.TreeViewDemo, View_TreeViewDemo_Host_0, {}, {}, []);

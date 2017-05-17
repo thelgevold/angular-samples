@@ -22,7 +22,7 @@ export function View_Child_0(l) {
 function View_Child_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'child', [], null, null, null, View_Child_0, RenderType_Child)),
-        import0.ɵdid(24576, null, 0, import1.Child, [], null, null)
+        import0.ɵdid(49152, null, 0, import1.Child, [], null, null)
     ], null, null);
 }
 export var ChildNgFactory = import0.ɵccf('child', import1.Child, View_Child_Host_0, {}, {}, []);

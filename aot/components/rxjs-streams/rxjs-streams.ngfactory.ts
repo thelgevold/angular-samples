@@ -25,7 +25,7 @@ function View_RxJsStreams_1(l:any):import0.ɵViewDefinition {
         'floatLeft'
       ]
     ],(null as any),(null as any),(null as any),(null as any),(null as any))),
-    import0.ɵdid(139264,(null as any),0,import1.NgClass,[
+    import0.ɵdid(278528,(null as any),0,import1.NgClass,[
       import0.IterableDiffers,
       import0.KeyValueDiffers,
       import0.ElementRef,
@@ -74,7 +74,7 @@ function View_RxJsStreams_2(l:any):import0.ɵViewDefinition {
         'floatLeft'
       ]
     ],(null as any),(null as any),(null as any),(null as any),(null as any))),
-    import0.ɵdid(139264,(null as any),0,import1.NgClass,[
+    import0.ɵdid(278528,(null as any),0,import1.NgClass,[
       import0.IterableDiffers,
       import0.KeyValueDiffers,
       import0.ElementRef,
@@ -119,7 +119,7 @@ function View_RxJsStreams_3(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵeld(0,(null as any),(null as any),6,'div',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['\n    '])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),3,'div',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
-    import0.ɵdid(139264,(null as any),0,import1.NgClass,[
+    import0.ɵdid(278528,(null as any),0,import1.NgClass,[
       import0.IterableDiffers,
       import0.KeyValueDiffers,
       import0.ElementRef,
@@ -237,8 +237,8 @@ export function View_RxJsStreams_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'h4',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['Concatenated Streams'])),
     (l()(),import0.ɵted((null as any),['\n  '])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_RxJsStreams_1)),
-    import0.ɵdid(401408,(null as any),0,import1.NgForOf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_RxJsStreams_1)),
+    import0.ɵdid(802816,(null as any),0,import1.NgForOf,[
       import0.ViewContainerRef,
       import0.TemplateRef,
       import0.IterableDiffers
@@ -259,8 +259,8 @@ export function View_RxJsStreams_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'h4',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['Merged Streams'])),
     (l()(),import0.ɵted((null as any),['\n  '])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_RxJsStreams_2)),
-    import0.ɵdid(401408,(null as any),0,import1.NgForOf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_RxJsStreams_2)),
+    import0.ɵdid(802816,(null as any),0,import1.NgForOf,[
       import0.ViewContainerRef,
       import0.TemplateRef,
       import0.IterableDiffers
@@ -281,8 +281,8 @@ export function View_RxJsStreams_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'h4',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
     (l()(),import0.ɵted((null as any),['ForkJoined Streams'])),
     (l()(),import0.ɵted((null as any),['\n  '])),
-    (l()(),import0.ɵand(8388608,(null as any),(null as any),1,(null as any),View_RxJsStreams_3)),
-    import0.ɵdid(401408,(null as any),0,import1.NgForOf,[
+    (l()(),import0.ɵand(16777216,(null as any),(null as any),1,(null as any),View_RxJsStreams_3)),
+    import0.ɵdid(802816,(null as any),0,import1.NgForOf,[
       import0.ViewContainerRef,
       import0.TemplateRef,
       import0.IterableDiffers
@@ -327,7 +327,7 @@ export function View_RxJsStreams_0(l:any):import0.ɵViewDefinition {
 function View_RxJsStreams_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'rxjs-streams',([] as any[]),(null as any),(null as any),(null as any),View_RxJsStreams_0,RenderType_RxJsStreams)),
-    import0.ɵdid(24576,(null as any),0,import2.RxJsStreams,([] as any[]),(null as any),(null as any))
+    import0.ɵdid(49152,(null as any),0,import2.RxJsStreams,([] as any[]),(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }

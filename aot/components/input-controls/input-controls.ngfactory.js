@@ -127,7 +127,7 @@ export function View_InputControls_0(l) {
             }
             return ad;
         }, null, null)),
-        import0.ɵdid(8192, null, 0, import2.DefaultValueAccessor, [
+        import0.ɵdid(16384, null, 0, import2.DefaultValueAccessor, [
             import0.Renderer,
             import0.ElementRef,
             [
@@ -135,10 +135,10 @@ export function View_InputControls_0(l) {
                 import2.COMPOSITION_BUFFER_MODE
             ]
         ], null, null),
-        import0.ɵprd(512, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
+        import0.ɵprd(1024, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
             return [p0_0];
         }, [import2.DefaultValueAccessor]),
-        import0.ɵdid(335872, null, 0, import2.NgModel, [
+        import0.ɵdid(671744, null, 0, import2.NgModel, [
             [
                 8,
                 null
@@ -160,8 +160,8 @@ export function View_InputControls_0(l) {
                 'model'
             ]
         }, { update: 'ngModelChange' }),
-        import0.ɵprd(1024, null, import2.NgControl, null, [import2.NgModel]),
-        import0.ɵdid(8192, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
+        import0.ɵprd(2048, null, import2.NgControl, null, [import2.NgModel]),
+        import0.ɵdid(16384, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
         (l()(), import0.ɵted(null, ['\n\n                '])),
         (l()(), import0.ɵeld(0, null, null, 1, 'div', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, [
@@ -361,8 +361,8 @@ export function View_InputControls_0(l) {
         (l()(), import0.ɵted(null, ['\n                Selected Skills:\n                '])),
         (l()(), import0.ɵeld(0, null, null, 10, 'ul', [], null, null, null, null, null)),
         (l()(), import0.ɵted(null, ['\n                    '])),
-        (l()(), import0.ɵand(8388608, null, null, 1, null, View_InputControls_1)),
-        import0.ɵdid(8192, null, 0, import3.NgIf, [
+        (l()(), import0.ɵand(16777216, null, null, 1, null, View_InputControls_1)),
+        import0.ɵdid(16384, null, 0, import3.NgIf, [
             import0.ViewContainerRef,
             import0.TemplateRef
         ], { ngIf: [
@@ -371,8 +371,8 @@ export function View_InputControls_0(l) {
             ]
         }, null),
         (l()(), import0.ɵted(null, ['\n                    '])),
-        (l()(), import0.ɵand(8388608, null, null, 1, null, View_InputControls_2)),
-        import0.ɵdid(8192, null, 0, import3.NgIf, [
+        (l()(), import0.ɵand(16777216, null, null, 1, null, View_InputControls_2)),
+        import0.ɵdid(16384, null, 0, import3.NgIf, [
             import0.ViewContainerRef,
             import0.TemplateRef
         ], { ngIf: [
@@ -381,8 +381,8 @@ export function View_InputControls_0(l) {
             ]
         }, null),
         (l()(), import0.ɵted(null, ['\n                    '])),
-        (l()(), import0.ɵand(8388608, null, null, 1, null, View_InputControls_3)),
-        import0.ɵdid(8192, null, 0, import3.NgIf, [
+        (l()(), import0.ɵand(16777216, null, null, 1, null, View_InputControls_3)),
+        import0.ɵdid(16384, null, 0, import3.NgIf, [
             import0.ViewContainerRef,
             import0.TemplateRef
         ], { ngIf: [
@@ -429,7 +429,7 @@ export function View_InputControls_0(l) {
 function View_InputControls_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 1, 'input-controls', [], null, null, null, View_InputControls_0, RenderType_InputControls)),
-        import0.ɵdid(24576, null, 0, import1.InputControls, [], null, null)
+        import0.ɵdid(49152, null, 0, import1.InputControls, [], null, null)
     ], null, null);
 }
 export var InputControlsNgFactory = import0.ɵccf('input-controls', import1.InputControls, View_InputControls_Host_0, {}, {}, []);

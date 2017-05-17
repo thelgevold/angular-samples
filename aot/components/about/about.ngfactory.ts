@@ -59,7 +59,7 @@ export function View_About_0(l:any):import0.ɵViewDefinition {
       }
       return ad;
     },(null as any),(null as any))),
-    import0.ɵdid(335872,(null as any),0,import1.RouterLinkWithHref,[
+    import0.ɵdid(671744,(null as any),0,import1.RouterLinkWithHref,[
       import1.Router,
       import1.ActivatedRoute,
       import2.LocationStrategy
@@ -106,7 +106,7 @@ export function View_About_0(l:any):import0.ɵViewDefinition {
 function View_About_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'about',([] as any[]),(null as any),(null as any),(null as any),View_About_0,RenderType_About)),
-    import0.ɵdid(24576,(null as any),0,import3.About,([] as any[]),(null as any),(null as any))
+    import0.ɵdid(49152,(null as any),0,import3.About,([] as any[]),(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }

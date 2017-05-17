@@ -151,7 +151,7 @@ export function View_LogDemo_0(l) {
             }
             return ad;
         }, null, null)),
-        import0.ɵdid(8192, null, 0, import2.DefaultValueAccessor, [
+        import0.ɵdid(16384, null, 0, import2.DefaultValueAccessor, [
             import0.Renderer,
             import0.ElementRef,
             [
@@ -159,10 +159,10 @@ export function View_LogDemo_0(l) {
                 import2.COMPOSITION_BUFFER_MODE
             ]
         ], null, null),
-        import0.ɵprd(512, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
+        import0.ɵprd(1024, null, import2.NG_VALUE_ACCESSOR, function (p0_0) {
             return [p0_0];
         }, [import2.DefaultValueAccessor]),
-        import0.ɵdid(335872, null, 0, import2.NgModel, [
+        import0.ɵdid(671744, null, 0, import2.NgModel, [
             [
                 8,
                 null
@@ -184,8 +184,8 @@ export function View_LogDemo_0(l) {
                 'model'
             ]
         }, { update: 'ngModelChange' }),
-        import0.ɵprd(1024, null, import2.NgControl, null, [import2.NgModel]),
-        import0.ɵdid(8192, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
+        import0.ɵprd(2048, null, import2.NgControl, null, [import2.NgModel]),
+        import0.ɵdid(16384, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
         (l()(), import0.ɵted(null, ['\n                '])),
         (l()(), import0.ɵeld(0, null, null, 6, 'input', [
             [
@@ -294,7 +294,7 @@ export function View_LogDemo_0(l) {
             }
             return ad;
         }, null, null)),
-        import0.ɵdid(8192, null, 0, import2.DefaultValueAccessor, [
+        import0.ɵdid(16384, null, 0, import2.DefaultValueAccessor, [
             import0.Renderer,
             import0.ElementRef,
             [
@@ -302,11 +302,11 @@ export function View_LogDemo_0(l) {
                 import2.COMPOSITION_BUFFER_MODE
             ]
         ], null, null),
-        import0.ɵdid(8192, null, 0, import2.ɵbc, [
+        import0.ɵdid(16384, null, 0, import2.ɵbc, [
             import0.Renderer,
             import0.ElementRef
         ], null, null),
-        import0.ɵprd(512, null, import2.NG_VALUE_ACCESSOR, function (p0_0, p1_0) {
+        import0.ɵprd(1024, null, import2.NG_VALUE_ACCESSOR, function (p0_0, p1_0) {
             return [
                 p0_0,
                 p1_0
@@ -315,7 +315,7 @@ export function View_LogDemo_0(l) {
             import2.DefaultValueAccessor,
             import2.ɵbc
         ]),
-        import0.ɵdid(335872, null, 0, import2.NgModel, [
+        import0.ɵdid(671744, null, 0, import2.NgModel, [
             [
                 8,
                 null
@@ -337,8 +337,8 @@ export function View_LogDemo_0(l) {
                 'model'
             ]
         }, { update: 'ngModelChange' }),
-        import0.ɵprd(1024, null, import2.NgControl, null, [import2.NgModel]),
-        import0.ɵdid(8192, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
+        import0.ɵprd(2048, null, import2.NgControl, null, [import2.NgModel]),
+        import0.ɵdid(16384, null, 0, import2.NgControlStatus, [import2.NgControl], null, null),
         (l()(), import0.ɵted(null, ['\n                '])),
         (l()(), import0.ɵeld(0, null, null, 16, 'table', [[
                 'class',
@@ -357,8 +357,8 @@ export function View_LogDemo_0(l) {
         (l()(), import0.ɵted(null, ['Severity'])),
         (l()(), import0.ɵted(null, ['\n                     '])),
         (l()(), import0.ɵted(null, ['\n                     '])),
-        (l()(), import0.ɵand(8388608, null, null, 2, null, View_LogDemo_1)),
-        import0.ɵdid(401408, null, 0, import3.NgForOf, [
+        (l()(), import0.ɵand(16777216, null, null, 2, null, View_LogDemo_1)),
+        import0.ɵdid(802816, null, 0, import3.NgForOf, [
             import0.ViewContainerRef,
             import0.TemplateRef,
             import0.IterableDiffers
@@ -367,7 +367,7 @@ export function View_LogDemo_0(l) {
                 'ngForOf'
             ]
         }, null),
-        import0.ɵpid(65536, import3.AsyncPipe, [import0.ChangeDetectorRef]),
+        import0.ɵpid(131072, import3.AsyncPipe, [import0.ChangeDetectorRef]),
         (l()(), import0.ɵted(null, ['\n                '])),
         (l()(), import0.ɵted(null, ['\n                '])),
         (l()(), import0.ɵeld(0, null, null, 2, 'h4', [], null, null, null, null, null)),
@@ -408,9 +408,9 @@ export function View_LogDemo_0(l) {
 function View_LogDemo_Host_0(l) {
     return import0.ɵvid(0, [
         (l()(), import0.ɵeld(0, null, null, 3, 'ng-component', [], null, null, null, View_LogDemo_0, RenderType_LogDemo)),
-        import0.ɵprd(256, null, import4.Store, import4.Store, []),
-        import0.ɵprd(256, null, import5.LogTailService, import5.LogTailService, [import6.Http]),
-        import0.ɵdid(57344, null, 0, import1.LogDemo, [
+        import0.ɵprd(512, null, import4.Store, import4.Store, []),
+        import0.ɵprd(512, null, import5.LogTailService, import5.LogTailService, [import6.Http]),
+        import0.ɵdid(114688, null, 0, import1.LogDemo, [
             import4.Store,
             import5.LogTailService
         ], null, null)

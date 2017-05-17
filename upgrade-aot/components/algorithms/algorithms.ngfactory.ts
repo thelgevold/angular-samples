@@ -26,7 +26,7 @@ export function View_Algorithms_0(l:any):import0.ɵViewDefinition {
     (l()(),import0.ɵted((null as any),['Watch the list get sorted as the algorithm traverses the list'])),
     (l()(),import0.ɵted((null as any),['\n'])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'insertion-sort',([] as any[]),(null as any),(null as any),(null as any),import1.View_InsertionSort_0,import1.RenderType_InsertionSort)),
-    import0.ɵdid(24576,(null as any),0,import2.InsertionSort,([] as any[]),(null as any),(null as any)),
+    import0.ɵdid(49152,(null as any),0,import2.InsertionSort,([] as any[]),(null as any),(null as any)),
     (l()(),import0.ɵted((null as any),['\n'])),
     (l()(),import0.ɵeld(0,(null as any),(null as any),2,'h4',([] as any[]),(null as any),(null as any),(null as any),(null as any),(null as any))),
       (l()(),import0.ɵeld(0,(null as any),(null as any),1,'a',[[
@@ -41,7 +41,7 @@ export function View_Algorithms_0(l:any):import0.ɵViewDefinition {
 function View_Algorithms_Host_0(l:any):import0.ɵViewDefinition {
   return import0.ɵvid(0,[
     (l()(),import0.ɵeld(0,(null as any),(null as any),1,'algorithms',([] as any[]),(null as any),(null as any),(null as any),View_Algorithms_0,RenderType_Algorithms)),
-    import0.ɵdid(24576,(null as any),0,import3.Algorithms,([] as any[]),(null as any),(null as any))
+    import0.ɵdid(49152,(null as any),0,import3.Algorithms,([] as any[]),(null as any),(null as any))
   ]
   ,(null as any),(null as any));
 }
