@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/tor/.nvm/versions/node/v6.10.1/bin/node',
+1 verbose cli   '/Users/tor/.nvm/versions/node/v6.10.1/bin/npm',
+1 verbose cli   'run',
+1 verbose cli   'start' ]
+2 info using npm@3.10.10
+3 info using node@v6.10.1
+4 verbose stack Error: missing script: start
+4 verbose stack     at run (/Users/tor/.nvm/versions/node/v6.10.1/lib/node_modules/npm/lib/run-script.js:151:19)
+4 verbose stack     at /Users/tor/.nvm/versions/node/v6.10.1/lib/node_modules/npm/lib/run-script.js:61:5
+4 verbose stack     at /Users/tor/.nvm/versions/node/v6.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:356:5
+4 verbose stack     at checkBinReferences_ (/Users/tor/.nvm/versions/node/v6.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:320:45)
+4 verbose stack     at final (/Users/tor/.nvm/versions/node/v6.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:354:3)
+4 verbose stack     at then (/Users/tor/.nvm/versions/node/v6.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:124:5)
+4 verbose stack     at ReadFileContext.<anonymous> (/Users/tor/.nvm/versions/node/v6.10.1/lib/node_modules/npm/node_modules/read-package-json/read-json.js:295:20)
+4 verbose stack     at ReadFileContext.callback (/Users/tor/.nvm/versions/node/v6.10.1/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16)
+4 verbose stack     at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:366:13)
+5 verbose cwd /Users/tor/Development/angular-2-samples/components/web-workers
+6 error Darwin 14.5.0
+7 error argv "/Users/tor/.nvm/versions/node/v6.10.1/bin/node" "/Users/tor/.nvm/versions/node/v6.10.1/bin/npm" "run" "start"
+8 error node v6.10.1
+9 error npm  v3.10.10
+10 error missing script: start
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]
