@@ -9,8 +9,8 @@
     "start": "npm run lite",
     "clean": "rm -rf aot && rm -rf dist",
     "aot": "node_modules/.bin/ngc -p .",
-    "rollup": "./node_modules/.bin/rollup -c rollup-config.js",
-    "rollup-ng-upgrade": "./node_modules/.bin/rollup -c rollup-ng-upgrade.js",
+    "rollup": "./node_modules/.bin/rollup -c rollup/rollup-config.js",
+    "rollup-ng-upgrade": "./node_modules/.bin/rollup -c rollup/rollup-ng-upgrade.js",
     "install-upgrade-application": "node_modules/.bin/ngc -p tsconfig-upgrade.json && npm run rollup-ng-upgrade",
     "install-application": "npm run clean && npm run aot && npm run rollup"
   },
