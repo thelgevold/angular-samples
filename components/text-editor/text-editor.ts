@@ -17,7 +17,19 @@ import {KeyMap} from './key-map';
 
 @Component({
     selector: 'editor',
-    templateUrl: './text-editor.html'
+    template: `
+    
+  <h1>Text editor based on Observables</h1>
+
+  <div class="alert alert-success" role="alert">
+      Supports typing of letters and numbers. Basic text selection and cursor placement is also supported.
+  </div>
+
+  <div class="editor">
+  <div class="page noselect" id="page"><span *ngFor="let char of currentDocument.characters" [ngClass]="{currentChar:char.isCurrent,selectedChar:char.isSelected}">{{char.value}}</span></div>
+  </div>
+
+  <h4><a href="http://www.syntaxsuccess.com/viewarticle/observables-in-angular-2.0">Read more here</a></h4>`
 })
 
 export class TextEditor implements OnInit {

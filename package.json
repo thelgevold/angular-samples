@@ -9,7 +9,8 @@
     "build-demo-app": "ngc -p . && rollup -c rollup/rollup-config.js && ngc -p tsconfig-upgrade.json && ngc -p tsconfig-upgrade.json && rollup -c rollup/rollup-ng-upgrade.js",
     "closure-compiler-demo": "ngc -p tsconfig-es6.json && java -jar node_modules/google-closure-compiler/compiler.jar --flagfile closure-compiler/closure.conf",
     "rollup-demo": "ngc -p tsconfig-es5.json && rollup -c rollup/rollup-config-demo.js",
-    "build-all": "npm run build-demo-app && npm run closure-compiler-demo && npm run rollup-demo"
+    "systemjs-demo": "tsc -p tsconfig-es5-commonjs.json",
+    "build-all": "npm run systemjs-demo && npm run build-demo-app && npm run closure-compiler-demo && npm run rollup-demo"
   },
   "devDependencies": {
     "lite-server": "2.2.2",
@@ -42,7 +43,7 @@
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
     "rxjs": "5.3.1",
-    "systemjs": "0.19.27",
+    "systemjs": "0.19.39",
     "zone.js": "0.8.6"
   }
 }

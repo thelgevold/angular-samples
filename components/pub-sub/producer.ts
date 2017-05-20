@@ -4,7 +4,16 @@ import {Customer} from './customer';
 
 @Component({
     selector: 'producer',
-    templateUrl: './producer.html'
+    template: `
+    <div>First Name</div>
+    <input [(ngModel)]="firstName" />
+
+    <div>Last Name</div>
+    <input [(ngModel)]="lastName" />
+
+    <div style="margin-top: 10px;">
+        <button (click)="createCustomer()">Create Customer</button>
+    </div>`
 })
 
 export class Producer {

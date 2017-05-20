@@ -3,7 +3,28 @@ import {Contact} from './contact';
 
 @Component({
     selector: 'contact-list',
-    templateUrl: './contact-list.html'
+    template: `
+    <div>
+    <h1>Contact List</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Name and phone number</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contact of contacts" style="margin-bottom: 10px;">
+                <td>{{contact.descr}}</td> <td><button class="btn btn-primary btn-xs" (click)="removeContact(contact)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="addContactControls">
+        <input #name placeholder="name" />
+        <input #phone placeholder="phone" />
+        <button class="btn btn-primary btn-xs" (click)="addContact(name,phone)">Add Contact</button>
+    </div>
+    </div>`
 })
 
 export class ContactList {

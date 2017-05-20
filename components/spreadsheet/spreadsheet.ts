@@ -5,7 +5,21 @@ import {HeaderRowService} from './header-row-service';
 
 @Component({
     selector: 'spreadsheet',
-    templateUrl: './spreadsheet.html'
+    template: `<h1>Virtualized Spreadsheet</h1>
+    <table id="spreadsheet">
+        <tr>
+            <td class="row-number-column"></td>
+            <td class="columnHeader" *ngFor="let columnHeader of header">{{columnHeader}}</td>
+        </tr>
+        <tr *ngFor="let row of visibleRows">
+            <td class="row-number-column">{{row.rowIndex}}</td>
+            <td *ngFor="let col of row.columns">
+                <input  data-id="{{col.rowIndex}}-{{col.columnIndex}}" [value]="col.cellValue" (input)="col.cellValue = $event.target.value" (click)="model.selectColumn(col)" (keyup)="navigate($event)" />
+            </td>
+        </tr>
+    </table>
+    <h4><a href="http://www.syntaxsuccess.com/viewarticle/virtualized-spreadsheet-component-in-angular-2.0">Read more here</a></h4>
+    `
 })
 
 export class Spreadsheet implements AfterViewChecked{

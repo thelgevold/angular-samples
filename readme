@@ -23,5 +23,6 @@ Optinally you can also build a set of samples where I compare bundling options:
 
 2) Rollup: npm run rollup-demo: npm run rollup-demo 
 
+3) SystemJS (JiT and no bundling): npm run systemjs-demo
 
 You can build all options, including the main app, by running npm run build-all

@@ -4,7 +4,19 @@ import {Store} from './redux/store';
 import {TreeNodeService} from './tree-node-service';
 
 @Component({
-  templateUrl:'./tree-view.html',
+  template: `
+  <ul>
+  <li *ngFor="let node of items">
+
+    <span class="iconButton" [ngClass]='{"tree-node-no-children": !node.showIcon}' (click)="node.expand()">{{node.icon}}</span>
+    <span>{{ node.name }}</span>
+
+    <div *ngIf="node.expanded">
+      <lazy-tree-view [root]="node"></lazy-tree-view>
+    </div>
+  </li>
+  </ul>
+`,
   selector:'lazy-tree-view'
 })
 

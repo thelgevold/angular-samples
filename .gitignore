@@ -4,6 +4,8 @@ built
 built-upgrade
 built-es5
 built-es6
+built-es5-commonjs
 .vscode
 aot
+upgrade-aot
 app/aot

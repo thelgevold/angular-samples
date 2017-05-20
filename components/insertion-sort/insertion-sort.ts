@@ -4,7 +4,17 @@ import {Insertion} from '../../algorithms/insertion-sort';
 @Component({
     selector: 'insertion-sort',
     inputs: ['list: list'],
-    templateUrl: './insertion-sort.html'
+    template: `
+    <table class="sort">
+    <tr>
+        <td *ngFor="let item of list.items" [ngClass]="item.getClass()">
+            <span>{{item.val}}</span>
+        </td>
+    </tr>
+    </table>
+    <div style="margin-top: 10px;">
+        <button (click)="sortList()">Sort list</button>
+    </div>`
 })
 
 export class InsertionSort {
