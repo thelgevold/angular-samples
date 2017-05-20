@@ -45,6 +45,10 @@ const routes: Routes = [
   {
     path: 'text-editor',
     loadChildren: './lazy-modules/text-editor.module#TextEditorModule'
+  },
+  {
+    path: 'input-controls',
+    loadChildren: './lazy-modules/input-controls.module#InputControlsModule'
   }
 ]
 export const AppRoutingModule = RouterModule.forRoot(routes);

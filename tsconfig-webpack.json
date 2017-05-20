@@ -23,7 +23,8 @@
       "app-lazy/lazy-modules/redux.module.ts",
       "app-lazy/lazy-modules/dynamic-form.module.ts",
       "app-lazy/lazy-modules/pub-sub.module.ts",
-      "app-lazy/lazy-modules/text-editor.module.ts"
+      "app-lazy/lazy-modules/text-editor.module.ts",
+      "app-lazy/lazy-modules/input-controls.module.ts"
    ],
    "angularCompilerOptions": {
     "genDir": "./app-lazy/aot",

@@ -17,7 +17,7 @@ import {Location} from '@angular/common';
             <a [class.active]="getLinkStyle('/dynamic-form')" [routerLink]="['/dynamic-form']" class="list-group-item">Dynamic Form</a>
             <a [class.active]="getLinkStyle('/pub-sub')" [routerLink]="['/pub-sub']" class="list-group-item">Pub Sub</a>
             <a [class.active]="getLinkStyle('/text-editor')" [routerLink]="['/text-editor']" class="list-group-item">Text Editor</a>
-           
+            <a [class.active]="getLinkStyle('/input-controls')" [routerLink]="['/input-controls']" class="list-group-item">Input Controls</a>
         </div>
         <div class="col-md-9">
             <router-outlet></router-outlet>
