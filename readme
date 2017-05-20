@@ -29,4 +29,6 @@ Optinally you can also build a set of samples where I compare bundling options:
 
 5) Webpack (AoT without lazy loading): npm run webpack-no-lazy-loading
 
+6) Webpack (AoT with lazy loading): npm run webpack-lazy-loading
+
 You can build all options, including the main app, by running npm run build-all
