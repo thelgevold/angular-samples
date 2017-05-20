@@ -11,6 +11,7 @@
     "rollup-demo": "ngc -p tsconfig-es5.json && rollup -c rollup/rollup-config-demo.js",
     "systemjs-demo": "tsc -p tsconfig-es5-commonjs.json",
     "systemjs-builder-demo": "npm run systemjs-demo && node systemjs-builder/systemjs-builder.js",
+    "webpack-no-lazy-loading": "ngc -p tsconfig-es5.json && webpack --config webpack/webpack-no-lazy-loading.js --progress",
     "build-all": "npm run systemjs-builder-demo && npm run build-demo-app && npm run closure-compiler-demo && npm run rollup-demo"
   },
   "devDependencies": {
@@ -22,7 +23,8 @@
     "rollup-plugin-uglify": "^1.0.1",
     "systemjs-builder": "^0.16.4",
     "typescript": "2.1.6",
-    "uglify-js": "2.7.0"
+    "uglify-js": "2.7.0",
+    "webpack": "^2.5.1"
   },
   "dependencies": {
     "@angular/animations": "4.1.2",
