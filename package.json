@@ -10,17 +10,19 @@
     "closure-compiler-demo": "ngc -p tsconfig-es6.json && java -jar node_modules/google-closure-compiler/compiler.jar --flagfile closure-compiler/closure.conf",
     "rollup-demo": "ngc -p tsconfig-es5.json && rollup -c rollup/rollup-config-demo.js",
     "systemjs-demo": "tsc -p tsconfig-es5-commonjs.json",
-    "build-all": "npm run systemjs-demo && npm run build-demo-app && npm run closure-compiler-demo && npm run rollup-demo"
+    "systemjs-builder-demo": "npm run systemjs-demo && node systemjs-builder/systemjs-builder.js",
+    "build-all": "npm run systemjs-builder-demo && npm run build-demo-app && npm run closure-compiler-demo && npm run rollup-demo"
   },
   "devDependencies": {
+    "compression": "^1.6.2",
     "lite-server": "2.2.2",
     "path": "^0.12.7",
     "rollup": "0.41.4",
     "rollup-plugin-commonjs": "^4.1.0",
     "rollup-plugin-uglify": "^1.0.1",
+    "systemjs-builder": "^0.16.4",
     "typescript": "2.1.6",
-    "uglify-js": "2.7.0",
-    "compression": "^1.6.2"
+    "uglify-js": "2.7.0"
   },
   "dependencies": {
     "@angular/animations": "4.1.2",

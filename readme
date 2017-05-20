@@ -11,7 +11,7 @@ Here are the prerequisites for running the project:
    
    -AOT compiles
    -Tree shakes 
-   -Bundles app into single file
+   -Bundles app into single file (Rollup)
 
 
 Steps 1 and 2 builds the demo application.
@@ -24,5 +24,7 @@ Optinally you can also build a set of samples where I compare bundling options:
 2) Rollup: npm run rollup-demo: npm run rollup-demo 
 
 3) SystemJS (JiT and no bundling): npm run systemjs-demo
+
+4) SystemJS-Builder (JiT with bundling): npm run systemjs-builder-demo
 
 You can build all options, including the main app, by running npm run build-all

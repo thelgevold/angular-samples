@@ -10,19 +10,14 @@
 
   <link href="site.css?v=1" rel="stylesheet">
 
-  <script src="node_modules/systemjs/dist/system.src.js"></script>
-  <script src="system.config.js"></script>
-
-  <script>
-    System.import('app').catch(function(err){ console.error(err); });
-  </script>
-
 </head>
 <body>
 <div class="container">  
-  <h1>SystemJS Demo - JiT</h1>
+  <h1>SystemJS Builder Demo - JiT</h1>
 </div>
 <demo-app></demo-app>
+
+<script src="dist/bundle-systemjs-builder.js"></script>
 
 </body>
 

@@ -9,7 +9,7 @@
       'demo-page': 'built-es5-commonjs',
       'components': 'built-es5-commonjs/components',
       'algorithms': 'built-es5-commonjs/algorithms',
-    
+     
       '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
       '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
