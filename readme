@@ -1,4 +1,4 @@
-These samples use Angular 4.0.0 rc1
+These samples use Angular 4.1.2
 
 Live DEMO here: http://www.syntaxsuccess.com/angular-2-samples
 Documentation: http://www.syntaxsuccess.com/angular-2-articles
@@ -14,12 +14,14 @@ Here are the prerequisites for running the project:
    -Bundles app into single file
 
 
-
 Steps 1 and 2 builds the demo application.
+
 
 Optinally you can also build a set of samples where I compare bundling options:
 
 1) Closure Compiler (requires Java): npm run closure-compiler-demo
 
+2) Rollup: npm run rollup-demo: npm run rollup-demo 
 
-You can build all options by running npm run build-all
+
+You can build all options, including the main app, by running npm run build-all

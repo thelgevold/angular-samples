@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "module": "es2015",
+    "lib": ["es2015", "dom"],
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noImplicitAny": false,
-    "outDir": "built-closure"
+    "outDir": "built-es5"
   },
   "files": [
     "./app/app.module.ts",

@@ -2,7 +2,8 @@ bower_components
 node_modules
 built
 built-upgrade
-built-closure
+built-es5
+built-es6
 .vscode
 aot
 app/aot
