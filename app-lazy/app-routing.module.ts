@@ -25,6 +25,26 @@ const routes: Routes = [
   {
     path: 'sort',
     loadChildren: './lazy-modules/insertion-sort.module#InsertionSortModule'
+  },
+  {
+    path: 'redux',
+    loadChildren: './lazy-modules/redux.module#ReduxModule'
+  },
+  {
+    path: 'buffering',
+    loadChildren: './lazy-modules/rxjs-buffering.module#RxJsBufferingModule'
+  },
+  {
+    path: 'dynamic-form',
+    loadChildren: './lazy-modules/dynamic-form.module#DynamicFormModule'
+  },
+  {
+    path: 'pub-sub',
+    loadChildren: './lazy-modules/pub-sub.module#PubSubModule'
+  },
+  {
+    path: 'text-editor',
+    loadChildren: './lazy-modules/text-editor.module#TextEditorModule'
   }
 ]
 export const AppRoutingModule = RouterModule.forRoot(routes);

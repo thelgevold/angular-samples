@@ -17,8 +17,13 @@
       "app-lazy/lazy-modules/spreadsheet.module.ts",
       "app-lazy/lazy-modules/lazy-loaded-treeview.module.ts",
       "app-lazy/lazy-modules/rxjs-streams.module.ts",
+      "app-lazy/lazy-modules/rxjs-buffering.module.ts",
       "app-lazy/lazy-modules/graph.module.ts",
-      "app-lazy/lazy-modules/insertion-sort.module.ts"
+      "app-lazy/lazy-modules/insertion-sort.module.ts",
+      "app-lazy/lazy-modules/redux.module.ts",
+      "app-lazy/lazy-modules/dynamic-form.module.ts",
+      "app-lazy/lazy-modules/pub-sub.module.ts",
+      "app-lazy/lazy-modules/text-editor.module.ts"
    ],
    "angularCompilerOptions": {
     "genDir": "./app-lazy/aot",
