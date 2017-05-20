@@ -7,7 +7,7 @@ Here are the prerequisites for running the project:
 
 1) npm install && bower install
 
-2) npm run install-application && npm run install-upgrade-application && npm start
+2) npm run build-demo-app && npm start
    
    -AOT compiles
    -Tree shakes 
@@ -15,3 +15,11 @@ Here are the prerequisites for running the project:
 
 
 
+Steps 1 and 2 builds the demo application.
+
+Optinally you can also build a set of samples where I compare bundling options:
+
+1) Closure Compiler (requires Java): npm run closure-compiler-demo
+
+
+You can build all options by running npm run build-all

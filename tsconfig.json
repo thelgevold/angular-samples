@@ -19,6 +19,6 @@
 
   "angularCompilerOptions": {
     "genDir": "./aot",
-    "debug": false
+    "annotateForClosureCompiler": true
   }
 }
