@@ -5,8 +5,8 @@ import {HttpModule} from '@angular/http';
 
 import 'rxjs/add/operator/map';
 
-import {CountryDemo} from '../components/lazy-loaded-tree-view/country-demo';
-import {LazyTreeView} from '../components/lazy-loaded-tree-view/tree-view';
+import {CountryDemo} from '../../components/lazy-loaded-tree-view/country-demo';
+import {LazyTreeView} from '../../components/lazy-loaded-tree-view/tree-view';
 
 @NgModule({
   declarations: [CountryDemo, LazyTreeView],

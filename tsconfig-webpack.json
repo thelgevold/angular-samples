@@ -14,8 +14,11 @@
    "files": [
       "app-lazy/main.ts",
       "app-lazy/app.module.ts",
-      "app-lazy/spreadsheet.module.ts",
-      "app-lazy/lazy-loaded-treeview.module.ts"
+      "app-lazy/lazy-modules/spreadsheet.module.ts",
+      "app-lazy/lazy-modules/lazy-loaded-treeview.module.ts",
+      "app-lazy/lazy-modules/rxjs-streams.module.ts",
+      "app-lazy/lazy-modules/graph.module.ts",
+      "app-lazy/lazy-modules/insertion-sort.module.ts"
    ],
    "angularCompilerOptions": {
     "genDir": "./app-lazy/aot",
