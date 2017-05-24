@@ -39,6 +39,7 @@ var rxjs_streams_1 = require("../components/rxjs-streams/rxjs-streams");
 var rxjs_buffering_1 = require("../components/rxjs-buffering/rxjs-buffering");
 var country_demo_1 = require("../components/lazy-loaded-tree-view/country-demo");
 var tree_view_2 = require("../components/lazy-loaded-tree-view/tree-view");
+var cars_component_1 = require("../components/rxjs-error-handling/cars.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -53,7 +54,7 @@ AppModule = __decorate([
             edge_1.Edge, vertex_1.Vertex, insertion_sort_1.InsertionSort, child_1.Child,
             text_editor_1.TextEditor, tree_view_demo_1.TreeViewDemo, input_controls_1.InputControls,
             contact_list_1.ContactList, country_demo_1.CountryDemo, tree_view_2.LazyTreeView,
-            survey_demo_1.SurveyDemo, log_demo_1.LogDemo, input_output_demo_1.InputOutputDemo, rxjs_streams_1.RxJsStreams, rxjs_buffering_1.RxJsBuffering
+            survey_demo_1.SurveyDemo, log_demo_1.LogDemo, input_output_demo_1.InputOutputDemo, rxjs_streams_1.RxJsStreams, rxjs_buffering_1.RxJsBuffering, cars_component_1.CarsComponent
         ],
         entryComponents: [edge_1.Edge],
         providers: [

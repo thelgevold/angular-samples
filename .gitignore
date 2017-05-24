@@ -8,3 +8,4 @@ built-es6
 aot
 upgrade-aot
 app/aot
+npm-debug.log

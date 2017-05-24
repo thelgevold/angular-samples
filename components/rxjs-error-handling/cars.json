@@ -1,0 +1,6 @@
+{
+  "cars":[  
+          {"name":"Lamborghini", "url":["./components/rxjs-error-handling/lamborghini.json"]},
+          {"name":"Ferrari",   "url":[""]}
+         ]
+}

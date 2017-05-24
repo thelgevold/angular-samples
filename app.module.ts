@@ -55,6 +55,7 @@ import {CountryDemo} from './components/lazy-loaded-tree-view/country-demo';
 import {RxJsStreams} from './components/rxjs-streams/rxjs-streams';
 import {CachingDemo} from './components/rxjs-caching/caching-demo';
 import {RxJsBuffering} from './components/rxjs-buffering/rxjs-buffering';
+import {CarsComponent} from './components/rxjs-error-handling/cars.component';
 
 @NgModule({
   imports: [ BrowserModule, ReactiveFormsModule, routing, FormsModule, HttpModule ],
@@ -63,7 +64,7 @@ import {RxJsBuffering} from './components/rxjs-buffering/rxjs-buffering';
     Spreadsheet, JqueryIntegration, Angular2Host, Algorithms, Graph, PubSub,
     Grid, CommentSection1, CommentSection2, Edge, Vertex, InsertionSort, Child,
     TextEditor, AddressBook, HttpSample, TreeViewDemo, GridDemo, InputControls,
-    ContactList, BoundTextbox, IgnoreBindings, AddressForm, CommentDemo, Parent,
+    ContactList, BoundTextbox, IgnoreBindings, AddressForm, CommentDemo, Parent, CarsComponent,
     SurveyDemo, LogDemo, InputOutputDemo, RxJsStreams, CachingDemo, RxJsBuffering, CountryDemo
   ],
   entryComponents: [Edge],

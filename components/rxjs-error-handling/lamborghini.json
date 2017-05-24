@@ -1,0 +1,6 @@
+{
+  "models":["./components/rxjs-error-handling/aventador.json", 
+            "./components/rxjs-error-handling/veneno.json", 
+            "centenario.json",
+            "./components/rxjs-error-handling/countach.json"]
+}
