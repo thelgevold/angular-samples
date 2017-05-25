@@ -17,6 +17,7 @@ export class CarService {
                            .forkJoin(models.length ? models.map(url => this.http.get(url)
                                                            .map(response => response.json())
                                                            .catch(e => Observable.of({notLoaded: true, name: `ERROR Loading ${url}!`})))
-                                                   : Observable.of({error: models.error})));       
+                                                   : Observable.of({error: models.error}))
+                           .map((res:any) => {return {models: res, error: (res[0] || {}).error}}));       
   }
 }

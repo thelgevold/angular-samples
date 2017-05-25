@@ -54,9 +54,9 @@ export class CarsComponent {
        .distinctUntilChanged()  
        .do(() => {this.models = []; this.loading = true; this.error = false;})
        .switchMap(url => this.carService.getModels(url))
-       .subscribe((models: any[]) => {
-         this.error = models.length === 1 && models[0].error;
-         this.models = models.filter(m => !m.error);
+       .subscribe((data: any) => {
+         this.error = data.error;
+         this.models = data.models;
          this.loading = false;
        });
   }
