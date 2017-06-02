@@ -31,4 +31,6 @@ Optinally you can also build a set of samples where I compare bundling options:
 
 6) Webpack (AoT with lazy loading): npm run webpack-lazy-loading
 
+7) Webpack (Babili): npm run webpack-babili
+
 You can build all options, including the main app, by running npm run build-all
