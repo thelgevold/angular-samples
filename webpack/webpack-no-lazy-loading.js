@@ -1,11 +1,12 @@
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
-
+const webpack = require('webpack');
 module.exports = {
   entry: './built-es5/app/main.js',
   output: {
-    filename: 'dist/bundle-webpack-no-lazy-loading.js'
+    filename: 'dist/bundle-webpack-3-no-lazy-loading.js'
   },
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new UglifyJsPlugin({
       beautify: false, 
       output: {

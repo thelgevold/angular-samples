@@ -1,5 +1,5 @@
 const ngToolsWebpack = require('@ngtools/webpack');
-var webpack = require('webpack');
+const webpack = require('webpack');
 
 module.exports = {
   resolve: {
@@ -11,6 +11,7 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new ngToolsWebpack.AotPlugin({
       tsConfigPath: './tsconfig-webpack.json'
     }),
