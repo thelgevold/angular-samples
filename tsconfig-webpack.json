@@ -28,6 +28,7 @@
    ],
    "angularCompilerOptions": {
     "genDir": "./app-lazy/aot",
-    "entryModule": "app-lazy/app.module#AppModule"
+    "entryModule": "app-lazy/app.module#AppModule",
+    "preserveWhitespaces": false
   }
 }

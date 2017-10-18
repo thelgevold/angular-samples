@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Contact = (function () {
     function Contact(name, phone) {
         this.name = name;

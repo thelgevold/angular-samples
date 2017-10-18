@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Directory = (function () {
     function Directory(name, directories, files) {
         this.name = name;

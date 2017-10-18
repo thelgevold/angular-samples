@@ -16,6 +16,6 @@
     "./upgrade.ts"
   ],
    "angularCompilerOptions": {
-    "genDir": "./upgrade-aot"
+     "preserveWhitespaces": false
   }
 }

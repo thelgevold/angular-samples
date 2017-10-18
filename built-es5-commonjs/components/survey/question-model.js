@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var forms_1 = require("@angular/forms");
 var QuestionModel = (function () {
     function QuestionModel() {

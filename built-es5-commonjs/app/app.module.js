@@ -5,6 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var core_1 = require("@angular/core");
@@ -42,24 +43,24 @@ var tree_view_2 = require("../components/lazy-loaded-tree-view/tree-view");
 var AppModule = (function () {
     function AppModule() {
     }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, app_routes_1.routing, forms_2.FormsModule, http_1.HttpModule],
+            declarations: [app_component_1.AppComponent, producer_1.Producer, consumer_1.Consumer, demo_component_1.DemoComponent,
+                tree_view_1.TreeView, survey_1.Survey, demo_page_1.DemoPage, input_output_1.InputOutput,
+                spreadsheet_1.Spreadsheet, algorithms_1.Algorithms, graph_1.Graph, pub_sub_1.PubSub,
+                edge_1.Edge, vertex_1.Vertex, insertion_sort_1.InsertionSort, child_1.Child,
+                text_editor_1.TextEditor, tree_view_demo_1.TreeViewDemo, input_controls_1.InputControls,
+                contact_list_1.ContactList, country_demo_1.CountryDemo, tree_view_2.LazyTreeView,
+                survey_demo_1.SurveyDemo, log_demo_1.LogDemo, input_output_demo_1.InputOutputDemo, rxjs_streams_1.RxJsStreams, rxjs_buffering_1.RxJsBuffering
+            ],
+            entryComponents: [edge_1.Edge],
+            providers: [
+                { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }
+            ],
+            bootstrap: [app_component_1.AppComponent]
+        })
+    ], AppModule);
     return AppModule;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.ReactiveFormsModule, app_routes_1.routing, forms_2.FormsModule, http_1.HttpModule],
-        declarations: [app_component_1.AppComponent, producer_1.Producer, consumer_1.Consumer, demo_component_1.DemoComponent,
-            tree_view_1.TreeView, survey_1.Survey, demo_page_1.DemoPage, input_output_1.InputOutput,
-            spreadsheet_1.Spreadsheet, algorithms_1.Algorithms, graph_1.Graph, pub_sub_1.PubSub,
-            edge_1.Edge, vertex_1.Vertex, insertion_sort_1.InsertionSort, child_1.Child,
-            text_editor_1.TextEditor, tree_view_demo_1.TreeViewDemo, input_controls_1.InputControls,
-            contact_list_1.ContactList, country_demo_1.CountryDemo, tree_view_2.LazyTreeView,
-            survey_demo_1.SurveyDemo, log_demo_1.LogDemo, input_output_demo_1.InputOutputDemo, rxjs_streams_1.RxJsStreams, rxjs_buffering_1.RxJsBuffering
-        ],
-        entryComponents: [edge_1.Edge],
-        providers: [
-            { provide: common_1.LocationStrategy, useClass: common_1.HashLocationStrategy }
-        ],
-        bootstrap: [app_component_1.AppComponent]
-    })
-], AppModule);
 exports.AppModule = AppModule;

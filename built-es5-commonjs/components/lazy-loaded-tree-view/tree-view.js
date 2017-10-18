@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var tree_node_1 = require("./tree-node");
 var store_1 = require("./redux/store");
@@ -28,17 +29,17 @@ var LazyTreeView = (function () {
     LazyTreeView.prototype.ngOnDestroy = function () {
         this.subscription.unsubscribe();
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", tree_node_1.TreeNode)
+    ], LazyTreeView.prototype, "root", void 0);
+    LazyTreeView = __decorate([
+        core_1.Component({
+            template: "\n  <ul>\n  <li *ngFor=\"let node of items\">\n\n    <span class=\"iconButton\" [ngClass]='{\"tree-node-no-children\": !node.showIcon}' (click)=\"node.expand()\">{{node.icon}}</span>\n    <span>{{ node.name }}</span>\n\n    <div *ngIf=\"node.expanded\">\n      <lazy-tree-view [root]=\"node\"></lazy-tree-view>\n    </div>\n  </li>\n  </ul>\n",
+            selector: 'lazy-tree-view'
+        }),
+        __metadata("design:paramtypes", [store_1.Store, tree_node_service_1.TreeNodeService])
+    ], LazyTreeView);
     return LazyTreeView;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", tree_node_1.TreeNode)
-], LazyTreeView.prototype, "root", void 0);
-LazyTreeView = __decorate([
-    core_1.Component({
-        template: "\n  <ul>\n  <li *ngFor=\"let node of items\">\n\n    <span class=\"iconButton\" [ngClass]='{\"tree-node-no-children\": !node.showIcon}' (click)=\"node.expand()\">{{node.icon}}</span>\n    <span>{{ node.name }}</span>\n\n    <div *ngIf=\"node.expanded\">\n      <lazy-tree-view [root]=\"node\"></lazy-tree-view>\n    </div>\n  </li>\n  </ul>\n",
-        selector: 'lazy-tree-view'
-    }),
-    __metadata("design:paramtypes", [store_1.Store, tree_node_service_1.TreeNodeService])
-], LazyTreeView);
 exports.LazyTreeView = LazyTreeView;

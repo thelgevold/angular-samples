@@ -17,6 +17,7 @@
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
     "annotationsAs": "static fields",
-    "genDir": "app/aot"
+    "genDir": "app/aot",
+    "preserveWhitespaces": false
   }
 }

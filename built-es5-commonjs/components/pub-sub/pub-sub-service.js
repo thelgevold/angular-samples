@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var customer_event_emitter_1 = require("./customer-event-emitter");
 var PubSubService = (function () {
     function PubSubService() {

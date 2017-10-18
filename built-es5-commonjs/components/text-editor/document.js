@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var character_1 = require("./character");
 var Document = (function () {
     function Document() {

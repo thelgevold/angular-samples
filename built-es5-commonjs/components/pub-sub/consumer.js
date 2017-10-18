@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var pub_sub_service_1 = require("./pub-sub-service");
 var Consumer = (function () {
@@ -26,13 +27,13 @@ var Consumer = (function () {
     Consumer.prototype.stopProcessing = function () {
         this.subscription.unsubscribe();
     };
+    Consumer = __decorate([
+        core_1.Component({
+            selector: 'consumer',
+            template: "\n    <div *ngIf=\"processed.length > 0\">\n    <h4>Processed Customers</h4>\n\n    <table class=\"table\">\n        <thead>\n            <tr>\n                <td>First Name</td><td>Last Name</td>\n            </tr>\n        </thead>\n        <tbody>\n            <tr *ngFor=\"let customer of processed\">\n                <td>{{customer.firstName}}</td>\n                <td>{{customer.lastName}}</td>\n            </tr>\n        </tbody>\n    </table>\n\n    <button (click)=\"stopProcessing()\">Stop Processing</button>\n    </div>"
+        }),
+        __metadata("design:paramtypes", [pub_sub_service_1.PubSubService])
+    ], Consumer);
     return Consumer;
 }());
-Consumer = __decorate([
-    core_1.Component({
-        selector: 'consumer',
-        template: "\n    <div *ngIf=\"processed.length > 0\">\n    <h4>Processed Customers</h4>\n\n    <table class=\"table\">\n        <thead>\n            <tr>\n                <td>First Name</td><td>Last Name</td>\n            </tr>\n        </thead>\n        <tbody>\n            <tr *ngFor=\"let customer of processed\">\n                <td>{{customer.firstName}}</td>\n                <td>{{customer.lastName}}</td>\n            </tr>\n        </tbody>\n    </table>\n\n    <button (click)=\"stopProcessing()\">Stop Processing</button>\n    </div>"
-    }),
-    __metadata("design:paramtypes", [pub_sub_service_1.PubSubService])
-], Consumer);
 exports.Consumer = Consumer;

@@ -5,6 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/observable/timer");
@@ -55,12 +56,12 @@ var RxJsStreams = (function () {
         Observable_1.Observable.forkJoin(first, second)
             .subscribe(function (res) { return _this.forkJoinStream = res; });
     };
+    RxJsStreams = __decorate([
+        core_1.Component({
+            selector: 'rxjs-streams',
+            template: "\n  <div class=\"stream1\">Stream1</div>\n  <div class=\"stream2\">Stream2</div>\n  <br/>\n  <button (click)=\"mergeStreams()\">Merge Streams</button>\n  <button (click)=\"concatStreams()\">Concat Streams</button>\n  <button (click)=\"forkJoinStreams()\">ForkJoin Streams</button>\n  <button (click)=\"flatMapStreams()\">FlatMap Streams</button>\n\n  <div class=\"stream-section\">\n    <h4>Concatenated Streams</h4>\n    <div *ngFor=\"let item of concatStream\">\n      <div class=\"floatLeft\" [ngClass]=\"{stream1:item.source === 1,stream2:item.source === 2}\">{{item.value}}</div>\n    </div>\n  </div>\n\n  <div class=\"stream-section\">\n    <h4>Merged Streams</h4>\n    <div *ngFor=\"let item of mergeStream\">\n      <div class=\"floatLeft\" [ngClass]=\"{stream1:item.source === 1,stream2:item.source === 2}\">{{item.value}}</div>\n    </div>\n  </div>\n\n  <div class=\"stream-section\">\n    <h4>ForkJoined Streams</h4>\n    <div *ngFor=\"let item of forkJoinStream\">\n      <div [ngClass]=\"{stream1:item.source === 1,stream2:item.source === 2}\">{{item.value}}</div>\n    </div>\n  </div>\n\n  <br/>\n  <div>\n    <h4>Flatmapped Streams</h4>\n    <div>{{flatMappedStreams.msg}}</div>\n  </div>\n"
+        })
+    ], RxJsStreams);
     return RxJsStreams;
 }());
-RxJsStreams = __decorate([
-    core_1.Component({
-        selector: 'rxjs-streams',
-        template: "\n  <div class=\"stream1\">Stream1</div>\n  <div class=\"stream2\">Stream2</div>\n  <br/>\n  <button (click)=\"mergeStreams()\">Merge Streams</button>\n  <button (click)=\"concatStreams()\">Concat Streams</button>\n  <button (click)=\"forkJoinStreams()\">ForkJoin Streams</button>\n  <button (click)=\"flatMapStreams()\">FlatMap Streams</button>\n\n  <div class=\"stream-section\">\n    <h4>Concatenated Streams</h4>\n    <div *ngFor=\"let item of concatStream\">\n      <div class=\"floatLeft\" [ngClass]=\"{stream1:item.source === 1,stream2:item.source === 2}\">{{item.value}}</div>\n    </div>\n  </div>\n\n  <div class=\"stream-section\">\n    <h4>Merged Streams</h4>\n    <div *ngFor=\"let item of mergeStream\">\n      <div class=\"floatLeft\" [ngClass]=\"{stream1:item.source === 1,stream2:item.source === 2}\">{{item.value}}</div>\n    </div>\n  </div>\n\n  <div class=\"stream-section\">\n    <h4>ForkJoined Streams</h4>\n    <div *ngFor=\"let item of forkJoinStream\">\n      <div [ngClass]=\"{stream1:item.source === 1,stream2:item.source === 2}\">{{item.value}}</div>\n    </div>\n  </div>\n\n  <br/>\n  <div>\n    <h4>Flatmapped Streams</h4>\n    <div>{{flatMappedStreams.msg}}</div>\n  </div>\n"
-    })
-], RxJsStreams);
 exports.RxJsStreams = RxJsStreams;

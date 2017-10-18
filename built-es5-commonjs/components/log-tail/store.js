@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var Subject_1 = require("rxjs/Subject");
 var log_reducer_1 = require("./log-reducer");
 var Store = (function () {

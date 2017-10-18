@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var key_map_1 = require("./key-map");
 var Character = (function () {
     function Character(keyCode) {

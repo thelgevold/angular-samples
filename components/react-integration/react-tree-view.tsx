@@ -2,7 +2,7 @@
 
 import {CountryViewModelFactory} from './country-view-model';
 
-import React = __React;
+declare var React: any;
 
 declare var Dispatcher: any;
 declare var EventEmitter: any;
@@ -62,7 +62,7 @@ interface TreeNodeProps{
    node:any
 }
 
-var TreeNode = React.createClass<TreeNodeProps,any>({
+var TreeNode = React.createClass({
 
     toggle: function(e){
         AppDispatcher.dispatch({
@@ -97,7 +97,7 @@ interface TreeViewProps{
    title:String
 }
 
-var TreeView = React.createClass<TreeViewProps,any>({
+var TreeView = React.createClass({
 
     getInitialState: function(){
       return {countries:NodeStore.getNodes()};

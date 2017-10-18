@@ -5,6 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/observable/fromEvent");
@@ -72,12 +73,12 @@ var TextEditor = (function () {
             e.element.preventDefault();
         });
     };
+    TextEditor = __decorate([
+        core_1.Component({
+            selector: 'editor',
+            template: "\n    \n  <h1>Text editor based on Observables</h1>\n\n  <div class=\"alert alert-success\" role=\"alert\">\n      Supports typing of letters and numbers. Basic text selection and cursor placement is also supported.\n  </div>\n\n  <div class=\"editor\">\n  <div class=\"page noselect\" id=\"page\"><span *ngFor=\"let char of currentDocument.characters\" [ngClass]=\"{currentChar:char.isCurrent,selectedChar:char.isSelected}\">{{char.value}}</span></div>\n  </div>\n\n  <h4><a href=\"http://www.syntaxsuccess.com/viewarticle/observables-in-angular-2.0\">Read more here</a></h4>"
+        })
+    ], TextEditor);
     return TextEditor;
 }());
-TextEditor = __decorate([
-    core_1.Component({
-        selector: 'editor',
-        template: "\n    \n  <h1>Text editor based on Observables</h1>\n\n  <div class=\"alert alert-success\" role=\"alert\">\n      Supports typing of letters and numbers. Basic text selection and cursor placement is also supported.\n  </div>\n\n  <div class=\"editor\">\n  <div class=\"page noselect\" id=\"page\"><span *ngFor=\"let char of currentDocument.characters\" [ngClass]=\"{currentChar:char.isCurrent,selectedChar:char.isSelected}\">{{char.value}}</span></div>\n  </div>\n\n  <h4><a href=\"http://www.syntaxsuccess.com/viewarticle/observables-in-angular-2.0\">Read more here</a></h4>"
-    })
-], TextEditor);
 exports.TextEditor = TextEditor;

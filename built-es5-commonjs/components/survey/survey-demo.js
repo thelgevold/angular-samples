@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var question_model_1 = require("./question-model");
 var textbox_question_1 = require("./textbox-question");
@@ -45,13 +46,13 @@ var SurveyDemo = (function () {
         this.questionModel.questions.push(ddQuestion);
         this.questionModel.questions.sort(function (a, b) { return a.order - b.order; });
     }
+    SurveyDemo = __decorate([
+        core_1.Component({
+            selector: 'survey-demo',
+            template: '<div><h1>Survey using Dynamic Form</h1><survey [model]="questionModel"></survey></div>'
+        }),
+        __metadata("design:paramtypes", [])
+    ], SurveyDemo);
     return SurveyDemo;
 }());
-SurveyDemo = __decorate([
-    core_1.Component({
-        selector: 'survey-demo',
-        template: '<div><h1>Survey using Dynamic Form</h1><survey [model]="questionModel"></survey></div>'
-    }),
-    __metadata("design:paramtypes", [])
-], SurveyDemo);
 exports.SurveyDemo = SurveyDemo;

@@ -1,7 +1,6 @@
 {
   "name": "application-name",
   "version": "0.0.1",
-
   "dependencies": {
     "@angular/common": "2.3.0",
     "@angular/compiler": "2.3.0",

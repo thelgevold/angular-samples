@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.logReducer = function (state, action) {
     if (state === void 0) { state = []; }
     switch (action.type) {

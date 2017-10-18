@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var TreeNode = (function () {
     function TreeNode(key, url, name) {
         this.key = key;

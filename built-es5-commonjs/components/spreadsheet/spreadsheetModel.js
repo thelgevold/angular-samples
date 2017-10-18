@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var key_map_1 = require("./key-map");
 var row_1 = require("./row");
 var SpreadsheetModel = (function () {

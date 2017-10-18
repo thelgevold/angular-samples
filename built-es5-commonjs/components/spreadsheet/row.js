@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var column_1 = require("./column");
 var Row = (function () {
     function Row(rowIndex, columnCount) {

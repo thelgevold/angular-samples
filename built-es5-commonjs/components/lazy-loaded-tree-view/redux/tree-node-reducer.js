@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var tree_node_1 = require("../tree-node");
 exports.treeNodeReducer = function (state, action) {
     if (state === void 0) { state = []; }

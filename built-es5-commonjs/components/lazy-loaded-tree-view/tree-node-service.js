@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var store_1 = require("./redux/store");
 var TreeNodeService = (function () {
@@ -19,10 +20,10 @@ var TreeNodeService = (function () {
             this._store.dispatchAction({ key: root.key, url: root.url, name: 'LOAD_NODES' });
         }
     };
+    TreeNodeService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [store_1.Store])
+    ], TreeNodeService);
     return TreeNodeService;
 }());
-TreeNodeService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [store_1.Store])
-], TreeNodeService);
 exports.TreeNodeService = TreeNodeService;

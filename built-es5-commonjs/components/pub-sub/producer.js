@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var pub_sub_service_1 = require("./pub-sub-service");
 var customer_1 = require("./customer");
@@ -23,21 +24,21 @@ var Producer = (function () {
         customer.lastName = this.lastName;
         this.pubSubService.Stream.emit(customer);
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Producer.prototype, "firstName", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Object)
+    ], Producer.prototype, "lastName", void 0);
+    Producer = __decorate([
+        core_1.Component({
+            selector: 'producer',
+            template: "\n    <div>First Name</div>\n    <input [(ngModel)]=\"firstName\" />\n\n    <div>Last Name</div>\n    <input [(ngModel)]=\"lastName\" />\n\n    <div style=\"margin-top: 10px;\">\n        <button (click)=\"createCustomer()\">Create Customer</button>\n    </div>"
+        }),
+        __metadata("design:paramtypes", [pub_sub_service_1.PubSubService])
+    ], Producer);
     return Producer;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], Producer.prototype, "firstName", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Object)
-], Producer.prototype, "lastName", void 0);
-Producer = __decorate([
-    core_1.Component({
-        selector: 'producer',
-        template: "\n    <div>First Name</div>\n    <input [(ngModel)]=\"firstName\" />\n\n    <div>Last Name</div>\n    <input [(ngModel)]=\"lastName\" />\n\n    <div style=\"margin-top: 10px;\">\n        <button (click)=\"createCustomer()\">Create Customer</button>\n    </div>"
-    }),
-    __metadata("design:paramtypes", [pub_sub_service_1.PubSubService])
-], Producer);
 exports.Producer = Producer;

@@ -12,7 +12,7 @@ import {SurveyDemo} from './components/survey/survey-demo';
 import {Survey} from './components/survey/survey';
 import {InsertionSort} from './components/insertion-sort/insertion-sort';
 
-import {AngularModuleNgFactory} from './upgrade-aot/upgrade-module.ngfactory';
+import {AngularModuleNgFactory} from './upgrade-module.ngfactory';
 
 import {UpgradePubSubService} from './upgrade-pub-sub.service';
 import {MessageComponent} from './message.component';

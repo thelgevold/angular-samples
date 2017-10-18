@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var insertion_sort_1 = require("../../algorithms/insertion-sort");
 var InsertionSort = (function () {
@@ -32,16 +33,16 @@ var InsertionSort = (function () {
     InsertionSort.prototype.sortList = function () {
         insertion_sort_1.Insertion.sort(this.list);
     };
+    InsertionSort = __decorate([
+        core_1.Component({
+            selector: 'insertion-sort',
+            inputs: ['list: list'],
+            template: "\n    <table class=\"sort\">\n    <tr>\n        <td *ngFor=\"let item of list.items\" [ngClass]=\"item.getClass()\">\n            <span>{{item.val}}</span>\n        </td>\n    </tr>\n    </table>\n    <div style=\"margin-top: 10px;\">\n        <button (click)=\"sortList()\">Sort list</button>\n    </div>"
+        }),
+        __metadata("design:paramtypes", [])
+    ], InsertionSort);
     return InsertionSort;
 }());
-InsertionSort = __decorate([
-    core_1.Component({
-        selector: 'insertion-sort',
-        inputs: ['list: list'],
-        template: "\n    <table class=\"sort\">\n    <tr>\n        <td *ngFor=\"let item of list.items\" [ngClass]=\"item.getClass()\">\n            <span>{{item.val}}</span>\n        </td>\n    </tr>\n    </table>\n    <div style=\"margin-top: 10px;\">\n        <button (click)=\"sortList()\">Sort list</button>\n    </div>"
-    }),
-    __metadata("design:paramtypes", [])
-], InsertionSort);
 exports.InsertionSort = InsertionSort;
 var ValList = (function () {
     function ValList() {

@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var spreadsheetModel_1 = require("./spreadsheetModel");
 var header_row_service_1 = require("./header-row-service");
@@ -39,21 +40,21 @@ var Spreadsheet = (function () {
             return 'active-cell';
         }
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], Spreadsheet.prototype, "rows", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], Spreadsheet.prototype, "columns", void 0);
+    Spreadsheet = __decorate([
+        core_1.Component({
+            selector: 'spreadsheet',
+            template: "<h1>Virtualized Spreadsheet</h1>\n    <table id=\"spreadsheet\">\n        <tr>\n            <td class=\"row-number-column\"></td>\n            <td class=\"columnHeader\" *ngFor=\"let columnHeader of header\">{{columnHeader}}</td>\n        </tr>\n        <tr *ngFor=\"let row of visibleRows\">\n            <td class=\"row-number-column\">{{row.rowIndex}}</td>\n            <td *ngFor=\"let col of row.columns\">\n                <input  data-id=\"{{col.rowIndex}}-{{col.columnIndex}}\" [value]=\"col.cellValue\" (input)=\"col.cellValue = $event.target.value\" (click)=\"model.selectColumn(col)\" (keyup)=\"navigate($event)\" />\n            </td>\n        </tr>\n    </table>\n    <h4><a href=\"http://www.syntaxsuccess.com/viewarticle/virtualized-spreadsheet-component-in-angular-2.0\">Read more here</a></h4>\n    "
+        }),
+        __metadata("design:paramtypes", [])
+    ], Spreadsheet);
     return Spreadsheet;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], Spreadsheet.prototype, "rows", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], Spreadsheet.prototype, "columns", void 0);
-Spreadsheet = __decorate([
-    core_1.Component({
-        selector: 'spreadsheet',
-        template: "<h1>Virtualized Spreadsheet</h1>\n    <table id=\"spreadsheet\">\n        <tr>\n            <td class=\"row-number-column\"></td>\n            <td class=\"columnHeader\" *ngFor=\"let columnHeader of header\">{{columnHeader}}</td>\n        </tr>\n        <tr *ngFor=\"let row of visibleRows\">\n            <td class=\"row-number-column\">{{row.rowIndex}}</td>\n            <td *ngFor=\"let col of row.columns\">\n                <input  data-id=\"{{col.rowIndex}}-{{col.columnIndex}}\" [value]=\"col.cellValue\" (input)=\"col.cellValue = $event.target.value\" (click)=\"model.selectColumn(col)\" (keyup)=\"navigate($event)\" />\n            </td>\n        </tr>\n    </table>\n    <h4><a href=\"http://www.syntaxsuccess.com/viewarticle/virtualized-spreadsheet-component-in-angular-2.0\">Read more here</a></h4>\n    "
-    }),
-    __metadata("design:paramtypes", [])
-], Spreadsheet);
 exports.Spreadsheet = Spreadsheet;

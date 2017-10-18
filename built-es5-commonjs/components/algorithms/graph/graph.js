@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var edge_service_1 = require("./edge-service");
 var edge_1 = require("./edge");
@@ -24,14 +25,14 @@ var Graph = (function () {
             res.instance.setCoordinates(coordinates.first, coordinates.second);
         });
     };
+    Graph = __decorate([
+        core_1.Component({
+            selector: 'graph',
+            template: "\n    <div>\n    <h1>Create a Graph</h1>\n\n    <div class=\"alert alert-info\" role=\"alert\">\n        Click any pair of nodes to connect them with an edge\n    </div>\n\n    <vertex [value]=\"'A'\"></vertex>\n\n    <table class=\"graph-table\">\n        <tr>\n            <td><vertex [value]=\"'B'\"></vertex><td><vertex [value]=\"'C'\" ></vertex></td>\n        <tr>\n            <td><vertex [value]=\"'E'\" ></vertex></td><td><vertex [value]=\"'F'\" ></vertex></td>\n        </tr>\n        <tr>\n            <td><vertex [value]=\"'G'\" ></vertex></td><td><vertex [value]=\"'H'\" ></vertex></td><td><vertex [value]=\"'I'\" ></vertex></td>\n        </tr>\n    </table>\n    </div>\n    <h4><a href=\"http://www.syntaxsuccess.com/viewarticle/loading-components-dynamically-in-angular-2.0\">Read more here</a></h4>\n    ",
+            providers: [edge_service_1.EdgeService]
+        }),
+        __metadata("design:paramtypes", [core_1.ComponentFactoryResolver, edge_service_1.EdgeService])
+    ], Graph);
     return Graph;
 }());
-Graph = __decorate([
-    core_1.Component({
-        selector: 'graph',
-        template: "\n    <div>\n    <h1>Create a Graph</h1>\n\n    <div class=\"alert alert-info\" role=\"alert\">\n        Click any pair of nodes to connect them with an edge\n    </div>\n\n    <vertex [value]=\"'A'\"></vertex>\n\n    <table class=\"graph-table\">\n        <tr>\n            <td><vertex [value]=\"'B'\"></vertex><td><vertex [value]=\"'C'\" ></vertex></td>\n        <tr>\n            <td><vertex [value]=\"'E'\" ></vertex></td><td><vertex [value]=\"'F'\" ></vertex></td>\n        </tr>\n        <tr>\n            <td><vertex [value]=\"'G'\" ></vertex></td><td><vertex [value]=\"'H'\" ></vertex></td><td><vertex [value]=\"'I'\" ></vertex></td>\n        </tr>\n    </table>\n    </div>\n    <h4><a href=\"http://www.syntaxsuccess.com/viewarticle/loading-components-dynamically-in-angular-2.0\">Read more here</a></h4>\n    ",
-        providers: [edge_service_1.EdgeService]
-    }),
-    __metadata("design:paramtypes", [core_1.ComponentFactoryResolver, edge_service_1.EdgeService])
-], Graph);
 exports.Graph = Graph;
