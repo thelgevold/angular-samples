@@ -12,8 +12,9 @@ module.exports = {
   devtool: 'source-map',
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new ngToolsWebpack.AotPlugin({
-      tsConfigPath: './tsconfig-webpack.json'
+    new ngToolsWebpack.AngularCompilerPlugin({
+      tsConfigPath: './tsconfig-webpack.json',
+      "entryModule": "app-lazy/app.module#AppModule"
     }),
 		new webpack.LoaderOptionsPlugin({
 			minimize: true,
@@ -47,7 +48,7 @@ module.exports = {
     loaders: [
       { test: /\.css$/, loader: 'raw-loader' },
       { test: /\.html$/, loader: 'raw-loader' },
-      { test: /\.ts$/, loader: '@ngtools/webpack' }
+      { test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/, loader: '@ngtools/webpack' }
     ]
   }
 };
