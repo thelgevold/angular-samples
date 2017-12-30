@@ -27,8 +27,6 @@ node_modules/rxjs/OuterSubscriber.js
 node_modules/rxjs/operators/mergeMap.js
 node_modules/rxjs/util/identity.js
 node_modules/rxjs/operators/mergeAll.js
-node_modules/rxjs/operators/merge.js
-node_modules/rxjs/operator/merge.js
 node_modules/rxjs/observable/merge.js
 node_modules/rxjs/util/ObjectUnsubscribedError.js
 node_modules/rxjs/SubjectSubscription.js
@@ -118,6 +116,8 @@ node_modules/rxjs/add/operator/takeUntil.js
 node_modules/rxjs/operators/repeat.js
 node_modules/rxjs/operator/repeat.js
 node_modules/rxjs/add/operator/repeat.js
+node_modules/rxjs/operators/merge.js
+node_modules/rxjs/operator/merge.js
 node_modules/rxjs/add/operator/merge.js
 built-es6/components/text-editor/key-map.js
 built-es6/components/text-editor/character.js
