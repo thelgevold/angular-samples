@@ -33,4 +33,6 @@ Optinally you can also build a set of samples where I compare bundling options:
 
 7) Webpack (Babili): npm run webpack-babili
 
+8) Parcel: npm run parcel-demo
+
 You can build all options, including the main app, by running npm run build-all

@@ -11,17 +11,19 @@
     "rollup-es6": "ngc -p tsconfig-es6.json && rollup -c rollup/rollup-es6.js && tsc dist/bundle-rollup-es6.js --target es5 --allowJS --outFile dist/bundle-rollup-es5.js && uglifyjs dist/bundle-rollup-es5.js -o dist/bundle-rollup-es5.min.js -c -m",
     "rollup-demo": "ngc -p tsconfig-es5.json && rollup -c rollup/rollup-config-demo.js",
     "systemjs-demo": "tsc -p tsconfig-es5-commonjs.json",
+    "parcel-demo": "ngc -p tsconfig-es6.json && parcel build built-es6/app/main.js --out-dir dist/parcel-bundle",
     "systemjs-builder-demo": "npm run systemjs-demo && node systemjs-builder/systemjs-builder.js",
     "webpack-no-lazy-loading": "ngc -p tsconfig-es5.json && webpack --config webpack/webpack-no-lazy-loading.js --progress",
     "webpack-lazy-loading": "webpack --config webpack/webpack-lazy-loading.js --progress",
     "webpack-babili": "ngc -p tsconfig-es6.json && webpack --config webpack/webpack-babili.js --progress",
-    "build-all": "npm run webpack-babili && npm run webpack-lazy-loading && npm run webpack-no-lazy-loading && npm run systemjs-builder-demo && npm run build-demo-app && npm run closure-compiler-demo && npm run rollup-demo && npm run rollup-es6"
+    "build-all": "npm run parcel-demo && npm run webpack-babili && npm run webpack-lazy-loading && npm run webpack-no-lazy-loading && npm run systemjs-builder-demo && npm run build-demo-app && npm run closure-compiler-demo && npm run rollup-demo && npm run rollup-es6"
   },
   "devDependencies": {
     "@ngtools/webpack": "1.8.0",
     "babili-webpack-plugin": "^0.1.1",
     "compression": "1.6.2",
     "lite-server": "2.2.2",
+    "parcel-bundler": "1.4.0",
     "path": "0.12.7",
     "raw-loader": "0.5.1",
     "systemjs-builder": "0.16.4",
