@@ -19,7 +19,8 @@
     "build-all": "npm run parcel-demo && npm run webpack-babili && npm run webpack-lazy-loading && npm run webpack-no-lazy-loading && npm run systemjs-builder-demo && npm run build-demo-app && npm run closure-compiler-demo && npm run rollup-demo && npm run rollup-es6"
   },
   "devDependencies": {
-    "@ngtools/webpack": "1.8.0",
+    "@ngtools/webpack": "1.9.3",
+    "@angular-devkit/build-optimizer": "0.0.36",
     "babili-webpack-plugin": "^0.1.1",
     "compression": "1.6.2",
     "lite-server": "2.2.2",
@@ -29,7 +30,7 @@
     "systemjs-builder": "0.16.4",
     "typescript": "2.4.2",
     "uglify-js": "3.2.2",
-    "webpack": "3.0.0"
+    "webpack": "3.10.0"
   },
   "dependencies": {
     "@angular/animations": "5.1.2",

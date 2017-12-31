@@ -1,10 +1,25 @@
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const PurifyPlugin = require('@angular-devkit/build-optimizer').PurifyPlugin;
 const webpack = require('webpack');
+
 module.exports = {
   entry: './built-es5/app/main.js',
   output: {
     filename: 'dist/bundle-webpack-3-no-lazy-loading.js'
   },
+
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: '@angular-devkit/build-optimizer/webpack-loader',
+        options: {
+          sourceMap: false
+        }
+      }
+    ]
+  },
+
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
     new UglifyJsPlugin({
@@ -29,5 +44,6 @@ module.exports = {
         negate_iife: false
       },
     }),
+    new PurifyPlugin()
   ]
 }
