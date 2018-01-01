@@ -22,21 +22,21 @@ import 'rxjs/add/operator/concat';
   <div class="stream-section">
     <h4>Concatenated Streams</h4>
     <div *ngFor="let item of concatStream">
-      <div class="floatLeft" [ngClass]="{stream1:item.source === 1,stream2:item.source === 2}">{{item.value}}</div>
+      <div class="floatLeft" [ngClass]="{'stream1':item.source === 1,'stream2':item.source === 2}">{{item.value}}</div>
     </div>
   </div>
 
   <div class="stream-section">
     <h4>Merged Streams</h4>
     <div *ngFor="let item of mergeStream">
-      <div class="floatLeft" [ngClass]="{stream1:item.source === 1,stream2:item.source === 2}">{{item.value}}</div>
+      <div class="floatLeft" [ngClass]="{'stream1':item.source === 1,'stream2':item.source === 2}">{{item.value}}</div>
     </div>
   </div>
 
   <div class="stream-section">
     <h4>ForkJoined Streams</h4>
     <div *ngFor="let item of forkJoinStream">
-      <div [ngClass]="{stream1:item.source === 1,stream2:item.source === 2}">{{item.value}}</div>
+      <div [ngClass]="{'stream1':item.source === 1,'stream2':item.source === 2}">{{item.value}}</div>
     </div>
   </div>
 
