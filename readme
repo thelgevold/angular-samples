@@ -35,4 +35,6 @@ Optinally you can also build a set of samples where I compare bundling options:
 
 8) Parcel: npm run parcel-demo
 
+9) Browserify: npm run browserify-demo
+
 You can build all options, including the main app, by running npm run build-all
