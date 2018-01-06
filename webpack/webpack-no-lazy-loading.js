@@ -20,6 +20,12 @@ module.exports = {
     ]
   },
 
+  resolve: {
+    alias: {
+      'rxjs': 'rxjs/_esm5'
+    }
+  },
+
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
     new UglifyJsPlugin({
