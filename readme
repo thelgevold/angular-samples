@@ -37,4 +37,6 @@ Optinally you can also build a set of samples where I compare bundling options:
 
 9) Browserify: npm run browserify-demo
 
+10) Rollup with lazy loading: npm run rollup-lazy
+
 You can build all options, including the main app, by running npm run build-all

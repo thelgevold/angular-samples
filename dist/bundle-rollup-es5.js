@@ -17,11 +17,11 @@ var __extends = (this && this.__extends) || (function () {
     // CommonJS / Node have global context exposed as "global" variable.
     // We don't want to include the whole node.d.ts this this compilation unit so we'll just fake
     // the global "global" var for now.
-    var __window$1 = typeof window !== 'undefined' && window;
-    var __self$1 = typeof self !== 'undefined' && typeof WorkerGlobalScope !== 'undefined' &&
+    var __window = typeof window !== 'undefined' && window;
+    var __self = typeof self !== 'undefined' && typeof WorkerGlobalScope !== 'undefined' &&
         self instanceof WorkerGlobalScope && self;
-    var __global$1 = typeof commonjsGlobal !== 'undefined' && commonjsGlobal;
-    var _root = __window$1 || __global$1 || __self$1;
+    var __global = typeof commonjsGlobal !== 'undefined' && commonjsGlobal;
+    var _root = __window || __global || __self;
     var root_1 = _root;
     // Workaround Closure Compiler restriction: The body of a goog.module cannot use throw.
     // This is needed when used with angular/tsickle which inserts a goog.module statement.
@@ -75,7 +75,7 @@ var __extends = (this && this.__extends) || (function () {
     var tryCatch_1 = {
         tryCatch: tryCatch_2
     };
-    var __extends$1 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -87,7 +87,7 @@ var __extends = (this && this.__extends) || (function () {
      * `unsubscribe` of a {@link Subscription}.
      */
     var UnsubscriptionError = (function (_super) {
-        __extends$1(UnsubscriptionError, _super);
+        __extends(UnsubscriptionError, _super);
         function UnsubscriptionError(errors) {
             _super.call(this);
             this.errors = errors;
@@ -311,7 +311,7 @@ var __extends = (this && this.__extends) || (function () {
     });
     var rxSubscriber_1 = rxSubscriber.rxSubscriber;
     var rxSubscriber_2 = rxSubscriber.$$rxSubscriber;
-    var __extends = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$1 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -329,7 +329,7 @@ var __extends = (this && this.__extends) || (function () {
      * @class Subscriber<T>
      */
     var Subscriber = (function (_super) {
-        __extends(Subscriber, _super);
+        __extends$1(Subscriber, _super);
         /**
          * @param {Observer|function(value: T): void} [destinationOrNext] A partially
          * defined Observer or a `next` callback function.
@@ -463,7 +463,7 @@ var __extends = (this && this.__extends) || (function () {
      * @extends {Ignored}
      */
     var SafeSubscriber = (function (_super) {
-        __extends(SafeSubscriber, _super);
+        __extends$1(SafeSubscriber, _super);
         function SafeSubscriber(_parentSubscriber, observerOrNext, error, complete) {
             _super.call(this);
             this._parentSubscriber = _parentSubscriber;
@@ -622,8 +622,8 @@ var __extends = (this && this.__extends) || (function () {
     var observable_2 = observable.observable;
     var observable_3 = observable.$$observable;
     /* tslint:disable:no-empty */
-    function noop$1$1() { }
-    var noop_2 = noop$1$1;
+    function noop() { }
+    var noop_2 = noop;
     var noop_1 = {
         noop: noop_2
     };
@@ -955,7 +955,7 @@ var __extends = (this && this.__extends) || (function () {
     var Observable_1 = {
         Observable: Observable_2
     };
-    var __extends$3 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$2 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -968,7 +968,7 @@ var __extends = (this && this.__extends) || (function () {
      * @hide true
      */
     var ScalarObservable = (function (_super) {
-        __extends$3(ScalarObservable, _super);
+        __extends$2(ScalarObservable, _super);
         function ScalarObservable(value, scheduler) {
             _super.call(this);
             this.value = value;
@@ -1015,7 +1015,7 @@ var __extends = (this && this.__extends) || (function () {
     var ScalarObservable_1 = {
         ScalarObservable: ScalarObservable_2
     };
-    var __extends$4 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$3 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -1028,7 +1028,7 @@ var __extends = (this && this.__extends) || (function () {
      * @hide true
      */
     var EmptyObservable = (function (_super) {
-        __extends$4(EmptyObservable, _super);
+        __extends$3(EmptyObservable, _super);
         function EmptyObservable(scheduler) {
             _super.call(this);
             this.scheduler = scheduler;
@@ -1105,7 +1105,7 @@ var __extends = (this && this.__extends) || (function () {
     var isScheduler_1 = {
         isScheduler: isScheduler_2
     };
-    var __extends$2 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$4 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -1118,7 +1118,7 @@ var __extends = (this && this.__extends) || (function () {
      * @hide true
      */
     var ArrayObservable = (function (_super) {
-        __extends$2(ArrayObservable, _super);
+        __extends$4(ArrayObservable, _super);
         function ArrayObservable(array, scheduler) {
             _super.call(this);
             this.array = array;
@@ -1230,16 +1230,16 @@ var __extends = (this && this.__extends) || (function () {
     var isArrayLike = {
         isArrayLike: isArrayLike_1
     };
-    function isPromise$1(value) {
+    function isPromise(value) {
         return value && typeof value.subscribe !== 'function' && typeof value.then === 'function';
     }
-    var isPromise_2 = isPromise$1;
+    var isPromise_2 = isPromise;
     var isPromise_1 = {
         isPromise: isPromise_2
     };
     var iterator = createCommonjsModule(function (module, exports) {
-        function symbolIteratorPonyfill(root$$2) {
-            var Symbol = root$$2.Symbol;
+        function symbolIteratorPonyfill(root$$1) {
+            var Symbol = root$$1.Symbol;
             if (typeof Symbol === 'function') {
                 if (!Symbol.iterator) {
                     Symbol.iterator = Symbol('iterator polyfill');
@@ -1248,11 +1248,11 @@ var __extends = (this && this.__extends) || (function () {
             }
             else {
                 // [for Mozilla Gecko 27-35:](https://mzl.la/2ewE1zC)
-                var Set_1 = root$$2.Set;
+                var Set_1 = root$$1.Set;
                 if (Set_1 && typeof new Set_1()['@@iterator'] === 'function') {
                     return '@@iterator';
                 }
-                var Map_1 = root$$2.Map;
+                var Map_1 = root$$1.Map;
                 // required for compatability with es6-shim
                 if (Map_1) {
                     var keys = Object.getOwnPropertyNames(Map_1.prototype);
@@ -1277,7 +1277,7 @@ var __extends = (this && this.__extends) || (function () {
     var iterator_1 = iterator.symbolIteratorPonyfill;
     var iterator_2 = iterator.iterator;
     var iterator_3 = iterator.$$iterator;
-    var __extends$6 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$5 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -1290,7 +1290,7 @@ var __extends = (this && this.__extends) || (function () {
      * @extends {Ignored}
      */
     var InnerSubscriber = (function (_super) {
-        __extends$6(InnerSubscriber, _super);
+        __extends$5(InnerSubscriber, _super);
         function InnerSubscriber(parent, outerValue, outerIndex) {
             _super.call(this);
             this.parent = parent;
@@ -1387,7 +1387,7 @@ var __extends = (this && this.__extends) || (function () {
     var subscribeToResult_1 = {
         subscribeToResult: subscribeToResult_2
     };
-    var __extends$7 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$6 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -1400,7 +1400,7 @@ var __extends = (this && this.__extends) || (function () {
      * @extends {Ignored}
      */
     var OuterSubscriber = (function (_super) {
-        __extends$7(OuterSubscriber, _super);
+        __extends$6(OuterSubscriber, _super);
         function OuterSubscriber() {
             _super.apply(this, arguments);
         }
@@ -1419,7 +1419,7 @@ var __extends = (this && this.__extends) || (function () {
     var OuterSubscriber_1 = {
         OuterSubscriber: OuterSubscriber_2
     };
-    var __extends$5 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$7 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -1519,7 +1519,7 @@ var __extends = (this && this.__extends) || (function () {
      * @extends {Ignored}
      */
     var MergeMapSubscriber = (function (_super) {
-        __extends$5(MergeMapSubscriber, _super);
+        __extends$7(MergeMapSubscriber, _super);
         function MergeMapSubscriber(destination, project, resultSelector, concurrent) {
             if (concurrent === void 0) {
                 concurrent = Number.POSITIVE_INFINITY;
@@ -1723,7 +1723,7 @@ var __extends = (this && this.__extends) || (function () {
      * @name merge
      * @owner Observable
      */
-    function merge$1() {
+    function merge() {
         var observables = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             observables[_i - 0] = arguments[_i];
@@ -1745,11 +1745,11 @@ var __extends = (this && this.__extends) || (function () {
         }
         return mergeAll_1.mergeAll(concurrent)(new ArrayObservable_1.ArrayObservable(observables, scheduler));
     }
-    var merge_2 = merge$1;
+    var merge_2 = merge;
     var merge_1 = {
         merge: merge_2
     };
-    var __extends$10 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$8 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -1766,7 +1766,7 @@ var __extends = (this && this.__extends) || (function () {
      * @class ObjectUnsubscribedError
      */
     var ObjectUnsubscribedError = (function (_super) {
-        __extends$10(ObjectUnsubscribedError, _super);
+        __extends$8(ObjectUnsubscribedError, _super);
         function ObjectUnsubscribedError() {
             var err = _super.call(this, 'object unsubscribed');
             this.name = err.name = 'ObjectUnsubscribedError';
@@ -1779,7 +1779,7 @@ var __extends = (this && this.__extends) || (function () {
     var ObjectUnsubscribedError_1 = {
         ObjectUnsubscribedError: ObjectUnsubscribedError_2
     };
-    var __extends$11 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$9 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -1792,7 +1792,7 @@ var __extends = (this && this.__extends) || (function () {
      * @extends {Ignored}
      */
     var SubjectSubscription = (function (_super) {
-        __extends$11(SubjectSubscription, _super);
+        __extends$9(SubjectSubscription, _super);
         function SubjectSubscription(subject, subscriber) {
             _super.call(this);
             this.subject = subject;
@@ -1821,7 +1821,7 @@ var __extends = (this && this.__extends) || (function () {
     var SubjectSubscription_1 = {
         SubjectSubscription: SubjectSubscription_2
     };
-    var __extends$9 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$10 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -1832,7 +1832,7 @@ var __extends = (this && this.__extends) || (function () {
      * @class SubjectSubscriber<T>
      */
     var SubjectSubscriber = (function (_super) {
-        __extends$9(SubjectSubscriber, _super);
+        __extends$10(SubjectSubscriber, _super);
         function SubjectSubscriber(destination) {
             _super.call(this, destination);
             this.destination = destination;
@@ -1844,7 +1844,7 @@ var __extends = (this && this.__extends) || (function () {
      * @class Subject<T>
      */
     var Subject = (function (_super) {
-        __extends$9(Subject, _super);
+        __extends$10(Subject, _super);
         function Subject() {
             _super.call(this);
             this.observers = [];
@@ -1947,7 +1947,7 @@ var __extends = (this && this.__extends) || (function () {
      * @class AnonymousSubject<T>
      */
     var AnonymousSubject = (function (_super) {
-        __extends$9(AnonymousSubject, _super);
+        __extends$10(AnonymousSubject, _super);
         function AnonymousSubject(destination, source) {
             _super.call(this);
             this.destination = destination;
@@ -1988,7 +1988,7 @@ var __extends = (this && this.__extends) || (function () {
         Subject: Subject_2,
         AnonymousSubject: AnonymousSubject_1
     };
-    var __extends$12 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$11 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -1997,18 +1997,18 @@ var __extends = (this && this.__extends) || (function () {
     };
     function refCount() {
         return function refCountOperatorFunction(source) {
-            return source.lift(new RefCountOperator$1(source));
+            return source.lift(new RefCountOperator(source));
         };
     }
     var refCount_2 = refCount;
-    var RefCountOperator$1 = (function () {
+    var RefCountOperator = (function () {
         function RefCountOperator(connectable) {
             this.connectable = connectable;
         }
         RefCountOperator.prototype.call = function (subscriber, source) {
             var connectable = this.connectable;
             connectable._refCount++;
-            var refCounter = new RefCountSubscriber$1(subscriber, connectable);
+            var refCounter = new RefCountSubscriber(subscriber, connectable);
             var subscription = source.subscribe(refCounter);
             if (!refCounter.closed) {
                 refCounter.connection = connectable.connect();
@@ -2017,8 +2017,8 @@ var __extends = (this && this.__extends) || (function () {
         };
         return RefCountOperator;
     }());
-    var RefCountSubscriber$1 = (function (_super) {
-        __extends$12(RefCountSubscriber, _super);
+    var RefCountSubscriber = (function (_super) {
+        __extends$11(RefCountSubscriber, _super);
         function RefCountSubscriber(destination, connectable) {
             _super.call(this, destination);
             this.connectable = connectable;
@@ -2075,7 +2075,7 @@ var __extends = (this && this.__extends) || (function () {
     var refCount_1 = {
         refCount: refCount_2
     };
-    var __extends$8 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$12 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -2086,7 +2086,7 @@ var __extends = (this && this.__extends) || (function () {
      * @class ConnectableObservable<T>
      */
     var ConnectableObservable = (function (_super) {
-        __extends$8(ConnectableObservable, _super);
+        __extends$12(ConnectableObservable, _super);
         function ConnectableObservable(source, subjectFactory) {
             _super.call(this);
             this.source = source;
@@ -2140,7 +2140,7 @@ var __extends = (this && this.__extends) || (function () {
         refCount: { value: connectableProto.refCount }
     };
     var ConnectableSubscriber = (function (_super) {
-        __extends$8(ConnectableSubscriber, _super);
+        __extends$12(ConnectableSubscriber, _super);
         function ConnectableSubscriber(destination, connectable) {
             _super.call(this, destination);
             this.connectable = connectable;
@@ -2169,8 +2169,8 @@ var __extends = (this && this.__extends) || (function () {
         };
         return ConnectableSubscriber;
     }(Subject_1.SubjectSubscriber));
-    var RefCountSubscriber = (function (_super) {
-        __extends$8(RefCountSubscriber, _super);
+    var RefCountSubscriber$1 = (function (_super) {
+        __extends$12(RefCountSubscriber, _super);
         function RefCountSubscriber(destination, connectable) {
             _super.call(this, destination);
             this.connectable = connectable;
@@ -2303,12 +2303,12 @@ var __extends = (this && this.__extends) || (function () {
      * @method share
      * @owner Observable
      */
-    function share$1() {
+    function share() {
         return function (source) { return refCount_1.refCount()(multicast_1.multicast(shareSubjectFactory)(source)); };
     }
-    var share_2$2 = share$1;
+    var share_2 = share;
     var share_1 = {
-        share: share_2$2
+        share: share_2
     };
     /**
      * Returns a new Observable that multicasts (shares) the original Observable. As long as there is at least one
@@ -2326,10 +2326,10 @@ var __extends = (this && this.__extends) || (function () {
      * @method share
      * @owner Observable
      */
-    function share() {
+    function share$1() {
         return share_1.share()(this);
     }
-    var share_3 = share;
+    var share_3 = share$1;
     /**
      * @license Angular v5.2.0
      * (c) 2010-2018 Google, Inc. https://angular.io/
@@ -2928,7 +2928,7 @@ var __extends = (this && this.__extends) || (function () {
     /**
      * \@stable
      */
-    var VERSION$2 = new Version('5.2.0');
+    var VERSION = new Version('5.2.0');
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
@@ -3029,11 +3029,11 @@ var __extends = (this && this.__extends) || (function () {
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
-    var __window = typeof window !== 'undefined' && window;
-    var __self = typeof self !== 'undefined' && typeof WorkerGlobalScope !== 'undefined' &&
+    var __window$1 = typeof window !== 'undefined' && window;
+    var __self$1 = typeof self !== 'undefined' && typeof WorkerGlobalScope !== 'undefined' &&
         self instanceof WorkerGlobalScope && self;
-    var __global = typeof global !== 'undefined' && global;
-    var _global = __window || __global || __self;
+    var __global$1 = typeof global !== 'undefined' && global;
+    var _global = __window$1 || __global$1 || __self$1;
     var _symbolIterator = null;
     /**
      * @return {?}
@@ -5239,7 +5239,7 @@ var __extends = (this && this.__extends) || (function () {
      * @param {?} obj
      * @return {?}
      */
-    function isPromise(obj) {
+    function isPromise$1(obj) {
         // allow any Promise/A+ compliant thenable.
         // It's up to the caller to ensure that obj.then conforms to the spec
         return !!obj && typeof obj.then === 'function';
@@ -5305,7 +5305,7 @@ var __extends = (this && this.__extends) || (function () {
             if (this.appInits) {
                 for (var /** @type {?} */ i = 0; i < this.appInits.length; i++) {
                     var /** @type {?} */ initResult = this.appInits[i]();
-                    if (isPromise(initResult)) {
+                    if (isPromise$1(initResult)) {
                         asyncInitPromises.push(initResult);
                     }
                 }
@@ -6115,7 +6115,7 @@ var __extends = (this && this.__extends) || (function () {
          */
         NgZone.prototype.runTask = function (fn, applyThis, applyArgs, name) {
             var /** @type {?} */ zone = (((this)))._inner;
-            var /** @type {?} */ task = zone.scheduleEventTask('NgZoneEvent: ' + name, fn, EMPTY_PAYLOAD, noop, noop);
+            var /** @type {?} */ task = zone.scheduleEventTask('NgZoneEvent: ' + name, fn, EMPTY_PAYLOAD, noop$1, noop$1);
             try {
                 return (zone.runTask(task, applyThis, applyArgs));
             }
@@ -6159,7 +6159,7 @@ var __extends = (this && this.__extends) || (function () {
     /**
      * @return {?}
      */
-    function noop() { }
+    function noop$1() { }
     var EMPTY_PAYLOAD = {};
     /**
      * @param {?} zone
@@ -6873,7 +6873,7 @@ var __extends = (this && this.__extends) || (function () {
     function _callAndReportToErrorHandler(errorHandler, ngZone, callback) {
         try {
             var /** @type {?} */ result = callback();
-            if (isPromise(result)) {
+            if (isPromise$1(result)) {
                 return result.catch(function (e) {
                     ngZone.runOutsideAngular(function () { return errorHandler.handleError(e); });
                     // rethrow as the exception handler might not do it
@@ -9341,7 +9341,7 @@ var __extends = (this && this.__extends) || (function () {
                 return factory;
             }
             else {
-                throw new Error("Cannot find a differ supporting object '" + iterable + "' of type '" + getTypeNameForDebugging$1(iterable) + "'");
+                throw new Error("Cannot find a differ supporting object '" + iterable + "' of type '" + getTypeNameForDebugging(iterable) + "'");
             }
         };
         return IterableDiffers;
@@ -9350,7 +9350,7 @@ var __extends = (this && this.__extends) || (function () {
      * @param {?} type
      * @return {?}
      */
-    function getTypeNameForDebugging$1(type) {
+    function getTypeNameForDebugging(type) {
         return type['name'] || typeof type;
     }
     /**
@@ -11394,7 +11394,7 @@ var __extends = (this && this.__extends) || (function () {
             var /** @type {?} */ view = Services.createRootView(injector, projectableNodes || [], rootSelectorOrNode, viewDef, ngModule, EMPTY_CONTEXT);
             var /** @type {?} */ component = asProviderData(view, componentNodeIndex).instance;
             if (rootSelectorOrNode) {
-                view.renderer.setAttribute(asElementData(view, 0).renderElement, 'ng-version', VERSION$2.full);
+                view.renderer.setAttribute(asElementData(view, 0).renderElement, 'ng-version', VERSION.full);
             }
             return new ComponentRef_(view, new ViewRef_(view), component);
         };
@@ -17215,7 +17215,7 @@ var __extends = (this && this.__extends) || (function () {
                         this._differ = this._differs.find(value).create(this.ngForTrackBy);
                     }
                     catch (e) {
-                        throw new Error("Cannot find a differ supporting object '" + value + "' of type '" + getTypeNameForDebugging(value) + "'. NgFor only supports binding to Iterables such as Arrays.");
+                        throw new Error("Cannot find a differ supporting object '" + value + "' of type '" + getTypeNameForDebugging$1(value) + "'. NgFor only supports binding to Iterables such as Arrays.");
                     }
                 }
             }
@@ -17305,7 +17305,7 @@ var __extends = (this && this.__extends) || (function () {
      * @param {?} type
      * @return {?}
      */
-    function getTypeNameForDebugging(type) {
+    function getTypeNameForDebugging$1(type) {
         return type['name'] || typeof type;
     }
     /**
@@ -19736,7 +19736,7 @@ var __extends = (this && this.__extends) || (function () {
          * @return {?}
          */
         AsyncPipe.prototype._selectStrategy = function (obj) {
-            if (isPromise(obj)) {
+            if (isPromise$1(obj)) {
                 return _promiseStrategy;
             }
             if (isObservable(obj)) {
@@ -22744,7 +22744,7 @@ var __extends = (this && this.__extends) || (function () {
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
-    var ɵ0 = function (v) {
+    var ɵ0$1 = function (v) {
         return '__zone_symbol__' + v;
     };
     /**
@@ -22753,7 +22753,7 @@ var __extends = (this && this.__extends) || (function () {
      * efficient bookkeeping than Zone can, because we have additional information. This speeds up
      * addEventListener by 3x.
      */
-    var __symbol__ = (typeof Zone !== 'undefined') && ((Zone))['__symbol__'] || ɵ0;
+    var __symbol__ = (typeof Zone !== 'undefined') && ((Zone))['__symbol__'] || ɵ0$1;
     var ADD_EVENT_LISTENER = __symbol__('addEventListener');
     var REMOVE_EVENT_LISTENER = __symbol__('removeEventListener');
     var symbolNames = {};
@@ -23129,12 +23129,12 @@ var __extends = (this && this.__extends) || (function () {
      * found in the LICENSE file at https://angular.io/license
      */
     var MODIFIER_KEYS = ['alt', 'control', 'meta', 'shift'];
-    var ɵ0$1 = function (event) { return event.altKey; };
+    var ɵ0$1$1 = function (event) { return event.altKey; };
     var ɵ1$1 = function (event) { return event.ctrlKey; };
     var ɵ2$1 = function (event) { return event.metaKey; };
     var ɵ3 = function (event) { return event.shiftKey; };
     var MODIFIER_KEY_GETTERS = {
-        'alt': ɵ0$1,
+        'alt': ɵ0$1$1,
         'control': ɵ1$1,
         'meta': ɵ2$1,
         'shift': ɵ3
@@ -23380,7 +23380,7 @@ var __extends = (this && this.__extends) || (function () {
      * @param {...?} sets
      * @return {?}
      */
-    function merge() {
+    function merge$1() {
         var sets = [];
         for (var _b = 0; _b < arguments.length; _b++) {
             sets[_b] = arguments[_b];
@@ -23405,16 +23405,16 @@ var __extends = (this && this.__extends) || (function () {
     // http://dev.w3.org/html5/spec/Overview.html#optional-tags
     var OPTIONAL_END_TAG_BLOCK_ELEMENTS = tagSet('colgroup,dd,dt,li,p,tbody,td,tfoot,th,thead,tr');
     var OPTIONAL_END_TAG_INLINE_ELEMENTS = tagSet('rp,rt');
-    var OPTIONAL_END_TAG_ELEMENTS = merge(OPTIONAL_END_TAG_INLINE_ELEMENTS, OPTIONAL_END_TAG_BLOCK_ELEMENTS);
+    var OPTIONAL_END_TAG_ELEMENTS = merge$1(OPTIONAL_END_TAG_INLINE_ELEMENTS, OPTIONAL_END_TAG_BLOCK_ELEMENTS);
     // Safe Block Elements - HTML5
-    var BLOCK_ELEMENTS = merge(OPTIONAL_END_TAG_BLOCK_ELEMENTS, tagSet('address,article,' +
+    var BLOCK_ELEMENTS = merge$1(OPTIONAL_END_TAG_BLOCK_ELEMENTS, tagSet('address,article,' +
         'aside,blockquote,caption,center,del,details,dialog,dir,div,dl,figure,figcaption,footer,h1,h2,h3,h4,h5,' +
         'h6,header,hgroup,hr,ins,main,map,menu,nav,ol,pre,section,summary,table,ul'));
     // Inline Elements - HTML5
-    var INLINE_ELEMENTS = merge(OPTIONAL_END_TAG_INLINE_ELEMENTS, tagSet('a,abbr,acronym,audio,b,' +
+    var INLINE_ELEMENTS = merge$1(OPTIONAL_END_TAG_INLINE_ELEMENTS, tagSet('a,abbr,acronym,audio,b,' +
         'bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,picture,q,ruby,rp,rt,s,' +
         'samp,small,source,span,strike,strong,sub,sup,time,track,tt,u,var,video'));
-    var VALID_ELEMENTS = merge(VOID_ELEMENTS, BLOCK_ELEMENTS, INLINE_ELEMENTS, OPTIONAL_END_TAG_ELEMENTS);
+    var VALID_ELEMENTS = merge$1(VOID_ELEMENTS, BLOCK_ELEMENTS, INLINE_ELEMENTS, OPTIONAL_END_TAG_ELEMENTS);
     // Attributes that have href and hence need to be sanitized
     var URI_ATTRS = tagSet('background,cite,href,itemtype,longdesc,poster,src,xlink:href');
     // Attributes that have special href set hence need to be sanitized
@@ -23430,7 +23430,7 @@ var __extends = (this && this.__extends) || (function () {
     // NB: Sanitization does not allow <form> elements or other active elements (<button> etc). Those
     // can be sanitized, but they increase security surface area without a legitimate use case, so they
     // are left out here.
-    var VALID_ATTRS = merge(URI_ATTRS, SRCSET_ATTRS, HTML_ATTRS);
+    var VALID_ATTRS = merge$1(URI_ATTRS, SRCSET_ATTRS, HTML_ATTRS);
     /**
      * SanitizingHtmlSerializer serializes a DOM fragment, stripping out any unsafe elements and unsafe
      * attributes.
@@ -24126,7 +24126,7 @@ var __extends = (this && this.__extends) || (function () {
     /**
      * \@stable
      */
-    var VERSION = new Version('5.2.0');
+    var VERSION$2 = new Version('5.2.0');
     var __extends$13 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
@@ -24494,7 +24494,7 @@ var __extends = (this && this.__extends) || (function () {
      * @method map
      * @owner Observable
      */
-    function map$1(project, thisArg) {
+    function map(project, thisArg) {
         return function mapOperation(source) {
             if (typeof project !== 'function') {
                 throw new TypeError('argument is not a function. Are you looking for `mapTo()`?');
@@ -24502,7 +24502,7 @@ var __extends = (this && this.__extends) || (function () {
             return source.lift(new MapOperator(project, thisArg));
         };
     }
-    var map_2$2 = map$1;
+    var map_2 = map;
     var MapOperator = (function () {
         function MapOperator(project, thisArg) {
             this.project = project;
@@ -24543,7 +24543,7 @@ var __extends = (this && this.__extends) || (function () {
         return MapSubscriber;
     }(Subscriber_1.Subscriber));
     var map_1 = {
-        map: map_2$2,
+        map: map_2,
         MapOperator: MapOperator_1
     };
     /**
@@ -24579,11 +24579,11 @@ var __extends = (this && this.__extends) || (function () {
      * @method map
      * @owner Observable
      */
-    function map(project, thisArg) {
+    function map$1(project, thisArg) {
         return map_1.map(project, thisArg)(this);
     }
-    var map_3 = map;
-    var map_2 = {
+    var map_3 = map$1;
+    var map_2$1 = {
         map: map_3
     };
     /**
@@ -25103,7 +25103,7 @@ var __extends = (this && this.__extends) || (function () {
      * @return {?}
      */
     function toObservable(r) {
-        var /** @type {?} */ obs = isPromise(r) ? fromPromise_1(r) : r;
+        var /** @type {?} */ obs = isPromise$1(r) ? fromPromise_1(r) : r;
         if (!(isObservable(obs))) {
             throw new Error("Expected validator to return Promise or Observable.");
         }
@@ -31005,12 +31005,12 @@ var __extends = (this && this.__extends) || (function () {
      * @method concatMap
      * @owner Observable
      */
-    function concatMap$1(project, resultSelector) {
+    function concatMap(project, resultSelector) {
         return mergeMap_1.mergeMap(project, resultSelector, 1);
     }
-    var concatMap_2$2 = concatMap$1;
+    var concatMap_2 = concatMap;
     var concatMap_1 = {
-        concatMap: concatMap_2$2
+        concatMap: concatMap_2
     };
     /* tslint:enable:max-line-length */
     /**
@@ -31072,10 +31072,10 @@ var __extends = (this && this.__extends) || (function () {
      * @method concatMap
      * @owner Observable
      */
-    function concatMap(project, resultSelector) {
+    function concatMap$1(project, resultSelector) {
         return concatMap_1.concatMap(project, resultSelector)(this);
     }
-    var concatMap_3 = concatMap;
+    var concatMap_3 = concatMap$1;
     /* tslint:enable:max-line-length */
     /**
      * Projects each source value to an Observable which is merged in the output
@@ -31145,7 +31145,7 @@ var __extends = (this && this.__extends) || (function () {
     var mergeMap_2$1 = {
         mergeMap: mergeMap_3
     };
-    var __extends$18 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$17 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -31158,25 +31158,25 @@ var __extends = (this && this.__extends) || (function () {
      * @hide true
      */
     var IteratorObservable = (function (_super) {
-        __extends$18(IteratorObservable, _super);
-        function IteratorObservable(iterator$$2, scheduler) {
+        __extends$17(IteratorObservable, _super);
+        function IteratorObservable(iterator$$1, scheduler) {
             _super.call(this);
             this.scheduler = scheduler;
-            if (iterator$$2 == null) {
+            if (iterator$$1 == null) {
                 throw new Error('iterator cannot be null.');
             }
-            this.iterator = getIterator(iterator$$2);
+            this.iterator = getIterator(iterator$$1);
         }
-        IteratorObservable.create = function (iterator$$2, scheduler) {
-            return new IteratorObservable(iterator$$2, scheduler);
+        IteratorObservable.create = function (iterator$$1, scheduler) {
+            return new IteratorObservable(iterator$$1, scheduler);
         };
         IteratorObservable.dispatch = function (state) {
-            var index = state.index, hasError = state.hasError, iterator$$2 = state.iterator, subscriber = state.subscriber;
+            var index = state.index, hasError = state.hasError, iterator$$1 = state.iterator, subscriber = state.subscriber;
             if (hasError) {
                 subscriber.error(state.error);
                 return;
             }
-            var result = iterator$$2.next();
+            var result = iterator$$1.next();
             if (result.done) {
                 subscriber.complete();
                 return;
@@ -31184,8 +31184,8 @@ var __extends = (this && this.__extends) || (function () {
             subscriber.next(result.value);
             state.index = index + 1;
             if (subscriber.closed) {
-                if (typeof iterator$$2.return === 'function') {
-                    iterator$$2.return();
+                if (typeof iterator$$1.return === 'function') {
+                    iterator$$1.return();
                 }
                 return;
             }
@@ -31193,15 +31193,15 @@ var __extends = (this && this.__extends) || (function () {
         };
         IteratorObservable.prototype._subscribe = function (subscriber) {
             var index = 0;
-            var _a = this, iterator$$2 = _a.iterator, scheduler = _a.scheduler;
+            var _a = this, iterator$$1 = _a.iterator, scheduler = _a.scheduler;
             if (scheduler) {
                 return scheduler.schedule(IteratorObservable.dispatch, 0, {
-                    index: index, iterator: iterator$$2, subscriber: subscriber
+                    index: index, iterator: iterator$$1, subscriber: subscriber
                 });
             }
             else {
                 do {
-                    var result = iterator$$2.next();
+                    var result = iterator$$1.next();
                     if (result.done) {
                         subscriber.complete();
                         break;
@@ -31210,8 +31210,8 @@ var __extends = (this && this.__extends) || (function () {
                         subscriber.next(result.value);
                     }
                     if (subscriber.closed) {
-                        if (typeof iterator$$2.return === 'function') {
-                            iterator$$2.return();
+                        if (typeof iterator$$1.return === 'function') {
+                            iterator$$1.return();
                         }
                         break;
                     }
@@ -31316,7 +31316,7 @@ var __extends = (this && this.__extends) || (function () {
     var IteratorObservable_1 = {
         IteratorObservable: IteratorObservable_2
     };
-    var __extends$19 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$18 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -31329,7 +31329,7 @@ var __extends = (this && this.__extends) || (function () {
      * @hide true
      */
     var ArrayLikeObservable = (function (_super) {
-        __extends$19(ArrayLikeObservable, _super);
+        __extends$18(ArrayLikeObservable, _super);
         function ArrayLikeObservable(arrayLike, scheduler) {
             _super.call(this);
             this.arrayLike = arrayLike;
@@ -31513,7 +31513,7 @@ var __extends = (this && this.__extends) || (function () {
     var Notification_1 = {
         Notification: Notification_2
     };
-    var __extends$20 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$19 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -31595,7 +31595,7 @@ var __extends = (this && this.__extends) || (function () {
      * @extends {Ignored}
      */
     var ObserveOnSubscriber = (function (_super) {
-        __extends$20(ObserveOnSubscriber, _super);
+        __extends$19(ObserveOnSubscriber, _super);
         function ObserveOnSubscriber(destination, scheduler, delay) {
             if (delay === void 0) {
                 delay = 0;
@@ -31638,7 +31638,7 @@ var __extends = (this && this.__extends) || (function () {
         ObserveOnSubscriber: ObserveOnSubscriber_1,
         ObserveOnMessage: ObserveOnMessage_1
     };
-    var __extends$17 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$20 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -31651,7 +31651,7 @@ var __extends = (this && this.__extends) || (function () {
      * @hide true
      */
     var FromObservable = (function (_super) {
-        __extends$17(FromObservable, _super);
+        __extends$20(FromObservable, _super);
         function FromObservable(ish, scheduler) {
             _super.call(this, null);
             this.ish = ish;
@@ -31984,12 +31984,12 @@ var __extends = (this && this.__extends) || (function () {
      * @method concatAll
      * @owner Observable
      */
-    function concatAll$1() {
+    function concatAll() {
         return mergeAll_1.mergeAll(1);
     }
-    var concatAll_2$2 = concatAll$1;
+    var concatAll_2 = concatAll;
     var concatAll_1 = {
-        concatAll: concatAll_2$2
+        concatAll: concatAll_2
     };
     /* tslint:enable:max-line-length */
     /**
@@ -32040,11 +32040,11 @@ var __extends = (this && this.__extends) || (function () {
      * @method concatAll
      * @owner Observable
      */
-    function concatAll() {
+    function concatAll$1() {
         return concatAll_1.concatAll()(this);
     }
-    var concatAll_3 = concatAll;
-    var __extends$23 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var concatAll_3 = concatAll$1;
+    var __extends$22 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -32062,7 +32062,7 @@ var __extends = (this && this.__extends) || (function () {
      * @class EmptyError
      */
     var EmptyError = (function (_super) {
-        __extends$23(EmptyError, _super);
+        __extends$22(EmptyError, _super);
         function EmptyError() {
             var err = _super.call(this, 'no elements in sequence');
             this.name = err.name = 'EmptyError';
@@ -32075,7 +32075,7 @@ var __extends = (this && this.__extends) || (function () {
     var EmptyError_1 = {
         EmptyError: EmptyError_2
     };
-    var __extends$22 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$23 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -32131,10 +32131,10 @@ var __extends = (this && this.__extends) || (function () {
      * @method first
      * @owner Observable
      */
-    function first$1(predicate, resultSelector, defaultValue) {
+    function first(predicate, resultSelector, defaultValue) {
         return function (source) { return source.lift(new FirstOperator(predicate, resultSelector, defaultValue, source)); };
     }
-    var first_2$2 = first$1;
+    var first_2 = first;
     var FirstOperator = (function () {
         function FirstOperator(predicate, resultSelector, defaultValue, source) {
             this.predicate = predicate;
@@ -32153,7 +32153,7 @@ var __extends = (this && this.__extends) || (function () {
      * @extends {Ignored}
      */
     var FirstSubscriber = (function (_super) {
-        __extends$22(FirstSubscriber, _super);
+        __extends$23(FirstSubscriber, _super);
         function FirstSubscriber(destination, predicate, resultSelector, defaultValue, source) {
             _super.call(this, destination);
             this.predicate = predicate;
@@ -32226,7 +32226,7 @@ var __extends = (this && this.__extends) || (function () {
         return FirstSubscriber;
     }(Subscriber_1.Subscriber));
     var first_1 = {
-        first: first_2$2
+        first: first_2
     };
     /**
      * Emits only the first value (or the first value that meets some condition)
@@ -32277,10 +32277,10 @@ var __extends = (this && this.__extends) || (function () {
      * @method first
      * @owner Observable
      */
-    function first(predicate, resultSelector, defaultValue) {
+    function first$1(predicate, resultSelector, defaultValue) {
         return first_1.first(predicate, resultSelector, defaultValue)(this);
     }
-    var first_3 = first;
+    var first_3 = first$1;
     var __extends$24 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
@@ -32302,10 +32302,10 @@ var __extends = (this && this.__extends) || (function () {
      * @method every
      * @owner Observable
      */
-    function every$1(predicate, thisArg) {
+    function every(predicate, thisArg) {
         return function (source) { return source.lift(new EveryOperator(predicate, thisArg, source)); };
     }
-    var every_2$2 = every$1;
+    var every_2 = every;
     var EveryOperator = (function () {
         function EveryOperator(predicate, thisArg, source) {
             this.predicate = predicate;
@@ -32355,7 +32355,7 @@ var __extends = (this && this.__extends) || (function () {
         return EverySubscriber;
     }(Subscriber_1.Subscriber));
     var every_1 = {
-        every: every_2$2
+        every: every_2
     };
     /**
      * Returns an Observable that emits whether or not every item of the source satisfies the condition specified.
@@ -32371,10 +32371,10 @@ var __extends = (this && this.__extends) || (function () {
      * @method every
      * @owner Observable
      */
-    function every(predicate, thisArg) {
+    function every$1(predicate, thisArg) {
         return every_1.every(predicate, thisArg)(this);
     }
-    var every_3 = every;
+    var every_3 = every$1;
     var __extends$25 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
@@ -32400,10 +32400,10 @@ var __extends = (this && this.__extends) || (function () {
      * @method last
      * @owner Observable
      */
-    function last$1$1(predicate, resultSelector, defaultValue) {
+    function last(predicate, resultSelector, defaultValue) {
         return function (source) { return source.lift(new LastOperator(predicate, resultSelector, defaultValue, source)); };
     }
-    var last_2$2 = last$1$1;
+    var last_2 = last;
     var LastOperator = (function () {
         function LastOperator(predicate, resultSelector, defaultValue, source) {
             this.predicate = predicate;
@@ -32493,7 +32493,7 @@ var __extends = (this && this.__extends) || (function () {
         return LastSubscriber;
     }(Subscriber_1.Subscriber));
     var last_1 = {
-        last: last_2$2
+        last: last_2
     };
     /* tslint:enable:max-line-length */
     /**
@@ -32513,10 +32513,10 @@ var __extends = (this && this.__extends) || (function () {
      * @method last
      * @owner Observable
      */
-    function last(predicate, resultSelector, defaultValue) {
+    function last$1(predicate, resultSelector, defaultValue) {
         return last_1.last(predicate, resultSelector, defaultValue)(this);
     }
-    var last_3 = last;
+    var last_3 = last$1;
     /**
      * Converts a higher-order Observable into a first-order Observable which
      * concurrently delivers all values that are emitted on the inner Observables.
@@ -32693,7 +32693,7 @@ var __extends = (this && this.__extends) || (function () {
     var scan_1 = {
         scan: scan_2
     };
-    var __extends$28 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$27 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -32711,7 +32711,7 @@ var __extends = (this && this.__extends) || (function () {
      * @class ArgumentOutOfRangeError
      */
     var ArgumentOutOfRangeError = (function (_super) {
-        __extends$28(ArgumentOutOfRangeError, _super);
+        __extends$27(ArgumentOutOfRangeError, _super);
         function ArgumentOutOfRangeError() {
             var err = _super.call(this, 'argument out of range');
             this.name = err.name = 'ArgumentOutOfRangeError';
@@ -32724,7 +32724,7 @@ var __extends = (this && this.__extends) || (function () {
     var ArgumentOutOfRangeError_1 = {
         ArgumentOutOfRangeError: ArgumentOutOfRangeError_2
     };
-    var __extends$27 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$28 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -32796,7 +32796,7 @@ var __extends = (this && this.__extends) || (function () {
      * @extends {Ignored}
      */
     var TakeLastSubscriber = (function (_super) {
-        __extends$27(TakeLastSubscriber, _super);
+        __extends$28(TakeLastSubscriber, _super);
         function TakeLastSubscriber(destination, total) {
             _super.call(this, destination);
             this.total = total;
@@ -32959,7 +32959,7 @@ var __extends = (this && this.__extends) || (function () {
      * @method reduce
      * @owner Observable
      */
-    function reduce$1(accumulator, seed) {
+    function reduce(accumulator, seed) {
         // providing a seed of `undefined` *should* be valid and trigger
         // hasSeed! so don't use `seed !== undefined` checks!
         // For this reason, we have to check it here at the original call site
@@ -32976,9 +32976,9 @@ var __extends = (this && this.__extends) || (function () {
             }), takeLast_1.takeLast(1))(source);
         };
     }
-    var reduce_2$2 = reduce$1;
+    var reduce_2 = reduce;
     var reduce_1 = {
-        reduce: reduce_2$2
+        reduce: reduce_2
     };
     /* tslint:enable:max-line-length */
     /**
@@ -33025,7 +33025,7 @@ var __extends = (this && this.__extends) || (function () {
      * @method reduce
      * @owner Observable
      */
-    function reduce(accumulator, seed) {
+    function reduce$1(accumulator, seed) {
         // providing a seed of `undefined` *should* be valid and trigger
         // hasSeed! so don't use `seed !== undefined` checks!
         // For this reason, we have to check it here at the original call site
@@ -33036,7 +33036,7 @@ var __extends = (this && this.__extends) || (function () {
         }
         return reduce_1.reduce(accumulator)(this);
     }
-    var reduce_3 = reduce;
+    var reduce_3 = reduce$1;
     var __extends$30 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
@@ -33084,12 +33084,12 @@ var __extends = (this && this.__extends) || (function () {
      * @method filter
      * @owner Observable
      */
-    function filter$1(predicate, thisArg) {
+    function filter(predicate, thisArg) {
         return function filterOperatorFunction(source) {
             return source.lift(new FilterOperator(predicate, thisArg));
         };
     }
-    var filter_2$2 = filter$1;
+    var filter_2 = filter;
     var FilterOperator = (function () {
         function FilterOperator(predicate, thisArg) {
             this.predicate = predicate;
@@ -33131,7 +33131,7 @@ var __extends = (this && this.__extends) || (function () {
         return FilterSubscriber;
     }(Subscriber_1.Subscriber));
     var filter_1 = {
-        filter: filter_2$2
+        filter: filter_2
     };
     /* tslint:enable:max-line-length */
     /**
@@ -33173,11 +33173,11 @@ var __extends = (this && this.__extends) || (function () {
      * @method filter
      * @owner Observable
      */
-    function filter(predicate, thisArg) {
+    function filter$1(predicate, thisArg) {
         return filter_1.filter(predicate, thisArg)(this);
     }
-    var filter_3 = filter;
-    var filter_2 = {
+    var filter_3 = filter$1;
+    var filter_2$1 = {
         filter: filter_3
     };
     /**
@@ -33923,7 +33923,7 @@ var __extends = (this && this.__extends) || (function () {
      * @param {?} a
      * @return {?}
      */
-    function last$1(a) {
+    function last$1$1(a) {
         return a.length > 0 ? a[a.length - 1] : null;
     }
     /**
@@ -33989,7 +33989,7 @@ var __extends = (this && this.__extends) || (function () {
         if (isObservable(value)) {
             return value;
         }
-        if (isPromise(value)) {
+        if (isPromise$1(value)) {
             // Use `Promise.resolve()` to wrap promise-like instances.
             // Required ie when a Resolver returns a AngularJS `$q` promise to correctly trigger the
             // change detection.
@@ -36110,7 +36110,7 @@ var __extends = (this && this.__extends) || (function () {
                 throw new Error('Root segment cannot have matrix parameters');
             }
             var /** @type {?} */ cmdWithOutlet = commands.find(function (c) { return typeof c === 'object' && c != null && c.outlets; });
-            if (cmdWithOutlet && cmdWithOutlet !== last$1(commands)) {
+            if (cmdWithOutlet && cmdWithOutlet !== last$1$1(commands)) {
                 throw new Error('{outlets:{}} has to be the last command');
             }
         }
@@ -36360,7 +36360,7 @@ var __extends = (this && this.__extends) || (function () {
             var /** @type {?} */ curr = getPath(commands[i]);
             var /** @type {?} */ next = (i < commands.length - 1) ? commands[i + 1] : null;
             if (curr && next && isMatrixParams(next)) {
-                paths.push(new UrlSegment(curr, stringify$1$1(next)));
+                paths.push(new UrlSegment(curr, stringify$2(next)));
                 i += 2;
             }
             else {
@@ -36387,7 +36387,7 @@ var __extends = (this && this.__extends) || (function () {
      * @param {?} params
      * @return {?}
      */
-    function stringify$1$1(params) {
+    function stringify$2(params) {
         var /** @type {?} */ res = {};
         forEach(params, function (v, k) { return res[k] = "" + v; });
         return res;
@@ -36968,7 +36968,7 @@ var __extends = (this && this.__extends) || (function () {
             var /** @type {?} */ consumedSegments = [];
             var /** @type {?} */ rawSlicedSegments = [];
             if (route.path === '**') {
-                var /** @type {?} */ params = segments.length > 0 ? ((last$1(segments))).parameters : {};
+                var /** @type {?} */ params = segments.length > 0 ? ((last$1$1(segments))).parameters : {};
                 snapshot = new ActivatedRouteSnapshot(segments, params, Object.freeze(this.urlTree.queryParams), /** @type {?} */ ((this.urlTree.fragment)), getData(route), outlet, /** @type {?} */ ((route.component)), route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + segments.length, getResolve(route));
             }
             else {
@@ -40149,7 +40149,7 @@ var __extends = (this && this.__extends) || (function () {
      * @method bufferCount
      * @owner Observable
      */
-    function bufferCount$3(bufferSize, startBufferEvery) {
+    function bufferCount(bufferSize, startBufferEvery) {
         if (startBufferEvery === void 0) {
             startBufferEvery = null;
         }
@@ -40157,7 +40157,7 @@ var __extends = (this && this.__extends) || (function () {
             return source.lift(new BufferCountOperator(bufferSize, startBufferEvery));
         };
     }
-    var bufferCount_2$2 = bufferCount$3;
+    var bufferCount_2 = bufferCount;
     var BufferCountOperator = (function () {
         function BufferCountOperator(bufferSize, startBufferEvery) {
             this.bufferSize = bufferSize;
@@ -40245,7 +40245,7 @@ var __extends = (this && this.__extends) || (function () {
         return BufferSkipCountSubscriber;
     }(Subscriber_1.Subscriber));
     var bufferCount_1 = {
-        bufferCount: bufferCount_2$2
+        bufferCount: bufferCount_2
     };
     /**
      * Buffers the source Observable values until the size hits the maximum
@@ -40288,17 +40288,17 @@ var __extends = (this && this.__extends) || (function () {
      * @method bufferCount
      * @owner Observable
      */
-    function bufferCount$2(bufferSize, startBufferEvery) {
+    function bufferCount$1(bufferSize, startBufferEvery) {
         if (startBufferEvery === void 0) {
             startBufferEvery = null;
         }
         return bufferCount_1.bufferCount(bufferSize, startBufferEvery)(this);
     }
-    var bufferCount_3 = bufferCount$2;
-    var bufferCount_2 = {
+    var bufferCount_3 = bufferCount$1;
+    var bufferCount_2$1 = {
         bufferCount: bufferCount_3
     };
-    Observable_1.Observable.prototype.bufferCount = bufferCount_2.bufferCount;
+    Observable_1.Observable.prototype.bufferCount = bufferCount_2$1.bufferCount;
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
@@ -40660,10 +40660,10 @@ var __extends = (this && this.__extends) || (function () {
         FromEventObservable: FromEventObservable_2
     };
     var fromEvent_1 = FromEventObservable_1.FromEventObservable.create;
-    var fromEvent$2 = {
+    var fromEvent = {
         fromEvent: fromEvent_1
     };
-    Observable_1.Observable.fromEvent = fromEvent$2.fromEvent;
+    Observable_1.Observable.fromEvent = fromEvent.fromEvent;
     var __extends$33 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
@@ -40823,17 +40823,17 @@ var __extends = (this && this.__extends) || (function () {
      * @name do
      * @owner Observable
      */
-    function _do$2(nextOrObserver, error, complete) {
+    function _do(nextOrObserver, error, complete) {
         return tap_1.tap(nextOrObserver, error, complete)(this);
     }
-    var _do_2 = _do$2;
+    var _do_2 = _do;
     var _do_1 = {
         _do: _do_2
     };
     Observable_1.Observable.prototype.do = _do_1._do;
     Observable_1.Observable.prototype._do = _do_1._do;
-    Observable_1.Observable.prototype.map = map_2.map;
-    Observable_1.Observable.prototype.filter = filter_2.filter;
+    Observable_1.Observable.prototype.map = map_2$1.map;
+    Observable_1.Observable.prototype.filter = filter_2$1.filter;
     Observable_1.Observable.prototype.mergeMap = mergeMap_2$1.mergeMap;
     Observable_1.Observable.prototype.flatMap = mergeMap_2$1.mergeMap;
     var __extends$34 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
@@ -40876,10 +40876,10 @@ var __extends = (this && this.__extends) || (function () {
      * @method takeUntil
      * @owner Observable
      */
-    function takeUntil$3(notifier) {
+    function takeUntil(notifier) {
         return function (source) { return source.lift(new TakeUntilOperator(notifier)); };
     }
-    var takeUntil_2$2 = takeUntil$3;
+    var takeUntil_2 = takeUntil;
     var TakeUntilOperator = (function () {
         function TakeUntilOperator(notifier) {
             this.notifier = notifier;
@@ -40910,7 +40910,7 @@ var __extends = (this && this.__extends) || (function () {
         return TakeUntilSubscriber;
     }(OuterSubscriber_1.OuterSubscriber));
     var takeUntil_1 = {
-        takeUntil: takeUntil_2$2
+        takeUntil: takeUntil_2
     };
     /**
      * Emits the values emitted by the source Observable until a `notifier`
@@ -40945,14 +40945,14 @@ var __extends = (this && this.__extends) || (function () {
      * @method takeUntil
      * @owner Observable
      */
-    function takeUntil$2(notifier) {
+    function takeUntil$1(notifier) {
         return takeUntil_1.takeUntil(notifier)(this);
     }
-    var takeUntil_3 = takeUntil$2;
-    var takeUntil_2 = {
+    var takeUntil_3 = takeUntil$1;
+    var takeUntil_2$1 = {
         takeUntil: takeUntil_3
     };
-    Observable_1.Observable.prototype.takeUntil = takeUntil_2.takeUntil;
+    Observable_1.Observable.prototype.takeUntil = takeUntil_2$1.takeUntil;
     var __extends$35 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
@@ -40972,7 +40972,7 @@ var __extends = (this && this.__extends) || (function () {
      * @method repeat
      * @owner Observable
      */
-    function repeat$3(count) {
+    function repeat(count) {
         if (count === void 0) {
             count = -1;
         }
@@ -40988,7 +40988,7 @@ var __extends = (this && this.__extends) || (function () {
             }
         };
     }
-    var repeat_2$2 = repeat$3;
+    var repeat_2 = repeat;
     var RepeatOperator = (function () {
         function RepeatOperator(count, source) {
             this.count = count;
@@ -41026,7 +41026,7 @@ var __extends = (this && this.__extends) || (function () {
         return RepeatSubscriber;
     }(Subscriber_1.Subscriber));
     var repeat_1 = {
-        repeat: repeat_2$2
+        repeat: repeat_2
     };
     /**
      * Returns an Observable that repeats the stream of items emitted by the source Observable at most count times.
@@ -41040,19 +41040,19 @@ var __extends = (this && this.__extends) || (function () {
      * @method repeat
      * @owner Observable
      */
-    function repeat$2(count) {
+    function repeat$1(count) {
         if (count === void 0) {
             count = -1;
         }
         return repeat_1.repeat(count)(this);
     }
-    var repeat_3 = repeat$2;
-    var repeat_2 = {
+    var repeat_3 = repeat$1;
+    var repeat_2$1 = {
         repeat: repeat_3
     };
-    Observable_1.Observable.prototype.repeat = repeat_2.repeat;
+    Observable_1.Observable.prototype.repeat = repeat_2$1.repeat;
     var merge_2$1 = merge_1;
-    var mergeStatic$1 = merge_2$1.merge;
+    var mergeStatic = merge_2$1.merge;
     /* tslint:enable:max-line-length */
     /**
      * Creates an output Observable which concurrently emits all values from every
@@ -41100,19 +41100,19 @@ var __extends = (this && this.__extends) || (function () {
      * @method merge
      * @owner Observable
      */
-    function merge$5() {
+    function merge$2() {
         var observables = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             observables[_i - 0] = arguments[_i];
         }
         return function (source) { return source.lift.call(merge_1.merge.apply(void 0, [source].concat(observables))); };
     }
-    var merge_4$1 = merge$5;
-    var merge_3$2 = {
-        mergeStatic: mergeStatic$1,
-        merge: merge_4$1
+    var merge_4 = merge$2;
+    var merge_3 = {
+        mergeStatic: mergeStatic,
+        merge: merge_4
     };
-    var mergeStatic = merge_1.merge;
+    var mergeStatic$1 = merge_1.merge;
     /* tslint:enable:max-line-length */
     /**
      * Creates an output Observable which concurrently emits all values from every
@@ -41160,19 +41160,19 @@ var __extends = (this && this.__extends) || (function () {
      * @method merge
      * @owner Observable
      */
-    function merge$4() {
+    function merge$3() {
         var observables = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             observables[_i - 0] = arguments[_i];
         }
-        return merge_3$2.merge.apply(void 0, observables)(this);
+        return merge_3.merge.apply(void 0, observables)(this);
     }
-    var merge_4 = merge$4;
-    var merge_3 = {
-        mergeStatic: mergeStatic,
-        merge: merge_4
+    var merge_4$1 = merge$3;
+    var merge_3$2 = {
+        mergeStatic: mergeStatic$1,
+        merge: merge_4$1
     };
-    Observable_1.Observable.prototype.merge = merge_3.merge;
+    Observable_1.Observable.prototype.merge = merge_3$2.merge;
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
@@ -43568,7 +43568,7 @@ var __extends = (this && this.__extends) || (function () {
     var isNumeric_1 = {
         isNumeric: isNumeric_2
     };
-    var __extends$38 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$36 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -43590,7 +43590,7 @@ var __extends = (this && this.__extends) || (function () {
      * @class Action<T>
      */
     var Action = (function (_super) {
-        __extends$38(Action, _super);
+        __extends$36(Action, _super);
         function Action(scheduler, work) {
             _super.call(this);
         }
@@ -43819,7 +43819,7 @@ var __extends = (this && this.__extends) || (function () {
     var Scheduler_1 = {
         Scheduler: Scheduler_2
     };
-    var __extends$39 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$38 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -43827,7 +43827,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
     var AsyncScheduler = (function (_super) {
-        __extends$39(AsyncScheduler, _super);
+        __extends$38(AsyncScheduler, _super);
         function AsyncScheduler() {
             _super.apply(this, arguments);
             this.actions = [];
@@ -43918,14 +43918,14 @@ var __extends = (this && this.__extends) || (function () {
     var async = {
         async: async_1
     };
-    function isDate$1$1(value) {
+    function isDate$2(value) {
         return value instanceof Date && !isNaN(+value);
     }
-    var isDate_2 = isDate$1$1;
+    var isDate_2 = isDate$2;
     var isDate_1 = {
         isDate: isDate_2
     };
-    var __extends$36 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
+    var __extends$39 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
                 d[p] = b[p];
@@ -43938,7 +43938,7 @@ var __extends = (this && this.__extends) || (function () {
      * @hide true
      */
     var TimerObservable = (function (_super) {
-        __extends$36(TimerObservable, _super);
+        __extends$39(TimerObservable, _super);
         function TimerObservable(dueTime, period, scheduler) {
             if (dueTime === void 0) {
                 dueTime = 0;
@@ -44035,10 +44035,10 @@ var __extends = (this && this.__extends) || (function () {
         TimerObservable: TimerObservable_2
     };
     var timer_1 = TimerObservable_1.TimerObservable.create;
-    var timer$2 = {
+    var timer = {
         timer: timer_1
     };
-    Observable_1.Observable.timer = timer$2.timer;
+    Observable_1.Observable.timer = timer.timer;
     Observable_1.Observable.forkJoin = forkJoin.forkJoin;
     Observable_1.Observable.of = of.of;
     var __extends$40 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
@@ -44081,7 +44081,7 @@ var __extends = (this && this.__extends) || (function () {
      * @method take
      * @owner Observable
      */
-    function take$3(count) {
+    function take(count) {
         return function (source) {
             if (count === 0) {
                 return new EmptyObservable_1.EmptyObservable();
@@ -44091,7 +44091,7 @@ var __extends = (this && this.__extends) || (function () {
             }
         };
     }
-    var take_2$2 = take$3;
+    var take_2 = take;
     var TakeOperator = (function () {
         function TakeOperator(total) {
             this.total = total;
@@ -44130,7 +44130,7 @@ var __extends = (this && this.__extends) || (function () {
         return TakeSubscriber;
     }(Subscriber_1.Subscriber));
     var take_1 = {
-        take: take_2$2
+        take: take_2
     };
     /**
      * Emits only the first `count` values emitted by the source Observable.
@@ -44165,14 +44165,14 @@ var __extends = (this && this.__extends) || (function () {
      * @method take
      * @owner Observable
      */
-    function take$2(count) {
+    function take$1(count) {
         return take_1.take(count)(this);
     }
-    var take_3 = take$2;
-    var take_2 = {
+    var take_3 = take$1;
+    var take_2$1 = {
         take: take_3
     };
-    Observable_1.Observable.prototype.take = take_2.take;
+    Observable_1.Observable.prototype.take = take_2$1.take;
     /* tslint:enable:max-line-length */
     /**
      * Creates an output Observable which sequentially emits all values from given
@@ -44267,7 +44267,7 @@ var __extends = (this && this.__extends) || (function () {
      * @name concat
      * @owner Observable
      */
-    function concat$4() {
+    function concat() {
         var observables = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             observables[_i - 0] = arguments[_i];
@@ -44277,12 +44277,12 @@ var __extends = (this && this.__extends) || (function () {
         }
         return concatAll_1.concatAll()(of.of.apply(void 0, observables));
     }
-    var concat_2$1 = concat$4;
+    var concat_2 = concat;
     var concat_1 = {
-        concat: concat_2$1
+        concat: concat_2
     };
-    var concat_2 = concat_1;
-    var concatStatic$1 = concat_2.concat;
+    var concat_2$1 = concat_1;
+    var concatStatic = concat_2$1.concat;
     /* tslint:enable:max-line-length */
     /**
      * Creates an output Observable which sequentially emits all values from every
@@ -44333,19 +44333,19 @@ var __extends = (this && this.__extends) || (function () {
      * @method concat
      * @owner Observable
      */
-    function concat$3() {
+    function concat$1() {
         var observables = [];
         for (var _i = 0; _i < arguments.length; _i++) {
             observables[_i - 0] = arguments[_i];
         }
         return function (source) { return source.lift.call(concat_1.concat.apply(void 0, [source].concat(observables))); };
     }
-    var concat_4$1 = concat$3;
-    var concat_3$2 = {
-        concatStatic: concatStatic$1,
-        concat: concat_4$1
+    var concat_4 = concat$1;
+    var concat_3 = {
+        concatStatic: concatStatic,
+        concat: concat_4
     };
-    var concatStatic = concat_1.concat;
+    var concatStatic$1 = concat_1.concat;
     /* tslint:enable:max-line-length */
     /**
      * Creates an output Observable which sequentially emits all values from every
@@ -44401,14 +44401,14 @@ var __extends = (this && this.__extends) || (function () {
         for (var _i = 0; _i < arguments.length; _i++) {
             observables[_i - 0] = arguments[_i];
         }
-        return concat_3$2.concat.apply(void 0, observables)(this);
+        return concat_3.concat.apply(void 0, observables)(this);
     }
-    var concat_4 = concat$2;
-    var concat_3 = {
-        concatStatic: concatStatic,
-        concat: concat_4
+    var concat_4$1 = concat$2;
+    var concat_3$2 = {
+        concatStatic: concatStatic$1,
+        concat: concat_4$1
     };
-    Observable_1.Observable.prototype.concat = concat_3.concat;
+    Observable_1.Observable.prototype.concat = concat_3$2.concat;
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc

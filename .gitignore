@@ -3,6 +3,7 @@ node_modules
 built
 built-upgrade
 built-es5
+built-es5-lazy
 built-es5-commonjs-aot
 built-es6
 .vscode
