@@ -659,8 +659,8 @@ var observable_2 = observable.observable;
 var observable_3 = observable.$$observable;
 
 /* tslint:disable:no-empty */
-function noop$1() { }
-var noop_2 = noop$1;
+function noop$1$1() { }
+var noop_2 = noop$1$1;
 
 
 var noop_1 = {
@@ -2435,8 +2435,8 @@ function share() {
 var share_3 = share;
 
 /**
- * @license Angular v5.1.2
- * (c) 2010-2017 Google, Inc. https://angular.io/
+ * @license Angular v5.2.0
+ * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 /**
@@ -3021,7 +3021,7 @@ class Version {
 /**
  * \@stable
  */
-const VERSION$2 = new Version('5.1.2');
+const VERSION$2 = new Version('5.2.0');
 
 /**
  * @fileoverview added by tsickle
@@ -3277,6 +3277,7 @@ function resolveForwardRef(type) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
+const SOURCE = '__source';
 const _THROW_IF_NOT_FOUND = new Object();
 const THROW_IF_NOT_FOUND = _THROW_IF_NOT_FOUND;
 class _NullInjector {
@@ -3320,12 +3321,17 @@ class Injector {
      * ### Example
      *
      * {\@example core/di/ts/provider_spec.ts region='ConstructorProvider'}
-     * @param {?} providers
+     * @param {?} options
      * @param {?=} parent
      * @return {?}
      */
-    static create(providers, parent) {
-        return new StaticInjector(providers, parent);
+    static create(options, parent) {
+        if (Array.isArray(options)) {
+            return new StaticInjector(options, parent);
+        }
+        else {
+            return new StaticInjector(options.providers, options.parent, options.name || null);
+        }
     }
 }
 Injector.THROW_IF_NOT_FOUND = _THROW_IF_NOT_FOUND;
@@ -3350,9 +3356,11 @@ class StaticInjector {
     /**
      * @param {?} providers
      * @param {?=} parent
+     * @param {?=} source
      */
-    constructor(providers, parent = NULL_INJECTOR) {
+    constructor(providers, parent = NULL_INJECTOR, source = null) {
         this.parent = parent;
+        this.source = source;
         const /** @type {?} */ records = this._records = new Map();
         records.set(Injector, /** @type {?} */ ({ token: Injector, fn: IDENT, deps: EMPTY, value: this, useNew: false }));
         recursivelyProcessProviders(records, providers);
@@ -3369,7 +3377,10 @@ class StaticInjector {
         }
         catch (/** @type {?} */ e) {
             const /** @type {?} */ tokenPath = e[NG_TEMP_TOKEN_PATH];
-            e.message = formatError('\n' + e.message, tokenPath);
+            if (token[SOURCE]) {
+                tokenPath.unshift(token[SOURCE]);
+            }
+            e.message = formatError('\n' + e.message, tokenPath, this.source);
             e[NG_TOKEN_PATH] = tokenPath;
             e[NG_TEMP_TOKEN_PATH] = null;
             throw e;
@@ -3600,9 +3611,10 @@ function computeDeps(provider) {
 /**
  * @param {?} text
  * @param {?} obj
+ * @param {?=} source
  * @return {?}
  */
-function formatError(text, obj) {
+function formatError(text, obj, source = null) {
     text = text && text.charAt(0) === '\n' && text.charAt(1) == NO_NEW_LINE ? text.substr(2) : text;
     let /** @type {?} */ context = stringify(obj);
     if (obj instanceof Array) {
@@ -3618,7 +3630,7 @@ function formatError(text, obj) {
         }
         context = `{${parts.join(', ')}}`;
     }
-    return `StaticInjectorError[${context}]: ${text.replace(NEW_LINE, '\n  ')}`;
+    return `StaticInjectorError${source ? '(' + source + ')' : ''}[${context}]: ${text.replace(NEW_LINE, '\n  ')}`;
 }
 /**
  * @param {?} text
@@ -4385,6 +4397,11 @@ class ReflectionCapabilities {
         return type instanceof Type && lcProperty in type.prototype;
     }
     /**
+     * @param {?} type
+     * @return {?}
+     */
+    guards(type) { return {}; }
+    /**
      * @param {?} name
      * @return {?}
      */
@@ -4654,11 +4671,8 @@ class ResolvedReflectiveProvider_ {
         this.key = key;
         this.resolvedFactories = resolvedFactories;
         this.multiProvider = multiProvider;
+        this.resolvedFactory = this.resolvedFactories[0];
     }
-    /**
-     * @return {?}
-     */
-    get resolvedFactory() { return this.resolvedFactories[0]; }
 }
 /**
  * An internal resolved representation of a factory function created by resolving {\@link
@@ -5667,27 +5681,12 @@ class ComponentFactoryBoundToModule extends ComponentFactory {
         super();
         this.factory = factory;
         this.ngModule = ngModule;
+        this.selector = factory.selector;
+        this.componentType = factory.componentType;
+        this.ngContentSelectors = factory.ngContentSelectors;
+        this.inputs = factory.inputs;
+        this.outputs = factory.outputs;
     }
-    /**
-     * @return {?}
-     */
-    get selector() { return this.factory.selector; }
-    /**
-     * @return {?}
-     */
-    get componentType() { return this.factory.componentType; }
-    /**
-     * @return {?}
-     */
-    get ngContentSelectors() { return this.factory.ngContentSelectors; }
-    /**
-     * @return {?}
-     */
-    get inputs() { return this.factory.inputs; }
-    /**
-     * @return {?}
-     */
-    get outputs() { return this.factory.outputs; }
     /**
      * @param {?} injector
      * @param {?=} projectableNodes
@@ -6668,7 +6667,8 @@ function createPlatform(injector) {
  * @return {?}
  */
 function createPlatformFactory(parentPlatformFactory, name, providers = []) {
-    const /** @type {?} */ marker = new InjectionToken(`Platform: ${name}`);
+    const /** @type {?} */ desc = `Platform: ${name}`;
+    const /** @type {?} */ marker = new InjectionToken(desc);
     return (extraProviders = []) => {
         let /** @type {?} */ platform = getPlatform();
         if (!platform || platform.injector.get(ALLOW_MULTIPLE_PLATFORMS, false)) {
@@ -6676,7 +6676,8 @@ function createPlatformFactory(parentPlatformFactory, name, providers = []) {
                 parentPlatformFactory(providers.concat(extraProviders).concat({ provide: marker, useValue: true }));
             }
             else {
-                createPlatform(Injector.create(providers.concat(extraProviders).concat({ provide: marker, useValue: true })));
+                const /** @type {?} */ injectedProviders = providers.concat(extraProviders).concat({ provide: marker, useValue: true });
+                createPlatform(Injector.create({ providers: injectedProviders, name: desc }));
             }
         }
         return assertPlatform(marker);
@@ -6770,10 +6771,11 @@ class PlatformRef {
         // pass that as parent to the NgModuleFactory.
         const /** @type {?} */ ngZoneOption = options ? options.ngZone : undefined;
         const /** @type {?} */ ngZone = getNgZone(ngZoneOption);
+        const /** @type {?} */ providers = [{ provide: NgZone, useValue: ngZone }];
         // Attention: Don't use ApplicationRef.run here,
         // as we want to be sure that all possible constructor calls are inside `ngZone.run`!
         return ngZone.run(() => {
-            const /** @type {?} */ ngZoneInjector = Injector.create([{ provide: NgZone, useValue: ngZone }], this.injector);
+            const /** @type {?} */ ngZoneInjector = Injector.create({ providers: providers, parent: this.injector, name: moduleFactory.moduleType.name });
             const /** @type {?} */ moduleRef = /** @type {?} */ (moduleFactory.create(ngZoneInjector));
             const /** @type {?} */ exceptionHandler = moduleRef.injector.get(ErrorHandler, null);
             if (!exceptionHandler) {
@@ -7218,7 +7220,6 @@ class Renderer2 {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-// Public API for render
 
 /**
  * @fileoverview added by tsickle
@@ -7310,18 +7311,6 @@ class QueryList {
         this.changes = new EventEmitter();
     }
     /**
-     * @return {?}
-     */
-    get length() { return this._results.length; }
-    /**
-     * @return {?}
-     */
-    get first() { return this._results[0]; }
-    /**
-     * @return {?}
-     */
-    get last() { return this._results[this.length - 1]; }
-    /**
      * See
      * [Array.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
      * @template U
@@ -7393,6 +7382,9 @@ class QueryList {
     reset(res) {
         this._results = flatten(res);
         (/** @type {?} */ (this)).dirty = false;
+        (/** @type {?} */ (this)).length = this._results.length;
+        (/** @type {?} */ (this)).last = this._results[this.length - 1];
+        (/** @type {?} */ (this)).first = this._results[0];
     }
     /**
      * @return {?}
@@ -7615,7 +7607,6 @@ class ChangeDetectorRef {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-// Public API for compiler
 
 /**
  * @fileoverview added by tsickle
@@ -9458,11 +9449,6 @@ const defaultKeyValueDiffers = new KeyValueDiffers(keyValDiff);
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/**
- * @module
- * @description
- * Change detection enables data binding in Angular.
- */
 
 /**
  * @fileoverview added by tsickle
@@ -10239,9 +10225,10 @@ function splitMatchedQueriesDsl(matchedQueriesDsl) {
 }
 /**
  * @param {?} deps
+ * @param {?=} sourceName
  * @return {?}
  */
-function splitDepsDsl(deps) {
+function splitDepsDsl(deps, sourceName) {
     return deps.map(value => {
         let /** @type {?} */ token;
         let /** @type {?} */ flags;
@@ -10251,6 +10238,9 @@ function splitDepsDsl(deps) {
         else {
             flags = 0 /* None */;
             token = value;
+        }
+        if (token && (typeof token === 'function' || typeof token === 'object') && sourceName) {
+            Object.defineProperty(token, SOURCE, { value: sourceName, configurable: true });
         }
         return { flags, token, tokenKey: tokenKey(token) };
     });
@@ -10938,7 +10928,7 @@ function moduleProvideDef(flags, token, value, deps) {
     // lowered the expression and then stopped evaluating it,
     // i.e. also didn't unwrap it.
     value = resolveForwardRef(value);
-    const /** @type {?} */ depDefs = splitDepsDsl(deps);
+    const /** @type {?} */ depDefs = splitDepsDsl(deps, stringify(token));
     return {
         // will bet set by the module definition
         index: -1,
@@ -11995,6 +11985,7 @@ class NgModuleRef_ {
         this._def = _def;
         this._destroyListeners = [];
         this._destroyed = false;
+        this.injector = this;
         initNgModule(this);
     }
     /**
@@ -12013,10 +12004,6 @@ class NgModuleRef_ {
      * @return {?}
      */
     get componentFactoryResolver() { return this.get(ComponentFactoryResolver); }
-    /**
-     * @return {?}
-     */
-    get injector() { return this; }
     /**
      * @return {?}
      */
@@ -12132,7 +12119,7 @@ function _def(checkIndex, flags, matchedQueriesDsl, childCount, token, value, de
     // lowered the expression and then stopped evaluating it,
     // i.e. also didn't unwrap it.
     value = resolveForwardRef(value);
-    const /** @type {?} */ depDefs = splitDepsDsl(deps);
+    const /** @type {?} */ depDefs = splitDepsDsl(deps, stringify(token));
     return {
         // will bet set by the view definition
         nodeIndex: -1,
@@ -14905,11 +14892,8 @@ class DebugRenderer2 {
      */
     constructor(delegate) {
         this.delegate = delegate;
+        this.data = this.delegate.data;
     }
-    /**
-     * @return {?}
-     */
-    get data() { return this.delegate.data; }
     /**
      * @param {?} node
      * @return {?}
@@ -15177,8 +15161,28 @@ class NgModuleFactory_ extends NgModuleFactory {
 }
 
 /**
- * @license Angular v5.1.2
- * (c) 2010-2017 Google, Inc. https://angular.io/
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+if (typeof ngDevMode == 'undefined') {
+    if (typeof window != 'undefined')
+        (/** @type {?} */ (window)).ngDevMode = true;
+    if (typeof self != 'undefined')
+        (/** @type {?} */ (self)).ngDevMode = true;
+    if (typeof global != 'undefined')
+        (/** @type {?} */ (global)).ngDevMode = true;
+}
+
+/**
+ * @license Angular v5.2.0
+ * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 /**
@@ -15768,7 +15772,7 @@ PathLocationStrategy.ctorParameters = () => [
 // THIS CODE IS GENERATED - DO NOT MODIFY
 // See angular/tools/gulp-tasks/cldr/extract.js
 /**
- * \@experimental
+ * \@internal
  */
 const CURRENCIES = {
     'AOA': [, 'Kz'],
@@ -15887,6 +15891,16 @@ const CURRENCIES = {
  */
 // THIS CODE IS GENERATED - DO NOT MODIFY
 // See angular/tools/gulp-tasks/cldr/extract.js
+/**
+ * @param {?} n
+ * @return {?}
+ */
+function converter(n) {
+    let /** @type {?} */ i = Math.floor(Math.abs(n)), /** @type {?} */ v = n.toString().replace(/^[^.]*\.?/, '').length;
+    if (i === 1 && v === 0)
+        return 1;
+    return 5;
+}
 var localeEn = [
     'en',
     [
@@ -15921,13 +15935,7 @@ var localeEn = [
         '{1} \'at\' {0}',
     ],
     ['.', ',', ';', '%', '+', '-', 'E', '×', '‰', '∞', 'NaN', ':'],
-    ['#,##0.###', '#,##0%', '¤#,##0.00', '#E0'], '$', 'US Dollar',
-    function (n) {
-        let /** @type {?} */ i = Math.floor(Math.abs(n)), /** @type {?} */ v = n.toString().replace(/^[^.]*\.?/, '').length;
-        if (i === 1 && v === 0)
-            return 1;
-        return 5;
-    }
+    ['#,##0.###', '#,##0%', '¤#,##0.00', '#E0'], '$', 'US Dollar', converter
 ];
 
 /**
@@ -16394,17 +16402,20 @@ function findLocaleData(locale) {
 }
 /**
  * Return the currency symbol for a given currency code, or the code if no symbol available
- * (e.g.: $, US$, or USD)
+ * (e.g.: format narrow = $, format wide = US$, code = USD)
  *
- * \@internal
+ * \@experimental i18n support is experimental.
  * @param {?} code
  * @param {?} format
  * @return {?}
  */
-function findCurrencySymbol(code, format) {
-    const /** @type {?} */ currency = CURRENCIES[code] || {};
-    const /** @type {?} */ symbol = currency[0] || code;
-    return format === 'wide' ? symbol : currency[1] || symbol;
+function getCurrencySymbol(code, format) {
+    const /** @type {?} */ currency = CURRENCIES[code] || [];
+    const /** @type {?} */ symbolNarrow = currency[1];
+    if (format === 'narrow' && typeof symbolNarrow === 'string') {
+        return symbolNarrow;
+    }
+    return currency[0] || code;
 }
 
 /**
@@ -16432,8 +16443,6 @@ class NgLocalization {
  * Returns the plural category for a given value.
  * - "=value" when the case exists,
  * - the plural category otherwise
- *
- * \@internal
  * @param {?} value
  * @param {?} cases
  * @param {?} ngLocalization
@@ -18027,14 +18036,14 @@ function formatDate(date, format, locale, timezone) {
         dateTimezoneOffset = timezoneToOffset(timezone, dateTimezoneOffset);
         date = convertTimezoneToLocal(date, timezone, true);
     }
-    let /** @type {?} */ text = '';
+    let /** @type {?} */ text$$1 = '';
     parts.forEach(value => {
         const /** @type {?} */ dateFormatter = getDateFormatter(value);
-        text += dateFormatter ?
+        text$$1 += dateFormatter ?
             dateFormatter(date, locale, dateTimezoneOffset) :
             value === '\'\'' ? '\'' : value.replace(/(^'|'$)/g, '').replace(/''/g, '\'');
     });
-    return text;
+    return text$$1;
 }
 /**
  * @param {?} locale
@@ -19033,10 +19042,6 @@ function formatNumber$1(value, locale, style, digitsInfo, currency = null) {
     else {
         num = value;
     }
-    if (style === NumberFormatStyle.Percent) {
-        num = num * 100;
-    }
-    const /** @type {?} */ numStr = Math.abs(num) + '';
     const /** @type {?} */ pattern = parseNumberFormat(format, getLocaleNumberSymbol(locale, NumberSymbol.MinusSign));
     let /** @type {?} */ formattedText = '';
     let /** @type {?} */ isZero = false;
@@ -19044,7 +19049,10 @@ function formatNumber$1(value, locale, style, digitsInfo, currency = null) {
         formattedText = getLocaleNumberSymbol(locale, NumberSymbol.Infinity);
     }
     else {
-        const /** @type {?} */ parsedNumber = parseNumber(numStr);
+        let /** @type {?} */ parsedNumber = parseNumber(num);
+        if (style === NumberFormatStyle.Percent) {
+            parsedNumber = toPercent(parsedNumber);
+        }
         let /** @type {?} */ minInt = pattern.minInt;
         let /** @type {?} */ minFraction = pattern.minFrac;
         let /** @type {?} */ maxFraction = pattern.maxFrac;
@@ -19189,12 +19197,38 @@ function parseNumberFormat(format, minusSign = '-') {
     return p;
 }
 /**
- * Parse a number (as a string)
- * Significant bits of this parse algorithm came from https://github.com/MikeMcl/big.js/
- * @param {?} numStr
+ * @param {?} parsedNumber
  * @return {?}
  */
-function parseNumber(numStr) {
+function toPercent(parsedNumber) {
+    // if the number is 0, don't do anything
+    if (parsedNumber.digits[0] === 0) {
+        return parsedNumber;
+    }
+    // Getting the current number of decimals
+    const /** @type {?} */ fractionLen = parsedNumber.digits.length - parsedNumber.integerLen;
+    if (parsedNumber.exponent) {
+        parsedNumber.exponent += 2;
+    }
+    else {
+        if (fractionLen === 0) {
+            parsedNumber.digits.push(0, 0);
+        }
+        else if (fractionLen === 1) {
+            parsedNumber.digits.push(0);
+        }
+        parsedNumber.integerLen += 2;
+    }
+    return parsedNumber;
+}
+/**
+ * Parses a number.
+ * Significant bits of this parse algorithm came from https://github.com/MikeMcl/big.js/
+ * @param {?} num
+ * @return {?}
+ */
+function parseNumber(num) {
+    let /** @type {?} */ numStr = Math.abs(num) + '';
     let /** @type {?} */ exponent = 0, /** @type {?} */ digits, /** @type {?} */ integerLen;
     let /** @type {?} */ i, /** @type {?} */ j, /** @type {?} */ zeros;
     // Decimal point?
@@ -19294,11 +19328,24 @@ function roundNumber(parsedNumber, minFrac, maxFrac) {
     // Pad out with zeros to get the required fraction length
     for (; fractionLen < Math.max(0, fractionSize); fractionLen++)
         digits.push(0);
+    let /** @type {?} */ dropTrailingZeros = fractionSize !== 0;
+    // Minimal length = nb of decimals required + current nb of integers
+    // Any number besides that is optional and can be removed if it's a trailing 0
+    const /** @type {?} */ minLen = minFrac + parsedNumber.integerLen;
     // Do any carrying, e.g. a digit was rounded up to 10
     const /** @type {?} */ carry = digits.reduceRight(function (carry, d, i, digits) {
         d = d + carry;
-        digits[i] = d % 10;
-        return Math.floor(d / 10);
+        digits[i] = d < 10 ? d : d - 10; // d % 10
+        if (dropTrailingZeros) {
+            // Do not keep meaningless fractional trailing zeros (e.g. 15.52000 --> 15.52)
+            if (digits[i] === 0 && i >= minLen) {
+                digits.pop();
+            }
+            else {
+                dropTrailingZeros = false;
+            }
+        }
+        return d >= 10 ? 1 : 0; // Math.floor(d / 10);
     }, 0);
     if (carry) {
         digits.unshift(carry);
@@ -19310,10 +19357,10 @@ function roundNumber(parsedNumber, minFrac, maxFrac) {
  * @param {?} text
  * @return {?}
  */
-function parseIntAutoRadix(text) {
-    const /** @type {?} */ result = parseInt(text);
+function parseIntAutoRadix(text$$1) {
+    const /** @type {?} */ result = parseInt(text$$1);
     if (isNaN(result)) {
-        throw new Error('Invalid integer literal when parsing ' + text);
+        throw new Error('Invalid integer literal when parsing ' + text$$1);
     }
     return result;
 }
@@ -19914,7 +19961,7 @@ class CurrencyPipe {
         }
         let /** @type {?} */ currency = currencyCode || 'USD';
         if (display !== 'code') {
-            currency = findCurrencySymbol(currency, display === 'symbol' ? 'wide' : 'narrow');
+            currency = getCurrencySymbol(currency, display === 'symbol' ? 'wide' : 'narrow');
         }
         const { str, error } = formatNumber$1(value, locale, NumberFormatStyle.Currency, digits, currency);
         if (error) {
@@ -20032,11 +20079,6 @@ SlicePipe.ctorParameters = () => [];
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * @module
- * @description
- * This module provides a set of common Pipes.
- */
-/**
  * A collection of Angular pipes that are likely to be used in each and every application.
  */
 const COMMON_PIPES = [
@@ -20128,18 +20170,13 @@ const PLATFORM_BROWSER_ID = 'browser';
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * @module
- * @description
- * Entry point for all public APIs of the common package.
- */
-/**
  * \@stable
  */
-const VERSION$1 = new Version('5.1.2');
+const VERSION$1 = new Version('5.2.0');
 
 /**
- * @license Angular v5.1.2
- * (c) 2010-2017 Google, Inc. https://angular.io/
+ * @license Angular v5.2.0
+ * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 /**
@@ -20697,7 +20734,7 @@ class BrowserDomAdapter extends GenericBrowserDomAdapter {
      * @param {?} text
      * @return {?}
      */
-    createComment(text) { return this.getDefaultDocument().createComment(text); }
+    createComment(text$$1) { return this.getDefaultDocument().createComment(text$$1); }
     /**
      * @param {?} html
      * @return {?}
@@ -20731,9 +20768,9 @@ class BrowserDomAdapter extends GenericBrowserDomAdapter {
      * @param {?=} doc
      * @return {?}
      */
-    createTextNode(text, doc) {
+    createTextNode(text$$1, doc) {
         doc = doc || this.getDefaultDocument();
-        return doc.createTextNode(text);
+        return doc.createTextNode(text$$1);
     }
     /**
      * @param {?} attrName
@@ -23748,14 +23785,9 @@ BrowserModule.ctorParameters = () => [
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * @module
- * @description
- * Entry point for all public APIs of the common package.
- */
-/**
  * \@stable
  */
-const VERSION = new Version('5.1.2');
+const VERSION = new Version('5.2.0');
 
 var __extends$13 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -24235,8 +24267,8 @@ var map_2 = {
 };
 
 /**
- * @license Angular v5.1.2
- * (c) 2010-2017 Google, Inc. https://angular.io/
+ * @license Angular v5.2.0
+ * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 /**
@@ -24511,6 +24543,8 @@ const EMAIL_REGEXP = /^(?=.{1,254}$)(?=.{1,64}@)[-!#$%&'*+/0-9=?A-Z^_`a-z{|}~]+(
 class Validators {
     /**
      * Validator that requires controls to have a value greater than a number.
+     * `min()` exists only as a function, not as a directive. For example,
+     * `control = new FormControl('', Validators.min(3));`.
      * @param {?} min
      * @return {?}
      */
@@ -24527,6 +24561,8 @@ class Validators {
     }
     /**
      * Validator that requires controls to have a value less than a number.
+     * `max()` exists only as a function, not as a directive. For example,
+     * `control = new FormControl('', Validators.max(15));`.
      * @param {?} max
      * @return {?}
      */
@@ -24925,10 +24961,10 @@ DefaultValueAccessor.decorators = [
                 // https://github.com/angular/angular/issues/3011 is implemented
                 // selector: '[ngModel],[formControl],[formControlName]',
                 host: {
-                    '(input)': '_handleInput($event.target.value)',
+                    '(input)': '$any(this)._handleInput($event.target.value)',
                     '(blur)': 'onTouched()',
-                    '(compositionstart)': '_compositionStart()',
-                    '(compositionend)': '_compositionEnd($event.target.value)'
+                    '(compositionstart)': '$any(this)._compositionStart()',
+                    '(compositionend)': '$any(this)._compositionEnd($event.target.value)'
                 },
                 providers: [DEFAULT_VALUE_ACCESSOR]
             },] },
@@ -30045,14 +30081,9 @@ FormBuilder.ctorParameters = () => [];
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * @module
- * @description
- * Entry point for all public APIs of the common package.
- */
-/**
  * \@stable
  */
-const VERSION$3 = new Version('5.1.2');
+const VERSION$3 = new Version('5.2.0');
 
 /**
  * @fileoverview added by tsickle
@@ -32592,8 +32623,8 @@ var filter_2 = {
 };
 
 /**
- * @license Angular v5.1.2
- * (c) 2010-2017 Google, Inc. https://angular.io/
+ * @license Angular v5.2.0
+ * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 /**
@@ -34223,7 +34254,7 @@ class ApplyRedirects {
         const /** @type {?} */ concattedProcessedRoutes$ = concatAll_3.call(processedRoutes$);
         const /** @type {?} */ first$ = first_3.call(concattedProcessedRoutes$, (s) => !!s);
         return _catch_2.call(first$, (e, _) => {
-            if (e instanceof EmptyError_2) {
+            if (e instanceof EmptyError_2 || e.name === 'EmptyError') {
                 if (this.noLeftoversInUrl(segmentGroup, segments, outlet)) {
                     return of_1(new UrlSegmentGroup([], {}));
                 }
@@ -34947,29 +34978,43 @@ class ActivatedRoute {
     }
 }
 /**
+ * Returns the inherited params, data, and resolve for a given route.
+ * By default, this only inherits values up to the nearest path-less or component-less route.
  * \@internal
  * @param {?} route
+ * @param {?=} paramsInheritanceStrategy
  * @return {?}
  */
-function inheritedParamsDataResolve(route) {
-    const /** @type {?} */ pathToRoot = route.pathFromRoot;
-    let /** @type {?} */ inhertingStartingFrom = pathToRoot.length - 1;
-    while (inhertingStartingFrom >= 1) {
-        const /** @type {?} */ current = pathToRoot[inhertingStartingFrom];
-        const /** @type {?} */ parent = pathToRoot[inhertingStartingFrom - 1];
-        // current route is an empty path => inherits its parent's params and data
-        if (current.routeConfig && current.routeConfig.path === '') {
-            inhertingStartingFrom--;
-            // parent is componentless => current route should inherit its params and data
-        }
-        else if (!parent.component) {
-            inhertingStartingFrom--;
-        }
-        else {
-            break;
+function inheritedParamsDataResolve(route, paramsInheritanceStrategy = 'emptyOnly') {
+    const /** @type {?} */ pathFromRoot = route.pathFromRoot;
+    let /** @type {?} */ inheritingStartingFrom = 0;
+    if (paramsInheritanceStrategy !== 'always') {
+        inheritingStartingFrom = pathFromRoot.length - 1;
+        while (inheritingStartingFrom >= 1) {
+            const /** @type {?} */ current = pathFromRoot[inheritingStartingFrom];
+            const /** @type {?} */ parent = pathFromRoot[inheritingStartingFrom - 1];
+            // current route is an empty path => inherits its parent's params and data
+            if (current.routeConfig && current.routeConfig.path === '') {
+                inheritingStartingFrom--;
+                // parent is componentless => current route should inherit its params and data
+            }
+            else if (!parent.component) {
+                inheritingStartingFrom--;
+            }
+            else {
+                break;
+            }
         }
     }
-    return pathToRoot.slice(inhertingStartingFrom).reduce((res, curr) => {
+    return flattenInherited(pathFromRoot.slice(inheritingStartingFrom));
+}
+/**
+ * \@internal
+ * @param {?} pathFromRoot
+ * @return {?}
+ */
+function flattenInherited(pathFromRoot) {
+    return pathFromRoot.reduce((res, curr) => {
         const /** @type {?} */ params = Object.assign({}, res.params, curr.params);
         const /** @type {?} */ data = Object.assign({}, res.data, curr.data);
         const /** @type {?} */ resolve = Object.assign({}, res.resolve, curr._resolvedData);
@@ -35133,7 +35178,7 @@ function setRouterState(state, node) {
  * @return {?}
  */
 function serializeNode(node) {
-    const /** @type {?} */ c = node.children.length > 0 ? ` { ${node.children.map(serializeNode).join(", ")} } ` : '';
+    const /** @type {?} */ c = node.children.length > 0 ? ` { ${node.children.map(serializeNode).join(', ')} } ` : '';
     return `${node.value}${c}`;
 }
 /**
@@ -35609,7 +35654,7 @@ function createNewSegmentGroup(segmentGroup, startIndex, commands) {
         const /** @type {?} */ curr = getPath(commands[i]);
         const /** @type {?} */ next = (i < commands.length - 1) ? commands[i + 1] : null;
         if (curr && next && isMatrixParams(next)) {
-            paths.push(new UrlSegment(curr, stringify$1(next)));
+            paths.push(new UrlSegment(curr, stringify$1$1(next)));
             i += 2;
         }
         else {
@@ -35636,7 +35681,7 @@ function createNewSegmentChildren(outlets) {
  * @param {?} params
  * @return {?}
  */
-function stringify$1(params) {
+function stringify$1$1(params) {
     const /** @type {?} */ res = {};
     forEach(params, (v, k) => res[k] = `${v}`);
     return res;
@@ -35668,11 +35713,8 @@ class CanActivate {
      */
     constructor(path) {
         this.path = path;
+        this.route = this.path[this.path.length - 1];
     }
-    /**
-     * @return {?}
-     */
-    get route() { return this.path[this.path.length - 1]; }
 }
 class CanDeactivate {
     /**
@@ -35722,13 +35764,14 @@ class PreActivation {
         return mergeMap_3.call(canDeactivate$, (canDeactivate) => canDeactivate ? this.runCanActivateChecks() : of_1(false));
     }
     /**
+     * @param {?} paramsInheritanceStrategy
      * @return {?}
      */
-    resolveData() {
+    resolveData(paramsInheritanceStrategy) {
         if (!this.isActivating())
             return of_1(null);
         const /** @type {?} */ checks$ = from_1(this.canActivateChecks);
-        const /** @type {?} */ runningChecks$ = concatMap_3.call(checks$, (check) => this.runResolve(check.route));
+        const /** @type {?} */ runningChecks$ = concatMap_3.call(checks$, (check) => this.runResolve(check.route, paramsInheritanceStrategy));
         return reduce_3.call(runningChecks$, (_, __) => _);
     }
     /**
@@ -35990,13 +36033,14 @@ class PreActivation {
     }
     /**
      * @param {?} future
+     * @param {?} paramsInheritanceStrategy
      * @return {?}
      */
-    runResolve(future) {
+    runResolve(future, paramsInheritanceStrategy) {
         const /** @type {?} */ resolve = future._resolve;
         return map_3.call(this.resolveNode(resolve, future), (resolvedData) => {
             future._resolvedData = resolvedData;
-            future.data = Object.assign({}, future.data, inheritedParamsDataResolve(future).resolve);
+            future.data = Object.assign({}, future.data, inheritedParamsDataResolve(future, paramsInheritanceStrategy).resolve);
             return null;
         });
     }
@@ -36077,10 +36121,12 @@ class NoMatch$1 {
  * @param {?} config
  * @param {?} urlTree
  * @param {?} url
+ * @param {?=} paramsInheritanceStrategy
  * @return {?}
  */
-function recognize(rootComponentType, config, urlTree, url) {
-    return new Recognizer(rootComponentType, config, urlTree, url).recognize();
+function recognize(rootComponentType, config, urlTree, url, paramsInheritanceStrategy = 'emptyOnly') {
+    return new Recognizer(rootComponentType, config, urlTree, url, paramsInheritanceStrategy)
+        .recognize();
 }
 class Recognizer {
     /**
@@ -36088,12 +36134,14 @@ class Recognizer {
      * @param {?} config
      * @param {?} urlTree
      * @param {?} url
+     * @param {?} paramsInheritanceStrategy
      */
-    constructor(rootComponentType, config, urlTree, url) {
+    constructor(rootComponentType, config, urlTree, url, paramsInheritanceStrategy) {
         this.rootComponentType = rootComponentType;
         this.config = config;
         this.urlTree = urlTree;
         this.url = url;
+        this.paramsInheritanceStrategy = paramsInheritanceStrategy;
     }
     /**
      * @return {?}
@@ -36118,7 +36166,7 @@ class Recognizer {
      */
     inheritParamsAndData(routeNode) {
         const /** @type {?} */ route = routeNode.value;
-        const /** @type {?} */ i = inheritedParamsDataResolve(route);
+        const /** @type {?} */ i = inheritedParamsDataResolve(route, this.paramsInheritanceStrategy);
         route.params = Object.freeze(i.params);
         route.data = Object.freeze(i.data);
         routeNode.children.forEach(n => this.inheritParamsAndData(n));
@@ -36189,16 +36237,21 @@ class Recognizer {
             throw new NoMatch$1();
         if ((route.outlet || PRIMARY_OUTLET) !== outlet)
             throw new NoMatch$1();
+        let /** @type {?} */ snapshot;
+        let /** @type {?} */ consumedSegments = [];
+        let /** @type {?} */ rawSlicedSegments = [];
         if (route.path === '**') {
             const /** @type {?} */ params = segments.length > 0 ? /** @type {?} */ ((last$1(segments))).parameters : {};
-            const /** @type {?} */ snapshot = new ActivatedRouteSnapshot(segments, params, Object.freeze(this.urlTree.queryParams), /** @type {?} */ ((this.urlTree.fragment)), getData(route), outlet, /** @type {?} */ ((route.component)), route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + segments.length, getResolve(route));
-            return [new TreeNode(snapshot, [])];
+            snapshot = new ActivatedRouteSnapshot(segments, params, Object.freeze(this.urlTree.queryParams), /** @type {?} */ ((this.urlTree.fragment)), getData(route), outlet, /** @type {?} */ ((route.component)), route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + segments.length, getResolve(route));
         }
-        const { consumedSegments, parameters, lastChild } = match$1(rawSegment, route, segments);
-        const /** @type {?} */ rawSlicedSegments = segments.slice(lastChild);
+        else {
+            const /** @type {?} */ result = match$1(rawSegment, route, segments);
+            consumedSegments = result.consumedSegments;
+            rawSlicedSegments = segments.slice(result.lastChild);
+            snapshot = new ActivatedRouteSnapshot(consumedSegments, result.parameters, Object.freeze(this.urlTree.queryParams), /** @type {?} */ ((this.urlTree.fragment)), getData(route), outlet, /** @type {?} */ ((route.component)), route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + consumedSegments.length, getResolve(route));
+        }
         const /** @type {?} */ childConfig = getChildConfig(route);
         const { segmentGroup, slicedSegments } = split$1(rawSegment, consumedSegments, rawSlicedSegments, childConfig);
-        const /** @type {?} */ snapshot = new ActivatedRouteSnapshot(consumedSegments, parameters, Object.freeze(this.urlTree.queryParams), /** @type {?} */ ((this.urlTree.fragment)), getData(route), outlet, /** @type {?} */ ((route.component)), route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + consumedSegments.length, getResolve(route));
         if (slicedSegments.length === 0 && segmentGroup.hasChildren()) {
             const /** @type {?} */ children = this.processChildren(childConfig, segmentGroup);
             return [new TreeNode(snapshot, children)];
@@ -36676,6 +36729,15 @@ class Router {
          * current URL. Default is 'ignore'.
          */
         this.onSameUrlNavigation = 'ignore';
+        /**
+         * Defines how the router merges params, data and resolved data from parent to child
+         * routes. Available options are:
+         *
+         * - `'emptyOnly'`, the default, only inherits parent params for path-less or component-less
+         *   routes.
+         * - `'always'`, enables unconditional inheritance of parent params.
+         */
+        this.paramsInheritanceStrategy = 'emptyOnly';
         const /** @type {?} */ onLoadStart = (r) => this.triggerEvent(new RouteConfigLoadStart(r));
         const /** @type {?} */ onLoadEnd = (r) => this.triggerEvent(new RouteConfigLoadEnd(r));
         this.ngModule = injector.get(NgModuleRef);
@@ -37046,7 +37108,7 @@ class Router {
                 const /** @type {?} */ moduleInjector = this.ngModule.injector;
                 const /** @type {?} */ redirectsApplied$ = applyRedirects(moduleInjector, this.configLoader, this.urlSerializer, url, this.config);
                 urlAndSnapshot$ = mergeMap_3.call(redirectsApplied$, (appliedUrl) => {
-                    return map_3.call(recognize(this.rootComponentType, this.config, appliedUrl, this.serializeUrl(appliedUrl)), (snapshot) => {
+                    return map_3.call(recognize(this.rootComponentType, this.config, appliedUrl, this.serializeUrl(appliedUrl), this.paramsInheritanceStrategy), (snapshot) => {
                         (/** @type {?} */ (this.events))
                             .next(new RoutesRecognized(id, this.serializeUrl(url), this.serializeUrl(appliedUrl), snapshot));
                         return { appliedUrl, snapshot };
@@ -37081,7 +37143,7 @@ class Router {
                     return of_1(false);
                 if (p.shouldActivate && preActivation.isActivating()) {
                     this.triggerEvent(new ResolveStart(id, this.serializeUrl(url), p.appliedUrl, p.snapshot));
-                    return map_3.call(preActivation.resolveData(), () => {
+                    return map_3.call(preActivation.resolveData(this.paramsInheritanceStrategy), () => {
                         this.triggerEvent(new ResolveEnd(id, this.serializeUrl(url), p.appliedUrl, p.snapshot));
                         return p;
                     });
@@ -38605,6 +38667,9 @@ function setupRouter(ref, urlSerializer, contexts, location, injector, loader, c
     if (opts.onSameUrlNavigation) {
         router.onSameUrlNavigation = opts.onSameUrlNavigation;
     }
+    if (opts.paramsInheritanceStrategy) {
+        router.paramsInheritanceStrategy = opts.paramsInheritanceStrategy;
+    }
     return router;
 }
 /**
@@ -38767,14 +38832,9 @@ function provideRouterInitializer() {
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * @module
- * @description
- * Entry point for all public APIs of the common package.
- */
-/**
  * \@stable
  */
-const VERSION$4 = new Version('5.1.2');
+const VERSION$4 = new Version('5.2.0');
 
 /**
  * @fileoverview added by tsickle
@@ -40856,8 +40916,8 @@ class LogEntry {
 }
 
 /**
- * @license Angular v5.1.2
- * (c) 2010-2017 Google, Inc. https://angular.io/
+ * @license Angular v5.2.0
+ * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
 /**
@@ -42624,12 +42684,6 @@ Http.ctorParameters = () => [
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * @module
- * @description
- * The http module provides services to perform http requests. To get started, see the {@link Http}
- * class.
- */
-/**
  * @return {?}
  */
 function _createDefaultCookieXSRFStrategy() {
@@ -42678,14 +42732,9 @@ HttpModule.ctorParameters = () => [];
  * found in the LICENSE file at https://angular.io/license
  */
 /**
- * @module
- * @description
- * Entry point for all public APIs of the common package.
- */
-/**
  * @deprecated use \@angular/common/http instead
  */
-const VERSION$5 = new Version('5.1.2');
+const VERSION$5 = new Version('5.2.0');
 
 /**
  * @fileoverview added by tsickle

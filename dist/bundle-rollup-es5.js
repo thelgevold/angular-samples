@@ -622,8 +622,8 @@ var __extends = (this && this.__extends) || (function () {
     var observable_2 = observable.observable;
     var observable_3 = observable.$$observable;
     /* tslint:disable:no-empty */
-    function noop$1() { }
-    var noop_2 = noop$1;
+    function noop$1$1() { }
+    var noop_2 = noop$1$1;
     var noop_1 = {
         noop: noop_2
     };
@@ -2331,8 +2331,8 @@ var __extends = (this && this.__extends) || (function () {
     }
     var share_3 = share;
     /**
-     * @license Angular v5.1.2
-     * (c) 2010-2017 Google, Inc. https://angular.io/
+     * @license Angular v5.2.0
+     * (c) 2010-2018 Google, Inc. https://angular.io/
      * License: MIT
      */
     /**
@@ -2928,7 +2928,7 @@ var __extends = (this && this.__extends) || (function () {
     /**
      * \@stable
      */
-    var VERSION$2 = new Version('5.1.2');
+    var VERSION$2 = new Version('5.2.0');
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
@@ -3173,6 +3173,7 @@ var __extends = (this && this.__extends) || (function () {
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
+    var SOURCE = '__source';
     var _THROW_IF_NOT_FOUND = new Object();
     var THROW_IF_NOT_FOUND = _THROW_IF_NOT_FOUND;
     var _NullInjector = (function () {
@@ -3222,12 +3223,17 @@ var __extends = (this && this.__extends) || (function () {
          * ### Example
          *
          * {\@example core/di/ts/provider_spec.ts region='ConstructorProvider'}
-         * @param {?} providers
+         * @param {?} options
          * @param {?=} parent
          * @return {?}
          */
-        Injector.create = function (providers, parent) {
-            return new StaticInjector(providers, parent);
+        Injector.create = function (options, parent) {
+            if (Array.isArray(options)) {
+                return new StaticInjector(options, parent);
+            }
+            else {
+                return new StaticInjector(options.providers, options.parent, options.name || null);
+            }
         };
         return Injector;
     }());
@@ -3253,10 +3259,13 @@ var __extends = (this && this.__extends) || (function () {
         /**
          * @param {?} providers
          * @param {?=} parent
+         * @param {?=} source
          */
-        function StaticInjector(providers, parent) {
+        function StaticInjector(providers, parent, source) {
             if (parent === void 0) { parent = NULL_INJECTOR; }
+            if (source === void 0) { source = null; }
             this.parent = parent;
+            this.source = source;
             var /** @type {?} */ records = this._records = new Map();
             records.set(Injector, /** @type {?} */ ({ token: Injector, fn: IDENT, deps: EMPTY, value: this, useNew: false }));
             recursivelyProcessProviders(records, providers);
@@ -3273,7 +3282,10 @@ var __extends = (this && this.__extends) || (function () {
             }
             catch (e) {
                 var /** @type {?} */ tokenPath = e[NG_TEMP_TOKEN_PATH];
-                e.message = formatError('\n' + e.message, tokenPath);
+                if (token[SOURCE]) {
+                    tokenPath.unshift(token[SOURCE]);
+                }
+                e.message = formatError('\n' + e.message, tokenPath, this.source);
                 e[NG_TOKEN_PATH] = tokenPath;
                 e[NG_TEMP_TOKEN_PATH] = null;
                 throw e;
@@ -3505,9 +3517,11 @@ var __extends = (this && this.__extends) || (function () {
     /**
      * @param {?} text
      * @param {?} obj
+     * @param {?=} source
      * @return {?}
      */
-    function formatError(text, obj) {
+    function formatError(text, obj, source) {
+        if (source === void 0) { source = null; }
         text = text && text.charAt(0) === '\n' && text.charAt(1) == NO_NEW_LINE ? text.substr(2) : text;
         var /** @type {?} */ context = stringify(obj);
         if (obj instanceof Array) {
@@ -3523,7 +3537,7 @@ var __extends = (this && this.__extends) || (function () {
             }
             context = "{" + parts.join(', ') + "}";
         }
-        return "StaticInjectorError[" + context + "]: " + text.replace(NEW_LINE, '\n  ');
+        return "StaticInjectorError" + (source ? '(' + source + ')' : '') + "[" + context + "]: " + text.replace(NEW_LINE, '\n  ');
     }
     /**
      * @param {?} text
@@ -4304,6 +4318,11 @@ var __extends = (this && this.__extends) || (function () {
             return type instanceof Type && lcProperty in type.prototype;
         };
         /**
+         * @param {?} type
+         * @return {?}
+         */
+        ReflectionCapabilities.prototype.guards = function (type) { return {}; };
+        /**
          * @param {?} name
          * @return {?}
          */
@@ -4571,15 +4590,8 @@ var __extends = (this && this.__extends) || (function () {
             this.key = key;
             this.resolvedFactories = resolvedFactories;
             this.multiProvider = multiProvider;
+            this.resolvedFactory = this.resolvedFactories[0];
         }
-        Object.defineProperty(ResolvedReflectiveProvider_.prototype, "resolvedFactory", {
-            /**
-             * @return {?}
-             */
-            get: function () { return this.resolvedFactories[0]; },
-            enumerable: true,
-            configurable: true
-        });
         return ResolvedReflectiveProvider_;
     }());
     /**
@@ -5617,48 +5629,13 @@ var __extends = (this && this.__extends) || (function () {
             var _this = _super.call(this) || this;
             _this.factory = factory;
             _this.ngModule = ngModule;
+            _this.selector = factory.selector;
+            _this.componentType = factory.componentType;
+            _this.ngContentSelectors = factory.ngContentSelectors;
+            _this.inputs = factory.inputs;
+            _this.outputs = factory.outputs;
             return _this;
         }
-        Object.defineProperty(ComponentFactoryBoundToModule.prototype, "selector", {
-            /**
-             * @return {?}
-             */
-            get: function () { return this.factory.selector; },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(ComponentFactoryBoundToModule.prototype, "componentType", {
-            /**
-             * @return {?}
-             */
-            get: function () { return this.factory.componentType; },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(ComponentFactoryBoundToModule.prototype, "ngContentSelectors", {
-            /**
-             * @return {?}
-             */
-            get: function () { return this.factory.ngContentSelectors; },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(ComponentFactoryBoundToModule.prototype, "inputs", {
-            /**
-             * @return {?}
-             */
-            get: function () { return this.factory.inputs; },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(ComponentFactoryBoundToModule.prototype, "outputs", {
-            /**
-             * @return {?}
-             */
-            get: function () { return this.factory.outputs; },
-            enumerable: true,
-            configurable: true
-        });
         /**
          * @param {?} injector
          * @param {?=} projectableNodes
@@ -6654,7 +6631,8 @@ var __extends = (this && this.__extends) || (function () {
      */
     function createPlatformFactory(parentPlatformFactory, name, providers) {
         if (providers === void 0) { providers = []; }
-        var /** @type {?} */ marker = new InjectionToken("Platform: " + name);
+        var /** @type {?} */ desc = "Platform: " + name;
+        var /** @type {?} */ marker = new InjectionToken(desc);
         return function (extraProviders) {
             if (extraProviders === void 0) { extraProviders = []; }
             var /** @type {?} */ platform = getPlatform();
@@ -6663,7 +6641,8 @@ var __extends = (this && this.__extends) || (function () {
                     parentPlatformFactory(providers.concat(extraProviders).concat({ provide: marker, useValue: true }));
                 }
                 else {
-                    createPlatform(Injector.create(providers.concat(extraProviders).concat({ provide: marker, useValue: true })));
+                    var /** @type {?} */ injectedProviders = providers.concat(extraProviders).concat({ provide: marker, useValue: true });
+                    createPlatform(Injector.create({ providers: injectedProviders, name: desc }));
                 }
             }
             return assertPlatform(marker);
@@ -6757,10 +6736,11 @@ var __extends = (this && this.__extends) || (function () {
             // pass that as parent to the NgModuleFactory.
             var /** @type {?} */ ngZoneOption = options ? options.ngZone : undefined;
             var /** @type {?} */ ngZone = getNgZone(ngZoneOption);
+            var /** @type {?} */ providers = [{ provide: NgZone, useValue: ngZone }];
             // Attention: Don't use ApplicationRef.run here,
             // as we want to be sure that all possible constructor calls are inside `ngZone.run`!
             return ngZone.run(function () {
-                var /** @type {?} */ ngZoneInjector = Injector.create([{ provide: NgZone, useValue: ngZone }], _this.injector);
+                var /** @type {?} */ ngZoneInjector = Injector.create({ providers: providers, parent: _this.injector, name: moduleFactory.moduleType.name });
                 var /** @type {?} */ moduleRef = (moduleFactory.create(ngZoneInjector));
                 var /** @type {?} */ exceptionHandler = moduleRef.injector.get(ErrorHandler, null);
                 if (!exceptionHandler) {
@@ -7229,7 +7209,6 @@ var __extends = (this && this.__extends) || (function () {
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
-    // Public API for render
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
@@ -7324,30 +7303,6 @@ var __extends = (this && this.__extends) || (function () {
             this._results = [];
             this.changes = new EventEmitter();
         }
-        Object.defineProperty(QueryList.prototype, "length", {
-            /**
-             * @return {?}
-             */
-            get: function () { return this._results.length; },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(QueryList.prototype, "first", {
-            /**
-             * @return {?}
-             */
-            get: function () { return this._results[0]; },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(QueryList.prototype, "last", {
-            /**
-             * @return {?}
-             */
-            get: function () { return this._results[this.length - 1]; },
-            enumerable: true,
-            configurable: true
-        });
         /**
          * See
          * [Array.map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
@@ -7420,6 +7375,9 @@ var __extends = (this && this.__extends) || (function () {
         QueryList.prototype.reset = function (res) {
             this._results = flatten(res);
             ((this)).dirty = false;
+            ((this)).length = this._results.length;
+            ((this)).last = this._results[this.length - 1];
+            ((this)).first = this._results[0];
         };
         /**
          * @return {?}
@@ -7651,7 +7609,6 @@ var __extends = (this && this.__extends) || (function () {
      * Use of this source code is governed by an MIT-style license that can be
      * found in the LICENSE file at https://angular.io/license
      */
-    // Public API for compiler
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
@@ -9539,11 +9496,6 @@ var __extends = (this && this.__extends) || (function () {
      * found in the LICENSE file at https://angular.io/license
      */
     /**
-     * @module
-     * @description
-     * Change detection enables data binding in Angular.
-     */
-    /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
      */
@@ -10286,9 +10238,10 @@ var __extends = (this && this.__extends) || (function () {
     }
     /**
      * @param {?} deps
+     * @param {?=} sourceName
      * @return {?}
      */
-    function splitDepsDsl(deps) {
+    function splitDepsDsl(deps, sourceName) {
         return deps.map(function (value) {
             var /** @type {?} */ token;
             var /** @type {?} */ flags;
@@ -10298,6 +10251,9 @@ var __extends = (this && this.__extends) || (function () {
             else {
                 flags = 0 /* None */;
                 token = value;
+            }
+            if (token && (typeof token === 'function' || typeof token === 'object') && sourceName) {
+                Object.defineProperty(token, SOURCE, { value: sourceName, configurable: true });
             }
             return { flags: flags, token: token, tokenKey: tokenKey(token) };
         });
@@ -10987,7 +10943,7 @@ var __extends = (this && this.__extends) || (function () {
         // lowered the expression and then stopped evaluating it,
         // i.e. also didn't unwrap it.
         value = resolveForwardRef(value);
-        var /** @type {?} */ depDefs = splitDepsDsl(deps);
+        var /** @type {?} */ depDefs = splitDepsDsl(deps, stringify(token));
         return {
             // will bet set by the module definition
             index: -1,
@@ -12110,6 +12066,7 @@ var __extends = (this && this.__extends) || (function () {
             this._def = _def;
             this._destroyListeners = [];
             this._destroyed = false;
+            this.injector = this;
             initNgModule(this);
         }
         /**
@@ -12134,14 +12091,6 @@ var __extends = (this && this.__extends) || (function () {
              * @return {?}
              */
             get: function () { return this.get(ComponentFactoryResolver); },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(NgModuleRef_.prototype, "injector", {
-            /**
-             * @return {?}
-             */
-            get: function () { return this; },
             enumerable: true,
             configurable: true
         });
@@ -12260,7 +12209,7 @@ var __extends = (this && this.__extends) || (function () {
         // lowered the expression and then stopped evaluating it,
         // i.e. also didn't unwrap it.
         value = resolveForwardRef(value);
-        var /** @type {?} */ depDefs = splitDepsDsl(deps);
+        var /** @type {?} */ depDefs = splitDepsDsl(deps, stringify(token));
         return {
             // will bet set by the view definition
             nodeIndex: -1,
@@ -15081,15 +15030,8 @@ var __extends = (this && this.__extends) || (function () {
          */
         function DebugRenderer2(delegate) {
             this.delegate = delegate;
+            this.data = this.delegate.data;
         }
-        Object.defineProperty(DebugRenderer2.prototype, "data", {
-            /**
-             * @return {?}
-             */
-            get: function () { return this.delegate.data; },
-            enumerable: true,
-            configurable: true
-        });
         /**
          * @param {?} node
          * @return {?}
@@ -15360,8 +15302,27 @@ var __extends = (this && this.__extends) || (function () {
         return NgModuleFactory_;
     }(NgModuleFactory));
     /**
-     * @license Angular v5.1.2
-     * (c) 2010-2017 Google, Inc. https://angular.io/
+     * @fileoverview added by tsickle
+     * @suppress {checkTypes} checked by tsc
+     */
+    /**
+     * @license
+     * Copyright Google Inc. All Rights Reserved.
+     *
+     * Use of this source code is governed by an MIT-style license that can be
+     * found in the LICENSE file at https://angular.io/license
+     */
+    if (typeof ngDevMode == 'undefined') {
+        if (typeof window != 'undefined')
+            ((window)).ngDevMode = true;
+        if (typeof self != 'undefined')
+            ((self)).ngDevMode = true;
+        if (typeof global != 'undefined')
+            ((global)).ngDevMode = true;
+    }
+    /**
+     * @license Angular v5.2.0
+     * (c) 2010-2018 Google, Inc. https://angular.io/
      * License: MIT
      */
     /**
@@ -15963,7 +15924,7 @@ var __extends = (this && this.__extends) || (function () {
     // THIS CODE IS GENERATED - DO NOT MODIFY
     // See angular/tools/gulp-tasks/cldr/extract.js
     /**
-     * \@experimental
+     * \@internal
      */
     var CURRENCIES = {
         'AOA': [, 'Kz'],
@@ -16081,6 +16042,16 @@ var __extends = (this && this.__extends) || (function () {
      */
     // THIS CODE IS GENERATED - DO NOT MODIFY
     // See angular/tools/gulp-tasks/cldr/extract.js
+    /**
+     * @param {?} n
+     * @return {?}
+     */
+    function converter(n) {
+        var /** @type {?} */ i = Math.floor(Math.abs(n)), /** @type {?} */ v = n.toString().replace(/^[^.]*\.?/, '').length;
+        if (i === 1 && v === 0)
+            return 1;
+        return 5;
+    }
     var localeEn = [
         'en',
         [
@@ -16115,13 +16086,7 @@ var __extends = (this && this.__extends) || (function () {
             '{1} \'at\' {0}',
         ],
         ['.', ',', ';', '%', '+', '-', 'E', '×', '‰', '∞', 'NaN', ':'],
-        ['#,##0.###', '#,##0%', '¤#,##0.00', '#E0'], '$', 'US Dollar',
-        function (n) {
-            var /** @type {?} */ i = Math.floor(Math.abs(n)), /** @type {?} */ v = n.toString().replace(/^[^.]*\.?/, '').length;
-            if (i === 1 && v === 0)
-                return 1;
-            return 5;
-        }
+        ['#,##0.###', '#,##0%', '¤#,##0.00', '#E0'], '$', 'US Dollar', converter
     ];
     /**
      * @fileoverview added by tsickle
@@ -16587,17 +16552,20 @@ var __extends = (this && this.__extends) || (function () {
     }
     /**
      * Return the currency symbol for a given currency code, or the code if no symbol available
-     * (e.g.: $, US$, or USD)
+     * (e.g.: format narrow = $, format wide = US$, code = USD)
      *
-     * \@internal
+     * \@experimental i18n support is experimental.
      * @param {?} code
      * @param {?} format
      * @return {?}
      */
-    function findCurrencySymbol(code, format) {
-        var /** @type {?} */ currency = CURRENCIES[code] || {};
-        var /** @type {?} */ symbol = currency[0] || code;
-        return format === 'wide' ? symbol : currency[1] || symbol;
+    function getCurrencySymbol(code, format) {
+        var /** @type {?} */ currency = CURRENCIES[code] || [];
+        var /** @type {?} */ symbolNarrow = currency[1];
+        if (format === 'narrow' && typeof symbolNarrow === 'string') {
+            return symbolNarrow;
+        }
+        return currency[0] || code;
     }
     /**
      * @fileoverview added by tsickle
@@ -16627,8 +16595,6 @@ var __extends = (this && this.__extends) || (function () {
      * Returns the plural category for a given value.
      * - "=value" when the case exists,
      * - the plural category otherwise
-     *
-     * \@internal
      * @param {?} value
      * @param {?} cases
      * @param {?} ngLocalization
@@ -18295,14 +18261,14 @@ var __extends = (this && this.__extends) || (function () {
             dateTimezoneOffset = timezoneToOffset(timezone, dateTimezoneOffset);
             date = convertTimezoneToLocal(date, timezone, true);
         }
-        var /** @type {?} */ text = '';
+        var /** @type {?} */ text$$1 = '';
         parts.forEach(function (value) {
             var /** @type {?} */ dateFormatter = getDateFormatter(value);
-            text += dateFormatter ?
+            text$$1 += dateFormatter ?
                 dateFormatter(date, locale, dateTimezoneOffset) :
                 value === '\'\'' ? '\'' : value.replace(/(^'|'$)/g, '').replace(/''/g, '\'');
         });
-        return text;
+        return text$$1;
     }
     /**
      * @param {?} locale
@@ -19308,10 +19274,6 @@ var __extends = (this && this.__extends) || (function () {
         else {
             num = value;
         }
-        if (style === NumberFormatStyle.Percent) {
-            num = num * 100;
-        }
-        var /** @type {?} */ numStr = Math.abs(num) + '';
         var /** @type {?} */ pattern = parseNumberFormat(format, getLocaleNumberSymbol(locale, NumberSymbol.MinusSign));
         var /** @type {?} */ formattedText = '';
         var /** @type {?} */ isZero = false;
@@ -19319,7 +19281,10 @@ var __extends = (this && this.__extends) || (function () {
             formattedText = getLocaleNumberSymbol(locale, NumberSymbol.Infinity);
         }
         else {
-            var /** @type {?} */ parsedNumber = parseNumber(numStr);
+            var /** @type {?} */ parsedNumber = parseNumber(num);
+            if (style === NumberFormatStyle.Percent) {
+                parsedNumber = toPercent(parsedNumber);
+            }
             var /** @type {?} */ minInt = pattern.minInt;
             var /** @type {?} */ minFraction = pattern.minFrac;
             var /** @type {?} */ maxFraction = pattern.maxFrac;
@@ -19463,12 +19428,38 @@ var __extends = (this && this.__extends) || (function () {
         return p;
     }
     /**
-     * Parse a number (as a string)
-     * Significant bits of this parse algorithm came from https://github.com/MikeMcl/big.js/
-     * @param {?} numStr
+     * @param {?} parsedNumber
      * @return {?}
      */
-    function parseNumber(numStr) {
+    function toPercent(parsedNumber) {
+        // if the number is 0, don't do anything
+        if (parsedNumber.digits[0] === 0) {
+            return parsedNumber;
+        }
+        // Getting the current number of decimals
+        var /** @type {?} */ fractionLen = parsedNumber.digits.length - parsedNumber.integerLen;
+        if (parsedNumber.exponent) {
+            parsedNumber.exponent += 2;
+        }
+        else {
+            if (fractionLen === 0) {
+                parsedNumber.digits.push(0, 0);
+            }
+            else if (fractionLen === 1) {
+                parsedNumber.digits.push(0);
+            }
+            parsedNumber.integerLen += 2;
+        }
+        return parsedNumber;
+    }
+    /**
+     * Parses a number.
+     * Significant bits of this parse algorithm came from https://github.com/MikeMcl/big.js/
+     * @param {?} num
+     * @return {?}
+     */
+    function parseNumber(num) {
+        var /** @type {?} */ numStr = Math.abs(num) + '';
         var /** @type {?} */ exponent = 0, /** @type {?} */ digits, /** @type {?} */ integerLen;
         var /** @type {?} */ i, /** @type {?} */ j, /** @type {?} */ zeros;
         // Decimal point?
@@ -19568,11 +19559,24 @@ var __extends = (this && this.__extends) || (function () {
         // Pad out with zeros to get the required fraction length
         for (; fractionLen < Math.max(0, fractionSize); fractionLen++)
             digits.push(0);
+        var /** @type {?} */ dropTrailingZeros = fractionSize !== 0;
+        // Minimal length = nb of decimals required + current nb of integers
+        // Any number besides that is optional and can be removed if it's a trailing 0
+        var /** @type {?} */ minLen = minFrac + parsedNumber.integerLen;
         // Do any carrying, e.g. a digit was rounded up to 10
         var /** @type {?} */ carry = digits.reduceRight(function (carry, d, i, digits) {
             d = d + carry;
-            digits[i] = d % 10;
-            return Math.floor(d / 10);
+            digits[i] = d < 10 ? d : d - 10; // d % 10
+            if (dropTrailingZeros) {
+                // Do not keep meaningless fractional trailing zeros (e.g. 15.52000 --> 15.52)
+                if (digits[i] === 0 && i >= minLen) {
+                    digits.pop();
+                }
+                else {
+                    dropTrailingZeros = false;
+                }
+            }
+            return d >= 10 ? 1 : 0; // Math.floor(d / 10);
         }, 0);
         if (carry) {
             digits.unshift(carry);
@@ -19584,10 +19588,10 @@ var __extends = (this && this.__extends) || (function () {
      * @param {?} text
      * @return {?}
      */
-    function parseIntAutoRadix(text) {
-        var /** @type {?} */ result = parseInt(text);
+    function parseIntAutoRadix(text$$1) {
+        var /** @type {?} */ result = parseInt(text$$1);
         if (isNaN(result)) {
-            throw new Error('Invalid integer literal when parsing ' + text);
+            throw new Error('Invalid integer literal when parsing ' + text$$1);
         }
         return result;
     }
@@ -20209,7 +20213,7 @@ var __extends = (this && this.__extends) || (function () {
             }
             var /** @type {?} */ currency = currencyCode || 'USD';
             if (display !== 'code') {
-                currency = findCurrencySymbol(currency, display === 'symbol' ? 'wide' : 'narrow');
+                currency = getCurrencySymbol(currency, display === 'symbol' ? 'wide' : 'narrow');
             }
             var _b = formatNumber$1(value, locale, NumberFormatStyle.Currency, digits, currency), str = _b.str, error = _b.error;
             if (error) {
@@ -20329,11 +20333,6 @@ var __extends = (this && this.__extends) || (function () {
      * found in the LICENSE file at https://angular.io/license
      */
     /**
-     * @module
-     * @description
-     * This module provides a set of common Pipes.
-     */
-    /**
      * A collection of Angular pipes that are likely to be used in each and every application.
      */
     var COMMON_PIPES = [
@@ -20426,17 +20425,12 @@ var __extends = (this && this.__extends) || (function () {
      * found in the LICENSE file at https://angular.io/license
      */
     /**
-     * @module
-     * @description
-     * Entry point for all public APIs of the common package.
-     */
-    /**
      * \@stable
      */
-    var VERSION$1 = new Version('5.1.2');
+    var VERSION$1 = new Version('5.2.0');
     /**
-     * @license Angular v5.1.2
-     * (c) 2010-2017 Google, Inc. https://angular.io/
+     * @license Angular v5.2.0
+     * (c) 2010-2018 Google, Inc. https://angular.io/
      * License: MIT
      */
     /**
@@ -21007,7 +21001,7 @@ var __extends = (this && this.__extends) || (function () {
          * @param {?} text
          * @return {?}
          */
-        BrowserDomAdapter.prototype.createComment = function (text) { return this.getDefaultDocument().createComment(text); };
+        BrowserDomAdapter.prototype.createComment = function (text$$1) { return this.getDefaultDocument().createComment(text$$1); };
         /**
          * @param {?} html
          * @return {?}
@@ -21041,9 +21035,9 @@ var __extends = (this && this.__extends) || (function () {
          * @param {?=} doc
          * @return {?}
          */
-        BrowserDomAdapter.prototype.createTextNode = function (text, doc) {
+        BrowserDomAdapter.prototype.createTextNode = function (text$$1, doc) {
             doc = doc || this.getDefaultDocument();
-            return doc.createTextNode(text);
+            return doc.createTextNode(text$$1);
         };
         /**
          * @param {?} attrName
@@ -24130,14 +24124,9 @@ var __extends = (this && this.__extends) || (function () {
      * found in the LICENSE file at https://angular.io/license
      */
     /**
-     * @module
-     * @description
-     * Entry point for all public APIs of the common package.
-     */
-    /**
      * \@stable
      */
-    var VERSION = new Version('5.1.2');
+    var VERSION = new Version('5.2.0');
     var __extends$13 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
@@ -24598,8 +24587,8 @@ var __extends = (this && this.__extends) || (function () {
         map: map_3
     };
     /**
-     * @license Angular v5.1.2
-     * (c) 2010-2017 Google, Inc. https://angular.io/
+     * @license Angular v5.2.0
+     * (c) 2010-2018 Google, Inc. https://angular.io/
      * License: MIT
      */
     /**
@@ -24951,6 +24940,8 @@ var __extends = (this && this.__extends) || (function () {
         }
         /**
          * Validator that requires controls to have a value greater than a number.
+         * `min()` exists only as a function, not as a directive. For example,
+         * `control = new FormControl('', Validators.min(3));`.
          * @param {?} min
          * @return {?}
          */
@@ -24967,6 +24958,8 @@ var __extends = (this && this.__extends) || (function () {
         };
         /**
          * Validator that requires controls to have a value less than a number.
+         * `max()` exists only as a function, not as a directive. For example,
+         * `control = new FormControl('', Validators.max(15));`.
          * @param {?} max
          * @return {?}
          */
@@ -25364,10 +25357,10 @@ var __extends = (this && this.__extends) || (function () {
                     // https://github.com/angular/angular/issues/3011 is implemented
                     // selector: '[ngModel],[formControl],[formControlName]',
                     host: {
-                        '(input)': '_handleInput($event.target.value)',
+                        '(input)': '$any(this)._handleInput($event.target.value)',
                         '(blur)': 'onTouched()',
-                        '(compositionstart)': '_compositionStart()',
-                        '(compositionend)': '_compositionEnd($event.target.value)'
+                        '(compositionstart)': '$any(this)._compositionStart()',
+                        '(compositionend)': '$any(this)._compositionEnd($event.target.value)'
                     },
                     providers: [DEFAULT_VALUE_ACCESSOR]
                 },] },
@@ -30718,14 +30711,9 @@ var __extends = (this && this.__extends) || (function () {
      * found in the LICENSE file at https://angular.io/license
      */
     /**
-     * @module
-     * @description
-     * Entry point for all public APIs of the common package.
-     */
-    /**
      * \@stable
      */
-    var VERSION$3 = new Version('5.1.2');
+    var VERSION$3 = new Version('5.2.0');
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
@@ -33193,8 +33181,8 @@ var __extends = (this && this.__extends) || (function () {
         filter: filter_3
     };
     /**
-     * @license Angular v5.1.2
-     * (c) 2010-2017 Google, Inc. https://angular.io/
+     * @license Angular v5.2.0
+     * (c) 2010-2018 Google, Inc. https://angular.io/
      * License: MIT
      */
     /**
@@ -34883,7 +34871,7 @@ var __extends = (this && this.__extends) || (function () {
             var /** @type {?} */ concattedProcessedRoutes$ = concatAll_3.call(processedRoutes$);
             var /** @type {?} */ first$ = first_3.call(concattedProcessedRoutes$, function (s) { return !!s; });
             return _catch_2.call(first$, function (e, _) {
-                if (e instanceof EmptyError_2) {
+                if (e instanceof EmptyError_2 || e.name === 'EmptyError') {
                     if (_this.noLeftoversInUrl(segmentGroup, segments, outlet)) {
                         return of_1(new UrlSegmentGroup([], {}));
                     }
@@ -35661,29 +35649,44 @@ var __extends = (this && this.__extends) || (function () {
         return ActivatedRoute;
     }());
     /**
+     * Returns the inherited params, data, and resolve for a given route.
+     * By default, this only inherits values up to the nearest path-less or component-less route.
      * \@internal
      * @param {?} route
+     * @param {?=} paramsInheritanceStrategy
      * @return {?}
      */
-    function inheritedParamsDataResolve(route) {
-        var /** @type {?} */ pathToRoot = route.pathFromRoot;
-        var /** @type {?} */ inhertingStartingFrom = pathToRoot.length - 1;
-        while (inhertingStartingFrom >= 1) {
-            var /** @type {?} */ current = pathToRoot[inhertingStartingFrom];
-            var /** @type {?} */ parent_3 = pathToRoot[inhertingStartingFrom - 1];
-            // current route is an empty path => inherits its parent's params and data
-            if (current.routeConfig && current.routeConfig.path === '') {
-                inhertingStartingFrom--;
-                // parent is componentless => current route should inherit its params and data
-            }
-            else if (!parent_3.component) {
-                inhertingStartingFrom--;
-            }
-            else {
-                break;
+    function inheritedParamsDataResolve(route, paramsInheritanceStrategy) {
+        if (paramsInheritanceStrategy === void 0) { paramsInheritanceStrategy = 'emptyOnly'; }
+        var /** @type {?} */ pathFromRoot = route.pathFromRoot;
+        var /** @type {?} */ inheritingStartingFrom = 0;
+        if (paramsInheritanceStrategy !== 'always') {
+            inheritingStartingFrom = pathFromRoot.length - 1;
+            while (inheritingStartingFrom >= 1) {
+                var /** @type {?} */ current = pathFromRoot[inheritingStartingFrom];
+                var /** @type {?} */ parent_3 = pathFromRoot[inheritingStartingFrom - 1];
+                // current route is an empty path => inherits its parent's params and data
+                if (current.routeConfig && current.routeConfig.path === '') {
+                    inheritingStartingFrom--;
+                    // parent is componentless => current route should inherit its params and data
+                }
+                else if (!parent_3.component) {
+                    inheritingStartingFrom--;
+                }
+                else {
+                    break;
+                }
             }
         }
-        return pathToRoot.slice(inhertingStartingFrom).reduce(function (res, curr) {
+        return flattenInherited(pathFromRoot.slice(inheritingStartingFrom));
+    }
+    /**
+     * \@internal
+     * @param {?} pathFromRoot
+     * @return {?}
+     */
+    function flattenInherited(pathFromRoot) {
+        return pathFromRoot.reduce(function (res, curr) {
             var /** @type {?} */ params = Object.assign({}, res.params, curr.params);
             var /** @type {?} */ data = Object.assign({}, res.data, curr.data);
             var /** @type {?} */ resolve = Object.assign({}, res.resolve, curr._resolvedData);
@@ -35879,7 +35882,7 @@ var __extends = (this && this.__extends) || (function () {
      * @return {?}
      */
     function serializeNode(node) {
-        var /** @type {?} */ c = node.children.length > 0 ? " { " + node.children.map(serializeNode).join(", ") + " } " : '';
+        var /** @type {?} */ c = node.children.length > 0 ? " { " + node.children.map(serializeNode).join(', ') + " } " : '';
         return "" + node.value + c;
     }
     /**
@@ -36357,7 +36360,7 @@ var __extends = (this && this.__extends) || (function () {
             var /** @type {?} */ curr = getPath(commands[i]);
             var /** @type {?} */ next = (i < commands.length - 1) ? commands[i + 1] : null;
             if (curr && next && isMatrixParams(next)) {
-                paths.push(new UrlSegment(curr, stringify$1(next)));
+                paths.push(new UrlSegment(curr, stringify$1$1(next)));
                 i += 2;
             }
             else {
@@ -36384,7 +36387,7 @@ var __extends = (this && this.__extends) || (function () {
      * @param {?} params
      * @return {?}
      */
-    function stringify$1(params) {
+    function stringify$1$1(params) {
         var /** @type {?} */ res = {};
         forEach(params, function (v, k) { return res[k] = "" + v; });
         return res;
@@ -36415,15 +36418,8 @@ var __extends = (this && this.__extends) || (function () {
          */
         function CanActivate(path) {
             this.path = path;
+            this.route = this.path[this.path.length - 1];
         }
-        Object.defineProperty(CanActivate.prototype, "route", {
-            /**
-             * @return {?}
-             */
-            get: function () { return this.path[this.path.length - 1]; },
-            enumerable: true,
-            configurable: true
-        });
         return CanActivate;
     }());
     var CanDeactivate = (function () {
@@ -36476,14 +36472,15 @@ var __extends = (this && this.__extends) || (function () {
             return mergeMap_3.call(canDeactivate$, function (canDeactivate) { return canDeactivate ? _this.runCanActivateChecks() : of_1(false); });
         };
         /**
+         * @param {?} paramsInheritanceStrategy
          * @return {?}
          */
-        PreActivation.prototype.resolveData = function () {
+        PreActivation.prototype.resolveData = function (paramsInheritanceStrategy) {
             var _this = this;
             if (!this.isActivating())
                 return of_1(null);
             var /** @type {?} */ checks$ = from_1(this.canActivateChecks);
-            var /** @type {?} */ runningChecks$ = concatMap_3.call(checks$, function (check) { return _this.runResolve(check.route); });
+            var /** @type {?} */ runningChecks$ = concatMap_3.call(checks$, function (check) { return _this.runResolve(check.route, paramsInheritanceStrategy); });
             return reduce_3.call(runningChecks$, function (_, __) { return _; });
         };
         /**
@@ -36752,13 +36749,14 @@ var __extends = (this && this.__extends) || (function () {
         };
         /**
          * @param {?} future
+         * @param {?} paramsInheritanceStrategy
          * @return {?}
          */
-        PreActivation.prototype.runResolve = function (future) {
+        PreActivation.prototype.runResolve = function (future, paramsInheritanceStrategy) {
             var /** @type {?} */ resolve = future._resolve;
             return map_3.call(this.resolveNode(resolve, future), function (resolvedData) {
                 future._resolvedData = resolvedData;
-                future.data = Object.assign({}, future.data, inheritedParamsDataResolve(future).resolve);
+                future.data = Object.assign({}, future.data, inheritedParamsDataResolve(future, paramsInheritanceStrategy).resolve);
                 return null;
             });
         };
@@ -36846,10 +36844,13 @@ var __extends = (this && this.__extends) || (function () {
      * @param {?} config
      * @param {?} urlTree
      * @param {?} url
+     * @param {?=} paramsInheritanceStrategy
      * @return {?}
      */
-    function recognize(rootComponentType, config, urlTree, url) {
-        return new Recognizer(rootComponentType, config, urlTree, url).recognize();
+    function recognize(rootComponentType, config, urlTree, url, paramsInheritanceStrategy) {
+        if (paramsInheritanceStrategy === void 0) { paramsInheritanceStrategy = 'emptyOnly'; }
+        return new Recognizer(rootComponentType, config, urlTree, url, paramsInheritanceStrategy)
+            .recognize();
     }
     var Recognizer = (function () {
         /**
@@ -36857,12 +36858,14 @@ var __extends = (this && this.__extends) || (function () {
          * @param {?} config
          * @param {?} urlTree
          * @param {?} url
+         * @param {?} paramsInheritanceStrategy
          */
-        function Recognizer(rootComponentType, config, urlTree, url) {
+        function Recognizer(rootComponentType, config, urlTree, url, paramsInheritanceStrategy) {
             this.rootComponentType = rootComponentType;
             this.config = config;
             this.urlTree = urlTree;
             this.url = url;
+            this.paramsInheritanceStrategy = paramsInheritanceStrategy;
         }
         /**
          * @return {?}
@@ -36888,7 +36891,7 @@ var __extends = (this && this.__extends) || (function () {
         Recognizer.prototype.inheritParamsAndData = function (routeNode) {
             var _this = this;
             var /** @type {?} */ route = routeNode.value;
-            var /** @type {?} */ i = inheritedParamsDataResolve(route);
+            var /** @type {?} */ i = inheritedParamsDataResolve(route, this.paramsInheritanceStrategy);
             route.params = Object.freeze(i.params);
             route.data = Object.freeze(i.data);
             routeNode.children.forEach(function (n) { return _this.inheritParamsAndData(n); });
@@ -36961,16 +36964,21 @@ var __extends = (this && this.__extends) || (function () {
                 throw new NoMatch$1();
             if ((route.outlet || PRIMARY_OUTLET) !== outlet)
                 throw new NoMatch$1();
+            var /** @type {?} */ snapshot;
+            var /** @type {?} */ consumedSegments = [];
+            var /** @type {?} */ rawSlicedSegments = [];
             if (route.path === '**') {
                 var /** @type {?} */ params = segments.length > 0 ? ((last$1(segments))).parameters : {};
-                var /** @type {?} */ snapshot_1 = new ActivatedRouteSnapshot(segments, params, Object.freeze(this.urlTree.queryParams), /** @type {?} */ ((this.urlTree.fragment)), getData(route), outlet, /** @type {?} */ ((route.component)), route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + segments.length, getResolve(route));
-                return [new TreeNode(snapshot_1, [])];
+                snapshot = new ActivatedRouteSnapshot(segments, params, Object.freeze(this.urlTree.queryParams), /** @type {?} */ ((this.urlTree.fragment)), getData(route), outlet, /** @type {?} */ ((route.component)), route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + segments.length, getResolve(route));
             }
-            var _b = match$1(rawSegment, route, segments), consumedSegments = _b.consumedSegments, parameters = _b.parameters, lastChild = _b.lastChild;
-            var /** @type {?} */ rawSlicedSegments = segments.slice(lastChild);
+            else {
+                var /** @type {?} */ result = match$1(rawSegment, route, segments);
+                consumedSegments = result.consumedSegments;
+                rawSlicedSegments = segments.slice(result.lastChild);
+                snapshot = new ActivatedRouteSnapshot(consumedSegments, result.parameters, Object.freeze(this.urlTree.queryParams), /** @type {?} */ ((this.urlTree.fragment)), getData(route), outlet, /** @type {?} */ ((route.component)), route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + consumedSegments.length, getResolve(route));
+            }
             var /** @type {?} */ childConfig = getChildConfig(route);
-            var _c = split$1(rawSegment, consumedSegments, rawSlicedSegments, childConfig), segmentGroup = _c.segmentGroup, slicedSegments = _c.slicedSegments;
-            var /** @type {?} */ snapshot = new ActivatedRouteSnapshot(consumedSegments, parameters, Object.freeze(this.urlTree.queryParams), /** @type {?} */ ((this.urlTree.fragment)), getData(route), outlet, /** @type {?} */ ((route.component)), route, getSourceSegmentGroup(rawSegment), getPathIndexShift(rawSegment) + consumedSegments.length, getResolve(route));
+            var _b = split$1(rawSegment, consumedSegments, rawSlicedSegments, childConfig), segmentGroup = _b.segmentGroup, slicedSegments = _b.slicedSegments;
             if (slicedSegments.length === 0 && segmentGroup.hasChildren()) {
                 var /** @type {?} */ children_3 = this.processChildren(childConfig, segmentGroup);
                 return [new TreeNode(snapshot, children_3)];
@@ -37462,6 +37470,15 @@ var __extends = (this && this.__extends) || (function () {
              * current URL. Default is 'ignore'.
              */
             this.onSameUrlNavigation = 'ignore';
+            /**
+             * Defines how the router merges params, data and resolved data from parent to child
+             * routes. Available options are:
+             *
+             * - `'emptyOnly'`, the default, only inherits parent params for path-less or component-less
+             *   routes.
+             * - `'always'`, enables unconditional inheritance of parent params.
+             */
+            this.paramsInheritanceStrategy = 'emptyOnly';
             var /** @type {?} */ onLoadStart = function (r) { return _this.triggerEvent(new RouteConfigLoadStart(r)); };
             var /** @type {?} */ onLoadEnd = function (r) { return _this.triggerEvent(new RouteConfigLoadEnd(r)); };
             this.ngModule = injector.get(NgModuleRef);
@@ -37844,7 +37861,7 @@ var __extends = (this && this.__extends) || (function () {
                     var /** @type {?} */ moduleInjector = _this.ngModule.injector;
                     var /** @type {?} */ redirectsApplied$ = applyRedirects(moduleInjector, _this.configLoader, _this.urlSerializer, url, _this.config);
                     urlAndSnapshot$ = mergeMap_3.call(redirectsApplied$, function (appliedUrl) {
-                        return map_3.call(recognize(_this.rootComponentType, _this.config, appliedUrl, _this.serializeUrl(appliedUrl)), function (snapshot) {
+                        return map_3.call(recognize(_this.rootComponentType, _this.config, appliedUrl, _this.serializeUrl(appliedUrl), _this.paramsInheritanceStrategy), function (snapshot) {
                             ((_this.events))
                                 .next(new RoutesRecognized(id, _this.serializeUrl(url), _this.serializeUrl(appliedUrl), snapshot));
                             return { appliedUrl: appliedUrl, snapshot: snapshot };
@@ -37881,7 +37898,7 @@ var __extends = (this && this.__extends) || (function () {
                         return of_1(false);
                     if (p.shouldActivate && preActivation.isActivating()) {
                         _this.triggerEvent(new ResolveStart(id, _this.serializeUrl(url), p.appliedUrl, p.snapshot));
-                        return map_3.call(preActivation.resolveData(), function () {
+                        return map_3.call(preActivation.resolveData(_this.paramsInheritanceStrategy), function () {
                             _this.triggerEvent(new ResolveEnd(id, _this.serializeUrl(url), p.appliedUrl, p.snapshot));
                             return p;
                         });
@@ -39478,6 +39495,9 @@ var __extends = (this && this.__extends) || (function () {
         if (opts.onSameUrlNavigation) {
             router.onSameUrlNavigation = opts.onSameUrlNavigation;
         }
+        if (opts.paramsInheritanceStrategy) {
+            router.paramsInheritanceStrategy = opts.paramsInheritanceStrategy;
+        }
         return router;
     }
     /**
@@ -39641,14 +39661,9 @@ var __extends = (this && this.__extends) || (function () {
      * found in the LICENSE file at https://angular.io/license
      */
     /**
-     * @module
-     * @description
-     * Entry point for all public APIs of the common package.
-     */
-    /**
      * \@stable
      */
-    var VERSION$4 = new Version('5.1.2');
+    var VERSION$4 = new Version('5.2.0');
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
@@ -41576,8 +41591,8 @@ var __extends = (this && this.__extends) || (function () {
         return LogEntry;
     }());
     /**
-     * @license Angular v5.1.2
-     * (c) 2010-2017 Google, Inc. https://angular.io/
+     * @license Angular v5.2.0
+     * (c) 2010-2018 Google, Inc. https://angular.io/
      * License: MIT
      */
     /**
@@ -43385,12 +43400,6 @@ var __extends = (this && this.__extends) || (function () {
      * found in the LICENSE file at https://angular.io/license
      */
     /**
-     * @module
-     * @description
-     * The http module provides services to perform http requests. To get started, see the {@link Http}
-     * class.
-     */
-    /**
      * @return {?}
      */
     function _createDefaultCookieXSRFStrategy() {
@@ -43442,14 +43451,9 @@ var __extends = (this && this.__extends) || (function () {
      * found in the LICENSE file at https://angular.io/license
      */
     /**
-     * @module
-     * @description
-     * Entry point for all public APIs of the common package.
-     */
-    /**
      * @deprecated use \@angular/common/http instead
      */
-    var VERSION$5 = new Version('5.1.2');
+    var VERSION$5 = new Version('5.2.0');
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
