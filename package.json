@@ -54,7 +54,7 @@
     "events": "^1.0.2",
     "fbjs": "^0.3.1",
     "flux": "^2.1.1",
-    "rollup": "https://github.com/rollup/rollup.git#ba53bf0418f094e5f68eb0a62c8111d05f35f046",
+    "rollup": "0.53.1",
     "rollup-plugin-commonjs": "8.2.6",
     "rollup-plugin-uglify": "2.0.1",
     "rollup-plugin-node-resolve": "3.0.0",
