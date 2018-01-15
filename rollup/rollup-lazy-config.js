@@ -1,18 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve';
 import uglify  from 'rollup-plugin-uglify';
 
-let root = `${__dirname}`.replace('rollup', '');
-const baseRxJs = `${root}node_modules/rxjs/_esm5/`;
-
-class ResolveESM {
-  
-  resolveId(importee, importer) {
-    if (importee.startsWith('rxjs')) {
-      let esm = importee.replace('rxjs/', '');
-      return `${baseRxJs}${esm}.js`;
-    }
-  }
-}
+import {ResolveESM} from './resolve-esm';
 
 export default {
     input: ['built-es5-lazy/app-lazy/main.js', 
@@ -33,7 +22,7 @@ export default {
     experimentalDynamicImport: true,
     plugins: [
       new ResolveESM(),
-      resolve(),
+      resolve({jsnext: true, module: true}),
       uglify()
     ]
 
