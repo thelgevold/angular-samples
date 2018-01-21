@@ -37,6 +37,7 @@
     "webpack": "3.10.0"
   },
   "dependencies": {
+    "angular": "~1.4.7",
     "@angular/animations": "6.0.0-beta.0",
     "@angular/common": "6.0.0-beta.0",
     "@angular/compiler": "6.0.0-beta.0",
@@ -50,6 +51,7 @@
     "google-closure-compiler": "20171023.0.1",
     "@angular/router": "6.0.0-beta.0",
     "@angular/upgrade": "6.0.0-beta.0",
+    "bootstrap": "~3.3.4",
     "core-js": "^2.4.1",
     "events": "^1.0.2",
     "fbjs": "^0.3.1",
@@ -60,6 +62,11 @@
     "rollup-plugin-node-resolve": "3.0.0",
     "rxjs": "5.5.6",
     "systemjs": "0.20.19",
-    "zone.js": "0.8.6"
+    "zone.js": "0.8.6",
+    "jquery": "~2.1.4",
+    "jquery-ui-dist": "1.12.1",
+    "moment": "~2.10.6",
+    "react": "~0.13.3",
+    "underscore": "~1.8.3"
   }
 }

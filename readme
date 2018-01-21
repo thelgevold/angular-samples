@@ -5,7 +5,7 @@ Documentation: http://www.syntaxsuccess.com/angular-2-articles
 
 Here are the prerequisites for running the project:
 
-1) npm install && bower install
+1) npm install
 
 2) npm run build-demo-app && npm start
    
