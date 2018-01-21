@@ -2331,7 +2331,7 @@ var __extends = (this && this.__extends) || (function () {
     }
     var share_3 = share$1;
     /**
-     * @license Angular v5.2.0
+     * @license Angular v6.0.0-beta.0
      * (c) 2010-2018 Google, Inc. https://angular.io/
      * License: MIT
      */
@@ -2928,7 +2928,7 @@ var __extends = (this && this.__extends) || (function () {
     /**
      * \@stable
      */
-    var VERSION = new Version('5.2.0');
+    var VERSION = new Version('6.0.0-beta.0');
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
@@ -6390,13 +6390,23 @@ var __extends = (this && this.__extends) || (function () {
         Testability.prototype._runCallbacksIfReady = function () {
             var _this = this;
             if (this.isStable()) {
-                // Schedules the call backs in a new frame so that it is always async.
-                scheduleMicroTask(function () {
-                    while (_this._callbacks.length !== 0) {
-                        (((_this._callbacks.pop())))(_this._didWork);
-                    }
-                    _this._didWork = false;
-                });
+                if (this._callbacks.length !== 0) {
+                    // Schedules the call backs after a macro task run outside of the angular zone to make sure
+                    // no new task are added
+                    this._ngZone.runOutsideAngular(function () {
+                        setTimeout(function () {
+                            if (_this.isStable()) {
+                                while (_this._callbacks.length !== 0) {
+                                    (((_this._callbacks.pop())))(_this._didWork);
+                                }
+                                _this._didWork = false;
+                            }
+                        });
+                    });
+                }
+                else {
+                    this._didWork = false;
+                }
             }
             else {
                 // Not Ready
@@ -7924,10 +7934,10 @@ var __extends = (this && this.__extends) || (function () {
     }
     /**
      * Indicates that the result of a {\@link Pipe} transformation has changed even though the
-     * reference
-     * has not changed.
+     * reference has not changed.
      *
-     * The wrapped value will be unwrapped by change detection, and the unwrapped value will be stored.
+     * Wrapped values are unwrapped automatically during the change detection, and the unwrapped value
+     * is stored.
      *
      * Example:
      *
@@ -7943,16 +7953,31 @@ var __extends = (this && this.__extends) || (function () {
      */
     var WrappedValue = (function () {
         /**
-         * @param {?} wrapped
+         * @param {?} value
          */
-        function WrappedValue(wrapped) {
-            this.wrapped = wrapped;
+        function WrappedValue(value) {
+            this.wrapped = value;
         }
         /**
+         * Creates a wrapped value.
          * @param {?} value
          * @return {?}
          */
         WrappedValue.wrap = function (value) { return new WrappedValue(value); };
+        /**
+         * Returns the underlying value of a wrapped value.
+         * Returns the given `value` when it is not wrapped.
+         *
+         * @param {?} value
+         * @return {?}
+         */
+        WrappedValue.unwrap = function (value) { return WrappedValue.isWrapped(value) ? value.wrapped : value; };
+        /**
+         * Returns true if `value` is a wrapped value.
+         * @param {?} value
+         * @return {?}
+         */
+        WrappedValue.isWrapped = function (value) { return value instanceof WrappedValue; };
         return WrappedValue;
     }());
     /**
@@ -9288,11 +9313,8 @@ var __extends = (this && this.__extends) || (function () {
             if (parent != null) {
                 var /** @type {?} */ copied = parent.factories.slice();
                 factories = factories.concat(copied);
-                return new IterableDiffers(factories);
             }
-            else {
-                return new IterableDiffers(factories);
-            }
+            return new IterableDiffers(factories);
         };
         /**
          * Takes an array of {\@link IterableDifferFactory} and returns a provider used to extend the
@@ -10010,13 +10032,10 @@ var __extends = (this && this.__extends) || (function () {
      * @return {?}
      */
     function unwrapValue(view, nodeIdx, bindingIdx, value) {
-        if (value instanceof WrappedValue) {
-            value = value.wrapped;
+        if (WrappedValue.isWrapped(value)) {
+            value = WrappedValue.unwrap(value);
             var /** @type {?} */ globalBindingIdx = view.def.nodes[nodeIdx].bindingIndex + bindingIdx;
-            var /** @type {?} */ oldValue = view.oldValues[globalBindingIdx];
-            if (oldValue instanceof WrappedValue) {
-                oldValue = oldValue.wrapped;
-            }
+            var /** @type {?} */ oldValue = WrappedValue.unwrap(view.oldValues[globalBindingIdx]);
             view.oldValues[globalBindingIdx] = new WrappedValue(oldValue);
         }
         return value;
@@ -10096,7 +10115,8 @@ var __extends = (this && this.__extends) || (function () {
     function checkBindingNoChanges(view, def, bindingIdx, value) {
         var /** @type {?} */ oldValue = view.oldValues[def.bindingIndex + bindingIdx];
         if ((view.state & 1 /* BeforeFirstCheck */) || !devModeEqual(oldValue, value)) {
-            throw expressionChangedAfterItHasBeenCheckedError(Services.createDebugContext(view, def.nodeIndex), oldValue, value, (view.state & 1 /* BeforeFirstCheck */) !== 0);
+            var /** @type {?} */ bindingName = def.bindings[def.bindingIndex].name;
+            throw expressionChangedAfterItHasBeenCheckedError(Services.createDebugContext(view, def.nodeIndex), bindingName + ": " + oldValue, bindingName + ": " + value, (view.state & 1 /* BeforeFirstCheck */) !== 0);
         }
     }
     /**
@@ -12603,10 +12623,7 @@ var __extends = (this && this.__extends) || (function () {
         providerData.instance[propName] = value;
         if (def.flags & 524288 /* OnChanges */) {
             changes = changes || {};
-            var /** @type {?} */ oldValue = view.oldValues[def.bindingIndex + bindingIdx];
-            if (oldValue instanceof WrappedValue) {
-                oldValue = oldValue.wrapped;
-            }
+            var /** @type {?} */ oldValue = WrappedValue.unwrap(view.oldValues[def.bindingIndex + bindingIdx]);
             var /** @type {?} */ binding_1 = def.bindings[bindingIdx];
             changes[((binding_1.nonMinifiedName))] =
                 new SimpleChange(oldValue, value, (view.state & 2 /* FirstCheck */) !== 0);
@@ -15321,7 +15338,7 @@ var __extends = (this && this.__extends) || (function () {
             ((global)).ngDevMode = true;
     }
     /**
-     * @license Angular v5.2.0
+     * @license Angular v6.0.0-beta.0
      * (c) 2010-2018 Google, Inc. https://angular.io/
      * License: MIT
      */
@@ -18992,6 +19009,7 @@ var __extends = (this && this.__extends) || (function () {
                 value = value.trim();
             }
             var /** @type {?} */ date;
+            var /** @type {?} */ match;
             if (isDate$1(value)) {
                 date = value;
             }
@@ -19011,17 +19029,14 @@ var __extends = (this && this.__extends) || (function () {
                 var _b = value.split('-').map(function (val) { return +val; }), y = _b[0], m = _b[1], d = _b[2];
                 date = new Date(y, m - 1, d);
             }
+            else if ((typeof value === 'string') && (match = value.match(ISO8601_DATE_REGEX))) {
+                date = isoStringToDate(match);
+            }
             else {
                 date = new Date(value);
             }
             if (!isDate$1(date)) {
-                var /** @type {?} */ match_2;
-                if ((typeof value === 'string') && (match_2 = value.match(ISO8601_DATE_REGEX))) {
-                    date = isoStringToDate(match_2);
-                }
-                else {
-                    throw invalidPipeArgumentError(DatePipe, value);
-                }
+                throw invalidPipeArgumentError(DatePipe, value);
             }
             return formatDate(date, format, locale || this.locale, timezone);
         };
@@ -19043,8 +19058,10 @@ var __extends = (this && this.__extends) || (function () {
         var /** @type {?} */ date = new Date(0);
         var /** @type {?} */ tzHour = 0;
         var /** @type {?} */ tzMin = 0;
+        // match[8] means that the string contains "Z" (UTC) or a timezone like "+01:00" or "+0100"
         var /** @type {?} */ dateSetter = match[8] ? date.setUTCFullYear : date.setFullYear;
         var /** @type {?} */ timeSetter = match[8] ? date.setUTCHours : date.setHours;
+        // if there is a timezone defined like "+01:00" or "+0100"
         if (match[9]) {
             tzHour = +(match[9] + match[10]);
             tzMin = +(match[9] + match[11]);
@@ -20427,9 +20444,9 @@ var __extends = (this && this.__extends) || (function () {
     /**
      * \@stable
      */
-    var VERSION$1 = new Version('5.2.0');
+    var VERSION$1 = new Version('6.0.0-beta.0');
     /**
-     * @license Angular v5.2.0
+     * @license Angular v6.0.0-beta.0
      * (c) 2010-2018 Google, Inc. https://angular.io/
      * License: MIT
      */
@@ -24126,7 +24143,7 @@ var __extends = (this && this.__extends) || (function () {
     /**
      * \@stable
      */
-    var VERSION$2 = new Version('5.2.0');
+    var VERSION$2 = new Version('6.0.0-beta.0');
     var __extends$13 = (commonjsGlobal && commonjsGlobal.__extends) || function (d, b) {
         for (var p in b)
             if (b.hasOwnProperty(p))
@@ -24587,7 +24604,7 @@ var __extends = (this && this.__extends) || (function () {
         map: map_3
     };
     /**
-     * @license Angular v5.2.0
+     * @license Angular v6.0.0-beta.0
      * (c) 2010-2018 Google, Inc. https://angular.io/
      * License: MIT
      */
@@ -25038,7 +25055,12 @@ var __extends = (this && this.__extends) || (function () {
             var /** @type {?} */ regex;
             var /** @type {?} */ regexStr;
             if (typeof pattern === 'string') {
-                regexStr = "^" + pattern + "$";
+                regexStr = '';
+                if (pattern.charAt(0) !== '^')
+                    regexStr += '^';
+                regexStr += pattern;
+                if (pattern.charAt(pattern.length - 1) !== '$')
+                    regexStr += '$';
                 regex = new RegExp(regexStr);
             }
             else {
@@ -28708,8 +28730,8 @@ var __extends = (this && this.__extends) || (function () {
         NgForm.prototype.addControl = function (dir) {
             var _this = this;
             resolvedPromise.then(function () {
-                var /** @type {?} */ container = _this._findContainer(dir.path);
-                ((dir)).control = (container.registerControl(dir.name, dir.control));
+                var /** @type {?} */ container$$1 = _this._findContainer(dir.path);
+                ((dir)).control = (container$$1.registerControl(dir.name, dir.control));
                 setUpControl(dir.control, dir);
                 dir.control.updateValueAndValidity({ emitEvent: false });
                 _this._directives.push(dir);
@@ -28727,9 +28749,9 @@ var __extends = (this && this.__extends) || (function () {
         NgForm.prototype.removeControl = function (dir) {
             var _this = this;
             resolvedPromise.then(function () {
-                var /** @type {?} */ container = _this._findContainer(dir.path);
-                if (container) {
-                    container.removeControl(dir.name);
+                var /** @type {?} */ container$$1 = _this._findContainer(dir.path);
+                if (container$$1) {
+                    container$$1.removeControl(dir.name);
                 }
                 removeDir(_this._directives, dir);
             });
@@ -28741,10 +28763,10 @@ var __extends = (this && this.__extends) || (function () {
         NgForm.prototype.addFormGroup = function (dir) {
             var _this = this;
             resolvedPromise.then(function () {
-                var /** @type {?} */ container = _this._findContainer(dir.path);
+                var /** @type {?} */ container$$1 = _this._findContainer(dir.path);
                 var /** @type {?} */ group = new FormGroup({});
                 setUpFormContainer(group, dir);
-                container.registerControl(dir.name, group);
+                container$$1.registerControl(dir.name, group);
                 group.updateValueAndValidity({ emitEvent: false });
             });
         };
@@ -28755,9 +28777,9 @@ var __extends = (this && this.__extends) || (function () {
         NgForm.prototype.removeFormGroup = function (dir) {
             var _this = this;
             resolvedPromise.then(function () {
-                var /** @type {?} */ container = _this._findContainer(dir.path);
-                if (container) {
-                    container.removeControl(dir.name);
+                var /** @type {?} */ container$$1 = _this._findContainer(dir.path);
+                if (container$$1) {
+                    container$$1.removeControl(dir.name);
                 }
             });
         };
@@ -30713,7 +30735,7 @@ var __extends = (this && this.__extends) || (function () {
     /**
      * \@stable
      */
-    var VERSION$3 = new Version('5.2.0');
+    var VERSION$3 = new Version('6.0.0-beta.0');
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
@@ -33181,7 +33203,7 @@ var __extends = (this && this.__extends) || (function () {
         filter: filter_3
     };
     /**
-     * @license Angular v5.2.0
+     * @license Angular v6.0.0-beta.0
      * (c) 2010-2018 Google, Inc. https://angular.io/
      * License: MIT
      */
@@ -34020,36 +34042,36 @@ var __extends = (this && this.__extends) || (function () {
      * @param {?} exact
      * @return {?}
      */
-    function containsTree(container, containee, exact) {
+    function containsTree(container$$1, containee, exact) {
         if (exact) {
-            return equalQueryParams(container.queryParams, containee.queryParams) &&
-                equalSegmentGroups(container.root, containee.root);
+            return equalQueryParams(container$$1.queryParams, containee.queryParams) &&
+                equalSegmentGroups(container$$1.root, containee.root);
         }
-        return containsQueryParams(container.queryParams, containee.queryParams) &&
-            containsSegmentGroup(container.root, containee.root);
+        return containsQueryParams(container$$1.queryParams, containee.queryParams) &&
+            containsSegmentGroup(container$$1.root, containee.root);
     }
     /**
      * @param {?} container
      * @param {?} containee
      * @return {?}
      */
-    function equalQueryParams(container, containee) {
-        return shallowEqual(container, containee);
+    function equalQueryParams(container$$1, containee) {
+        return shallowEqual(container$$1, containee);
     }
     /**
      * @param {?} container
      * @param {?} containee
      * @return {?}
      */
-    function equalSegmentGroups(container, containee) {
-        if (!equalPath(container.segments, containee.segments))
+    function equalSegmentGroups(container$$1, containee) {
+        if (!equalPath(container$$1.segments, containee.segments))
             return false;
-        if (container.numberOfChildren !== containee.numberOfChildren)
+        if (container$$1.numberOfChildren !== containee.numberOfChildren)
             return false;
         for (var /** @type {?} */ c in containee.children) {
-            if (!container.children[c])
+            if (!container$$1.children[c])
                 return false;
-            if (!equalSegmentGroups(container.children[c], containee.children[c]))
+            if (!equalSegmentGroups(container$$1.children[c], containee.children[c]))
                 return false;
         }
         return true;
@@ -34059,17 +34081,17 @@ var __extends = (this && this.__extends) || (function () {
      * @param {?} containee
      * @return {?}
      */
-    function containsQueryParams(container, containee) {
-        return Object.keys(containee).length <= Object.keys(container).length &&
-            Object.keys(containee).every(function (key) { return containee[key] === container[key]; });
+    function containsQueryParams(container$$1, containee) {
+        return Object.keys(containee).length <= Object.keys(container$$1).length &&
+            Object.keys(containee).every(function (key) { return containee[key] === container$$1[key]; });
     }
     /**
      * @param {?} container
      * @param {?} containee
      * @return {?}
      */
-    function containsSegmentGroup(container, containee) {
-        return containsSegmentGroupHelper(container, containee, containee.segments);
+    function containsSegmentGroup(container$$1, containee) {
+        return containsSegmentGroupHelper(container$$1, containee, containee.segments);
     }
     /**
      * @param {?} container
@@ -34077,34 +34099,34 @@ var __extends = (this && this.__extends) || (function () {
      * @param {?} containeePaths
      * @return {?}
      */
-    function containsSegmentGroupHelper(container, containee, containeePaths) {
-        if (container.segments.length > containeePaths.length) {
-            var /** @type {?} */ current = container.segments.slice(0, containeePaths.length);
+    function containsSegmentGroupHelper(container$$1, containee, containeePaths) {
+        if (container$$1.segments.length > containeePaths.length) {
+            var /** @type {?} */ current = container$$1.segments.slice(0, containeePaths.length);
             if (!equalPath(current, containeePaths))
                 return false;
             if (containee.hasChildren())
                 return false;
             return true;
         }
-        else if (container.segments.length === containeePaths.length) {
-            if (!equalPath(container.segments, containeePaths))
+        else if (container$$1.segments.length === containeePaths.length) {
+            if (!equalPath(container$$1.segments, containeePaths))
                 return false;
             for (var /** @type {?} */ c in containee.children) {
-                if (!container.children[c])
+                if (!container$$1.children[c])
                     return false;
-                if (!containsSegmentGroup(container.children[c], containee.children[c]))
+                if (!containsSegmentGroup(container$$1.children[c], containee.children[c]))
                     return false;
             }
             return true;
         }
         else {
-            var /** @type {?} */ current = containeePaths.slice(0, container.segments.length);
-            var /** @type {?} */ next = containeePaths.slice(container.segments.length);
-            if (!equalPath(container.segments, current))
+            var /** @type {?} */ current = containeePaths.slice(0, container$$1.segments.length);
+            var /** @type {?} */ next = containeePaths.slice(container$$1.segments.length);
+            if (!equalPath(container$$1.segments, current))
                 return false;
-            if (!container.children[PRIMARY_OUTLET])
+            if (!container$$1.children[PRIMARY_OUTLET])
                 return false;
-            return containsSegmentGroupHelper(container.children[PRIMARY_OUTLET], containee, next);
+            return containsSegmentGroupHelper(container$$1.children[PRIMARY_OUTLET], containee, next);
         }
     }
     /**
@@ -39663,7 +39685,7 @@ var __extends = (this && this.__extends) || (function () {
     /**
      * \@stable
      */
-    var VERSION$4 = new Version('5.2.0');
+    var VERSION$4 = new Version('6.0.0-beta.0');
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc
@@ -41591,7 +41613,7 @@ var __extends = (this && this.__extends) || (function () {
         return LogEntry;
     }());
     /**
-     * @license Angular v5.2.0
+     * @license Angular v6.0.0-beta.0
      * (c) 2010-2018 Google, Inc. https://angular.io/
      * License: MIT
      */
@@ -43453,7 +43475,7 @@ var __extends = (this && this.__extends) || (function () {
     /**
      * @deprecated use \@angular/common/http instead
      */
-    var VERSION$5 = new Version('5.2.0');
+    var VERSION$5 = new Version('6.0.0-beta.0');
     /**
      * @fileoverview added by tsickle
      * @suppress {checkTypes} checked by tsc

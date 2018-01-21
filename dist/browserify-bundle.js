@@ -178,7 +178,7 @@ var i36 = require("../components/input-output/input-output-demo");
 var i37 = require("../components/rxjs-streams/rxjs-streams");
 var i38 = require("../components/rxjs-buffering/rxjs-buffering");
 var i39 = require("../components/lazy-loaded-tree-view/country-demo");
-var AppModuleNgFactory = i0.ɵcmf(i1.AppModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.DemoComponentNgFactory, i4.SpreadsheetNgFactory, i5.AlgorithmsNgFactory, i6.GraphNgFactory, i7.PubSubNgFactory, i8.TextEditorNgFactory, i9.TreeViewDemoNgFactory, i10.InputControlsNgFactory, i11.ContactListNgFactory, i12.SurveyDemoNgFactory, i13.LogDemoNgFactory, i14.InputOutputDemoNgFactory, i15.RxJsStreamsNgFactory, i16.RxJsBufferingNgFactory, i17.CountryDemoNgFactory, i18.EdgeNgFactory, i19.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵo, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i20.NgLocalization, i20.NgLocaleLocalization, [i0.LOCALE_ID, [2, i20.ɵa]]), i0.ɵmpd(5120, i0.APP_ID, i0.ɵh, []), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵm, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵn, []), i0.ɵmpd(4608, i21.DomSanitizer, i21.ɵe, [i20.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i21.DomSanitizer]), i0.ɵmpd(4608, i21.HAMMER_GESTURE_CONFIG, i21.HammerGestureConfig, []), i0.ɵmpd(5120, i21.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p1_0, p2_0, p2_1) { return [new i21.ɵDomEventsPlugin(p0_0, p0_1), new i21.ɵKeyEventsPlugin(p1_0), new i21.ɵHammerGesturesPlugin(p2_0, p2_1)]; }, [i20.DOCUMENT, i0.NgZone, i20.DOCUMENT, i20.DOCUMENT, i21.HAMMER_GESTURE_CONFIG]), i0.ɵmpd(4608, i21.EventManager, i21.EventManager, [i21.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i21.ɵDomSharedStylesHost, i21.ɵDomSharedStylesHost, [i20.DOCUMENT]), i0.ɵmpd(4608, i21.ɵDomRendererFactory2, i21.ɵDomRendererFactory2, [i21.EventManager, i21.ɵDomSharedStylesHost]), i0.ɵmpd(6144, i0.RendererFactory2, null, [i21.ɵDomRendererFactory2]), i0.ɵmpd(6144, i21.ɵSharedStylesHost, null, [i21.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i0.Testability, i0.Testability, [i0.NgZone]), i0.ɵmpd(4608, i21.Meta, i21.Meta, [i20.DOCUMENT]), i0.ɵmpd(4608, i21.Title, i21.Title, [i20.DOCUMENT]), i0.ɵmpd(4608, i22.FormBuilder, i22.FormBuilder, []), i0.ɵmpd(4608, i22.ɵi, i22.ɵi, []), i0.ɵmpd(4608, i23.BrowserXhr, i23.BrowserXhr, []), i0.ɵmpd(4608, i23.ResponseOptions, i23.BaseResponseOptions, []), i0.ɵmpd(5120, i23.XSRFStrategy, i23.ɵa, []), i0.ɵmpd(4608, i23.XHRBackend, i23.XHRBackend, [i23.BrowserXhr, i23.ResponseOptions, i23.XSRFStrategy]), i0.ɵmpd(4608, i23.RequestOptions, i23.BaseRequestOptions, []), i0.ɵmpd(5120, i23.Http, i23.ɵb, [i23.XHRBackend, i23.RequestOptions]), i0.ɵmpd(5120, i24.ActivatedRoute, i24.ɵf, [i24.Router]), i0.ɵmpd(4608, i24.NoPreloading, i24.NoPreloading, []), i0.ɵmpd(6144, i24.PreloadingStrategy, null, [i24.NoPreloading]), i0.ɵmpd(135680, i24.RouterPreloader, i24.RouterPreloader, [i24.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i24.PreloadingStrategy]), i0.ɵmpd(4608, i24.PreloadAllModules, i24.PreloadAllModules, []), i0.ɵmpd(5120, i24.ROUTER_INITIALIZER, i24.ɵi, [i24.ɵg]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i24.ROUTER_INITIALIZER]), i0.ɵmpd(512, i20.CommonModule, i20.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i21.ɵa, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i24.ɵb()]; }, []), i0.ɵmpd(512, i24.ɵg, i24.ɵg, [i0.Injector]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0) { return [i21.ɵh(p0_0), i24.ɵh(p1_0)]; }, [[2, i0.NgProbeToken], i24.ɵg]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(512, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(512, i21.BrowserModule, i21.BrowserModule, [[3, i21.BrowserModule]]), i0.ɵmpd(512, i22.ɵba, i22.ɵba, []), i0.ɵmpd(512, i22.ReactiveFormsModule, i22.ReactiveFormsModule, []), i0.ɵmpd(1024, i24.ɵa, i24.ɵd, [[3, i24.Router]]), i0.ɵmpd(512, i24.UrlSerializer, i24.DefaultUrlSerializer, []), i0.ɵmpd(512, i24.ChildrenOutletContexts, i24.ChildrenOutletContexts, []), i0.ɵmpd(512, i20.LocationStrategy, i20.HashLocationStrategy, [i20.PlatformLocation, [2, i20.APP_BASE_HREF]]), i0.ɵmpd(512, i20.Location, i20.Location, [i20.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i0.SystemJsNgModuleLoader, [i0.Compiler, [2, i0.SystemJsNgModuleLoaderConfig]]), i0.ɵmpd(1024, i24.ROUTES, function () { return [[{ path: "", redirectTo: "/demo/spreadsheet", pathMatch: "full" }, { path: "demo", component: i25.DemoComponent, children: [{ path: "spreadsheet", component: i26.Spreadsheet }, { path: "algorithms", component: i27.Algorithms }, { path: "graph", component: i28.Graph }, { path: "pub-sub", component: i29.PubSub }, { path: "text-editor", component: i30.TextEditor }, { path: "treeview", component: i31.TreeViewDemo }, { path: "input", component: i32.InputControls }, { path: "contact", component: i33.ContactList }, { path: "survey", component: i34.SurveyDemo }, { path: "redux", component: i35.LogDemo }, { path: "iodemo", component: i36.InputOutputDemo }, { path: "rxjs", component: i37.RxJsStreams }, { path: "buffering", component: i38.RxJsBuffering }, { path: "countries", component: i39.CountryDemo }] }]]; }, []), i0.ɵmpd(256, i24.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i24.Router, i24.ɵe, [i0.ApplicationRef, i24.UrlSerializer, i24.ChildrenOutletContexts, i20.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i24.ROUTES, i24.ROUTER_CONFIGURATION, [2, i24.UrlHandlingStrategy], [2, i24.RouteReuseStrategy]]), i0.ɵmpd(512, i24.RouterModule, i24.RouterModule, [[2, i24.ɵa], [2, i24.Router]]), i0.ɵmpd(512, i22.FormsModule, i22.FormsModule, []), i0.ɵmpd(512, i23.HttpModule, i23.HttpModule, []), i0.ɵmpd(512, i1.AppModule, i1.AppModule, [])]); });
+var AppModuleNgFactory = i0.ɵcmf(i1.AppModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.DemoComponentNgFactory, i4.SpreadsheetNgFactory, i5.AlgorithmsNgFactory, i6.GraphNgFactory, i7.PubSubNgFactory, i8.TextEditorNgFactory, i9.TreeViewDemoNgFactory, i10.InputControlsNgFactory, i11.ContactListNgFactory, i12.SurveyDemoNgFactory, i13.LogDemoNgFactory, i14.InputOutputDemoNgFactory, i15.RxJsStreamsNgFactory, i16.RxJsBufferingNgFactory, i17.CountryDemoNgFactory, i18.EdgeNgFactory, i19.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵn, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i20.NgLocalization, i20.NgLocaleLocalization, [i0.LOCALE_ID, [2, i20.ɵa]]), i0.ɵmpd(5120, i0.APP_ID, i0.ɵg, []), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵl, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵm, []), i0.ɵmpd(4608, i21.DomSanitizer, i21.ɵe, [i20.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i21.DomSanitizer]), i0.ɵmpd(4608, i21.HAMMER_GESTURE_CONFIG, i21.HammerGestureConfig, []), i0.ɵmpd(5120, i21.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p1_0, p2_0, p2_1) { return [new i21.ɵDomEventsPlugin(p0_0, p0_1), new i21.ɵKeyEventsPlugin(p1_0), new i21.ɵHammerGesturesPlugin(p2_0, p2_1)]; }, [i20.DOCUMENT, i0.NgZone, i20.DOCUMENT, i20.DOCUMENT, i21.HAMMER_GESTURE_CONFIG]), i0.ɵmpd(4608, i21.EventManager, i21.EventManager, [i21.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i21.ɵDomSharedStylesHost, i21.ɵDomSharedStylesHost, [i20.DOCUMENT]), i0.ɵmpd(4608, i21.ɵDomRendererFactory2, i21.ɵDomRendererFactory2, [i21.EventManager, i21.ɵDomSharedStylesHost]), i0.ɵmpd(6144, i0.RendererFactory2, null, [i21.ɵDomRendererFactory2]), i0.ɵmpd(6144, i21.ɵSharedStylesHost, null, [i21.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i0.Testability, i0.Testability, [i0.NgZone]), i0.ɵmpd(4608, i21.Meta, i21.Meta, [i20.DOCUMENT]), i0.ɵmpd(4608, i21.Title, i21.Title, [i20.DOCUMENT]), i0.ɵmpd(4608, i22.FormBuilder, i22.FormBuilder, []), i0.ɵmpd(4608, i22.ɵi, i22.ɵi, []), i0.ɵmpd(4608, i23.BrowserXhr, i23.BrowserXhr, []), i0.ɵmpd(4608, i23.ResponseOptions, i23.BaseResponseOptions, []), i0.ɵmpd(5120, i23.XSRFStrategy, i23.ɵa, []), i0.ɵmpd(4608, i23.XHRBackend, i23.XHRBackend, [i23.BrowserXhr, i23.ResponseOptions, i23.XSRFStrategy]), i0.ɵmpd(4608, i23.RequestOptions, i23.BaseRequestOptions, []), i0.ɵmpd(5120, i23.Http, i23.ɵb, [i23.XHRBackend, i23.RequestOptions]), i0.ɵmpd(5120, i24.ActivatedRoute, i24.ɵf, [i24.Router]), i0.ɵmpd(4608, i24.NoPreloading, i24.NoPreloading, []), i0.ɵmpd(6144, i24.PreloadingStrategy, null, [i24.NoPreloading]), i0.ɵmpd(135680, i24.RouterPreloader, i24.RouterPreloader, [i24.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i24.PreloadingStrategy]), i0.ɵmpd(4608, i24.PreloadAllModules, i24.PreloadAllModules, []), i0.ɵmpd(5120, i24.ROUTER_INITIALIZER, i24.ɵi, [i24.ɵg]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i24.ROUTER_INITIALIZER]), i0.ɵmpd(512, i20.CommonModule, i20.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i21.ɵa, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i24.ɵb()]; }, []), i0.ɵmpd(512, i24.ɵg, i24.ɵg, [i0.Injector]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0) { return [i21.ɵh(p0_0), i24.ɵh(p1_0)]; }, [[2, i0.NgProbeToken], i24.ɵg]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(512, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(512, i21.BrowserModule, i21.BrowserModule, [[3, i21.BrowserModule]]), i0.ɵmpd(512, i22.ɵba, i22.ɵba, []), i0.ɵmpd(512, i22.ReactiveFormsModule, i22.ReactiveFormsModule, []), i0.ɵmpd(1024, i24.ɵa, i24.ɵd, [[3, i24.Router]]), i0.ɵmpd(512, i24.UrlSerializer, i24.DefaultUrlSerializer, []), i0.ɵmpd(512, i24.ChildrenOutletContexts, i24.ChildrenOutletContexts, []), i0.ɵmpd(512, i20.LocationStrategy, i20.HashLocationStrategy, [i20.PlatformLocation, [2, i20.APP_BASE_HREF]]), i0.ɵmpd(512, i20.Location, i20.Location, [i20.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i0.SystemJsNgModuleLoader, [i0.Compiler, [2, i0.SystemJsNgModuleLoaderConfig]]), i0.ɵmpd(1024, i24.ROUTES, function () { return [[{ path: "", redirectTo: "/demo/spreadsheet", pathMatch: "full" }, { path: "demo", component: i25.DemoComponent, children: [{ path: "spreadsheet", component: i26.Spreadsheet }, { path: "algorithms", component: i27.Algorithms }, { path: "graph", component: i28.Graph }, { path: "pub-sub", component: i29.PubSub }, { path: "text-editor", component: i30.TextEditor }, { path: "treeview", component: i31.TreeViewDemo }, { path: "input", component: i32.InputControls }, { path: "contact", component: i33.ContactList }, { path: "survey", component: i34.SurveyDemo }, { path: "redux", component: i35.LogDemo }, { path: "iodemo", component: i36.InputOutputDemo }, { path: "rxjs", component: i37.RxJsStreams }, { path: "buffering", component: i38.RxJsBuffering }, { path: "countries", component: i39.CountryDemo }] }]]; }, []), i0.ɵmpd(256, i24.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i24.Router, i24.ɵe, [i0.ApplicationRef, i24.UrlSerializer, i24.ChildrenOutletContexts, i20.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i24.ROUTES, i24.ROUTER_CONFIGURATION, [2, i24.UrlHandlingStrategy], [2, i24.RouteReuseStrategy]]), i0.ɵmpd(512, i24.RouterModule, i24.RouterModule, [[2, i24.ɵa], [2, i24.Router]]), i0.ɵmpd(512, i22.FormsModule, i22.FormsModule, []), i0.ɵmpd(512, i23.HttpModule, i23.HttpModule, []), i0.ɵmpd(512, i1.AppModule, i1.AppModule, [])]); });
 exports.AppModuleNgFactory = AppModuleNgFactory;
 
 },{"../components/algorithms/algorithms":11,"../components/algorithms/algorithms.ngfactory":12,"../components/algorithms/graph/edge.ngfactory":16,"../components/algorithms/graph/graph":17,"../components/algorithms/graph/graph.ngfactory":18,"../components/contact-list/contact-list":21,"../components/contact-list/contact-list.ngfactory":22,"../components/input-controls/input-controls":24,"../components/input-controls/input-controls.ngfactory":25,"../components/input-output/input-output-demo":26,"../components/input-output/input-output-demo.ngfactory":27,"../components/lazy-loaded-tree-view/country-demo":32,"../components/lazy-loaded-tree-view/country-demo.ngfactory":33,"../components/log-tail/log-demo":41,"../components/log-tail/log-demo.ngfactory":42,"../components/pub-sub/pub-sub":54,"../components/pub-sub/pub-sub.ngfactory":55,"../components/rxjs-buffering/rxjs-buffering":56,"../components/rxjs-buffering/rxjs-buffering.ngfactory":57,"../components/rxjs-streams/rxjs-streams":58,"../components/rxjs-streams/rxjs-streams.ngfactory":59,"../components/spreadsheet/spreadsheet":64,"../components/spreadsheet/spreadsheet.ngfactory":65,"../components/survey/survey-demo":70,"../components/survey/survey-demo.ngfactory":71,"../components/text-editor/text-editor":78,"../components/text-editor/text-editor.ngfactory":79,"../components/tree-view/tree-view-demo":81,"../components/tree-view/tree-view-demo.ngfactory":82,"./app.component":2,"./app.component.ngfactory":3,"./app.module":4,"./demo.component":7,"./demo.component.ngfactory":8,"@angular/common":86,"@angular/core":87,"@angular/forms":88,"@angular/http":89,"@angular/platform-browser":90,"@angular/router":91}],6:[function(require,module,exports){
@@ -2739,7 +2739,7 @@ exports.DemoPage = DemoPage;
 
 },{"@angular/common":86,"@angular/core":87}],86:[function(require,module,exports){
 /**
- * @license Angular v5.2.0
+ * @license Angular v6.0.0-beta.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -2784,7 +2784,7 @@ var __assign = Object.assign || function __assign(t) {
 };
 
 /**
- * @license Angular v5.2.0
+ * @license Angular v6.0.0-beta.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -7200,6 +7200,7 @@ var DatePipe = /** @class */ (function () {
             value = value.trim();
         }
         var /** @type {?} */ date;
+        var /** @type {?} */ match;
         if (isDate$1(value)) {
             date = value;
         }
@@ -7219,17 +7220,14 @@ var DatePipe = /** @class */ (function () {
             var _a = value.split('-').map(function (val) { return +val; }), y = _a[0], m = _a[1], d = _a[2];
             date = new Date(y, m - 1, d);
         }
+        else if ((typeof value === 'string') && (match = value.match(ISO8601_DATE_REGEX))) {
+            date = isoStringToDate(match);
+        }
         else {
             date = new Date(value);
         }
         if (!isDate$1(date)) {
-            var /** @type {?} */ match = void 0;
-            if ((typeof value === 'string') && (match = value.match(ISO8601_DATE_REGEX))) {
-                date = isoStringToDate(match);
-            }
-            else {
-                throw invalidPipeArgumentError(DatePipe, value);
-            }
+            throw invalidPipeArgumentError(DatePipe, value);
         }
         return formatDate(date, format, locale || this.locale, timezone);
     };
@@ -7251,8 +7249,10 @@ function isoStringToDate(match) {
     var /** @type {?} */ date = new Date(0);
     var /** @type {?} */ tzHour = 0;
     var /** @type {?} */ tzMin = 0;
+    // match[8] means that the string contains "Z" (UTC) or a timezone like "+01:00" or "+0100"
     var /** @type {?} */ dateSetter = match[8] ? date.setUTCFullYear : date.setFullYear;
     var /** @type {?} */ timeSetter = match[8] ? date.setUTCHours : date.setHours;
+    // if there is a timezone defined like "+01:00" or "+0100"
     if (match[9]) {
         tzHour = +(match[9] + match[10]);
         tzMin = +(match[9] + match[11]);
@@ -9302,7 +9302,7 @@ function isPlatformWorkerUi(platformId) {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.2.0');
+var VERSION = new _angular_core.Version('6.0.0-beta.0');
 
 exports.ɵregisterLocaleData = registerLocaleData;
 exports.NgLocaleLocalization = NgLocaleLocalization;
@@ -9397,7 +9397,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 },{"@angular/core":87}],87:[function(require,module,exports){
 (function (global){
 /**
- * @license Angular v5.2.0
+ * @license Angular v6.0.0-beta.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -9442,7 +9442,7 @@ var __assign = Object.assign || function __assign(t) {
 };
 
 /**
- * @license Angular v5.2.0
+ * @license Angular v6.0.0-beta.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -10153,7 +10153,7 @@ var Version = /** @class */ (function () {
 /**
  * \@stable
  */
-var VERSION = new Version('5.2.0');
+var VERSION = new Version('6.0.0-beta.0');
 
 /**
  * @fileoverview added by tsickle
@@ -14399,13 +14399,23 @@ var Testability = /** @class */ (function () {
     function () {
         var _this = this;
         if (this.isStable()) {
-            // Schedules the call backs in a new frame so that it is always async.
-            scheduleMicroTask(function () {
-                while (_this._callbacks.length !== 0) {
-                    (/** @type {?} */ ((_this._callbacks.pop())))(_this._didWork);
-                }
-                _this._didWork = false;
-            });
+            if (this._callbacks.length !== 0) {
+                // Schedules the call backs after a macro task run outside of the angular zone to make sure
+                // no new task are added
+                this._ngZone.runOutsideAngular(function () {
+                    setTimeout(function () {
+                        if (_this.isStable()) {
+                            while (_this._callbacks.length !== 0) {
+                                (/** @type {?} */ ((_this._callbacks.pop())))(_this._didWork);
+                            }
+                            _this._didWork = false;
+                        }
+                    });
+                });
+            }
+            else {
+                this._didWork = false;
+            }
         }
         else {
             // Not Ready
@@ -16555,10 +16565,10 @@ function devModeEqual(a, b) {
 }
 /**
  * Indicates that the result of a {\@link Pipe} transformation has changed even though the
- * reference
- * has not changed.
+ * reference has not changed.
  *
- * The wrapped value will be unwrapped by change detection, and the unwrapped value will be stored.
+ * Wrapped values are unwrapped automatically during the change detection, and the unwrapped value
+ * is stored.
  *
  * Example:
  *
@@ -16573,50 +16583,53 @@ function devModeEqual(a, b) {
  * \@stable
  */
 var WrappedValue = /** @class */ (function () {
-    function WrappedValue(wrapped) {
-        this.wrapped = wrapped;
+    function WrappedValue(value) {
+        this.wrapped = value;
     }
+    /** Creates a wrapped value. */
     /**
+     * Creates a wrapped value.
      * @param {?} value
      * @return {?}
      */
     WrappedValue.wrap = /**
+     * Creates a wrapped value.
      * @param {?} value
      * @return {?}
      */
     function (value) { return new WrappedValue(value); };
+    /**
+     * Returns the underlying value of a wrapped value.
+     * Returns the given `value` when it is not wrapped.
+     **/
+    /**
+     * Returns the underlying value of a wrapped value.
+     * Returns the given `value` when it is not wrapped.
+     *
+     * @param {?} value
+     * @return {?}
+     */
+    WrappedValue.unwrap = /**
+     * Returns the underlying value of a wrapped value.
+     * Returns the given `value` when it is not wrapped.
+     *
+     * @param {?} value
+     * @return {?}
+     */
+    function (value) { return WrappedValue.isWrapped(value) ? value.wrapped : value; };
+    /** Returns true if `value` is a wrapped value. */
+    /**
+     * Returns true if `value` is a wrapped value.
+     * @param {?} value
+     * @return {?}
+     */
+    WrappedValue.isWrapped = /**
+     * Returns true if `value` is a wrapped value.
+     * @param {?} value
+     * @return {?}
+     */
+    function (value) { return value instanceof WrappedValue; };
     return WrappedValue;
-}());
-/**
- * Helper class for unwrapping WrappedValue s
- */
-var ValueUnwrapper = /** @class */ (function () {
-    function ValueUnwrapper() {
-        this.hasWrappedValue = false;
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    ValueUnwrapper.prototype.unwrap = /**
-     * @param {?} value
-     * @return {?}
-     */
-    function (value) {
-        if (value instanceof WrappedValue) {
-            this.hasWrappedValue = true;
-            return value.wrapped;
-        }
-        return value;
-    };
-    /**
-     * @return {?}
-     */
-    ValueUnwrapper.prototype.reset = /**
-     * @return {?}
-     */
-    function () { this.hasWrappedValue = false; };
-    return ValueUnwrapper;
 }());
 /**
  * Represents a basic change from a previous to a new value.
@@ -18337,11 +18350,8 @@ var IterableDiffers = /** @class */ (function () {
         if (parent != null) {
             var /** @type {?} */ copied = parent.factories.slice();
             factories = factories.concat(copied);
-            return new IterableDiffers(factories);
         }
-        else {
-            return new IterableDiffers(factories);
-        }
+        return new IterableDiffers(factories);
     };
     /**
      * Takes an array of {@link IterableDifferFactory} and returns a provider used to extend the
@@ -19250,13 +19260,10 @@ function tokenKey(token) {
  * @return {?}
  */
 function unwrapValue(view, nodeIdx, bindingIdx, value) {
-    if (value instanceof WrappedValue) {
-        value = value.wrapped;
+    if (WrappedValue.isWrapped(value)) {
+        value = WrappedValue.unwrap(value);
         var /** @type {?} */ globalBindingIdx = view.def.nodes[nodeIdx].bindingIndex + bindingIdx;
-        var /** @type {?} */ oldValue = view.oldValues[globalBindingIdx];
-        if (oldValue instanceof WrappedValue) {
-            oldValue = oldValue.wrapped;
-        }
+        var /** @type {?} */ oldValue = WrappedValue.unwrap(view.oldValues[globalBindingIdx]);
         view.oldValues[globalBindingIdx] = new WrappedValue(oldValue);
     }
     return value;
@@ -19336,7 +19343,8 @@ function checkAndUpdateBinding(view, def, bindingIdx, value) {
 function checkBindingNoChanges(view, def, bindingIdx, value) {
     var /** @type {?} */ oldValue = view.oldValues[def.bindingIndex + bindingIdx];
     if ((view.state & 1 /* BeforeFirstCheck */) || !devModeEqual(oldValue, value)) {
-        throw expressionChangedAfterItHasBeenCheckedError(Services.createDebugContext(view, def.nodeIndex), oldValue, value, (view.state & 1 /* BeforeFirstCheck */) !== 0);
+        var /** @type {?} */ bindingName = def.bindings[def.bindingIndex].name;
+        throw expressionChangedAfterItHasBeenCheckedError(Services.createDebugContext(view, def.nodeIndex), bindingName + ": " + oldValue, bindingName + ": " + value, (view.state & 1 /* BeforeFirstCheck */) !== 0);
     }
 }
 /**
@@ -22038,10 +22046,7 @@ function updateProp(view, providerData, def, bindingIdx, value, changes) {
     providerData.instance[propName] = value;
     if (def.flags & 524288 /* OnChanges */) {
         changes = changes || {};
-        var /** @type {?} */ oldValue = view.oldValues[def.bindingIndex + bindingIdx];
-        if (oldValue instanceof WrappedValue) {
-            oldValue = oldValue.wrapped;
-        }
+        var /** @type {?} */ oldValue = WrappedValue.unwrap(view.oldValues[def.bindingIndex + bindingIdx]);
         var /** @type {?} */ binding_1 = def.bindings[bindingIdx];
         changes[/** @type {?} */ ((binding_1.nonMinifiedName))] =
             new SimpleChange(oldValue, value, (view.state & 2 /* FirstCheck */) !== 0);
@@ -25007,7 +25012,10 @@ var NgModuleFactory_ = /** @class */ (function (_super) {
  * @return {?} The stringified value
  */
 function stringifyValueForError(value) {
-    return typeof value === 'string' ? "\"" + value + "\"" : '' + value;
+    if (value && value.native && value.native.outerHTML) {
+        return value.native.outerHTML;
+    }
+    return typeof value === 'string' ? "\"" + value + "\"" : value;
 }
 /**
  * @param {?} actual
@@ -25068,7 +25076,9 @@ function assertNotEqual(actual, expected, name) {
  */
 function assertThrow(actual, expected, name, operator, serializer) {
     if (serializer === void 0) { serializer = stringifyValueForError; }
-    throw new Error("ASSERT: expected " + name + " " + operator + " " + serializer(expected) + " but was " + serializer(actual) + "!");
+    var /** @type {?} */ error = "ASSERT: expected " + name + " " + operator + " " + serializer(expected) + " but was " + serializer(actual) + "!";
+    debugger; // leave `debugger` here to aid in debugging.
+    throw new Error(error);
 }
 
 /**
@@ -25145,6 +25155,232 @@ function typeSerializer(type) {
  * found in the LICENSE file at https://angular.io/license
  */
 /**
+ * The state associated with an LContainer
+ * @record
+ */
+
+// Note: This hack is necessary so we don't erroneously get a circular dependency
+// failure based on types.
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/** @enum {number} */
+/**
+ * LNode is an internal data structure which is used for the incremental DOM algorithm.
+ * The "L" stands for "Logical" to differentiate between `RNodes` (actual rendered DOM
+ * node) and our logical representation of DOM nodes, `LNodes`.
+ *
+ * The data structure is optimized for speed and size.
+ *
+ * In order to be fast, all subtypes of `LNode` should have the same shape.
+ * Because size of the `LNode` matters, many fields have multiple roles depending
+ * on the `LNode` subtype.
+ *
+ * See: https://en.wikipedia.org/wiki/Inline_caching#Monomorphic_inline_caching
+ *
+ * NOTE: This is a private data structure and should not be exported by any of the
+ * instructions.
+ * @record
+ */
+
+/**
+ * LNode representing an element.
+ * @record
+ */
+
+/**
+ * LNode representing a #text node.
+ * @record
+ */
+
+/**
+ * Abstract node which contains root nodes of a view.
+ * @record
+ */
+
+/**
+ * Abstract node container which contains other views.
+ * @record
+ */
+
+/**
+ * @record
+ */
+
+/**
+ * LNode binding data (flyweight) for a particular node that is shared between all templates
+ * of a specific type.
+ *
+ * If a property is:
+ *    - PropertyAliases: that property's data was generated and this is it
+ *    - Null: that property's data was already generated and nothing was found.
+ *    - Undefined: that property's data has not yet been generated
+ *
+ * see: https://en.wikipedia.org/wiki/Flyweight_pattern for more on the Flyweight pattern
+ * @record
+ */
+
+/**
+ * Static data for an LElementNode
+ * @record
+ */
+
+/**
+ * Static data for an LContainerNode
+ * @record
+ */
+
+// Note: This hack is necessary so we don't erroneously get a circular dependency
+// failure based on types.
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+// Note: This hack is necessary so we don't erroneously get a circular dependency
+// failure based on types.
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/** @enum {number} */
+var RendererStyleFlags3 = {
+    Important: 1,
+    DashCase: 2,
+};
+RendererStyleFlags3[RendererStyleFlags3.Important] = "Important";
+RendererStyleFlags3[RendererStyleFlags3.DashCase] = "DashCase";
+/**
+ * Object Oriented style of API needed to create elements and text nodes.
+ *
+ * This is the native browser API style, e.g. operations are methods on individual objects
+ * like HTMLElement. With this style, no additional code is needed as a facade
+ * (reducing payload size).
+ *
+ * @record
+ */
+
+/**
+ * Procedural style of API needed to create elements and text nodes.
+ *
+ * In non-native browser environments (e.g. platforms such as web-workers), this is the
+ * facade that enables element manipulation. This also facilitates backwards compatibility
+ * with Renderer2.
+ * @record
+ */
+
+/**
+ * @record
+ */
+
+var domRendererFactory3 = {
+    createRenderer: function (hostElement, rendererType) { return document; }
+};
+/**
+ * Subset of API needed for appending elements and text nodes.
+ * @record
+ */
+
+/**
+ * Subset of API needed for writing attributes, properties, and setting up
+ * listeners on Element.
+ * @record
+ */
+
+/**
+ * @record
+ */
+
+/**
+ * @record
+ */
+
+/**
+ * @record
+ */
+
+/**
+ * @record
+ */
+
+// Note: This hack is necessary so we don't erroneously get a circular dependency
+// failure based on types.
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * `LView` stores all of the information needed to process the instructions as
+ * they are invoked from the template. Each embedded view and component view has its
+ * own `LView`. When processing a particular view, we set the `currentView` to that
+ * `LView`. When that view is done processing, the `currentView` is set back to
+ * whatever the original `currentView` was before(the parent `LView`).
+ *
+ * Keeping separate state for each view facilities view insertion / deletion, so we
+ * don't have to edit the data array based on which views are present.
+ * @record
+ */
+
+/**
+ * Interface necessary to work with view tree traversal
+ * @record
+ */
+
+/**
+ * The static data for an LView (shared between all templates of a
+ * given type).
+ *
+ * Stored on the template function as ngPrivateData.
+ * @record
+ */
+
+// Note: This hack is necessary so we don't erroneously get a circular dependency
+// failure based on types.
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
  * Finds the closest DOM node above a given container in the hierarchy.
  *
  * This is necessary to add or remove elements from the DOM when a view
@@ -25182,12 +25418,12 @@ function findNativeParent(containerNode) {
  * anchor is the marker.
  *
  * @param {?} index The index of the view to check
- * @param {?} state ContainerState of the parent container
+ * @param {?} lContainer parent LContainer
  * @param {?} native Comment anchor for container
  * @return {?} The DOM element for which the view should insert elements
  */
-function findBeforeNode(index, state, native) {
-    var /** @type {?} */ views = state.views;
+function findBeforeNode(index, lContainer, native) {
+    var /** @type {?} */ views = lContainer.views;
     // Find the node to insert in front of
     return index + 1 < views.length ?
         (/** @type {?} */ (views[index + 1].child)).native :
@@ -25268,28 +25504,28 @@ function addRemoveViewFromContainer(container, rootNode, insertMode, beforeNode)
  * @return {?}
  */
 function destroyViewTree(rootView) {
-    var /** @type {?} */ viewOrContainerState = rootView;
-    while (viewOrContainerState) {
+    var /** @type {?} */ viewOrContainer = rootView;
+    while (viewOrContainer) {
         var /** @type {?} */ next = null;
-        if (viewOrContainerState.views && viewOrContainerState.views.length) {
-            next = viewOrContainerState.views[0].data;
+        if (viewOrContainer.views && viewOrContainer.views.length) {
+            next = viewOrContainer.views[0].data;
         }
-        else if (viewOrContainerState.child) {
-            next = viewOrContainerState.child;
+        else if (viewOrContainer.child) {
+            next = viewOrContainer.child;
         }
-        else if (viewOrContainerState.next) {
-            cleanUpView(/** @type {?} */ (viewOrContainerState));
-            next = viewOrContainerState.next;
+        else if (viewOrContainer.next) {
+            cleanUpView(/** @type {?} */ (viewOrContainer));
+            next = viewOrContainer.next;
         }
         if (next == null) {
-            while (viewOrContainerState && !/** @type {?} */ ((viewOrContainerState)).next) {
-                cleanUpView(/** @type {?} */ (viewOrContainerState));
-                viewOrContainerState = getParentState(viewOrContainerState, rootView);
+            while (viewOrContainer && !/** @type {?} */ ((viewOrContainer)).next) {
+                cleanUpView(/** @type {?} */ (viewOrContainer));
+                viewOrContainer = getParentState(viewOrContainer, rootView);
             }
-            cleanUpView(/** @type {?} */ (viewOrContainerState) || rootView);
-            next = viewOrContainerState && viewOrContainerState.next;
+            cleanUpView(/** @type {?} */ (viewOrContainer) || rootView);
+            next = viewOrContainer && viewOrContainer.next;
         }
-        viewOrContainerState = next;
+        viewOrContainer = next;
     }
 }
 /**
@@ -25359,7 +25595,7 @@ function removeView(container, removeIndex) {
 }
 /**
  * Sets a next on the view node, so views in for loops can easily jump from
- * one view to the next to add/remove elements. Also adds the ViewState (view.data)
+ * one view to the next to add/remove elements. Also adds the LView (view.data)
  * to the view tree for easy traversal when cleaning up the view.
  *
  * @param {?} view The view to set up
@@ -25371,21 +25607,20 @@ function setViewNext(view, next) {
     view.data.next = next ? next.data : null;
 }
 /**
- * Determines which ViewOrContainerState to jump to when traversing back up the
+ * Determines which LViewOrLContainer to jump to when traversing back up the
  * tree in destroyViewTree.
  *
- * Normally, the view's parent ViewState should be checked, but in the case of
+ * Normally, the view's parent LView should be checked, but in the case of
  * embedded views, the container (which is the view node's parent, but not the
- * ViewState's parent) needs to be checked for a possible next property.
+ * LView's parent) needs to be checked for a possible next property.
  *
- * @param {?} state The ViewOrContainerState for which we need a parent state
+ * @param {?} state The LViewOrLContainer for which we need a parent state
  * @param {?} rootView The rootView, so we don't propagate too far up the view tree
- * @return {?} The correct parent ViewOrContainerState
+ * @return {?} The correct parent LViewOrLContainer
  */
 function getParentState(state, rootView) {
     var /** @type {?} */ node;
-    if ((node = /** @type {?} */ (((/** @type {?} */ (state)))).node) &&
-        (node.flags & 3 /* TYPE_MASK */) === 2 /* View */) {
+    if ((node = /** @type {?} */ (((/** @type {?} */ (state)))).node) && (node.flags & 3 /* TYPE_MASK */) === 2 /* View */) {
         // if it's an embedded view, the state needs to go up to the container, in case the
         // container has a next
         return /** @type {?} */ (((node.parent)).data);
@@ -25398,13 +25633,13 @@ function getParentState(state, rootView) {
 /**
  * Removes all listeners and call all onDestroys in a given view.
  *
- * @param {?} viewState The ViewState of the view to clean up
+ * @param {?} view The LView to clean up
  * @return {?}
  */
-function cleanUpView(viewState) {
-    if (!viewState.cleanup)
+function cleanUpView(view) {
+    if (!view.cleanup)
         return;
-    var /** @type {?} */ cleanup = /** @type {?} */ ((viewState.cleanup));
+    var /** @type {?} */ cleanup = /** @type {?} */ ((view.cleanup));
     for (var /** @type {?} */ i = 0; i < cleanup.length - 1; i += 2) {
         if (typeof cleanup[i] === 'string') {
             /** @type {?} */ ((cleanup))[i + 1].removeEventListener(cleanup[i], cleanup[i + 2], cleanup[i + 3]);
@@ -25414,7 +25649,7 @@ function cleanUpView(viewState) {
             cleanup[i].call(cleanup[i + 1]);
         }
     }
-    viewState.cleanup = null;
+    view.cleanup = null;
 }
 /**
  * Appends the provided child element to the provided parent, if appropriate.
@@ -25426,7 +25661,7 @@ function cleanUpView(viewState) {
  *
  * @param {?} parent The parent to which to append the child
  * @param {?} child The child that should be appended
- * @param {?} currentView The current view's ViewState
+ * @param {?} currentView The current LView
  * @return {?} Whether or not the child was appended
  */
 function appendChild(parent, child, currentView) {
@@ -25458,7 +25693,7 @@ function appendChild(parent, child, currentView) {
  * the content projection system. Otherwise, insertBefore normally.
  *
  * @param {?} node Node to insert
- * @param {?} currentView The current view's ViewState
+ * @param {?} currentView Current LView
  * @return {?}
  */
 function insertChild(node, currentView) {
@@ -25494,7 +25729,7 @@ function insertChild(node, currentView) {
  * @param {?} projectedNodes Array to store the projected node
  * @param {?} node The node to process
  * @param {?} currentParent The last parent element to be processed
- * @param {?} currentView The current view's ViewState
+ * @param {?} currentView Current LView
  * @return {?}
  */
 
@@ -25512,19 +25747,19 @@ function insertChild(node, currentView) {
 /**
  * A utility function to match an Ivy node static data against a simple CSS selector
  *
- * @param {?} lNodeStaticData
+ * @param {?} tNode
  * @param {?} selector
  * @return {?} true if node matches the selector.
  */
 
 /**
- * @param {?} lNodeStaticData
+ * @param {?} tNode
  * @param {?} selector
  * @return {?}
  */
 
 /**
- * @param {?} lNodeStaticData
+ * @param {?} tNode
  * @param {?} selector
  * @return {?}
  */
@@ -25588,6 +25823,92 @@ function stringify$1(value) {
  * @param {?} di
  * @return {?} The ViewContainerRef instance to use
  */
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @record
+ */
+
+/**
+ * @record
+ */
+
+/**
+ * `DirectiveDef` is a compiled version of the Directive used by the renderer instructions.
+ * @record
+ */
+
+/**
+ * @record
+ */
+
+/**
+ * Private: do not export
+ * @record
+ */
+
+/**
+ * Private: do not export
+ * @record
+ */
+
+/**
+ * @record
+ */
+
+/**
+ * @record
+ */
+
+// Note: This hack is necessary so we don't erroneously get a circular dependency
+// failure based on types.
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * @record
+ */
+
+// Note: This hack is necessary so we don't erroneously get a circular dependency
+// failure based on types.
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * Used for tracking queries (e.g. ViewChild, ContentChild).
+ * @record
+ */
+
+// Note: This hack is necessary so we don't erroneously get a circular dependency
+// failure based on types.
 
 /**
  * @fileoverview added by tsickle
@@ -25807,77 +26128,6 @@ var QueryList_ = /** @class */ (function () {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-/** @enum {number} */
-var RendererStyleFlags3 = {
-    Important: 1,
-    DashCase: 2,
-};
-RendererStyleFlags3[RendererStyleFlags3.Important] = "Important";
-RendererStyleFlags3[RendererStyleFlags3.DashCase] = "DashCase";
-/**
- * Object Oriented style of API needed to create elements and text nodes.
- *
- * This is the native browser API style, e.g. operations are methods on individual objects
- * like HTMLElement. With this style, no additional code is needed as a facade
- * (reducing payload size).
- *
- * @record
- */
-
-/**
- * Procedural style of API needed to create elements and text nodes.
- *
- * In non-native browser environments (e.g. platforms such as web-workers), this is the
- * facade that enables element manipulation. This also facilitates backwards compatibility
- * with Renderer2.
- * @record
- */
-
-/**
- * @record
- */
-
-var domRendererFactory3 = {
-    createRenderer: function (hostElement, rendererType) { return document; }
-};
-/**
- * Subset of API needed for appending elements and text nodes.
- * @record
- */
-
-/**
- * Subset of API needed for writing attributes, properties, and setting up
- * listeners on Element.
- * @record
- */
-
-/**
- * @record
- */
-
-/**
- * @record
- */
-
-/**
- * @record
- */
-
-/**
- * @record
- */
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
 /**
  * Directive (D) sets a property on all component instances using this constant as a key and the
  * component's host node (LElement) as the value. This is used in methods like detectChanges to
@@ -25914,20 +26164,20 @@ var previousOrParentNode;
  */
 var isParent;
 /**
- * The current template's static data (shared between all templates of a
- * given type).
+ * Static data that corresponds to the instance-specific data array on an LView.
  *
- * Each node's static data is stored at the same index that it's stored
- * in the data array. Any nodes that do not have static data store a null
- * value to avoid a sparse array.
+ * Each node's static data is stored in tData at the same index that it's stored
+ * in the data array. Each directive's definition is stored here at the same index
+ * as its directive instance in the data array. Any nodes that do not have static
+ * data store a null value in tData to avoid a sparse array.
  */
-var ngStaticData;
+var tData;
 /**
  * State of the current view being processed.
  */
 var currentView;
-// The initialization has to be after the `let`, otherwise `createViewState` can't see `let`.
-currentView = createViewState(/** @type {?} */ ((null)), /** @type {?} */ ((null)), []);
+// The initialization has to be after the `let`, otherwise `createLView` can't see `let`.
+currentView = createLView(/** @type {?} */ ((null)), /** @type {?} */ ((null)), { data: [] });
 var currentQuery;
 /**
  * This property gets set before entering a template.
@@ -25971,43 +26221,43 @@ var viewHookStartIndex;
  * is entered we have to store the state for later, and when the view is
  * exited the state has to be restored
  *
- * @param {?} newViewState New state to become active
+ * @param {?} newView New state to become active
  * @param {?} host Element to which the View is a child of
  * @return {?} the previous state;
  */
-function enterView(newViewState, host) {
-    var /** @type {?} */ oldViewState = currentView;
-    data = newViewState.data;
-    bindingIndex = newViewState.bindingStartIndex || 0;
-    ngStaticData = newViewState.ngStaticData;
-    creationMode = newViewState.creationMode;
-    viewHookStartIndex = newViewState.viewHookStartIndex;
-    cleanup = newViewState.cleanup;
-    renderer = newViewState.renderer;
+function enterView(newView, host) {
+    var /** @type {?} */ oldView = currentView;
+    data = newView.data;
+    bindingIndex = newView.bindingStartIndex || 0;
+    tData = newView.tView.data;
+    creationMode = newView.creationMode;
+    viewHookStartIndex = newView.viewHookStartIndex;
+    cleanup = newView.cleanup;
+    renderer = newView.renderer;
     if (host != null) {
         previousOrParentNode = host;
         isParent = true;
     }
-    currentView = newViewState;
-    return /** @type {?} */ ((oldViewState));
+    currentView = newView;
+    return /** @type {?} */ ((oldView));
 }
 /**
  * Used in lieu of enterView to make it clear when we are exiting a child view. This makes
  * the direction of traversal (up or down the view tree) a bit clearer.
- * @param {?} newViewState
+ * @param {?} newView
  * @return {?}
  */
-function leaveView(newViewState) {
+function leaveView(newView) {
     executeViewHooks();
-    enterView(newViewState, null);
+    enterView(newView, null);
 }
 /**
  * @param {?} viewId
  * @param {?} renderer
- * @param {?} ngStaticData
+ * @param {?} tView
  * @return {?}
  */
-function createViewState(viewId, renderer, ngStaticData) {
+function createLView(viewId, renderer, tView) {
     var /** @type {?} */ newView = {
         parent: currentView,
         id: viewId,
@@ -26015,7 +26265,7 @@ function createViewState(viewId, renderer, ngStaticData) {
         node: /** @type {?} */ ((null)),
         // until we initialize it in createNode.
         data: [],
-        ngStaticData: ngStaticData,
+        tView: tView,
         cleanup: null,
         renderer: renderer,
         child: null,
@@ -26050,12 +26300,12 @@ function createLNode(index, type, native, state) {
         nodeInjector: parent ? parent.nodeInjector : null,
         data: isState ? /** @type {?} */ (state) : null,
         query: query,
-        staticData: null
+        tNode: null
     };
     if ((type & 2 /* ViewOrElement */) === 2 /* ViewOrElement */ && isState) {
         // Bit of a hack to bust through the readonly because there is a circular dep between
-        // ViewState and LNode.
-        ngDevMode && assertEqual((/** @type {?} */ (state)).node, null, 'viewState.node');
+        // LView and LNode.
+        ngDevMode && assertEqual((/** @type {?} */ (state)).node, null, 'lView.node');
         (/** @type {?} */ ((state))).node = node;
     }
     if (index != null) {
@@ -26063,11 +26313,11 @@ function createLNode(index, type, native, state) {
         ngDevMode && assertEqual(data.length, index, 'data.length not in sequence');
         data[index] = node;
         // Every node adds a value to the static data array to avoid a sparse array
-        if (index >= ngStaticData.length) {
-            ngStaticData[index] = null;
+        if (index >= tData.length) {
+            tData[index] = null;
         }
         else {
-            node.staticData = /** @type {?} */ (ngStaticData[index]);
+            node.tNode = /** @type {?} */ (tData[index]);
         }
         // Now link ourselves into the tree.
         if (isParent) {
@@ -26113,19 +26363,18 @@ function resetApplicationState() {
 /**
  * @template T
  * @param {?} node
- * @param {?} viewState
+ * @param {?} hostView
  * @param {?} componentOrContext
  * @param {?=} template
  * @return {?}
  */
-function renderComponentOrTemplate(node, viewState, componentOrContext, template) {
-    var /** @type {?} */ oldView = enterView(viewState, node);
+function renderComponentOrTemplate(node, hostView, componentOrContext, template) {
+    var /** @type {?} */ oldView = enterView(hostView, node);
     try {
         if (rendererFactory.begin) {
             rendererFactory.begin();
         }
         if (template) {
-            ngStaticData = template.ngStaticData || (template.ngStaticData = /** @type {?} */ ([]));
             template(/** @type {?} */ ((componentOrContext)), creationMode);
         }
         else {
@@ -26138,7 +26387,7 @@ function renderComponentOrTemplate(node, viewState, componentOrContext, template
         if (rendererFactory.end) {
             rendererFactory.end();
         }
-        viewState.creationMode = false;
+        hostView.creationMode = false;
         leaveView(oldView);
     }
 }
@@ -26203,27 +26452,35 @@ function renderComponentOrTemplate(node, viewState, componentOrContext, template
  * Create DOM element. The instruction must later be followed by `elementEnd()` call.
  *
  * @param {?} index Index of the element in the data array
- * @param {?=} nameOrComponentDef Name of the DOM Node or `ComponentDef`.
+ * @param {?=} nameOrComponentType Name of the DOM Node or `ComponentType` to create.
  * @param {?=} attrs Statically bound set of attributes to be written into the DOM element on creation.
- * @param {?=} localName A name under which a given element is exported.
+ * @param {?=} directiveTypes A set of directives declared on this element.
+ * @param {?=} localRefs A set of local reference bindings on the element.
  *
- * Attributes are passed as an array of strings where elements with an even index hold an attribute
- * name and elements with an odd index hold an attribute value, ex.:
+ * Attributes and localRefs are passed as an array of strings where elements with an even index
+ * hold an attribute name and elements with an odd index hold an attribute value, ex.:
  * ['id', 'warning5', 'class', 'alert']
  * @return {?}
  */
-function elementStart(index, nameOrComponentDef, attrs, localName) {
+function elementStart(index, nameOrComponentType, attrs, directiveTypes, localRefs) {
     var /** @type {?} */ node;
     var /** @type {?} */ native;
-    if (nameOrComponentDef == null) {
+    if (nameOrComponentType == null) {
         // native node retrieval - used for exporting elements as tpl local variables (<div #foo>)
         var /** @type {?} */ node_1 = /** @type {?} */ ((data[index]));
         native = node_1 && (/** @type {?} */ (node_1)).native;
     }
     else {
         ngDevMode && assertEqual(currentView.bindingStartIndex, null, 'bindingStartIndex');
-        var /** @type {?} */ isHostElement = typeof nameOrComponentDef !== 'string';
-        var /** @type {?} */ name_1 = isHostElement ? (/** @type {?} */ (nameOrComponentDef)).tag : /** @type {?} */ (nameOrComponentDef);
+        var /** @type {?} */ isHostElement = typeof nameOrComponentType !== 'string';
+        // MEGAMORPHIC: `ngComponentDef` is a megamorphic property access here.
+        // This is OK, since we will refactor this code and store the result in `TView.data`
+        // which means that we will be reading this value only once. We are trading clean/simple
+        // template
+        // code for slight startup(first run) performance. (No impact on subsequent runs)
+        // TODO(misko): refactor this to store the `ComponentDef` in `TView.data`.
+        var /** @type {?} */ hostComponentDef = isHostElement ? (/** @type {?} */ (nameOrComponentType)).ngComponentDef : null;
+        var /** @type {?} */ name_1 = isHostElement ? /** @type {?} */ ((hostComponentDef)).tag : /** @type {?} */ (nameOrComponentType);
         if (name_1 === null) {
             // TODO: future support for nameless components.
             throw 'for now name is required';
@@ -26232,33 +26489,89 @@ function elementStart(index, nameOrComponentDef, attrs, localName) {
             native = renderer.createElement(name_1);
             var /** @type {?} */ componentView = null;
             if (isHostElement) {
-                var /** @type {?} */ ngStaticData_1 = getTemplateStatic((/** @type {?} */ (nameOrComponentDef)).template);
-                componentView = addToViewTree(createViewState(-1, rendererFactory.createRenderer(native, (/** @type {?} */ (nameOrComponentDef)).rendererType), ngStaticData_1));
+                var /** @type {?} */ tView = getOrCreateTView(/** @type {?} */ ((hostComponentDef)).template);
+                componentView = addToViewTree(createLView(-1, rendererFactory.createRenderer(native, /** @type {?} */ ((hostComponentDef)).rendererType), tView));
             }
             // Only component views should be added to the view tree directly. Embedded views are
             // accessed through their containers because they may be removed / re-added later.
             node = createLNode(index, 3 /* Element */, native, componentView);
-            if (node.staticData == null) {
+            // TODO(misko): implement code which caches the local reference resolution
+            var /** @type {?} */ queryName = hack_findQueryName(hostComponentDef, localRefs, '');
+            if (node.tNode == null) {
                 ngDevMode && assertDataInRange(index - 1);
-                node.staticData = ngStaticData[index] =
-                    createNodeStatic(name_1, attrs || null, null, localName || null);
+                node.tNode = tData[index] =
+                    createTNode(name_1, attrs || null, null, hostComponentDef ? null : queryName);
             }
             if (attrs)
                 setUpAttributes(native, attrs);
             appendChild(/** @type {?} */ ((node.parent)), native, currentView);
+            if (hostComponentDef) {
+                // TODO(mhevery): This assumes that the directives come in correct order, which
+                // is not guaranteed. Must be refactored to take it into account.
+                (/** @type {?} */ (hostComponentDef)).type = /** @type {?} */ (nameOrComponentType);
+                directiveCreate(++index, hostComponentDef.n(), hostComponentDef, queryName);
+            }
+            hack_declareDirectives(index, directiveTypes, localRefs);
         }
     }
     return native;
 }
 /**
- * Gets static data from a template function or creates a new static
- * data array if it doesn't already exist.
+ * This function instantiates a directive with a correct queryName. It is a hack since we should
+ * compute the query value only once and store it with the template (rather than on each invocation)
+ * @param {?} index
+ * @param {?} directiveTypes
+ * @param {?} localRefs
+ * @return {?}
+ */
+function hack_declareDirectives(index, directiveTypes, localRefs) {
+    if (directiveTypes) {
+        // TODO(mhevery): This assumes that the directives come in correct order, which
+        // is not guaranteed. Must be refactored to take it into account.
+        for (var /** @type {?} */ i = 0; i < directiveTypes.length; i++) {
+            // MEGAMORPHIC: `ngDirectiveDef` is a megamorphic property access here.
+            // This is OK, since we will refactor this code and store the result in `TView.data`
+            // which means that we will be reading this value only once. We are trading clean/simple
+            // template
+            // code for slight startup(first run) performance. (No impact on subsequent runs)
+            // TODO(misko): refactor this to store the `DirectiveDef` in `TView.data`.
+            var /** @type {?} */ directiveType = directiveTypes[i];
+            var /** @type {?} */ directiveDef = directiveType.ngDirectiveDef;
+            (/** @type {?} */ (directiveDef)).type = directiveType;
+            directiveCreate(++index, directiveDef.n(), directiveDef, hack_findQueryName(directiveDef, localRefs));
+        }
+    }
+}
+/**
+ * This function returns the queryName for a directive. It is a hack since we should
+ * compute the query value only once and store it with the template (rather than on each invocation)
+ * @param {?} directiveDef
+ * @param {?} localRefs
+ * @param {?=} defaultExport
+ * @return {?}
+ */
+function hack_findQueryName(directiveDef, localRefs, defaultExport) {
+    var /** @type {?} */ exportAs = directiveDef && directiveDef.exportAs || defaultExport;
+    if (exportAs != null && localRefs) {
+        for (var /** @type {?} */ i = 0; i < localRefs.length; i = i + 2) {
+            var /** @type {?} */ local = localRefs[i];
+            var /** @type {?} */ toExportAs = localRefs[i | 1];
+            if (toExportAs === exportAs || toExportAs === defaultExport) {
+                return local;
+            }
+        }
+    }
+    return null;
+}
+/**
+ * Gets TView from a template function or creates a new TView
+ * if it doesn't already exist.
  *
  * @param {?} template The template from which to get static data
- * @return {?} NgStaticData
+ * @return {?} TView
  */
-function getTemplateStatic(template) {
-    return template.ngStaticData || (template.ngStaticData = /** @type {?} */ ([]));
+function getOrCreateTView(template) {
+    return template.ngPrivateData || (template.ngPrivateData = /** @type {?} */ ({ data: [] }));
 }
 /**
  * @param {?} native
@@ -26307,15 +26620,15 @@ function locateHostElement(factory, elementOrSelector) {
     return rNode;
 }
 /**
- * Creates the host LNode..
+ * Creates the host LNode.
  *
  * @param {?} rNode Render host element.
- * @param {?} def
+ * @param {?} def ComponentDef
  * @return {?}
  */
 function hostElement(rNode, def) {
     resetApplicationState();
-    createLNode(0, 3 /* Element */, rNode, createViewState(-1, renderer, getTemplateStatic(def.template)));
+    createLNode(0, 3 /* Element */, rNode, createLView(-1, renderer, getOrCreateTView(def.template)));
 }
 /**
  * Adds an event listener to the current node.
@@ -26373,15 +26686,15 @@ function elementProperty(index, propName, value) {
     if (value === NO_CHANGE)
         return;
     var /** @type {?} */ node = /** @type {?} */ (data[index]);
-    var /** @type {?} */ staticData = /** @type {?} */ ((node.staticData));
-    // if staticData.inputs is undefined, a listener has created output staticData, but inputs haven't
+    var /** @type {?} */ tNode = /** @type {?} */ ((node.tNode));
+    // if tNode.inputs is undefined, a listener has created outputs, but inputs haven't
     // yet been checked
-    if (staticData.inputs === undefined) {
+    if (tNode.inputs === undefined) {
         // mark inputs as checked
-        staticData.inputs = null;
-        staticData = generatePropertyAliases(node.flags, staticData, true);
+        tNode.inputs = null;
+        tNode = generatePropertyAliases(node.flags, tNode, true);
     }
-    var /** @type {?} */ inputData = staticData.inputs;
+    var /** @type {?} */ inputData = tNode.inputs;
     var /** @type {?} */ dataValue;
     if (inputData && (dataValue = inputData[propName])) {
         setInputsForProperty(dataValue, value);
@@ -26395,15 +26708,15 @@ function elementProperty(index, propName, value) {
     }
 }
 /**
- * Constructs a LNodeStatic object from the arguments.
+ * Constructs a TNode object from the arguments.
  *
  * @param {?} tagName
  * @param {?} attrs
- * @param {?} containerStatic
+ * @param {?} data
  * @param {?} localName
- * @return {?} the LNodeStatic object
+ * @return {?} the TNode object
  */
-function createNodeStatic(tagName, attrs, containerStatic, localName) {
+function createTNode(tagName, attrs, data, localName) {
     return {
         tagName: tagName,
         attrs: attrs,
@@ -26411,7 +26724,7 @@ function createNodeStatic(tagName, attrs, containerStatic, localName) {
         initialInputs: undefined,
         inputs: undefined,
         outputs: undefined,
-        containerStatic: containerStatic
+        data: data
     };
 }
 /**
@@ -26429,33 +26742,34 @@ function setInputsForProperty(inputs, value) {
 }
 /**
  * This function consolidates all the inputs or outputs defined by directives
- * on this node into one object and stores it in ngStaticData so it can
+ * on this node into one object and stores it in tData so it can
  * be shared between all templates of this type.
  *
  * @param {?} flags
- * @param {?} data
+ * @param {?} tNode
  * @param {?=} isInputData
  * @return {?}
  */
-function generatePropertyAliases(flags, data, isInputData) {
+function generatePropertyAliases(flags, tNode, isInputData) {
     if (isInputData === void 0) { isInputData = false; }
     var /** @type {?} */ start = flags >> 12;
     var /** @type {?} */ size = (flags & 4092 /* SIZE_MASK */) >> 2;
     for (var /** @type {?} */ i = start, /** @type {?} */ ii = start + size; i < ii; i++) {
-        var /** @type {?} */ directiveDef = /** @type {?} */ (((ngStaticData))[i]);
+        var /** @type {?} */ directiveDef = /** @type {?} */ (((tData))[i]);
         var /** @type {?} */ propertyAliasMap = isInputData ? directiveDef.inputs : directiveDef.outputs;
         for (var /** @type {?} */ publicName in propertyAliasMap) {
             if (propertyAliasMap.hasOwnProperty(publicName)) {
                 var /** @type {?} */ internalName = propertyAliasMap[publicName];
-                var /** @type {?} */ staticDirData = isInputData ? (data.inputs || (data.inputs = {})) :
-                    (data.outputs || (data.outputs = {}));
+                var /** @type {?} */ staticDirData = isInputData ?
+                    (tNode.inputs || (tNode.inputs = {})) :
+                    (tNode.outputs || (tNode.outputs = {}));
                 var /** @type {?} */ hasProperty = staticDirData.hasOwnProperty(publicName);
                 hasProperty ? staticDirData[publicName].push(i, internalName) :
                     (staticDirData[publicName] = [i, internalName]);
             }
         }
     }
-    return data;
+    return tNode;
 }
 /**
  * Add or remove a class in a classList.
@@ -26548,53 +26862,65 @@ function textBinding(index, value) {
     }
 }
 /**
+ * Retrieve a directive.
+ *
+ * NOTE: directives can be created in order other than the index order. They can also
+ *       be retrieved before they are created in which case the value will be null.
+ *
  * @template T
- * @param {?} index
- * @param {?=} directive
- * @param {?=} directiveDef
- * @param {?=} localName
+ * @param {?} index Each directive in a `View` will have a unique index. Directives can
+ *        be created or retrieved out of order.
  * @return {?}
  */
-function directive(index, directive, directiveDef, localName) {
+function directive(index) {
+    ngDevMode && assertDataInRange(index);
+    return data[index];
+}
+/**
+ * Create a directive.
+ *
+ * NOTE: directives can be created in order other than the index order. They can also
+ *       be retrieved before they are created in which case the value will be null.
+ *
+ * @template T
+ * @param {?} index Each directive in a `View` will have a unique index. Directives can
+ *        be created or retrieved out of order.
+ * @param {?} directive The directive instance.
+ * @param {?} directiveDef DirectiveDef object which contains information about the template.
+ * @param {?=} queryName Name under which the query can retrieve the directive instance.
+ * @return {?}
+ */
+function directiveCreate(index, directive, directiveDef, queryName) {
     var /** @type {?} */ instance;
-    if (directive == null) {
-        // return existing
-        ngDevMode && assertDataInRange(index);
-        instance = data[index];
+    ngDevMode && assertEqual(currentView.bindingStartIndex, null, 'bindingStartIndex');
+    ngDevMode && assertPreviousIsParent();
+    var /** @type {?} */ flags = /** @type {?} */ ((previousOrParentNode)).flags;
+    var /** @type {?} */ size = flags & 4092;
+    if (size === 0) {
+        flags = (index << 12 /* INDX_SHIFT */) | 4 /* SIZE_SKIP */ | flags & 3 /* TYPE_MASK */;
     }
     else {
-        ngDevMode && assertEqual(currentView.bindingStartIndex, null, 'bindingStartIndex');
-        ngDevMode && assertPreviousIsParent();
-        var /** @type {?} */ flags = /** @type {?} */ ((previousOrParentNode)).flags;
-        var /** @type {?} */ size = flags & 4092;
-        if (size === 0) {
-            flags =
-                (index << 12 /* INDX_SHIFT */) | 4 /* SIZE_SKIP */ | flags & 3 /* TYPE_MASK */;
+        flags += 4 /* SIZE_SKIP */;
+    } /** @type {?} */
+    ((previousOrParentNode)).flags = flags;
+    ngDevMode && assertDataInRange(index - 1);
+    Object.defineProperty(directive, NG_HOST_SYMBOL, { enumerable: false, value: previousOrParentNode });
+    data[index] = instance = directive;
+    if (index >= tData.length) {
+        tData[index] = /** @type {?} */ ((directiveDef));
+        if (queryName) {
+            ngDevMode && assertNotNull(previousOrParentNode.tNode, 'previousOrParentNode.tNode');
+            var /** @type {?} */ tNode_1 = /** @type {?} */ ((/** @type {?} */ ((previousOrParentNode)).tNode));
+            (tNode_1.localNames || (tNode_1.localNames = [])).push(queryName, index);
         }
-        else {
-            flags += 4 /* SIZE_SKIP */;
-        } /** @type {?} */
-        ((previousOrParentNode)).flags = flags;
-        ngDevMode && assertDataInRange(index - 1);
-        Object.defineProperty(directive, NG_HOST_SYMBOL, { enumerable: false, value: previousOrParentNode });
-        data[index] = instance = directive;
-        if (index >= ngStaticData.length) {
-            ngStaticData[index] = /** @type {?} */ ((directiveDef));
-            if (localName) {
-                ngDevMode &&
-                    assertNotNull(previousOrParentNode.staticData, 'previousOrParentNode.staticData');
-                var /** @type {?} */ nodeStaticData = /** @type {?} */ ((/** @type {?} */ ((previousOrParentNode)).staticData));
-                (nodeStaticData.localNames || (nodeStaticData.localNames = [])).push(localName, index);
-            }
-        }
-        var /** @type {?} */ diPublic_1 = /** @type {?} */ ((directiveDef)).diPublic;
-        if (diPublic_1) {
-            diPublic_1(/** @type {?} */ ((directiveDef)));
-        }
-        var /** @type {?} */ staticData = /** @type {?} */ ((previousOrParentNode.staticData));
-        if (staticData && staticData.attrs) {
-            setInputsFromAttrs(instance, /** @type {?} */ ((directiveDef)).inputs, staticData);
-        }
+    }
+    var /** @type {?} */ diPublic = /** @type {?} */ ((directiveDef)).diPublic;
+    if (diPublic) {
+        diPublic(/** @type {?} */ ((directiveDef)));
+    }
+    var /** @type {?} */ tNode = /** @type {?} */ ((previousOrParentNode.tNode));
+    if (tNode && tNode.attrs) {
+        setInputsFromAttrs(instance, /** @type {?} */ ((directiveDef)).inputs, tNode);
     }
     return instance;
 }
@@ -26604,14 +26930,14 @@ function directive(index, directive, directiveDef, localName) {
  * @template T
  * @param {?} instance Instance of the directive on which to set the initial inputs
  * @param {?} inputs The list of inputs from the directive def
- * @param {?} staticData The static data for this node
+ * @param {?} tNode The static data for this node
  * @return {?}
  */
-function setInputsFromAttrs(instance, inputs, staticData) {
+function setInputsFromAttrs(instance, inputs, tNode) {
     var /** @type {?} */ directiveIndex = ((previousOrParentNode.flags & 4092 /* SIZE_MASK */) >> 2 /* SIZE_SHIFT */) - 1;
-    var /** @type {?} */ initialInputData = /** @type {?} */ (staticData.initialInputs);
+    var /** @type {?} */ initialInputData = /** @type {?} */ (tNode.initialInputs);
     if (initialInputData === undefined || directiveIndex >= initialInputData.length) {
-        initialInputData = generateInitialInputs(directiveIndex, inputs, staticData);
+        initialInputData = generateInitialInputs(directiveIndex, inputs, tNode);
     }
     var /** @type {?} */ initialInputs = initialInputData[directiveIndex];
     if (initialInputs) {
@@ -26633,13 +26959,13 @@ function setInputsFromAttrs(instance, inputs, staticData) {
  *
  * @param {?} directiveIndex Index to store the initial input data
  * @param {?} inputs The list of inputs from the directive def
- * @param {?} staticData The static data on this node
+ * @param {?} tNode The static data on this node
  * @return {?}
  */
-function generateInitialInputs(directiveIndex, inputs, staticData) {
-    var /** @type {?} */ initialInputData = staticData.initialInputs || (staticData.initialInputs = []);
+function generateInitialInputs(directiveIndex, inputs, tNode) {
+    var /** @type {?} */ initialInputData = tNode.initialInputs || (tNode.initialInputs = []);
     initialInputData[directiveIndex] = null;
-    var /** @type {?} */ attrs = /** @type {?} */ ((staticData.attrs));
+    var /** @type {?} */ attrs = /** @type {?} */ ((tNode.attrs));
     for (var /** @type {?} */ i = 0; i < attrs.length; i += 2) {
         var /** @type {?} */ attrName = attrs[i];
         var /** @type {?} */ minifiedInputName = inputs[attrName];
@@ -26687,18 +27013,19 @@ function executeViewHooks() {
     data.length = writeIndex;
 }
 /**
- * Creates an LContainer.
+ * Creates an LContainerNode.
  *
- * Only `LView`s can go into `LContainer`.
+ * Only `LViewNodes` can go into `LContainerNodes`.
  *
  * @param {?} index The index of the container in the data array
+ * @param {?=} directiveTypes
  * @param {?=} template Optional inline template
  * @param {?=} tagName The name of the container element, if applicable
  * @param {?=} attrs The attrs attached to the container, if applicable
- * @param {?=} localName
+ * @param {?=} localRefs A set of local reference bindings on the element.
  * @return {?}
  */
-function containerStart(index, template, tagName, attrs, localName) {
+function container(index, directiveTypes, template, tagName, attrs, localRefs) {
     ngDevMode && assertEqual(currentView.bindingStartIndex, null, 'bindingStartIndex');
     // If the direct parent of the container is a view, its views (including its comment)
     // will need to be added through insertView() when its parent view is being inserted.
@@ -26720,25 +27047,16 @@ function containerStart(index, template, tagName, attrs, localName) {
         next: null,
         parent: currentView
     }));
-    if (node.staticData == null) {
-        node.staticData = ngStaticData[index] =
-            createNodeStatic(tagName || null, attrs || null, [], localName || null);
+    if (node.tNode == null) {
+        // TODO(misko): implement queryName caching
+        var /** @type {?} */ queryName = hack_findQueryName(null, localRefs, '');
+        node.tNode = tData[index] = createTNode(tagName || null, attrs || null, [], queryName || null);
     }
     // Containers are added to the current view tree instead of their embedded views
     // because views can be removed and re-inserted.
     addToViewTree(node.data);
-}
-/**
- * @return {?}
- */
-function containerEnd() {
-    if (isParent) {
-        isParent = false;
-    }
-    else {
-        ngDevMode && assertHasParent();
-        previousOrParentNode = /** @type {?} */ ((previousOrParentNode.parent));
-    }
+    hack_declareDirectives(index, directiveTypes, localRefs);
+    isParent = false;
     ngDevMode && assertNodeType(previousOrParentNode, 0 /* Container */);
     var /** @type {?} */ query = previousOrParentNode.query;
     query && query.addNode(previousOrParentNode);
@@ -26757,9 +27075,9 @@ function containerRefreshStart(index) {
     (/** @type {?} */ (previousOrParentNode)).data.nextIndex = 0;
 }
 /**
- * Marks the end of the LContainer.
+ * Marks the end of the LContainerNode.
  *
- * Marking the end of ViewContainer is the time when to child Views get inserted or removed.
+ * Marking the end of LContainerNode is the time when to child Views get inserted or removed.
  * @return {?}
  */
 function containerRefreshEnd() {
@@ -26781,7 +27099,7 @@ function containerRefreshEnd() {
     }
 }
 /**
- * Creates an LView.
+ * Creates an LViewNode.
  *
  * @param {?} viewBlockId The ID of this view
  * @return {?} Whether or not this view is in creation mode
@@ -26789,46 +27107,46 @@ function containerRefreshEnd() {
 function viewStart(viewBlockId) {
     var /** @type {?} */ container = /** @type {?} */ ((isParent ? previousOrParentNode : /** @type {?} */ ((previousOrParentNode.parent))));
     ngDevMode && assertNodeType(container, 0 /* Container */);
-    var /** @type {?} */ containerState = container.data;
-    var /** @type {?} */ views = containerState.views;
-    var /** @type {?} */ existingView = !creationMode && containerState.nextIndex < views.length && views[containerState.nextIndex];
+    var /** @type {?} */ lContainer = container.data;
+    var /** @type {?} */ views = lContainer.views;
+    var /** @type {?} */ existingView = !creationMode && lContainer.nextIndex < views.length && views[lContainer.nextIndex];
     var /** @type {?} */ viewUpdateMode = existingView && viewBlockId === (/** @type {?} */ (existingView)).data.id;
     if (viewUpdateMode) {
-        previousOrParentNode = views[containerState.nextIndex++];
+        previousOrParentNode = views[lContainer.nextIndex++];
         ngDevMode && assertNodeType(previousOrParentNode, 2 /* View */);
         isParent = true;
         enterView((/** @type {?} */ (existingView)).data, /** @type {?} */ (previousOrParentNode));
     }
     else {
-        // When we create a new View, we always reset the state of the instructions.
-        var /** @type {?} */ newViewState = createViewState(viewBlockId, renderer, initViewStaticData(viewBlockId, container));
-        enterView(newViewState, createLNode(null, 2 /* View */, null, newViewState));
-        containerState.nextIndex++;
+        // When we create a new LView, we always reset the state of the instructions.
+        var /** @type {?} */ newView = createLView(viewBlockId, renderer, getOrCreateEmbeddedTView(viewBlockId, container));
+        enterView(newView, createLNode(null, 2 /* View */, null, newView));
+        lContainer.nextIndex++;
     }
     return !viewUpdateMode;
 }
 /**
- * Initialize the static data for the active view.
+ * Initialize the TView (e.g. static data) for the active embedded view.
  *
- * Each embedded view needs to set the global ngStaticData variable to the static data for
+ * Each embedded view needs to set the global tData variable to the static data for
  * that view. Otherwise, the view's static data for a particular node would overwrite
- * the staticdata for a node in the view above it with the same index (since it's in the
+ * the static data for a node in the view above it with the same index (since it's in the
  * same template).
  *
- * @param {?} viewIndex The index of the view's static data in containerStatic
+ * @param {?} viewIndex The index of the TView in TContainer
  * @param {?} parent The parent container in which to look for the view's static data
- * @return {?} NgStaticData
+ * @return {?} TView
  */
-function initViewStaticData(viewIndex, parent) {
+function getOrCreateEmbeddedTView(viewIndex, parent) {
     ngDevMode && assertNodeType(parent, 0 /* Container */);
-    var /** @type {?} */ containerStatic = (/** @type {?} */ (((parent)).staticData)).containerStatic;
-    if (viewIndex >= containerStatic.length || containerStatic[viewIndex] == null) {
-        containerStatic[viewIndex] = [];
+    var /** @type {?} */ tContainer = (/** @type {?} */ (((parent)).tNode)).data;
+    if (viewIndex >= tContainer.length || tContainer[viewIndex] == null) {
+        tContainer[viewIndex] = /** @type {?} */ ({ data: [] });
     }
-    return containerStatic[viewIndex];
+    return tContainer[viewIndex];
 }
 /**
- * Marks the end of the LView.
+ * Marks the end of the LViewNode.
  * @return {?}
  */
 function viewEnd() {
@@ -26837,12 +27155,12 @@ function viewEnd() {
     var /** @type {?} */ container = /** @type {?} */ (previousOrParentNode.parent);
     ngDevMode && assertNodeType(viewNode, 2 /* View */);
     ngDevMode && assertNodeType(container, 0 /* Container */);
-    var /** @type {?} */ containerState = container.data;
-    var /** @type {?} */ previousView = containerState.nextIndex <= containerState.views.length ? /** @type {?} */ (containerState.views[containerState.nextIndex - 1]) :
+    var /** @type {?} */ lContainer = container.data;
+    var /** @type {?} */ previousView = lContainer.nextIndex <= lContainer.views.length ? /** @type {?} */ (lContainer.views[lContainer.nextIndex - 1]) :
         null;
     var /** @type {?} */ viewIdChanged = previousView == null ? true : previousView.data.id !== viewNode.data.id;
     if (viewIdChanged) {
-        insertView(container, viewNode, containerState.nextIndex - 1);
+        insertView(container, viewNode, lContainer.nextIndex - 1);
         currentView.creationMode = false;
     }
     leaveView(/** @type {?} */ ((/** @type {?} */ ((currentView)).parent)));
@@ -26897,13 +27215,13 @@ var componentRefresh = function (directiveIndex, elementIndex, template) {
  */
 
 /**
- * Adds a ViewState or a ContainerState to the end of the current view tree.
+ * Adds a LView or a LContainer to the end of the current view tree.
  *
  * This structure will be used to traverse through nested views to remove listeners
  * and call onDestroy callbacks.
  *
  * @template T
- * @param {?} state The ViewState or ContainerState to add to the view tree
+ * @param {?} state The LView or LContainer to add to the view tree
  * @return {?} The state passed in
  */
 function addToViewTree(state) {
@@ -27155,15 +27473,17 @@ function assertDataInRange(index, arr) {
 function renderComponent(componentType, opts) {
     if (opts === void 0) { opts = {}; }
     var /** @type {?} */ rendererFactory = opts.rendererFactory || domRendererFactory3;
-    var /** @type {?} */ componentDef = componentType.ngComponentDef;
+    var /** @type {?} */ componentDef = /** @type {?} */ (componentType.ngComponentDef);
+    if (componentDef.type != componentType)
+        componentDef.type = componentType;
     var /** @type {?} */ component;
     var /** @type {?} */ hostNode = locateHostElement(rendererFactory, opts.host || componentDef.tag);
-    var /** @type {?} */ oldView = enterView(createViewState(-1, rendererFactory.createRenderer(hostNode, componentDef.rendererType), []), /** @type {?} */ ((null)));
+    var /** @type {?} */ oldView = enterView(createLView(-1, rendererFactory.createRenderer(hostNode, componentDef.rendererType), { data: [] }), /** @type {?} */ ((null)));
     try {
         // Create element node at index 0 in data array
         hostElement(hostNode, componentDef);
         // Create directive instance with n() and store at index 1 in data array (el is 0)
-        component = directive(1, componentDef.n(), componentDef);
+        component = directiveCreate(1, componentDef.n(), componentDef);
     }
     finally {
         leaveView(oldView);
@@ -27232,7 +27552,6 @@ var isDirty = false;
  */
 function defineComponent(componentDefinition) {
     var /** @type {?} */ def = /** @type {?} */ ({
-        type: componentDefinition.type,
         diPublic: null,
         n: componentDefinition.factory,
         tag: (/** @type {?} */ (componentDefinition)).tag || /** @type {?} */ ((null)),
@@ -27244,6 +27563,7 @@ function defineComponent(componentDefinition) {
         outputs: invertObject(componentDefinition.outputs),
         methods: invertObject(componentDefinition.methods),
         rendererType: resolveRendererType2(componentDefinition.rendererType) || null,
+        exportAs: componentDefinition.exportAs,
     });
     var /** @type {?} */ feature = componentDefinition.features;
     feature && feature.forEach(function (fn) { return fn(def); });
@@ -28007,9 +28327,9 @@ function keyframes$1(steps) {
  *     <button (click)="next()">Next</button>
  *     <hr>
  *     <div [\@bannerAnimation]="selectedIndex" class="banner-container">
- *       <div class="banner"> {{ banner }} </div>
+ *       <div class="banner" *ngFor="let banner of banners"> {{ banner }} </div>
  *     </div>
- *   `
+ *   `,
  *   animations: [
  *     trigger('bannerAnimation', [
  *       transition(":increment", group([
@@ -28029,7 +28349,7 @@ function keyframes$1(steps) {
  *         query(':leave', [
  *           animate('0.5s ease-out', style({ left: '100%' }))
  *         ])
- *       ])),
+ *       ]))
  *     ])
  *   ]
  * })
@@ -28621,7 +28941,6 @@ exports.WrappedValue = WrappedValue;
 exports.platformCore = platformCore;
 exports.ɵALLOW_MULTIPLE_PLATFORMS = ALLOW_MULTIPLE_PLATFORMS;
 exports.ɵAPP_ID_RANDOM_PROVIDER = APP_ID_RANDOM_PROVIDER;
-exports.ɵValueUnwrapper = ValueUnwrapper;
 exports.ɵdevModeEqual = devModeEqual;
 exports.ɵisListLikeIterable = isListLikeIterable;
 exports.ɵChangeDetectorStatus = ChangeDetectorStatus;
@@ -28644,14 +28963,13 @@ exports.ɵNOT_FOUND_CHECK_ONLY_ELEMENT_INJECTOR = NOT_FOUND_CHECK_ONLY_ELEMENT_I
 exports.ɵdefineComponent = defineComponent;
 exports.ɵdetectChanges = detectChanges;
 exports.ɵrenderComponent = renderComponent;
-exports.ɵC = containerStart;
+exports.ɵC = container;
 exports.ɵD = directive;
 exports.ɵE = elementStart;
 exports.ɵT = text;
 exports.ɵV = viewStart;
 exports.ɵb = bind;
 exports.ɵb1 = bind1;
-exports.ɵc = containerEnd;
 exports.ɵcR = containerRefreshStart;
 exports.ɵcr = containerRefreshEnd;
 exports.ɵe = elementEnd;
@@ -28694,35 +29012,35 @@ exports.style = style$$1;
 exports.state = state$$1;
 exports.keyframes = keyframes$$1;
 exports.transition = transition$$1;
-exports.ɵbe = animate$1;
-exports.ɵbf = group$1;
-exports.ɵbj = keyframes$1;
-exports.ɵbg = sequence$1;
-exports.ɵbi = state$1;
-exports.ɵbh = style$1;
-exports.ɵbk = transition$1;
-exports.ɵbd = trigger$1;
-exports.ɵm = _iterableDiffersFactory;
-exports.ɵn = _keyValueDiffersFactory;
-exports.ɵo = _localeFactory;
-exports.ɵh = _appIdRandomProviderFactory;
-exports.ɵi = defaultIterableDiffers;
-exports.ɵj = defaultKeyValueDiffers;
-exports.ɵk = DefaultIterableDifferFactory;
-exports.ɵl = DefaultKeyValueDifferFactory;
-exports.ɵd = ReflectiveInjector_;
-exports.ɵf = ReflectiveDependency;
-exports.ɵg = resolveReflectiveProviders;
-exports.ɵq = wtfEnabled;
-exports.ɵu = createScope;
-exports.ɵr = detectWTF;
-exports.ɵy = endTimeRange;
-exports.ɵw = leave;
-exports.ɵx = startTimeRange;
-exports.ɵbb = stringify$1;
+exports.ɵbd = animate$1;
+exports.ɵbe = group$1;
+exports.ɵbi = keyframes$1;
+exports.ɵbf = sequence$1;
+exports.ɵbh = state$1;
+exports.ɵbg = style$1;
+exports.ɵbj = transition$1;
+exports.ɵbc = trigger$1;
+exports.ɵl = _iterableDiffersFactory;
+exports.ɵm = _keyValueDiffersFactory;
+exports.ɵn = _localeFactory;
+exports.ɵg = _appIdRandomProviderFactory;
+exports.ɵh = defaultIterableDiffers;
+exports.ɵi = defaultKeyValueDiffers;
+exports.ɵj = DefaultIterableDifferFactory;
+exports.ɵk = DefaultKeyValueDifferFactory;
+exports.ɵc = ReflectiveInjector_;
+exports.ɵd = ReflectiveDependency;
+exports.ɵf = resolveReflectiveProviders;
+exports.ɵo = wtfEnabled;
+exports.ɵr = createScope;
+exports.ɵq = detectWTF;
+exports.ɵx = endTimeRange;
+exports.ɵu = leave;
+exports.ɵw = startTimeRange;
+exports.ɵba = stringify$1;
 exports.ɵa = makeParamDecorator;
-exports.ɵz = _def;
-exports.ɵba = DebugContext;
+exports.ɵy = _def;
+exports.ɵz = DebugContext;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
@@ -28732,7 +29050,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"rxjs/Observable":95,"rxjs/Subject":99,"rxjs/observable/merge":133,"rxjs/operator/share":152}],88:[function(require,module,exports){
 /**
- * @license Angular v5.2.0
+ * @license Angular v6.0.0-beta.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -28777,7 +29095,7 @@ var __assign = Object.assign || function __assign(t) {
 };
 
 /**
- * @license Angular v5.2.0
+ * @license Angular v6.0.0-beta.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -29429,7 +29747,12 @@ var Validators = /** @class */ (function () {
         var /** @type {?} */ regex;
         var /** @type {?} */ regexStr;
         if (typeof pattern === 'string') {
-            regexStr = "^" + pattern + "$";
+            regexStr = '';
+            if (pattern.charAt(0) !== '^')
+                regexStr += '^';
+            regexStr += pattern;
+            if (pattern.charAt(pattern.length - 1) !== '$')
+                regexStr += '$';
             regex = new RegExp(regexStr);
         }
         else {
@@ -36762,7 +37085,7 @@ var FormBuilder = /** @class */ (function () {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.2.0');
+var VERSION = new _angular_core.Version('6.0.0-beta.0');
 
 /**
  * @fileoverview added by tsickle
@@ -36979,7 +37302,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 },{"@angular/core":87,"@angular/platform-browser":90,"rxjs/observable/forkJoin":129,"rxjs/observable/fromPromise":132,"rxjs/operator/map":146}],89:[function(require,module,exports){
 /**
- * @license Angular v5.2.0
+ * @license Angular v6.0.0-beta.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -37016,7 +37339,7 @@ function __extends(d, b) {
 }
 
 /**
- * @license Angular v5.2.0
+ * @license Angular v6.0.0-beta.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -39731,7 +40054,7 @@ var JsonpModule = /** @class */ (function () {
 /**
  * @deprecated use \@angular/common/http instead
  */
-var VERSION = new _angular_core.Version('5.2.0');
+var VERSION = new _angular_core.Version('6.0.0-beta.0');
 
 exports.BrowserXhr = BrowserXhr;
 exports.JSONPBackend = JSONPBackend;
@@ -39773,7 +40096,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 },{"@angular/core":87,"@angular/platform-browser":90,"rxjs/Observable":95}],90:[function(require,module,exports){
 /**
- * @license Angular v5.2.0
+ * @license Angular v6.0.0-beta.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -39818,7 +40141,7 @@ var __assign = Object.assign || function __assign(t) {
 };
 
 /**
- * @license Angular v5.2.0
+ * @license Angular v6.0.0-beta.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -45006,7 +45329,7 @@ var By = /** @class */ (function () {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.2.0');
+var VERSION = new _angular_core.Version('6.0.0-beta.0');
 
 exports.BrowserModule = BrowserModule;
 exports.platformBrowser = platformBrowser;
@@ -45064,7 +45387,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 },{"@angular/common":86,"@angular/core":87}],91:[function(require,module,exports){
 /**
- * @license Angular v5.2.0
+ * @license Angular v6.0.0-beta.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -45109,7 +45432,7 @@ var __assign = Object.assign || function __assign(t) {
 };
 
 /**
- * @license Angular v5.2.0
+ * @license Angular v6.0.0-beta.0
  * (c) 2010-2018 Google, Inc. https://angular.io/
  * License: MIT
  */
@@ -52491,7 +52814,7 @@ function provideRouterInitializer() {
 /**
  * \@stable
  */
-var VERSION = new _angular_core.Version('5.2.0');
+var VERSION = new _angular_core.Version('6.0.0-beta.0');
 
 exports.RouterLink = RouterLink;
 exports.RouterLinkWithHref = RouterLinkWithHref;
