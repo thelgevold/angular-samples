@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Insertion} from '../../algorithms/insertion-sort';
+import {Insertion} from '../algorithms/insertion-sort';
 
 @Component({
     selector: 'insertion-sort',

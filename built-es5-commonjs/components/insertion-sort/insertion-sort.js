@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var insertion_sort_1 = require("../../algorithms/insertion-sort");
+var insertion_sort_1 = require("../algorithms/insertion-sort");
 var InsertionSort = (function () {
     function InsertionSort() {
         this.list = new ValList();
