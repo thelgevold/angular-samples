@@ -14,7 +14,6 @@ class ResolveFESM2015 {
 export default {
   input: 'built-es6/app/main.js',
   output: {file: 'dist/bundle-rollup-es6.js', format: 'iife'},
-  sourceMap: false,
   plugins: [
     new ResolveFESM2015(),
     commonjs({

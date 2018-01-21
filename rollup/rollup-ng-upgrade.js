@@ -5,8 +5,6 @@ import uglify      from 'rollup-plugin-uglify';
 export default {
   input: 'built-upgrade/upgrade.js',
   output: {file: './dist/upgrade-build.js', format: 'iife'},
-  sourceMap: true,
-  sourceMapFile: './dist/upgrade-build.js.map',
   plugins: [
       nodeResolve({jsnext: true, module: true}),
       commonjs({

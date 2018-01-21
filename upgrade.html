@@ -6,38 +6,13 @@
 
     <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-
-    <script src="https://code.angularjs.org/1.4.7/angular.min.js"></script>
+    
+    <script src="node_modules/angular/angular.min.js"></script>
 
     <script>
         angular.module('angular-legacy',[]);
 
-        angular.module('angular-legacy').controller('testController', function(messageService){
-            this.message = 'NgUpgrade';
-            this.newMessage = '';
-
-            this.sendMessage = function() {
-              messageService.sendMessage('Hello new Angular! This is Old Angular', 'old');
-            };
-            var vm = this;
-            messageService.getMessages()
-                          .filter(function(data) {
-                             return data.key === 'new';    
-                          })
-                          .subscribe(function(data) {
-                             vm.newMessage = data.message;    
-                          });
-            
-            this.operands = {op1:10,op2:20};
-
-            this.value = {current:100, previous:null};
-
-            this.increment = function(){
-              this.operands.op1 += 1;
-              this.operands.op2 += 1;
-            };
-        });
+        angular.module('angular-legacy').controller('testController', function(){});
     </script>
 </head>
 
@@ -66,16 +41,6 @@
             <algorithms></algorithms>
 
             <survey></survey>
-
-            <h1>Pub Sub Messages</h1>
-
-            <div>{{testController.newMessage}}</div>
-            
-            <message></message>
-
-            <button ng-click="testController.sendMessage()">Send Message From Old Angular</button>
-
-            <br></br>
 
         </div>
     </div>

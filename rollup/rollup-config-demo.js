@@ -7,7 +7,6 @@ import {ResolveESM} from './resolve-esm';
 export default {
     input: 'built-es5/app/main.js',
     output: {file: 'dist/bundle-rollup.js', format: 'iife'},
-    sourceMap: false,
     plugins: [
       new ResolveESM(),
       resolve({jsnext: true, module: true}),
