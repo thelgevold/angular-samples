@@ -12,8 +12,8 @@
     "outDir": "built-upgrade"
   },
   "files": [
-    "./upgrade-module.ts",
-    "./upgrade.ts"
+    "./ng-upgrade/upgrade-module.ts",
+    "./ng-upgrade/upgrade.ts"
   ],
    "angularCompilerOptions": {
      "preserveWhitespaces": false
