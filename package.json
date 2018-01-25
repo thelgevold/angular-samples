@@ -63,7 +63,7 @@
     "rxjs": "5.5.6",
     "systemjs": "0.20.19",
     "zone.js": "0.8.6",
-    "jquery": "~2.1.4",
+    "jquery": "3.3.1",
     "jquery-ui-dist": "1.12.1",
     "react": "~0.13.3",
     "underscore": "~1.8.3"
