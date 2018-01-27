@@ -17,7 +17,7 @@ export class FriendsService{
   
   getFriends(){
     if(!this._friends){
-      this._friends = this._http.get('./components/rxjs-caching/friends.json')
+      this._friends = this._http.get('/api/friends.json')
                           .map((res:Response) => res.json().friends)
                           .do(friends => console.log('fetched friends'))
                           .publishReplay(1)

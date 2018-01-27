@@ -2,21 +2,21 @@ import { Routes, RouterModule }   from '@angular/router';
 
 import {DemoComponent} from './demo.component';
 
-import {TreeViewDemo} from '../components/tree-view/tree-view-demo';
-import {ContactList} from '../components/contact-list/contact-list';
-import {Directory} from '../components/tree-view/directory';
-import {Spreadsheet} from '../components/spreadsheet/spreadsheet';
-import {Algorithms} from '../components/algorithms/algorithms';
-import {InputControls} from '../components/input-controls/input-controls';
-import {Graph} from '../components/algorithms/graph/graph';
-import {PubSub} from '../components/pub-sub/pub-sub';
-import {TextEditor} from '../components/text-editor/text-editor';
-import {SurveyDemo} from '../components/survey/survey-demo';
-import {LogDemo} from '../components/log-tail/log-demo';
-import {InputOutputDemo} from '../components/input-output/input-output-demo';
-import {RxJsStreams} from '../components/rxjs-streams/rxjs-streams';
-import {RxJsBuffering} from '../components/rxjs-buffering/rxjs-buffering';
-import {CountryDemo} from '../components/lazy-loaded-tree-view/country-demo';
+import {TreeViewDemo} from '../src/components/tree-view/tree-view-demo';
+import {ContactList} from '../src/components/contact-list/contact-list';
+import {Directory} from '../src/components/tree-view/directory';
+import {Spreadsheet} from '../src/components/spreadsheet/spreadsheet';
+import {Algorithms} from '../src/components/algorithms/algorithms';
+import {InputControls} from '../src/components/input-controls/input-controls';
+import {Graph} from '../src/components/algorithms/graph/graph';
+import {PubSub} from '../src/components/pub-sub/pub-sub';
+import {TextEditor} from '../src/components/text-editor/text-editor';
+import {SurveyDemo} from '../src/components/survey/survey-demo';
+import {LogDemo} from '../src/components/log-tail/log-demo';
+import {InputOutputDemo} from '../src/components/input-output/input-output-demo';
+import {RxJsStreams} from '../src/components/rxjs-streams/rxjs-streams';
+import {RxJsBuffering} from '../src/components/rxjs-buffering/rxjs-buffering';
+import {CountryDemo} from '../src/components/lazy-loaded-tree-view/country-demo';
 
 const routes: Routes = [
   {

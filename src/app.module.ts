@@ -27,7 +27,6 @@ import {Child} from './components/access-child-components/child';
 
 
 import {DemoPage} from './demo-page';
-import {About} from './components/about/about';
 import {TreeViewDemo} from './components/tree-view/tree-view-demo';
 import {ContactList} from './components/contact-list/contact-list';
 import {BoundTextbox} from './components/bound-textbox/bound-textbox';
@@ -57,10 +56,12 @@ import {CachingDemo} from './components/rxjs-caching/caching-demo';
 import {RxJsBuffering} from './components/rxjs-buffering/rxjs-buffering';
 import {CarsComponent} from './components/rxjs-error-handling/cars.component';
 
+import {AboutModule} from './components/about/about.module';
+
 @NgModule({
-  imports: [ BrowserModule, ReactiveFormsModule, routing, FormsModule, HttpModule ],
+  imports: [ BrowserModule, ReactiveFormsModule, routing, FormsModule, HttpModule, AboutModule ],
   declarations: [ AppComponent, FriendsList, Producer, Consumer,
-    TreeView, LazyTreeView, Survey, About, DemoPage, InputOutput,
+    TreeView, LazyTreeView, Survey, DemoPage, InputOutput,
     Spreadsheet, JqueryIntegration, Angular2Host, Algorithms, Graph, PubSub,
     Grid, CommentSection1, CommentSection2, Edge, Vertex, InsertionSort, Child,
     TextEditor, AddressBook, HttpSample, TreeViewDemo, GridDemo, InputControls,

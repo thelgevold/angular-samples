@@ -3,7 +3,7 @@ import commonjs    from 'rollup-plugin-commonjs';
 import uglify      from 'rollup-plugin-uglify';
 
 export default {
-  input: 'built-upgrade/upgrade.js',
+  input: 'built-upgrade/src/ng-upgrade/upgrade.js',
   output: {file: './dist/upgrade-build.js', format: 'iife'},
   plugins: [
       nodeResolve({jsnext: true, module: true}),

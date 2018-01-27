@@ -25,7 +25,7 @@ class RollupRemoveDecorators {
 const removeDecorators = (config) => new RollupRemoveDecorators(config);
 
 export default {
-    input: 'built/main.js',
+    input: 'built/src/main.js',
     output: {file: 'dist/bundle.js', format: 'iife'},
     plugins: [
       commonjs({

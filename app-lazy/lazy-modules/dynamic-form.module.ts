@@ -3,8 +3,8 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 
-import {SurveyDemo} from '../../components/survey/survey-demo';
-import {Survey} from '../../components/survey/survey';
+import {SurveyDemo} from '../../src/components/survey/survey-demo';
+import {Survey} from '../../src/components/survey/survey';
 
 @NgModule({
   declarations: [SurveyDemo, Survey],

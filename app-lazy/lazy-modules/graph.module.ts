@@ -2,9 +2,9 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 
-import {Graph} from '../../components/algorithms/graph/graph';
-import {Edge} from '../../components/algorithms/graph/edge';
-import {Vertex} from '../../components/algorithms/graph/vertex';
+import {Graph} from '../../src/components/algorithms/graph/graph';
+import {Edge} from '../../src/components/algorithms/graph/edge';
+import {Vertex} from '../../src/components/algorithms/graph/vertex';
 
 import 'rxjs/add/operator/map';
 

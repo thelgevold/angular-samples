@@ -1,7 +1,7 @@
 import { Routes, RouterModule }   from '@angular/router';
 
 import {DemoPage} from './demo-page';
-import {About} from './components/about/about';
+import {AboutComponent} from './components/about/about.component';
 
 import {TreeViewDemo} from './components/tree-view/tree-view-demo';
 import {ContactList} from './components/contact-list/contact-list';
@@ -38,7 +38,7 @@ const routes: Routes = [
     redirectTo: '/about',
     pathMatch: 'full'
   },
-  { path: 'about', component: About},
+  { path: 'about', component: AboutComponent},
   {
     path: 'demo',
     component: DemoPage,

@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 
-import {Algorithms} from '../../components/algorithms/algorithms';
-import {InsertionSort} from '../../components/insertion-sort/insertion-sort';
+import {Algorithms} from '../../src/components/algorithms/algorithms';
+import {InsertionSort} from '../../src/components/insertion-sort/insertion-sort';
 
 @NgModule({
   declarations: [Algorithms, InsertionSort],

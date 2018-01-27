@@ -2,20 +2,20 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var router_1 = require("@angular/router");
 var demo_component_1 = require("./demo.component");
-var tree_view_demo_1 = require("../components/tree-view/tree-view-demo");
-var contact_list_1 = require("../components/contact-list/contact-list");
-var spreadsheet_1 = require("../components/spreadsheet/spreadsheet");
-var algorithms_1 = require("../components/algorithms/algorithms");
-var input_controls_1 = require("../components/input-controls/input-controls");
-var graph_1 = require("../components/algorithms/graph/graph");
-var pub_sub_1 = require("../components/pub-sub/pub-sub");
-var text_editor_1 = require("../components/text-editor/text-editor");
-var survey_demo_1 = require("../components/survey/survey-demo");
-var log_demo_1 = require("../components/log-tail/log-demo");
-var input_output_demo_1 = require("../components/input-output/input-output-demo");
-var rxjs_streams_1 = require("../components/rxjs-streams/rxjs-streams");
-var rxjs_buffering_1 = require("../components/rxjs-buffering/rxjs-buffering");
-var country_demo_1 = require("../components/lazy-loaded-tree-view/country-demo");
+var tree_view_demo_1 = require("../src/components/tree-view/tree-view-demo");
+var contact_list_1 = require("../src/components/contact-list/contact-list");
+var spreadsheet_1 = require("../src/components/spreadsheet/spreadsheet");
+var algorithms_1 = require("../src/components/algorithms/algorithms");
+var input_controls_1 = require("../src/components/input-controls/input-controls");
+var graph_1 = require("../src/components/algorithms/graph/graph");
+var pub_sub_1 = require("../src/components/pub-sub/pub-sub");
+var text_editor_1 = require("../src/components/text-editor/text-editor");
+var survey_demo_1 = require("../src/components/survey/survey-demo");
+var log_demo_1 = require("../src/components/log-tail/log-demo");
+var input_output_demo_1 = require("../src/components/input-output/input-output-demo");
+var rxjs_streams_1 = require("../src/components/rxjs-streams/rxjs-streams");
+var rxjs_buffering_1 = require("../src/components/rxjs-buffering/rxjs-buffering");
+var country_demo_1 = require("../src/components/lazy-loaded-tree-view/country-demo");
 var routes = [
     {
         path: '',
