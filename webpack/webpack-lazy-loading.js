@@ -5,7 +5,7 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.js']
   },
-  entry: './app-lazy/main.ts',
+  entry: './src/apps/lazy-loading-app/main.ts',
   output: {
     filename: 'dist/bundle-webpack-lazy-loading.js'
   },
@@ -13,8 +13,8 @@ module.exports = {
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
     new ngToolsWebpack.AngularCompilerPlugin({
-      tsConfigPath: './tsconfig-webpack.json',
-      "entryModule": "app-lazy/app.module#AppModule"
+      tsConfigPath: './src/tsconfig-webpack.json',
+      "entryModule": "src/apps/lazy-loading-app/app.module#AppModule"
     }),
 		new webpack.LoaderOptionsPlugin({
 			minimize: true,

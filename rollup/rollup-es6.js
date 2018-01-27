@@ -12,7 +12,7 @@ class ResolveFESM2015 {
 }
 
 export default {
-  input: 'built-es6/app/main.js',
+  input: 'built-es6/src/apps/bundler-comparison-app/main.js',
   output: {file: 'dist/bundle-rollup-es6.js', format: 'iife'},
   plugins: [
     new ResolveFESM2015(),

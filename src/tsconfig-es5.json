@@ -10,14 +10,12 @@
     "outDir": "../built-es5"
   },
   "files": [
-    "./app/app.module.ts",
-    "./app/main.ts"
+    "apps/bundler-comparison-app/app.module.ts",
+    "apps/bundler-comparison-app/main.ts"
   ],
 
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
-    "annotationsAs": "static fields",
-    "genDir": "app/aot",
     "preserveWhitespaces": false
   }
 }
