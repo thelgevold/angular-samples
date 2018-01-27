@@ -16,7 +16,7 @@ var LogTailService = (function () {
         this.http = http;
     }
     LogTailService.prototype.getLogEntries = function () {
-        return this.http.get('./components/log-tail/log.json').map(function (res) { return res.json(); });
+        return this.http.get('/api/log.json').map(function (res) { return res.json(); });
     };
     LogTailService = __decorate([
         core_1.Injectable(),

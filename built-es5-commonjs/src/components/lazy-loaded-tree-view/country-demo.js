@@ -15,7 +15,7 @@ var CountryDemo = (function () {
         this.node = null;
     }
     CountryDemo.prototype.ngOnInit = function () {
-        this.node = new tree_node_1.TreeNode('root', './tree-view-data/countries.json', '');
+        this.node = new tree_node_1.TreeNode('root', '/api/tree-view-data/countries.json', '');
     };
     CountryDemo = __decorate([
         core_1.Component({
