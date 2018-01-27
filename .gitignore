@@ -5,6 +5,7 @@ built-upgrade
 built-es5
 built-es5-lazy
 built-es5-commonjs-aot
+built-es5-commonjs
 built-es6
 .vscode
 aot
