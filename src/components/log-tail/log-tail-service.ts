@@ -11,6 +11,6 @@ export class LogTailService{
     }
 
     getLogEntries(){
-        return this.http.get('./components/log-tail/log.json').map((res: Response) => res.json());
+        return this.http.get('/api/log.json').map((res: Response) => res.json());
     }
 }

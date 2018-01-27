@@ -39,7 +39,7 @@ export class HttpSample {
 
     getCapitol(){
 
-        this.country.switchMap((country) => this.http.get('./country-info/' + country + '.json'))
+        this.country.switchMap((country) => this.http.get('/api/country-info/' + country + '.json'))
                     .map((res: Response) => res.json())
                     .subscribe(res => this.capitol = res.capitol);
     }
@@ -50,7 +50,7 @@ export class HttpSample {
 
     loadFriendsAsPromise(){
         this.friendsAsPromise = {};
-        this.http.get('./friends.json').toPromise()
+        this.http.get('/api/friends.json').toPromise()
         .then((res: Response) => {
             this.friendsAsPromise.friends = res.json().friends;
         });
@@ -59,18 +59,18 @@ export class HttpSample {
     loadFriendsAndCustomers(){
         this.combined = {friends:[],customer:{}};
         Observable.forkJoin(
-            this.http.get('./friends.json').map((res: Response) => res.json()),
-            this.http.get('./customer.json').map((res: Response) => res.json())
+            this.http.get('/api/friends.json').map((res: Response) => res.json()),
+            this.http.get('/api/customer.json').map((res: Response) => res.json())
         ).subscribe(res => this.combined = {friends:res[0].friends, customer:res[1]});
     }
 
     loadFriendsSuccessFully(){
         this.result = {friends:[]};
-        this.http.get('./friends.json').map((res: Response) => res.json()).subscribe(res => this.result = res);
+        this.http.get('/api/friends.json').map((res: Response) => res.json()).subscribe(res => this.result = res);
     }
 
     loadContractByCustomer(){
-        this.http.get('./customer.json').map((res: Response) => {
+        this.http.get('/api/customer.json').map((res: Response) => {
                this.customer = res.json();
                return this.customer;
             })
@@ -80,7 +80,7 @@ export class HttpSample {
 
     loadFriendsWithError(){
         this.result = {friends:[]};
-        this.http.get('./friends2.json').map((res: Response) => res.json()).subscribe(
+        this.http.get('/api/friends2.json').map((res: Response) => res.json()).subscribe(
                 res => this.result = res,
                 error => this.error = error);
 
