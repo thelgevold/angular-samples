@@ -1,6 +1,6 @@
 import { Routes, RouterModule }   from '@angular/router';
 
-import {DemoPage} from './demo-page';
+import {DemoPage} from '../shared-components/demo-page';
 import {AboutComponent} from '../shared-components/about/about.component';
 
 import {TreeViewDemo} from '../shared-components/tree-view/tree-view-demo';

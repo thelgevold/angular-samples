@@ -26,7 +26,7 @@ import {InsertionSort} from '../shared-components/insertion-sort/insertion-sort'
 import {Child} from '../shared-components/access-child-components/child';
 
 
-import {DemoPage} from './demo-page';
+import {DemoPage} from '../shared-components/demo-page';
 import {TreeViewDemo} from '../shared-components/tree-view/tree-view-demo';
 import {ContactList} from '../shared-components/contact-list/contact-list';
 import {BoundTextbox} from '../shared-components/bound-textbox/bound-textbox';

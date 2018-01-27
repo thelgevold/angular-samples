@@ -5,10 +5,8 @@
     },
     defaultExtension: 'js',
     map: {
-      'app': 'built-es5-commonjs/app',
-      'demo-page': 'built-es5-commonjs',
-      'components': 'built-es5-commonjs/components',
-      'algorithms': 'built-es5-commonjs/algorithms',
+      'app': 'built-es5-commonjs/bundler-comparison-app',
+      'shared-components': 'built-es5-commonjs/shared-components',
      
       '@angular/animations': 'npm:@angular/animations/bundles/animations.umd.js',
       '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
@@ -36,15 +34,8 @@
       rxjs: {
         defaultExtension: 'js'
       },
-      components: {
+      'shared-components': {
         defaultExtension: 'js'
-      },
-      algorithms: {
-        defaultExtension: 'js'
-      },
-      'demo-page': {
-        main: './demo-page.js',
-        defaultExtension: 'js',
       }
     }
   });
