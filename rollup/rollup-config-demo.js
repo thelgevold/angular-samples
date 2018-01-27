@@ -5,7 +5,7 @@ import uglify      from 'rollup-plugin-uglify';
 import {ResolveESM} from './resolve-esm';
 
 export default {
-    input: 'built-es5/app/main.js',
+    input: 'built-es5/src/apps/bundler-comparison-app/main.js',
     output: {file: 'dist/bundle-rollup.js', format: 'iife'},
     plugins: [
       new ResolveESM(),

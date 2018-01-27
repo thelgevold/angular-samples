@@ -7,7 +7,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noImplicitAny": false,
-    "outDir": "built-es5-commonjs"
+    "outDir": "../built-es5-commonjs"
   },
   "files": [
     "./app/main-jit.ts"

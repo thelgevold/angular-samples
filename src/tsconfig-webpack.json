@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     "allowUnreachableCode": false,
     "noImplicitAny": false,
-    "outDir": "built-es5"
+    "outDir": "../built-es5"
   },
    "files": [
       "app-lazy/main.ts",

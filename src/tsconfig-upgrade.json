@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     "allowUnreachableCode": false,
     "noImplicitAny": false,
-    "outDir": "built-upgrade"
+    "outDir": "../built-upgrade"
   },
   "files": [
     "./apps/ng-upgrade-app/upgrade-module.ts",

@@ -7,9 +7,9 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noImplicitAny": false,
-    "outDir": "built-es5-commonjs-aot"
+    "outDir": "../built-es5-commonjs-aot"
   },
   "files": [
-    "./app/main.ts"
+    "./apps/bundler-comparison-app/main.ts"
   ]
 }
