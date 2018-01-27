@@ -3,9 +3,9 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 
-import {PubSub} from '../../src/components/pub-sub/pub-sub';
-import {Producer} from '../../src/components/pub-sub/producer';
-import {Consumer} from '../../src/components/pub-sub/consumer';
+import {PubSub} from '../../shared-components/pub-sub/pub-sub';
+import {Producer} from '../../shared-components/pub-sub/producer';
+import {Consumer} from '../../shared-components/pub-sub/consumer';
 
 @NgModule({
   declarations: [PubSub, Producer, Consumer],

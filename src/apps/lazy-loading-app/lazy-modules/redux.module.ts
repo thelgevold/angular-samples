@@ -4,7 +4,7 @@ import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 
-import {LogDemo} from '../../src/components/log-tail/log-demo';
+import {LogDemo} from '../../shared-components/log-tail/log-demo';
 
 import 'rxjs/add/operator/map';
 

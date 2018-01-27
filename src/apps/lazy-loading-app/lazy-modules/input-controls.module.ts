@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 
-import {InputControls} from '../../src/components/input-controls/input-controls';
+import {InputControls} from '../../shared-components/input-controls/input-controls';
 
 
 @NgModule({

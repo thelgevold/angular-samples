@@ -13,8 +13,8 @@
     "outDir": "built"
   },
   "files": [
-    "src/app.module.ts",
-    "src/main.ts"
+    "apps/main-demo-app/app.module.ts",
+    "apps/main-demo-app/main.ts"
   ],
 
   "angularCompilerOptions": {
