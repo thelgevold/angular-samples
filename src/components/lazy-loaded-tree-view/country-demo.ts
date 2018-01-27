@@ -14,6 +14,6 @@ export class CountryDemo{
   node:TreeNode = null;
 
   ngOnInit(){
-    this.node = new TreeNode('root','./tree-view-data/countries.json', '');
+    this.node = new TreeNode('root','/api/tree-view-data/countries.json', '');
   }
 }

@@ -11,7 +11,7 @@ export class AddressBookService {
     }
 
     getEntries(){
-        return this.http.get('./people.json').map((res: Response) => res.json());
+        return this.http.get('/api/people.json').map((res: Response) => res.json());
     }
 
 }

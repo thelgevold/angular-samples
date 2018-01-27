@@ -1,6 +1,6 @@
 {
   "nodes":[
-    {"name":"Brooklyn","key":"brooklyn", "url":"./tree-view-data/brooklyn.json"},
+    {"name":"Brooklyn","key":"brooklyn", "url":"/api/tree-view-data/brooklyn.json"},
     {"name":"Manhattan","key":"manhattan"},
     {"name":"Bronx","key":"bronx"},
     {"name":"Queens","key":"queens"},

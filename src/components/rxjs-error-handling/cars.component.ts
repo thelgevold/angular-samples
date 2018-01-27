@@ -38,8 +38,8 @@ import 'rxjs/add/operator/distinctUntilChanged';
 export class CarsComponent {
 
   name:string;
-  cars = [{name: 'Lamborghini', url: './components/rxjs-error-handling/lamborghini.json'},
-          {name: 'Ferrari', url: 'ferrari.json'}];
+  cars = [{name: 'Lamborghini', url: '/api/lamborghini.json'},
+          {name: 'Ferrari', url: '/api/ferrari.json'}];
   models = [];
   error = false;
   loading;
