@@ -2,8 +2,8 @@
   "name": "angular2-poc",
   "scripts": {
     "serve": "ibazel run //src:devserver",
-    "aot-i18n-en": "ngc -p i18n/tsconfig.json && rollup -c i18n/rollup-config.js -o i18n/dist/build-en.js",
-    "aot-i18n-no": "ngc --i18nFile=./i18n/locale/messages.no.xlf --locale=no --i18nFormat=xlf -p i18n/tsconfig.json && rollup -c i18n/rollup-config.js -o i18n/dist/build-no.js",
+    "aot-i18n-en": "ngc -p src/tsconfig-i18n.json && rollup -c rollup/rollup-config-i18n.js -o dist/build-en.js",
+    "aot-i18n-no": "ngc --i18nFile=./src/apps/i18n-demo-app/locale/messages.no.xlf --locale=no --i18nFormat=xlf -p src/tsconfig-i18n.json && rollup -c rollup/rollup-config-i18n.js -o dist/build-no.js",
     "generate-i18n-xlf": "ng-xi18n -p i18n/tsconfig.json",
     "lite": "lite-server",
     "start": "npm run lite",
@@ -20,7 +20,7 @@
     "webpack-lazy-loading": "webpack --config webpack/webpack-lazy-loading.js --progress",
     "webpack-no-angular-optimizations": "ngc -p src/tsconfig-es5.json && webpack --config webpack/webpack-no-angular-optimizations.js --progress",
     "webpack-babili": "ngc -p src/tsconfig-es6.json && webpack --config webpack/webpack-babili.js --progress",
-    "build-all": "npm run rollup-lazy && npm run browserify-demo && npm run parcel-demo && npm run webpack-babili && npm run webpack-lazy-loading && npm run webpack-no-lazy-loading && npm run systemjs-builder-demo && npm run build-demo-app && npm run closure-compiler-demo && npm run rollup-demo && npm run rollup-es6"
+    "build-all": "npm run aot-i18n-en && npm run aot-i18n-no && npm run rollup-lazy && npm run browserify-demo && npm run parcel-demo && npm run webpack-babili && npm run webpack-lazy-loading && npm run webpack-no-lazy-loading && npm run systemjs-builder-demo && npm run build-demo-app && npm run closure-compiler-demo && npm run rollup-demo && npm run rollup-es6"
   },
   "devDependencies": {
     "@angular-devkit/build-optimizer": "0.0.36",

@@ -8,16 +8,15 @@
     "experimentalDecorators": true,
     "lib": ["es2015", "dom"],
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
+    "suppressImplicitAnyIndexErrors": true,
+    "outDir": "../built-i18n-es5"
   },
 
   "files": [
-    "./app.module.ts",
-    "./main-aot.ts"
+    "apps/i18n-demo-app/main-aot.ts"
   ],
 
   "angularCompilerOptions": {
-    "genDir": "./aot",
     "skipMetadataEmit" : true
   }
 }

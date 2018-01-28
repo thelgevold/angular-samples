@@ -22,7 +22,7 @@
       var params = new URLSearchParams(location.search.slice(1));
       var language = params.get('language') || 'en';
       var script = document.createElement('script');
-      script.setAttribute('src','i18n/dist/build-' + language + '.js');
+      script.setAttribute('src','dist/build-' + language + '.js');
       document.head.appendChild(script);
     </script>
 </body>
