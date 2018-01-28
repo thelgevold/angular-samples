@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../shared.module';
 
-import {AddressForm} from './address-form';
+import {Spreadsheet} from './spreadsheet';
 
 @NgModule({
   imports: [SharedModule],
-  declarations: [AddressForm]
+  declarations: [Spreadsheet]    
 })
-export class AddressFormModule {}
+export class SpreadsheetModule {}

@@ -5,7 +5,7 @@ import {LogAction} from './log-action';
 import {LogEntry} from './log-entry';
 import {logReducer} from './log-reducer';
 
-export class Store{
+export class Store {
 
     private dispatcher = new Subject<LogAction>();
     private log = new Subject<Array<LogEntry>>();

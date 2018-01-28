@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Column} from './column';
 
 @Component({
-    template:'<grid name="person grid" [rows]="people" [columns]="columns"></grid>'
+  template:'<grid name="person grid" [rows]="people" [columns]="columns"></grid>'
 })
 
 export class GridDemo {
@@ -11,9 +11,8 @@ export class GridDemo {
     columns: Array<Column>;
 
     constructor() {
-
-        this.people = this.getPeople();
-        this.columns = this.getColumns();
+      this.people = this.getPeople();
+      this.columns = this.getColumns();
     }
 
     getPeople(): Array<Person> {

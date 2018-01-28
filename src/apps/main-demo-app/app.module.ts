@@ -1,71 +1,48 @@
-import { BrowserModule }                from '@angular/platform-browser';
-import { NgModule }                     from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppComponent }                 from './app.component';
-import { routing }                       from './app.routes';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-
-import {AddressBookTitleService}        from '../shared-components/dependency-injection/address-book-title-service';
-
-import {TreeView} from '../shared-components/tree-view/tree-view';
-import {LazyTreeView} from '../shared-components/lazy-loaded-tree-view/tree-view';
-import {Survey} from '../shared-components/survey/survey';
-import {FriendsList} from '../shared-components/rxjs-caching/friends-list';
-import {Producer} from '../shared-components/pub-sub/producer';
-import {Consumer} from '../shared-components/pub-sub/consumer';
-import {InputOutput} from '../shared-components/input-output/input-output';
-import {Grid} from '../shared-components/grid/grid';
-import {CommentSection1} from '../shared-components/change-detection/comment-section-1';
-import {CommentSection2} from '../shared-components/change-detection/comment-section-2';
-import {Child} from '../shared-components/access-child-components/child';
-
+import {AppComponent} from './app.component';
 import {DemoPage} from '../shared-components/demo-page';
-import {TreeViewDemo} from '../shared-components/tree-view/tree-view-demo';
-import {ContactList} from '../shared-components/contact-list/contact-list';
-import {BoundTextbox} from '../shared-components/bound-textbox/bound-textbox';
-import {Directory} from '../shared-components/tree-view/directory';
-import {GridDemo} from '../shared-components/grid/grid-demo';
-import {Column} from '../shared-components/grid/column';
-import {IgnoreBindings} from '../shared-components/non-bindable/non-bindable';
-import {HttpSample} from '../shared-components/http/http';
-import {Spreadsheet} from '../shared-components/spreadsheet/spreadsheet';
-import {Angular2Host} from '../shared-components/react-integration/angular-2-host';
-import {JqueryIntegration} from '../shared-components/jquery-integration/jquery-integration';
-import {InputControls} from '../shared-components/input-controls/input-controls';
-import {AddressBook} from '../shared-components/dependency-injection/address-book';
-import {AddressForm} from '../shared-components/address-form/address-form';
-import {PubSub} from '../shared-components/pub-sub/pub-sub';
-import {TextEditor} from '../shared-components/text-editor/text-editor';
-import {CommentDemo} from '../shared-components/change-detection/comment-demo';
-import {Parent} from '../shared-components/access-child-components/parent';
-import {SurveyDemo} from '../shared-components/survey/survey-demo';
-import {LogDemo} from '../shared-components/log-tail/log-demo';
-import {InputOutputDemo} from '../shared-components/input-output/input-output-demo';
-import {CountryDemo} from '../shared-components/lazy-loaded-tree-view/country-demo';
-import {RxJsStreams} from '../shared-components/rxjs-streams/rxjs-streams';
-import {CachingDemo} from '../shared-components/rxjs-caching/caching-demo';
-import {RxJsBuffering} from '../shared-components/rxjs-buffering/rxjs-buffering';
-import {CarsComponent} from '../shared-components/rxjs-error-handling/cars.component';
 
-import {SharedModule} from '../shared-components/shared.module';
+import {routing} from './app.routes';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+
 import {AboutModule} from '../shared-components/about/about.module';
 import {AlgorithmsModule} from '../shared-components/algorithms/algorithms.module';
+import {BoundTextboxModule} from '../shared-components/bound-textbox/bound-textbox.module';
+import {ChangeDetectionModule} from '../shared-components/change-detection/change-detection.module';
+import {AccessChildModule} from '../shared-components/access-child-components/access-child.module';
+import {ContactListModule} from '../shared-components/contact-list/contact-list.module';
+import {AddressBookModule} from '../shared-components/dependency-injection/address-book.module';
+import {GridModule} from '../shared-components/grid/grid.module';
+import {HttpSampleModule} from '../shared-components/http/http.sample.module';
+import {InputControlsModule} from '../shared-components/input-controls/input-controls.module';
+import {InputOutputModule} from '../shared-components/input-output/input-output.module';
+import {JQueryIntegrationModule} from '../shared-components/jquery-integration/jquery-integration.module';
+import {LazyLoadedTreeViewModule} from '../shared-components/lazy-loaded-tree-view/lazy-loaded-tree-view.module';
+import {LogTailModule} from '../shared-components/log-tail/log-tail.module';
+import {PubSubModule} from '../shared-components/pub-sub/pub-sub.module';
+import {ReactIntegrationModule} from '../shared-components/react-integration/react-integration.module';
+import {TreeViewModule} from '../shared-components/tree-view/tree-view.module';
+import {TextEditorModule} from '../shared-components/text-editor/text-editor.module';
+import {SurveyModule} from '../shared-components/survey/survey.module';
+import {SpreadsheetModule} from '../shared-components/spreadsheet/spreadsheet.module';
+import {RxJsStreamsModule} from '../shared-components/rxjs-streams/rxjs-streams.module';
+import {AddressFormModule} from '../shared-components/address-form/address-form.module';
+import {RxJsErrorHandlingModule} from '../shared-components/rxjs-error-handling/rxjs-error-handling.module';
+import {RxJsCachingModule} from '../shared-components/rxjs-caching/rxjs-caching.module';
+import {RxJsBufferingModule} from '../shared-components/rxjs-buffering/rxjs-buffering.module';
 
 @NgModule({
-  imports: [ BrowserModule, SharedModule, routing, AboutModule, AlgorithmsModule ],
-  declarations: [ AppComponent, FriendsList, Producer, Consumer,
-    TreeView, LazyTreeView, Survey, DemoPage, InputOutput,
-    Spreadsheet, JqueryIntegration, Angular2Host, PubSub,
-    Grid, CommentSection1, CommentSection2, Child,
-    TextEditor, AddressBook, HttpSample, TreeViewDemo, GridDemo, InputControls,
-    ContactList, BoundTextbox, IgnoreBindings, AddressForm, CommentDemo, Parent, CarsComponent,
-    SurveyDemo, LogDemo, InputOutputDemo, RxJsStreams, CachingDemo, RxJsBuffering, CountryDemo
+  imports: [BrowserModule, routing, AboutModule, AlgorithmsModule, BoundTextboxModule,
+            ChangeDetectionModule, AccessChildModule, ContactListModule, AddressBookModule, GridModule,
+            HttpSampleModule, InputControlsModule, InputOutputModule, JQueryIntegrationModule,
+            LazyLoadedTreeViewModule, LogTailModule, PubSubModule, ReactIntegrationModule, TreeViewModule,
+            TextEditorModule, SurveyModule, SpreadsheetModule, RxJsStreamsModule, AddressFormModule,
+            RxJsErrorHandlingModule, RxJsCachingModule, RxJsBufferingModule
   ],
-  providers: [
-    AddressBookTitleService,
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
-  ],
-  bootstrap: [ AppComponent ]
+  declarations: [AppComponent, DemoPage],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

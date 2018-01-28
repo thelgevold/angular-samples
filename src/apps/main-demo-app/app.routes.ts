@@ -9,11 +9,10 @@ import {BoundTextbox} from '../shared-components/bound-textbox/bound-textbox';
 import {Directory} from '../shared-components/tree-view/directory';
 import {GridDemo} from '../shared-components/grid/grid-demo';
 import {Column} from '../shared-components/grid/column';
-import {IgnoreBindings} from '../shared-components/non-bindable/non-bindable';
 import {HttpSample} from '../shared-components/http/http';
 import {Spreadsheet} from '../shared-components/spreadsheet/spreadsheet';
 import {Algorithms} from '../shared-components/algorithms/algorithms';
-import {Angular2Host} from '../shared-components/react-integration/angular-2-host';
+import {AngularHost} from '../shared-components/react-integration/angular-host';
 import {JqueryIntegration} from '../shared-components/jquery-integration/jquery-integration';
 import {InputControls} from '../shared-components/input-controls/input-controls';
 import {AddressBook} from '../shared-components/dependency-injection/address-book';
@@ -45,7 +44,7 @@ const routes: Routes = [
     children: [
       { path: 'spreadsheet', component: Spreadsheet},
       { path: 'jquery', component: JqueryIntegration},
-      { path: 'react', component:Angular2Host},
+      { path: 'react', component:AngularHost},
       { path: 'algorithms', component:Algorithms},
       { path: 'graph', component:Graph},
       { path: 'pub-sub', component:PubSub},
@@ -57,7 +56,6 @@ const routes: Routes = [
       { path: 'input', component:InputControls},
       { path: 'contact', component:ContactList},
       { path: 'textbox', component:BoundTextbox},
-      { path: 'non-bindable', component:IgnoreBindings},
       { path: 'form', component:AddressForm},
       { path: 'change', component:CommentDemo},
       { path: 'parent-child', component:Parent},

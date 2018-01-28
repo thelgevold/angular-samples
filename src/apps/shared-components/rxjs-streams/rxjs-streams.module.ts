@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../shared.module';
 
-import {AddressForm} from './address-form';
+import {RxJsStreams} from './rxjs-streams';
 
 @NgModule({
   imports: [SharedModule],
-  declarations: [AddressForm]
+  declarations: [RxJsStreams]    
 })
-export class AddressFormModule {}
+export class RxJsStreamsModule {}

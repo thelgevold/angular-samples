@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../shared.module';
 
-import {AddressForm} from './address-form';
+import {RxJsBuffering} from './rxjs-buffering';
 
 @NgModule({
   imports: [SharedModule],
-  declarations: [AddressForm]
+  declarations: [RxJsBuffering]    
 })
-export class AddressFormModule {}
+export class RxJsBufferingModule {}

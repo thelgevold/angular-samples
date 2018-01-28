@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {SharedModule} from '../shared.module';
 
 import {Algorithms} from './algorithms';
 import {Edge} from './graph/edge';
@@ -8,7 +8,7 @@ import {Vertex} from './graph/vertex';
 import {InsertionSort} from './insertion-sort';
 
 @NgModule({
-  imports: [CommonModule],  
+  imports: [SharedModule],  
   declarations: [Algorithms, Edge, Graph, InsertionSort, Vertex],
   entryComponents: [Edge]
 })

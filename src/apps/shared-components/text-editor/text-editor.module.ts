@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../shared.module';
 
-import {AddressForm} from './address-form';
+import {TextEditor} from './text-editor';
 
 @NgModule({
   imports: [SharedModule],
-  declarations: [AddressForm]
+  declarations: [TextEditor]    
 })
-export class AddressFormModule {}
+export class TextEditorModule {}

@@ -1,4 +1,4 @@
-export class Sorter{
+export class Sorter {
 
     direction:number;
     key:string;

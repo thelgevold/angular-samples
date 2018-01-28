@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
 import {SharedModule} from '../shared.module';
 
-import {AddressForm} from './address-form';
+import {AngularHost} from './angular-host';
 
 @NgModule({
   imports: [SharedModule],
-  declarations: [AddressForm]
+  declarations: [AngularHost]    
 })
-export class AddressFormModule {}
+export class ReactIntegrationModule {}

@@ -1,4 +1,4 @@
-export class AddressBookTitleService{
+export class AddressBookTitleService {
 
     callCount = 0;
     constructor(){

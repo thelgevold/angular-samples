@@ -2,7 +2,7 @@ import {KeyMap} from './key-map';
 import {Row} from './row';
 import {Column} from './column';
 
-export class SpreadsheetModel{
+export class SpreadsheetModel {
 
     rows:Array<Row>;
     current:Column;
