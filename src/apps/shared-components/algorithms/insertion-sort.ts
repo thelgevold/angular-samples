@@ -1,27 +1,77 @@
+import {Component} from '@angular/core';
+import {InsertionSortService} from './insertion-sort.service';
 
-export class Insertion{
+@Component({
+    selector: 'insertion-sort',
+    inputs: ['list: list'],
+    template: `
+    <table class="sort">
+    <tr>
+        <td *ngFor="let item of list.items" [ngClass]="item.getClass()">
+            <span>{{item.val}}</span>
+        </td>
+    </tr>
+    </table>
+    <div style="margin-top: 10px;">
+        <button (click)="sortList()">Sort list</button>
+    </div>`
+})
 
-    static sort(input){
+export class InsertionSort {
 
-        for(let j = 1; j < input.items.length; j++){
+    list:ValList;
 
-            (function(j){
-                setTimeout(() => {
-                    let key = input.items[j].val;
+    constructor(){
+        this.list = new ValList();
+        this.list.items = [
+            new ListItem(5),
+            new ListItem(33),
+            new ListItem(5),
+            new ListItem(5),
+            new ListItem(2),
+            new ListItem(-2),
+            new ListItem(4),
+            new ListItem(88),
+            new ListItem(6),
+            new ListItem(400),
+            new ListItem(1),
+            new ListItem(58),
+            new ListItem(30)
+        ];
 
-                    let i = j - 1;
-
-                    while(i >= 0 && input.items[i].val > key){
-                        input.items[i + 1].val = input.items[i].val;
-                        i = i - 1;
-                    } 
-
-                    input.items[i + 1].val = key;
-                    input.setCurrent(input.items[i + 1]);
-
-                },1000 * j);
-            })(j);
-        }
     }
 
+    sortList(){
+        InsertionSortService.sort(this.list)
+    }
+}
+
+class ValList{
+    items:Array<ListItem>;
+
+    setCurrent(item){
+        this.clearAll();
+        item.current = true;
+    }
+
+    clearAll(){
+        this.items.forEach(i => i.current = false);
+    }
+}
+
+class ListItem{
+    val:Number;
+    current:Boolean;
+
+    constructor(val){
+        this.val = val;
+        this.current = false;
+    }
+
+    getClass(){
+        if(this.current){
+            return 'current-item';
+        }
+        return null;
+    }
 }

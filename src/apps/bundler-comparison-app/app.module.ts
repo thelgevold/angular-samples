@@ -1,12 +1,9 @@
 import { BrowserModule }                from '@angular/platform-browser';
-import { ReactiveFormsModule }          from '@angular/forms';
 import { NgModule }                     from '@angular/core';
-import { FormsModule }                  from '@angular/forms';
 
 import { AppComponent }                 from './app.component';
 import { DemoComponent }                from './demo.component';
 import { routing }                      from './app.routes';
-import { HttpModule }                   from '@angular/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import {TreeView} from '../shared-components/tree-view/tree-view';
@@ -16,7 +13,7 @@ import {Consumer} from '../shared-components/pub-sub/consumer';
 import {InputOutput} from '../shared-components/input-output/input-output';
 import {Edge} from '../shared-components/algorithms/graph/edge';
 import {Vertex} from '../shared-components/algorithms/graph/vertex';
-import {InsertionSort} from '../shared-components/insertion-sort/insertion-sort';
+import {InsertionSort} from '../shared-components/algorithms/insertion-sort';
 import {Child} from '../shared-components/access-child-components/child';
 
 import {DemoPage} from '../shared-components/demo-page';
@@ -37,8 +34,10 @@ import {RxJsBuffering} from '../shared-components/rxjs-buffering/rxjs-buffering'
 import {CountryDemo} from '../shared-components/lazy-loaded-tree-view/country-demo';
 import {LazyTreeView} from '../shared-components/lazy-loaded-tree-view/tree-view';
 
+import {SharedModule} from '../shared-components/shared.module';
+
 @NgModule({
-  imports: [ BrowserModule, ReactiveFormsModule, routing, FormsModule, HttpModule ],
+  imports: [ BrowserModule, routing, SharedModule],
   declarations: [ AppComponent, Producer, Consumer, DemoComponent,
     TreeView, Survey, DemoPage, InputOutput,
     Spreadsheet, Algorithms, Graph, PubSub,

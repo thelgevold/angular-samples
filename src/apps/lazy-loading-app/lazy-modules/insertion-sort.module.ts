@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 
 import {Algorithms} from '../../shared-components/algorithms/algorithms';
-import {InsertionSort} from '../../shared-components/insertion-sort/insertion-sort';
+import {InsertionSort} from '../../shared-components/algorithms/insertion-sort';
 
 @NgModule({
   declarations: [Algorithms, InsertionSort],

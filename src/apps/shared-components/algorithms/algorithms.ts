@@ -10,7 +10,4 @@ import {Component} from '@angular/core';
     `
 })
 
-export class Algorithms {
-
-
-}
+export class Algorithms {}

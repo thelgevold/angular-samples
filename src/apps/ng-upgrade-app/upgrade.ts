@@ -10,7 +10,6 @@ import {TextEditor} from '../shared-components/text-editor/text-editor';
 import {Algorithms} from '../shared-components/algorithms/algorithms';
 import {SurveyDemo} from '../shared-components/survey/survey-demo';
 import {Survey} from '../shared-components/survey/survey';
-import {InsertionSort} from '../shared-components/insertion-sort/insertion-sort';
 
 import {AngularModuleNgFactory} from './upgrade-module.ngfactory';
 
