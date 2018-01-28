@@ -1,7 +1,6 @@
 {
   "name": "angular2-poc",
   "scripts": {
-    "serve": "ibazel run //src:devserver",
     "aot-i18n-en": "ngc -p src/tsconfig-i18n.json && rollup -c rollup/rollup-config-i18n.js -o dist/build-en.js",
     "aot-i18n-no": "ngc --i18nFile=./src/apps/i18n-demo-app/locale/messages.no.xlf --locale=no --i18nFormat=xlf -p src/tsconfig-i18n.json && rollup -c rollup/rollup-config-i18n.js -o dist/build-no.js",
     "generate-i18n-xlf": "ng-xi18n -p i18n/tsconfig.json",

@@ -1,5 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
-
 import {CountryViewModelFactory} from './country-view-model';
 
 declare var React: any;
