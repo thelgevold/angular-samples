@@ -18,7 +18,7 @@
     "webpack-no-lazy-loading": "ngc -p src/tsconfig-es5.json && webpack --config webpack/webpack-no-lazy-loading.js --progress --mode production",
     "webpack-lazy-loading": "webpack --config webpack/webpack-lazy-loading.js --progress --mode production",
     "webpack-no-angular-optimizations": "ngc -p src/tsconfig-es5.json && webpack --config webpack/webpack-no-angular-optimizations.js --progress --mode production",
-    "webpack-babili": "ngc -p src/tsconfig-es6.json && webpack --config webpack/webpack-babili.js --progress",
+    "webpack-babili": "ngc -p src/tsconfig-es6.json && webpack --config webpack/webpack-babili.js --progress --mode production",
     "build-all": "npm run aot-i18n-en && npm run aot-i18n-no && npm run rollup-lazy && npm run browserify-demo && npm run parcel-demo && npm run webpack-babili && npm run webpack-lazy-loading && npm run webpack-no-lazy-loading && npm run systemjs-builder-demo && npm run build-demo-app && npm run closure-compiler-demo && npm run rollup-demo && npm run rollup-es6"
   },
   "devDependencies": {
@@ -56,7 +56,7 @@
     "events": "^1.0.2",
     "fbjs": "^0.3.1",
     "flux": "^2.1.1",
-    "google-closure-compiler": "20171023.0.1",
+    "google-closure-compiler": "20180319.0.0",
     "jquery": "3.3.1",
     "jquery-ui-dist": "1.12.1",
     "react": "~0.13.3",
