@@ -1,21 +1,16 @@
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs    from 'rollup-plugin-commonjs';
 
-class ResolveFESM2015 {
-    
-  resolveId(importee, importer) {
-    if(importee.startsWith('@angular')) {
-      const pkg = importee.replace('@angular', '');
-      return `node_modules/${importee}/esm2015/${pkg}.js`;
-    }
-  }
-}
+import optimizer from '@angular-devkit/build-optimizer/src/build-optimizer/rollup-plugin';
+
 
 export default {
   input: 'built-es6/src/apps/bundler-comparison-app/main.js',
   output: {file: 'dist/bundle-rollup-es6.js', format: 'iife'},
   plugins: [
-    new ResolveFESM2015(),
+    optimizer({
+      sideEffectFreeModules: ['@angular/core/esm5/core.js']
+    }),
     commonjs({
       include: 'node_modules/rxjs/**'
     }),

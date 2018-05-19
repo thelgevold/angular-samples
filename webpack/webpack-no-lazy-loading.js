@@ -1,4 +1,5 @@
-const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const uglifyOptions = require('./uglify-options');
 const PurifyPlugin = require('@angular-devkit/build-optimizer').PurifyPlugin;
 const webpack = require('webpack');
 
@@ -28,30 +29,7 @@ module.exports = {
 
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new UglifyJsPlugin({
-      beautify: false, 
-      output: {
-        comments: false
-      }, 
-      mangle: {
-        screw_ie8: true
-      }, 
-      compress: {
-        screw_ie8: true,
-        warnings: false,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
-        negate_iife: false,
-        pure_getters: true,
-        passes: 3
-      },
-    }),
+    new UglifyJsPlugin({uglifyOptions:uglifyOptions}),
     new PurifyPlugin()
   ]
 }

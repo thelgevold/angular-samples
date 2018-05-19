@@ -1,7 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
 import uglify  from 'rollup-plugin-uglify';
-
-import {ResolveESM} from './resolve-esm';
+import optimizer from '@angular-devkit/build-optimizer/src/build-optimizer/rollup-plugin';
 
 export default {
     input: ['built-es5-lazy/src/apps/lazy-loading-app/main.js', 
@@ -21,7 +20,9 @@ export default {
     experimentalCodeSplitting: true,
     experimentalDynamicImport: true,
     plugins: [
-      new ResolveESM(),
+      optimizer({
+        sideEffectFreeModules: ['@angular/core/esm5/core.js']
+      }),
       resolve({jsnext: true, module: true}),
       uglify()
     ]

@@ -3,8 +3,8 @@ import {Component} from '@angular/core';
 import {Location} from '@angular/common';
 
 @Component({
-    selector: 'demo-page',
-    template: `<div class="container">
+  selector: 'demo-page',
+  template: `<div class="container">
 
     <div class="jumbotron">
         <h1>Angular sample components</h1>
@@ -12,7 +12,7 @@ import {Location} from '@angular/common';
             More documentation about each specific component can be found
             <a href="http://www.syntaxsuccess.com/angular-2-articles">here</a>.
         </p>
-        <p>Current version: Angular 6.0.0 - Beta 1</p>
+        <p>Current version: Angular 6.0.2</p>
     </div>
 
     <div>
@@ -49,20 +49,16 @@ import {Location} from '@angular/common';
         </div>
     </div>
 
-</div>`
+</div>`,
 })
-
 export class DemoPage {
+  location: Location;
 
-    location:Location;
+  constructor(location: Location) {
+    this.location = location;
+  }
 
-    constructor(location:Location) {
-        this.location = location;
-    }
-
-    getLinkStyle(path) {
-        return this.location.path().indexOf(path) > -1;
-    }
+  getLinkStyle(path) {
+    return this.location.path().indexOf(path) > -1;
+  }
 }
-
-

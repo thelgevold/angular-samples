@@ -4,17 +4,11 @@ import {RouterModule} from '@angular/router';
 
 import {RxJsStreams} from '../../shared-components/rxjs-streams/rxjs-streams';
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/mergeMap';
-
 @NgModule({
   declarations: [RxJsStreams],
   imports: [
     CommonModule,
-    RouterModule.forChild(
-    [
-      {path: '', component: RxJsStreams}
-    ])
-  ]
+    RouterModule.forChild([{path: '', component: RxJsStreams}]),
+  ],
 })
 export class RxJsStreamsModule {}

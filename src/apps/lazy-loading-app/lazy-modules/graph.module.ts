@@ -6,17 +6,12 @@ import {Graph} from '../../shared-components/algorithms/graph/graph';
 import {Edge} from '../../shared-components/algorithms/graph/edge';
 import {Vertex} from '../../shared-components/algorithms/graph/vertex';
 
-import 'rxjs/add/operator/map';
-
 @NgModule({
   declarations: [Graph, Edge, Vertex],
   entryComponents: [Edge],
   imports: [
     CommonModule,
-    RouterModule.forChild(
-    [
-      {path: '', component: Graph}
-    ])
-  ]
+    RouterModule.forChild([{path: '', component: Graph}]),
+  ],
 })
 export class GraphModule {}

@@ -6,18 +6,13 @@ import {HttpModule} from '@angular/http';
 
 import {LogDemo} from '../../shared-components/log-tail/log-demo';
 
-import 'rxjs/add/operator/map';
-
 @NgModule({
   declarations: [LogDemo],
   imports: [
     CommonModule,
     FormsModule,
     HttpModule,
-    RouterModule.forChild(
-    [
-      {path: '', component: LogDemo}
-    ])
-  ]
+    RouterModule.forChild([{path: '', component: LogDemo}]),
+  ],
 })
 export class ReduxModule {}

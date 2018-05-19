@@ -23,7 +23,7 @@
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
       '@angular/upgrade/static': 'npm:@angular/upgrade/bundles/upgrade-static.umd.js',
 
-      'rxjs': 'npm:rxjs'
+      'rxjs': 'npm:rxjs',
     },
     packages: {
     
@@ -31,9 +31,16 @@
         main: './main-jit.js',
         defaultExtension: 'js'
       },
-      rxjs: {
-        defaultExtension: 'js'
+
+      'rxjs/operators': {
+        main: 'index.js'
       },
+
+      rxjs: {
+        main: 'index.js'
+      },
+
+
       'shared-components': {
         defaultExtension: 'js'
       }

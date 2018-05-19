@@ -1,5 +1,7 @@
 const ngToolsWebpack = require('@ngtools/webpack');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const uglifyOptions = require('./uglify-options');
 
 module.exports = {
   resolve: {
@@ -9,7 +11,7 @@ module.exports = {
   output: {
     filename: 'dist/bundle-webpack-lazy-loading.js'
   },
-  devtool: 'source-map',
+
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
     new ngToolsWebpack.AngularCompilerPlugin({
@@ -20,32 +22,10 @@ module.exports = {
 			minimize: true,
 			debug: false
 		}),
-		new webpack.optimize.UglifyJsPlugin({
-			beautify: false, 
-      output: {
-        comments: false
-      }, 
-      mangle: {
-        screw_ie8: true
-      }, 
-      compress: {
-        screw_ie8: true,
-        warnings: false,
-        conditionals: true,
-        unused: true,
-        comparisons: true,
-        sequences: true,
-        dead_code: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
-        negate_iife: false
-      },
-      sourceMap: true
-		})
+		new UglifyJsPlugin({uglifyOptions:uglifyOptions}),
   ],
   module: {
-    loaders: [
+    rules: [
       { test: /\.css$/, loader: 'raw-loader' },
       { test: /\.html$/, loader: 'raw-loader' },
       { test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/, loader: '@ngtools/webpack' }

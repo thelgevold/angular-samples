@@ -4,17 +4,11 @@ import {RouterModule} from '@angular/router';
 
 import {RxJsBuffering} from '../../shared-components/rxjs-buffering/rxjs-buffering';
 
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/bufferCount';
-
 @NgModule({
   declarations: [RxJsBuffering],
   imports: [
     CommonModule,
-    RouterModule.forChild(
-    [
-      {path: '', component: RxJsBuffering}
-    ])
-  ]
+    RouterModule.forChild([{path: '', component: RxJsBuffering}]),
+  ],
 })
 export class RxJsBufferingModule {}

@@ -1,15 +1,10 @@
 import {Component} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import {Observable, timer, forkJoin, of} from 'rxjs';
 
-import 'rxjs/add/observable/timer';
-import 'rxjs/add/observable/forkJoin';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/merge';
-import 'rxjs/add/operator/concat';
+import {take, merge, concat, flatMap, map} from 'rxjs/operators';
 
 @Component({
-  selector:'rxjs-streams',
+  selector: 'rxjs-streams',
   template: `
   <div class="stream1">Stream1</div>
   <div class="stream2">Stream2</div>
@@ -45,56 +40,69 @@ import 'rxjs/add/operator/concat';
     <h4>Flatmapped Streams</h4>
     <div>{{flatMappedStreams.msg}}</div>
   </div>
-`
+`,
 })
-export class RxJsStreams{
-
+export class RxJsStreams {
   concatStream = [];
   mergeStream = [];
   forkJoinStream = [];
-  flatMappedStreams:any = {};
+  flatMappedStreams: any = {};
 
-  flatMapStreams(){
-    let first = Observable.of(10);
+  flatMapStreams() {
+    let first = of(10);
 
-    first.flatMap((operand1) => {
-      return Observable.of(operand1 + 10);
-    })
-    .subscribe(res => this.flatMappedStreams = {msg: '10 + 10 = ' + res});
+    first
+      .pipe(
+        flatMap(operand1 => {
+          return of(operand1 + 10);
+        }),
+      )
+      .subscribe(res => (this.flatMappedStreams = {msg: '10 + 10 = ' + res}));
   }
 
-  concatStreams(){
-    let first = Observable.timer(10,500).map(r => {
-      return {source:1,value:r};
-    }).take(4);
+  concatStreams() {
+    let first = timer(10, 500).pipe(
+      map(r => {
+        return {source: 1, value: r};
+      }),
+      take(4),
+    );
 
-    let second = Observable.timer(10,500).map(r => {
-      return {source:2,value:r};
-    }).take(4);
+    let second = timer(10, 500).pipe(
+      map(r => {
+        return {source: 2, value: r};
+      }),
+      take(4),
+    );
 
-    first.concat(second).subscribe(res => this.concatStream.push(res));
+    first.pipe(concat(second)).subscribe(res => this.concatStream.push(res));
   }
 
-  mergeStreams(){
-    let first = Observable.timer(10,500).map(r => {
-      return {source:1,value:r};
-    }).take(4);
+  mergeStreams() {
+    let first = timer(10, 500).pipe(
+      map(r => {
+        return {source: 1, value: r};
+      }),
+      take(4),
+    );
 
-    let second = Observable.timer(10,500).map(r => {
-      return {source:2,value:r};
-    }).take(4);
+    let second = timer(10, 500).pipe(
+      map(r => {
+        return {source: 2, value: r};
+      }),
+      take(4),
+    );
 
-    first.merge(second).subscribe(res => this.mergeStream.push(res));
+    first.pipe(merge(second)).subscribe(res => this.mergeStream.push(res));
   }
 
-  forkJoinStreams(){
-    let first = Observable.of({source:1,value:1});
+  forkJoinStreams() {
+    let first = of({source: 1, value: 1});
 
-    let second = Observable.of({source:2,value:1});
+    let second = of({source: 2, value: 1});
 
-    Observable.forkJoin(first,second)
-              .subscribe((res:Array<any>) => this.forkJoinStream = res);
+    forkJoin(first, second).subscribe(
+      (res: Array<any>) => (this.forkJoinStream = res),
+    );
   }
-
-
 }
