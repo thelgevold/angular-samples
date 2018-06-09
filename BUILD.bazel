@@ -1,0 +1,72 @@
+package(default_visibility = ["//visibility:public"])
+
+alias(
+    name = "install",
+    actual = "@nodejs//:yarn",
+)
+
+# This export allows targets in other packages to reference files that live
+# in this package.
+exports_files([
+    # Let ts_library targets reference the root tsconfig.json file
+    "tsconfig.json",
+    # Let devserver and testing targets reference zone.js distro
+    "node_modules/zone.js/dist/zone.min.js",
+    "node_modules/zone.js/dist/zone-testing-bundle.js",
+])
+
+# NOTE: this will move to node_modules/BUILD in a later release
+filegroup(
+    name = "node_modules",
+    # NB: rxjs is not in this list, because we build it from sources using the
+    # label @rxjs//:rxjs
+    srcs = glob(["/".join([
+        "node_modules",
+        pkg,
+        "**",
+        ext,
+    ]) for pkg in [
+        "@angular",
+        "@ngrx",
+        "@types",
+        "protractor",
+        "tsickle",
+        "tsutils",
+        "typescript",
+    ] for ext in [
+        "*.js",
+        "*.json",
+        "*.d.ts",
+    ]]),
+)
+
+ANGULAR_TESTING = [
+    "node_modules/@angular/*/bundles/*-testing.umd.js",
+    # We use AOT, so the compiler and the dynamic platform-browser should be
+    # visible only in tests
+    "node_modules/@angular/compiler/bundles/*.umd.js",
+    "node_modules/@angular/platform-browser-dynamic/bundles/*.umd.js",
+]
+
+filegroup(
+    name = "angular_bundles",
+    srcs = glob(
+        ["node_modules/@angular/*/bundles/*.umd.js"],
+        exclude = ANGULAR_TESTING,
+    ),
+)
+
+filegroup(
+    name = "styles",
+    srcs = [
+      "node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "site.css"
+    ]
+)
+
+
+filegroup(
+    name = "angular_test_bundles",
+    testonly = 1,
+    srcs = glob(ANGULAR_TESTING),
+)

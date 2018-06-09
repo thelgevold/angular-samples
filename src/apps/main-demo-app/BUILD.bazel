@@ -1,0 +1,55 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@angular//:index.bzl", "ng_module")
+
+ng_module(
+    name = "src",
+    srcs = glob(["*.ts"]),
+    assets = ["demo-app.html"],
+    tsconfig = "//:tsconfig.json",
+    deps = ["@rxjs", 
+            "//src/apps/shared-components:src",
+            "//src/apps/shared-components/about:src",
+            "//src/apps/shared-components/spreadsheet:src",
+            #"//src/apps/demo/shared-components/tree-view:treeview",
+            #"//src/apps/demo/shared-components/lazy-loaded-tree-view:lazytree",
+            #"//src/apps/demo/shared-components/survey:survey"
+    ]
+)
+
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_devserver")
+
+genrule(
+    name = "bootstrap",
+    srcs = ["//:node_modules/bootstrap/dist/css/bootstrap.min.css"],
+    outs = ["bootstrap.min.css"],
+    cmd = "cp $< $@",
+)
+
+genrule(
+    name = "site",
+    srcs = ["//:site.css"],
+    outs = ["site.css"],
+    cmd = "cp $< $@",
+)
+
+ts_devserver(
+    name = "devserver",
+    additional_root_paths = [
+        "angular_samples/node_modules/zone.js/dist"
+    ],
+    entry_module = "angular_samples/src/apps/main-demo-app/main",
+    scripts = [
+       # ":require.config.js",
+        "//:angular_bundles",
+    ],
+    serving_path = "/bundle.min.js",
+    static_files = [
+        "//:node_modules/zone.js/dist/zone.min.js",
+        "index.html",
+        ":bootstrap",
+        ":site"
+        
+    ],
+    deps = [":src"]
+)
