@@ -1,17 +1,8 @@
 <html>
 <head>
   <title>Angular Demos</title>
-
-  <script src="node_modules/systemjs/dist/system.js"></script>
-
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
-
-  <script src="node_modules/underscore/underscore-min.js"></script>
-  <script src="node_modules/react/dist/react.min.js"></script>
   
   <link href="/bootstrap.min.css" rel="stylesheet">
-
   <link href="/site.css" rel="stylesheet">
 
 </head>
@@ -20,21 +11,11 @@
 <demo-app></demo-app>
 
 <script src="/zone.min.js"></script>
+
+<script src="/jquery.min.js"></script>
+<script src="/jquery-ui.min.js"></script>
+
 <script src="/bundle.min.js"></script>
-<script>
-    var __React = React;
-    var Dispatcher;
-    var EventEmitter;
-    System.import('node_modules/flux/dist/Flux.min.js')
-    .then(function(data){
-       Dispatcher = data.Dispatcher;
-       return System.import('node_modules/events/events.js');
-    })
-    .then(function(data) {
-       EventEmitter = data.EventEmitter;
-       return System.import('dist/bundle.js');
-    });
-</script>
 
 </body>
 

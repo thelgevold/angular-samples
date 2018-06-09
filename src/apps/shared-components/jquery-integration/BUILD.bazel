@@ -5,6 +5,7 @@ load("@angular//:index.bzl", "ng_module")
 ng_module(
     name = "src",
     srcs = glob(["*.ts"]),
+    assets = ["jquery-integration.html"],
     tsconfig = "//:tsconfig.json",
     deps = [
             "//src/apps/shared-components/shared"     

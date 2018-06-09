@@ -10,9 +10,12 @@ alias(
 exports_files([
     # Let ts_library targets reference the root tsconfig.json file
     "tsconfig.json",
-    # Let devserver and testing targets reference zone.js distro
+    
     "node_modules/zone.js/dist/zone.min.js",
     "node_modules/zone.js/dist/zone-testing-bundle.js",
+
+    "node_modules/jquery/dist/jquery.min.js",
+    "node_modules/jquery-ui-dist/jquery-ui.min.js"
 ])
 
 # NOTE: this will move to node_modules/BUILD in a later release
@@ -27,12 +30,11 @@ filegroup(
         ext,
     ]) for pkg in [
         "@angular",
-        "@ngrx",
         "@types",
         "protractor",
         "tsickle",
         "tsutils",
-        "typescript",
+        "typescript"
     ] for ext in [
         "*.js",
         "*.json",
@@ -46,6 +48,7 @@ ANGULAR_TESTING = [
     # visible only in tests
     "node_modules/@angular/compiler/bundles/*.umd.js",
     "node_modules/@angular/platform-browser-dynamic/bundles/*.umd.js",
+    
 ]
 
 filegroup(
@@ -61,9 +64,8 @@ filegroup(
     srcs = [
       "node_modules/bootstrap/dist/css/bootstrap.min.css",
       "site.css"
-    ]
+    ] 
 )
-
 
 filegroup(
     name = "angular_test_bundles",

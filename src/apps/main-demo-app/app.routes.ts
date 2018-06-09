@@ -14,7 +14,7 @@ import {AboutComponent} from '../shared-components/about/about.component';
 import {Spreadsheet} from '../shared-components/spreadsheet/spreadsheet';
 // import {Algorithms} from '../shared-components/algorithms/algorithms';
 // import {AngularHost} from '../shared-components/react-integration/angular-host';
-// import {JqueryIntegration} from '../shared-components/jquery-integration/jquery-integration';
+import {JqueryIntegration} from '../shared-components/jquery-integration/jquery-integration';
 // import {InputControls} from '../shared-components/input-controls/input-controls';
 // import {AddressBook} from '../shared-components/dependency-injection/address-book';
 // import {AddressForm} from '../shared-components/address-form/address-form';
@@ -44,7 +44,7 @@ const routes: Routes = [
     component: DemoPage,
     children: [
       {path: 'spreadsheet', component: Spreadsheet},
-      //   { path: 'jquery', component: JqueryIntegration},
+      {path: 'jquery', component: JqueryIntegration},
       //   { path: 'react', component:AngularHost},
       //   { path: 'algorithms', component:Algorithms},
       //   { path: 'graph', component:Graph},

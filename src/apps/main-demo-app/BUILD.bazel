@@ -11,9 +11,9 @@ ng_module(
             "//src/apps/shared-components:src",
             "//src/apps/shared-components/about:src",
             "//src/apps/shared-components/spreadsheet:src",
-            #"//src/apps/demo/shared-components/tree-view:treeview",
-            #"//src/apps/demo/shared-components/lazy-loaded-tree-view:lazytree",
-            #"//src/apps/demo/shared-components/survey:survey"
+            "//src/apps/shared-components/jquery-integration:src",
+            #"//src/apps/shared-components/lazy-loaded-tree-view:lazytree",
+            #"//src/apps/shared-components/survey:survey"
     ]
 )
 
@@ -35,21 +35,26 @@ genrule(
 
 ts_devserver(
     name = "devserver",
+    port = 4000,
     additional_root_paths = [
-        "angular_samples/node_modules/zone.js/dist"
+        "angular_samples/node_modules/jquery/dist",
+        "angular_samples/node_modules/jquery-ui-dist",
+        "angular_samples/node_modules/zone.js/dist",
     ],
     entry_module = "angular_samples/src/apps/main-demo-app/main",
     scripts = [
-       # ":require.config.js",
-        "//:angular_bundles",
+      "//:angular_bundles"
     ],
     serving_path = "/bundle.min.js",
     static_files = [
         "//:node_modules/zone.js/dist/zone.min.js",
+
+        "//:node_modules/jquery/dist/jquery.min.js",
+        "//:node_modules/jquery-ui-dist/jquery-ui.min.js",
+        
         "index.html",
         ":bootstrap",
         ":site"
-        
-    ],
+    ], 
     deps = [":src"]
 )

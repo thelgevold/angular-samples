@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
-import {SharedModule} from '../shared.module';
+import {SharedModule} from '../shared/shared.module';
 
 import {JqueryIntegration} from './jquery-integration';
 
 @NgModule({
-  imports: [SharedModule],  
-  declarations: [JqueryIntegration]    
+  imports: [SharedModule],
+  declarations: [JqueryIntegration],
 })
 export class JQueryIntegrationModule {}
