@@ -1,6 +1,7 @@
 import {Http, Response} from '@angular/http';
 import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class LogTailService {
@@ -10,9 +11,9 @@ export class LogTailService {
     this.http = http;
   }
 
-  getLogEntries() {
+  getLogEntries(): Observable<{entries: {}}> {
     return this.http
-      .get('/api/log.json')
+      .get('http://localhost:9000/api/log')
       .pipe(map((res: Response) => res.json()));
   }
 }

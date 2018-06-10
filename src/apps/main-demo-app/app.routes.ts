@@ -24,7 +24,7 @@ import {Graph} from '../shared-components/algorithms/graph/graph';
 // import {CommentDemo} from '../shared-components/change-detection/comment-demo';
 // import {Parent} from '../shared-components/access-child-components/parent';
 // import {SurveyDemo} from '../shared-components/survey/survey-demo';
-// import {LogDemo} from '../shared-components/log-tail/log-demo';
+import {LogDemo} from '../shared-components/log-tail/log-demo';
 // import {InputOutputDemo} from '../shared-components/input-output/input-output-demo';
 import {CountryDemo} from '../shared-components/lazy-loaded-tree-view/country-demo';
 import {RxJsStreams} from '../shared-components/rxjs-streams/rxjs-streams';
@@ -61,7 +61,7 @@ const routes: Routes = [
       //   { path: 'change', component:CommentDemo},
       //   { path: 'parent-child', component:Parent},
       //   { path: 'survey', component:SurveyDemo},
-      //   { path: 'redux', component:LogDemo},
+      {path: 'redux', component: LogDemo},
       //   { path: 'iodemo', component:InputOutputDemo},
       {path: 'rxjs', component: RxJsStreams},
       {path: 'friends', component: CachingDemo},

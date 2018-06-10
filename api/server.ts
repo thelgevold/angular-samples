@@ -11,6 +11,20 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.get('/api/log', (req, res) => {
+  const log = {
+    entries: [
+      {text: 'loading failed', severity: 1},
+      {text: 'system failure', severity: 1},
+      {text: 'slow response', severity: 2},
+      {text: 'login failed', severity: 2},
+      {text: 'null argument exception', severity: 1},
+    ],
+  };
+
+  res.json(log);
+});
+
 app.get('/api/friends', (req, res) => {
   const friends = {
     friends: ['Joe', 'Tim', 'Jim', 'Jane', 'Anne', 'Billy', 'James', 'Peter'],
