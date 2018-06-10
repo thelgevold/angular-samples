@@ -1,22 +1,25 @@
-import {Component,ViewChildren,QueryList,ContentChildren} from '@angular/core';
+import {
+  Component,
+  ViewChildren,
+  QueryList,
+  ContentChildren,
+} from '@angular/core';
 import {Child} from './child';
 
 @Component({
-    selector:'parent',
-    template:`<div>
+  selector: 'parent',
+  template: `<div>
                 <button (click)="updateViewChildren()">Update Time via ViewChildren</button>
                 <child></child>
                 <child></child>
-              </div>`
+              </div>`,
 })
+export class Parent {
+  @ViewChildren(Child) viewChildren: QueryList<Child>;
 
-export class Parent{
-    
-    @ViewChildren(Child)
-    viewChildren: QueryList<Child>;
-
-    updateViewChildren(){
-        this.viewChildren.toArray().forEach((child) => child.setTime(new Date().toTimeString()));
-    }
-
+  updateViewChildren() {
+    this.viewChildren
+      .toArray()
+      .forEach(child => child.setTime(new Date().toTimeString()));
+  }
 }

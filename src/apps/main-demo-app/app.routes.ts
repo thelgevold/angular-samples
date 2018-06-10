@@ -21,7 +21,7 @@ import {Graph} from '../shared-components/algorithms/graph/graph';
 import {PubSub} from '../shared-components/pub-sub/pub-sub';
 import {TextEditor} from '../shared-components/text-editor/text-editor';
 import {CommentDemo} from '../shared-components/change-detection/comment-demo';
-// import {Parent} from '../shared-components/access-child-components/parent';
+import {Parent} from '../shared-components/access-child-components/parent';
 import {SurveyDemo} from '../shared-components/survey/survey-demo';
 import {LogDemo} from '../shared-components/log-tail/log-demo';
 // import {InputOutputDemo} from '../shared-components/input-output/input-output-demo';
@@ -58,7 +58,7 @@ const routes: Routes = [
       //   { path: 'textbox', component:BoundTextbox},
       {path: 'form', component: AddressForm},
       {path: 'change', component: CommentDemo},
-      //   { path: 'parent-child', component:Parent},
+      {path: 'parent-child', component: Parent},
       {path: 'survey', component: SurveyDemo},
       {path: 'redux', component: LogDemo},
       //   { path: 'iodemo', component:InputOutputDemo},
