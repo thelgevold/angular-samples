@@ -4,7 +4,7 @@ import {ModuleWithProviders} from '@angular/core';
 import {DemoPage} from '../shared-components/demo-page';
 import {AboutComponent} from '../shared-components/about/about.component';
 
-// import {TreeViewDemo} from '../shared-components/tree-view/tree-view-demo';
+import {TreeViewDemo} from '../shared-components/tree-view/tree-view-demo';
 // import {ContactList} from '../shared-components/contact-list/contact-list';
 // import {BoundTextbox} from '../shared-components/bound-textbox/bound-textbox';
 // import {Directory} from '../shared-components/tree-view/directory';
@@ -52,7 +52,7 @@ const routes: Routes = [
       {path: 'text-editor', component: TextEditor},
       {path: 'address', component: AddressBook},
       {path: 'http', component: HttpSample},
-      //   { path: 'treeview', component:TreeViewDemo},
+      {path: 'treeview', component: TreeViewDemo},
       //   { path: 'grid', component:GridDemo},
       {path: 'input', component: InputControls},
       //   { path: 'contact', component:ContactList},
