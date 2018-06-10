@@ -8,8 +8,7 @@ import {TreeViewDemo} from '../shared-components/tree-view/tree-view-demo';
 // import {ContactList} from '../shared-components/contact-list/contact-list';
 // import {BoundTextbox} from '../shared-components/bound-textbox/bound-textbox';
 // import {Directory} from '../shared-components/tree-view/directory';
-// import {GridDemo} from '../shared-components/grid/grid-demo';
-// import {Column} from '../shared-components/grid/column';
+import {GridDemo} from '../shared-components/grid/grid-demo';
 import {HttpSample} from '../shared-components/http/http';
 import {Spreadsheet} from '../shared-components/spreadsheet/spreadsheet';
 import {Algorithms} from '../shared-components/algorithms/algorithms';
@@ -53,7 +52,7 @@ const routes: Routes = [
       {path: 'address', component: AddressBook},
       {path: 'http', component: HttpSample},
       {path: 'treeview', component: TreeViewDemo},
-      //   { path: 'grid', component:GridDemo},
+      {path: 'grid', component: GridDemo},
       {path: 'input', component: InputControls},
       //   { path: 'contact', component:ContactList},
       //   { path: 'textbox', component:BoundTextbox},
