@@ -25,6 +25,7 @@ ng_module(
             "//src/apps/shared-components/text-editor:src",
             "//src/apps/shared-components/address-form:src",
             "//src/apps/shared-components/change-detection:src",
+            "//src/apps/shared-components/input-controls:src",
 
     ]
 )

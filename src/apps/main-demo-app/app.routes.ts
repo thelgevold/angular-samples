@@ -15,7 +15,7 @@ import {Spreadsheet} from '../shared-components/spreadsheet/spreadsheet';
 import {Algorithms} from '../shared-components/algorithms/algorithms';
 // import {AngularHost} from '../shared-components/react-integration/angular-host';
 import {JqueryIntegration} from '../shared-components/jquery-integration/jquery-integration';
-// import {InputControls} from '../shared-components/input-controls/input-controls';
+import {InputControls} from '../shared-components/input-controls/input-controls';
 import {AddressBook} from '../shared-components/dependency-injection/address-book';
 import {AddressForm} from '../shared-components/address-form/address-form';
 import {Graph} from '../shared-components/algorithms/graph/graph';
@@ -54,7 +54,7 @@ const routes: Routes = [
       {path: 'http', component: HttpSample},
       //   { path: 'treeview', component:TreeViewDemo},
       //   { path: 'grid', component:GridDemo},
-      //   { path: 'input', component:InputControls},
+      {path: 'input', component: InputControls},
       //   { path: 'contact', component:ContactList},
       //   { path: 'textbox', component:BoundTextbox},
       {path: 'form', component: AddressForm},
