@@ -1,8 +1,0 @@
-{
-  "nodes":[
-    {"name":"Williamsburg","key":"williamsburg"},
-    {"name":"Park Slope","key":"parkslope"},
-    {"name":"Fort Green","key":"fortgreen"},
-    {"name":"Flatbush","key":"flatbush"},
-    {"name":"Red Hook","key":"redhook"}]
-}

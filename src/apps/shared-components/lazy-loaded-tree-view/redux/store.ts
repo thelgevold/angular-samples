@@ -17,12 +17,13 @@ export class Store {
   }
 
   private handleAction(action) {
+    console.log(action.url);
     if (action.name === 'LOAD_NODES') {
       if (this.nodes[action.key]) {
         this.treeNodes[action.key].next(this.nodes[action.key]);
       } else {
         this._http
-          .get(action.url)
+          .get(`http://localhost:9000/api/${action.url}`)
           .pipe(map((res: Response) => res.json()))
           .subscribe(res => {
             this.nodes[action.key] = treeNodeReducer(res, action);

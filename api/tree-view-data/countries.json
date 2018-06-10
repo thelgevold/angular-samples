@@ -1,8 +1,0 @@
-{
-  "nodes":[
-           {"name":"USA","key":"usa", "url":"/api/tree-view-data/usa.json"},
-           {"name":"Australia","key":"aus"},
-           {"name":"Germany","key":"ger"},
-           {"name":"Norway","key":"nor"},
-           {"name":"Canada","key":"can"}]
-}

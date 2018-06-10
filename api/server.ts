@@ -1,5 +1,5 @@
 import * as express from 'express';
-
+import {treeviewData} from './treeview-data';
 const app = express();
 
 app.use(function(req, res, next) {
@@ -46,6 +46,10 @@ app.get('/api/contract', (req, res) => {
   };
 
   res.json(contract);
+});
+
+app.get('/api/treeview-data/?:id', (req, res) => {
+  res.json(treeviewData[req.params.id]);
 });
 
 app.listen(9000, () => console.log('Example app listening on port 9000!'));

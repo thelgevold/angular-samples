@@ -26,7 +26,7 @@ import {JqueryIntegration} from '../shared-components/jquery-integration/jquery-
 // import {SurveyDemo} from '../shared-components/survey/survey-demo';
 // import {LogDemo} from '../shared-components/log-tail/log-demo';
 // import {InputOutputDemo} from '../shared-components/input-output/input-output-demo';
-// import {CountryDemo} from '../shared-components/lazy-loaded-tree-view/country-demo';
+import {CountryDemo} from '../shared-components/lazy-loaded-tree-view/country-demo';
 // import {RxJsStreams} from '../shared-components/rxjs-streams/rxjs-streams';
 // import {CachingDemo} from '../shared-components/rxjs-caching/caching-demo';
 // import {RxJsBuffering} from '../shared-components/rxjs-buffering/rxjs-buffering';
@@ -66,7 +66,7 @@ const routes: Routes = [
       //   { path: 'rxjs', component:RxJsStreams},
       //   { path: 'friends', component:CachingDemo},
       //   { path: 'buffering', component:RxJsBuffering},
-      //   { path: 'countries', component:CountryDemo},
+      {path: 'countries', component: CountryDemo},
       //   { path: 'cars', component:CarsComponent}
     ],
   },
