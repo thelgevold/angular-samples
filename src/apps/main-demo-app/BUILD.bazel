@@ -14,7 +14,9 @@ ng_module(
             "//src/apps/shared-components/jquery-integration:src",
             "//src/apps/shared-components/http:src",
             "//src/apps/shared-components/lazy-loaded-tree-view:src",
-            "//src/apps/shared-components/dependency-injection:src"
+            "//src/apps/shared-components/dependency-injection:src",
+            "//src/apps/shared-components/rxjs-streams:src",
+            "//src/apps/shared-components/rxjs-caching:src",
     ]
 )
 
