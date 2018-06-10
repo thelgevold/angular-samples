@@ -5,7 +5,7 @@ import {DemoPage} from '../shared-components/demo-page';
 import {AboutComponent} from '../shared-components/about/about.component';
 
 import {TreeViewDemo} from '../shared-components/tree-view/tree-view-demo';
-// import {ContactList} from '../shared-components/contact-list/contact-list';
+import {ContactList} from '../shared-components/contact-list/contact-list';
 // import {BoundTextbox} from '../shared-components/bound-textbox/bound-textbox';
 // import {Directory} from '../shared-components/tree-view/directory';
 import {GridDemo} from '../shared-components/grid/grid-demo';
@@ -54,7 +54,7 @@ const routes: Routes = [
       {path: 'treeview', component: TreeViewDemo},
       {path: 'grid', component: GridDemo},
       {path: 'input', component: InputControls},
-      //   { path: 'contact', component:ContactList},
+      {path: 'contact', component: ContactList},
       //   { path: 'textbox', component:BoundTextbox},
       {path: 'form', component: AddressForm},
       {path: 'change', component: CommentDemo},

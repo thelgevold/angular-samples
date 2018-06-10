@@ -29,6 +29,7 @@ ng_module(
             "//src/apps/shared-components/tree-view:src",
             "//src/apps/shared-components/grid:src",
             "//src/apps/shared-components/access-child-components:src",
+            "//src/apps/shared-components/contact-list:src",
 
     ]
 )
