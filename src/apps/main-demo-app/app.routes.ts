@@ -12,13 +12,13 @@ import {AboutComponent} from '../shared-components/about/about.component';
 // import {Column} from '../shared-components/grid/column';
 import {HttpSample} from '../shared-components/http/http';
 import {Spreadsheet} from '../shared-components/spreadsheet/spreadsheet';
-// import {Algorithms} from '../shared-components/algorithms/algorithms';
+import {Algorithms} from '../shared-components/algorithms/algorithms';
 // import {AngularHost} from '../shared-components/react-integration/angular-host';
 import {JqueryIntegration} from '../shared-components/jquery-integration/jquery-integration';
 // import {InputControls} from '../shared-components/input-controls/input-controls';
 import {AddressBook} from '../shared-components/dependency-injection/address-book';
 // import {AddressForm} from '../shared-components/address-form/address-form';
-// import {Graph} from '../shared-components/algorithms/graph/graph';
+import {Graph} from '../shared-components/algorithms/graph/graph';
 // import {PubSub} from '../shared-components/pub-sub/pub-sub';
 // import {TextEditor} from '../shared-components/text-editor/text-editor';
 // import {CommentDemo} from '../shared-components/change-detection/comment-demo';
@@ -46,8 +46,8 @@ const routes: Routes = [
       {path: 'spreadsheet', component: Spreadsheet},
       {path: 'jquery', component: JqueryIntegration},
       //   { path: 'react', component:AngularHost},
-      //   { path: 'algorithms', component:Algorithms},
-      //   { path: 'graph', component:Graph},
+      {path: 'algorithms', component: Algorithms},
+      {path: 'graph', component: Graph},
       //   { path: 'pub-sub', component:PubSub},
       //   { path: 'text-editor', component:TextEditor},
       {path: 'address', component: AddressBook},

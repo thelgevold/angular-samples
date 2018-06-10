@@ -8,7 +8,7 @@ import {routing} from './app.routes';
 import {DemoPageModule} from '../shared-components/demo-page.module';
 
 //import {AboutModule} from '../shared-components/about/about.module';
-// import {AlgorithmsModule} from '../shared-components/algorithms/algorithms.module';
+import {AlgorithmsModule} from '../shared-components/algorithms/algorithms.module';
 // import {BoundTextboxModule} from '../shared-components/bound-textbox/bound-textbox.module';
 // import {ChangeDetectionModule} from '../shared-components/change-detection/change-detection.module';
 // import {AccessChildModule} from '../shared-components/access-child-components/access-child.module';
@@ -39,7 +39,7 @@ import {AddressBookModule} from '../shared-components/dependency-injection/addre
     routing,
     DemoPageModule,
     //AboutModule,
-    // AlgorithmsModule,
+    AlgorithmsModule,
     // BoundTextboxModule,
     // ChangeDetectionModule,
     // AccessChildModule,
