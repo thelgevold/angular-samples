@@ -7,6 +7,7 @@ import {switchMap, map, flatMap} from 'rxjs/operators';
   templateUrl: './http.html',
 })
 export class HttpSample {
+  apiBaseUrl = 'http://localhost:9000/api';
   result: any;
   combined: any;
   error: any;
@@ -35,7 +36,7 @@ export class HttpSample {
     this.country
       .pipe(
         switchMap(country =>
-          this.http.get('/api/country-info/' + country + '.json'),
+          this.http.get(`${this.apiBaseUrl}/country-info/${country}`),
         ),
         map((res: Response) => res.json()),
       )
@@ -49,7 +50,7 @@ export class HttpSample {
   loadFriendsAsPromise() {
     this.friendsAsPromise = {};
     this.http
-      .get('/api/friends.json')
+      .get(`${this.apiBaseUrl}/friends`)
       .toPromise()
       .then((res: Response) => {
         this.friendsAsPromise.friends = res.json().friends;
@@ -60,10 +61,10 @@ export class HttpSample {
     this.combined = {friends: [], customer: {}};
     forkJoin(
       this.http
-        .get('/api/friends.json')
+        .get(`${this.apiBaseUrl}/friends`)
         .pipe(map((res: Response) => res.json())),
       this.http
-        .get('/api/customer.json')
+        .get(`${this.apiBaseUrl}/customer`)
         .pipe(map((res: Response) => res.json())),
     ).subscribe(
       res => (this.combined = {friends: res[0].friends, customer: res[1]}),
@@ -73,20 +74,22 @@ export class HttpSample {
   loadFriendsSuccessFully() {
     this.result = {friends: []};
     this.http
-      .get('/api/friends.json')
+      .get(`${this.apiBaseUrl}/friends`)
       .pipe(map((res: Response) => res.json()))
       .subscribe(res => (this.result = res));
   }
 
   loadContractByCustomer() {
     this.http
-      .get('/api/customer.json')
+      .get(`${this.apiBaseUrl}/customer`)
       .pipe(
         map((res: Response) => {
           this.customer = res.json();
           return this.customer;
         }),
-        flatMap(customer => this.http.get(customer.contractUrl)),
+        flatMap(customer =>
+          this.http.get(`${this.apiBaseUrl}/${customer.contractUrl}`),
+        ),
         map((res: Response) => res.json()),
       )
       .subscribe(res => (this.contract = res));
@@ -95,7 +98,7 @@ export class HttpSample {
   loadFriendsWithError() {
     this.result = {friends: []};
     this.http
-      .get('/api/friends2.json')
+      .get('/api/friends2')
       .pipe(map((res: Response) => res.json()))
       .subscribe(res => (this.result = res), error => (this.error = error));
   }
@@ -115,7 +118,7 @@ export class HttpSample {
   }
 }
 
-class Person {
+export class Person {
   firstName: string;
   lastName: string;
 }

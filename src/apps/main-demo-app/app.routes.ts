@@ -10,7 +10,7 @@ import {AboutComponent} from '../shared-components/about/about.component';
 // import {Directory} from '../shared-components/tree-view/directory';
 // import {GridDemo} from '../shared-components/grid/grid-demo';
 // import {Column} from '../shared-components/grid/column';
-// import {HttpSample} from '../shared-components/http/http';
+import {HttpSample} from '../shared-components/http/http';
 import {Spreadsheet} from '../shared-components/spreadsheet/spreadsheet';
 // import {Algorithms} from '../shared-components/algorithms/algorithms';
 // import {AngularHost} from '../shared-components/react-integration/angular-host';
@@ -51,7 +51,7 @@ const routes: Routes = [
       //   { path: 'pub-sub', component:PubSub},
       //   { path: 'text-editor', component:TextEditor},
       //   { path: 'address', component:AddressBook},
-      //   { path: 'http', component:HttpSample},
+      {path: 'http', component: HttpSample},
       //   { path: 'treeview', component:TreeViewDemo},
       //   { path: 'grid', component:GridDemo},
       //   { path: 'input', component:InputControls},

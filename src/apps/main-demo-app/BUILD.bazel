@@ -12,7 +12,7 @@ ng_module(
             "//src/apps/shared-components/about:src",
             "//src/apps/shared-components/spreadsheet:src",
             "//src/apps/shared-components/jquery-integration:src",
-            #"//src/apps/shared-components/lazy-loaded-tree-view:lazytree",
+            "//src/apps/shared-components/http:src",
             #"//src/apps/shared-components/survey:survey"
     ]
 )
@@ -39,7 +39,7 @@ ts_devserver(
     additional_root_paths = [
         "angular_samples/node_modules/jquery/dist",
         "angular_samples/node_modules/jquery-ui-dist",
-        "angular_samples/node_modules/zone.js/dist",
+        "angular_samples/node_modules/zone.js/dist"
     ],
     entry_module = "angular_samples/src/apps/main-demo-app/main",
     scripts = [
@@ -53,8 +53,8 @@ ts_devserver(
         "//:node_modules/jquery-ui-dist/jquery-ui.min.js",
         
         "index.html",
-        ":bootstrap",
-        ":site"
+        ":bootstrap", 
+        ":site",
     ], 
     deps = [":src"]
 )

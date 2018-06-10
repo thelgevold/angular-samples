@@ -21,7 +21,10 @@
     "webpack-babili": "ngc -p src/tsconfig-es6.json && webpack --config webpack/webpack-babili.js --progress --mode production",
     "build-all": "npm run aot-i18n-en && npm run aot-i18n-no && npm run rollup-lazy && npm run browserify-demo && npm run parcel-demo && npm run webpack-babili && npm run webpack-lazy-loading && npm run webpack-no-lazy-loading && npm run systemjs-builder-demo && npm run build-demo-app && npm run closure-compiler-demo && npm run rollup-demo && npm run rollup-es6",
     "postinstall": "ngc -p angular.tsconfig.json",
-    "serve": "ibazel run //src/apps/main-demo-app:devserver"
+    "serve-app": "ibazel run //src/apps/main-demo-app:devserver",
+    "serve-api": "ibazel run //api",
+    "serve": "concurrently \"npm run serve-app\" \"npm run serve-api\""
+
   },
   "devDependencies": {
     "@angular-devkit/build-optimizer": "0.3.1",
@@ -41,7 +44,8 @@
     "typescript": "2.7.2",
     "uglify-js": "3.2.2",
     "webpack": "4.8.3",
-    "webpack-cli": "2.1.3"
+    "webpack-cli": "2.1.3",
+    "concurrently": "3.5.1"
   },
   "dependencies": {
     "@angular/animations": "6.0.4",
@@ -71,6 +75,7 @@
     "rxjs": "6.1.0",
     "systemjs": "0.20.19",
     "underscore": "~1.8.3",
-    "zone.js": "0.8.26"
+    "zone.js": "0.8.26",
+    "express": "4.16.3"
   }
 }

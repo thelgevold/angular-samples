@@ -15,7 +15,8 @@ exports_files([
     "node_modules/zone.js/dist/zone-testing-bundle.js",
 
     "node_modules/jquery/dist/jquery.min.js",
-    "node_modules/jquery-ui-dist/jquery-ui.min.js"
+    "node_modules/jquery-ui-dist/jquery-ui.min.js",
+
 ])
 
 # NOTE: this will move to node_modules/BUILD in a later release
@@ -34,7 +35,8 @@ filegroup(
         "protractor",
         "tsickle",
         "tsutils",
-        "typescript"
+        "typescript",
+        "express"
     ] for ext in [
         "*.js",
         "*.json",
