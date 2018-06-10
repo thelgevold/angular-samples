@@ -13,7 +13,7 @@ import {DemoPageModule} from '../shared-components/demo-page.module';
 // import {ChangeDetectionModule} from '../shared-components/change-detection/change-detection.module';
 // import {AccessChildModule} from '../shared-components/access-child-components/access-child.module';
 // import {ContactListModule} from '../shared-components/contact-list/contact-list.module';
-// import {AddressBookModule} from '../shared-components/dependency-injection/address-book.module';
+import {AddressBookModule} from '../shared-components/dependency-injection/address-book.module';
 // import {GridModule} from '../shared-components/grid/grid.module';
 // import {HttpSampleModule} from '../shared-components/http/http.sample.module';
 // import {InputControlsModule} from '../shared-components/input-controls/input-controls.module';
@@ -44,7 +44,7 @@ import {DemoPageModule} from '../shared-components/demo-page.module';
     // ChangeDetectionModule,
     // AccessChildModule,
     // ContactListModule,
-    // AddressBookModule,
+    AddressBookModule,
     // GridModule,
     // HttpSampleModule,
     // InputControlsModule,

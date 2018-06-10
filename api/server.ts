@@ -19,6 +19,20 @@ app.get('/api/friends', (req, res) => {
   res.json(friends);
 });
 
+app.get('/api/people', (req, res) => {
+  const people = {
+    people: [
+      {name: 'Joe', address: 'Test Street1'},
+      {name: 'Peter', address: 'Test Street2'},
+      {name: 'Tom', address: 'Test Street3'},
+      {name: 'Jack', address: 'Test Street4'},
+      {name: 'Bob', address: 'Test Street5'},
+    ],
+  };
+
+  res.json(people);
+});
+
 app.get('/api/customer', (req, res) => {
   const customer = {
     name: 'Joe Smith',

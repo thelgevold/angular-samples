@@ -1,7 +1,0 @@
-{
-  "people":[{"name":"Joe","address":"Test Street1"},
-            {"name":"Peter","address":"Test Street2"},
-            {"name":"Tom","address":"Test Street3"},
-            {"name":"Jack","address":"Test Street4"},
-            {"name":"Bob","address":"Test Street5"}]
-}

@@ -1,20 +1,21 @@
-import { Http, Response } from "@angular/http";
-import { Injectable } from "@angular/core";
+import {Http, Response} from '@angular/http';
+import {Injectable} from '@angular/core';
 
-import { pipe } from "rxjs";
-import { map } from "rxjs/operators";
+import {pipe} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class AddressBookService {
   http: Http;
   constructor(http: Http) {
-    console.log("Creating AddressBookService");
+    console.log('Creating AddressBookService');
     this.http = http;
   }
 
-  getEntries() {
+  getEntries(): Observable<any> {
     return this.http
-      .get("/api/people.json")
+      .get('http://localhost:9000/api/people')
       .pipe(map((res: Response) => res.json()));
   }
 }
