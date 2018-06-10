@@ -31,6 +31,7 @@ ng_module(
             "//src/apps/shared-components/access-child-components:src",
             "//src/apps/shared-components/contact-list:src",
             "//src/apps/shared-components/bound-textbox:src",
+            "//src/apps/shared-components/input-output:src",
 
     ]
 )

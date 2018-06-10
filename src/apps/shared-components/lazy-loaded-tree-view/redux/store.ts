@@ -17,7 +17,6 @@ export class Store {
   }
 
   private handleAction(action) {
-    console.log(action.url);
     if (action.name === 'LOAD_NODES') {
       if (this.nodes[action.key]) {
         this.treeNodes[action.key].next(this.nodes[action.key]);
