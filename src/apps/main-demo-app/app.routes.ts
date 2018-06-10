@@ -29,7 +29,7 @@ import {LogDemo} from '../shared-components/log-tail/log-demo';
 import {CountryDemo} from '../shared-components/lazy-loaded-tree-view/country-demo';
 import {RxJsStreams} from '../shared-components/rxjs-streams/rxjs-streams';
 import {CachingDemo} from '../shared-components/rxjs-caching/caching-demo';
-// import {RxJsBuffering} from '../shared-components/rxjs-buffering/rxjs-buffering';
+import {RxJsBuffering} from '../shared-components/rxjs-buffering/rxjs-buffering';
 // import {CarsComponent} from '../shared-components/rxjs-error-handling/cars.component';
 
 const routes: Routes = [
@@ -65,7 +65,7 @@ const routes: Routes = [
       //   { path: 'iodemo', component:InputOutputDemo},
       {path: 'rxjs', component: RxJsStreams},
       {path: 'friends', component: CachingDemo},
-      //   { path: 'buffering', component:RxJsBuffering},
+      {path: 'buffering', component: RxJsBuffering},
       {path: 'countries', component: CountryDemo},
       //   { path: 'cars', component:CarsComponent}
     ],

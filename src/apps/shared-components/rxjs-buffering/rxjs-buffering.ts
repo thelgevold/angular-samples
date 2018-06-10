@@ -14,7 +14,7 @@ export class RxJsBuffering {
   numbers = [1, 2, 3, 4, 5];
   sum = new Subject<number>();
   series;
-  calculation = {};
+  calculation: any = {};
   showSum = false;
 
   add(number) {
@@ -24,7 +24,10 @@ export class RxJsBuffering {
   ngOnInit() {
     this.series = this.sum
       .asObservable()
-      .pipe(tap(a => (this.showSum = false)), bufferCount(3))
+      .pipe(
+        tap(a => (this.showSum = false)),
+        bufferCount(3),
+      )
       .subscribe(res => {
         this.calculation = {sum: res.reduce((a, b) => a + b)};
         this.showSum = true;

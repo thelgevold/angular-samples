@@ -19,6 +19,7 @@ ng_module(
             "//src/apps/shared-components/rxjs-caching:src",
             "//src/apps/shared-components/algorithms:src",
             "//src/apps/shared-components/log-tail:src",
+            "//src/apps/shared-components/rxjs-buffering:src",
     ]
 )
 
