@@ -17,7 +17,7 @@ import {Algorithms} from '../shared-components/algorithms/algorithms';
 import {JqueryIntegration} from '../shared-components/jquery-integration/jquery-integration';
 // import {InputControls} from '../shared-components/input-controls/input-controls';
 import {AddressBook} from '../shared-components/dependency-injection/address-book';
-// import {AddressForm} from '../shared-components/address-form/address-form';
+import {AddressForm} from '../shared-components/address-form/address-form';
 import {Graph} from '../shared-components/algorithms/graph/graph';
 import {PubSub} from '../shared-components/pub-sub/pub-sub';
 import {TextEditor} from '../shared-components/text-editor/text-editor';
@@ -57,7 +57,7 @@ const routes: Routes = [
       //   { path: 'input', component:InputControls},
       //   { path: 'contact', component:ContactList},
       //   { path: 'textbox', component:BoundTextbox},
-      //   { path: 'form', component:AddressForm},
+      {path: 'form', component: AddressForm},
       //   { path: 'change', component:CommentDemo},
       //   { path: 'parent-child', component:Parent},
       {path: 'survey', component: SurveyDemo},

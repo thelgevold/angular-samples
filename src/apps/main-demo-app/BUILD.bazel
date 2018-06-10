@@ -23,6 +23,8 @@ ng_module(
             "//src/apps/shared-components/survey:src",
             "//src/apps/shared-components/pub-sub:src",
             "//src/apps/shared-components/text-editor:src",
+            "//src/apps/shared-components/address-form:src",
+
     ]
 )
 
