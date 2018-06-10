@@ -22,6 +22,7 @@ ng_module(
             "//src/apps/shared-components/rxjs-buffering:src",
             "//src/apps/shared-components/survey:src",
             "//src/apps/shared-components/pub-sub:src",
+            "//src/apps/shared-components/text-editor:src",
     ]
 )
 

@@ -20,7 +20,7 @@ import {AddressBook} from '../shared-components/dependency-injection/address-boo
 // import {AddressForm} from '../shared-components/address-form/address-form';
 import {Graph} from '../shared-components/algorithms/graph/graph';
 import {PubSub} from '../shared-components/pub-sub/pub-sub';
-// import {TextEditor} from '../shared-components/text-editor/text-editor';
+import {TextEditor} from '../shared-components/text-editor/text-editor';
 // import {CommentDemo} from '../shared-components/change-detection/comment-demo';
 // import {Parent} from '../shared-components/access-child-components/parent';
 import {SurveyDemo} from '../shared-components/survey/survey-demo';
@@ -49,7 +49,7 @@ const routes: Routes = [
       {path: 'algorithms', component: Algorithms},
       {path: 'graph', component: Graph},
       {path: 'pub-sub', component: PubSub},
-      //   { path: 'text-editor', component:TextEditor},
+      {path: 'text-editor', component: TextEditor},
       {path: 'address', component: AddressBook},
       {path: 'http', component: HttpSample},
       //   { path: 'treeview', component:TreeViewDemo},
