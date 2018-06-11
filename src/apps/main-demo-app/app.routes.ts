@@ -28,7 +28,7 @@ import {CountryDemo} from '../shared-components/lazy-loaded-tree-view/country-de
 import {RxJsStreams} from '../shared-components/rxjs-streams/rxjs-streams';
 import {CachingDemo} from '../shared-components/rxjs-caching/caching-demo';
 import {RxJsBuffering} from '../shared-components/rxjs-buffering/rxjs-buffering';
-// import {CarsComponent} from '../shared-components/rxjs-error-handling/cars.component';
+import {CarsComponent} from '../shared-components/rxjs-error-handling/cars.component';
 
 const routes: Routes = [
   {
@@ -65,7 +65,7 @@ const routes: Routes = [
       {path: 'friends', component: CachingDemo},
       {path: 'buffering', component: RxJsBuffering},
       {path: 'countries', component: CountryDemo},
-      //   { path: 'cars', component:CarsComponent}
+      {path: 'cars', component: CarsComponent},
     ],
   },
 ];

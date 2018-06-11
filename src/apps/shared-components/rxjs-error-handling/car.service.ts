@@ -6,22 +6,24 @@ import {map, catchError, flatMap} from 'rxjs/operators';
 
 @Injectable()
 export class CarService {
+  apiBaseUrl = 'http://localhost:9000/api';
+
   constructor(private http: Http) {}
 
   getModels(url) {
-    return this.http.get(url).pipe(
+    return this.http.get(`${this.apiBaseUrl}/${url}`).pipe(
       map(response => response.json().models),
       catchError(error => of({error: true})),
       flatMap(models =>
         forkJoin(
           models.length
-            ? models.map(url =>
-                this.http.get(url).pipe(
+            ? models.map(model =>
+                this.http.get(`${this.apiBaseUrl}/${model.url}`).pipe(
                   map(response => response.json()),
                   catchError(e =>
                     of({
                       notLoaded: true,
-                      name: `ERROR Loading ${url}!`,
+                      name: `ERROR Loading ${model.name}!`,
                     }),
                   ),
                 ),

@@ -9,9 +9,16 @@ import {switchMap, distinctUntilChanged, tap} from 'rxjs/operators';
   selector: 'cars',
   providers: [CarService],
   styles: [
-    `.selected {background-color: gray;color:white;} 
-            .error {color: red; font-weight:bold;}
-  `,
+    `
+      .selected {
+        background-color: gray;
+        color: white;
+      }
+      .error {
+        color: red;
+        font-weight: bold;
+      }
+    `,
   ],
   template: `
   <div>
@@ -22,7 +29,7 @@ import {switchMap, distinctUntilChanged, tap} from 'rxjs/operators';
       
       <h4>Models</h4>
       <div [ngClass]="{'error': model.notLoaded}" *ngFor="let model of models">
-        {{model.name}}
+        {{model.name}} {{model.topSpeed}}
       </div>
       
       <div class="error" *ngIf="error">Error Loading Models</div>
@@ -33,8 +40,8 @@ import {switchMap, distinctUntilChanged, tap} from 'rxjs/operators';
 export class CarsComponent {
   name: string;
   cars = [
-    {name: 'Lamborghini', url: '/api/lamborghini.json'},
-    {name: 'Ferrari', url: '/api/ferrari.json'},
+    {name: 'Lamborghini', url: `cars/lamborghini`},
+    {name: 'Ferrari', url: `cars/ferrari`},
   ];
   models = [];
   error = false;

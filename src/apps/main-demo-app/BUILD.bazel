@@ -32,6 +32,7 @@ ng_module(
             "//src/apps/shared-components/contact-list:src",
             "//src/apps/shared-components/bound-textbox:src",
             "//src/apps/shared-components/input-output:src",
+            "//src/apps/shared-components/rxjs-error-handling:src",
 
     ]
 )

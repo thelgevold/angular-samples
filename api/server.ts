@@ -1,5 +1,6 @@
 import * as express from 'express';
 import {treeviewData} from './treeview-data';
+import {lamborghiniModels, lamborghinData} from './car-data';
 const app = express();
 
 app.use(function(req, res, next) {
@@ -31,6 +32,18 @@ app.get('/api/friends', (req, res) => {
   };
 
   res.json(friends);
+});
+
+app.get('/api/cars/:type', (req, res) => {
+  if (req.params.type === 'ferrari') {
+    res.status(500).send({error: 'there was an error'});
+  } else {
+    res.json(lamborghiniModels);
+  }
+});
+
+app.get('/api/car/:model', (req, res) => {
+  res.json(lamborghinData.find(l => l.key === req.params.model));
 });
 
 app.get('/api/people', (req, res) => {
