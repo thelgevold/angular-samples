@@ -21,7 +21,7 @@ AppDispatcher.register( function( payload ) {
 
         case 'expand-collapse':
             NodeStore.toggleNode(payload.node);
-            break;
+            break; 
 
     }
 

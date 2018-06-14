@@ -32,7 +32,6 @@ filegroup(
     ]) for pkg in [
         "@angular",
         "@types",
-        "protractor",
         "tsickle",
         "tsutils",
         "typescript",
@@ -59,6 +58,21 @@ filegroup(
         ["node_modules/@angular/*/bundles/*.umd.js"],
         exclude = ANGULAR_TESTING,
     ),
+)
+
+filegroup(
+    name = "static_files",
+    srcs = [
+      "node_modules/jquery/dist/jquery.min.js",
+      "node_modules/jquery-ui-dist/jquery-ui.min.js",
+      "node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "node_modules/systemjs/dist/system.js",
+      "node_modules/underscore/underscore-min.js",
+      "node_modules/react/dist/react.min.js",
+      "node_modules/zone.js/dist/zone.min.js",
+      "node_modules/flux/dist/Flux.min.js",
+      "node_modules/events/events.js"
+    ]
 )
 
 filegroup(

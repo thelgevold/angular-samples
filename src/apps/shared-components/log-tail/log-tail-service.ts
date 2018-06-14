@@ -12,8 +12,6 @@ export class LogTailService {
   }
 
   getLogEntries(): Observable<{entries: {}}> {
-    return this.http
-      .get('http://localhost:9000/api/log')
-      .pipe(map((res: Response) => res.json()));
+    return this.http.get('/api/log').pipe(map((res: Response) => res.json()));
   }
 }

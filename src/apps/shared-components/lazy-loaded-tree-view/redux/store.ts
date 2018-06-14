@@ -22,7 +22,7 @@ export class Store {
         this.treeNodes[action.key].next(this.nodes[action.key]);
       } else {
         this._http
-          .get(`http://localhost:9000/api/${action.url}`)
+          .get(`/api/${action.url}`)
           .pipe(map((res: Response) => res.json()))
           .subscribe(res => {
             this.nodes[action.key] = treeNodeReducer(res, action);

@@ -3,6 +3,19 @@ import {treeviewData} from './treeview-data';
 import {lamborghiniModels, lamborghinData} from './car-data';
 const app = express();
 
+const root = `${__dirname}/api.runfiles/angular_samples/src/apps/api`;
+const node_modules = `${__dirname}/api.runfiles/angular_samples/node_modules`;
+
+console.log(node_modules);
+
+const indexPage = `${root}/index.html`;
+app.use(express.static('/'), express.static(root));
+app.use('/node_modules', express.static(node_modules));
+
+app.get('/', (_req, res) => {
+  res.sendFile(indexPage);
+});
+
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(

@@ -15,7 +15,7 @@ export class AddressBookService {
 
   getEntries(): Observable<any> {
     return this.http
-      .get('http://localhost:9000/api/people')
+      .get('/api/people')
       .pipe(map((res: Response) => res.json()));
   }
 }

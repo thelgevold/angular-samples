@@ -7,8 +7,23 @@ ts_library(
     tsconfig = "//:tsconfig.json"
 )
 
-nodejs_binary(
-    name = "api",
-    data = [":ts_server"],
-    entry_point = "../server.js",
+filegroup(
+    name = "static",
+    srcs = [":index.html"]
 )
+
+genrule(
+    name = "site",
+    srcs = ["//:site.css"],
+    outs = ["site.css"],
+    cmd = "cp $< $@",
+)
+
+nodejs_binary(
+    name = "api", 
+    data = [":ts_server", 
+            ":static", 
+            ":site",
+            "//:static_files"],
+    entry_point = "../server.js",
+) 

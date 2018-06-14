@@ -6,7 +6,7 @@ import {map, catchError, flatMap} from 'rxjs/operators';
 
 @Injectable()
 export class CarService {
-  apiBaseUrl = 'http://localhost:9000/api';
+  apiBaseUrl = '/api';
 
   constructor(private http: Http) {}
 

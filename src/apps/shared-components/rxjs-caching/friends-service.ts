@@ -16,7 +16,7 @@ export class FriendsService {
 
   getFriends() {
     if (!this._friends) {
-      this._friends = this._http.get('http://localhost:9000/api/friends').pipe(
+      this._friends = this._http.get('/api/friends').pipe(
         map((res: Response) => res.json().friends),
         tap(friends => console.log('fetched friends')),
         publishReplay(1),

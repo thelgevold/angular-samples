@@ -7,7 +7,7 @@ import {switchMap, map, flatMap} from 'rxjs/operators';
   templateUrl: './http.html',
 })
 export class HttpSample {
-  apiBaseUrl = 'http://localhost:9000/api';
+  apiBaseUrl = '/api';
   result: any;
   combined: any;
   error: any;
