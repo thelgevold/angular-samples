@@ -1,10 +1,9 @@
-import { Routes, RouterModule }   from '@angular/router';
+import {Routes, RouterModule} from '@angular/router';
 
 import {DemoComponent} from './demo.component';
 
 import {TreeViewDemo} from '../shared-components/tree-view/tree-view-demo';
 import {ContactList} from '../shared-components/contact-list/contact-list';
-import {Directory} from '../shared-components/tree-view/directory';
 import {Spreadsheet} from '../shared-components/spreadsheet/spreadsheet';
 import {Algorithms} from '../shared-components/algorithms/algorithms';
 import {InputControls} from '../shared-components/input-controls/input-controls';
@@ -22,28 +21,28 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/demo/spreadsheet',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'demo',
     component: DemoComponent,
     children: [
-      { path: 'spreadsheet', component: Spreadsheet},
-      { path: 'algorithms', component:Algorithms},
-      { path: 'graph', component:Graph},
-      { path: 'pub-sub', component:PubSub},
-      { path: 'text-editor', component:TextEditor},
-      { path: 'treeview', component:TreeViewDemo},
-      { path: 'input', component:InputControls},
-      { path: 'contact', component:ContactList},
-      { path: 'survey', component:SurveyDemo},
-      { path: 'redux', component:LogDemo},
-      { path: 'iodemo', component:InputOutputDemo},
-      { path: 'rxjs', component:RxJsStreams},
-      { path: 'buffering', component:RxJsBuffering},
-      { path: 'countries', component:CountryDemo}
-    ]
-  }
+      {path: 'spreadsheet', component: Spreadsheet},
+      {path: 'algorithms', component: Algorithms},
+      {path: 'graph', component: Graph},
+      {path: 'pub-sub', component: PubSub},
+      {path: 'text-editor', component: TextEditor},
+      {path: 'treeview', component: TreeViewDemo},
+      {path: 'input', component: InputControls},
+      {path: 'contact', component: ContactList},
+      {path: 'survey', component: SurveyDemo},
+      {path: 'redux', component: LogDemo},
+      {path: 'iodemo', component: InputOutputDemo},
+      {path: 'rxjs', component: RxJsStreams},
+      {path: 'buffering', component: RxJsBuffering},
+      {path: 'countries', component: CountryDemo},
+    ],
+  },
 ];
 
 export const routing = RouterModule.forRoot(routes);
