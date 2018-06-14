@@ -1,10 +1,10 @@
-import { BrowserModule }                from '@angular/platform-browser';
-import { NgModule }                     from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent }                 from './app.component';
-import { DemoComponent }                from './demo.component';
-import { routing }                      from './app.routes';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import {AppComponent} from './app.component';
+import {DemoComponent} from './demo.component';
+import {routing} from './app.routes';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 
 import {TreeView} from '../shared-components/tree-view/tree-view';
 import {Survey} from '../shared-components/survey/survey';
@@ -34,22 +34,41 @@ import {RxJsBuffering} from '../shared-components/rxjs-buffering/rxjs-buffering'
 import {CountryDemo} from '../shared-components/lazy-loaded-tree-view/country-demo';
 import {LazyTreeView} from '../shared-components/lazy-loaded-tree-view/tree-view';
 
-import {SharedModule} from '../shared-components/shared.module';
+import {SharedModule} from '../shared-components/shared/shared.module';
 
 @NgModule({
-  imports: [ BrowserModule, routing, SharedModule],
-  declarations: [ AppComponent, Producer, Consumer, DemoComponent,
-    TreeView, Survey, DemoPage, InputOutput,
-    Spreadsheet, Algorithms, Graph, PubSub,
-    Edge, Vertex, InsertionSort, Child,
-    TextEditor, TreeViewDemo, InputControls,
-    ContactList, CountryDemo, LazyTreeView,
-    SurveyDemo, LogDemo, InputOutputDemo, RxJsStreams, RxJsBuffering
+  imports: [BrowserModule, routing, SharedModule],
+  declarations: [
+    AppComponent,
+    Producer,
+    Consumer,
+    DemoComponent,
+    TreeView,
+    Survey,
+    DemoPage,
+    InputOutput,
+    Spreadsheet,
+    Algorithms,
+    Graph,
+    PubSub,
+    Edge,
+    Vertex,
+    InsertionSort,
+    Child,
+    TextEditor,
+    TreeViewDemo,
+    InputControls,
+    ContactList,
+    CountryDemo,
+    LazyTreeView,
+    SurveyDemo,
+    LogDemo,
+    InputOutputDemo,
+    RxJsStreams,
+    RxJsBuffering,
   ],
   entryComponents: [Edge],
-  providers: [
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
-  ],
-  bootstrap: [ AppComponent ]
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
