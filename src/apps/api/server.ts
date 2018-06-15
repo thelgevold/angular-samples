@@ -1,6 +1,8 @@
 import * as express from 'express';
+
 import {treeviewData} from './treeview-data';
 import {lamborghiniModels, lamborghinData} from './car-data';
+
 const app = express();
 
 const base = `${__dirname}/api.runfiles/angular_samples`;
@@ -15,15 +17,6 @@ app.use('/dist', express.static(dist));
 
 app.get('/', (_req, res) => {
   res.sendFile(indexPage);
-});
-
-app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept',
-  );
-  next();
 });
 
 app.get('/api/log', (req, res) => {
