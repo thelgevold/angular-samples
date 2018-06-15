@@ -76,5 +76,6 @@ ts_devserver(
         ":bootstrap", 
         ":site",
     ], 
-    deps = [":src"]
+    deps = [":src"],
+    data = ["//:dist"]
 )

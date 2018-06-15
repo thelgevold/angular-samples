@@ -17,6 +17,7 @@ exports_files([
     "node_modules/jquery/dist/jquery.min.js",
     "node_modules/jquery-ui-dist/jquery-ui.min.js",
 
+    "dist"
 ])
 
 # NOTE: this will move to node_modules/BUILD in a later release

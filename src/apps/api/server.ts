@@ -3,14 +3,15 @@ import {treeviewData} from './treeview-data';
 import {lamborghiniModels, lamborghinData} from './car-data';
 const app = express();
 
-const root = `${__dirname}/api.runfiles/angular_samples/src/apps/api`;
-const node_modules = `${__dirname}/api.runfiles/angular_samples/node_modules`;
-
-console.log(node_modules);
+const base = `${__dirname}/api.runfiles/angular_samples`;
+const root = `${base}/src/apps/api`;
+const node_modules = `${base}/node_modules`;
+const dist = `${base}/dist`;
 
 const indexPage = `${root}/index.html`;
 app.use(express.static('/'), express.static(root));
 app.use('/node_modules', express.static(node_modules));
+app.use('/dist', express.static(dist));
 
 app.get('/', (_req, res) => {
   res.sendFile(indexPage);
