@@ -39,43 +39,13 @@ ng_module(
 
 load("@build_bazel_rules_typescript//:defs.bzl", "ts_devserver")
 
-genrule(
-    name = "bootstrap",
-    srcs = ["//:node_modules/bootstrap/dist/css/bootstrap.min.css"],
-    outs = ["bootstrap.min.css"],
-    cmd = "cp $< $@",
-)
-
-genrule(
-    name = "site",
-    srcs = ["//:site.css"],
-    outs = ["site.css"],
-    cmd = "cp $< $@",
-)
-
 ts_devserver(
     name = "devserver",
     port = 4000,
-    additional_root_paths = [
-        "angular_samples/node_modules/jquery/dist",
-        "angular_samples/node_modules/jquery-ui-dist",
-        "angular_samples/node_modules/zone.js/dist"
-    ],
     entry_module = "angular_samples/src/apps/main-demo-app/main",
     scripts = [
       "//:angular_bundles"
     ],
     serving_path = "/bundle.min.js",
-    static_files = [
-        "//:node_modules/zone.js/dist/zone.min.js",
-
-        "//:node_modules/jquery/dist/jquery.min.js",
-        "//:node_modules/jquery-ui-dist/jquery-ui.min.js",
-        
-        "index.html",
-        ":bootstrap", 
-        ":site",
-    ], 
-    deps = [":src"],
-    data = ["//:dist"]
+    deps = [":src"]
 )

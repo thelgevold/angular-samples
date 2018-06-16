@@ -9,7 +9,8 @@ module.exports = {
   },
   entry: './src/apps/lazy-loading-app/main.ts',
   output: {
-    filename: 'dist/bundle-webpack-lazy-loading.js'
+    publicPath: '/dist/',
+    filename: 'bundle-webpack-lazy-loading.js'
   },
 
   plugins: [

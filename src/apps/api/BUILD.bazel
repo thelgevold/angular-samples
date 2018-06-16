@@ -9,7 +9,7 @@ ts_library(
 
 filegroup(
     name = "static",
-    srcs = [":index.html"]
+    srcs = glob(["*.html"]),
 )
 
 genrule(
@@ -24,6 +24,7 @@ nodejs_binary(
     data = [":ts_server", 
             ":static", 
             ":site",
+            "//:dist",
             "//:static_files"],
     entry_point = "../server.js",
 ) 

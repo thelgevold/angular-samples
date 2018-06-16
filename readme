@@ -1,4 +1,4 @@
-These samples use Angular 6.0.2
+These samples use Angular 6.0.4
 
 Live DEMO here: http://www.syntaxsuccess.com/angular-2-samples
 Documentation: http://www.syntaxsuccess.com/angular-2-articles
@@ -23,20 +23,16 @@ Optinally you can also build a set of samples where I compare bundling options:
 
 2) Rollup: npm run rollup-demo: npm run rollup-demo 
 
-3) SystemJS (JiT and no bundling): npm run systemjs-demo
+3) Webpack (AoT without lazy loading): npm run webpack-no-lazy-loading
 
-4) SystemJS-Builder (JiT with bundling): npm run systemjs-builder-demo
+4) Webpack (AoT with lazy loading): npm run webpack-lazy-loading
 
-5) Webpack (AoT without lazy loading): npm run webpack-no-lazy-loading
+5) Webpack (Babili): npm run webpack-babili
 
-6) Webpack (AoT with lazy loading): npm run webpack-lazy-loading
+6) Parcel: npm run parcel-demo
 
-7) Webpack (Babili): npm run webpack-babili
+7) Browserify: npm run browserify-demo
 
-8) Parcel: npm run parcel-demo
-
-9) Browserify: npm run browserify-demo
-
-10) Rollup with lazy loading: npm run rollup-lazy
+8) Rollup with lazy loading: npm run rollup-lazy
 
 You can build all options, including the main app, by running npm run build-all

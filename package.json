@@ -17,7 +17,7 @@
     "webpack-lazy-loading": "webpack --config webpack/webpack-lazy-loading.js --progress --mode production",
     "webpack-no-angular-optimizations": "ngc -p src/tsconfig-es5.json && webpack --config webpack/webpack-no-angular-optimizations.js --progress --mode production",
     "webpack-babili": "ngc -p src/tsconfig-es6.json && webpack --config webpack/webpack-babili.js --progress --mode production",
-    "build-all": "npm run aot-i18n-en && npm run aot-i18n-no && npm run rollup-lazy && npm run browserify-demo && npm run parcel-demo && npm run webpack-babili && npm run webpack-lazy-loading && npm run webpack-no-lazy-loading && npm run systemjs-builder-demo && npm run closure-compiler-demo && npm run rollup-demo && npm run rollup-es6",
+    "build-all": "npm run aot-i18n-en && npm run aot-i18n-no && npm run rollup-lazy && npm run browserify-demo && npm run parcel-demo && npm run webpack-babili && npm run webpack-lazy-loading && npm run webpack-no-lazy-loading && npm run closure-compiler-demo && npm run rollup-demo && npm run rollup-es6",
     "postinstall": "ngc -p angular.tsconfig.json",
     "serve-app": "ibazel run //src/apps/main-demo-app:devserver",
     "serve-api": "ibazel run //src/apps/api",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-optimizer": "0.3.1",
-    "@ngtools/webpack": "6.0.3",
+    "@ngtools/webpack": "6.0.8",
     "@angular/bazel": "6.0.4",
     "@angular/compiler": "6.0.4",
     "@angular/compiler-cli": "6.0.4",

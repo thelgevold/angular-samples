@@ -15,9 +15,6 @@ app/aot
 npm-debug.log
 .cache
 
-dist/**/*.js
-dist/**/*.map
-dist/manifest.MF
-dist/*_renaming_report
+dist
 .DS_Store
 bazel-*
