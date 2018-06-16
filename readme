@@ -7,9 +7,11 @@ Here are the prerequisites for running the project:
 
 1) Install Bazel
 
-2) npm install
+2) npm run start-remote-cache (starts remote Bazel cache in docker container)
 
-3) npm run start
+3) npm install
+
+4) npm run start
    
 -This builds the application using Bazel and serves it from http://localhost:3000
 
