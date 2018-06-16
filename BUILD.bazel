@@ -76,7 +76,8 @@ filegroup(
       "node_modules/react/dist/react.min.js",
       "node_modules/zone.js/dist/zone.min.js",
       "node_modules/flux/dist/Flux.min.js",
-      "node_modules/events/events.js"
+      "node_modules/events/events.js",
+      "node_modules/systemjs/dist/system.src.js"
     ]
 )
 
