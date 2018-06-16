@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as compression from 'compression';
+import * as path from 'path';
 
 import {treeviewData} from './treeview-data';
 import {lamborghiniModels, lamborghinData} from './car-data';
@@ -11,11 +12,13 @@ const base = `${__dirname}/api.runfiles/angular_samples`;
 const root = `${base}/src/apps/api`;
 const node_modules = `${base}/node_modules`;
 const dist = `${base}/dist`;
+const rollup = path.join(__dirname, '..', 'bundler-comparison-app');
 
 const indexPage = `${root}/index.html`;
 app.use(express.static('/'), express.static(root));
 app.use('/node_modules', express.static(node_modules));
 app.use('/dist', express.static(dist));
+app.use('/rollup', express.static(rollup));
 
 app.get('/', (_req, res) => {
   res.sendFile(indexPage);

@@ -1,9 +1,8 @@
 import {Routes, RouterModule} from '@angular/router';
-
+import {ModuleWithProviders} from '@angular/core';
 import {DemoComponent} from './demo.component';
 
 import {TreeViewDemo} from '../shared-components/tree-view/tree-view-demo';
-import {ContactList} from '../shared-components/contact-list/contact-list';
 import {Spreadsheet} from '../shared-components/spreadsheet/spreadsheet';
 import {Algorithms} from '../shared-components/algorithms/algorithms';
 import {InputControls} from '../shared-components/input-controls/input-controls';
@@ -34,7 +33,6 @@ const routes: Routes = [
       {path: 'text-editor', component: TextEditor},
       {path: 'treeview', component: TreeViewDemo},
       {path: 'input', component: InputControls},
-      {path: 'contact', component: ContactList},
       {path: 'survey', component: SurveyDemo},
       {path: 'redux', component: LogDemo},
       {path: 'iodemo', component: InputOutputDemo},
@@ -45,4 +43,4 @@ const routes: Routes = [
   },
 ];
 
-export const routing = RouterModule.forRoot(routes);
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

@@ -1,10 +1,6 @@
 import {Component} from '@angular/core';
 
-import {
-  HashLocationStrategy,
-  LocationStrategy,
-  Location,
-} from '@angular/common';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'demo-app',
