@@ -12,13 +12,15 @@ const base = `${__dirname}/api.runfiles/angular_samples`;
 const root = `${base}/src/apps/api`;
 const node_modules = `${base}/node_modules`;
 const dist = `${base}/dist`;
-const rollup = path.join(__dirname, '..', 'bundler-comparison-app');
+const bundles = path.join(__dirname, '..', 'bundler-comparison-app');
+const ngUpgrade = path.join(__dirname, '..', 'ng-upgrade-app');
 
 const indexPage = `${root}/index.html`;
 app.use(express.static('/'), express.static(root));
 app.use('/node_modules', express.static(node_modules));
 app.use('/dist', express.static(dist));
-app.use('/rollup', express.static(rollup));
+app.use('/bundles', express.static(bundles));
+app.use('/ngUpgrade', express.static(ngUpgrade));
 
 app.get('/', (_req, res) => {
   res.sendFile(indexPage);

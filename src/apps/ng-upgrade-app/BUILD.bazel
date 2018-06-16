@@ -1,0 +1,23 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@angular//:index.bzl", "ng_module")
+
+ng_module(
+    name = "src",
+    srcs = glob(["*.ts"]),
+    tsconfig = "//:tsconfig.json",
+    deps = ["@rxjs", 
+            "//src/apps/shared-components:src",
+            "//src/apps/shared-components/algorithms:src",
+            "//src/apps/shared-components/survey:src",
+            "//src/apps/shared-components/text-editor:src",
+    ]
+)
+
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary", "rollup_bundle")
+
+rollup_bundle(
+    name = "rollup",
+    entry_point = "src/apps/ng-upgrade-app/upgrade",
+    deps = [":src"],
+)
