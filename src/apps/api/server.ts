@@ -1,9 +1,11 @@
 import * as express from 'express';
+import * as compression from 'compression';
 
 import {treeviewData} from './treeview-data';
 import {lamborghiniModels, lamborghinData} from './car-data';
 
 const app = express();
+app.use(compression());
 
 const base = `${__dirname}/api.runfiles/angular_samples`;
 const root = `${base}/src/apps/api`;

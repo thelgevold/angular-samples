@@ -35,7 +35,8 @@ filegroup(
         "tsickle",
         "tsutils",
         "typescript",
-        "express"
+        "express",
+        "compression"
     ] for ext in [
         "*.js",
         "*.json",
