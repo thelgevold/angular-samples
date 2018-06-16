@@ -5,9 +5,11 @@ Documentation: http://www.syntaxsuccess.com/angular-2-articles
 
 Here are the prerequisites for running the project:
 
-1) npm install
+1) Install Bazel
 
-2) npm run start
+2) npm install
+
+3) npm run start
    
 -This builds the application using Bazel and serves it from http://localhost:3000
 
