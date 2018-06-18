@@ -1,12 +1,10 @@
 import * as express from 'express';
-import * as compression from 'compression';
 import * as path from 'path';
 
 import {treeviewData} from './treeview-data';
 import {lamborghiniModels, lamborghinData} from './car-data';
 
 const app = express();
-app.use(compression());
 
 const base = `${__dirname}/api.runfiles/angular_samples`;
 const root = `${base}/src/apps/api`;
@@ -23,6 +21,7 @@ app.use('/bundles', express.static(bundles));
 app.use('/ngUpgrade', express.static(ngUpgrade));
 
 app.get('/', (_req, res) => {
+  console.log('TTT');
   res.sendFile(indexPage);
 });
 

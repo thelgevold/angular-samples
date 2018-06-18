@@ -20,14 +20,14 @@ ng_module(
             "//src/apps/shared-components/tree-view:src",
             "//src/apps/shared-components/grid:src",
             "//src/apps/shared-components/input-output:src",
-            "//src/apps/shared-components/log-tail:src",
+            "//src/apps/shared-components/log-tail:src"
     ]
 )
 
 load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary", "rollup_bundle")
 
 rollup_bundle(
-    name = "rollup",
+    name = "bundle",
     entry_point = "src/apps/bundler-comparison-app/main",
     deps = [":src"],
 )

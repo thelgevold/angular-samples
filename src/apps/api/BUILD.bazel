@@ -9,22 +9,13 @@ ts_library(
 
 filegroup(
     name = "static",
-    srcs = glob(["*.html"]),
-)
-
-genrule(
-    name = "site",
-    srcs = ["//:site.css"],
-    outs = ["site.css"],
-    cmd = "cp $< $@",
+    srcs = glob(["*.html", "*.css"]),
 )
 
 nodejs_binary(
     name = "api", 
     data = [":ts_server", 
             ":static", 
-            ":site",
-            "//:dist",
             "//:static_files"],
     entry_point = "../server.js",
 ) 

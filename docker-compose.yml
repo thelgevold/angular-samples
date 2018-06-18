@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  frontend_server:
+    container_name: frontend_server
+    build: .
+    volumes:
+      - ./src:/usr/src
+    ports:
+      - "3000:3000"
+      - "4000:4000"
+      - "35729:35729"

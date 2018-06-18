@@ -29,15 +29,12 @@ import {Location} from '@angular/common';
         </div>
     </div>
 
-  </div>`
+  </div>`,
 })
-
 export class DemoComponent {
-  constructor(private location:Location) {}
+  constructor(private location: Location) {}
 
   getLinkStyle(path) {
     return this.location.path().indexOf(path) > -1;
   }
 }
-
-

@@ -35,8 +35,7 @@ filegroup(
         "tsickle",
         "tsutils",
         "typescript",
-        "express",
-        "compression"
+        "express"
     ] for ext in [
         "*.js",
         "*.json",
@@ -60,11 +59,6 @@ filegroup(
         exclude = ANGULAR_TESTING,
     ),
 )
-
-filegroup(
-    name = "dist",
-    srcs = glob(["dist/**/*.js"]),
-) 
 
 filegroup(
     name = "static_files",
