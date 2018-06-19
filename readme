@@ -7,10 +7,12 @@ Here are the prerequisites for running the project:
 
 1) npm install
 
-2) npm run start
-   
--This builds the application using Bazel and serves it from http://localhost:3000
--The Bazel build runs inside docker container, so Docker is a requirement to run these samples
+2) Terminal 1: run npm run start-remote-cache
+- This starts a remote caching server that can be used by the application build.
 
-Optinally you can enable a remote Bazel caching server to speed up builds.
-The caching server can be started by running npm run start-remote-cache. Then uncomment the build/run definitions in tools/bazel.rc.
+3) Terminal 2: npm run start
+- This starts a Bazel build of the api server and the Angular dev server.
+  If caching is enabled, previously built artifacts will be returned by the caching server.
+
+The application is hosted at http://localhost:3000
+

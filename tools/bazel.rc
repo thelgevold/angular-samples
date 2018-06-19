@@ -18,20 +18,20 @@ build:ci --local_resources=3072,2.0,1.0
 
 build:ci --noshow_progress
 
-# Write to cache
-#build --experimental_remote_spawn_cache
-#build --remote_http_cache=http://host.docker.internal:9001/cache
+# Enable this section if you want to read and write to cache
+build --experimental_remote_spawn_cache
+build --remote_http_cache=http://host.docker.internal:9001/cache
 
-#run --experimental_remote_spawn_cache
-#run --remote_http_cache=http://host.docker.internal:9001/cache
+run --experimental_remote_spawn_cache
+run --remote_http_cache=http://host.docker.internal:9001/cache
 
-# Only read from cache
+# Enable this section if you only want to read from cache
 #build --spawn_strategy=remote --genrule_strategy=remote
 #build --strategy=Javac=remote --strategy=Closure=remote
-#build --remote_http_cache=http://localhost:9001/cache
+#build --remote_http_cache=http://host.docker.internal:9001/cache
 #build --remote_upload_local_results=false
 
 #run --spawn_strategy=remote --genrule_strategy=remote
 #run --strategy=Javac=remote --strategy=Closure=remote
-#run --remote_http_cache=http://localhost:9001/cache
+#run --remote_http_cache=http://host.docker.internal:9001/cache
 #run --remote_upload_local_results=false

@@ -19,7 +19,7 @@
     "angular-compile": "ngc -p angular.tsconfig.json",
     "start-remote-cache": "docker-compose -f caching/docker-compose.yml up",
     "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
-    "start": "docker-compose -f docker-compose.yml up",
+    "start": "docker-compose -f docker-compose.yml up --build",
 
     "serve-app": "ibazel run //src/apps/main-demo-app:devserver",
     "serve-api": "ibazel run //src/apps/api",

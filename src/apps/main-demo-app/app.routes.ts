@@ -33,9 +33,9 @@ import {CarsComponent} from '../shared-components/rxjs-error-handling/cars.compo
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/spreadsheet',
+    redirectTo: '/demo/spreadsheet',
     pathMatch: 'full',
-  },
+  }, 
   {path: 'about', component: AboutComponent},
   {
     path: 'demo',

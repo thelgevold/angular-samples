@@ -27,4 +27,4 @@ COPY tools/bazel.rc /usr/tools/bazel.rc
 RUN npm install
 RUN npm run angular-compile
 
-CMD [ "npm", "run", "bazel-run" ]
+ENTRYPOINT [ ]
