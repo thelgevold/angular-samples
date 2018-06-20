@@ -42,6 +42,7 @@ import {Location} from '@angular/common';
             <a [class.active]="getLinkStyle('/demo/contact')" [routerLink]="['/demo/contact']" class="list-group-item">Interactive contact list</a>
             <a [class.active]="getLinkStyle('/demo/textbox')" [routerLink]="['/demo/textbox']" class="list-group-item">Bound Textbox</a>
             <a [class.active]="getLinkStyle('/demo/iodemo')" [routerLink]="['/demo/iodemo']" class="list-group-item">Input/Output</a>
+            <a [class.active]="getLinkStyle('/demo/airplane')" [routerLink]="['/demo/airplane']" class="list-group-item">Airplane</a>
        </div>
 
         <div class="col-md-9">

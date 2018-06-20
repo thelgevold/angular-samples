@@ -1,0 +1,7 @@
+version: "3.5"
+
+services:
+  frontend_server:
+    command: bazel run //src/apps/api
+  angular_dev_server:
+    command: bazel run //src/apps/main-demo-app:devserver

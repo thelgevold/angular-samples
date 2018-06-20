@@ -34,6 +34,7 @@ ng_module(
             "//src/apps/shared-components/input-output:src",
             "//src/apps/shared-components/rxjs-error-handling:src",
             "//src/apps/shared-components/react-integration:src",
+            "//src/apps/shared-components/airplane:src",
     ]
 )
 

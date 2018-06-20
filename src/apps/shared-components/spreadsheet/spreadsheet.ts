@@ -6,7 +6,7 @@ import {Row} from './row';
 
 @Component({
   selector: 'spreadsheet',
-  template: `<h1>Virtualized Spreadsheet test</h1>
+  template: `<h1>Virtualized Spreadsheet</h1>
     <table id="spreadsheet">
         <tr>
             <td class="row-number-column"></td>

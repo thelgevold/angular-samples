@@ -1,0 +1,28 @@
+package(default_visibility = ["//visibility:public"])
+#load("@karma//:index.bzl", "karma_test")
+load("@angular//:index.bzl", "ng_module")
+
+ng_module(
+    name = "team8",
+    srcs = ["team8.module.ts"],
+    deps = ["//src/apps/shared-components/airplane/team8/mod0:mod0","//src/apps/shared-components/airplane/team8/mod1:mod1","//src/apps/shared-components/airplane/team8/mod2:mod2","//src/apps/shared-components/airplane/team8/mod3:mod3","//src/apps/shared-components/airplane/team8/mod4:mod4","//src/apps/shared-components/airplane/team8/mod5:mod5","//src/apps/shared-components/airplane/team8/mod6:mod6","//src/apps/shared-components/airplane/team8/mod7:mod7","//src/apps/shared-components/airplane/team8/mod8:mod8","//src/apps/shared-components/airplane/team8/mod9:mod9"],
+    tsconfig = "//:tsconfig.json",
+)
+#karma_test(
+#    name = "unit_tests",
+#    deps = ["//airplane/team8/mod0:mod0",
+#        "//airplane/team8/mod1:mod1",
+#        "//airplane/team8/mod2:mod2",
+#        "//airplane/team8/mod3:mod3",
+#        "//airplane/team8/mod4:mod4",
+#        "//airplane/team8/mod5:mod5",
+#        "//airplane/team8/mod6:mod6",
+#        "//airplane/team8/mod7:mod7",
+#        "//airplane/team8/mod8:mod8",
+#        "//airplane/team8/mod9:mod9",
+#        # FIXME(alexeagle): doesn't belong here
+#        "@karma//internal/karma_concat_js",
+#    ],
+#    tags = ["local"]
+#)
+      
