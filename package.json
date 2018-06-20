@@ -24,9 +24,7 @@
     "start-watch": "docker-compose -f docker-compose-base.yml -f docker-compose-watch.yml up",
     "stop": "docker-compose -f docker-compose-base.yml -f docker-compose-run.yml -f docker-compose-watch.yml down",
 
-    "serve-app": "ibazel run //src/apps/main-demo-app:devserver",
-    "serve-api": "ibazel run //src/apps/api",
-    "bazel-run": "bazel build //src/apps/main-demo-app:src && bazel build //src/apps/api:ts_server && concurrently \"npm run serve-app\" \"npm run serve-api\""
+    "clean-dev-server": "docker exec -it angular_dev_server /bin/sh -c \"cd src;bazel clean\""
   },
   "devDependencies": {
     "@angular/bazel": "6.0.4",
