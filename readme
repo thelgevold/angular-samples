@@ -10,9 +10,9 @@ Here are the prerequisites for running the project:
 2) Terminal 1: run npm run start-remote-cache
 - This starts a remote caching server that can be used by the application build.
 
-3) Terminal 2: npm run start
-- This starts a Bazel build of the api server and the Angular dev server.
-  If caching is enabled, previously built artifacts will be returned by the caching server.
+3) Terminal 2: npm run start or npm run start-watch
+- `npm run start` does a Bazel run without watching for file changes. Running `npm run start-watch` will watch files for changes.
+  In both cases, if caching is enabled, previously built artifacts will be returned by the caching server.
 
 The application is hosted at http://localhost:3000
 
