@@ -18,3 +18,5 @@ dist
 .DS_Store
 bazel-*
 yarn-error.log
+src/**/*.js
+src/**/*.json

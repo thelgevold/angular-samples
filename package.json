@@ -24,6 +24,8 @@
     "start-watch": "docker-compose -f docker-compose-base.yml -f docker-compose-watch.yml up",
     "stop": "docker-compose -f docker-compose-base.yml -f docker-compose-run.yml -f docker-compose-watch.yml down",
 
+    "build-webpack": "docker-compose -f docker-compose-webpack.yml up",
+
     "clean-dev-server": "docker exec -it angular_dev_server /bin/sh -c \"cd src;bazel clean\""
   },
   "devDependencies": {
@@ -34,7 +36,8 @@
     "path": "0.12.7",
     "typescript": "2.7.2",
     "concurrently": "3.5.1",
-    "compression": "1.7.2"
+    "compression": "1.7.2",
+    "webpack": "4.12.0"
   },
   "dependencies": {
     "@angular/animations": "6.0.4",
@@ -53,7 +56,6 @@
     "events": "^1.0.2",
     "fbjs": "^0.3.1",
     "flux": "^2.1.1",
-    "google-closure-compiler": "20180319.0.0",
     "jquery": "3.3.1",
     "jquery-ui-dist": "1.12.1",
     "react": "~0.13.3",

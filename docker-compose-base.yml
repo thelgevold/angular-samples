@@ -1,8 +1,13 @@
 version: "3.5"
+networks:
+  caching_angular-samples:
+    external: true
 
 services:
   frontend_server:
     container_name: frontend_server
+    networks:
+      - caching_angular-samples
     build: .
     volumes:
       - ./src:/usr/src
@@ -10,6 +15,8 @@ services:
       - "3000:3000"
   angular_dev_server:
     container_name: angular_dev_server
+    networks:
+      - caching_angular-samples
     build: .
     volumes:
       - ./src:/usr/src

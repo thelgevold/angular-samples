@@ -1,0 +1,7 @@
+version: "3.5"
+
+services:
+  webpack_build:
+    build: ./webpack
+    volumes:
+      - ./src:/usr/src
