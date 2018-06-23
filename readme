@@ -5,10 +5,14 @@ Documentation: http://www.syntaxsuccess.com/angular-2-articles
 
 Here are the prerequisites for running the project:
 
-1) Terminal 1: run npm run start-remote-cache
+1) Install Bazel
+
+2) run npm install
+
+3) Terminal 1: run npm run start-remote-cache
 This starts a remote caching server that can be used by the application build.
 
-2) Terminal 2: npm run start or npm run start-watch
+4) Terminal 2: npm run start or npm run start
 npm run start does a Bazel run without watching for file changes. Running npm run start-watch will watch files for changes.
 
 In both cases, if caching is enabled, previously built artifacts will be returned by the caching server.

@@ -1,17 +1,9 @@
 version: "3.5"
 
-networks:
-  angular-samples:
-    driver: bridge
-
 services:
   bazel_cache:
     build: .
     container_name: bazel_cache
-    networks:
-      angular-samples:
-        aliases:
-          - cache
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
     ports:

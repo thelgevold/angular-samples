@@ -16,17 +16,12 @@
     "webpack-babili": "ngc -p src/tsconfig-es6.json && webpack --config webpack/webpack-babili.js --progress --mode production",
     "build-all": "npm run rollup-demo-bazel && npm run ngupgrade-demo-bazel && npm run aot-i18n-en && npm run aot-i18n-no && npm run rollup-lazy && npm run browserify-demo && npm run parcel-demo && npm run webpack-babili && npm run webpack-lazy-loading && npm run webpack-no-lazy-loading && npm run closure-compiler-demo",
     
-    "angular-compile": "ngc -p angular.tsconfig.json",
+    "postinstall": "ngc -p angular.tsconfig.json",
     "start-remote-cache": "docker-compose -f caching/docker-compose.yml up",
     "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
     
-    "start": "docker-compose -f docker-compose-base.yml -f docker-compose-run.yml up",
-    "start-watch": "docker-compose -f docker-compose-base.yml -f docker-compose-watch.yml up",
-    "stop": "docker-compose -f docker-compose-base.yml -f docker-compose-run.yml -f docker-compose-watch.yml down",
-
-    "build-webpack": "docker-compose -f docker-compose-webpack.yml up",
-
-    "clean-dev-server": "docker exec -it angular_dev_server /bin/sh -c \"cd src;bazel clean\""
+    "build": "bazel build //src/apps/main-demo-app:devserver && bazel build //src/apps/api",
+    "start": "npm run build && concurrently \"ibazel run //src/apps/main-demo-app:devserver\" \"ibazel run //src/apps/api\""
   },
   "devDependencies": {
     "@angular/bazel": "6.0.4",
