@@ -1,0 +1,18 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_proto_library")
+
+proto_library(
+    name = "car_proto",
+    srcs = ["car.proto"],
+)
+
+ts_proto_library(
+    name = "car_ts_proto",
+    deps = [":car_proto"],
+)
+
+java_proto_library(
+    name = "car_java_proto",
+    deps = [":car_proto"],
+)

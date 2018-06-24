@@ -1,8 +1,9 @@
 import * as express from 'express';
 import * as path from 'path';
+import * as request from 'request';
 
 import {treeviewData} from './treeview-data';
-import {lamborghiniModels, lamborghinData} from './car-data';
+import {lamborghiniModels} from './car-data';
 
 const app = express();
 
@@ -56,7 +57,17 @@ app.get('/api/cars/:type', (req, res) => {
 });
 
 app.get('/api/car/:model', (req, res) => {
-  res.json(lamborghinData.find(l => l.key === req.params.model));
+  request.get(
+    {url: 'http://localhost:8080/cars', json: true},
+    (error, response) => {
+      console.log(response.body.cars);
+      if (error) {
+        res.status(500).send({error: 'there was an error'});
+      } else {
+        res.json(response.body.cars.find(l => l.key === req.params.model));
+      }
+    },
+  );
 });
 
 app.get('/api/people', (req, res) => {

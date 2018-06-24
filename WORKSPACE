@@ -1,17 +1,5 @@
-# The WORKSPACE file tells Bazel that this directory is a "workspace", which is like a project root.
-# The content of this file specifies all the external dependencies Bazel needs to perform a build.
-
-####################################
-# ESModule imports (and TypeScript imports) can be absolute starting with the workspace name.
-# The name of the workspace should match the npm package where we publish, so that these
-# imports also make sense when referencing the published package.
 workspace(name = "angular_samples")
 
-####################################
-# Fetch external repositories containing Bazel build toolchain support.
-# Bazel doesn't support transitive WORKSPACE deps, so we must install those too.
-
-# Allows Bazel to run tooling in Node.js
 http_archive(
     name = "build_bazel_rules_nodejs",
     url = "https://github.com/bazelbuild/rules_nodejs/archive/0.9.1.zip",
@@ -59,10 +47,36 @@ http_archive(
     sha256 = "f70c35a8c779bb92f7521ecb5a1c6604e9c3edd431e50b6376d7497abc8ad3c1",
 )
 
-####################################
-# Tell Bazel about some workspaces that were installed from npm.
+http_archive(
+    name = "com_google_protobuf",
+    sha256 = "cef7f1b5a7c5fba672bec2a319246e8feba471f04dcebfe362d55930ee7c1c30",
+    strip_prefix = "protobuf-3.5.0",
+    urls = ["https://github.com/google/protobuf/archive/v3.5.0.zip"],
+)
 
-# The @angular repo contains rule for building Angular applications
+maven_jar(
+    name = "protobuf_java_format",
+    artifact = "com.googlecode.protobuf-java-format:protobuf-java-format:1.4",
+    sha1 = "b8163b6940102c1808814471476f5293dfb419df",
+)
+
+# java_lite_proto_library rules implicitly depend on @com_google_protobuf_javalite//:javalite_toolchain,
+# which is the JavaLite proto runtime (base classes and common utilities).
+http_archive(
+    name = "com_google_protobuf_javalite",
+    sha256 = "d8a2fed3708781196f92e1e7e7e713cf66804bd2944894401057214aff4f468e",
+    strip_prefix = "protobuf-5e8916e881c573c5d83980197a6f783c132d4276",
+    urls = ["https://github.com/google/protobuf/archive/5e8916e881c573c5d83980197a6f783c132d4276.zip"],
+)
+
+http_archive(
+    name = "io_bazel_rules_appengine",
+    sha256 = "d1fbc9a48332cc00b56d66751b5eb911ac9a88e820af7a2316a9b5ed4ee46d0b",
+    strip_prefix = "rules_appengine-0.0.7",
+    url = "https://github.com/bazelbuild/rules_appengine/archive/0.0.7.tar.gz",
+)
+
+
 local_repository(
     name = "angular",
     path = "node_modules/@angular/bazel",
@@ -73,9 +87,6 @@ local_repository(
     name = "rxjs",
     path = "node_modules/rxjs/src",
 )
-
-####################################
-# Load and install our dependencies downloaded above.
 
 load("@build_bazel_rules_nodejs//:defs.bzl", "check_bazel_version", "node_repositories", "yarn_install")
 
@@ -102,11 +113,5 @@ load("@io_bazel_rules_sass//sass:sass_repositories.bzl", "sass_repositories")
 
 sass_repositories()
 
-####################################
-# Setup our local toolchain
-
-yarn_install(
-    name = "history-server_runtime_deps",
-    package_json = "//tools/history-server:package.json",
-    yarn_lock = "//tools/history-server:yarn.lock",
-)
+load("@io_bazel_rules_appengine//appengine:appengine.bzl", "appengine_repositories")
+appengine_repositories()
