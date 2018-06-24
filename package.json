@@ -1,23 +1,11 @@
 {
   "name": "angular-samples",
   "scripts": {
-    "aot-i18n-en": "ngc -p src/tsconfig-i18n.json && rollup -c rollup/rollup-config-i18n.js -o dist/build-en.js",
-    "aot-i18n-no": "ngc --i18nFile=./src/apps/i18n-demo-app/locale/messages.no.xlf --locale=no --i18nFormat=xlf -p src/tsconfig-i18n.json && rollup -c rollup/rollup-config-i18n.js -o dist/build-no.js",
-    "generate-i18n-xlf": "ng-xi18n -p i18n/tsconfig.json",
-    "ngupgrade-demo-bazel": "bazel build //src/apps/ng-upgrade-app:rollup",
-    "browserify-demo": "ngc -p src/tsconfig-es5-commonjs-aot.json && browserify built-es5-commonjs-aot/src/apps/bundler-comparison-app/main.js -o dist/browserify-bundle.js && uglifyjs dist/browserify-bundle.js -o dist/browserify-bundle.min.js -c -m",
-    "closure-compiler-demo": "ngc -p src/tsconfig-es6.json && java -jar node_modules/google-closure-compiler/compiler.jar --flagfile closure-compiler/closure.conf",
-    "rollup-demo-bazel": "bazel build //src/apps/bundler-comparison-app:rollup",
-    "rollup-lazy": "ngc -p src/tsconfig-es5-lazy.json && rollup -c rollup/rollup-lazy-config.js",
-    "parcel-demo": "ngc -p src/tsconfig-es6.json && parcel build built-es6/src/apps/bundler-comparison-app/main.js --out-dir dist/parcel-bundle",
-    "webpack-no-lazy-loading": "ngc -p src/tsconfig-es5.json && webpack --config webpack/webpack-no-lazy-loading.js --progress --mode production",
-    "webpack-lazy-loading": "webpack --config webpack/webpack-lazy-loading.js --progress --mode production",
-    "webpack-no-angular-optimizations": "ngc -p src/tsconfig-es5.json && webpack --config webpack/webpack-no-angular-optimizations.js --progress --mode production",
-    "webpack-babili": "ngc -p src/tsconfig-es6.json && webpack --config webpack/webpack-babili.js --progress --mode production",
-    "build-all": "npm run rollup-demo-bazel && npm run ngupgrade-demo-bazel && npm run aot-i18n-en && npm run aot-i18n-no && npm run rollup-lazy && npm run browserify-demo && npm run parcel-demo && npm run webpack-babili && npm run webpack-lazy-loading && npm run webpack-no-lazy-loading && npm run closure-compiler-demo",
     "postinstall": "ngc -p angular.tsconfig.json",
+    
     "start-remote-cache": "docker-compose -f caching/docker-compose.yml up",
     "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
+    
     "build": "bazel build //src/apps/main-demo-app:devserver && bazel build //src/apps/api && bazel build //src/apps/cars",
     "start": "npm run build && concurrently \"ibazel run //src/apps/main-demo-app:devserver\" \"ibazel run //src/apps/api\" \"ibazel run //src/apps/cars\""
   },
