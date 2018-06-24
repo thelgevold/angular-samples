@@ -6,8 +6,8 @@
     "start-remote-cache": "docker-compose -f caching/docker-compose.yml up",
     "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
     
-    "build": "bazel build //src/apps/main-demo-app:devserver && bazel build //src/apps/api && bazel build //src/apps/cars",
-    "start": "npm run build && concurrently \"ibazel run //src/apps/main-demo-app:devserver\" \"ibazel run //src/apps/api\" \"ibazel run //src/apps/cars\""
+    "build": "bazel build //src/apps/demo-app:devserver && bazel build //src/apps/api && bazel build //src/apps/cars",
+    "start": "npm run build && concurrently \"ibazel run //src/apps/demo-app:devserver\" \"ibazel run //src/apps/api\" \"ibazel run //src/apps/cars\""
   },
   "devDependencies": {
     "@angular/bazel": "6.0.4",
