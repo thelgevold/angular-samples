@@ -5,7 +5,7 @@ load("@io_bazel_rules_appengine//appengine:appengine.bzl", "appengine_war")
 package(default_visibility = ["//visibility:public"])
 
 appengine_war(
-    name = "cars",
+    name = "backend",
     data = [":webapp"],
     data_path = "webapp",
     jars = [":app_deploy.jar"],
