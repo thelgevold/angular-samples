@@ -1,0 +1,18 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_proto_library")
+
+proto_library(
+    name = "person_proto",
+    srcs = ["person.proto"],
+)
+
+ts_proto_library(
+    name = "person_ts_proto",
+    deps = [":person_proto"],
+)
+
+java_proto_library(
+    name = "person_java_proto",
+    deps = [":person_proto"],
+)

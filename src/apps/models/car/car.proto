@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "nx_bazel_example.api";
+option java_package = "angular_samples.api";
 
 message Car {
   string key = 1;

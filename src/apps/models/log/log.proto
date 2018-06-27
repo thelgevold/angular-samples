@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "angular_samples.api";
+
+message Log {
+  int32 severity = 1;
+  string text = 2;
+}
+
+message Logs {
+  repeated Log logs = 1;
+}

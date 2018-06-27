@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "angular_samples.api";
+
+message Person {
+  string name = 1;
+  string address = 2;
+}
+
+message Persons {
+  repeated Person persons = 1;
+}

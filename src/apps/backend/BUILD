@@ -26,6 +26,8 @@ java_binary(
     main_class = "does.not.exist",
     deps = [
         "//src/apps/models/car:car_java_proto",
+        "//src/apps/models/person:person_java_proto",
+        "//src/apps/models/log:log_java_proto",
         "@io_bazel_rules_appengine//appengine:javax.servlet.api",
         "@com_google_protobuf//:protobuf_java",
         "@protobuf_java_format//jar"

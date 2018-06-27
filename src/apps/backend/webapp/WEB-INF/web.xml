@@ -3,13 +3,33 @@
 
 <web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
   <servlet>
-    <servlet-name>my-app</servlet-name>
-    <servlet-class>cars.api.CarsServlet</servlet-class>
+    <servlet-name>cars</servlet-name>
+    <servlet-class>backend.api.CarsServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>my-app</servlet-name>
+    <servlet-name>cars</servlet-name>
     <url-pattern>/cars</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>persons</servlet-name>
+    <servlet-class>backend.api.PersonServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>persons</servlet-name>
+    <url-pattern>/persons</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>logs</servlet-name>
+    <servlet-class>backend.api.LogServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>logs</servlet-name>
+    <url-pattern>/logs</url-pattern>
   </servlet-mapping>
 
 </web-app>

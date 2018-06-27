@@ -8,6 +8,8 @@ import {lamborghiniModels} from './car-data';
 
 const app = express();
 
+const backendBaseUrl = 'http://localhost:8080';
+
 app.use(compression());
 
 const base = `${__dirname}/api.runfiles/angular_samples`;
@@ -29,17 +31,11 @@ app.get('/', (_req, res) => {
 });
 
 app.get('/api/log', (req, res) => {
-  const log = {
-    entries: [
-      {text: 'loading failed', severity: 1},
-      {text: 'system failure', severity: 1},
-      {text: 'slow response', severity: 2},
-      {text: 'login failed', severity: 2},
-      {text: 'null argument exception', severity: 1},
-    ],
-  };
-
-  res.json(log);
+  makeRequest(`${backendBaseUrl}/logs`)
+    .then((response: any) => {
+      res.json({entries: response.logs});
+    })
+    .catch(() => res.status(500).send({error: 'there was an error'}));
 });
 
 app.get('/api/friends', (req, res) => {
@@ -59,30 +55,19 @@ app.get('/api/cars/:type', (req, res) => {
 });
 
 app.get('/api/car/:model', (req, res) => {
-  request.get(
-    {url: 'http://localhost:8080/cars', json: true},
-    (error, response) => {
-      if (error) {
-        res.status(500).send({error: 'there was an error'});
-      } else {
-        res.json(response.body.cars.find(l => l.key === req.params.model));
-      }
-    },
-  );
+  makeRequest(`${backendBaseUrl}/cars`)
+    .then((response: any) => {
+      res.json(response.cars.find(l => l.key === req.params.model));
+    })
+    .catch(() => res.status(500).send({error: 'there was an error'}));
 });
 
 app.get('/api/people', (req, res) => {
-  const people = {
-    people: [
-      {name: 'Joe', address: 'Test Street1'},
-      {name: 'Peter', address: 'Test Street2'},
-      {name: 'Tom', address: 'Test Street3'},
-      {name: 'Jack', address: 'Test Street4'},
-      {name: 'Bob', address: 'Test Street5'},
-    ],
-  };
-
-  res.json(people);
+  makeRequest(`${backendBaseUrl}/persons`)
+    .then((response: any) => {
+      res.json({people: response.persons});
+    })
+    .catch(() => res.status(500).send({error: 'there was an error'}));
 });
 
 app.get('/api/customer', (req, res) => {
@@ -117,5 +102,17 @@ app.get('/api/contract', (req, res) => {
 app.get('/api/treeview-data/?:id', (req, res) => {
   res.json(treeviewData[req.params.id]);
 });
+
+function makeRequest(url: string) {
+  return new Promise((resolve, reject) => {
+    request.get({url: url, json: true}, (error, response) => {
+      if (error) {
+        reject({error: 'there was an error'});
+      } else {
+        resolve(response.body);
+      }
+    });
+  });
+}
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));

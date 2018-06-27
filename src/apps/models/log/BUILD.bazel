@@ -1,0 +1,18 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_proto_library")
+
+proto_library(
+    name = "log_proto",
+    srcs = ["log.proto"],
+)
+
+ts_proto_library(
+    name = "log_ts_proto",
+    deps = [":log_proto"],
+)
+
+java_proto_library(
+    name = "log_java_proto",
+    deps = [":log_proto"],
+)

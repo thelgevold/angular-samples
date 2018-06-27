@@ -1,4 +1,4 @@
-package cars.api;
+package backend.api;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import nx_bazel_example.api.Car;
-import nx_bazel_example.api.Cars;
+import angular_samples.api.Car;
+import angular_samples.api.Cars;
 
 import com.googlecode.protobuf.format.JsonFormat;
 
