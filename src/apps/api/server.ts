@@ -1,11 +1,14 @@
 import * as express from 'express';
 import * as path from 'path';
 import * as request from 'request';
+import * as compression from 'compression';
 
 import {treeviewData} from './treeview-data';
 import {lamborghiniModels} from './car-data';
 
 const app = express();
+
+app.use(compression());
 
 const base = `${__dirname}/api.runfiles/angular_samples`;
 const root = `${base}/src/apps/api`;
@@ -22,7 +25,6 @@ app.use('/bundles', express.static(bundles));
 app.use('/ngUpgrade', express.static(ngUpgrade));
 
 app.get('/', (_req, res) => {
-  console.log('TTT');
   res.sendFile(indexPage);
 });
 
@@ -60,7 +62,6 @@ app.get('/api/car/:model', (req, res) => {
   request.get(
     {url: 'http://localhost:8080/cars', json: true},
     (error, response) => {
-      console.log(response.body.cars);
       if (error) {
         res.status(500).send({error: 'there was an error'});
       } else {
