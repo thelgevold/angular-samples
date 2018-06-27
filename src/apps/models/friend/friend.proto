@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "angular_samples.api";
+
+message Friend {
+  string name = 1;
+}
+
+message Friends {
+  repeated Friend friends = 1;
+}

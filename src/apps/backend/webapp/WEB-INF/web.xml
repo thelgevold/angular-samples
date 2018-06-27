@@ -32,6 +32,16 @@
     <url-pattern>/logs</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>friends</servlet-name>
+    <servlet-class>backend.api.FriendServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>friends</servlet-name>
+    <url-pattern>/friends</url-pattern>
+  </servlet-mapping>
+
 </web-app>
 
 

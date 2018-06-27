@@ -39,11 +39,11 @@ app.get('/api/log', (req, res) => {
 });
 
 app.get('/api/friends', (req, res) => {
-  const friends = {
-    friends: ['Joe', 'Tim', 'Jim', 'Jane', 'Anne', 'Billy', 'James', 'Peter'],
-  };
-
-  res.json(friends);
+  makeRequest(`${backendBaseUrl}/friends`)
+    .then((response: any) => {
+      res.json({friends: response.friends.map(friend => friend.name)});
+    })
+    .catch(() => res.status(500).send({error: 'there was an error'}));
 });
 
 app.get('/api/cars/:type', (req, res) => {
