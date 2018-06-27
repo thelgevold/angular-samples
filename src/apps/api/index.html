@@ -10,7 +10,7 @@
   <script src="node_modules/underscore/underscore-min.js"></script>
   <script src="node_modules/react/dist/react.min.js"></script>
 
-  <script src="/node_modules/zone.js/dist/zone.min.js"></script>
+  <script src="node_modules/zone.js/dist/zone.min.js"></script>
   
   <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -33,7 +33,7 @@
     .then(function(data) {
        EventEmitter = data.EventEmitter;
        var script = document.createElement('script');
-       script.setAttribute('src','http://localhost:4000/bundle.min.js');
+       script.setAttribute('src','/bundle');
        document.head.appendChild(script);
     });
 </script>

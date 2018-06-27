@@ -9,6 +9,7 @@ import {lamborghiniModels} from './car-data';
 const app = express();
 
 const backendBaseUrl = 'http://localhost:8080';
+const appBundle = 'http://localhost:4000/bundle.min.js';
 
 app.use(compression());
 
@@ -28,6 +29,14 @@ app.use('/ngUpgrade', express.static(ngUpgrade));
 
 app.get('/', (_req, res) => {
   res.sendFile(indexPage);
+});
+
+app.get('/bundle', (_req, res) => {
+  makeRequest(appBundle)
+    .then((response: any) => {
+      res.send(response);
+    })
+    .catch(() => res.status(500).send({error: 'there was an error'}));
 });
 
 app.get('/api/log', (req, res) => {
