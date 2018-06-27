@@ -12,8 +12,8 @@ Here are the prerequisites for running the project:
 3) Terminal 1: run npm run start-remote-cache
 This starts a remote caching server that can be used by the application build.
 
-4) Terminal 2: npm run start or npm run start
-npm run start does a Bazel run without watching for file changes. Running npm run start-watch will watch files for changes.
+4) Terminal 2: npm run start
+Starts a bazel build with file watching (iBazel).
 
 In both cases, if caching is enabled, previously built artifacts will be returned by the caching server.
 
