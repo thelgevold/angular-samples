@@ -16,6 +16,7 @@ app.use(compression());
 const base = `${__dirname}/api.runfiles/angular_samples`;
 const root = `${base}/src/apps/api`;
 const node_modules = `${base}/node_modules`;
+const vendor = `${base}/vendor`;
 const dist = `${base}/dist`;
 const bundles = path.join(__dirname, '..', 'bundler-comparison-app');
 const ngUpgrade = path.join(__dirname, '..', 'ng-upgrade-app');
@@ -26,6 +27,7 @@ app.use('/node_modules', express.static(node_modules));
 app.use('/dist', express.static(dist));
 app.use('/bundles', express.static(bundles));
 app.use('/ngUpgrade', express.static(ngUpgrade));
+app.use('/vendor', express.static(vendor));
 
 app.get('/', (_req, res) => {
   res.sendFile(indexPage);
