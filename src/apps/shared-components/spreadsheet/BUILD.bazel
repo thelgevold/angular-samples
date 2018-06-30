@@ -1,10 +1,17 @@
 package(default_visibility = ["//visibility:public"])
 
+load("@io_bazel_rules_sass//sass:sass.bzl", "sass_binary")
 load("@angular//:index.bzl", "ng_module")
 
+sass_binary(
+    name = "spreadsheet-styles",
+    src = "spreadsheet.scss"
+)
+ 
 ng_module(
     name = "src",
     srcs = glob(["*.ts"]),
+    assets = [":spreadsheet-styles"],
     tsconfig = "//:tsconfig.json",
     deps = [
             "//src/apps/shared-components/shared"     

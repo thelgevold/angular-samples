@@ -6,6 +6,7 @@ import {Row} from './row';
 
 @Component({
   selector: 'spreadsheet',
+  styleUrls: ['spreadsheet.css'],
   template: `<h1>Virtualized Spreadsheet</h1>
     <table id="spreadsheet">
         <tr>
