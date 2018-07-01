@@ -5,6 +5,7 @@ import {take, merge, concat, flatMap, map} from 'rxjs/operators';
 
 @Component({
   selector: 'rxjs-streams',
+  styleUrls: ['rxjs-streams.css'],
   template: `
   <div class="stream1">Stream1</div>
   <div class="stream2">Stream2</div>
@@ -20,7 +21,7 @@ import {take, merge, concat, flatMap, map} from 'rxjs/operators';
       <div class="floatLeft" [ngClass]="{'stream1':item.source === 1,'stream2':item.source === 2}">{{item.value}}</div>
     </div>
   </div>
-
+ 
   <div class="stream-section">
     <h4>Merged Streams</h4>
     <div *ngFor="let item of mergeStream">

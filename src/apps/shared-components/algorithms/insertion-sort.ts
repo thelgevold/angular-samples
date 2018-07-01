@@ -4,6 +4,7 @@ import {InsertionSortService} from './insertion-sort.service';
 @Component({
   selector: 'insertion-sort',
   inputs: ['list: list'],
+  styleUrls: ['insertion-sort.css'],
   template: `
     <table class="sort">
     <tr>

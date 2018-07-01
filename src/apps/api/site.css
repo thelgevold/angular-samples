@@ -1,31 +1,22 @@
-ul{
+ul {
     list-style-type: none;
 }
 
-.addContactControls{
+.addContactControls {
     margin-top: 20px;
 }
 
-.iconButton{
+.iconButton {
     font-size: 20px;
     margin-right: 5px;
     cursor:pointer;
 }
 
-.current-item{
-    background-color: lightgray;
-}
-
-.sort td{
-    border: 1px solid black;
-    padding: 15px;
-}
-
-#react-tree-view{
+#react-tree-view {
     font-size: 20px;
 }
 
-.moving-box{
+.moving-box {
     padding-top: 10px;
     border: 1px solid black;
     width: 150px;
@@ -37,27 +28,26 @@ ul{
     cursor: move;
 }
 
-.input-controls{
+.input-controls {
     margin-bottom: 30px;
 }
 
-.errorMessage{
+.errorMessage {
     color:red;
     font-weight: bold;
 }
 
-.formHeading{
+.formHeading {
     font-weight: bold;
 }
 
-div.edge{
+div.edge {
     transform-origin: 0 100%;
     height: 1px;
     background: #337ab7;
 }
 
 .vertex {
-    /*border-radius: 50%;*/
     width: 40px;
     height: 40px;
     background-color: #337ab7;
@@ -65,12 +55,12 @@ div.edge{
     display:block;
 }
 
-.graph-table{
+.graph-table {
     border-spacing: 70px;
     border-collapse: separate;
 }
 
-.vertex-text{
+.vertex-text {
     position:absolute;
     top:50%;
     height:50%;
@@ -80,7 +70,7 @@ div.edge{
     color:white;
 }
 
-.form-row{
+.form-row {
     margin-top: 10px;
 }
 
@@ -142,32 +132,11 @@ div.edge{
     margin-left: 2px;
 }
 
-.stream1{
-    background-color: lightgreen;
-    width:70px;
-    text-align: center;
-    margin-right: 2px;
-    margin-top: 5px;
-}
-
-.stream2{
-    background-color: lightskyblue;
-    width:70px;
-    text-align: center;
-    margin-right: 2px;
-    margin-top: 5px;
-}
-
-.stream-section{
-    clear: both;
-    margin-top: 50px;
-}
-
-.floatLeft{
+.floatLeft {
     float:left;
 }
 
-.box{
+.box {
     background-color: #003eff;
     width:50px;
     height: 50px;
@@ -178,7 +147,7 @@ div.edge{
     cursor: pointer;
 }
 
-.sum{
+.sum {
     font-size: 20px;
     font-weight: bold;
 }
