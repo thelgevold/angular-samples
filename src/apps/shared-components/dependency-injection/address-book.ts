@@ -1,27 +1,38 @@
-import {Component} from '@angular/core';
-import {Injectable} from '@angular/core'
+import {Component, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AddressBookService} from './address-book-service';
 import {AddressBookTitleService} from './address-book-title-service';
+import {IPerson} from '../../models';
+import {map, tap} from 'rxjs/operators';
 
 @Component({
-    selector: 'address-book',
-    templateUrl: './address-book.html',
-    providers:[AddressBookService]
+  selector: 'address-book',
+  templateUrl: './address-book.html',
+  providers: [AddressBookService],
 })
+export class AddressBook implements OnInit {
+  title: string;
+  res: any;
 
-export class AddressBook {
+  constructor(
+    private addressBookService: AddressBookService,
+    private addressBookTitleService: AddressBookTitleService,
+  ) {
+    console.log('Creating AddressBook');
+  }
 
-    result:any;
-    title:String;
+  ngOnInit() {
+    this.res = this.addressBookService.getEntries().pipe(
+      map((persons: Array<IPerson>) => {
+        return persons.map((person: IPerson) => ({
+          name: person.name,
+          address: person.address,
+        }));
+      }),
+    );
 
-    constructor(addressBookService:AddressBookService,addressBookTitleService:AddressBookTitleService){
-        console.log('Creating AddressBook');
-        this.result = {people:[]};
-        addressBookService.getEntries().subscribe(res => this.result = res);
+    this.title = this.addressBookTitleService.getTitle();
 
-        this.title = addressBookTitleService.getTitle();
-
-        console.log(addressBookTitleService.callCount);
-
-    }
+    console.log(this.addressBookTitleService.callCount);
+  }
 }

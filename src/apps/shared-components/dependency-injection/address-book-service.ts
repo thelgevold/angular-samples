@@ -5,6 +5,8 @@ import {pipe} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 
+import {IPerson} from '../../models';
+
 @Injectable()
 export class AddressBookService {
   http: Http;
@@ -13,9 +15,9 @@ export class AddressBookService {
     this.http = http;
   }
 
-  getEntries(): Observable<any> {
+  getEntries(): Observable<Array<IPerson>> {
     return this.http
       .get('/api/people')
-      .pipe(map((res: Response) => res.json()));
+      .pipe(map((res: Response) => res.json().people));
   }
 }

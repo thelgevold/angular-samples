@@ -3,9 +3,8 @@
     <h2>{{title}}</h2>
 
     <table class="table">
-        <tr *ngFor="let person of result.people">
-            <td>{{person.name}}</td>
-            <td>{{person.address}}</td>
+        <tr *ngFor="let person of res | async">
+          <td>{{person.name}}</td> <td>{{person.address}}</td>
         </tr>
     </table>
 </div>
