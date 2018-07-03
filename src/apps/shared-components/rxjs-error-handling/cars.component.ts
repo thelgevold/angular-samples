@@ -5,6 +5,8 @@ import {CarService} from './car.service';
 
 import {switchMap, distinctUntilChanged, tap} from 'rxjs/operators';
 
+import {ICar} from '../../models';
+
 @Component({
   selector: 'cars',
   providers: [CarService],
@@ -29,7 +31,7 @@ import {switchMap, distinctUntilChanged, tap} from 'rxjs/operators';
       
       <h4>Models</h4>
       <div [ngClass]="{'error': model.notLoaded}" *ngFor="let model of models">
-        {{model.name}} {{model.topSpeed}}
+        {{model}}
       </div>
       
       <div class="error" *ngIf="error">Error Loading Models</div>
@@ -43,7 +45,7 @@ export class CarsComponent {
     {name: 'Lamborghini', url: `cars/lamborghini`},
     {name: 'Ferrari', url: `cars/ferrari`},
   ];
-  models = [];
+  models: Array<string> = [];
   error = false;
   loading;
   currentCar = {};
@@ -62,9 +64,11 @@ export class CarsComponent {
         }),
         switchMap(url => this.carService.getModels(url)),
       )
-      .subscribe((data: any) => {
+      .subscribe((data: {error: boolean; models: Array<ICar>}) => {
         this.error = data.error;
-        this.models = data.models;
+        this.models = data.models.map(
+          (car: ICar) => `${car.name} ${car.topSpeed}`,
+        );
         this.loading = false;
       });
   }

@@ -8,6 +8,7 @@ ng_module(
     tsconfig = "//:tsconfig.json",
     deps = [
             "@rxjs",
-            "//src/apps/shared-components/shared"     
+            "//src/apps/shared-components/shared",
+            "//src/apps/models"  
     ]
 )

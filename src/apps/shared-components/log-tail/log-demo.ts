@@ -3,7 +3,7 @@ import {Observable} from 'rxjs';
 
 import {Store} from './store';
 import {LogAction} from './log-action';
-import {LogEntry} from './log-entry';
+import {ILog} from '../../models';
 import {LogTailService} from './log-tail-service';
 
 @Component({
@@ -37,7 +37,7 @@ export class LogDemo implements OnInit {
   }
 
   generateLogEntry() {
-    let entry = new LogEntry(this.msg, this.severity);
+    let entry: ILog = {text: this.msg, severity: this.severity};
     this.store.dispatchAction(new LogAction('ADD_ENTRY', entry));
     this.msg = '';
     this.severity = undefined;

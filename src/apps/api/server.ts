@@ -13,6 +13,8 @@ const appBundle = 'http://localhost:4000/bundle.min.js';
 
 app.use(compression());
 
+import {IFriend, ILog, IPerson, ICar} from '../models';
+
 const base = `${__dirname}/api.runfiles/angular_samples`;
 const root = `${base}/src/apps/api`;
 const node_modules = `${base}/node_modules`;
@@ -43,15 +45,15 @@ app.get('/bundle', (_req, res) => {
 
 app.get('/api/log', (req, res) => {
   makeRequest(`${backendBaseUrl}/logs`)
-    .then((response: any) => {
+    .then((response: {logs: Array<ILog>}) => {
       res.json({entries: response.logs});
     })
     .catch(() => res.status(500).send({error: 'there was an error'}));
 });
 
-app.get('/api/friends', (req, res) => {
+app.get('/api/friends', (_req, res) => {
   makeRequest(`${backendBaseUrl}/friends`)
-    .then((response: any) => {
+    .then((response: {friends: Array<IFriend>}) => {
       res.json({friends: response.friends.map(friend => friend.name)});
     })
     .catch(() => res.status(500).send({error: 'there was an error'}));
@@ -67,7 +69,7 @@ app.get('/api/cars/:type', (req, res) => {
 
 app.get('/api/car/:model', (req, res) => {
   makeRequest(`${backendBaseUrl}/cars`)
-    .then((response: any) => {
+    .then((response: {cars: Array<ICar>}) => {
       res.json(response.cars.find(l => l.key === req.params.model));
     })
     .catch(() => res.status(500).send({error: 'there was an error'}));
@@ -75,7 +77,7 @@ app.get('/api/car/:model', (req, res) => {
 
 app.get('/api/people', (req, res) => {
   makeRequest(`${backendBaseUrl}/persons`)
-    .then((response: any) => {
+    .then((response: {persons: Array<IPerson>}) => {
       res.json({people: response.persons});
     })
     .catch(() => res.status(500).send({error: 'there was an error'}));
