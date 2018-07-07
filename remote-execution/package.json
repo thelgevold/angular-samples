@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "worker": "bazel build //src/main/java/build/buildfarm:buildfarm-worker && bazel-bin/src/main/java/build/buildfarm/buildfarm-worker /usr/bazel-buildfarm/examples/worker.config.example",
+    "server": "bazel build //src/main/java/build/buildfarm:buildfarm-server && bazel-bin/src/main/java/build/buildfarm/buildfarm-server /usr/bazel-buildfarm/examples/server.config.example",
+    "start": "concurrently \"npm run server\" \"npm run worker\""
+  },
+  "dependencies": {
+    "concurrently": "3.5.1"
+  }
+}

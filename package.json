@@ -4,6 +4,10 @@
     "postinstall": "ngc -p angular.tsconfig.json",
     "start-remote-cache": "docker-compose -f caching/docker-compose.yml up",
     "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
+
+    "start-remote-worker": "docker-compose -f remote-execution/docker-compose.yml up --build",
+    "stop-remote-worker": "docker-compose -f remote-execution/docker-compose.yml down",
+
     "create-vendor-bundle": "webpack --config vendor/webpack-config.js",
     "build": "bazel build //src/apps/demo-app:devserver && bazel build //src/apps/api && bazel build //src/apps/backend",
     "start": "npm run build && concurrently \"ibazel run //src/apps/demo-app:devserver\" \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\""
