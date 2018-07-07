@@ -20,7 +20,11 @@ WORKDIR /usr
 RUN git clone https://github.com/thelgevold/bazel-buildfarm
 
 COPY package.json /usr/bazel-buildfarm
+COPY worker.sh /usr/bazel-buildfarm
+
 WORKDIR /usr/bazel-buildfarm
+
+RUN chmod +x ./worker.sh
 
 RUN npm install
 

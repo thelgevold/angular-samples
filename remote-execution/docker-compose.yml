@@ -7,15 +7,4 @@ services:
     container_name: remote_executor_01
     ports:
       - "9001:8980"
-  remote_executor_02:
-    build: .
-    command: npm run start
-    container_name: remote_executor_02
-    ports:
-      - "9002:8980"
-  remote_executor_03:
-    build: .
-    command: npm run start
-    container_name: remote_executor_03
-    ports:
-      - "9003:8980"        
+  
