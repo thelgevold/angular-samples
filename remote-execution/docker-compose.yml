@@ -6,5 +6,5 @@ services:
     command: npm run start
     container_name: remote_executor_01
     ports:
-      - "9001:8980"
+      - "8980:8980"
   

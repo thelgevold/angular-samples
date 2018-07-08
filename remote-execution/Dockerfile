@@ -17,13 +17,15 @@ RUN ln -s /usr/bin/nodejs /usr/local/bin/node
 
 WORKDIR /usr
 
-RUN git clone https://github.com/thelgevold/bazel-buildfarm
+RUN git clone https://github.com/thelgevold/bazel-buildfarm -b master
 
 COPY package.json /usr/bazel-buildfarm
 
 WORKDIR /usr/bazel-buildfarm
 
-RUN git pull
+RUN git pull -v
+
+COPY worker.config /usr/bazel-buildfarm/config
 
 RUN npm install
 
