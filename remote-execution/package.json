@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "worker": "bazel build //src/main/java/build/buildfarm:buildfarm-worker && bazel-bin/src/main/java/build/buildfarm/buildfarm-worker /usr/bazel-buildfarm/examples/worker.config.example",
-    "server": "bazel build //src/main/java/build/buildfarm:buildfarm-server && bazel-bin/src/main/java/build/buildfarm/buildfarm-server /usr/bazel-buildfarm/examples/server.config.example",
+    "server": "bazel build //src/main/java/build/buildfarm:buildfarm-server && bazel-bin/src/main/java/build/buildfarm/buildfarm-server /usr/bazel-buildfarm/config/server.config",
     "start": "concurrently \"npm run server\" \"sleep 15 && ./worker.sh\""
   },
   "dependencies": {
