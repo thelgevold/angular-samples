@@ -16,7 +16,8 @@ filegroup(
 nodejs_binary(
     name = "api", 
     data = [":ts_server", 
-            ":static", 
+            ":static",
+            "//src/apps/add",
             "//:static_files"],
     entry_point = "../server.js",
 ) 

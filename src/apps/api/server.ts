@@ -8,6 +8,10 @@ import {lamborghiniModels} from './car-data';
 
 const app = express();
 
+const ffi = require('ffi');
+const ref = require('ref');
+const int = ref.types.int;
+
 const backendBaseUrl = 'http://localhost:8080';
 const appBundle = 'http://localhost:4000/bundle.min.js';
 
@@ -22,6 +26,13 @@ const vendor = `${base}/vendor`;
 const dist = `${base}/dist`;
 const bundles = path.join(__dirname, '..', 'bundler-comparison-app');
 const ngUpgrade = path.join(__dirname, '..', 'ng-upgrade-app');
+
+const adder = ffi.Library(`${base}/src/apps/add/libadd`, {
+  "add": [int, [int, int]],
+}); 
+
+console.log(adder.add(1, 10));
+
 
 const indexPage = `${root}/index.html`;
 app.use(express.static('/'), express.static(root));
