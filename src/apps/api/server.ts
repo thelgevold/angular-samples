@@ -116,7 +116,8 @@ app.get('/api/contract', (req, res) => {
 });
 
 app.get('/api/add/:num1/:num2', (req, res) => {
-  res.json(addService.add(req.params.num1, req.params.num2));
+  const sum = addService.add(req.params.num1, req.params.num2);
+  res.json(sum);
 });
 
 app.get('/api/treeview-data/?:id', (req, res) => {
