@@ -5,12 +5,9 @@ import * as compression from 'compression';
 
 import {treeviewData} from './treeview-data';
 import {lamborghiniModels} from './car-data';
+import {AddService} from './add-service';
 
 const app = express();
-
-const ffi = require('ffi');
-const ref = require('ref');
-const int = ref.types.int;
 
 const backendBaseUrl = 'http://localhost:8080';
 const appBundle = 'http://localhost:4000/bundle.min.js';
@@ -27,12 +24,7 @@ const dist = `${base}/dist`;
 const bundles = path.join(__dirname, '..', 'bundler-comparison-app');
 const ngUpgrade = path.join(__dirname, '..', 'ng-upgrade-app');
 
-const adder = ffi.Library(`${base}/src/apps/add/libadd`, {
-  "add": [int, [int, int]],
-}); 
-
-console.log(adder.add(1, 10));
-
+const addService = new AddService(`${base}/src/apps/add/libadd.so`);
 
 const indexPage = `${root}/index.html`;
 app.use(express.static('/'), express.static(root));
@@ -121,6 +113,10 @@ app.get('/api/contract', (req, res) => {
   };
 
   res.json(contract);
+});
+
+app.get('/api/add/:num1/:num2', (req, res) => {
+  res.json(addService.add(req.params.num1, req.params.num2));
 });
 
 app.get('/api/treeview-data/?:id', (req, res) => {
