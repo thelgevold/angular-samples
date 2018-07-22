@@ -41,7 +41,9 @@ filegroup(
         "compression",
         "request",
         "ffi",
-        "ref"
+        "ref",
+        "protobufjs",
+        "long"
     ] for ext in [
         "*.js",
         "*.json",
@@ -71,7 +73,7 @@ filegroup(
     srcs = [
       "node_modules/bootstrap/dist/css/bootstrap.min.css",
       "vendor/vendor.js",
-      "node_modules/jquery-ui-dist/jquery-ui.min.js",
+      "node_modules/jquery-ui-dist/jquery-ui.min.js"
     ]
 )
 

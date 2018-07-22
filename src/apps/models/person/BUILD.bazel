@@ -16,3 +16,8 @@ java_proto_library(
     name = "person_java_proto",
     deps = [":person_proto"],
 )
+
+cc_proto_library(
+    name = "person_cc_proto",
+    deps = [":person_proto"]
+)

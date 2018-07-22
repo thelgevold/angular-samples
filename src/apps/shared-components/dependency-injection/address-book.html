@@ -4,7 +4,8 @@
 
     <table class="table">
         <tr *ngFor="let person of res | async">
-          <td>{{person.name}}</td> <td>{{person.address}}</td>
+          <td>{{person.firstName}}</td> 
+          <td>{{person.streetAddress}}</td>
         </tr>
     </table>
 </div>
