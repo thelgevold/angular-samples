@@ -15,6 +15,7 @@ export class AddressBookService {
   getEntries(): Observable<Array<IPerson>> {
     return this.http
       .get('/api/people')
-      .pipe(map((res:IPersons) => res.json().persons));
+      .pipe(map(res => res.json()), 
+            map((res:IPersons) => res.persons)); 
   }
 }
