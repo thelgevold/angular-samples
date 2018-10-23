@@ -69,11 +69,10 @@ http_archive(
     urls = ["https://github.com/google/protobuf/archive/5e8916e881c573c5d83980197a6f783c132d4276.zip"],
 )
 
-http_archive(
+git_repository(
     name = "io_bazel_rules_appengine",
-    sha256 = "d1fbc9a48332cc00b56d66751b5eb911ac9a88e820af7a2316a9b5ed4ee46d0b",
-    strip_prefix = "rules_appengine-0.0.7",
-    url = "https://github.com/bazelbuild/rules_appengine/archive/0.0.7.tar.gz",
+    remote = "https://github.com/bazelbuild/rules_appengine.git",
+    commit = "ee5eec25f22782e03c5abda88f2c946e88d776f3"
 )
 
 
@@ -113,5 +112,7 @@ load("@io_bazel_rules_sass//sass:sass_repositories.bzl", "sass_repositories")
 
 sass_repositories()
 
-load("@io_bazel_rules_appengine//appengine:appengine.bzl", "appengine_repositories")
-appengine_repositories()
+load("@io_bazel_rules_appengine//appengine:java_appengine.bzl", "java_appengine_repositories",
+)
+
+java_appengine_repositories()

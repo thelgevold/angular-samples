@@ -1,23 +1,12 @@
-# Make TypeScript compilation fast, by keeping a few copies of the compiler
-# running as daemons, and cache SourceFile AST's to reduce parse time.
-#build --strategy=TypeScriptCompile=worker
-
-# Don't create bazel-* symlinks in the WORKSPACE directory.
-# These require .gitignore and may scare users.
-# Also, it's a workaround for https://github.com/bazelbuild/rules_typescript/issues/12
-# which affects the common case of having `tsconfig.json` in the WORKSPACE directory.
-#
-# Instead, you should run `bazel info bazel-bin` to find out where the outputs went.
+build --strategy=TypeScriptCompile=worker
 build --symlink_prefix=dist/
 
-test --test_output=errors
+build --symlink_prefix=dist/
 
 # Enable this section if you want to read and write to the cache
 
-build --experimental_remote_spawn_cache
 build --remote_http_cache=http://localhost:9001/cache
 
-run --experimental_remote_spawn_cache
 run --remote_http_cache=http://localhost:9001/cache
 
 ###############################################################
