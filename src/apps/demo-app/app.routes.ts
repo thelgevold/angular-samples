@@ -29,7 +29,7 @@ import {RxJsStreams} from '../shared-components/rxjs-streams/rxjs-streams';
 import {CachingDemo} from '../shared-components/rxjs-caching/caching-demo';
 import {RxJsBuffering} from '../shared-components/rxjs-buffering/rxjs-buffering';
 import {CarsComponent} from '../shared-components/rxjs-error-handling/cars.component';
-import {AirplaneComponent} from '../shared-components/airplane/airplane.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -66,9 +66,7 @@ const routes: Routes = [
       {path: 'buffering', component: RxJsBuffering},
       {path: 'countries', component: CountryDemo},
       {path: 'cars', component: CarsComponent},
-      {path: 'airplane', component: AirplaneComponent},
     ],
   },
 ];
-
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

@@ -16,6 +16,7 @@ ng_module(
     tsconfig = "//:tsconfig.json",
     deps = [
             "//src/apps/shared-components/shared",
-            ":react" 
+            ":react",
+            "@npm//@types"
     ]
 )

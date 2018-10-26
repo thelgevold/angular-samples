@@ -6,6 +6,11 @@ ng_module(
     name = "shared",
     srcs = ["shared.module.ts"],
     tsconfig = "//:tsconfig.json",
-    deps = ["@rxjs"       
+    deps = ["@rxjs", 
+            "@angular//packages/core",
+            "@angular//packages/http",
+            "@angular//packages/router",
+            "@angular//packages/forms",
+            "@angular//packages/common",     
     ]
 )

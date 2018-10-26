@@ -67,7 +67,7 @@ export class CarsComponent {
       .subscribe((data: {error: boolean; models: Array<ICar>}) => {
         this.error = data.error;
         this.models = data.models.map(
-          (car: ICar) => `${car.name} ${car.topSpeed}`,
+          (car: ICar) => `${car.name || ''} ${car.topSpeed || ''}`,
         );
         this.loading = false;
       });

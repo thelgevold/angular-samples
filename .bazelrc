@@ -24,3 +24,5 @@ run --remote_http_cache=http://localhost:9001/cache
 #run --remote_upload_local_results=false
 
 ###############################################################
+
+build --define=compile=legacy

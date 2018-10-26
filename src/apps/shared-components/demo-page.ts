@@ -12,8 +12,8 @@ import {Location} from '@angular/common';
             More documentation about each specific component can be found
             <a href="http://www.syntaxsuccess.com/angular-2-articles">here</a>.
         </p>
-        <p>Current version: Angular 6.0.4</p>
-    </div>
+        <p>Current version: Angular 7.0.1</p>
+    </div> 
 
     <div>
         <div class="list-group col-md-3">
@@ -42,7 +42,6 @@ import {Location} from '@angular/common';
             <a [class.active]="getLinkStyle('/demo/contact')" [routerLink]="['/demo/contact']" class="list-group-item">Interactive contact list</a>
             <a [class.active]="getLinkStyle('/demo/textbox')" [routerLink]="['/demo/textbox']" class="list-group-item">Bound Textbox</a>
             <a [class.active]="getLinkStyle('/demo/iodemo')" [routerLink]="['/demo/iodemo']" class="list-group-item">Input/Output</a>
-            <a [class.active]="getLinkStyle('/demo/airplane')" [routerLink]="['/demo/airplane']" class="list-group-item">Airplane</a>
        </div>
 
         <div class="col-md-9">

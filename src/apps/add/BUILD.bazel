@@ -1,7 +1,0 @@
-package(default_visibility = ["//visibility:public"])
-
-cc_library(
-    name = "add",
-    srcs = ["add.cpp"],
-    hdrs = ["add.h"]
-)

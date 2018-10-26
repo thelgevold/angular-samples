@@ -8,6 +8,9 @@ ng_module(
     assets = ["demo-app.html"],
     tsconfig = "//:tsconfig.json",
     deps = ["@rxjs", 
+            "@angular//packages/core",
+            "@angular//packages/router",
+            "@angular//packages/platform-browser",
             "//src/apps/shared-components:src",
             "//src/apps/shared-components/about:src",
             "//src/apps/shared-components/spreadsheet:src",
@@ -33,20 +36,16 @@ ng_module(
             "//src/apps/shared-components/bound-textbox:src",
             "//src/apps/shared-components/input-output:src",
             "//src/apps/shared-components/rxjs-error-handling:src",
-            "//src/apps/shared-components/react-integration:src",
-            "//src/apps/shared-components/airplane:src",
+            "//src/apps/shared-components/react-integration:src"
     ]
 )
 
-load("@build_bazel_rules_typescript//:defs.bzl", "ts_devserver")
+load("@build_bazel_rules_nodejs//:defs.bzl", "rollup_bundle")
 
-ts_devserver(
-    name = "devserver",
-    port = 4000,
-    entry_module = "angular_samples/src/apps/demo-app/main",
-    scripts = [
-      "//:angular_bundles"
+rollup_bundle(
+    name = "bundle",
+    entry_point = "angular_samples/src/apps/demo-app/main",
+    deps = [
+        ":src"
     ],
-    serving_path = "/bundle.min.js",
-    deps = [":src"]
 )

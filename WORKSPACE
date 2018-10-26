@@ -1,50 +1,11 @@
 workspace(name = "angular_samples")
 
-http_archive(
-    name = "build_bazel_rules_nodejs",
-    url = "https://github.com/bazelbuild/rules_nodejs/archive/0.9.1.zip",
-    strip_prefix = "rules_nodejs-0.9.1",
-    sha256 = "6139762b62b37c1fd171d7f22aa39566cb7dc2916f0f801d505a9aaf118c117f",
-)
+###### Backend #########
 
-# The Bazel buildtools repo contains tools like the BUILD file formatter, buildifier
-http_archive(
-    name = "com_github_bazelbuild_buildtools",
-    # Note, this commit matches the version of buildifier in angular/ngcontainer
-    url = "https://github.com/bazelbuild/buildtools/archive/b3b620e8bcff18ed3378cd3f35ebeb7016d71f71.zip",
-    strip_prefix = "buildtools-b3b620e8bcff18ed3378cd3f35ebeb7016d71f71",
-    sha256 = "dad19224258ed67cbdbae9b7befb785c3b966e5a33b04b3ce58ddb7824b97d73",
-)
-
-# Runs the TypeScript compiler
-http_archive(
-    name = "build_bazel_rules_typescript",
-    url = "https://github.com/bazelbuild/rules_typescript/archive/0.15.0.zip",
-    strip_prefix = "rules_typescript-0.15.0",
-    sha256 = "1aa75917330b820cb239b3c10a936a10f0a46fe215063d4492dd76dc6e1616f4",
-)
-
-# Used by the ts_web_test_suite rule to provision browsers
-http_archive(
-    name = "io_bazel_rules_webtesting",
-    url = "https://github.com/bazelbuild/rules_webtesting/archive/v0.2.0.zip",
-    strip_prefix = "rules_webtesting-0.2.0",
-    sha256 = "cecc12f07e95740750a40d38e8b14b76fefa1551bef9332cb432d564d693723c",
-)
-
-# Runs the Sass CSS preprocessor
-http_archive(
-    name = "io_bazel_rules_sass",
-    url = "https://github.com/bazelbuild/rules_sass/archive/0.1.0.zip",
-    strip_prefix = "rules_sass-0.1.0",
-    sha256 = "b243c4d64f054c174051785862ab079050d90b37a1cef7da93821c6981cb9ad4",
-)
-
-# Some of the TypeScript tooling is written in Go.
-http_archive(
-    name = "io_bazel_rules_go",
-    url = "https://github.com/bazelbuild/rules_go/releases/download/0.11.0/rules_go-0.11.0.tar.gz",
-    sha256 = "f70c35a8c779bb92f7521ecb5a1c6604e9c3edd431e50b6376d7497abc8ad3c1",
+maven_jar(
+    name = "protobuf_java_format",
+    artifact = "com.googlecode.protobuf-java-format:protobuf-java-format:1.4",
+    sha1 = "b8163b6940102c1808814471476f5293dfb419df",
 )
 
 http_archive(
@@ -52,12 +13,6 @@ http_archive(
     sha256 = "cef7f1b5a7c5fba672bec2a319246e8feba471f04dcebfe362d55930ee7c1c30",
     strip_prefix = "protobuf-3.5.0",
     urls = ["https://github.com/google/protobuf/archive/v3.5.0.zip"],
-)
-
-maven_jar(
-    name = "protobuf_java_format",
-    artifact = "com.googlecode.protobuf-java-format:protobuf-java-format:1.4",
-    sha1 = "b8163b6940102c1808814471476f5293dfb419df",
 )
 
 # java_lite_proto_library rules implicitly depend on @com_google_protobuf_javalite//:javalite_toolchain,
@@ -75,36 +30,67 @@ git_repository(
     commit = "ee5eec25f22782e03c5abda88f2c946e88d776f3"
 )
 
+BAZEL_BUILDTOOLS_VERSION = "49a6c199e3fbf5d94534b2771868677d3f9c6de9"
 
-local_repository(
+http_archive(
+    name = "com_github_bazelbuild_buildtools",
+    url = "https://github.com/bazelbuild/buildtools/archive/%s.zip" % BAZEL_BUILDTOOLS_VERSION,
+    strip_prefix = "buildtools-%s" % BAZEL_BUILDTOOLS_VERSION,
+    sha256 = "edf39af5fc257521e4af4c40829fffe8fba6d0ebff9f4dd69a6f8f1223ae047b",
+)
+http_archive(
     name = "angular",
-    path = "node_modules/@angular/bazel",
+    url = "https://github.com/angular/angular/archive/7.0.1.zip",
+    strip_prefix = "angular-7.0.1",
 )
 
-# The @rxjs repo contains targets for building rxjs with bazel
-local_repository(
+http_archive(
     name = "rxjs",
+    url = "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz",
+    strip_prefix = "package/src",
+    sha256 = "72b0b4e517f43358f554c125e40e39f67688cd2738a8998b4a266981ed32f403",
+)
+
+# Rules for compiling sass
+http_archive(
+    name = "io_bazel_rules_sass",
+    url = "https://github.com/bazelbuild/rules_sass/archive/1.14.1.zip",
+    strip_prefix = "rules_sass-1.14.1",
+)
+
+# This local_repository rule is needed to prevent `bazel build ...` from
+# drilling down into the @rxjs workspace BUILD files in node_modules/rxjs/src.
+# In the future this will no longer be needed.
+local_repository(
+    name = "ignore_node_modules_rxjs",
     path = "node_modules/rxjs/src",
 )
 
+load("@angular//packages/bazel:package.bzl", "rules_angular_dependencies")
+
+rules_angular_dependencies()
+
 load("@build_bazel_rules_nodejs//:defs.bzl", "check_bazel_version", "node_repositories", "yarn_install")
 
-node_repositories(package_json = ["//:package.json"])
+# The minimum bazel version to use with this example repo is 0.17.1
+check_bazel_version("0.17.1")
+node_repositories(
+    node_version = "10.9.0",
+    yarn_version = "1.9.2",
+)
+
+yarn_install(
+    name = "npm",
+    package_json = "//:package.json",
+    yarn_lock = "//:yarn.lock"
+)
 
 load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
 
 go_rules_dependencies()
 go_register_toolchains()
 
-load("@io_bazel_rules_webtesting//web:repositories.bzl", "browser_repositories", "web_test_repositories")
-
-web_test_repositories()
-browser_repositories(
-    chromium = True,
-    firefox = True,
-)
-
-load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace")
+load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace", "check_rules_typescript_version")
 
 ts_setup_workspace()
 
@@ -112,7 +98,11 @@ load("@io_bazel_rules_sass//sass:sass_repositories.bzl", "sass_repositories")
 
 sass_repositories()
 
-load("@io_bazel_rules_appengine//appengine:java_appengine.bzl", "java_appengine_repositories",
-)
+load("@angular//:index.bzl", "ng_setup_workspace")
+
+ng_setup_workspace()
+
+load("@io_bazel_rules_appengine//appengine:java_appengine.bzl", "java_appengine_repositories")
 
 java_appengine_repositories()
+

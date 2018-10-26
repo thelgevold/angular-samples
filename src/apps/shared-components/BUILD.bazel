@@ -6,7 +6,8 @@ ng_module(
     name = "src",
     srcs = ["demo-page.module.ts", "demo-page.ts"],
     tsconfig = "//:tsconfig.json",
-    deps = ["@rxjs",
+    deps = ["@rxjs", 
+            "@angular//packages/core", 
             "//src/apps/shared-components/shared"     
     ]
 )

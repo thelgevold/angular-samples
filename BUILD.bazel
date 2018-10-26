@@ -10,75 +10,12 @@ alias(
 exports_files([
     # Let ts_library targets reference the root tsconfig.json file
     "tsconfig.json",
-    
-    "node_modules/zone.js/dist/zone.min.js",
-    "node_modules/zone.js/dist/zone-testing-bundle.js",
-
-    "node_modules/jquery/dist/jquery.min.js",
-    "node_modules/jquery-ui-dist/jquery-ui.min.js",
-
-    "build/Release/obj.target/person-service.node"
-
 ])
-
-# NOTE: this will move to node_modules/BUILD in a later release
-filegroup(
-    name = "node_modules",
-    # NB: rxjs is not in this list, because we build it from sources using the
-    # label @rxjs//:rxjs
-    srcs = glob(["/".join([
-        "node_modules",
-        pkg,
-        "**",
-        ext,
-    ]) for pkg in [
-        "@angular",
-        "@types",
-        "tsickle",
-        "tsutils",
-        "typescript",
-        "express",
-        "compression",
-        "request",
-        "ffi",
-        "ref",
-        "protobufjs",
-        "long"
-    ] for ext in [
-        "*.js",
-        "*.json",
-        "*.d.ts",
-    ]]),
-)
-
-ANGULAR_TESTING = [
-    "node_modules/@angular/*/bundles/*-testing.umd.js",
-    # We use AOT, so the compiler and the dynamic platform-browser should be
-    # visible only in tests
-    "node_modules/@angular/compiler/bundles/*.umd.js",
-    "node_modules/@angular/platform-browser-dynamic/bundles/*.umd.js",
-    
-]
-
-filegroup(
-    name = "angular_bundles",
-    srcs = glob(
-        ["node_modules/@angular/*/bundles/*.umd.js"],
-        exclude = ANGULAR_TESTING,
-    ),
-)
 
 filegroup(
     name = "static_files",
     srcs = [
-      "node_modules/bootstrap/dist/css/bootstrap.min.css",
-      "vendor/vendor.js",
-      "node_modules/jquery-ui-dist/jquery-ui.min.js"
+      "@npm//node_modules/bootstrap:dist/css/bootstrap.min.css",
+      "vendor/vendor.js"
     ]
-)
-
-filegroup(
-    name = "angular_test_bundles",
-    testonly = 1,
-    srcs = glob(ANGULAR_TESTING),
 )

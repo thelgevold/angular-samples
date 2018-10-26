@@ -5,7 +5,14 @@ ts_library(
     name = "ts_server",
     srcs = glob(["*.ts"]),
     tsconfig = "//:tsconfig.json",
-    deps = ["//src/apps/models"]
+    deps = ["//src/apps/models", 
+            "@npm//@types/node",
+            "@npm//express",
+            "@npm//path",
+            "@npm//compression",
+            "@npm//request",
+            
+    ]
 )
 
 filegroup(
@@ -17,8 +24,15 @@ nodejs_binary(
     name = "api", 
     data = [":ts_server", 
             ":static",
-            "//src/apps/person:libperson.so",
-            "//src/apps/add",
-            "//:static_files"],
+            "@npm//node_modules/zone.js:dist/zone.min.js",
+            "@npm//node_modules/jquery:dist/jquery.min.js",
+            "@npm//node_modules/jquery-ui-dist:jquery-ui.min.js",
+            "//:static_files",
+            "@npm//express",
+            "@npm//path",
+            "@npm//compression",
+            "@npm//request"
+            
+    ],
     entry_point = "../server.js",
 ) 
