@@ -4,8 +4,9 @@
     "start-remote-cache": "docker-compose -f caching/docker-compose.yml up",
     "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
     "create-vendor-bundle": "webpack --config vendor/webpack-config.js",
-    "build": "bazel build //src/apps/demo-app:bundle && bazel build //src/apps/api && bazel build //src/apps/backend",
-    "start": "npm run build && concurrently \"ibazel build //src/apps/demo-app:bundle\" \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\""
+    "build": "yarn bazel build //src/apps/demo-app:bundle && yarn bazel build //src/apps/api && yarn bazel build //src/apps/backend",
+    "start": "yarn run bazel build && concurrently \"yarn bazel run //src/apps/api\" \"yarn bazel run //src/apps/backend\"",
+    "start-watch": "yarn run bazel build && concurrently \"ibazel build //src/apps/demo-app:bundle\" \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\""
   },
   "devDependencies": {
     "@angular/bazel": "7.0.1",
@@ -13,6 +14,7 @@
     "@angular/compiler-cli": "7.0.1",
     "@bazel/ibazel": "0.6.0",
     "@bazel/typescript": "0.20.3",
+    "@bazel/bazel": "0.18.1",
     "@types/node": "^10.12.0",
     "compression": "1.7.2",
     "concurrently": "3.5.1",
