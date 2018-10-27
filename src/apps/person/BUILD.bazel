@@ -1,9 +1,0 @@
-package(default_visibility = ["//visibility:public"])
-
-cc_binary(
-    name = "libperson.so",
-    linkshared=True,
-    srcs = ["person-service.cpp", 
-            "person-service.h"],
-    deps = ["//src/apps/models/person:person_cc_proto"]
-)
