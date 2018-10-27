@@ -4,9 +4,9 @@
     "start-remote-cache": "docker-compose -f caching/docker-compose.yml up",
     "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
     "create-vendor-bundle": "webpack --config vendor/webpack-config.js",
-    "build-all": "yarn bazel build //src/apps/demo-app:bundle && yarn bazel build //src/apps/api && yarn bazel build //src/apps/backend",
-    "start": "yarn build-all && concurrently \"yarn bazel run //src/apps/api\" \"yarn bazel run //src/apps/backend\"",
-    "start-watch": "yarn build-all && concurrently \"ibazel build //src/apps/demo-app:bundle\" \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\""
+    "build-all": "yarn bazel build //src/apps/api && yarn bazel build //src/apps/backend",
+    "start": "concurrently \"yarn bazel run //src/apps/api\" \"yarn bazel run //src/apps/backend\"",
+    "start-watch": "concurrently \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\""
   },
   "devDependencies": {
     "@angular/bazel": "7.0.1",

@@ -12,7 +12,7 @@ const backendBaseUrl = 'http://localhost:8080';
 
 app.use(compression());
 
-import {IPerson, IPersons, ILog, ICar, IFriend} from '../models';
+import {IPerson, ILog, ICar, IFriend} from '../models';
 
 declare const __dirname: string;
 
@@ -26,17 +26,14 @@ const indexPage = `${root}/index.html`;
 app.use(express.static('/'), express.static(root));
 app.use('/node_modules', express.static(node_modules));
 app.use('/vendor', express.static(vendor));
-
-app.get('/', (_req, res) => {
-  res.sendFile(indexPage);
-});
+app.use('/', express.static(__dirname + '/'));
 
 app.get('/bundle', (_req, res) => {
   res.sendFile(demoApp + '/bundle.min.js');
 });
 
 app.get('/api/log', (_req, res) => {
-  makeRequest(`${backendBaseUrl}/logs`)
+  makeGetRequest(`${backendBaseUrl}/logs`)
     .then((response: {logs: Array<ILog>}) => {
       res.json({entries: response.logs});
     })
@@ -44,7 +41,7 @@ app.get('/api/log', (_req, res) => {
 });
 
 app.get('/api/friends', (_req, res) => {
-  makeRequest(`${backendBaseUrl}/friends`)
+  makeGetRequest(`${backendBaseUrl}/friends`)
     .then((response: {friends: Array<IFriend>}) => {
       res.json({friends: response.friends.map(friend => friend.name)});
     })
@@ -60,7 +57,7 @@ app.get('/api/cars/:type', (req, res) => {
 });
 
 app.get('/api/car/:model', (req, res) => {
-  makeRequest(`${backendBaseUrl}/cars`)
+  makeGetRequest(`${backendBaseUrl}/cars`)
     .then((response: {cars: Array<ICar>}) => {
       res.json(response.cars.find(l => l.key === req.params.model));
     })
@@ -68,7 +65,7 @@ app.get('/api/car/:model', (req, res) => {
 });
 
 app.get('/api/people', (_req, res) => {
-  makeRequest(`${backendBaseUrl}/persons`)
+  makeGetRequest(`${backendBaseUrl}/persons`)
     .then((response: {persons: Array<IPerson>}) => {
       res.json(response.persons);
     })
@@ -76,12 +73,10 @@ app.get('/api/people', (_req, res) => {
 });
 
 app.get('/api/customer', (req, res) => {
-  const customer = {
+  res.json({
     name: 'Joe Smith',
     contractUrl: 'contract',
-  };
-
-  res.json(customer);
+  });
 });
 
 app.get('/api/country-info/:country', (req, res) => {
@@ -108,7 +103,7 @@ app.get('/api/treeview-data/?:id', (req, res) => {
   res.json(treeviewData[req.params.id]);
 });
 
-function makeRequest(url: string) {
+function makeGetRequest(url: string) {
   return new Promise((resolve, reject) => {
     request.get({url: url, json: true}, (error, response) => {
       if (error) {
