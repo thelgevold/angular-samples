@@ -1,7 +1,5 @@
 workspace(name = "angular_samples")
 
-###### Backend #########
-
 maven_jar(
     name = "protobuf_java_format",
     artifact = "com.googlecode.protobuf-java-format:protobuf-java-format:1.4",
@@ -70,10 +68,8 @@ load("@angular//packages/bazel:package.bzl", "rules_angular_dependencies")
 
 rules_angular_dependencies()
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "check_bazel_version", "node_repositories", "yarn_install")
+load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
 
-# The minimum bazel version to use with this example repo is 0.17.1
-check_bazel_version("0.17.1")
 node_repositories(
     node_version = "10.9.0",
     yarn_version = "1.9.2",

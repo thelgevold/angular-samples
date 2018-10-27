@@ -9,6 +9,8 @@ ts_library(
     deps = ["//src/apps/models/friend:friend_ts_proto",
             "//src/apps/models/car:car_ts_proto",
             "//src/apps/models/person:person_ts_proto",
-            "//src/apps/models/log:log_ts_proto"
+            "//src/apps/models/log:log_ts_proto",
+            "@npm//@types/node",
+            "@npm//@types/react"
     ]
 )

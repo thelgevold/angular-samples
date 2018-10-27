@@ -45,6 +45,7 @@ load("@build_bazel_rules_nodejs//:defs.bzl", "rollup_bundle")
 rollup_bundle(
     name = "bundle",
     entry_point = "angular_samples/src/apps/demo-app/main",
+    globals = {"react-dom": "ReactDOM", "react": "React"},
     deps = [
         ":src"
     ],

@@ -1,12 +1,26 @@
 load("@build_bazel_rules_nodejs//:defs.bzl", "rollup_bundle", "nodejs_binary")
 load("@build_bazel_rules_typescript//:defs.bzl", "ts_library")
 
+load("//src/apps/api/vendor:vendor.bzl", "vendor_bundle")
+
+vendor_bundle(
+  name = "vendor",
+  deps = [
+    "@npm//node_modules/jquery:dist/jquery.min.js",
+    "@npm//node_modules/zone.js:dist/zone.js",
+    "@npm//node_modules/jquery-ui-dist:jquery-ui.min.js",
+    "@npm//node_modules/react:umd/react.production.min.js",
+    "@npm//node_modules/react-dom:umd/react-dom.production.min.js"
+  ]
+)
+
 ts_library(
     name = "ts_api",
     srcs = glob(["*.ts"]),
     tsconfig = "//:tsconfig.json",
     deps = ["//src/apps/models", 
             "@npm//@types/node",
+            "@npm//@types/react",
             "@npm//express",
             "@npm//path",
             "@npm//compression",
@@ -29,6 +43,7 @@ nodejs_binary(
             "@npm//node_modules/jquery-ui-dist:jquery-ui.min.js",
             "//:static_files",
             "@npm//express",
+            ":vendor",
             "@npm//path",
             "@npm//compression",
             "@npm//request",

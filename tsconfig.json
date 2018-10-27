@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-      "types": [],
+      "jsx": "react",
       "lib": [
           "dom",
           "es5", 

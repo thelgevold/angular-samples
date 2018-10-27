@@ -15,7 +15,6 @@ exports_files([
 filegroup(
     name = "static_files",
     srcs = [
-      "@npm//node_modules/bootstrap:dist/css/bootstrap.min.css",
-      "vendor/vendor.js"
+      "@npm//node_modules/bootstrap:dist/css/bootstrap.min.css"
     ]
 )

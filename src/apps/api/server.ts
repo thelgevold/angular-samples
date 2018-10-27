@@ -14,19 +14,13 @@ app.use(compression());
 
 import {IPerson, ILog, ICar, IFriend} from '../models';
 
-declare const __dirname: string;
-
 const base = `${__dirname}/api.runfiles/angular_samples`;
 const root = `${base}/src/apps/api`;
 const demoApp = path.join(`${__dirname}`, '../demo-app');
 const node_modules = `${__dirname}/api.runfiles/npm/node_modules`;
-const vendor = `${base}/vendor`;
 
-const indexPage = `${root}/index.html`;
 app.use(express.static('/'), express.static(root));
 app.use('/node_modules', express.static(node_modules));
-app.use('/vendor', express.static(vendor));
-app.use('/', express.static(__dirname + '/'));
 
 app.get('/bundle', (_req, res) => {
   res.sendFile(demoApp + '/bundle.min.js');
@@ -114,5 +108,4 @@ function makeGetRequest(url: string) {
     });
   });
 }
-
 app.listen(3000, () => console.log('Example app listening on port 3000!'));

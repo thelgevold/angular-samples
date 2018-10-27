@@ -151,3 +151,15 @@ div.edge {
     font-size: 20px;
     font-weight: bold;
 }
+
+.number {
+  padding: 5px;
+ }
+ .group {
+   border: 3px solid gray;
+ 
+   margin-right: 20px;
+ }
+ .fragment-row {
+   margin-bottom: 20px;
+ }

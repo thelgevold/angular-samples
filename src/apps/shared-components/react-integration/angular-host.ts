@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ReactTreeView} from './react-tree-view';
+import {MergeSortComponent} from './merge-sort.component';
 
 @Component({
   selector: 'angular-host',
@@ -7,6 +7,6 @@ import {ReactTreeView} from './react-tree-view';
 })
 export class AngularHost implements OnInit {
   ngOnInit() {
-    ReactTreeView.initialize('Locations');
+    MergeSortComponent.initialize();
   }
 }
