@@ -116,7 +116,11 @@ export class TextEditor implements OnInit {
     );
 
     this.keyUp
-      .pipe(merge(this.click), merge(this.mouseDown), merge(this.keyDown))
+      .pipe(
+        merge(this.click),
+        merge(this.mouseDown),
+        merge(this.keyDown),
+      )
       .subscribe(e => {
         this.currentDocument.processInput(e.character, e.operation);
         e.element.preventDefault();
