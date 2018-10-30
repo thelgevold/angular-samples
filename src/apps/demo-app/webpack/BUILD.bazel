@@ -1,0 +1,18 @@
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+
+exports_files([
+    "webpack.config.tmpl.js",
+
+    # Exported to be consumed for generating skydoc.
+    "webpack_bundle.bzl",
+])
+
+nodejs_binary(
+    name = "webpack_bundler",
+    entry_point = "webpack/bin/webpack.js",
+    visibility = ["//visibility:public"],
+    data = [
+      "@npm//webpack",
+      "@npm//webpack-cli",
+    ]
+)

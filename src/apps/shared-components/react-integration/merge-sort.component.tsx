@@ -7,4 +7,4 @@ export class MergeSortComponent {
   static initialize(){
     ReactDOM.render(<SortingComponent />, document.getElementById('merge-sort'));
   }
-}
+} 

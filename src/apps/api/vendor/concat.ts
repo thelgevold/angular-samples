@@ -1,5 +1,6 @@
-import * as fs from 'fs';
-
+declare const require: any;
+declare const process: any;
+const fs = require('fs');
 const args = process.argv;
 
 const outputPath = args[2];

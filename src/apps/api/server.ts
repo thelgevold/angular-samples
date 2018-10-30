@@ -14,17 +14,16 @@ app.use(compression());
 
 import {IPerson, ILog, ICar, IFriend} from '../models';
 
+declare const __dirname: string;
+
 const base = `${__dirname}/api.runfiles/angular_samples`;
 const root = `${base}/src/apps/api`;
-const demoApp = path.join(`${__dirname}`, '../demo-app');
+const dist = path.join(`${__dirname}`, '../demo-app/bundle/src/apps/demo-app');
 const node_modules = `${__dirname}/api.runfiles/npm/node_modules`;
 
 app.use(express.static('/'), express.static(root));
 app.use('/node_modules', express.static(node_modules));
-
-app.get('/bundle', (_req, res) => {
-  res.sendFile(demoApp + '/bundle.min.js');
-});
+app.use(express.static('/'), express.static(dist));
 
 app.get('/api/log', (_req, res) => {
   makeGetRequest(`${backendBaseUrl}/logs`)

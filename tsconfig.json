@@ -3,9 +3,16 @@
       "jsx": "react",
       "lib": [
           "dom",
-          "es5", 
-          "es2015"
+          "es2015",
+          "es2015.collection",
+          "es2015.iterable",
+          "es2015.promise"
       ],
-      "experimentalDecorators": true
+      "rootDirs": [
+          ".",
+          "../dist/bin/src",
+      ],
+      "experimentalDecorators": true,
+      "types": []
   }
 }

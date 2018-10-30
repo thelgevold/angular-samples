@@ -1,7 +1,7 @@
 import {Partition} from './partition';
 
 export class SortingService {
-  partitions = [];
+  partitions: any[] = [];
 
   mergeSort(currentPartition) {
     if (currentPartition.isSingleItemList()) {

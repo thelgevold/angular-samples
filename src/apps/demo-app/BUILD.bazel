@@ -1,5 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
+load("//src/apps/demo-app/webpack:webpack.bzl", "webpack_bundle")
 load("@angular//:index.bzl", "ng_module")
 
 ng_module(
@@ -7,7 +8,9 @@ ng_module(
     srcs = glob(["*.ts"]),
     assets = ["demo-app.html"],
     tsconfig = "//:tsconfig.json",
-    deps = ["@rxjs", 
+    deps = ["@rxjs",
+            "@npm//@types/node",
+            "@npm//@types/react",
             "@angular//packages/core",
             "@angular//packages/router",
             "@angular//packages/platform-browser",
@@ -40,13 +43,11 @@ ng_module(
     ]
 )
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "rollup_bundle")
-
-rollup_bundle(
+webpack_bundle(
     name = "bundle",
-    entry_point = "angular_samples/src/apps/demo-app/main",
-    globals = {"react-dom": "ReactDOM", "react": "React"},
-    deps = [
-        ":src"
+    mode = "development",
+    deps = [":src"],
+    entry_points = [
+      "src/apps/demo-app/main"
     ],
 )

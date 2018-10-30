@@ -8,8 +8,7 @@ load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
 ts_library(
   name = "concat_ts",
   deps = [
-    "@npm//@types/node",
-    "@npm//@types/react",
+    "@npm//@types",
   ],
   srcs = ["concat.ts"],
   tsconfig = "//:tsconfig.json",
