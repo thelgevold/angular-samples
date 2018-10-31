@@ -47,7 +47,8 @@ nodejs_binary(
             "@npm//path",
             "@npm//compression",
             "@npm//request",
-            "//src/apps/demo-app:bundle"
+            "//src/apps/demo-app:bundle",
+            "//src/apps/svelte-demo:bundle_svelte"
             
     ],
     entry_point = "../server.js",

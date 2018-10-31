@@ -19,11 +19,13 @@ declare const __dirname: string;
 const base = `${__dirname}/api.runfiles/angular_samples`;
 const root = `${base}/src/apps/api`;
 const dist = path.join(`${__dirname}`, '../demo-app/bundle/src/apps/demo-app');
+
 const node_modules = `${__dirname}/api.runfiles/npm/node_modules`;
 
+app.use(express.static('/'), express.static(dist));
 app.use(express.static('/'), express.static(root));
 app.use('/node_modules', express.static(node_modules));
-app.use(express.static('/'), express.static(dist));
+app.use('/svelte', express.static(`${base}/src/apps/svelte-demo`));
 
 app.get('/api/log', (_req, res) => {
   makeGetRequest(`${backendBaseUrl}/logs`)

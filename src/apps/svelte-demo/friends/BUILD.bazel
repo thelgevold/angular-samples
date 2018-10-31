@@ -1,0 +1,14 @@
+package(default_visibility = ["//visibility:public"])
+load("//svelte:svelte.bzl", "svelte")
+
+svelte(
+  name = "friend",
+  entry_point = "Friend.html"
+)
+
+svelte(
+  name = "friends",
+  srcs = ["friends-service.js"],
+  entry_point = "Friends.html",
+  deps = [":friend"]
+)
