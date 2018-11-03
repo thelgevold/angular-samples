@@ -8,9 +8,9 @@
     "start-watch": "concurrently \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\""
   },
   "devDependencies": {
-    "@angular/bazel": "7.0.1",
-    "@angular/compiler": "7.0.1",
-    "@angular/compiler-cli": "7.0.1",
+    "@angular/bazel": "7.0.2",
+    "@angular/compiler": "7.0.2",
+    "@angular/compiler-cli": "7.0.2",
     "@bazel/bazel": "0.18.1",
     "@bazel/ibazel": "0.6.0",
     "@bazel/typescript": "0.20.3",

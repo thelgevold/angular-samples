@@ -2,20 +2,20 @@
 # yarn lockfile v1
 
 
-"@angular/bazel@7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@angular/bazel/-/bazel-7.0.1.tgz#42e1a114a20643ea53cff1bb8091e1ba08637885"
-  integrity sha512-DEv1QiccMglqPyXqxtl3Onm4j1aIJzvWx/4Tyy6gEK/r7wOqwffkPrmQGGJC3QAhsXxXMRK0mQ3jkKoAXLbunA==
+"@angular/bazel@7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@angular/bazel/-/bazel-7.0.2.tgz#e17ee29cd217aec3519570b6c6a4e494e77502a2"
+  integrity sha512-ob4GnMFzX0IlpoQovgmZhdOV1LqkCqRzEzqJ82GwW4gH+kkMVT0VQi22/0eFQ+i23syv8TYA5qOhSsOaSpZ/ng==
   dependencies:
     "@bazel/typescript" "^0.20.3"
     "@types/node" "6.0.84"
     shelljs "0.8.2"
     tsickle "0.32.1"
 
-"@angular/compiler-cli@7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-7.0.1.tgz#bd21ebc950f65fb5848307a271e7bd9d049efc9c"
-  integrity sha512-WXl2bDoAYWsxwjuIrY34eNZ6Ph4fUff2eK+ZPnkm5zSud1ZlC0zqcG//ccoLqS4Bly3He2obSJ+8SaQjzsqK1g==
+"@angular/compiler-cli@7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@angular/compiler-cli/-/compiler-cli-7.0.2.tgz#ddfcc6ebeca46bc490fa953a1accc26a7ed93a05"
+  integrity sha512-xGXJ3MHn1LOYrvM9ix5sRp7r6dYsjLj+okUMDcNeYYEQyT7S/qEFZomhdrPydoXSUitjmXbskSUpGzZ6mzBBXQ==
   dependencies:
     canonical-path "0.0.2"
     chokidar "^1.4.2"
@@ -28,10 +28,10 @@
     source-map "^0.6.1"
     yargs "9.0.1"
 
-"@angular/compiler@7.0.1":
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-7.0.1.tgz#29271bfdc9ac98f2f93c473a0cd82d6a043cf6e3"
-  integrity sha512-X/q51ZAFd0GBJyuZTOKpieyePhlNBAfYCPRi57S2BpxG6i9QjjeM+sPwzjsMmU1P6Qyt/pPpVG738mLocPvdpA==
+"@angular/compiler@7.0.2":
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/@angular/compiler/-/compiler-7.0.2.tgz#7fc3427ee58a2d122d3a039396cec316dd11c4cb"
+  integrity sha512-nyXX91a/sav+Nf99P7oy6ALuZsxlFhu1HEf24sdH3Ga45X3OL4oFCCfHjjDADyhq1SiRd/25Z8j1C4aeN6MJzQ==
   dependencies:
     tslib "^1.9.0"
 
