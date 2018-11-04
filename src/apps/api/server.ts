@@ -2,11 +2,14 @@ import * as express from 'express';
 import * as path from 'path';
 import * as request from 'request';
 import * as compression from 'compression';
+import * as reload from 'reload';
 
 import {treeviewData} from './treeview-data';
 import {lamborghiniModels} from './car-data';
 
 const app = express();
+
+reload(app);
 
 const backendBaseUrl = 'http://localhost:8080';
 

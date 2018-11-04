@@ -23,6 +23,7 @@ ts_library(
             "@npm//@types/react",
             "@npm//express",
             "@npm//path",
+            "@npm//reload",
             "@npm//compression",
             "@npm//request",
             
@@ -47,6 +48,7 @@ nodejs_binary(
             "@npm//path",
             "@npm//compression",
             "@npm//request",
+            "@npm//reload",
             "//src/apps/demo-app:bundle",
             "//src/apps/svelte-demo:bundle_svelte"
             
