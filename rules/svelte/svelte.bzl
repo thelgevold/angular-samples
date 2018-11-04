@@ -13,7 +13,7 @@ SVELTE_ATTRS = {
   "deps": attr.label_list(),
   "srcs": attr.label_list(allow_files = True),
   "_svelte": attr.label(
-        default=Label("//svelte"),
+        default=Label("//rules/svelte"),
         executable=True,
         cfg="host"),
 }

@@ -4,8 +4,7 @@
     "start-remote-cache": "docker-compose -f caching/docker-compose.yml up",
     "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
     "build-all": "yarn bazel build //src/apps/api && yarn bazel build //src/apps/backend",
-    "start": "concurrently \"yarn bazel run //src/apps/api\" \"yarn bazel run //src/apps/backend\"",
-    "start-watch": "concurrently \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\""
+    "start": "concurrently \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\""
   },
   "devDependencies": {
     "@angular/bazel": "7.0.2",
@@ -26,7 +25,6 @@
     "webpack-cli": "3.1.2"
   },
   "dependencies": {
-    "angular": "~1.4.7",
     "tslib": "1.9.3",
     "bootstrap": "~3.3.4",
     "express": "4.16.3",
@@ -35,8 +33,6 @@
     "react": "16.4.1",
     "react-dom": "16.4.1",
     "request": "2.87.0",
-    "systemjs": "0.20.19",
-    "underscore": "~1.8.3",
     "zone.js": "0.8.26"
   }
 }

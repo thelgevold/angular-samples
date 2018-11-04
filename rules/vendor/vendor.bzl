@@ -36,7 +36,7 @@ vendor_bundle = rule(
   implementation = _vendor_bundle,
   attrs = {
     "deps": attr.label_list(allow_files = True),
-    "_concat": attr.label(default=Label("//src/apps/api/vendor:concat"), executable=True, cfg="host", allow_files=True),
+    "_concat": attr.label(default=Label("//rules/vendor:concat"), executable=True, cfg="host", allow_files=True),
     "_uglify": attr.label(
         executable = True,
         cfg="host",

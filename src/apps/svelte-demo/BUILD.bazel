@@ -1,6 +1,6 @@
 package(default_visibility = ["//visibility:public"])
-load("//svelte:svelte.bzl", "svelte")
-load("//svelte:bundle.bzl", "bundle")
+load("//rules/svelte:svelte.bzl", "svelte")
+load("//rules/svelte:bundle.bzl", "bundle")
 load("@io_bazel_rules_sass//sass:sass.bzl", "sass_binary")
 
 svelte(

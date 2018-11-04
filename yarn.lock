@@ -294,11 +294,6 @@ ajv@^6.1.0:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-angular@~1.4.7:
-  version "1.4.14"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.4.14.tgz#9d0feaf60ce6e52ce50f49ee328656d1e1875c37"
-  integrity sha1-nQ/q9gzm5SzlD0nuMoZW0eGHXDc=
-
 ansi-regex@^0.2.0, ansi-regex@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-0.2.1.tgz#0d8e946967a3d8143f93e24e298525fc1b2235f9"
@@ -3997,11 +3992,6 @@ svelte@2.13.5:
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-2.13.5.tgz#23478480ed0f7d4da4816022d84a86512d503358"
   integrity sha512-Mg4+vRwAT1IMR4FAH3cOmMaVVrJ35xUI1qsTW+WoJvRpeBDx7aLZUbgBXnctxdfEJQ4BuP2MCuhYKy8917Au1A==
 
-systemjs@0.20.19:
-  version "0.20.19"
-  resolved "https://registry.yarnpkg.com/systemjs/-/systemjs-0.20.19.tgz#c2b9e79c19f4bea53a19b1ed3f974ffb463be949"
-  integrity sha512-H/rKwNEEyej/+IhkmFNmKFyJul8tbH/muiPq5TyNoVTwsGhUjRsN3NlFnFQUvFXA3+GQmsXkCNXU6QKPl779aw==
-
 tapable@^1.0.0, tapable@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.1.0.tgz#0d076a172e3d9ba088fd2272b2668fb8d194b78c"
@@ -4176,11 +4166,6 @@ uglifyjs-webpack-plugin@^1.2.4:
     uglify-es "^3.3.4"
     webpack-sources "^1.1.0"
     worker-farm "^1.5.2"
-
-underscore@~1.8.3:
-  version "1.8.3"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
-  integrity sha1-Tz+1OxBuYJf8+ctBCfKl6b36UCI=
 
 union-value@^1.0.0:
   version "1.0.0"

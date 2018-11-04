@@ -1,5 +1,5 @@
 package(default_visibility = ["//visibility:public"])
-load("//svelte:svelte.bzl", "svelte")
+load("//rules/svelte:svelte.bzl", "svelte")
 
 svelte(
   name = "treeview",

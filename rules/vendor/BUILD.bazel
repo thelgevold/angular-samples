@@ -19,5 +19,5 @@ nodejs_binary(
   data = [
     ":concat_ts",
   ],
-  entry_point = "angular_samples/src/apps/api/vendor/concat.js",
+  entry_point = "angular_samples/rules/vendor/concat.js",
 )
