@@ -7,6 +7,7 @@ exports_files([
 nodejs_binary(
     name = "webpack_bundler",
     entry_point = "webpack/bin/webpack.js",
+    tags = ["ibazel_notify_changes"],
     visibility = ["//visibility:public"],
     data = [
       "@npm//webpack",
