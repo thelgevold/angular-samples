@@ -13,11 +13,11 @@ WEBPACK_BUNDLE_ATTRS = {
         doc = "Entry point JS files, relative to the workspace root",
         mandatory = True),
     "_webpack": attr.label(
-        default=Label("//src/apps/demo-app/webpack:webpack_bundler"),
+        default=Label("//rules/webpack:webpack_bundler"),
         executable=True,
         cfg="host"),
     "_webpack_config_template": attr.label(
-        default = Label("//src/apps/demo-app/webpack:webpack.config.tmpl.js"),
+        default = Label("//rules/webpack:webpack.config.tmpl.js"),
         allow_single_file = True),
 }
 
