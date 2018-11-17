@@ -7,4 +7,4 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
-      - "9001:9001"
+      - "9010:9010"

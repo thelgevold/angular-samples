@@ -3,7 +3,7 @@ build --strategy=AngularTemplateCompile=worker
 
 build --symlink_prefix=dist/
 
-build --remote_http_cache=http://localhost:9001/cache
+build --remote_http_cache=http://localhost:9010/cache
 
 build --define=compile=legacy
 run --nolegacy_external_runfiles
