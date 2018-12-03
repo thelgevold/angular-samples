@@ -38,8 +38,8 @@ http_archive(
 )
 http_archive(
     name = "angular",
-    url = "https://github.com/angular/angular/archive/7.0.2.zip",
-    strip_prefix = "angular-7.0.2",
+    url = "https://github.com/angular/angular/archive/7.0.4.zip",
+    strip_prefix = "angular-7.0.4",
 )
 
 http_archive(
