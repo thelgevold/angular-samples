@@ -12,11 +12,13 @@ import {Location} from '@angular/common';
             More documentation about each specific component can be found
             <a href="http://www.syntaxsuccess.com/angular-2-articles">here</a>.
         </p>
-        <p>Current version: Angular 7.0.4</p>
+        <p>Current version: Angular 7.1.3</p>
     </div> 
 
     <div>
         <div class="list-group col-md-3">
+            <a [class.active]="getLinkStyle('/demo/react')" [routerLink]="['/demo/react']" class="list-group-item">React Integration</a>
+            <a [class.active]="getLinkStyle('/demo/svelte')" [routerLink]="['/demo/svelte']" class="list-group-item">Svelte Integration</a>
             <a [class.active]="getLinkStyle('/demo/spreadsheet')" [routerLink]="['/demo/spreadsheet']" class="list-group-item">Virtualized Spreadsheet</a>
             <a [class.active]="getLinkStyle('/demo/countries')" [routerLink]="['/demo/countries']" class="list-group-item">Lazy Loaded Tree View</a>
             <a [class.active]="getLinkStyle('/demo/rxjs')" [routerLink]="['/demo/rxjs']" class="list-group-item">RxJs Streams</a>
@@ -40,8 +42,6 @@ import {Location} from '@angular/common';
             <a [class.active]="getLinkStyle('/demo/contact')" [routerLink]="['/demo/contact']" class="list-group-item">Interactive contact list</a>
             <a [class.active]="getLinkStyle('/demo/textbox')" [routerLink]="['/demo/textbox']" class="list-group-item">Bound Textbox</a>
             <a [class.active]="getLinkStyle('/demo/iodemo')" [routerLink]="['/demo/iodemo']" class="list-group-item">Input/Output</a>
-            <a [class.active]="getLinkStyle('/demo/react')" [routerLink]="['/demo/react']" class="list-group-item">React Integration</a>
-            <a [class.active]="getLinkStyle('/demo/svelte')" [routerLink]="['/demo/svelte']" class="list-group-item">Svelte Integration</a>
             <a [class.active]="getLinkStyle('/demo/jquery')" [routerLink]="['/demo/jquery']" class="list-group-item">JQuery Integration</a>
        </div>
 

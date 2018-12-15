@@ -1,5 +1,7 @@
 workspace(name = "angular_samples")
 
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
 maven_jar(
     name = "protobuf_java_format",
     artifact = "com.googlecode.protobuf-java-format:protobuf-java-format:1.4",
@@ -38,8 +40,8 @@ http_archive(
 )
 http_archive(
     name = "angular",
-    url = "https://github.com/angular/angular/archive/7.0.4.zip",
-    strip_prefix = "angular-7.0.4",
+    url = "https://github.com/angular/angular/archive/7.1.3.zip",
+    strip_prefix = "angular-7.1.3",
 )
 
 http_archive(
@@ -68,11 +70,19 @@ load("@angular//packages/bazel:package.bzl", "rules_angular_dependencies")
 
 rules_angular_dependencies()
 
+load("@build_bazel_rules_typescript//:package.bzl", "rules_typescript_dependencies")
+
+rules_typescript_dependencies()
+
+load("@build_bazel_rules_nodejs//:package.bzl", "rules_nodejs_dependencies")
+
+rules_nodejs_dependencies()
+
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
 
 node_repositories(
     node_version = "10.9.0",
-    yarn_version = "1.9.2",
+    yarn_version = "1.12.1",
 )
 
 yarn_install(
