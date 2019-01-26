@@ -1,4 +1,4 @@
-These samples use Angular 7.1.3
+These samples use Angular 7.2.2
 
 Live DEMO here: http://www.syntaxsuccess.com/angular-2-samples
 Documentation: http://www.syntaxsuccess.com/angular-2-articles
@@ -7,7 +7,7 @@ Here are the prerequisites for running the project:
 
 1) run npm install
 
-2) Terminal 2: npm run start
+2) npm run start
 Starts a bazel build with file watching (iBazel).
 
 The application is hosted at http://localhost:3000

@@ -46,7 +46,7 @@ ng_module(
 
 webpack_bundle(
     name = "bundle",
-    mode = "development",
+    mode = "production",
     deps = [":src"],
     entry_points = [
       "src/apps/demo-app/main"

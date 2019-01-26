@@ -7,27 +7,13 @@ var webpackConfig = {
     filename: '[name].js',
     TMPL_out_dir
   },
-  // optimization: {
-	// 	splitChunks: {
-	// 		cacheGroups: {
-  //       vendor: {
-	// 				test: /[\\/]external[\\/]/,
-	// 				chunks: "initial",
-	// 				name: "vendor",
-	// 				priority: 10,
-  //         enforce: true,
-          
-	// 			}
-	// 		}
-	// 	}
-  // },
-  
+
   module: {
     rules: [
       { parser: { amd: false } }
     ]
   },
-
+  
   resolve: {
     alias: {
       '@angular/common': `${process.cwd()}/TMPL_root_dir/external/angular/packages/common`,

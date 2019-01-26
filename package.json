@@ -3,15 +3,18 @@
   "scripts": {
     "start-remote-cache": "docker-compose -f caching/docker-compose.yml up",
     "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
-    "build-all": "bazel build //src/apps/api && bazel build //src/apps/backend",
-    "start": "concurrently \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\""
+    "build-backend": "ibazel build //src/apps/backend",
+    "build-all": "bazel build //src/apps/api && yarn build-backend",
+    "start": "concurrently \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\"",
+    "bazel-version": "bazel version"
   },
   "devDependencies": {
-    "@angular/bazel": "7.1.3",
-    "@angular/compiler": "7.1.3",
-    "@angular/compiler-cli": "7.1.3",
+    "@angular/bazel": "7.2.2",
+    "@angular/compiler": "7.2.2",
+    "@angular/compiler-cli": "7.2.2",
     "@bazel/ibazel": "0.9.0",
     "@bazel/typescript": "0.20.0",
+    "@bazel/bazel": "0.20.0",
     "@types/node": "^10.12.0",
     "@types/react": "16.4.1",
     "compression": "1.7.2",
@@ -30,8 +33,8 @@
     "express": "4.16.3",
     "jquery": "3.3.1",
     "jquery-ui-dist": "1.12.1",
-    "react": "16.4.1",
-    "react-dom": "16.4.1",
+    "react": "16.4.2",
+    "react-dom": "16.4.2",
     "request": "2.87.0",
     "zone.js": "0.8.26"
   }
