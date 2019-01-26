@@ -1,16 +1,19 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+  agent any
+  stages {
+    stage('Clone Repo') {
+      steps {
+        git 'https://github.com/thelgevold/angular-samples.git'
+      }
+    }
+    stage('Yarn Install') {
+      steps {
+        sh 'yarn'
+      }
+    }
+    stage('Build') {
+      steps {
+        sh 'yarn build-all'
+      }
     }
 }
