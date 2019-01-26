@@ -16,4 +16,5 @@ pipeline {
         sh 'yarn build-all'
       }
     }
+  }
 }
