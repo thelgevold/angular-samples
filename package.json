@@ -3,7 +3,7 @@
   "scripts": {
     "start-remote-cache": "docker-compose -f caching/docker-compose.yml up",
     "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
-    "build-backend": "ibazel build //src/apps/backend",
+    "build-backend": "bazel build //src/apps/backend",
     "build-all": "bazel build //src/apps/api && yarn build-backend",
     "start": "concurrently \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\"",
     "bazel-version": "bazel version"
