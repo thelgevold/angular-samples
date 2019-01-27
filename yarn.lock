@@ -72,26 +72,6 @@
   dependencies:
     tslib "^1.9.0"
 
-"@bazel/bazel-darwin_x64@0.20.0":
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/@bazel/bazel-darwin_x64/-/bazel-darwin_x64-0.20.0.tgz#648d61c32a3c5fccb7bf70b753071b6e54b11f21"
-
-"@bazel/bazel-linux_x64@0.20.0":
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/@bazel/bazel-linux_x64/-/bazel-linux_x64-0.20.0.tgz#2568628a0d0b85dcc69d0ab701b1d6e10551357d"
-
-"@bazel/bazel-win32_x64@0.20.0":
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/@bazel/bazel-win32_x64/-/bazel-win32_x64-0.20.0.tgz#af7d041dae4c066e7aa8618949e2de1aad07495e"
-
-"@bazel/bazel@0.20.0":
-  version "0.20.0"
-  resolved "https://registry.yarnpkg.com/@bazel/bazel/-/bazel-0.20.0.tgz#46688e915896b27200df61ab8175a7ba3e378915"
-  optionalDependencies:
-    "@bazel/bazel-darwin_x64" "0.20.0"
-    "@bazel/bazel-linux_x64" "0.20.0"
-    "@bazel/bazel-win32_x64" "0.20.0"
-
 "@bazel/ibazel@0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@bazel/ibazel/-/ibazel-0.9.0.tgz#fd60023acd36313d304cc2f8c2e181b88b5445cd"

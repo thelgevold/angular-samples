@@ -9,11 +9,10 @@ maven_jar(
     sha1 = "b8163b6940102c1808814471476f5293dfb419df",
 )
 
-http_archive(
+git_repository(
     name = "com_google_protobuf",
-    sha256 = "cef7f1b5a7c5fba672bec2a319246e8feba471f04dcebfe362d55930ee7c1c30",
-    strip_prefix = "protobuf-3.5.0",
-    urls = ["https://github.com/google/protobuf/archive/v3.5.0.zip"],
+    tag = "v3.6.1.3",
+    remote = "https://github.com/protocolbuffers/protobuf.git"
 )
 
 # java_lite_proto_library rules implicitly depend on @com_google_protobuf_javalite//:javalite_toolchain,
@@ -27,8 +26,8 @@ http_archive(
 
 git_repository(
     name = "io_bazel_rules_appengine",
-    remote = "https://github.com/bazelbuild/rules_appengine.git",
-    commit = "ee5eec25f22782e03c5abda88f2c946e88d776f3"
+    remote = "https://github.com/thelgevold/rules_appengine.git",
+    commit = "d65baa509df874a0c360db581e2ee46772b5cbbe"
 )
 
 BAZEL_BUILDTOOLS_VERSION = "49a6c199e3fbf5d94534b2771868677d3f9c6de9"

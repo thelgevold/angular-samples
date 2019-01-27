@@ -3,8 +3,7 @@
   "scripts": {
     "start-remote-cache": "docker-compose -f caching/docker-compose.yml up",
     "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
-    "build-backend": "bazel build //src/apps/backend",
-    "build-all": "bazel build //src/apps/api && yarn build-backend",
+    "build-all": "bazel build //src/apps/api && bazel build //src/apps/backend",
     "start": "concurrently \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\"",
     "bazel-version": "bazel version"
   },
@@ -14,7 +13,6 @@
     "@angular/compiler-cli": "7.2.2",
     "@bazel/ibazel": "0.9.0",
     "@bazel/typescript": "0.20.0",
-    "@bazel/bazel": "0.20.0",
     "@types/node": "^10.12.0",
     "@types/react": "16.4.1",
     "compression": "1.7.2",
