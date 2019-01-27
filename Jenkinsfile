@@ -6,9 +6,9 @@ pipeline {
         git 'https://github.com/thelgevold/angular-samples.git'
       }
     }
-    stage('npm Install') {
+    stage('yarn Install') {
       steps {
-        sh 'npm i'
+        sh 'yarn'
       }
     }
     stage('Build') {
