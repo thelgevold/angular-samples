@@ -5,6 +5,7 @@
     "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
     "build-all": "bazel build //src/apps/api && bazel build //src/apps/backend",
     "start": "concurrently \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\"",
+    "_start": "concurrently \"bazel run //src/apps/api\" \"bazel run //src/apps/backend\"",
     "bazel-version": "bazel version"
   },
   "devDependencies": {

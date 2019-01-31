@@ -7,6 +7,7 @@ import * as reload from 'reload';
 import {treeviewData} from './treeview-data';
 import {lamborghiniModels} from './car-data';
 
+declare const process: any;
 const app = express();
 
 reload(app);
@@ -112,4 +113,4 @@ function makeGetRequest(url: string) {
     });
   });
 }
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.listen(process.env.PORT || 3000, () => console.log('Example app listening on port ' + (process.env.PORT || 3000)));
