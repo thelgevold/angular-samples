@@ -1,20 +1,32 @@
 pipeline {
+  environment {
+    registry = 'thelgevold/syntaxsuccess-angular-samples'
+    registryCredential = 'dockerhub'
+    dockerImage = ''
+  }
   agent any
   stages {
-    stage('Clone Repo') {
-      steps {
-        git 'https://github.com/thelgevold/angular-samples.git'
+    stage('Build image') {
+      steps{
+        script {
+          dockerImage = docker.build registry + ":latest"
+        }
       }
     }
-    stage('yarn Install') {
-      steps {
-        sh 'yarn'
+    stage('Deploy Image') {
+      steps{
+         script {
+            docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
       }
     }
-    stage('Build') {
-      steps {
-        sh 'yarn build-all'
+    stage('Remove image') {
+      steps{
+        sh 'docker rmi $registry:latest'
       }
     }
+  }
   }
 }
