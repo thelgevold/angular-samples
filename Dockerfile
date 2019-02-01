@@ -45,6 +45,8 @@ WORKDIR /usr
 
 RUN yarn install
 
+RUN yarn build-all
+
 EXPOSE 3000
 
 CMD ["yarn", "_start"]
