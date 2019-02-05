@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM launcher.gcr.io/google/rbe-ubuntu16-04
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
