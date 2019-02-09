@@ -1,35 +1,37 @@
 import * as express from 'express';
-import * as path from 'path';
 import * as request from 'request';
 import * as compression from 'compression';
-import * as reload from 'reload';
 
 import {treeviewData} from './treeview-data';
 import {lamborghiniModels} from './car-data';
 
 declare const process: any;
+declare const require: any;
 const app = express();
 
-reload(app);
+const backendBaseUrl = getApiUrl();
 
-const backendBaseUrl = 'http://localhost:8080';
+function getApiUrl() {
+  const fs = require('fs');
+  const path = './src/apps/api/api-map.json';
+  if (fs.existsSync(path)) {
+    return JSON.parse(fs.readFileSync(path, 'utf8')).azure;
+  }
+  console.log('running with local api');
+  return 'http://localhost:8080';
+}
 
 app.use(compression());
 
 import {IPerson, ILog, ICar, IFriend} from '../models';
 
-declare const __dirname: string;
+app.use('/', express.static('./src/apps/api'));
+app.use(
+  '/demo-app',
+  express.static('./src/apps/demo-app/bundle/src/apps/demo-app'),
+);
 
-const base = `${__dirname}/api.runfiles/angular_samples`;
-const root = `${base}/src/apps/api`;
-const dist = path.join(`${__dirname}`, '../demo-app/bundle/src/apps/demo-app');
-
-const node_modules = `${__dirname}/api.runfiles/npm/node_modules`;
-
-app.use(express.static('/'), express.static(dist));
-app.use(express.static('/'), express.static(root));
-app.use('/node_modules', express.static(node_modules));
-app.use('/svelte', express.static(`${base}/src/apps/svelte-demo`));
+app.use('/svelte', express.static('./src/apps/svelte-demo'));
 
 app.get('/api/log', (_req, res) => {
   makeGetRequest(`${backendBaseUrl}/logs`)
@@ -113,4 +115,6 @@ function makeGetRequest(url: string) {
     });
   });
 }
-app.listen(process.env.PORT || 3000, () => console.log('Example app listening on port ' + (process.env.PORT || 3000)));
+
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Example app listening on port ${port}`));

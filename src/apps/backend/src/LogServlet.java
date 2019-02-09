@@ -12,6 +12,8 @@ import angular_samples.api.Logs;
 
 import com.googlecode.protobuf.format.JsonFormat;
 
+import javax.servlet.annotation.WebServlet;
+@WebServlet(value = "/logs")
 public class LogServlet extends HttpServlet {
 
   JsonFormat jsonFormat = new JsonFormat();

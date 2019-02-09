@@ -3,10 +3,23 @@ workspace(name = "angular_samples")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
+http_archive(
+    name = "io_bazel_rules_docker",
+    sha256 = "aed1c249d4ec8f703edddf35cbe9dfaca0b5f5ea6e4cd9e83e99f3b0d1136c3d",
+    strip_prefix = "rules_docker-0.7.0",
+    urls = ["https://github.com/bazelbuild/rules_docker/archive/v0.7.0.tar.gz"],
+)
+
 maven_jar(
     name = "protobuf_java_format",
     artifact = "com.googlecode.protobuf-java-format:protobuf-java-format:1.4",
     sha1 = "b8163b6940102c1808814471476f5293dfb419df",
+)
+
+maven_jar(
+    name = "javax_servlet_javax_servlet_api",
+    artifact = "javax.servlet:javax.servlet-api:3.1.0",
+    repository = "http://repo.maven.apache.org/maven2",
 )
 
 git_repository(
@@ -112,3 +125,16 @@ load("@io_bazel_rules_appengine//appengine:java_appengine.bzl", "java_appengine_
 
 java_appengine_repositories()
 
+load(
+    "@io_bazel_rules_docker//java:image.bzl",
+    _java_image_repos = "repositories",
+)
+
+_java_image_repos()
+
+load(
+    "@io_bazel_rules_docker//nodejs:image.bzl",
+    _nodejs_image_repos = "repositories",
+)
+
+_nodejs_image_repos()

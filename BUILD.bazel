@@ -10,11 +10,5 @@ alias(
 exports_files([
     # Let ts_library targets reference the root tsconfig.json file
     "tsconfig.json",
+    "node_modules/bootstrap/dist/css/bootstrap.min.css"
 ])
-
-filegroup(
-    name = "static_files",
-    srcs = [
-      "@npm//node_modules/bootstrap:dist/css/bootstrap.min.css"
-    ]
-)

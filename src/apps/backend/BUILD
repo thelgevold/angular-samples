@@ -11,11 +11,6 @@ appengine_war(
     jars = [":app_deploy.jar"],
 )
 
-filegroup(
-    name = "webapp",
-    srcs = glob(["webapp/**/*"]),
-)
-
 # We only need a java_library, but create a java_binary because we need a bundle
 # of all of the dependencies (a deploy jar) to pass to the appengine_war. So we
 # specify a non-existant class as the main_class (as the "binary" will never be
@@ -31,6 +26,39 @@ java_binary(
         "//src/apps/models/friend:friend_java_proto",
         "@io_bazel_rules_appengine//appengine:javax.servlet.api",
         "@com_google_protobuf//:protobuf_java",
-        "@protobuf_java_format//jar"
+        "@protobuf_java_format//jar",
+        "@javax_servlet_javax_servlet_api//jar",
     ],
+)
+
+load("@io_bazel_rules_docker//java:image.bzl", "war_image")
+
+war_image(
+    name = "backend_image",
+    srcs = glob(["src/**/*.java"]),
+    deps = [
+       "//src/apps/models/car:car_java_proto",
+        "//src/apps/models/person:person_java_proto",
+        "//src/apps/models/log:log_java_proto",
+        "//src/apps/models/friend:friend_java_proto",
+        "@io_bazel_rules_appengine//appengine:javax.servlet.api",
+        "@com_google_protobuf//:protobuf_java",
+        "@protobuf_java_format//jar",
+        "@javax_servlet_javax_servlet_api//jar",
+        "@javax_servlet_api//jar:jar",
+    ]
+)
+
+load(
+    "@io_bazel_rules_docker//container:container.bzl",
+    "container_push"
+)
+
+container_push(
+   name = "push",
+   image = ":backend_image",
+   format = "Docker",
+   registry = "index.docker.io",
+   repository = "thelgevold/angular-samples-api",
+   tag = "1"
 )

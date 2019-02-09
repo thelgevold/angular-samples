@@ -9,4 +9,4 @@ bazel-*
 yarn-error.log
 src/**/*.js
 !src/**/svelte-demo/**/*.js
-src/**/*.json
+**/*.jar

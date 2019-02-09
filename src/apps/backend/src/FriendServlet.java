@@ -12,6 +12,8 @@ import angular_samples.api.Friends;
 
 import com.googlecode.protobuf.format.JsonFormat;
 
+import javax.servlet.annotation.WebServlet;
+@WebServlet(value = "/friends")
 public class FriendServlet extends HttpServlet {
 
   JsonFormat jsonFormat = new JsonFormat();

@@ -12,6 +12,8 @@ import angular_samples.api.Persons;
 
 import com.googlecode.protobuf.format.JsonFormat;
 
+import javax.servlet.annotation.WebServlet;
+@WebServlet(value = "/persons")
 public class PersonServlet extends HttpServlet {
 
   JsonFormat jsonFormat = new JsonFormat();
