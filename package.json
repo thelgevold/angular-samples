@@ -1,18 +1,14 @@
 {
   "name": "angular-samples",
   "scripts": {
-    "start-remote-cache": "docker-compose -f caching/docker-compose.yml up",
-    "stop-remote-cache": "docker-compose -f caching/docker-compose.yml down",
     "build-all": "bazel build //src/apps/api && bazel build //src/apps/backend",
-    "start": "concurrently \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\"",
-    "_start": "concurrently \"bazel run //src/apps/api\" \"bazel run //src/apps/backend\"",
-    "bazel-version": "bazel version"
+    "start": "concurrently \"ibazel run //src/apps/api\" \"ibazel run //src/apps/backend\""
   },
   "devDependencies": {
     "@angular/bazel": "7.2.2",
     "@angular/compiler": "7.2.2",
     "@angular/compiler-cli": "7.2.2",
-    "@bazel/ibazel": "0.9.0",
+    "@bazel/ibazel": "0.9.1",
     "@bazel/typescript": "0.20.0",
     "@types/node": "^10.12.0",
     "@types/react": "16.4.1",
@@ -22,7 +18,6 @@
     "svelte": "2.13.5",
     "typescript": "3.1.1",
     "webpack": "4.20.2",
-    "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "3.1.2"
   },
   "dependencies": {
