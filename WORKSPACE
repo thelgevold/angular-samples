@@ -71,6 +71,13 @@ http_archive(
     strip_prefix = "rules_sass-1.14.1",
 )
 
+http_archive(
+    name = "build_bazel_rules_svelte",
+    url = "https://github.com/thelgevold/rules_svelte/archive/0.1.zip",
+    strip_prefix = "rules_svelte-0.1",
+    sha256 = "700a19d6d503500bd8dc190d7e29588c16867c2e163d7c8a883879ff602ef527"
+) 
+
 # This local_repository rule is needed to prevent `bazel build ...` from
 # drilling down into the @rxjs workspace BUILD files in node_modules/rxjs/src.
 # In the future this will no longer be needed.
@@ -138,3 +145,6 @@ load(
 )
 
 _nodejs_image_repos()
+
+load("@build_bazel_rules_svelte//:defs.bzl", "rules_svelte_dependencies")
+rules_svelte_dependencies()
