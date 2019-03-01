@@ -111,11 +111,6 @@ yarn_install(
     yarn_lock = "//:yarn.lock"
 )
 
-load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains")
-
-go_rules_dependencies()
-go_register_toolchains()
-
 load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace", "check_rules_typescript_version")
 
 ts_setup_workspace()
