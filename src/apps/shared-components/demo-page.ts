@@ -12,12 +12,11 @@ import {Location} from '@angular/common';
             More documentation about each specific component can be found
             <a href="http://www.syntaxsuccess.com/angular-2-articles">here</a>.
         </p>
-        <p>Current version: Angular 7.2.2</p>
+        <p>Current version: Angular 8.0.0-rc.0</p>
     </div> 
 
     <div>
         <div class="list-group col-md-3">
-            <a [class.active]="getLinkStyle('/demo/react')" [routerLink]="['/demo/react']" class="list-group-item">React Integration</a>
             <a [class.active]="getLinkStyle('/demo/svelte')" [routerLink]="['/demo/svelte']" class="list-group-item">Svelte Integration</a>
             <a [class.active]="getLinkStyle('/demo/spreadsheet')" [routerLink]="['/demo/spreadsheet']" class="list-group-item">Virtualized Spreadsheet</a>
             <a [class.active]="getLinkStyle('/demo/countries')" [routerLink]="['/demo/countries']" class="list-group-item">Lazy Loaded Tree View</a>
@@ -33,7 +32,6 @@ import {Location} from '@angular/common';
             <a [class.active]="getLinkStyle('/demo/text-editor')" [routerLink]="['/demo/text-editor']" class="list-group-item">Text Editor</a>
             <a [class.active]="getLinkStyle('/demo/form')" [routerLink]="['/demo/form']" class="list-group-item">Form</a>
             <a [class.active]="getLinkStyle('/demo/change')" [routerLink]="['/demo/change']" class="list-group-item">Change Detection</a>
-            <a [class.active]="getLinkStyle('/demo/http')" [routerLink]="['/demo/http']" class="list-group-item">Http</a>
             <a [class.active]="getLinkStyle('/demo/input')" [routerLink]="['/demo/input']" class="list-group-item">Input Controls</a>
             <a [class.active]="getLinkStyle('/demo/treeview')" [routerLink]="['/demo/treeview']" class="list-group-item">Recursive tree view</a>
             <a [class.active]="getLinkStyle('/demo/grid')" [routerLink]="['/demo/grid']" class="list-group-item">Data Grid</a>

@@ -1,6 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@angular//:index.bzl", "ng_module")
+load("@npm_angular_bazel//:index.bzl", "ng_module")
 
 ng_module(
     name = "src",
@@ -8,6 +8,9 @@ ng_module(
     tsconfig = "//:tsconfig.json",
     assets = ["change-detection.html", "comment-demo.html"],
     deps = [
-            "//src/apps/shared-components/shared"     
+            "//src/apps/shared-components/shared",
+            "@npm//@angular/core",
+            "@npm//@angular/router",
+            "@npm//@angular/forms",
     ]
 )

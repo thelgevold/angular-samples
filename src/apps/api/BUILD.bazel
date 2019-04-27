@@ -1,5 +1,5 @@
-load("@build_bazel_rules_nodejs//:defs.bzl", "rollup_bundle", "nodejs_binary")
-load("@build_bazel_rules_typescript//:defs.bzl", "ts_library")
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+load("@npm_bazel_typescript//:index.bzl", "ts_library")
 
 load("@io_bazel_rules_docker//container:container.bzl", "container_push")
 load("@io_bazel_rules_docker//nodejs:image.bzl", "nodejs_image")
@@ -12,8 +12,6 @@ vendor_bundle(
     "@npm//node_modules/jquery:dist/jquery.min.js",
     "@npm//node_modules/zone.js:dist/zone.min.js",
     "@npm//node_modules/jquery-ui-dist:jquery-ui.min.js",
-    "@npm//node_modules/react:umd/react.production.min.js",
-    "@npm//node_modules/react-dom:umd/react-dom.production.min.js"
   ]
 )
 
@@ -23,7 +21,6 @@ ts_library(
     tsconfig = "//:tsconfig.json",
     deps = ["//src/apps/models", 
             "@npm//@types/node",
-            "@npm//@types/react",
             "@npm//express",
             "@npm//reload",
             "@npm//compression",
@@ -46,14 +43,14 @@ genrule(
 nodejs_binary(
     name = "api", 
     data = [":ts_api", 
-            ":static",
+            ":static", 
             "@npm//express",
             ":bootstrap",
             ":vendor",
             "@npm//compression",
             "@npm//request",
             "@npm//reload",
-            "//src/apps/demo-app:bundle",
+            "//src/apps/demo-app:bundle.es2015.js",
             "//src/apps/svelte-demo:bundle_svelte"
     ],
     entry_point = "../server.js",

@@ -1,10 +1,11 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 
 import {AppComponent} from './app.component';
 
-import {routing} from './app.routes';
+import {routes} from './app.routes';
 import {DemoPageModule} from '../shared-components/demo-page.module';
 
 import {AlgorithmsModule} from '../shared-components/algorithms/algorithms.module';
@@ -13,7 +14,7 @@ import {AddressBookModule} from '../shared-components/dependency-injection/addre
 @NgModule({
   imports: [
     BrowserModule,
-    routing,
+    RouterModule.forRoot(routes),
     DemoPageModule,
     AlgorithmsModule,
     AddressBookModule,

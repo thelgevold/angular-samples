@@ -1,24 +1,33 @@
 package(default_visibility = ["//visibility:public"])
+load("@build_bazel_rules_nodejs//:defs.bzl", "rollup_bundle")
+load("@npm_angular_bazel//:index.bzl", "ng_module")
 
-load("//rules/webpack:webpack.bzl", "webpack_bundle")
-load("@angular//:index.bzl", "ng_module")
+NG_FACTORY_ADDED_IMPORTS = [
+    "@npm//@angular/animations",
+    "@npm//@angular/forms",
+]
 
 ng_module(
     name = "src",
-    srcs = glob(["*.ts"]),
+    srcs = [
+      "main.ts", 
+      "app.module.ts",
+      "app.component.ts",
+      "app.routes.ts"
+    ],
     assets = ["demo-app.html"],
     tsconfig = "//:tsconfig.json",
-    deps = ["@rxjs",
+    deps = NG_FACTORY_ADDED_IMPORTS + [
+            "@npm//rxjs",
             "@npm//@types/node",
             "@npm//@types/react",
-            "@angular//packages/core",
-            "@angular//packages/router",
-            "@angular//packages/platform-browser",
+            "@npm//@angular/core",
+            "@npm//@angular/router",
+            "@npm//@angular/platform-browser",
             "//src/apps/shared-components:src",
             "//src/apps/shared-components/about:src",
             "//src/apps/shared-components/spreadsheet:src",
             "//src/apps/shared-components/jquery-integration:src",
-            "//src/apps/shared-components/http:src",
             "//src/apps/shared-components/lazy-loaded-tree-view:src",
             "//src/apps/shared-components/dependency-injection:src",
             "//src/apps/shared-components/rxjs-streams:src",
@@ -39,16 +48,16 @@ ng_module(
             "//src/apps/shared-components/bound-textbox:src",
             "//src/apps/shared-components/input-output:src",
             "//src/apps/shared-components/rxjs-error-handling:src",
-            "//src/apps/shared-components/react-integration:src",
             "//src/apps/shared-components/svelte-integration:src"
     ]
 )
 
-webpack_bundle(
+rollup_bundle(
     name = "bundle",
-    mode = "production",
-    deps = [":src"],
-    entry_points = [
-      "src/apps/demo-app/main"
+    additional_entry_points = [
+    ],
+    entry_point = "src/apps/demo-app/main",
+    deps = [
+        ":src",
     ],
 )

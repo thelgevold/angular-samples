@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
+import {Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {Http, Response} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 import {TreeNode} from '../tree-node';
 import {treeNodeReducer} from './tree-node-reducer';
 
@@ -12,7 +12,7 @@ export class Store {
 
   private nodes = {};
 
-  constructor(private _http: Http) {
+  constructor(private _http: HttpClient) {
     this.dispatcher.subscribe(action => this.handleAction(action));
   }
 
@@ -23,7 +23,6 @@ export class Store {
       } else {
         this._http
           .get(`/api/${action.url}`)
-          .pipe(map((res: Response) => res.json()))
           .subscribe(res => {
             this.nodes[action.key] = treeNodeReducer(res, action);
             this.treeNodes[action.key].next(this.nodes[action.key]);

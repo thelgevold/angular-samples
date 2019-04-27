@@ -40,7 +40,7 @@ vendor_bundle = rule(
     "_uglify": attr.label(
         executable = True,
         cfg="host",
-        default = Label("@build_bazel_rules_nodejs//internal/rollup:uglify-wrapped")),
+        default = Label("@build_bazel_rules_nodejs//internal/rollup:terser-wrapped")),
   },    
   outputs = {"vendor": "%{name}.js", "vendor_min": "%{name}.min.js"}
 )

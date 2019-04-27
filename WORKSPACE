@@ -3,6 +3,12 @@ workspace(name = "angular_samples")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
+git_repository(
+    name = "bazel_skylib",
+    remote = "https://github.com/bazelbuild/bazel-skylib.git",
+    tag = "0.7.0"
+)
+
 # java_lite_proto_library rules implicitly depend on @com_google_protobuf_javalite//:javalite_toolchain,
 # which is the JavaLite proto runtime (base classes and common utilities).
 http_archive(
@@ -30,20 +36,37 @@ maven_jar(
     repository = "http://repo.maven.apache.org/maven2",
 )
 
-load("//:package.bzl", "angular_samples_dependencies")
-angular_samples_dependencies()
+http_archive(
+      name = "io_bazel_rules_docker",
+      sha256 = "aed1c249d4ec8f703edddf35cbe9dfaca0b5f5ea6e4cd9e83e99f3b0d1136c3d",
+      strip_prefix = "rules_docker-0.7.0",
+      urls = ["https://github.com/bazelbuild/rules_docker/archive/v0.7.0.tar.gz"],
+  )
 
-load("@angular//packages/bazel:package.bzl", "rules_angular_dependencies")
+http_archive(
+    name = "build_bazel_rules_nodejs",
+    sha256 = "3a3efbf223f6de733475602844ad3a8faa02abda25ab8cfe1d1ed0db134887cf",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/0.27.12/rules_nodejs-0.27.12.tar.gz"],
+)
+git_repository(
+    name = "com_google_protobuf",
+    tag = "v3.6.1.3",
+    remote = "https://github.com/protocolbuffers/protobuf.git"
+)
 
-rules_angular_dependencies()
+# Rules for compiling sass
+http_archive(
+    name = "io_bazel_rules_sass",
+    url = "https://github.com/bazelbuild/rules_sass/archive/1.14.1.zip",
+    strip_prefix = "rules_sass-1.14.1",
+)
 
-load("@build_bazel_rules_typescript//:package.bzl", "rules_typescript_dependencies")
-
-rules_typescript_dependencies()
-
-load("@build_bazel_rules_nodejs//:package.bzl", "rules_nodejs_dependencies")
-
-rules_nodejs_dependencies()
+http_archive(
+    name = "build_bazel_rules_svelte",
+    url = "https://github.com/thelgevold/rules_svelte/archive/0.1.zip",
+    strip_prefix = "rules_svelte-0.1",
+    sha256 = "700a19d6d503500bd8dc190d7e29588c16867c2e163d7c8a883879ff602ef527"
+) 
 
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
 
@@ -55,20 +78,31 @@ node_repositories(
 yarn_install(
     name = "npm",
     package_json = "//:package.json",
-    yarn_lock = "//:yarn.lock"
+    yarn_lock = "//:yarn.lock",
+    data = [
+      "//:angular-metadata.tsconfig.json",
+    ],
 )
 
-load("@build_bazel_rules_typescript//:defs.bzl", "ts_setup_workspace", "check_rules_typescript_version")
+load("@npm//:install_bazel_dependencies.bzl", "install_bazel_dependencies")
+install_bazel_dependencies()
+
+load("@npm_bazel_karma//:package.bzl", "rules_karma_dependencies")
+
+rules_karma_dependencies()
+
+# Setup the rules_webtesting toolchain
+load("@io_bazel_rules_webtesting//web:repositories.bzl", "web_test_repositories")
+
+web_test_repositories()
+
+load("@npm_bazel_typescript//:defs.bzl", "ts_setup_workspace")
 
 ts_setup_workspace()
 
 load("@io_bazel_rules_sass//sass:sass_repositories.bzl", "sass_repositories")
 
 sass_repositories()
-
-load("@angular//:index.bzl", "ng_setup_workspace")
-
-ng_setup_workspace()
 
 load("@io_bazel_rules_appengine//appengine:java_appengine.bzl", "java_appengine_repositories")
 

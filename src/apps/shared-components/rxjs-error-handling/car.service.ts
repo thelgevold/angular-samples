@@ -1,25 +1,24 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 
-import {Observable, of, forkJoin} from 'rxjs';
+import {of, forkJoin} from 'rxjs';
 import {map, catchError, flatMap} from 'rxjs/operators';
 
 @Injectable()
 export class CarService {
   apiBaseUrl = '/api';
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
-  getModels(url) {
+  getModels(url): any {
     return this.http.get(`${this.apiBaseUrl}/${url}`).pipe(
-      map(response => response.json().models),
+      map((response: any) => response.models),
       catchError(error => of({error: true})),
       flatMap(models =>
         forkJoin(
           models.length
             ? models.map(model =>
                 this.http.get(`${this.apiBaseUrl}/${model.url}`).pipe(
-                  map(response => response.json()),
                   catchError(e =>
                     of({
                       notLoaded: true,

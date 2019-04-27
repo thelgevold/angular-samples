@@ -28,7 +28,7 @@ import {IPerson, ILog, ICar, IFriend} from '../models';
 app.use('/', express.static('./src/apps/api'));
 app.use(
   '/demo-app',
-  express.static('./src/apps/demo-app/bundle/src/apps/demo-app'),
+  express.static('./src/apps/demo-app'),
 );
 
 app.use('/svelte', express.static('./src/apps/svelte-demo'));
@@ -36,7 +36,7 @@ app.use('/svelte', express.static('./src/apps/svelte-demo'));
 app.get('/api/log', (_req, res) => {
   makeGetRequest(`${backendBaseUrl}/logs`)
     .then((response: {logs: Array<ILog>}) => {
-      res.json({entries: response.logs});
+      res.json({entries: response});
     })
     .catch(() => res.status(500).send({error: 'there was an error'}));
 });

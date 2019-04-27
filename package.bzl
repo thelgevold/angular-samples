@@ -10,6 +10,11 @@ def angular_samples_dependencies():
       urls = ["https://github.com/bazelbuild/rules_docker/archive/v0.7.0.tar.gz"],
   )
 
+  http_archive(
+    name = "build_bazel_rules_nodejs",
+    sha256 = "3a3efbf223f6de733475602844ad3a8faa02abda25ab8cfe1d1ed0db134887cf",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/0.27.12/rules_nodejs-0.27.12.tar.gz"],
+  )
 
   git_repository(
       name = "com_google_protobuf",
@@ -24,18 +29,6 @@ def angular_samples_dependencies():
       url = "https://github.com/bazelbuild/buildtools/archive/%s.zip" % BAZEL_BUILDTOOLS_VERSION,
       strip_prefix = "buildtools-%s" % BAZEL_BUILDTOOLS_VERSION,
       sha256 = "edf39af5fc257521e4af4c40829fffe8fba6d0ebff9f4dd69a6f8f1223ae047b",
-  )
-  http_archive(
-      name = "angular",
-      url = "https://github.com/angular/angular/archive/7.2.2.zip",
-      strip_prefix = "angular-7.2.2",
-  )
-
-  http_archive(
-      name = "rxjs",
-      url = "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz",
-      strip_prefix = "package/src",
-      sha256 = "72b0b4e517f43358f554c125e40e39f67688cd2738a8998b4a266981ed32f403",
   )
 
   # Rules for compiling sass

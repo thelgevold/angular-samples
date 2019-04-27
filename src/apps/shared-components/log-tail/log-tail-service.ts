@@ -1,17 +1,18 @@
-import {Http, Response} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import {ILog} from '../../models';
 
 @Injectable()
 export class LogTailService {
-  http: Http;
+  http: HttpClient;
 
-  constructor(http: Http) {
+  constructor(http: HttpClient) {
     this.http = http;
   }
 
-  getLogEntries(): Observable<{entries: {}}> {
-    return this.http.get('/api/log').pipe(map((res: Response) => res.json()));
+  getLogEntries(): Observable<Array<ILog>> {
+    return this.http.get<Array<ILog>>('/api/log');
   }
 }

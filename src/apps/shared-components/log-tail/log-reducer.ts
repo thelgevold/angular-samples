@@ -5,7 +5,7 @@ export const logReducer = (state: any = [], action) => {
             return [...state, action.data];
 
         case 'LOAD_ENTRIES':
-            return action.data;
+            return action.data.logs;
 
         default:
             return state;
