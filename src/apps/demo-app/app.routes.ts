@@ -6,7 +6,6 @@ import {TreeViewDemo} from '../shared-components/tree-view/tree-view-demo';
 import {ContactList} from '../shared-components/contact-list/contact-list';
 import {BoundTextbox} from '../shared-components/bound-textbox/bound-textbox';
 import {GridDemo} from '../shared-components/grid/grid-demo';
-import {Spreadsheet} from '../shared-components/spreadsheet/spreadsheet';
 import {Algorithms} from '../shared-components/algorithms/algorithms';
 import {JqueryIntegration} from '../shared-components/jquery-integration/jquery-integration';
 import {InputControls} from '../shared-components/input-controls/input-controls';
@@ -38,7 +37,7 @@ export const routes: Routes = [
     path: 'demo',
     component: DemoPage,
     children: [
-      {path: 'spreadsheet', component: Spreadsheet},
+      {path: 'spreadsheet', loadChildren: () => import('../shared-components/spreadsheet/spreadsheet.module.ngfactory').then(m => m.SpreadsheetModuleNgFactory)},
       {path: 'jquery', component: JqueryIntegration},
       {path: 'algorithms', component: Algorithms},
       {path: 'graph', component: Graph},

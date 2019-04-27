@@ -12,6 +12,7 @@ vendor_bundle(
     "@npm//node_modules/jquery:dist/jquery.min.js",
     "@npm//node_modules/zone.js:dist/zone.min.js",
     "@npm//node_modules/jquery-ui-dist:jquery-ui.min.js",
+    "@npm//node_modules/systemjs:dist/system.js"
   ]
 )
 
@@ -50,8 +51,9 @@ nodejs_binary(
             "@npm//compression",
             "@npm//request",
             "@npm//reload",
-            "//src/apps/demo-app:bundle.es2015.js",
-            "//src/apps/svelte-demo:bundle_svelte"
+            "//src/apps/demo-app:bundle",
+            "//src/apps/svelte-demo:bundle_svelte",
+            "@npm//node_modules/systemjs:dist/system.js"
     ],
     entry_point = "../server.js",
 )

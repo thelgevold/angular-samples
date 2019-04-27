@@ -55,6 +55,7 @@ ng_module(
 rollup_bundle(
     name = "bundle",
     additional_entry_points = [
+       "src/apps/shared-components/spreadsheet/spreadsheet.module.ngfactory",
     ],
     entry_point = "src/apps/demo-app/main",
     deps = [

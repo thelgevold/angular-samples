@@ -30,6 +30,10 @@ app.use(
   '/demo-app',
   express.static('./src/apps/demo-app'),
 );
+app.use(
+  '/bundle_chunks_min',
+  express.static('./src/apps/demo-app/bundle_chunks_min'),
+);
 
 app.use('/svelte', express.static('./src/apps/svelte-demo'));
 

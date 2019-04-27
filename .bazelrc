@@ -5,3 +5,5 @@ build --symlink_prefix=dist/
 
 build --define=compile=legacy
 run --nolegacy_external_runfiles
+
+build --define=ROLLUP_BUNDLE_FIXED_CHUNK_NAMES=1

@@ -41,6 +41,7 @@
     "@angular/router": "8.0.0-rc.0",
     "@angular/upgrade": "8.0.0-rc.0",
     "@angular/animations": "8.0.0-rc.0",
-    "rxjs": "6.4.0"
+    "rxjs": "6.4.0",
+    "systemjs": "0.21.6"
   }
 }
