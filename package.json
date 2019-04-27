@@ -25,9 +25,9 @@
   },
   "dependencies": {
     "tslib": "1.9.3",
-    "bootstrap": "3.4.0",
+    "bootstrap": "3.4.1",
     "express": "4.16.3",
-    "jquery": "3.3.1",
+    "jquery": "3.4.0",
     "jquery-ui-dist": "1.12.1",
     "react": "16.4.2",
     "react-dom": "16.4.2",

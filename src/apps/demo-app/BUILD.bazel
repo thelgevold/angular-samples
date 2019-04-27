@@ -5,6 +5,7 @@ load("@npm_angular_bazel//:index.bzl", "ng_module")
 NG_FACTORY_ADDED_IMPORTS = [
     "@npm//@angular/animations",
     "@npm//@angular/forms",
+    "@npm//@angular/router",
 ]
 
 ng_module(
@@ -22,7 +23,6 @@ ng_module(
             "@npm//@types/node",
             "@npm//@types/react",
             "@npm//@angular/core",
-            "@npm//@angular/router",
             "@npm//@angular/platform-browser",
             "//src/apps/shared-components:src",
             "//src/apps/shared-components/about:src",
@@ -60,5 +60,10 @@ rollup_bundle(
     entry_point = "src/apps/demo-app/main",
     deps = [
         ":src",
+        "@npm//@angular/common",
+        "@npm//@angular/core",
+        "@npm//@angular/platform-browser",
+        "@npm//@angular/router",
+        "@npm//rxjs",
     ],
 )
