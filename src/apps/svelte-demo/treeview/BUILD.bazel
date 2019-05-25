@@ -1,8 +1,0 @@
-package(default_visibility = ["//visibility:public"])
-load("@build_bazel_rules_svelte//:defs.bzl", "svelte")
-
-svelte(
-  name = "treeview",
-  srcs = glob(["*.js"]),
-  entry_point = "Treeview.html",
-)

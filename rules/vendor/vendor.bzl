@@ -23,7 +23,7 @@ def _vendor_bundle(ctx):
 
   argsUglify = ctx.actions.args()
   argsUglify.add(ctx.outputs.vendor.path)
-  argsUglify.add(["--output", ctx.outputs.vendor_min.path])
+  argsUglify.add_all(["--output", ctx.outputs.vendor_min.path])
 
   ctx.action(
       executable = ctx.executable._uglify,

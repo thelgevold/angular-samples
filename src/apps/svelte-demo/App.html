@@ -1,38 +1,11 @@
 <div>
-    <h1>{title}</h1>
-  
-    <h4>Grid</h4>
-    <Grid></Grid>
+  <h1>{title}</h1>
 
-    <h4>Treeview</h4>
-    <Treeview locations='{locations}'></Treeview>
+  <h4>Friends</h4>
+  <Friends></Friends>
+</div>
 
-    <h4>Friends</h4>
-    <Friends></Friends>
-  </div>
-  
-  <script>
-    import Grid from './grid/grid';
-    import Treeview from './treeview/treeview';
-    import Friends from './friends/friends'
-
-    import { LocationService } from './treeview/location-service';
-  
-    let locationService = new LocationService();
-    let locations = locationService.getLocations();
-
-    export default {
-      data () {
-        return {
-          title: 'Svelte',
-          locations: locations
-        }
-      },
-      
-      components: {
-        Treeview,
-        Grid,
-        Friends
-      }
-    }; 
-  </script>
+<script>
+  import Friends from './friends/Friends.svelte';
+  let title = 'Svelte';
+</script>

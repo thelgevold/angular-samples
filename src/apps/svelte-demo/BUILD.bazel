@@ -1,21 +1,12 @@
 package(default_visibility = ["//visibility:public"])
 load("@build_bazel_rules_svelte//:defs.bzl", "svelte", "bundle_dev")
-load("@io_bazel_rules_sass//sass:sass.bzl", "sass_binary")
 
 svelte(
-  name = "app",
+  name = "App",
   srcs = ["main.js"],
   entry_point = "App.html",
-  deps = ["//src/apps/svelte-demo/treeview", 
-          "//src/apps/svelte-demo/grid",
-          "//src/apps/svelte-demo/friends"
-  ]
-)
-sass_binary(
-  name = "styles",
-  src = "app.scss",
   deps = [
-    "//src/apps/svelte-demo/styles"
+    "//src/apps/svelte-demo/friends:Friends"
   ]
 )
 
@@ -23,7 +14,6 @@ bundle_dev(
   name = "bundle_svelte",
   entry_point = "main.js",
   deps = [
-    ":app",
-    ":styles"
+    ":App"
   ],
 )

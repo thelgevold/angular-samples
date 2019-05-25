@@ -2,13 +2,13 @@ package(default_visibility = ["//visibility:public"])
 load("@build_bazel_rules_svelte//:defs.bzl", "svelte")
 
 svelte(
-  name = "friend",
-  entry_point = "Friend.html"
+  name = "Friend",
+  entry_point = "Friend.svelte"
 )
 
 svelte(
-  name = "friends",
+  name = "Friends",
   srcs = ["friends-service.js"],
-  entry_point = "Friends.html",
-  deps = [":friend"]
+  entry_point = "Friends.svelte",
+  deps = [":Friend"]
 )
