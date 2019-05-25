@@ -12,7 +12,7 @@ import {Location} from '@angular/common';
             More documentation about each specific component can be found
             <a href="http://www.syntaxsuccess.com/angular-2-articles">here</a>.
         </p>
-        <p>Current version: Angular 8.0.0-rc.0</p>
+        <p>Current version: Angular 8.0.0-rc.5</p>
     </div> 
 
     <div>
