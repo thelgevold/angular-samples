@@ -4,10 +4,11 @@ Demos: https://www.syntaxsuccess.com/angular-demos
 
 Here are the prerequisites for running the project:
 
-1) run npm install
+1) yarn
 
-2) npm run start
-Starts a bazel build with file watching (iBazel).
+2) yarn start
+
+This starts a bazel build with file watching (iBazel).
 
 The application is hosted at http://localhost:3000
 
