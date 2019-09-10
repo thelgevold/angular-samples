@@ -156,6 +156,26 @@
   dependencies:
     tslib "^1.9.0"
 
+"@bazel/bazel-darwin_x64@0.25.1":
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/@bazel/bazel-darwin_x64/-/bazel-darwin_x64-0.25.1.tgz#6526aba1cd912830595c3903ad29dfcb338114a3"
+
+"@bazel/bazel-linux_x64@0.25.1":
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/@bazel/bazel-linux_x64/-/bazel-linux_x64-0.25.1.tgz#7f0d098725f0bde4f0904b72b64ea2f22fdbf2bc"
+
+"@bazel/bazel-win32_x64@0.25.1":
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/@bazel/bazel-win32_x64/-/bazel-win32_x64-0.25.1.tgz#43bdec698fbb7babfd02470a1dcab384f01f9d6b"
+
+"@bazel/bazel@0.25.1":
+  version "0.25.1"
+  resolved "https://registry.yarnpkg.com/@bazel/bazel/-/bazel-0.25.1.tgz#fc76ad9c07371e9ce0bf5bde6ff61cf8abbeaefd"
+  optionalDependencies:
+    "@bazel/bazel-darwin_x64" "0.25.1"
+    "@bazel/bazel-linux_x64" "0.25.1"
+    "@bazel/bazel-win32_x64" "0.25.1"
+
 "@bazel/buildifier-darwin_x64@0.22.0":
   version "0.22.0"
   resolved "https://registry.yarnpkg.com/@bazel/buildifier-darwin_x64/-/buildifier-darwin_x64-0.22.0.tgz#00dde7ce03be8c550b3908dd91cf1fc0baef7ff7"

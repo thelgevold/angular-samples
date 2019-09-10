@@ -14,6 +14,7 @@
     "@bazel/ibazel": "0.10.1",
     "@bazel/typescript": "0.27.12",
     "@bazel/karma": "0.27.12",
+    "@bazel/bazel": "0.25.1",
     "@types/node": "^10.12.0",
     "@types/react": "16.4.1",
     "compression": "1.7.2",
