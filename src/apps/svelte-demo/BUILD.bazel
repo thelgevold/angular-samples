@@ -1,5 +1,5 @@
 package(default_visibility = ["//visibility:public"])
-load("@build_bazel_rules_svelte//:defs.bzl", "svelte", "bundle_dev")
+load("@build_bazel_rules_svelte//:defs.bzl", "svelte", "bundle_prod")
 
 svelte(
   name = "App",
@@ -10,7 +10,7 @@ svelte(
   ]
 )
 
-bundle_dev(
+bundle_prod(
   name = "bundle_svelte",
   entry_point = "main.js",
   deps = [

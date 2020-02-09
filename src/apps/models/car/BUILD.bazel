@@ -1,18 +1,9 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@npm_bazel_typescript//:index.bzl", "ts_library", "ts_proto_library")
+load("@npm_bazel_typescript//:index.bzl", "ts_library")
 
-proto_library(
-    name = "car_proto",
-    srcs = ["car.proto"],
-)
-
-ts_proto_library(
-    name = "car_ts_proto",
-    deps = [":car_proto"],
-)
-
-java_proto_library(
-    name = "car_java_proto",
-    deps = [":car_proto"],
+ts_library(
+    name = "car",
+    srcs = ["car.ts"],
+    tsconfig = "//:tsconfig.json"
 )

@@ -12,7 +12,7 @@ export class AddressBookService {
     this.http = http;
   }
 
-  getEntries(): Observable<Array<IPerson>> {
-    return this.http.get('/api/people').pipe(map((res: Array<IPerson>) => res));
+  getEntries(): Observable<any> {
+    return this.http.get('/api/people');
   }
 }

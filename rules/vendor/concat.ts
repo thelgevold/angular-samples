@@ -1,5 +1,3 @@
-declare const require: any;
-declare const process: any;
 const fs = require('fs');
 const args = process.argv;
 

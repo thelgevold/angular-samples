@@ -1,23 +1,9 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@npm_bazel_typescript//:index.bzl", "ts_library", "ts_proto_library")
+load("@npm_bazel_typescript//:index.bzl", "ts_library")
 
-proto_library(
-    name = "person_proto",
-    srcs = ["person.proto"],
-)
-
-ts_proto_library(
-    name = "person_ts_proto",
-    deps = [":person_proto"],
-)
-
-java_proto_library(
-    name = "person_java_proto",
-    deps = [":person_proto"],
-)
-
-cc_proto_library(
-    name = "person_cc_proto",
-    deps = [":person_proto"]
+ts_library(
+    name = "person",
+    srcs = ["person.ts"],
+    tsconfig = "//:tsconfig.json"
 )

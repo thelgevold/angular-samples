@@ -12,7 +12,7 @@ export class SvelteComponent {
     }
 
     script = document.createElement('script');
-    script.setAttribute('src', '/svelte/bundle_svelte.es6.js');
+    script.setAttribute('src', '/svelte/bundle_svelte.es5.min.js');
     script.setAttribute('id', 'svelte');
     document.head.appendChild(script);
   }

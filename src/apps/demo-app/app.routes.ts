@@ -1,5 +1,4 @@
-import {Routes, RouterModule} from '@angular/router';
-import {ModuleWithProviders} from '@angular/core';
+import {Routes} from '@angular/router';
 import {DemoPage} from '../shared-components/demo-page';
 import {AboutComponent} from '../shared-components/about/about.component';
 import {TreeViewDemo} from '../shared-components/tree-view/tree-view-demo';
@@ -25,6 +24,7 @@ import {CachingDemo} from '../shared-components/rxjs-caching/caching-demo';
 import {RxJsBuffering} from '../shared-components/rxjs-buffering/rxjs-buffering';
 import {CarsComponent} from '../shared-components/rxjs-error-handling/cars.component';
 import {SvelteComponent} from '../shared-components/svelte-integration/svelte.component';
+import {Spreadsheet} from '../shared-components/spreadsheet/spreadsheet';
 
 export const routes: Routes = [
   {
@@ -37,7 +37,7 @@ export const routes: Routes = [
     path: 'demo',
     component: DemoPage,
     children: [
-      {path: 'spreadsheet', loadChildren: () => import('../shared-components/spreadsheet/spreadsheet.module.ngfactory').then(m => m.SpreadsheetModuleNgFactory)},
+      {path: 'spreadsheet', component: Spreadsheet},
       {path: 'jquery', component: JqueryIntegration},
       {path: 'algorithms', component: Algorithms},
       {path: 'graph', component: Graph},

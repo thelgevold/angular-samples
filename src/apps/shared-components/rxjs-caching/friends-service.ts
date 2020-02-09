@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {IFriends} from '../../models';
-import {publishReplay, map, tap, refCount} from 'rxjs/operators';
+import {publishReplay, refCount} from 'rxjs/operators';
 
 @Injectable()
 export class FriendsService {
@@ -16,11 +15,9 @@ export class FriendsService {
 
   getFriends() {
     if (!this._friends) {
-      this._friends = this._http.get('/api/friends').pipe(
-        map((res: IFriends) => res.friends),
-        publishReplay(1),
-        refCount(),
-      );
+      this._friends = this._http
+        .get('/api/friends')
+        .pipe(publishReplay(1), refCount());
     }
     return this._friends;
   }

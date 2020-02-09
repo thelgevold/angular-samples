@@ -1,36 +1,33 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FriendsService} from './friends-service';
 
 @Component({
-  selector:'friends-list',
-  template:`
+  selector: 'friends-list',
+  template: `
     <div *ngFor="let friend of friends">
-      {{friend}}
+      {{ friend }}
     </div>
     <button (click)="loadData()">Reload</button>
-  `
+  `,
 })
-
-export class FriendsList implements OnInit{
-
+export class FriendsList implements OnInit {
   friends = [];
   subscription;
 
-  constructor(private _friendsServce:FriendsService){
+  constructor(private _friendsServce: FriendsService) {}
+
+  loadData() {
+    this.subscription = this._friendsServce.getFriends().subscribe(
+      res => (this.friends = res),
+      error => console.log(error),
+    );
   }
 
-  loadData(){
-    this.subscription = this._friendsServce
-                            .getFriends()
-                            .subscribe(res => this.friends = res, 
-                                       error => console.log(error));
-  }
-
-  ngOnInit(){
+  ngOnInit() {
     this.loadData();
   }
-  
-  ngOnDestroy(){
+
+  ngOnDestroy() {
     this.subscription.unsubscribe();
     console.log('Destroyed');
   }

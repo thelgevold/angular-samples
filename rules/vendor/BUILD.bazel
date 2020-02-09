@@ -3,7 +3,7 @@ exports_files(["concat.js"])
 package(default_visibility = ["//visibility:public"])
 load("@npm_bazel_typescript//:index.bzl", "ts_library")
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 
 ts_library(
   name = "concat_ts",
@@ -14,10 +14,16 @@ ts_library(
   tsconfig = "//:tsconfig.json",
 )
 
+filegroup(
+    name = "js_src",
+    srcs = ["concat_ts"],
+    output_group = "es5_sources",
+)
+
 nodejs_binary(
   name = "concat",
   data = [
     ":concat_ts",
   ],
-  entry_point = "angular_samples/rules/vendor/concat.js",
+  entry_point = "js_src",
 )

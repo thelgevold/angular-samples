@@ -1,4 +1,4 @@
-workspace(name = "angular_samples")
+workspace(name = "angular_samples", managed_directories = {"@npm": ["node_modules"]})
 
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
@@ -9,79 +9,56 @@ git_repository(
     tag = "0.7.0"
 )
 
-# java_lite_proto_library rules implicitly depend on @com_google_protobuf_javalite//:javalite_toolchain,
-# which is the JavaLite proto runtime (base classes and common utilities).
 http_archive(
-    name = "com_google_protobuf_javalite",
-    sha256 = "d8a2fed3708781196f92e1e7e7e713cf66804bd2944894401057214aff4f468e",
-    strip_prefix = "protobuf-5e8916e881c573c5d83980197a6f783c132d4276",
-    urls = ["https://github.com/google/protobuf/archive/5e8916e881c573c5d83980197a6f783c132d4276.zip"],
-)
-
-git_repository(
-    name = "io_bazel_rules_appengine",
-    remote = "https://github.com/thelgevold/rules_appengine.git",
-    commit = "d65baa509df874a0c360db581e2ee46772b5cbbe"
-)
-
-maven_jar(
-    name = "protobuf_java_format",
-    artifact = "com.googlecode.protobuf-java-format:protobuf-java-format:1.4",
-    sha1 = "b8163b6940102c1808814471476f5293dfb419df",
-)
-
-maven_jar(
-    name = "javax_servlet_javax_servlet_api",
-    artifact = "javax.servlet:javax.servlet-api:3.1.0",
-    repository = "http://repo.maven.apache.org/maven2",
+    name = "io_bazel_rules_go",
+    urls = [
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/v0.21.2/rules_go-v0.21.2.tar.gz",
+        "https://github.com/bazelbuild/rules_go/releases/download/v0.21.2/rules_go-v0.21.2.tar.gz",
+    ],
+    sha256 = "f99a9d76e972e0c8f935b2fe6d0d9d778f67c760c6d2400e23fc2e469016e2bd",
 )
 
 http_archive(
-      name = "io_bazel_rules_docker",
-      sha256 = "aed1c249d4ec8f703edddf35cbe9dfaca0b5f5ea6e4cd9e83e99f3b0d1136c3d",
-      strip_prefix = "rules_docker-0.7.0",
-      urls = ["https://github.com/bazelbuild/rules_docker/archive/v0.7.0.tar.gz"],
-  )
+    name = "bazel_gazelle",
+    urls = [
+        "https://storage.googleapis.com/bazel-mirror/github.com/bazelbuild/bazel-gazelle/releases/download/v0.20.0/bazel-gazelle-v0.20.0.tar.gz",
+        "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.20.0/bazel-gazelle-v0.20.0.tar.gz",
+    ],
+    sha256 = "d8c45ee70ec39a57e7a05e5027c32b1576cc7f16d9dd37135b0eddde45cf1b10",
+)
+
+# Load and call Gazelle dependencies
+load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
 
 http_archive(
     name = "build_bazel_rules_nodejs",
-    sha256 = "3a3efbf223f6de733475602844ad3a8faa02abda25ab8cfe1d1ed0db134887cf",
-    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/0.27.12/rules_nodejs-0.27.12.tar.gz"],
-)
-git_repository(
-    name = "com_google_protobuf",
-    tag = "v3.6.1.3",
-    remote = "https://github.com/protocolbuffers/protobuf.git"
+    sha256 = "591d2945b09ecc89fde53e56dd54cfac93322df3bc9d4747cb897ce67ba8cdbf",
+    urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/1.2.0/rules_nodejs-1.2.0.tar.gz"],
 )
 
-# Rules for compiling sass
 http_archive(
     name = "io_bazel_rules_sass",
-    url = "https://github.com/bazelbuild/rules_sass/archive/1.14.1.zip",
-    strip_prefix = "rules_sass-1.14.1",
+    sha256 = "77e241148f26d5dbb98f96fe0029d8f221c6cb75edbb83e781e08ac7f5322c5f",
+    strip_prefix = "rules_sass-1.24.0",
+    urls = [
+        "https://github.com/bazelbuild/rules_sass/archive/1.24.0.zip",
+        "https://mirror.bazel.build/github.com/bazelbuild/rules_sass/archive/1.24.0.zip",
+    ],
 )
 
 http_archive(
     name = "build_bazel_rules_svelte",
-    url = "https://github.com/thelgevold/rules_svelte/archive/0.5.zip",
-    strip_prefix = "rules_svelte-0.5",
-    sha256 = "b3008800db1c9c2a5f88201613de82f2d2a57ac65fb209d6f04ea2accfca9385"
+    url = "https://github.com/thelgevold/rules_svelte/archive/0.10.zip",
+    strip_prefix = "rules_svelte-0.10",
+    sha256 = "371ca8e9a5df644f18fe2fa03b1d2a5926979e70edd3ad5d1abe600120c8a216"
 ) 
 
-load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories", "yarn_install")
-
-node_repositories(
-    node_version = "10.9.0",
-    yarn_version = "1.12.1",
-)
+load("@build_bazel_rules_nodejs//:index.bzl", "node_repositories", "yarn_install")
 
 yarn_install(
     name = "npm",
     package_json = "//:package.json",
     yarn_lock = "//:yarn.lock",
-    data = [
-      "//:angular-metadata.tsconfig.json",
-    ],
 )
 
 load("@npm//:install_bazel_dependencies.bzl", "install_bazel_dependencies")
@@ -96,7 +73,7 @@ load("@io_bazel_rules_webtesting//web:repositories.bzl", "web_test_repositories"
 
 web_test_repositories()
 
-load("@npm_bazel_typescript//:defs.bzl", "ts_setup_workspace")
+load("@npm_bazel_typescript//:index.bzl", "ts_setup_workspace")
 
 ts_setup_workspace()
 
@@ -104,23 +81,21 @@ load("@io_bazel_rules_sass//sass:sass_repositories.bzl", "sass_repositories")
 
 sass_repositories()
 
-load("@io_bazel_rules_appengine//appengine:java_appengine.bzl", "java_appengine_repositories")
-
-java_appengine_repositories()
-
-load(
-    "@io_bazel_rules_docker//java:image.bzl",
-    _java_image_repos = "repositories",
-)
-
-_java_image_repos()
-
-load(
-    "@io_bazel_rules_docker//nodejs:image.bzl",
-    _nodejs_image_repos = "repositories",
-)
-
-_nodejs_image_repos()
-
 load("@build_bazel_rules_svelte//:defs.bzl", "rules_svelte_dependencies")
 rules_svelte_dependencies()
+
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_toolchains")
+
+go_rules_dependencies()
+
+go_register_toolchains()
+
+gazelle_dependencies()
+
+go_repository(
+        name = "com_github_gorilla_mux",
+        importpath = "github.com/gorilla/mux",
+        commit = "00bdffe0f3c77e27d2cf6f5c70232a2d3e4d9c15"
+)

@@ -6,11 +6,12 @@ ts_library(
     name = "models",
     srcs = glob(["index.ts"]),
     tsconfig = "//:tsconfig.json",
-    deps = ["//src/apps/models/friend:friend_ts_proto",
-            "//src/apps/models/car:car_ts_proto",
-            "//src/apps/models/person:person_ts_proto",
-            "//src/apps/models/log:log_ts_proto",
+    deps = [
             "@npm//@types/node",
-            "@npm//@types/react"
+            "@npm//@types/react",
+            "//src/apps/models/car",
+            "//src/apps/models/friend",
+            "//src/apps/models/log",
+            "//src/apps/models/person"
     ]
 )

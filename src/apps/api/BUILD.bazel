@@ -1,33 +1,49 @@
-load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary")
+load("@build_bazel_rules_nodejs//:index.bzl", "nodejs_binary")
 load("@npm_bazel_typescript//:index.bzl", "ts_library")
-
-load("@io_bazel_rules_docker//container:container.bzl", "container_push")
-load("@io_bazel_rules_docker//nodejs:image.bzl", "nodejs_image")
-
+load("@npm_bazel_terser//:index.bzl", "terser_minified")
 load("//rules/vendor:vendor.bzl", "vendor_bundle")
 
 vendor_bundle(
   name = "vendor",
   deps = [
-    "@npm//node_modules/jquery:dist/jquery.min.js",
-    "@npm//node_modules/zone.js:dist/zone.min.js",
-    "@npm//node_modules/jquery-ui-dist:jquery-ui.min.js",
-    "@npm//node_modules/systemjs:dist/system.js"
+    "@npm//:node_modules/jquery/dist/jquery.js",
+    "@npm//:node_modules/zone.js/dist/zone.js",
+    "@npm//:node_modules/jquery-ui-dist/jquery-ui.js",
+    "@npm//:node_modules/systemjs/dist/system.js"
   ]
+)
+
+terser_minified(
+    name = "vendor_min",
+    src = ":vendor",
 )
 
 ts_library(
     name = "ts_api",
-    srcs = glob(["*.ts"]),
+    srcs = ["server.ts"],
     tsconfig = "//:tsconfig.json",
-    deps = ["//src/apps/models", 
+    deps = [
+            "//src/apps/models", 
             "@npm//@types/node",
             "@npm//express",
-            "@npm//reload",
             "@npm//compression",
             "@npm//request",
+            ":data_files"
     ]
 )
+
+ts_library(
+    name = "data_files",
+    srcs = ["treeview-data.ts", "car-data.ts"],
+    tsconfig = "//:tsconfig.json"
+)
+
+filegroup(
+    name = "js_src",
+    srcs = ["ts_api"],
+    output_group = "es5_sources",
+)
+
 
 filegroup(
     name = "static",
@@ -47,40 +63,12 @@ nodejs_binary(
             ":static", 
             "@npm//express",
             ":bootstrap",
-            ":vendor",
+            ":vendor_min",
             "@npm//compression",
             "@npm//request",
-            "@npm//reload",
-            "//src/apps/demo-app:bundle",
+            "//src/apps/demo-app:bundle-es5.min",
             "//src/apps/svelte-demo:bundle_svelte",
-            "@npm//node_modules/systemjs:dist/system.js"
+            "@npm//:node_modules/systemjs/dist/system.js"
     ],
-    entry_point = "../server.js",
-)
-
-nodejs_image(
-    name = "app_image",
-    entry_point = "angular_samples/src/apps/api/server.js",
-    node_modules = "@npm//:node_modules",
-    data = [":ts_api", 
-            ":static",
-            "@npm//express",
-            ":api-map.json",
-            ":bootstrap",
-            ":vendor",
-            "@npm//compression",
-            "@npm//request",
-            "@npm//reload",
-            "//src/apps/demo-app:bundle",
-            "//src/apps/svelte-demo:bundle_svelte"
-    ],
-)
-
-container_push(
-   name = "push",
-   image = ":app_image",
-   format = "Docker",
-   registry = "index.docker.io",
-   repository = "thelgevold/angular-samples",
-   tag = "10"
+    entry_point = "js_src",
 )

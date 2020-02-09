@@ -5,31 +5,16 @@ import * as compression from 'compression';
 import {treeviewData} from './treeview-data';
 import {lamborghiniModels} from './car-data';
 
-declare const process: any;
-declare const require: any;
 const app = express();
 
-const backendBaseUrl = getApiUrl();
-
-function getApiUrl() {
-  const fs = require('fs');
-  const path = './src/apps/api/api-map.json';
-  if (fs.existsSync(path)) {
-    return JSON.parse(fs.readFileSync(path, 'utf8')).azure;
-  }
-  console.log('running with local api');
-  return 'http://localhost:8080';
-}
+const backendBaseUrl = 'http://localhost:8080';
 
 app.use(compression());
 
 import {IPerson, ILog, ICar, IFriend} from '../models';
 
 app.use('/', express.static('./src/apps/api'));
-app.use(
-  '/demo-app',
-  express.static('./src/apps/demo-app'),
-);
+app.use('/demo-app', express.static('./src/apps/demo-app'));
 app.use(
   '/bundle_chunks_min',
   express.static('./src/apps/demo-app/bundle_chunks_min'),
@@ -47,8 +32,8 @@ app.get('/api/log', (_req, res) => {
 
 app.get('/api/friends', (_req, res) => {
   makeGetRequest(`${backendBaseUrl}/friends`)
-    .then((response: {friends: Array<IFriend>}) => {
-      res.json({friends: response.friends.map(friend => friend.name)});
+    .then((response: Array<IFriend>) => {
+      res.json(response.map(friend => friend.name));
     })
     .catch(() => res.status(500).send({error: 'there was an error'}));
 });
@@ -63,8 +48,8 @@ app.get('/api/cars/:type', (req, res) => {
 
 app.get('/api/car/:model', (req, res) => {
   makeGetRequest(`${backendBaseUrl}/cars`)
-    .then((response: {cars: Array<ICar>}) => {
-      res.json(response.cars.find(l => l.key === req.params.model));
+    .then((response: Array<ICar>) => {
+      res.json(response.find(l => l.key === req.params.model));
     })
     .catch(() => res.status(500).send({error: 'there was an error'}));
 });
@@ -72,7 +57,7 @@ app.get('/api/car/:model', (req, res) => {
 app.get('/api/people', (_req, res) => {
   makeGetRequest(`${backendBaseUrl}/persons`)
     .then((response: {persons: Array<IPerson>}) => {
-      res.json(response.persons);
+      res.json(response);
     })
     .catch(() => res.status(500).send({error: 'there was an error'}));
 });

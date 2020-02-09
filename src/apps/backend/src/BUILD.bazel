@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_binary(
+    name = "src",
+    srcs = ["main.go"],
+    out = "main",
+    deps = [
+      "@com_github_gorilla_mux//:go_default_library",
+      "//src/apps/backend/src/cars",
+      "//src/apps/backend/src/friends",
+      "//src/apps/backend/src/persons",
+      "//src/apps/backend/src/logs"
+    ]
+)
+
