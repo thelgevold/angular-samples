@@ -2,9 +2,9 @@ These samples use Angular 9.0.0 and SvelteJS with backends in Node/Express and G
 
 Here are the prerequisites for running the project:
 
-1) yarn
+1) npm i
 
-2) yarn start
+2) npm start
 
 This starts a bazel build with file watching (iBazel).
 
