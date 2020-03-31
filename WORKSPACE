@@ -3,12 +3,6 @@ workspace(name = "angular_samples", managed_directories = {"@npm": ["node_module
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-git_repository(
-    name = "bazel_skylib",
-    remote = "https://github.com/bazelbuild/bazel-skylib.git",
-    tag = "0.7.0"
-)
-
 http_archive(
     name = "io_bazel_rules_go",
     urls = [
