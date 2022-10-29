@@ -16,7 +16,7 @@
     "@bazel/ibazel": "0.11.1",
     "@bazel/typescript": "1.2.0",
     "@bazel/terser": "^1.3.0",
-    "@bazel/karma": "0.27.12",
+    "@bazel/karma": "2.3.2",
     "@bazel/bazel": "2.0.0",
     "@babel/preset-env": "^7.6.0",
     "@bazel/rollup": "^1.3.0",
