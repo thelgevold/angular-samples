@@ -33,7 +33,7 @@
   "dependencies": {
     "tslib": "1.9.3",
     "bootstrap": "3.4.1",
-    "express": "4.16.3",
+    "express": "4.17.3",
     "jquery": "3.5.0",
     "jquery-ui-dist": "1.12.1",
     "request": "2.87.0",
